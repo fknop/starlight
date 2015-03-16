@@ -26,4 +26,4 @@ HEADERS += \
     metier_abs/dest.h \
     metier_abs/crystal.h
 
-QMAKE_CXXFLAGS += -std=c++11 -Wall -Wextra -pedantic
+QMAKE_CXXFLAGS += -std=c++0x -Wall -Wextra -pedantic
