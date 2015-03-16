@@ -1,4 +1,4 @@
-#Participants au projet
+# Participants au projet
 
 
   
@@ -8,7 +8,7 @@
 
 
 
-#Rules
+# Rules
 
 Starlight est un puzzle à deux dimensions se jouant sur une carte rectangulaire. 
 Le but du jeu est de dévier un rayon lumineux d'une source vers
