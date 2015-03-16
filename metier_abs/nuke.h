@@ -7,7 +7,7 @@
 /**
  * Cette classe modélise les bombes utilisées dans le jeu.
  * </p>
- * Une bomnbe est un objet circulaire qui, si illuminé par
+ * Une bombe est un objet circulaire qui, si illuminé par
  * un rayon, fait perdre la partie au joueur.
  */
 class Nuke
@@ -27,19 +27,19 @@ class Nuke
 
     /**
      * Retourne la position de la bombe.
-     * @return la position de la bombe.
+     * @return la position de la bombe
      */
     const Point & getLocation() const;
 
     /**
      * Retourne le rayon de la bombe.
-     * @return le rayon de la bombe.
+     * @return le rayon de la bombe
      */
     int getRadius() const;
 
     /**
      * Retourne vrai si la bombe est illuminée, faux sinon.
-     * @return vrai si la bombe est illuminée, faux sinon.
+     * @return vrai si la bombe est illuminée, faux sinon
      */
     bool isLightedUp() const;
 
@@ -53,7 +53,7 @@ class Nuke
      * Surcharge l'opérateur de flux de sortie pour afficher un
      * récapitulatif des caractéristiques de la bombe
      * sous-jacente en console.
-     * @return le flux dans lequel la bombe a été imprimée.
+     * @return le flux dans lequel la bombe a été imprimée
      */
     friend std::ostream & operator<<(std::ostream & out,
                                      const Nuke & s);

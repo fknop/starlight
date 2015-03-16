@@ -44,7 +44,7 @@ class Lens
      * Retourne la position du coin supérieur gauche du
      * rectangle modélisant la lentille.
      * @return la position du coin supérieur gauche du
-     * rectangle modélisant la lentille.
+     * rectangle modélisant la lentille
      */
     const Point & getPosition() const;
 
@@ -80,7 +80,7 @@ class Lens
      * Surcharge l'opérateur de flux de sortie pour afficher
      * un récapitulatif des caractéristiques de la lentille
      * sous-jacente en console.
-     * @return le flux dans lequel la lentille a été imprimée.
+     * @return le flux dans lequel la lentille a été imprimée
      */
     friend std::ostream & operator<<(std::ostream & out,
                                      const Lens & m);

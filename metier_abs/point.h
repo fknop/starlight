@@ -4,7 +4,7 @@
 #include <iostream>
 
 /**
- * Cette classe modélise un simple point de coordonées entières,
+ * Cette classe modélise un simple point de coordonnées entières,
  * utilisés pour modéliser les positions des objets dans le jeu.
  */
 class Point
@@ -27,32 +27,32 @@ class Point
 
     /**
      * Retourne l'abscisse du point.
-     * @return l'abscisse du point.
+     * @return l'abscisse du point
      */
     int getX() const;
 
     /**
      * Retourne l'ordonnée du point.
-     * @return l'ordonnée du point.
+     * @return l'ordonnée du point
      */
     int getY() const;
 
     /**
      * Déplace le point en l'abscisse donnée.
-     * @param x l'abscisse où déplacer le point.
+     * @param x l'abscisse où déplacer le point
      */
     void setX(int x);
 
     /**
      * Déplace le point en l'ordonnée donnée.
-     * @param y l'ordonnée où déplacer le point.
+     * @param y l'ordonnée où déplacer le point
      */
     void setY(int y);
 
     /**
      * Déplace le point en la coordonnée donnée.
-     * @param x l'abscisse où déplacer le point.
-     * @param y l'ordonnée où déplacer le point.
+     * @param x l'abscisse où déplacer le point
+     * @param y l'ordonnée où déplacer le point
      */
     void setLocation(int x, int y);
 
@@ -60,7 +60,7 @@ class Point
      * Surcharge l'opérateur de flux de sortie pour afficher un
      * récapitulatif des caractéristiques du point sous-jacent en
      * console.
-     * @return le flux dans lequel le point a été imprimé.
+     * @return le flux dans lequel le point a été imprimé
      */
     friend std::ostream & operator<<(std::ostream & out,
                                      const Point & p);

@@ -18,14 +18,14 @@ class Ray
 
   public:
     /**
-     * Longueur d'onde minimum autorisée pour un rayon lumineux. Cette
+     * Longueur d'onde minimale autorisée pour un rayon lumineux. Cette
      * valeur correspond à la longueur d'onde minimum (en nm) du
      * spectre visible de la lumière.
      */
     static const int WL_MIN {360};
 
     /**
-     * Longueur d'onde maximum autorisée pour un rayon lumineux. Cette
+     * Longueur d'onde maximale autorisée pour un rayon lumineux. Cette
      * valeur correspond à la longueur d'onde maximum (en nm) du
      * spectre visible de la lumière.
      */
@@ -50,11 +50,11 @@ class Ray
      * Instancie un rayon lumineux de début et de fin donnés, et de
      * longueur d'onde spécifiée.
      * </p>
-     * Si la longueur d'onde spéficiée ne rentre pas dans les valeurs
+     * Si la longueur d'onde spécifiée ne rentre pas dans les valeurs
      * autorisées, elle est automatiquement réglée sur WL_DFT nm.
      * @param p1 le début du rayon lumineux
      * @param p2 la fin du rayon lumineux
-     * @param f la longueur d'onde du rayon lumineux.
+     * @param f la longueur d'onde du rayon lumineux
      * @see Ray::WL_MIN
      * @see Ray::WL_MAX
      * @see Ray::WL_DFT
@@ -63,31 +63,31 @@ class Ray
 
     /**
      * Retourne le début du rayon.
-     * @return le début du rayon.
+     * @return le début du rayon
      */
     const Point & getStart() const;
 
     /**
      * Retourne la fin du rayon.
-     * @return la fin du rayon.
+     * @return la fin du rayon
      */
     const Point & getEnd() const;
 
     /**
      * Retourne la longueur d'onde du rayon.
-     * @return la longueur d'onde du rayon.
+     * @return la longueur d'onde du rayon
      */
     int getWavelength() const;
 
     /**
-     * Change la coordonée du début du rayon.
-     * @param p la nouvelle coordonée du début du rayon.
+     * Change la coordonnée du début du rayon.
+     * @param p la nouvelle coordonnée du début du rayon
      */
     void setStart(const Point & p);
 
     /**
-     * Change la coordonée de la fin du rayon.
-     * @param p la nouvelle coordonée de la fin du rayon.
+     * Change la coordonnée de la fin du rayon.
+     * @param p la nouvelle coordonnée de la fin du rayon
      */
     void setEnd(const Point & p);
 
@@ -106,7 +106,7 @@ class Ray
      * Surcharge l'opérateur de flux de sortie pour afficher un
      * récapitulatif des caractéristiques du rayon sous-jacent en
      * console.
-     * @return le flux dans lequel le rayon a été imprimé.
+     * @return le flux dans lequel le rayon a été imprimé
      */
     friend std::ostream & operator<<(std::ostream & out, const Ray & p);
 };
