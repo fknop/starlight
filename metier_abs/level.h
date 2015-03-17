@@ -123,10 +123,17 @@ class Level
 
     void setMirrors(const std::vector<Mirror>&);
 
+    /**
+     * Retourne la taille de la carte.
+     * @return la taille de la carte
+     */
+    int getHeight();
 
-
-
-
+    /**
+     * Retourne la longueur de la carte.
+     * @return la longueur de la carte
+     */
+    int getWidth();
 
     /**
      * Calcule les rayons lumineux de la carte.

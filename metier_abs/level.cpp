@@ -94,3 +94,13 @@ void Level::setMirrors(const std::vector<Mirror>& value)
     mirrors = value;
 }
 
+int Level::getHeight()
+{
+    return height;
+}
+
+int Level::getWidth()
+{
+    return width;
+}
+
