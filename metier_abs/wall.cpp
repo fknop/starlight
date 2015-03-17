@@ -5,12 +5,12 @@ Wall::Wall(const Point & p1, const Point & p2) : start {p1}, end {p2}
 
     if (p1 == p2)
     {
-
+        //Gérer l'erreur
     }
 
     if (p1.isInvalid() || p2.isInvalid())
     {
-
+        //Gérer l'erreur
     }
 
 

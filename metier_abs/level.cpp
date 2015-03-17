@@ -9,7 +9,11 @@ walls { {{0, 0}, {0, h}}, {{0, h}, {w, h}},
     {{w, h}, {w, 0}}, {{w, 0}, {0, 0}}
 }
 {
-    // TODO : valider width et height
+    //  Taille minimale ?
+    if (w <= 0 || h <= 0)
+    {
+        //Gérer l'erreur
+    }
 }
 
 const Source & Level::getSource() const

@@ -3,6 +3,8 @@
 Dest::Dest(const Point & p, int e) : pos {p}, edge {e}
 {
     // TODO : valider edge
+
+    //Que faut-il vérifier ?
 }
 
 const Point & Dest::getPosition() const

@@ -107,6 +107,8 @@ class Level
      */
     const std::vector<Ray> & getRays() const;
 
+    const std::vector<Nuke> & getNukes() const;
+
     /**
      * Change l'ensemble des rayons de la carte.
      * @param le nouvel ensemble de rayons de la carte
