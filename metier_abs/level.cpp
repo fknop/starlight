@@ -99,7 +99,6 @@ const vector<Nuke> & Level::getNukes() const
     return nukes;
 }
 
-
 int Level::getHeight()
 {
     return height;
