@@ -1,6 +1,9 @@
+QT += core gui
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+
+TARGET = starlight
 TEMPLATE = app
-CONFIG += console
-CONFIG -= qt
+
 
 SOURCES += main.cpp \
     metier_abs/wall.cpp \
@@ -13,7 +16,8 @@ SOURCES += main.cpp \
     metier_abs/lens.cpp \
     metier_abs/dest.cpp \
     metier_abs/crystal.cpp \
-    MapReader.cpp
+    MapReader.cpp \
+    starlightui.cpp
 
 HEADERS += \
     metier_abs/wall.h \
@@ -26,6 +30,10 @@ HEADERS += \
     metier_abs/lens.h \
     metier_abs/dest.h \
     metier_abs/crystal.h \
-    MapReader.h
+    MapReader.h \
+    starlightui.hpp
+
+FORMS += \
+    starlightui.ui
 
 QMAKE_CXXFLAGS += -std=c++0x -Wall -Wextra -pedantic
