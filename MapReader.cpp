@@ -6,10 +6,10 @@ MapReader::MapReader(std::string path)
     assignVectors();
 }
 
-void MapReader::readFile(std::string)
+void MapReader::readFile(std::string path)
 {
 
-    std::fstream level("levels/level1.map", std::ios::in);
+    std::fstream level(path, std::ios::in);
 
     if (level) {
 
@@ -87,8 +87,6 @@ void MapReader::readCrystalInfo(std::string line)
 
 
     crystals.push_back(Crystal(Point(x,y), rad, mod));
-
-
 
 }
 
