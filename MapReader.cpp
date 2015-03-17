@@ -76,6 +76,7 @@ void MapReader::readCrystalInfo(std::string line)
 
     std::istringstream iss(line);
 
+    iss.ignore();
     iss >> x;
     iss >> y;
     iss >> rad;
@@ -92,6 +93,7 @@ void MapReader::readDestinationInfo(std::string line)
 
     std::istringstream iss(line);
 
+    iss.ignore();
     iss >> x;
     iss >> y;
     iss >> edge;
@@ -110,6 +112,7 @@ void MapReader::readLensInfo(std::string line)
 
     std::istringstream iss(line);
 
+    iss.ignore();
     iss >> x;
     iss >> y;
     iss >> width;
@@ -136,6 +139,7 @@ void MapReader::readMirrorInfo(std::string line)
 
     std::istringstream iss(line);
 
+    iss.ignore();
     iss >> x;
     iss >> y;
     iss >> length;
@@ -161,6 +165,7 @@ void MapReader::readNukeInfo(std::string line)
 
     std::istringstream iss(line);
 
+    iss.ignore();
     iss >> x;
     iss >> y;
     iss >> rad;
@@ -178,6 +183,8 @@ void MapReader::readSourceInfo(std::string line)
 
     std::istringstream iss(line);
 
+
+    iss.ignore();
     iss >> x;
     iss >> y;
     iss >> edge;
@@ -196,6 +203,7 @@ void MapReader::readWallInfo(std::string line)
 
     std::istringstream iss(line);
 
+    iss.ignore();
     iss >> x1;
     iss >> y1;
     iss >> x2;
