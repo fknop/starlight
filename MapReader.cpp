@@ -18,36 +18,36 @@ void MapReader::readFile(std::string path)
         {
             switch (line.at(0))
             {
-                //Source
+                // Source
                 case 'S':
                     readSourceInfo(line);
                     break;
-                    //Destination
+                // Destination
                 case 'D':
                     readDestinationInfo(line);
                     break;
-                    //Crystal
+                // Crystal
                 case 'C':
                     readCrystalInfo(line);
                     break;
-                    //Lens
+                // Lens
                 case 'L':
                     readLensInfo(line);
                     break;
-                    //Wall
+                // Wall
                 case 'W':
                     readWallInfo(line);
                     break;
-                    //Nuke
+                // Nuke
                 case 'N':
                     readNukeInfo(line);
                     break;
-                    //Mirror
+                // Mirror
                 case 'M':
                     readMirrorInfo(line);
                     break;
+                // First line, width + height
                 default:
-                    //First line, width + height
                     readSizesInfo(line);
                     break;
             }
@@ -60,10 +60,12 @@ void MapReader::readSizesInfo(std::string line)
 {
     int width;
     int height;
+
     std::istringstream iss(line);
 
     iss >> width;
     iss >> height;
+
     level = new Level(width, height);
 }
 
