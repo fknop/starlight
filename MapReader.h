@@ -10,7 +10,6 @@
 class MapReader
 {
 
-
 Level *level;
 std::vector<Wall> walls;
 std::vector<Mirror> mirrors;
@@ -35,8 +34,7 @@ private:
 
 public:
     MapReader(std::string);
-
-
+    Level * getLevel();
 
 };
 

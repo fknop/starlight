@@ -8,16 +8,14 @@ MapReader::MapReader(std::string path)
 
 void MapReader::readFile(std::string path)
 {
-
     std::fstream level(path, std::ios::in);
 
-    if (level) {
-
+    if (level)
+    {
         std::string line;
+
         while(getline(level, line))
         {
-
-
             switch (line.at(0))
             {
                 //Source
@@ -52,10 +50,9 @@ void MapReader::readFile(std::string path)
                     //First line, width + height
                     readSizesInfo(line);
                     break;
-                }
+            }
         }
     }
-
 }
 
 
@@ -72,7 +69,6 @@ void MapReader::readSizesInfo(std::string line)
 
 void MapReader::readCrystalInfo(std::string line)
 {
-
     int x;
     int y;
     int rad;
@@ -85,14 +81,11 @@ void MapReader::readCrystalInfo(std::string line)
     iss >> rad;
     iss >> mod;
 
-
     crystals.push_back(Crystal(Point(x,y), rad, mod));
-
 }
 
 void MapReader::readDestinationInfo(std::string line)
 {
-
     int x;
     int y;
     int edge;
@@ -104,13 +97,10 @@ void MapReader::readDestinationInfo(std::string line)
     iss >> edge;
 
     level->setDestination(Dest(Point(x, y), edge));
-
 }
 
 void MapReader::readLensInfo(std::string line)
 {
-
-
     int x;
     int y;
     int width;
@@ -128,13 +118,10 @@ void MapReader::readLensInfo(std::string line)
     iss >> wlmax;
 
     lenses.push_back((Lens(Point(x,y), width, height, wlmin, wlmax)));
-
-
 }
 
 void MapReader::readMirrorInfo(std::string line)
 {
-
     int x;
     int y;
     int length;
@@ -164,12 +151,10 @@ void MapReader::readMirrorInfo(std::string line)
     mirrors.push_back(Mirror(Point(x,y), length, xpad, alpha,
                              Point(xmin, ymin), Point(xmax, ymax),
                              alphamin, alphamax));
-
 }
 
 void MapReader::readNukeInfo(std::string line)
 {
-
     int x;
     int y;
     int rad;
@@ -181,13 +166,10 @@ void MapReader::readNukeInfo(std::string line)
     iss >> rad;
 
     nukes.push_back(Nuke(Point(x, y), rad));
-
-
 }
 
 void MapReader::readSourceInfo(std::string line)
 {
-
     int x;
     int y;
     int edge;
@@ -203,12 +185,10 @@ void MapReader::readSourceInfo(std::string line)
     iss >> wavelength;
 
     level->setSource(Source(Point(x,y), edge, alpha, wavelength));
-
 }
 
 void MapReader::readWallInfo(std::string line)
 {
-
     int x1;
     int y1;
     int x2;
@@ -222,7 +202,6 @@ void MapReader::readWallInfo(std::string line)
     iss >> y2;
 
     walls.push_back(Wall(Point(x1,y1), Point(x2, y2)));
-
 }
 
 void MapReader::assignVectors()
@@ -232,4 +211,9 @@ void MapReader::assignVectors()
     level->setLenses(lenses);
     level->setNukes(nukes);
     level->setWalls(walls);
+}
+
+Level * MapReader::getLevel()
+{
+    return level;
 }
