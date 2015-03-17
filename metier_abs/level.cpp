@@ -66,3 +66,31 @@ void Level::computeRays()
 {
     throw string {"todo !"};
 }
+
+
+
+void Level::setWalls(const std::vector<Wall> & value)
+{
+    walls = value;
+}
+
+void Level::setCrystals(const std::vector<Crystal>& value)
+{
+    crystals = value;
+}
+
+void Level::setNukes(const std::vector<Nuke>& value)
+{
+    nukes = value;
+}
+
+void Level::setLenses(const std::vector<Lens>& value)
+{
+    lenses = value;
+}
+
+void Level::setMirrors(const std::vector<Mirror>& value)
+{
+    mirrors = value;
+}
+

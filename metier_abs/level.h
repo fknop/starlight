@@ -9,8 +9,10 @@
 #include "source.h"
 #include "wall.h"
 #include "point.h"
+#include "nuke.h"
 
 #include <vector>
+
 
 /**
  * Modélise une carte telle qu'utilisée dans le jeu.
@@ -31,6 +33,7 @@ class Level
     std::vector<Crystal> crystals;
     std::vector<Lens> lenses;
     std::vector<Ray> rays;
+    std::vector<Nuke> nukes;
 
   public:
 
@@ -108,7 +111,22 @@ class Level
      * Change l'ensemble des rayons de la carte.
      * @param le nouvel ensemble de rayons de la carte
      */
-    void setRays(const std::vector<Ray> & v);
+    void setRays(const std::vector<Ray>&);
+
+    void setWalls(const std::vector<Wall> &);
+
+    void setCrystals(const std::vector<Crystal>&);
+
+    void setNukes(const std::vector<Nuke>&);
+
+    void setLenses(const std::vector<Lens>&);
+
+    void setMirrors(const std::vector<Mirror>&);
+
+
+
+
+
 
     /**
      * Calcule les rayons lumineux de la carte.
