@@ -57,6 +57,12 @@ class Point
     void setLocation(int x, int y);
 
     /**
+     * Retourne faux si le point possède une coordonnée négative.
+     * @return faux si le point possède une coordonnée négative, vrai sinon.
+     */
+    bool isInvalid() const;
+
+    /**
      * Surcharge l'opérateur de flux de sortie pour afficher un
      * récapitulatif des caractéristiques du point sous-jacent en
      * console.
@@ -64,6 +70,8 @@ class Point
      */
     friend std::ostream & operator<<(std::ostream & out,
                                      const Point & p);
+
+    friend bool operator==(const Point&, const Point&);
 };
 
 #endif // POINT_H
