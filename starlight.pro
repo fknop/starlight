@@ -12,7 +12,8 @@ SOURCES += main.cpp \
     metier_abs/level.cpp \
     metier_abs/lens.cpp \
     metier_abs/dest.cpp \
-    metier_abs/crystal.cpp
+    metier_abs/crystal.cpp \
+    MapReader.cpp
 
 HEADERS += \
     metier_abs/wall.h \
@@ -24,6 +25,7 @@ HEADERS += \
     metier_abs/level.h \
     metier_abs/lens.h \
     metier_abs/dest.h \
-    metier_abs/crystal.h
+    metier_abs/crystal.h \
+    MapReader.h
 
 QMAKE_CXXFLAGS += -std=c++0x -Wall -Wextra -pedantic
