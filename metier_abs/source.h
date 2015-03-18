@@ -36,6 +36,7 @@ class Source
      * sur 600 nm.
      * @param p la position de la source
      * @param e la longueur du côté de la source
+     * @param a l’angle d’émission de la source
      * @param wl la longueur d'onde du rayon lumineux émis
      * @see Ray::WL_MIN
      * @see Ray::WL_MAX
