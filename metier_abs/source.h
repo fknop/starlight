@@ -46,9 +46,9 @@ class Source
 
     /**
      * Retourne la coordonnée du coin supérieur gauche du carré
-     * modélisant la destination.
+     * modélisant la source.
      * @return la coordonnée du coin supérieur gauche du carré
-     * modélisant la destination.
+     * modélisant la source
      */
     const Point & getPosition() const;
 
