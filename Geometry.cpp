@@ -1,0 +1,21 @@
+#include "Geometry.hpp"
+
+Geometry::Geometry()
+{
+}
+
+
+double Geometry::findSlope(const Point& p1, const Point& p2)
+{
+    return ( p1.getY() - p2.getY() ) / ( p1.getX() - p2.getX() );
+}
+
+double Geometry::getSlopeFromRadiant(double rad)
+{
+    return -tan(rad); // - car on travaille dans un repère inversé
+}
+
+double Geometry::getDistance(const Point& p1, const Point& p2)
+{
+    return sqrt( pow(p1.getX() - p2.getX(), 2) + pow(p1.getY() - p2.getY(), 2) );
+}
