@@ -115,8 +115,6 @@ class Level
      */
     void setRays(const std::vector<Ray>&);
 
-    const std::vector<Nuke> & getNukes() const;
-
     void setWalls(const std::vector<Wall> &);
 
     void setCrystals(const std::vector<Crystal>&);
