@@ -24,13 +24,13 @@ class Source
 
   public:
     /**
-     * Instance une nouvelle source de position, de côté et de
-     * longueur d'onde donnée.
+     * Instancie une nouvelle source de position, de côté et de
+     * longueur d'onde donnés.
      * </p>
      * La position dénote la coordonnée du coin supérieur gauche
      * du carré modélisant la source.
      * </p>
-     * La source est intialement éteinte.
+     * La source est initialement éteinte.
      * </p> Si la longueur d'onde du rayon lumineux émis n'est
      * pas comprise entre 360 nm et 830 nm, elle est réglée
      * sur 600 nm.

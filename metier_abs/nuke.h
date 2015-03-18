@@ -45,7 +45,7 @@ class Nuke
 
     /**
      * Illumine la bombe ou non.
-     * @param q vrai si la bombe est illuminée, faux sinon.
+     * @param q vrai pour illuminer la bombe, faux sinon.
      */
     void setLightedUp(bool q);
 
