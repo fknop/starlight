@@ -17,7 +17,8 @@ SOURCES += main.cpp \
     metier_abs/dest.cpp \
     metier_abs/crystal.cpp \
     MapReader.cpp \
-    view/starlightui.cpp
+    view/starlightui.cpp \
+    Geometry.cpp
 
 HEADERS += \
     metier_abs/wall.h \
@@ -31,7 +32,8 @@ HEADERS += \
     metier_abs/dest.h \
     metier_abs/crystal.h \
     MapReader.h \
-    view/starlightui.hpp
+    view/starlightui.hpp \
+    Geometry.h
 
 FORMS += \
     view/starlightui.ui

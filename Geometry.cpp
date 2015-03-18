@@ -1,9 +1,14 @@
-#include "Geometry.hpp"
+#include "Geometry.h"
 
 Geometry::Geometry()
 {
 }
 
+
+double Geometry::radToDegree(double rad)
+{
+    return (rad * 180) / M_PI;
+}
 
 double Geometry::findSlope(const Point& p1, const Point& p2)
 {

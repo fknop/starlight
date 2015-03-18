@@ -1,14 +1,26 @@
-#ifndef GEOMETRY_HPP
-#define GEOMETRY_HPP
+
+#ifndef GEOMETRY_H
+#define GEOMETRY_H
 
 #include "metier_abs/point.h"
-#include <cmath>
-#include "math.h"
+#include <math.h>
+#define M_PI 3.14159265358979323846
+
 
 class Geometry
 {
 public:
     Geometry();
+
+    /**
+     * Transforme des radiants en degrés.
+     * @param rad un angle en radiants.
+     * @return un angle en degrés.
+     */
+    static double radToDegree(double rad);
+
+
+
     /**
      * Retrouve la pente d'un segment entre deux points.
      * @param p1 le premier point.
@@ -32,4 +44,4 @@ public:
     static double getDistance(const Point& p1, const Point& p2);
 };
 
-#endif // GEOMETRY_HPP
+#endif // GEOMETRY_H
