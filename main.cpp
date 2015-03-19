@@ -1,9 +1,30 @@
 #include <iostream>
+#include <metier_abs/point.h>
+#include "Line.h"
 
 using namespace std;
 
 int main()
 {
+
+    Point a(1, 3);
+    Point b(4, 2);
+    Line l(a, b);
+
+    Point c(2,1);
+    Point d(4, 0);
+    Line l2(c, d);
+
+    Point * e = l.getIntersection(l2);
+
+    if (e == NULL)
+        cout << "null";
+    else
+        cout << *e;
+
+    delete e;
+
+    /*
     cout << "Hello World!" << endl;
 
     int x1 = 1;
@@ -36,7 +57,7 @@ int main()
     float y = (A1*C2 - A2*C1) / delta;
 
     cout << "(x = " << x << ", y = " << y << ")" << endl;
-
+*/
     return 0;
 }
 

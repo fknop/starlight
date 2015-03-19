@@ -12,7 +12,7 @@ double Geometry::radToDegree(double rad)
 
 double Geometry::findSlope(const Point& p1, const Point& p2)
 {
-    return ( p1.getY() - p2.getY() ) / ( p1.getX() - p2.getX() );
+    return  (double) (p1.getY() - p2.getY()) / (double) (p1.getX() - p2.getX());
 }
 
 double Geometry::getSlopeFromRadian(double rad)
