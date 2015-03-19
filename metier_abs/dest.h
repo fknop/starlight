@@ -21,20 +21,20 @@ class Dest
      * Intancie une destination de position et rayon donné.
      * @param p le coin supérieur gauche du carré modélisant
      *        la destination.
-     * @param e la longueur du côté du carré
+     * @param e la longueur du côté du carré.
      */
     Dest(const Point & p, int e);
 
     /**
-     * Retourne la position du coin supérieur gauche du carré
+     * Retourne la position du coin supérieur gauche du carré.
      * modélisant la destination.
-     * @return la position de la destination
+     * @return la position de la destination.
      */
     const Point & getPosition() const;
 
     /**
      * Retourne la longueur du côté du carré.
-     * @return la longueur du côté du carré
+     * @return la longueur du côté du carré.
      */
     int getEdge() const;
 
@@ -42,22 +42,22 @@ class Dest
      * Retourne vrai si la destination est illuminée,
      * faux sinon.
      * @return vrai si la destination est illuminée,
-     * faux sinon
+     * faux sinon.
      */
     bool isLightedUp() const;
 
     /**
      * Illumine la destination ou non.
      * @param vrai si la destination doit être illuminée,
-     * faux sinon
+     * faux sinon.
      */
     void setLightedUp(const bool q);
 
     /**
-     * Surcharge l'opérateur de flux de sortie pour afficher
+     * Surcharge l'opérateur de flux de sortie pour afficher.
      * un récapitulatif des caractéristiques de la destination
      * sous-jacente en console.
-     * @return le flux dans lequel la destination a été imprimée
+     * @return le flux dans lequel la destination a été imprimée.
      */
     friend std::ostream & operator<<(std::ostream & out,
                                      const Dest & s);

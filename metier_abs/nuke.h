@@ -20,26 +20,26 @@ class Nuke
     /**
      * Instancie une bombe en une position donnée avec un rayon
      * déterminé.
-     * @param p la position de la bombe
-     * @param r le rayon de la bombe
+     * @param p la position de la bombe.
+     * @param r le rayon de la bombe.
      */
     Nuke(const Point & p, int r);
 
     /**
      * Retourne la position de la bombe.
-     * @return la position de la bombe
+     * @return la position de la bombe.
      */
     const Point & getLocation() const;
 
     /**
      * Retourne le rayon de la bombe.
-     * @return le rayon de la bombe
+     * @return le rayon de la bombe.
      */
     int getRadius() const;
 
     /**
      * Retourne vrai si la bombe est illuminée, faux sinon.
-     * @return vrai si la bombe est illuminée, faux sinon
+     * @return vrai si la bombe est illuminée, faux sinon.
      */
     bool isLightedUp() const;
 
@@ -51,9 +51,9 @@ class Nuke
 
     /**
      * Surcharge l'opérateur de flux de sortie pour afficher un
-     * récapitulatif des caractéristiques de la bombe
+     * récapitulatif des caractéristiques de la bombe.
      * sous-jacente en console.
-     * @return le flux dans lequel la bombe a été imprimée
+     * @return le flux dans lequel la bombe a été imprimée.
      */
     friend std::ostream & operator<<(std::ostream & out,
                                      const Nuke & s);

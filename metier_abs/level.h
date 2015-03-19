@@ -48,62 +48,62 @@ class Level
      * Vous devez manuellement initialiser la source et la destination
      * via les fonctions
      * appropriées.
-     * @param w la largeur de la carte
-     * @param h la hauteur de la carte
+     * @param w la largeur de la carte.
+     * @param h la hauteur de la carte.
      */
     Level(int w, int h);
 
     /**
      * Retourne la source de la carte.
-     * @return la source de la carte
+     * @return la source de la carte.
      */
     const Source & getSource() const;
 
     /**
      * Change la source de la carte.
-     * @param value la nouvelle source
+     * @param value la nouvelle source.
      */
     void setSource(const Source & value);
 
     /**
      * Retourne la desination de la carte.
-     * @return la destination de la carte
+     * @return la destination de la carte.
      */
     const Dest & getDestination() const;
 
     /**
      * Change la destination de la carte.
-     * @param value la destination de la carte
+     * @param value la destination de la carte.
      */
     void setDestination(const Dest & value);
 
     /**
      * Retourne l'ensemble des murs de la carte.
-     * @return l'ensemble des murs de la carte
+     * @return l'ensemble des murs de la carte.
      */
     const std::vector<Wall> & getWalls() const;
 
     /**
      * Retourne l'ensemble des miroirs de la carte.
-     * @return l'ensemble des miroirs de la carte
+     * @return l'ensemble des miroirs de la carte.
      */
     const std::vector<Mirror> & getMirrors() const;
 
     /**
      * Retourne l'ensemble des cristaux de la carte.
-     * @return l'ensemble des cristaux de la carte
+     * @return l'ensemble des cristaux de la carte.
      */
     const std::vector<Crystal> & getCrystals() const;
 
     /**
      * Retourne l'ensemble des lentilles de la carte.
-     * @return l'ensemble des lentilles de la carte
+     * @return l'ensemble des lentilles de la carte.
      */
     const std::vector<Lens> & getLenses() const;
 
     /**
      * Retourne l'ensemble des rayons de la carte.
-     * @return l'ensemble des rayons de la carte
+     * @return l'ensemble des rayons de la carte.
      */
     const std::vector<Ray> & getRays() const;
 
@@ -111,7 +111,7 @@ class Level
 
     /**
      * Change l'ensemble des rayons de la carte.
-     * @param le nouvel ensemble de rayons de la carte
+     * @param le nouvel ensemble de rayons de la carte.
      */
     void setRays(const std::vector<Ray>&);
 
@@ -127,13 +127,13 @@ class Level
 
     /**
      * Retourne la taille de la carte.
-     * @return la taille de la carte
+     * @return la taille de la carte.
      */
     int getHeight();
 
     /**
      * Retourne la longueur de la carte.
-     * @return la longueur de la carte
+     * @return la longueur de la carte.
      */
     int getWidth();
 

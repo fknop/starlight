@@ -31,12 +31,12 @@ class Lens
      * caractéristiques.
      * @param p la position du coin supérieur gauche du
      *          rectangle modélisant la lentille.
-     * @param w la largeur de la lentille
-     * @param h la hauteur de la lentille
+     * @param w la largeur de la lentille.
+     * @param h la hauteur de la lentille.
      * @param wlmin la longueur d'onde minimale des rayons
-     *              autorisés à franchir la lentille
+     *              autorisés à franchir la lentille.
      * @param wlmax la longueur d'onde maximale des rayons
-     *              autorisés à franchir la lentille
+     *              autorisés à franchir la lentille.
      */
     Lens(const Point & p, int w, int h, int wlmin, int wlmax);
 
@@ -49,30 +49,30 @@ class Lens
     const Point & getPosition() const;
 
     /**
-     * Retourne la largeur de la lentille
-     * @return la largeur de la lentille
+     * Retourne la largeur de la lentille.
+     * @return la largeur de la lentille.
      */
     int getWidth() const;
 
     /**
-     * Retourne la hauteur de la lentille
-     * @return la hauteur de la lentille
+     * Retourne la hauteur de la lentille.
+     * @return la hauteur de la lentille.
      */
     int getHeight() const;
 
     /**
      * Retourne la longueur d'onde minimale des rayons
-     * autorisés à franchir la lentille
+     * autorisés à franchir la lentille.
      * @return la longueur d'onde minimale des rayons
-     * autorisés à franchir la lentille
+     * autorisés à franchir la lentille.
      */
     int getMinWavelength() const;
 
     /**
      * Retourne la longueur d'onde maximale des rayons
-     * autorisés à franchir la lentille
+     * autorisés à franchir la lentille.
      * @return la longueur d'onde maximale des rayons
-     * autorisés à franchir la lentille
+     * autorisés à franchir la lentille.
      */
     int getMaxWavelength() const;
 
@@ -80,7 +80,7 @@ class Lens
      * Surcharge l'opérateur de flux de sortie pour afficher
      * un récapitulatif des caractéristiques de la lentille
      * sous-jacente en console.
-     * @return le flux dans lequel la lentille a été imprimée
+     * @return le flux dans lequel la lentille a été imprimée.
      */
     friend std::ostream & operator<<(std::ostream & out,
                                      const Lens & m);
