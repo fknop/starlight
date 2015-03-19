@@ -66,7 +66,7 @@ class Level
     void setSource(const Source & value);
 
     /**
-     * Retourne la desination de la carte.
+     * Retourne la destination de la carte.
      * @return la destination de la carte
      */
     const Dest & getDestination() const;

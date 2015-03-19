@@ -39,3 +39,6 @@ FORMS += \
     view/starlightui.ui
 
 QMAKE_CXXFLAGS += -std=c++0x -Wall -Wextra -pedantic
+
+OTHER_FILES += \
+    Map.qml
