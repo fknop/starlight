@@ -6,36 +6,36 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp \
-    metier_abs/wall.cpp \
-    metier_abs/source.cpp \
-    metier_abs/ray.cpp \
-    metier_abs/point.cpp \
-    metier_abs/nuke.cpp \
-    metier_abs/mirror.cpp \
-    metier_abs/level.cpp \
-    metier_abs/lens.cpp \
-    metier_abs/dest.cpp \
-    metier_abs/crystal.cpp \
     MapReader.cpp \
     view/starlightui.cpp \
-    Geometry.cpp \
-    Line.cpp
+    model/crystal.cpp \
+    model/dest.cpp \
+    model/Geometry.cpp \
+    model/lens.cpp \
+    model/level.cpp \
+    model/Line.cpp \
+    model/mirror.cpp \
+    model/nuke.cpp \
+    model/point.cpp \
+    model/ray.cpp \
+    model/source.cpp \
+    model/wall.cpp
 
 HEADERS += \
-    metier_abs/wall.h \
-    metier_abs/source.h \
-    metier_abs/ray.h \
-    metier_abs/point.h \
-    metier_abs/nuke.h \
-    metier_abs/mirror.h \
-    metier_abs/level.h \
-    metier_abs/lens.h \
-    metier_abs/dest.h \
-    metier_abs/crystal.h \
     MapReader.h \
     view/starlightui.hpp \
-    Geometry.h \
-    Line.h
+    model/crystal.h \
+    model/dest.h \
+    model/Geometry.h \
+    model/lens.h \
+    model/level.h \
+    model/Line.h \
+    model/mirror.h \
+    model/nuke.h \
+    model/point.h \
+    model/ray.h \
+    model/source.h \
+    model/wall.h \
 
 FORMS += \
     view/starlightui.ui

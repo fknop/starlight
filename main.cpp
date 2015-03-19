@@ -1,6 +1,6 @@
 #include <iostream>
-#include <metier_abs/point.h>
-#include "Line.h"
+#include <model/point.h>
+#include "model/Line.h"
 
 using namespace std;
 

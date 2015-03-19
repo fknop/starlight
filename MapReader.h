@@ -1,7 +1,7 @@
 #ifndef MAPREADER_H
 #define MAPREADER_H
 
-#include "metier_abs/level.h"
+#include "model/level.h"
 #include <string>
 #include <sstream>
 #include <fstream>
