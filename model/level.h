@@ -10,8 +10,10 @@
 #include "wall.h"
 #include "point.h"
 #include "nuke.h"
+#include "model/Line.h"
 
 #include <vector>
+#include <unordered_map>
 
 
 /**
@@ -66,13 +68,8 @@ class Level
     void setSource(const Source & value);
 
     /**
-<<<<<<< HEAD:metier_abs/level.h
-     * Retourne la destination de la carte.
-     * @return la destination de la carte
-=======
      * Retourne la desination de la carte.
      * @return la destination de la carte.
->>>>>>> 61d0910b62e492cfc85d437ad7910b45df91ab44:model/level.h
      */
     const Dest & getDestination() const;
 
@@ -148,6 +145,9 @@ class Level
      * Cette fonction doit être surchargée obligatoirement.
      */
     void computeRays();
+
+private:
+    std::unordered_map<Point, char> getIntersections(const Line&);
 };
 
 #endif // LEVEL_H

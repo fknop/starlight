@@ -19,7 +19,8 @@ SOURCES += main.cpp \
     model/point.cpp \
     model/ray.cpp \
     model/source.cpp \
-    model/wall.cpp
+    model/wall.cpp \
+    linesegment.cpp
 
 HEADERS += \
     MapReader.h \
@@ -36,11 +37,9 @@ HEADERS += \
     model/ray.h \
     model/source.h \
     model/wall.h \
+    linesegment.h
 
 FORMS += \
     view/starlightui.ui
 
 QMAKE_CXXFLAGS += -std=c++0x -Wall -Wextra -pedantic
-
-OTHER_FILES += \
-    Map.qml

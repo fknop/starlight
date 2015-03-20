@@ -71,6 +71,7 @@ class Point
     friend std::ostream & operator<<(std::ostream & out,
                                      const Point & p);
 
+
     friend bool operator==(const Point&, const Point&);
 };
 

@@ -1,4 +1,5 @@
 #include "Line.h"
+#include "Geometry.h"
 
 
 
@@ -24,7 +25,7 @@ Line::Line(const Point& p1, const Point& p2)
 }
 
 
-Point* Line::getIntersection(const Line& l)
+Point* Line::getIntersection(const Line& l) const
 {
 
     int x, y;

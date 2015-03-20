@@ -3,6 +3,10 @@
 
 #include "model/point.h"
 #include <cmath>
+#include <vector>
+#include "linesegment.h"
+#include "model/Line.h"
+
 
 #define M_PI 3.14159265358979323846
 
@@ -41,6 +45,9 @@ public:
      * @return la distance entre deux points.
      */
     static double getDistance(const Point& p1, const Point& p2);
+
+    static bool isInBoundingBox(const Point& p, const LineSegment& ls);
+    static Point* getIntersection(const Line&, const LineSegment&);
 };
 
 #endif // GEOMETRY_H

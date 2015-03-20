@@ -2,8 +2,8 @@
 #define LINE_H
 
 #include "model/point.h"
-#include "Geometry.h"
 #include <cstddef>
+
 
 
 /**
@@ -33,14 +33,15 @@ class Line
             */
            Line(const Point& p1, const Point& p2);
 
+
            /**
             * Obtient un point d'intersection entre la droite
             * et une autre droite donnée.
             * @param l une autre droite.
             * @return un point d'intersection entre les deux droites ou
-            * null s’il n'y a pas d'intersection.
+            * null si il n'y a pas d'intersection.
             */
-           Point* getIntersection(const Line& l);
+           Point* getIntersection(const Line& l) const;
 
            /**
             * Renvoie un point de la droite.

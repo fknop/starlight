@@ -1,26 +1,29 @@
 #include <iostream>
 #include <model/point.h>
 #include "model/Line.h"
+#include "model/Geometry.h"
 
 using namespace std;
 
 int main()
 {
 
-    Point a(1, 3);
+    Point a(0, 0);
     Point b(4, 2);
-    Line l(a, b);
+    Line l(a, 2.57);
 
-    Point c(2,1);
-    Point d(4, 0);
+    Point c(0,2);
+    Point d(1, 2);
     Line l2(c, d);
 
-    Point * e = l.getIntersection(l2);
+    Point* e = l.getIntersection(l2);
 
-    if (e == NULL)
-        cout << "null";
-    else
+    cout << *e;
+
+    if (e != nullptr && Geometry::isInBoundingBox(*e, LineSegment(c, d)))
         cout << *e;
+    else
+        cout << "quedal";
 
     delete e;
 
