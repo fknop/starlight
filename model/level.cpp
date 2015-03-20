@@ -74,7 +74,7 @@ void Level::computeRays()
     double rad = this->s.getAngle();
     Line ray(pSource, rad);
 
-    std::unordered_map<Point, char> intersections = getIntersections(ray);
+    Point intersection = getIntersections(ray);
 
 
     throw string {"todo !"};
@@ -122,24 +122,60 @@ int Level::getWidth()
     return width;
 }
 
-std::unordered_map<Point, char> Level::getIntersections(const Line& l)
+/* provisoire */
+const Point& Level::getIntersections(const Line& l)
 {
 
     /*
     Geometry::getIntersection(const Line& l, const LineSegment& ls)
      *
+     *
      */
-    std::unordered_map<Point, char> m;
+
+    /*  Source s {{0, 0}, -1, 5, 600};
+        Dest d {{0, 0}, 5};
+
+        std::vector<Wall> walls;
+        std::vector<Mirror> mirrors;
+        std::vector<Crystal> crystals;
+        std::vector<Lens> lenses;
+        std::vector<Ray> rays;
+        std::vector<Nuke> nukes;*/
+        double closestDistance = 0;
+        double distance;
+        char type;
 
     for (auto &i : walls)
     {
         Point * p = Geometry::getIntersection(l, LineSegment(i.getStart(), i.getEnd()));
         if (p != nullptr)
         {
-            //std::pair<Point, char> intersection = make_pair(*p, 'W');
-            m[*p] = 'w';
+            distance = Geometry::getDistance(*p, l.getPoint());
+            if (distance >= closestDistance)
+                closestDistance = distance;
         }
     }
+
+    for (auto &i : mirrors)
+    {
+
+    }
+
+    for (auto &i : crystals)
+    {
+
+    }
+
+    for (auto &i : nukes)
+    {
+
+    }
+
+    for (auto &i : lenses)
+    {
+
+    }
+
 
 
 }

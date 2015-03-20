@@ -147,7 +147,7 @@ class Level
     void computeRays();
 
 private:
-    std::unordered_map<Point, char> getIntersections(const Line&);
+    const Point& getIntersections(const Line&);
 };
 
 #endif // LEVEL_H
