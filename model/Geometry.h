@@ -1,7 +1,7 @@
 #ifndef GEOMETRY_H
 #define GEOMETRY_H
 
-#include "metier_abs/point.h"
+#include "model/point.h"
 #include <cmath>
 
 #define M_PI 3.14159265358979323846

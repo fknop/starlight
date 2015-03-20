@@ -22,35 +22,35 @@ class Crystal
 
   public:
     /**
-     * Instancie un cristal centré au point donné, d'un certain
+     * Instancie un cristal centré au point donné, d'un certain.
      * rayon et modifiant la longueur d'onde des rayons qui le
      * traversent d'une valeur donnée.
-     * @param p le centre du cristal
-     * @param r le rayon du cristal
-     * @param m le modificateur de longueur d'onde du cristal
+     * @param p le centre du cristal.
+     * @param r le rayon du cristal.
+     * @param m le modificateur de longueur d'onde du cristal.
      */
     Crystal(const Point & p, int r, int m);
 
     /**
-     * Retourne la coordonnée du centre du cristal
-     * @return  la coordonnée du centre du cristal
+     * Retourne la coordonnée du centre du cristal.
+     * @return  la coordonnée du centre du cristal.
      */
     const Point & getCenter() const;
 
     /**
-     * Retourne le modificateur de longueur d'onde du cristal
-     * @return  le modificateur de longueur d'onde du cristal
+     * Retourne le modificateur de longueur d'onde du cristal.
+     * @return  le modificateur de longueur d'onde du cristal.
      */
     int getModifier() const;
 
     /**
-     * Retourne le rayon du cristal
-     * @return le rayon du cristal
+     * Retourne le rayon du cristal.
+     * @return le rayon du cristal.
      */
     int getRadius() const;
 
     /**
-     * Surcharge l'opérateur de flux de sortie pour afficher
+     * Surcharge l'opérateur de flux de sortie pour afficher.
      * un récapitulatif des caractéristiques du cristal
      * sous-jacent en console.
      * @return le flux dans lequel le cristal a été imprimé.
