@@ -1,36 +1,26 @@
-#ifndef MAINMENU_H
-#define MAINMENU_H
+#ifndef GAME_H
+#define GAME_H
 
+#include <QGraphicsView>
+#include <QGraphicsScene>
 
-
-#include <QMainWindow>
-
-#include "QVBoxLayout"
-#include "QPushButton"
-
-
-
-class MainMenu : public QMainWindow
+class Game : public QGraphicsView
 {
+
     Q_OBJECT
 
-
-    QVBoxLayout * layout;
-    QPushButton * play;
-    QPushButton * quit;
-    QPushButton * showRules;
-
-
 public:
-    explicit MainMenu(QWidget *parent = 0);
+    Game(QWidget * parent = NULL);
 
-private:
-    void initComponents();
+    void displayMainMenu();
 
-signals:
+
+    QGraphicsScene * scene;
 
 public slots:
-
+    void start();
 };
 
-#endif // MAINMENU_H
+
+
+#endif // GAME_H

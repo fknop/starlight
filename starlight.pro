@@ -21,6 +21,7 @@ SOURCES += main.cpp \
     model/source.cpp \
     model/wall.cpp \
     linesegment.cpp \
+    view/Button.cpp \
     view/MainMenu.cpp
 
 HEADERS += \
@@ -39,6 +40,7 @@ HEADERS += \
     model/source.h \
     model/wall.h \
     linesegment.h \
+    view/Button.h \
     view/MainMenu.h
 
 FORMS += \
