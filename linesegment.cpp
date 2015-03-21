@@ -22,4 +22,5 @@ const Point& LineSegment::getP2() const
 double LineSegment::getSlope() const
 {
     return this->slope;
+
 }

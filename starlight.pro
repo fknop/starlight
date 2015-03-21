@@ -20,7 +20,8 @@ SOURCES += main.cpp \
     model/ray.cpp \
     model/source.cpp \
     model/wall.cpp \
-    linesegment.cpp
+    linesegment.cpp \
+    view/MainMenu.cpp
 
 HEADERS += \
     MapReader.h \
@@ -37,7 +38,8 @@ HEADERS += \
     model/ray.h \
     model/source.h \
     model/wall.h \
-    linesegment.h
+    linesegment.h \
+    view/MainMenu.h
 
 FORMS += \
     view/starlightui.ui

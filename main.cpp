@@ -2,12 +2,23 @@
 #include <model/point.h>
 #include "model/Line.h"
 #include "model/Geometry.h"
+#include <QApplication>
+#include "view/MainMenu.h"
+
+
 
 using namespace std;
 
-int main()
+int main(int argc, char *argv[])
 {
 
+    QApplication a(argc, argv);
+
+    MainMenu menu;
+    menu.show();
+
+    return a.exec();
+    /*
     Point a(0, 0);
     Point b(4, 2);
     Line l(a, 2.57);
@@ -26,7 +37,7 @@ int main()
         cout << "quedal";
 
     delete e;
-
+*/
     /*
     cout << "Hello World!" << endl;
 
@@ -61,6 +72,6 @@ int main()
 
     cout << "(x = " << x << ", y = " << y << ")" << endl;
 */
-    return 0;
+
 }
 

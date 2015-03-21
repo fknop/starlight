@@ -145,3 +145,7 @@ cd /usr/bin
 sudo rm g++
 sudo ln -s g++-4.9 g++
 ```
+
+### Liens utiles
+
+* http://i.imgur.com/Vl122xn.png
