@@ -1,7 +1,7 @@
 #ifndef LINE_H
 #define LINE_H
 
-#include "model/point.h"
+#include "point.h"
 #include <cstddef>
 
 

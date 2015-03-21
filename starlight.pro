@@ -20,7 +20,7 @@ SOURCES += main.cpp \
     model/ray.cpp \
     model/source.cpp \
     model/wall.cpp \
-    linesegment.cpp \
+    model/linesegment.cpp \
     view/Button.cpp \
     view/MainMenu.cpp
 
@@ -39,7 +39,7 @@ HEADERS += \
     model/ray.h \
     model/source.h \
     model/wall.h \
-    linesegment.h \
+    model/linesegment.h \
     view/Button.h \
     view/MainMenu.h
 

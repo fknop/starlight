@@ -1,11 +1,11 @@
 #ifndef GEOMETRY_H
 #define GEOMETRY_H
 
-#include "model/point.h"
+#include "point.h"
 #include <cmath>
 #include <vector>
 #include "linesegment.h"
-#include "model/Line.h"
+#include "Line.h"
 
 
 #define M_PI 3.14159265358979323846

@@ -10,7 +10,7 @@
 #include "wall.h"
 #include "point.h"
 #include "nuke.h"
-#include "model/Line.h"
+#include "Line.h"
 
 #include <vector>
 #include <unordered_map>

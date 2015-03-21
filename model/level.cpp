@@ -1,7 +1,7 @@
 #include "level.h"
 
 #include <string>
-#include "model/Geometry.h"
+#include "Geometry.h"
 
 using namespace std;
 
