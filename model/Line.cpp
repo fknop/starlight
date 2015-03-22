@@ -38,7 +38,7 @@ Point* Line::getIntersection(const Line& l) const
     else
     {
         x = (l.b - this->b) / (this->slope - l.slope);
-        y = l.slope * x + l.b;
+        y = (l.slope * x) + l.b;
 
         return new Point(x, y);
     }

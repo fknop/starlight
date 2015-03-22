@@ -1,10 +1,7 @@
 #include <iostream>
-#include <model/point.h>
-#include "model/Line.h"
-#include "model/Geometry.h"
-#include <QApplication>
-#include "view/MainMenu.h"
 
+#include "model/level.h"
+#include "MapReader.h"
 
 
 
@@ -13,13 +10,23 @@ using namespace std;
 int main(int argc, char *argv[])
 {
 
+    /*
     QApplication a(argc, argv);
 
     Game * game = new Game();
     game->show();
     game->displayMainMenu();
 
-    return a.exec();
+    return a.exec();*/
+
+    MapReader map("levels/level1.lvl");
+    Level * level = map.getLevel();
+
+    level->computeRays();
+
+    delete level;
+
+    return 0;
     /*
     Point a(0, 0);
     Point b(4, 2);

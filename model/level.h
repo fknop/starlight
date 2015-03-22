@@ -147,7 +147,7 @@ class Level
     void computeRays();
 
 private:
-    const Point& getIntersections(const Line&);
+    Point * getIntersections(const Line&);
 };
 
 #endif // LEVEL_H

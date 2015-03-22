@@ -26,6 +26,12 @@ class Point
     Point(int x, int y);
 
     /**
+     * Constructeur de recopie.
+     * @param p le point à recopier.
+     */
+    Point(const Point& p);
+
+    /**
      * Retourne l'abscisse du point.
      * @return l'abscisse du point.
      */
@@ -73,6 +79,7 @@ class Point
 
 
     friend bool operator==(const Point&, const Point&);
+
 };
 
 #endif // POINT_H

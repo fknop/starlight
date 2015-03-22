@@ -19,7 +19,7 @@ double Geometry::findSlope(const Point& p1, const Point& p2)
 
 double Geometry::getSlopeFromRadian(double rad)
 {
-    return -tan(rad); // - car on travaille dans un repère inversé
+    return tan(rad); // - car on travaille dans un repère inversé
 }
 
 double Geometry::getDistance(const Point& p1, const Point& p2)

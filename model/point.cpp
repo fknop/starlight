@@ -3,6 +3,12 @@
 Point::Point(int a, int b) : x {a}, y {b}
 {}
 
+Point::Point(const Point &p)
+{
+    this->x = p.x;
+    this->y = p.y;
+}
+
 int Point::getX() const
 {
     return x;

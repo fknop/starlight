@@ -68,7 +68,7 @@ void MapReader::readSizesInfo(std::string line)
 
     level = new Level(width, height);
     /* Ajout des murs extérieurs */
-    walls.push_back(Wall(Point(0,0), Point(0, width)));
+    walls.push_back(Wall(Point(0,0), Point(width, 0)));
     walls.push_back(Wall(Point(0,0), Point(0, height)));
     walls.push_back(Wall(Point(width,0), Point(width, height)));
     walls.push_back(Wall(Point(0,height), Point(width, height)));

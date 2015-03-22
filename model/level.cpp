@@ -74,10 +74,21 @@ void Level::computeRays()
     double rad = this->s.getAngle();
     Line ray(pSource, rad);
 
-    Point intersection = getIntersections(ray);
+    Point * intersection = getIntersections(ray);
 
+    if (intersection == nullptr)
+    {
+        std::cout << "null";
+    }
+    else
+    std::cout << *intersection;
+    /*int gx = pivotX -  (xpad * cos(angle));
+    int gy = pivotY - (xpad * sin(angle));
 
-    throw string {"todo !"};
+    int dx = pivotX + ((len-xpad) * cos(angle));
+    int dy = pivotY + ((len-xpad) * sin(angle));*/
+    delete intersection;
+
 }
 
 
@@ -123,7 +134,7 @@ int Level::getWidth()
 }
 
 /* provisoire */
-const Point& Level::getIntersections(const Line& l)
+Point * Level::getIntersections(const Line& l)
 {
 
     /*
@@ -141,24 +152,56 @@ const Point& Level::getIntersections(const Line& l)
         std::vector<Lens> lenses;
         std::vector<Ray> rays;
         std::vector<Nuke> nukes;*/
-        double closestDistance = 0;
-        double distance;
-        char type;
+    double closestDistance = 0;
+    double distance;
+    char type;
+    Point * closestPoint = nullptr;
 
     for (auto &i : walls)
     {
+        std::cout << i.getStart() << " " << i.getEnd() << std::endl;
         Point * p = Geometry::getIntersection(l, LineSegment(i.getStart(), i.getEnd()));
-        if (p != nullptr)
+        if (p != nullptr && !(*p == l.getPoint()))
         {
+            std::cout << "Intersection avec la ligne : " << *p << std::endl;
+
             distance = Geometry::getDistance(*p, l.getPoint());
-            if (distance >= closestDistance)
+            if (distance <= closestDistance)
+            {
                 closestDistance = distance;
+                delete closestPoint;
+                closestPoint = new Point(*p);
+            }
+
         }
+        delete p;
     }
 
     for (auto &i : mirrors)
     {
+        double angle = i.getAngle();
+        int xpad = i.getXPad();
+        int pivotX = i.getPivot().getX();
+        int pivotY = i.getPivot().getY();
+        int len = i.getLength();
+        int gx = pivotX -  (xpad * cos(angle));
+        int gy = pivotY - (xpad * sin(angle));
+        int dx = pivotX + ((len-xpad) * cos(angle));
+        int dy = pivotY + ((len-xpad) * sin(angle));
 
+        Point * p = Geometry::getIntersection(l, LineSegment(Point(gx, gy), Point(dx, dy)));
+        if (p != nullptr)
+        {
+            distance = Geometry::getDistance(*p, l.getPoint());
+            if (distance <= closestDistance)
+            {
+                closestDistance = distance;
+                delete closestPoint;
+                closestPoint = new Point(*p);
+            }
+        }
+
+        delete p;
     }
 
     for (auto &i : crystals)
@@ -177,6 +220,6 @@ const Point& Level::getIntersections(const Line& l)
     }
 
 
-
+    return closestPoint;
 }
 
