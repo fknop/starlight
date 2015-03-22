@@ -2,15 +2,18 @@
 
 #include "model/level.h"
 #include "MapReader.h"
+#include <typeinfo>
+
 
 
 
 using namespace std;
 
-int main(int argc, char *argv[])
+//int argc, char *argv[]
+int main()
 {
 
-    /*
+/*
     QApplication a(argc, argv);
 
     Game * game = new Game();
@@ -21,19 +24,15 @@ int main(int argc, char *argv[])
 
 
     MapReader map("levels/level1.lvl");
+
     Level * level = map.getLevel();
 
     level->computeRays();
 
     delete level;
 
-
-    /*
-    Line l0(Point(0,0), Point(3,6));
-    Line l1(Point(3,0), Point(0,6));
-    Point * p = l0.getIntersection(l1);
-    std::cout << *p;*/
     return 0;
+
     /*
     Point a(0, 0);
     Point b(4, 2);
