@@ -24,6 +24,9 @@ Line::Line(const Point& p1, const Point& p2)
    // b = y - ax
    this->b = this->p.getY() - (this->slope * this->p.getX());
 
+   if (std::isinf(slope))
+           std::cout << b;
+
 }
 
 
