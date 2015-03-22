@@ -19,6 +19,7 @@ int main(int argc, char *argv[])
 
     return a.exec();*/
 
+
     MapReader map("levels/level1.lvl");
     Level * level = map.getLevel();
 
@@ -26,6 +27,12 @@ int main(int argc, char *argv[])
 
     delete level;
 
+
+    /*
+    Line l0(Point(0,0), Point(3,6));
+    Line l1(Point(3,0), Point(0,6));
+    Point * p = l0.getIntersection(l1);
+    std::cout << *p;*/
     return 0;
     /*
     Point a(0, 0);

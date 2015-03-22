@@ -153,8 +153,8 @@ void MapReader::readMirrorInfo(std::string line)
 
     iss >> x;
     iss >> y;
-    iss >> length;
     iss >> xpad;
+    iss >> length;
     iss >> alpha;
     iss >> xmin;
     iss >> ymin;

@@ -11,6 +11,8 @@ Line::Line(const Point& p, double rad)
    // y = ax + b
    // b = y - ax
    this->b = this->p.getY() - (this->slope * this->p.getX());
+
+
 }
 
 
@@ -38,7 +40,9 @@ Point* Line::getIntersection(const Line& l) const
     else
     {
         x = (l.b - this->b) / (this->slope - l.slope);
+
         y = (l.slope * x) + l.b;
+
 
         return new Point(x, y);
     }

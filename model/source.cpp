@@ -13,7 +13,7 @@ const Point & Source::getPosition() const
     return pos;
 }
 
-int Source::getAngle() const
+double Source::getAngle() const
 {
     return alpha;
 }

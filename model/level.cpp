@@ -81,7 +81,7 @@ void Level::computeRays()
         std::cout << "null";
     }
     else
-    std::cout << *intersection;
+         std::cout << *intersection;
     /*int gx = pivotX -  (xpad * cos(angle));
     int gy = pivotY - (xpad * sin(angle));
 
@@ -137,29 +137,15 @@ int Level::getWidth()
 Point * Level::getIntersections(const Line& l)
 {
 
-    /*
-    Geometry::getIntersection(const Line& l, const LineSegment& ls)
-     *
-     *
-     */
 
-    /*  Source s {{0, 0}, -1, 5, 600};
-        Dest d {{0, 0}, 5};
-
-        std::vector<Wall> walls;
-        std::vector<Mirror> mirrors;
-        std::vector<Crystal> crystals;
-        std::vector<Lens> lenses;
-        std::vector<Ray> rays;
-        std::vector<Nuke> nukes;*/
-    double closestDistance = 0;
+    double closestDistance = this->height * this->width;
     double distance;
     char type;
     Point * closestPoint = nullptr;
 
     for (auto &i : walls)
     {
-        std::cout << i.getStart() << " " << i.getEnd() << std::endl;
+
         Point * p = Geometry::getIntersection(l, LineSegment(i.getStart(), i.getEnd()));
         if (p != nullptr && !(*p == l.getPoint()))
         {

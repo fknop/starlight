@@ -20,7 +20,6 @@ public:
     void hoverEnterEvent(QGraphicsSceneHoverEvent * event);
     void hoverLeaveEvent(QGraphicsSceneHoverEvent * event);
 
-
 signals:
     void clicked();
 

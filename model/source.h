@@ -56,7 +56,7 @@ class Source
      * Retourne l'angle du rayon émis.
      * @return l'angle du rayon émis.
      */
-    int getAngle() const;
+    double getAngle() const;
 
     /**
      * Retourne la longueur du côté du carré.
