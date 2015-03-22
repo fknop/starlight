@@ -5,7 +5,16 @@
 * Knop Florian
 * Bovyn Gatien
 
-***
+# TODO
+
+* Gérer les lignes verticales.
+* Gérer le retour du point d'intersection et de l'objet.
+* Gérer les vérifications dans les constructeurs.
+* Gérer la reflexion du rayon sur un miroir.
+* Gérer les divers évènements lors de l'intersection avec un objet.
+* Gérer l'affichage.
+* Gérer le déplacement des miroirs.
+* Gérer la rotations des miroirs.
 
 # Rules
 
