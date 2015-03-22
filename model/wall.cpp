@@ -2,7 +2,6 @@
 
 Wall::Wall(const Point & p1, const Point & p2) : start {p1}, end {p2}
 {
-
     if (p1 == p2)
     {
         //Gérer l'erreur
@@ -12,8 +11,6 @@ Wall::Wall(const Point & p1, const Point & p2) : start {p1}, end {p2}
     {
         //Gérer l'erreur
     }
-
-
 }
 
 const Point & Wall::getStart() const

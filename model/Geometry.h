@@ -46,8 +46,21 @@ public:
      */
     static double getDistance(const Point& p1, const Point& p2);
 
+    /**
+     * Vérifie si un point est sur un segment.
+     * @param p le point à vérifier.
+     * @param ls le segment sur lequel vérifier.
+     * @return vrai si le point est sur le segment, faux sinon.
+     */
     static bool isInBoundingBox(const Point& p, const LineSegment& ls);
-    static Point* getIntersection(const Line&, const LineSegment&);
+
+    /**
+     * Retourne le point d’intersection entre une ligne et un segment.
+     * @param l une ligne.
+     * @param li un segment.
+     * @return le point d’intersection entre la ligne et le segment.
+     */
+    static Point* getIntersection(const Line& l, const LineSegment& li);
 };
 
 #endif // GEOMETRY_H

@@ -2,7 +2,7 @@
 #include "ray.h"
 
 Source::Source(const Point & p, int e, double a, int wl) : pos {p},
-alpha {a}, edge {e}, wavelength {wl}
+    alpha {a}, edge {e}, wavelength {wl}
 {
     if (wl < 360 || wl > 830)
         wavelength = 600;
@@ -42,7 +42,7 @@ std::ostream & operator<<(std::ostream & out, const Source & s)
 {
     out << "Source --- Position : " << s.pos << " , Angle : " << s.alpha
         << "Frequency : " << s.wavelength << " , Edge : " << s.edge <<
-        " , on : " <<
-        s.on;
+           " , on : " <<
+           s.on;
     return out;
 }

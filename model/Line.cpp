@@ -2,8 +2,6 @@
 #include "Geometry.h"
 
 
-
-
 Line::Line(const Point& p, double rad)
 {
    this->p = p;
@@ -11,10 +9,7 @@ Line::Line(const Point& p, double rad)
    // y = ax + b
    // b = y - ax
    this->b = this->p.getY() - (this->slope * this->p.getX());
-
-
 }
-
 
 Line::Line(const Point& p1, const Point& p2)
 {
@@ -26,26 +21,21 @@ Line::Line(const Point& p1, const Point& p2)
 
    if (std::isinf(slope))
            std::cout << b;
-
 }
 
 
 Point* Line::getIntersection(const Line& l) const
 {
-
     int x, y;
 
     if (this->slope == l.slope)
     {
         return nullptr;
-
     }
     else
     {
         x = (l.b - this->b) / (this->slope - l.slope);
-
         y = (l.slope * x) + l.b;
-
 
         return new Point(x, y);
     }

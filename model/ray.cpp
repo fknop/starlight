@@ -42,7 +42,9 @@ void Ray::setEnd(const Point & p)
 bool Ray::setWavelength(int wl)
 {
     bool r = wl >= WL_MIN && wl <= WL_MAX;
-    if (r) wavelength = wl;
+    if (r)
+        wavelength = wl;
+
     return r;
 }
 

@@ -11,9 +11,9 @@ walls { {{0, 0}, {0, h}}, {{0, h}, {w, h}},
 }
 {
     //  Taille minimale ?
-    if (w <= 0 || h <= 0)
+    if (w < 0 || h < 0)
     {
-        //Gérer l'erreur
+        throw "La taille et la longueur du plateau doivent etre strictement positives";
     }
 }
 
@@ -69,7 +69,6 @@ void Level::setRays(const vector<Ray> & value)
 
 void Level::computeRays()
 {
-
     Point pSource = this->s.getPosition();
     double rad = this->s.getAngle();
     Line ray(pSource, rad);
@@ -78,7 +77,7 @@ void Level::computeRays()
 
     if (intersection == nullptr)
     {
-        std::cout << "null";
+        std::cout << "computeRays() intersection null" << endl;
     }
     else
          std::cout << *intersection;
@@ -88,7 +87,6 @@ void Level::computeRays()
     int dx = pivotX + ((len-xpad) * cos(angle));
     int dy = pivotY + ((len-xpad) * sin(angle));*/
     delete intersection;
-
 }
 
 
@@ -136,8 +134,6 @@ int Level::getWidth()
 /* provisoire */
 Point * Level::getIntersections(const Line& l)
 {
-
-
     double closestDistance =
             Geometry::getDistance(Point(0,0), Point(this->width, this->height)); // distance maximum possible
     double distance;
@@ -146,21 +142,22 @@ Point * Level::getIntersections(const Line& l)
 
     for (auto &i : walls)
     {
-
         Point * p = Geometry::getIntersection(l, LineSegment(i.getStart(), i.getEnd()));
+
         if (p != nullptr && !(*p == l.getPoint()))
         {
             std::cout << "Intersection avec la ligne : " << *p << std::endl;
 
             distance = Geometry::getDistance(*p, l.getPoint());
+
             if (distance <= closestDistance)
             {
                 closestDistance = distance;
                 delete closestPoint;
                 closestPoint = new Point(*p);
             }
-
         }
+
         delete p;
     }
 
@@ -176,12 +173,12 @@ Point * Level::getIntersections(const Line& l)
         int dx = pivotX + ((len-xpad) * cos(angle));
         int dy = pivotY + ((len-xpad) * sin(angle));
 
-
-
         Point * p = Geometry::getIntersection(l, LineSegment(Point(gx, gy), Point(dx, dy)));
+
         if (p != nullptr)
         {
             distance = Geometry::getDistance(*p, l.getPoint());
+
             if (distance <= closestDistance)
             {
                 closestDistance = distance;
@@ -228,9 +225,7 @@ Point * Level::getIntersections(const Line& l)
             }
 
             delete p;
-
         }
-
     }
 
     for (auto &i : nukes)
@@ -256,9 +251,11 @@ Point * Level::getIntersections(const Line& l)
         for (auto &j : segments)
         {
             Point * p = Geometry::getIntersection(l, j);
+
             if (p != nullptr)
             {
                 distance = Geometry::getDistance(*p, l.getPoint());
+
                 if (distance <= closestDistance)
                 {
                     closestDistance = distance;
@@ -268,7 +265,6 @@ Point * Level::getIntersections(const Line& l)
             }
 
             delete p;
-
         }
     }
 
@@ -292,9 +288,11 @@ Point * Level::getIntersections(const Line& l)
         for (auto &j : segments)
         {
             Point * p = Geometry::getIntersection(l, j);
+
             if (p != nullptr)
             {
                 distance = Geometry::getDistance(*p, l.getPoint());
+
                 if (distance <= closestDistance)
                 {
                     closestDistance = distance;
@@ -304,10 +302,8 @@ Point * Level::getIntersections(const Line& l)
             }
 
             delete p;
-
         }
     }
-
 
     return closestPoint;
 }

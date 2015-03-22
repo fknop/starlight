@@ -4,6 +4,10 @@ Lens::Lens(const Point & p, int w, int h, int wlmin, int wlmax) : pos {p},
 width {w}, height {h}, wlmin {wlmin}, wlmax {wlmax}
 {
     // TODO : valider width, height, wlmin et wlmax
+    if (width <= 0 || height <= 0)
+    {
+        throw "La taille et la longueur doivent etre strictement positives";
+    }
 }
 
 const Point & Lens::getPosition() const
