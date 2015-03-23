@@ -6,9 +6,9 @@
 using namespace std;
 
 Level::Level(int w, int h) : width {w}, height {h},
-walls { {{0, 0}, {0, h}}, {{0, h}, {w, h}},
-    {{w, h}, {w, 0}}, {{w, 0}, {0, 0}}
-}
+    walls { {{0, 0}, {0, h}}, {{0, h}, {w, h}},
+{{w, h}, {w, 0}}, {{w, 0}, {0, 0}}
+            }
 {
     //  Taille minimale ?
     if (w <= 0 || h <= 0)
@@ -73,14 +73,14 @@ void Level::computeRays()
     double rad = this->s.getAngle();
     Line ray(pSource, rad);
 
-    Point * intersection = getIntersections(ray);
+    Point * intersection = getClosestIntersection(ray);
 
     if (intersection == nullptr)
     {
         cout << "computeRays() intersection null" << endl;
     }
     else
-         cout << "intersection " << *intersection << endl;
+        cout << "intersection " << *intersection << endl;
     /*int gx = pivotX -  (xpad * cos(angle));
     int gy = pivotY - (xpad * sin(angle));
 
@@ -131,14 +131,10 @@ int Level::getWidth()
     return width;
 }
 
-/* provisoire */
-Point * Level::getIntersections(const Line& l)
+Point * Level::getClosestIntersectionWithWalls(double & closestDistance, const Line& l)
 {
-    double closestDistance =
-            Geometry::getDistance(Point(0,0), Point(this->width, this->height)); // distance maximum possible
-    double distance;
-
     Point * closestPoint = nullptr;
+    double distance;
 
     for (auto &i : walls)
     {
@@ -160,6 +156,15 @@ Point * Level::getIntersections(const Line& l)
 
         delete p;
     }
+
+    return closestPoint;
+}
+
+
+Point * Level::getClosestIntersectionWithMirrors(double & closestDistance, const Line& l)
+{
+    Point * closestPoint = nullptr;
+    double distance;
 
     for (auto &i : mirrors)
     {
@@ -190,6 +195,14 @@ Point * Level::getIntersections(const Line& l)
         delete p;
     }
 
+    return closestPoint;
+}
+
+Point * Level::getClosestIntersectionWithCrystals(double & closestDistance, const Line& l)
+{
+    Point * closestPoint = nullptr;
+    double distance;
+
     for (auto &i : crystals)
     {
         Point center = i.getCenter();
@@ -213,9 +226,11 @@ Point * Level::getIntersections(const Line& l)
         for (auto &j : segments)
         {
             Point * p = Geometry::getIntersection(l, j);
+
             if (p != nullptr)
             {
                 distance = Geometry::getDistance(*p, l.getPoint());
+
                 if (distance <= closestDistance)
                 {
                     closestDistance = distance;
@@ -227,6 +242,14 @@ Point * Level::getIntersections(const Line& l)
             delete p;
         }
     }
+
+    return closestPoint;
+}
+
+Point * Level::getClosestIntersectionWithNukes(double & closestDistance, const Line& l)
+{
+    Point * closestPoint = nullptr;
+    double distance;
 
     for (auto &i : nukes)
     {
@@ -268,6 +291,14 @@ Point * Level::getIntersections(const Line& l)
         }
     }
 
+    return closestPoint;
+}
+
+Point * Level::getClosestIntersectionWithLenses(double & closestDistance, const Line& l)
+{
+    Point * closestPoint = nullptr;
+    double distance;
+
     for (auto &i : lenses)
     {
         Point pos = i.getPosition();
@@ -304,6 +335,69 @@ Point * Level::getIntersections(const Line& l)
             delete p;
         }
     }
+
+    return closestPoint;
+}
+
+
+Point * Level::findClosestPoint(double & oldClosestDistance, double & newClosestDistance, Point * closestPoint, Point * p)
+{
+    if (newClosestDistance < oldClosestDistance)
+    {
+        oldClosestDistance = newClosestDistance;
+        return new Point(*p);
+    }
+    else
+    {
+        newClosestDistance = oldClosestDistance;
+        return closestPoint;
+    }
+}
+
+
+/* provisoire */
+Point * Level::getClosestIntersection(const Line& l)
+{
+    double closestDistance =
+            Geometry::getDistance(Point(0,0), Point(this->width, this->height)); // distance maximum possible
+    double newClosestDistance = closestDistance;
+    Point * closestPoint = nullptr;
+
+
+    Point * wallIntersect = getClosestIntersectionWithWalls(newClosestDistance, l);
+
+    closestPoint = findClosestPoint(closestDistance, newClosestDistance, closestPoint, wallIntersect);
+
+    delete wallIntersect;
+
+
+    Point * mirrorIntersect = getClosestIntersectionWithMirrors(newClosestDistance, l);
+
+    closestPoint = findClosestPoint(closestDistance, newClosestDistance, closestPoint, mirrorIntersect);
+
+    delete mirrorIntersect;
+
+
+    Point * crystalIntersect = getClosestIntersectionWithCrystals(newClosestDistance, l);
+
+    closestPoint = findClosestPoint(closestDistance, newClosestDistance, closestPoint, crystalIntersect);
+
+    delete crystalIntersect;
+
+
+    Point * nukeIntersect = getClosestIntersectionWithNukes(newClosestDistance, l);
+
+    closestPoint = findClosestPoint(closestDistance, newClosestDistance, closestPoint, nukeIntersect);
+
+    delete nukeIntersect;
+
+
+    Point * lensIntersect = getClosestIntersectionWithLenses(newClosestDistance, l);
+
+    closestPoint = findClosestPoint(closestDistance, newClosestDistance, closestPoint, lensIntersect);
+
+    delete lensIntersect;
+
 
     return closestPoint;
 }

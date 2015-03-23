@@ -161,7 +161,13 @@ class Level
 
 
 private:
-    Point * getIntersections(const Line&);
+    Point * getClosestIntersection(const Line&);
+    Point * getClosestIntersectionWithWalls(double &, const Line&);
+    Point * getClosestIntersectionWithMirrors(double &, const Line&);
+    Point * getClosestIntersectionWithCrystals(double &, const Line&);
+    Point * getClosestIntersectionWithNukes(double &, const Line&);
+    Point * getClosestIntersectionWithLenses(double &, const Line&);
+    Point * findClosestPoint(double &, double &, Point *, Point *);
 };
 
 #endif // LEVEL_H
