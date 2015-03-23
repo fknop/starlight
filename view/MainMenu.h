@@ -11,6 +11,7 @@ class Game : public QGraphicsView
 
 public:
     Game(QWidget * parent = NULL);
+    ~Game();
 
     void displayMainMenu();
 

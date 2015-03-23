@@ -22,6 +22,11 @@ Game::Game(QWidget * parent)
     setScene(scene);
 }
 
+Game::~Game()
+{
+    delete scene;
+}
+
 void Game::start()
 {
     //start le jeu dans une nouvelle fenetre  (et ferme cette fenetre ou resize et crée dans la meme)?

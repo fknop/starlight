@@ -1,34 +1,20 @@
 #include "MapReader.h"
 #include <vector>
 
-//MapReader::MapReader(std::string path)
-//{
-//    readFile(path);
-//    assignVectors();
-//}
-
-void MapReader::readFile(std::string path, Level *l)
+Level * MapReader::readFile(std::string path, Level *l)
 {
-    std::cout << "readFile0" << std::endl;
     std::fstream level(path, std::ios::in);
-    std::cout << "readFile1" << std::endl;
 
     if (level)
     {
-        std::cout << "readFile2" << std::endl;
         std::string line;
 
         while(getline(level, line))
         {
-            std::cout << "readFileWhile" << std::endl;
-
             switch (line.at(0))
             {
             // Source
             case 'S':
-                std::cout << "source0" << std::endl;
-                std::cout << l->getHeight() << std::endl;
-                std::cout << "source1" << std::endl;
                 readSourceInfo(line, l);
                 break;
                 // Destination
@@ -57,16 +43,17 @@ void MapReader::readFile(std::string path, Level *l)
                 break;
                 // First line, width + height
             default:
-                readSizesInfo(line, l);
-                std::cout << "default " << l->getHeight() << std::endl;
+                l = readSizesInfo(line);
                 break;
             }
         }
     }
+
+    return l;
 }
 
 
-void MapReader::readSizesInfo(std::string line, Level *l)
+Level* MapReader::readSizesInfo(std::string line)
 {
     int width;
     int height;
@@ -76,8 +63,7 @@ void MapReader::readSizesInfo(std::string line, Level *l)
     iss >> width;
     iss >> height;
 
-    l = new Level(width, height);
-    std::cout << l->getHeight() << std::endl;
+    return new Level(width, height);
 }
 
 void MapReader::readCrystalInfo(std::string line, Level *l)
@@ -96,7 +82,6 @@ void MapReader::readCrystalInfo(std::string line, Level *l)
     iss >> rad;
     iss >> mod;
 
-    //crystals.push_back(Crystal(Point(x,y), rad, mod));
     l->addCrystal(Crystal(Point(x,y), rad, mod));
 }
 
@@ -114,7 +99,6 @@ void MapReader::readDestinationInfo(std::string line, Level *l)
     iss >> y;
     iss >> edge;
 
-    //level->setDestination(Dest(Point(x, y), edge));
     l->setDestination(Dest(Point(x, y), edge));
 }
 
@@ -138,7 +122,6 @@ void MapReader::readLensInfo(std::string line, Level *l)
     iss >> wlmin;
     iss >> wlmax;
 
-    //lenses.push_back((Lens(Point(x,y), width, height, wlmin, wlmax)));
     l->addLens(Lens(Point(x,y), width, height, wlmin, wlmax));
 }
 
@@ -172,9 +155,6 @@ void MapReader::readMirrorInfo(std::string line, Level *l)
     iss >> alphamin;
     iss >> alphamax;
 
-//    mirrors.push_back(Mirror(Point(x,y), length, xpad, alpha,
-//                             Point(xmin, ymin), Point(xmax, ymax),
-//                             alphamin, alphamax));
     l->addMirror(Mirror(Point(x,y), length, xpad, alpha,
                   Point(xmin, ymin), Point(xmax, ymax),
                   alphamin, alphamax));
@@ -194,7 +174,6 @@ void MapReader::readNukeInfo(std::string line, Level *l)
     iss >> y;
     iss >> rad;
 
-    // nukes.push_back(Nuke(Point(x, y), rad));
     l->addNuke(Nuke(Point(x, y), rad));
 }
 
@@ -216,7 +195,6 @@ void MapReader::readSourceInfo(std::string line, Level *l)
     iss >> alpha;
     iss >> wavelength;
 
-    //level->setSource(Source(Point(x,y), edge, alpha, wavelength));
     l->setSource(Source(Point(x,y), edge, alpha, wavelength));
 }
 
@@ -236,24 +214,14 @@ void MapReader::readWallInfo(std::string line, Level *l)
     iss >> x2;
     iss >> y2;
 
-    //walls.push_back(Wall(Point(x1,y1), Point(x2, y2)));
     l->addWall(Wall(Point(x1,y1), Point(x2, y2)));
 }
-
-//void MapReader::assignVectors(Level *l)
-//{
-//    l->setCrystals(crystals);
-//    l->setMirrors(mirrors);
-//    l->setLenses(lenses);
-//    l->setNukes(nukes);
-//    l->setWalls(walls);
-//}
 
 Level * MapReader::getLevel(std::string path)
 {
     Level *l = nullptr;
 
-    readFile(path, l);
+    l = readFile(path, l);
 
     return l;
 }
