@@ -4,6 +4,8 @@
 #include <QIcon>
 #include <QPalette>
 
+#include <iostream>
+
 Game::Game(QWidget * parent)
 {
     this->setWindowTitle("Starlight");
@@ -23,6 +25,7 @@ Game::Game(QWidget * parent)
 void Game::start()
 {
     //start le jeu dans une nouvelle fenetre  (et ferme cette fenetre ou resize et crée dans la meme)?
+    std::cout << "start" << std::endl;
 }
 
 void Game::displayMainMenu()
@@ -40,6 +43,7 @@ void Game::displayMainMenu()
     int playX = this->width() / 2 - playButton->boundingRect().width() /2;
     int playY = 150;
     playButton->setPos(playX, playY);
+    connect(playButton, &Button::clicked, this, &Game::start);
     scene->addItem(playButton);
     //connect to start slot.
 

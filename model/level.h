@@ -146,6 +146,20 @@ class Level
      */
     void computeRays();
 
+    void addMirror(const Mirror & m);
+
+    void addNuke(const Nuke & n);
+
+    void addWall(const Wall & w);
+
+    void addCrystal(const Crystal & c);
+
+    void addLens(const Lens & l);
+
+    void addRay(const Ray & r);
+
+
+
 private:
     Point * getIntersections(const Line&);
 };

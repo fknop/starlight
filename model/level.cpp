@@ -11,9 +11,9 @@ walls { {{0, 0}, {0, h}}, {{0, h}, {w, h}},
 }
 {
     //  Taille minimale ?
-    if (w < 0 || h < 0)
+    if (w <= 0 || h <= 0)
     {
-        throw "La taille et la longueur du plateau doivent etre strictement positives";
+        //throw "La taille et la longueur du plateau doivent etre strictement positives";
     }
 }
 
@@ -306,5 +306,35 @@ Point * Level::getIntersections(const Line& l)
     }
 
     return closestPoint;
+}
+
+void Level::addMirror(const Mirror & m)
+{
+    mirrors.push_back(m);
+}
+
+void Level::addNuke(const Nuke & n)
+{
+    nukes.push_back(n);
+}
+
+void Level::addWall(const Wall & w)
+{
+    walls.push_back(w);
+}
+
+void Level::addCrystal(const Crystal & c)
+{
+    crystals.push_back(c);
+}
+
+void Level::addLens(const Lens & l)
+{
+    lenses.push_back(l);
+}
+
+void Level::addRay(const Ray & r)
+{
+    rays.push_back(r);
 }
 

@@ -70,7 +70,7 @@ class Mirror
      * @param amin l'angle d'inclinaison minimum du miroir.
      * @param amax l'angle d'inclinaison maximum du miroir.
      */
-    Mirror(const Point & p, int len, int x, double a, Point min,
+    Mirror(const Point & p, int x, int len, double a, Point min,
            Point max, double amin, double amax);
 
     /**

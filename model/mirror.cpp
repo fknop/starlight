@@ -7,7 +7,7 @@ Mirror::Mirror(const Point & p, int len, int x, double a)
 
 }
 
-Mirror::Mirror(const Point & p, int len, int x, double a, Point pm,
+Mirror::Mirror(const Point & p, int x, int len, double a, Point pm,
                Point pM, double am, double aM)
     : pivot {p}, length(len), xpad(x), xMin {pm.getX()}, xMax {pM.getX()},
 yMin {pm.getY()}, yMax {pM.getY()}, alpha {a}, alphaMin {am},
@@ -15,7 +15,7 @@ alphaMax {aM}
 {
     if (length <= 0 || xpad <= 0)
     {
-        throw "La longueur et le décalage doivent etre strictement positifs";
+        //throw "La longueur et le décalage doivent etre strictement positifs";
     }
     // TODO : valider length, xpad, (alphaMin et alphaMax),
     //                (alpha et [alphaMin, alphaMax]), (xMin et xMax),
