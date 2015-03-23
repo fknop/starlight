@@ -9,6 +9,7 @@ class GameView : public QWidget
     Q_OBJECT
 public:
     explicit GameView(Level * level, QWidget *parent = 0);
+    ~GameView();
 
 
 private:

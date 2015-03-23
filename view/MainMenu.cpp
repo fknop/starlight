@@ -36,8 +36,8 @@ void Game::start()
 void Game::displayMainMenu()
 {
     QGraphicsTextItem * titleText = new QGraphicsTextItem(tr("Starlight"));
-    QFont titleFont("comic sans", 50);
-    titleText->setFont(titleFont);
+    //QFont titleFont("comic sans", 50);
+    //titleText->setFont(titleFont);
 
     int titleX = this->width() / 2 - titleText->boundingRect().width() /2;
     int titleY = 50;

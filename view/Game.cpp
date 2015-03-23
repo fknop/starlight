@@ -8,6 +8,12 @@ GameView::GameView(Level * level, QWidget *parent) :
     QWidget(parent)
 {
     this->level = level;
+    this->setFixedSize(this->level->getWidth(), this->level->getHeight());
+}
+
+GameView::~GameView()
+{
+    delete level;
 }
 
 
@@ -30,10 +36,10 @@ void GameView::drawRect(QPainter *p, int posX, int posY, int width, int height)
 /**
  * @brief MainWindow::drawSegment Trace un segment de droite entre 2 points.
  * @param p le QPainter dans lequel placer le segment.
- * @param x1 abscisse premier point
- * @param y1 ordonnée premier point
- * @param x2 abscisse deuxième point
- * @param y2 ordonnée deuxième point
+ * @param x1 abscisse du premier point.
+ * @param y1 ordonnée du premier point.
+ * @param x2 abscisse du deuxième point.
+ * @param y2 ordonnée du deuxième point.
  */
 void GameView::drawSegment(QPainter *p, int x1, int y1, int x2, int y2)
 {
@@ -68,10 +74,9 @@ void GameView::paintEvent(QPaintEvent *event)
 {
     //create a QPainter and pass a pointer to the device.
     //A paint device can be a QWidget, a QPixmap or a QImage
+
     QPainter painter(this);
     painter.setRenderHint(QPainter::Antialiasing, true);
-
-   this->setFixedSize(this->level->getWidth(), this->level->getHeight());
 
     Source s = level->getSource();
     Dest d = level->getDestination();

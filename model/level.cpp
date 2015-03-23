@@ -77,10 +77,10 @@ void Level::computeRays()
 
     if (intersection == nullptr)
     {
-        std::cout << "computeRays() intersection null" << endl;
+        cout << "computeRays() intersection null" << endl;
     }
     else
-         std::cout << *intersection;
+         cout << "intersection " << *intersection << endl;
     /*int gx = pivotX -  (xpad * cos(angle));
     int gy = pivotY - (xpad * sin(angle));
 
@@ -219,7 +219,7 @@ Point * Level::getIntersections(const Line& l)
                 if (distance <= closestDistance)
                 {
                     closestDistance = distance;
-                    delete closestPoint;    // vérifier
+                    delete closestPoint;
                     closestPoint = new Point(*p);
                 }
             }
@@ -259,7 +259,7 @@ Point * Level::getIntersections(const Line& l)
                 if (distance <= closestDistance)
                 {
                     closestDistance = distance;
-                    delete closestPoint;    // vérifier
+                    delete closestPoint;
                     closestPoint = new Point(*p);
                 }
             }
@@ -296,7 +296,7 @@ Point * Level::getIntersections(const Line& l)
                 if (distance <= closestDistance)
                 {
                     closestDistance = distance;
-                    delete closestPoint;    // vérifier
+                    delete closestPoint;
                     closestPoint = new Point(*p);
                 }
             }
