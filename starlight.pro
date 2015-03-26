@@ -23,7 +23,8 @@ SOURCES += main.cpp \
     model/linesegment.cpp \
     view/Button.cpp \
     view/MainMenu.cpp \
-    view/Game.cpp
+    view/Game.cpp \
+    view/Mirror.cpp
 
 HEADERS += \
     MapReader.h \
@@ -43,7 +44,8 @@ HEADERS += \
     model/linesegment.h \
     view/Button.h \
     view/MainMenu.h \
-    view/Game.hpp
+    view/Game.hpp \
+    view/Mirror.hpp
 
 FORMS += \
     view/starlightui.ui

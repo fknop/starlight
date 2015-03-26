@@ -96,10 +96,8 @@ void GameView::paintEvent(QPaintEvent *event)
         int len = i.getLength();
 
         drawMirror(&painter, pivotX, pivotY, len, xpad, angle);
-
-
-
     }
+
 
     for (auto &i : this->level->getWalls())
     {
@@ -118,17 +116,15 @@ void GameView::paintEvent(QPaintEvent *event)
         drawEllipse(&painter, i.getLocation().getX(), i.getLocation().getY(), i.getRadius());
     }
 
+
     for (auto &i : this->level->getCrystals())
     {
         drawEllipse(&painter, i.getCenter().getX(), i.getCenter().getY(), i.getRadius());
     }
 
+
     for (auto &i : this->level->getLenses())
     {
         drawRect(&painter, i.getPosition().getX(), i.getPosition().getY(), i.getWidth(), i.getHeight());
     }
-
-
-
-
 }
