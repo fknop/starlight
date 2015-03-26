@@ -75,7 +75,7 @@ void GameView::drawMirror(QPainter *p, int pivotX, int pivotY, int xpad, int len
 
 //    std::cout << "distance " << Geometry::getDistance(Point(gx, gy), Point(dx, dy)) << std::endl;
 
-//    p->drawPoint(QPointF(pivotX + 5, pivotY + 5));
+
 
     QPoint bordGauche2(gx + 25, gy + 25);
     QPoint bordDroit2(dx - 25, dy - 25);
@@ -84,9 +84,19 @@ void GameView::drawMirror(QPainter *p, int pivotX, int pivotY, int xpad, int len
     p->drawRect(rect);
     p->fillRect(rect, QColor(128, 128, 255, 128));
 
+    QPen myPen(Qt::red);
+    myPen.setWidth(5);
+    p->setPen(myPen);
+    //p->setBrush(Qt::NoBrush);
 
-    p->setPen(Qt::red);
+    p->drawPoint(QPointF(pivotX, pivotY));
+
+    myPen.setWidth(1);
+    //myPen.setColor(Qt::black);
+    p->setPen(myPen);
+
     p->drawLine(bordGauche, bordDroit);
+
     p->setPen(nullptr);
 }
 
