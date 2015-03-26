@@ -4,6 +4,11 @@
 #include <QPainter>
 #include <QPushButton>
 
+#include <QtCore> // couleur miroir, to delete
+
+
+#include <model/Geometry.h>
+
 GameView::GameView(Level * level, QWidget *parent) :
     QWidget(parent)
 {
@@ -47,22 +52,42 @@ void GameView::drawSegment(QPainter *p, int x1, int y1, int x2, int y2)
 }
 
 
-void GameView::drawMirror(QPainter *p, int pivotX, int pivotY, int len, int xpad, double angle)
+void GameView::drawMirror(QPainter *p, int pivotX, int pivotY, int xpad, int len, double angle)
 {
     //QPointF pivot(pivotX, pivotY);
+    std::cout << "new mirror on " << pivotX << " " << pivotY << std::endl;
+    std::cout << (len) << " " << (xpad) << " " << cos(angle) << " " << sin(angle) << std::endl;
 
 
-    int gx = pivotX -  (xpad * cos(angle));
+    int gx = pivotX - (xpad * cos(angle));
     int gy = pivotY - (xpad * sin(angle));
     int dx = pivotX + ((len-xpad) * cos(angle));
     int dy = pivotY + ((len-xpad) * sin(angle));
+
+
+//    p->drawLine(100,100,158,100);
 
 
     QPoint bordGauche(gx, gy);
     QPoint bordDroit (dx, dy);
 
 
+
+//    std::cout << "distance " << Geometry::getDistance(Point(gx, gy), Point(dx, dy)) << std::endl;
+
+//    p->drawPoint(QPointF(pivotX + 5, pivotY + 5));
+
+    QPoint bordGauche2(gx + 25, gy + 25);
+    QPoint bordDroit2(dx - 25, dy - 25);
+
+    QRectF rect(bordGauche2, bordDroit2);
+    p->drawRect(rect);
+    p->fillRect(rect, QColor(128, 128, 255, 128));
+
+
+    p->setPen(Qt::red);
     p->drawLine(bordGauche, bordDroit);
+    p->setPen(nullptr);
 }
 
 void GameView::drawEllipse(QPainter *p, int x, int y, int rad)
@@ -95,7 +120,7 @@ void GameView::paintEvent(QPaintEvent *event)
         int pivotY = i.getPivot().getY();
         int len = i.getLength();
 
-        drawMirror(&painter, pivotX, pivotY, len, xpad, angle);
+        drawMirror(&painter, pivotX, pivotY, xpad, len, angle);
     }
 
 

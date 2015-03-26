@@ -16,7 +16,7 @@ private:
     void paintEvent(QPaintEvent *event);
     void drawSegment(QPainter *p, int x1, int y1, int x2, int y2);
     void drawRect(QPainter *p, int posX, int posY, int width, int height);
-    void drawMirror(QPainter *p, int pivotX, int pivotY, int len, int xpad, double angle);
+    void drawMirror(QPainter *p, int pivotX, int pivotY, int xpad, int len, double angle);
     void drawEllipse(QPainter *p, int x, int y, int rad);
     Level * level;
 

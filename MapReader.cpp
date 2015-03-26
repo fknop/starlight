@@ -155,7 +155,7 @@ void MapReader::readMirrorInfo(std::string line, Level *l)
     iss >> alphamin;
     iss >> alphamax;
 
-    l->addMirror(Mirror(Point(x,y), length, xpad, alpha,
+    l->addMirror(Mirror(Point(x,y), xpad, length, alpha,
                   Point(xmin, ymin), Point(xmax, ymax),
                   alphamin, alphamax));
 }
