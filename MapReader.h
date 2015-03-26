@@ -11,19 +11,26 @@ class MapReader
 {
 
 private:
-    static Level *readFile(std::string, Level *l);
-    static void readSourceInfo(std::string, Level *l);
-    static void readWallInfo(std::string, Level *l);
-    static void readDestinationInfo(std::string, Level *l);
-    static void readNukeInfo(std::string, Level *l);
-    static void readCrystalInfo(std::string, Level *l);
-    static void readMirrorInfo(std::string, Level *l);
-    static void readLensInfo(std::string, Level *l);
-    static Level *readSizesInfo(std::string);
+
+    static Level *l;
+
+
+    static void readFile(std::string);
+    static void readSourceInfo(std::string);
+    static void readWallInfo(std::string);
+    static void readDestinationInfo(std::string);
+    static void readNukeInfo(std::string);
+    static void readCrystalInfo(std::string);
+    static void readMirrorInfo(std::string);
+    static void readLensInfo(std::string);
+    static void readSizesInfo(std::string);
+
 
 
 public:
     static Level * getLevel(std::string);
+    static void endLevel();
+
 
 };
 

@@ -35,9 +35,9 @@ void Point::setLocation(int a, int b)
     y = b;
 }
 
-bool Point::isInvalid() const
+bool operator <(const Point& p1, const Point& p2)
 {
-    return x < 0 || y < 0;
+    return p1.x < p2.x || p1.y < p2.y;
 }
 
 std::ostream & operator<<(std::ostream & out, const Point & p)

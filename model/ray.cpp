@@ -11,7 +11,12 @@ Ray::Ray(const Point & p1, const Point & p2) : Ray {p1, p2, Ray::WL_DFT}
 Ray::Ray(const Point & p1, const Point & p2, int wl) : start {p1},
 end {p2}, wavelength {wl}
 {
-    // TODO : valider wavelength, (start et end ?)
+    if (wl < WL_MIN || wl > WL_MAX)
+        throw "Longueur d'onde invalide";
+
+    if (p1 < Point(0, 0) || p2 < Point(0, 0))
+        throw "Un rayon ne peut pas sortir de la zone de jeu";
+
 }
 
 const Point & Ray::getStart() const

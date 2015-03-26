@@ -13,14 +13,18 @@ Mirror::Mirror(const Point & p, int x, int len, double a, Point pm,
       yMin {pm.getY()}, yMax {pM.getY()}, alpha {a}, alphaMin {am},
       alphaMax {aM}
 {
-    if (length <= 0 || xpad <= 0)
-    {
-        //throw "La longueur et le décalage doivent etre strictement positifs";
-    }
-    // TODO : valider length, xpad, (alphaMin et alphaMax),
-    //                (alpha et [alphaMin, alphaMax]), (xMin et xMax),
-    //                (x et [xMin, xMax]), (yMin et yMax),
-    //                (y et [yMin, yMax])
+    if (length <= 0 || xpad < 0)
+        throw "La longueur et le décalage doivent etre positifs";
+
+    std::cout << p.getX() << std::endl;
+    std::cout << p.getY() << std::endl;
+    std::cout << "xMin : " << xMin << " yMin : " << yMin << " xMax : " << xMax << " yMax " << yMax << std::endl;
+//    if (p.getX() < xMin || p.getX() > xMax
+//            || p.getY() < yMin || p.getY() > yMax)
+//        throw "La position du miroir est invalide. Il n'est pas compris entre les bornes.";
+    // Erreur dans le .lvl -> min est plus grand que max ? -> l'avant avant dernier
+    if (alpha < alphaMin || alpha > alphaMax)
+        throw "L'inclinaison du mirroir est invlaide. Elle n'est pas comprise entre les bornes.";
 }
 
 const Point & Mirror::getPivot() const

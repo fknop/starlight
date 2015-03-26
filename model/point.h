@@ -62,11 +62,17 @@ class Point
      */
     void setLocation(int x, int y);
 
+
     /**
-     * Retourne faux si le point possède une coordonnée négative.
-     * @return faux si le point possède une coordonnée négative, vrai sinon.
+     * Redéfinit l'opérateur <.
+     * Renvoie vrai si une des coordonnées est plus petite que
+     * l'une des coordonnées d'un autre point.
+     * @param p1 un premier point.
+     * @param p2 un deuxième point.
+     * @return vrai si l'une des coordonnées de p1 est plus petite que
+     * l'une des coordonnées de p2.
      */
-    bool isInvalid() const;
+    friend bool operator <(const Point& p1, const Point& p2);
 
     /**
      * Surcharge l'opérateur de flux de sortie pour afficher un

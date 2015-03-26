@@ -3,6 +3,7 @@
 Nuke::Nuke(const Point & p, int r) : pos {p}, rad {r}
 {
     // TODO : valider rad
+
 }
 
 const Point &Nuke::getLocation() const
