@@ -430,3 +430,8 @@ void Level::addRay(const Ray & r)
     rays.push_back(r);
 }
 
+void Level::notify(Observable * obs)
+{
+
+}
+

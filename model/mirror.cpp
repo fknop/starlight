@@ -107,19 +107,15 @@ void Mirror::rotate(double angle)
 {
 
 
-    PolarPoint p(pivot);
-    double distance = p.getDistance();
-    p.setDistance(0);
-    p.setAngle(p.getAngle() + angle);
-    p.setDistance(distance);
+//    PolarPoint p(pivot);
+//    double distance = p.getDistance();
+//    p.setDistance(0);
+//    p.setAngle(p.getAngle() + angle);
+//    p.setDistance(distance);
 
-    pivot = *p.toPoint();
-
-
+    //pivot = *p.toPoint();
 
 
-    //if (checkAngleRange(alpha + angle))
-        // translate le mirroir , modifie l'inclinaison et le retranslate
 }
 
 void Mirror::translate(double x, double y)

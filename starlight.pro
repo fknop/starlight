@@ -7,7 +7,6 @@ TEMPLATE = app
 
 SOURCES += main.cpp \
     MapReader.cpp \
-    view/starlightui.cpp \
     model/crystal.cpp \
     model/dest.cpp \
     model/Geometry.cpp \
@@ -23,7 +22,6 @@ SOURCES += main.cpp \
     model/linesegment.cpp \
     view/Button.cpp \
     view/MainMenu.cpp \
-    view/Game.cpp \
     view/WallView.cpp \
     view/MapView.cpp \
     view/MirrorView.cpp \
@@ -31,12 +29,12 @@ SOURCES += main.cpp \
     view/SourceView.cpp \
     view/DestinationView.cpp \
     view/NukesView.cpp \
-    model/polarpoint.cpp
+    model/polarpoint.cpp \
+    obs/observable.cpp
 
 
 HEADERS += \
     MapReader.h \
-    view/starlightui.hpp \
     model/crystal.h \
     model/dest.h \
     model/Geometry.h \
@@ -52,7 +50,6 @@ HEADERS += \
     model/linesegment.h \
     view/Button.h \
     view/MainMenu.h \
-    view/Game.hpp \
     view/WallView.h \
     view/MirrorView.h \
     view/MapView.h \
@@ -60,10 +57,11 @@ HEADERS += \
     view/SourceView.h \
     view/DestinationView.h \
     view/NukesView.h \
-    model/polarpoint.h
+    model/polarpoint.h \
+    obs/observer.h \
+    obs/observable.h
 
 
-FORMS += \
-    view/starlightui.ui
+FORMS +=
 
 QMAKE_CXXFLAGS += -std=c++0x -Wall -Wextra -pedantic

@@ -14,7 +14,7 @@
 
 #include <vector>
 #include <unordered_map>
-
+#include "obs/observable.h"
 
 /**
  * Modélise une carte telle qu'utilisée dans le jeu.
@@ -22,7 +22,7 @@
  * Une carte est un ensemble de composants tels que des murs,
  * des miroirs, etc.
  */
-class Level
+class Level : public Observable
 {
     const int width;
     const int height;
@@ -158,6 +158,7 @@ class Level
 
     void addRay(const Ray & r);
 
+    void notify(Observable*);
 
 
 private:
