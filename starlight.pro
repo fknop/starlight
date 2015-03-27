@@ -24,8 +24,9 @@ SOURCES += main.cpp \
     view/Button.cpp \
     view/MainMenu.cpp \
     view/Game.cpp \
-    view/Mirror.cpp \
-    view/Map.cpp
+    view/WallView.cpp \
+    view/MapView.cpp \
+    view/MirrorView.cpp
 
 HEADERS += \
     MapReader.h \
@@ -46,8 +47,9 @@ HEADERS += \
     view/Button.h \
     view/MainMenu.h \
     view/Game.hpp \
-    view/Mirror.hpp \
-    view/Map.hpp
+    view/WallView.h \
+    view/MirrorView.h \
+    view/MapView.h
 
 FORMS += \
     view/starlightui.ui

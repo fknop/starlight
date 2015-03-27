@@ -1,15 +1,15 @@
-#ifndef MIRROR_HPP
-#define MIRROR_HPP
+#ifndef MirrorView_HPP
+#define MirrorView_HPP
 
 #include <QGraphicsView>
 #include <QGraphicsLineItem>
 
 #include <QGraphicsSceneMouseEvent>
 
-class GraphicsLineItem : public QGraphicsLineItem
+class MirrorView : public QGraphicsLineItem
 {
 public:
-    GraphicsLineItem();
+    MirrorView(int pivotX, int pivotY, int xpad, int len, double angle);
 
     void mousePressEvent(QGraphicsSceneMouseEvent *event);
     void mouseMoveEvent(QGraphicsSceneMouseEvent *event);
@@ -21,4 +21,4 @@ private:
 };
 
 
-#endif // MIRROR_HPP
+#endif // MirrorView_HPP
