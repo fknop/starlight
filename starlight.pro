@@ -28,7 +28,11 @@ SOURCES += main.cpp \
     view/MapView.cpp \
     view/MirrorView.cpp \
     model/ellipse.cpp \
+    view/SourceView.cpp \
+    view/DestinationView.cpp \
+    view/NukesView.cpp \
     model/polarpoint.cpp
+
 
 HEADERS += \
     MapReader.h \
@@ -53,6 +57,9 @@ HEADERS += \
     view/MirrorView.h \
     view/MapView.h \
     model/ellipse.h \
+    view/SourceView.h \
+    view/DestinationView.h \
+    view/NukesView.h \
     model/polarpoint.h
 
 

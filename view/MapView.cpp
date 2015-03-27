@@ -1,6 +1,8 @@
 #include <QGraphicsScene>
+#include "view/DestinationView.h"
 #include "view/MapView.h"
 #include "view/MirrorView.h"
+#include "view/SourceView.h"
 #include "view/WallView.h"
 
 #include <iostream>
@@ -10,6 +12,16 @@ GraphicsView::GraphicsView(Level *level) : level{level}
     QGraphicsScene *scene = new QGraphicsScene(0,0,this->level->getWidth(), this->level->getHeight());
     setScene(scene);
     setFixedSize(this->level->getWidth(), this->level->getHeight());
+
+    Source s = level->getSource();
+    Dest d = level->getDestination();
+
+    SourceView *source = new SourceView(s.getPosition().getX(), s.getPosition().getY(), s.getEdge(), s.getEdge());
+    DestinationView *dest = new DestinationView(d.getPosition().getX(), d.getPosition().getY(), d.getEdge(), d.getEdge());
+
+    scene->addItem(source);
+    scene->addItem(dest);
+
 
     for (auto &i : this->level->getWalls())
     {
