@@ -1,7 +1,7 @@
 #include "source.h"
 #include "ray.h"
 
-Source::Source(const Point & p, int e, double a, int wl) : pos {p},
+Source::Source(const Point & p, double e, double a, int wl) : pos {p},
     alpha {a}, edge {e}, wavelength {wl}
 {
     if (wl < 360 || wl > 830)

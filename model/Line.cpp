@@ -7,7 +7,7 @@
 Line::Line(const Point& p, double rad)
 {
    this->p = p;
-   this->slope = Geometry::getSlopeFromRadian(rad);
+   this->slope = Geometry::getSlope(rad);
    // y = ax + b
    // b = y - ax
    this->b = this->p.getY() - (this->slope * this->p.getX());
@@ -16,7 +16,7 @@ Line::Line(const Point& p, double rad)
 Line::Line(const Point& p1, const Point& p2)
 {
    this->p = p1;
-   this->slope = Geometry::findSlope(p1, p2);
+   this->slope = Geometry::getSlope(p1, p2);
    // y = ax + b
    // b = y - ax
    this->b = this->p.getY() - (this->slope * this->p.getX());

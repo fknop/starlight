@@ -14,11 +14,10 @@ MirrorView::MirrorView(int pivotX, int pivotY, int xpad, int len, double angle)
     int dx = pivotX + ((len-xpad) * cos(angle));
     int dy = pivotY + ((len-xpad) * sin(angle));
 
-    this->setTransformOriginPoint(QPointF(pivotX, pivotY));
+    setTransformOriginPoint(QPointF(pivotX, pivotY));
     QPen myPen(Qt::red);
 
     setPen(myPen);
-    //line = QLineF(gx, gy, dx, dy);
     setLine(gx, gy, dx, dy);
 
 }

@@ -1,24 +1,29 @@
 #include "linesegment.h"
 #include "Geometry.h"
 
-LineSegment::LineSegment(const Point& p1, const Point& p2)
+LineSegment::LineSegment(const Point& start, const Point& end)
 {
-    this->p1 = p1;
-    this->p2 = p2;
-    this->slope = Geometry::findSlope(p1, p2);
+    this->start = start;
+    this->end = end;
+
 }
 
-const Point& LineSegment::getP1() const
+const Point& LineSegment::getStart() const
 {
-    return this->p1;
+    return this->start;
 }
 
-const Point& LineSegment::getP2() const
+const Point& LineSegment::getEnd() const
 {
-    return this->p2;
+    return this->end;
 }
 
-double LineSegment::getSlope() const
+void LineSegment::setStart(const Point& start)
 {
-    return this->slope;
+    this->start = start;
+}
+
+void LineSegment::setEnd(const Point &end)
+{
+    this->end = end;
 }

@@ -19,7 +19,7 @@ class Source
     bool on {false};
     Point pos;
     double alpha;
-    int edge;
+    double edge;
     int wavelength;
 
   public:
@@ -42,7 +42,7 @@ class Source
      * @see Ray::WL_MAX
      * @see Ray::WL_DFT
      */
-    Source(const Point & p, int e, double a, int wl);
+    Source(const Point & p, double e, double a, int wl);
 
     /**
      * Retourne la coordonnée du coin supérieur gauche du carré

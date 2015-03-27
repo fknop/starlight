@@ -19,15 +19,15 @@
 class Mirror
 {
     Point pivot;
-    int length;
-    int xpad;
-    int xMin {0};
-    int xMax {0};
-    int yMin {0};
-    int yMax {0};
+    double length;
+    double xpad;
+    double xMin {.0};
+    double xMax {.0};
+    double yMin {.0};
+    double yMax {.0};
     double alpha;
-    double alphaMin {0};
-    double alphaMax {0};
+    double alphaMin {.0};
+    double alphaMax {.0};
 
   public:
     /**
@@ -43,7 +43,7 @@ class Mirror
      *          du miroir.
      * @param a l'angle d'inclinaison du miroir.
      */
-    Mirror(const Point & p, int len, int x, double a);
+    Mirror(const Point & p, double len, double x, double a);
 
     /**
      * Instancie un miroir en une position donnée, d'une certaine
@@ -70,7 +70,7 @@ class Mirror
      * @param amin l'angle d'inclinaison minimum du miroir.
      * @param amax l'angle d'inclinaison maximum du miroir.
      */
-    Mirror(const Point & p, int x, int len, double a, Point min,
+    Mirror(const Point & p, double x, double len, double a, Point min,
            Point max, double amin, double amax);
 
     /**
@@ -83,7 +83,7 @@ class Mirror
      * Retourne la longueur du miroir.
      * @return la longueur du miroir
      */
-    int getLength() const;
+    double getLength() const;
 
     /**
      * Retourne le décalage du pivot par rapport au bord gauche
@@ -91,7 +91,7 @@ class Mirror
      * @return le décalage du pivot par rapport au bord gauche
      * du miroir.
      */
-    int getXPad() const;
+    double getXPad() const;
 
     /**
      * Retourne l'inclinaison du miroir.

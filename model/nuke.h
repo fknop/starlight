@@ -13,7 +13,7 @@
 class Nuke
 {
     Point pos;
-    int rad;
+    double rad;
     bool light {false};
 
   public:
@@ -23,7 +23,7 @@ class Nuke
      * @param p la position de la bombe.
      * @param r le rayon de la bombe.
      */
-    Nuke(const Point & p, int r);
+    Nuke(const Point & p, double r);
 
     /**
      * Retourne la position de la bombe.
@@ -35,7 +35,7 @@ class Nuke
      * Retourne le rayon de la bombe.
      * @return le rayon de la bombe.
      */
-    int getRadius() const;
+    double getRadius() const;
 
     /**
      * Retourne vrai si la bombe est illuminée, faux sinon.

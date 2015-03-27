@@ -5,35 +5,40 @@
 
 class LineSegment
 {
-    Point p1;
-    Point p2;
-    double slope;
+    Point start;
+    Point end;
 
 public:
     /**
      * Instancie un segment de droite sur base de 2 points.
-     * @param p1 une extrémité du segment.
-     * @param p2 la seconde extrémité du segment.
+     * @param start une extrémité du segment.
+     * @param end la seconde extrémité du segment.
      */
-    LineSegment(const Point& p1, const Point& p2);
+    LineSegment(const Point& start, const Point& end);
 
     /**
      * Retourne la première extrémité du segment.
      * @return la première extrémité du segment.
      */
-    const Point& getP1() const;
+    const Point& getStart() const;
 
     /**
      * Retourne la seconde extrémité du segment.
      * @return la seconde extrémité du segment.
      */
-    const Point& getP2() const;
+    const Point& getEnd() const;
 
     /**
-     * Retourne la pente du segment.
-     * @return la pente du segment.
+     * Modifie le point de début du segment.
+     * @param start le nouveau point de début du segment.
      */
-    double getSlope() const;
+    void setStart(const Point& start);
+
+    /**
+     * Modifie le point de fin du segment.
+     * @param end le nouveau point de fin du segment.
+     */
+    void setEnd(const Point& end);
 };
 
 #endif // LINESEGMENT_H

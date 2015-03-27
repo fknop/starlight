@@ -1,6 +1,6 @@
 #include "nuke.h"
 
-Nuke::Nuke(const Point & p, int r) : pos {p}, rad {r}
+Nuke::Nuke(const Point & p, double r) : pos {p}, rad {r}
 {
     // TODO : valider rad
 
@@ -11,7 +11,7 @@ const Point &Nuke::getLocation() const
     return pos;
 }
 
-int Nuke::getRadius() const
+double Nuke::getRadius() const
 {
     return rad;
 }

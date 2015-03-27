@@ -13,7 +13,7 @@
 class Dest
 {
     Point pos;
-    int edge;
+    double edge;
     bool light {false};
 
   public:
@@ -23,7 +23,7 @@ class Dest
      *        la destination.
      * @param e la longueur du côté du carré.
      */
-    Dest(const Point & p, int e);
+    Dest(const Point & p, double e);
 
     /**
      * Retourne la position du coin supérieur gauche du carré.
@@ -36,7 +36,7 @@ class Dest
      * Retourne la longueur du côté du carré.
      * @return la longueur du côté du carré.
      */
-    int getEdge() const;
+    double getEdge() const;
 
     /**
      * Retourne vrai si la destination est illuminée,

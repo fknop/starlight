@@ -17,7 +17,7 @@
 class Crystal
 {
     Point center;
-    int rad;
+    double rad;
     int mod;
 
   public:
@@ -29,7 +29,7 @@ class Crystal
      * @param r le rayon du cristal.
      * @param m le modificateur de longueur d'onde du cristal.
      */
-    Crystal(const Point & p, int r, int m);
+    Crystal(const Point & p, double r, int m);
 
     /**
      * Retourne la coordonnée du centre du cristal.
@@ -47,7 +47,7 @@ class Crystal
      * Retourne le rayon du cristal.
      * @return le rayon du cristal.
      */
-    int getRadius() const;
+    double getRadius() const;
 
     /**
      * Surcharge l'opérateur de flux de sortie pour afficher.

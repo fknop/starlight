@@ -5,10 +5,9 @@
 
 using namespace std;
 
-Level::Level(int w, int h) : width {w}, height {h},
-    walls { {{0, 0}, {0, h}}, {{0, h}, {w, h}},
-{{w, h}, {w, 0}}, {{w, 0}, {0, 0}}
-            }
+Level::Level(double w, double h) : width {w}, height {h},
+    walls { {{.0, .0}, {.0, h}}, {{.0, h}, {w, h}},
+            {{w, h}, {w, .0}}, {{w, .0}, {.0, .0}} }
 {
     if (w <= 0 || h <= 0)
         throw "La taille et la longueur "
@@ -430,8 +429,8 @@ void Level::addRay(const Ray & r)
     rays.push_back(r);
 }
 
-void Level::notify(Observable * obs)
-{
+//void Level::notify(Observable * obs)
+//{
 
-}
+//}
 

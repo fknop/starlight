@@ -1,13 +1,13 @@
 #include "mirror.h"
 #include <iostream>
 
-Mirror::Mirror(const Point & p, int len, int x, double a)
-    : Mirror {p, len, x, a, {0, 0}, {0, 0}, 0, 0}
+Mirror::Mirror(const Point & p, double len, double x, double a)
+    : Mirror {p, len, x, a, {.0, .0}, {.0, .0}, .0, .0}
 {
 
 }
 
-Mirror::Mirror(const Point & p, int x, int len, double a, Point pm,
+Mirror::Mirror(const Point & p, double x, double len, double a, Point pm,
                Point pM, double am, double aM)
     : pivot {p}, length(len), xpad(x), xMin {pm.getX()}, xMax {pM.getX()},
       yMin {pm.getY()}, yMax {pM.getY()}, alpha {a}, alphaMin {am},
@@ -29,12 +29,12 @@ const Point & Mirror::getPivot() const
     return pivot;
 }
 
-int Mirror::getLength() const
+double Mirror::getLength() const
 {
     return length;
 }
 
-int Mirror::getXPad() const
+double Mirror::getXPad() const
 {
     return xpad;
 }

@@ -24,11 +24,11 @@
  */
 class Level : public Observable
 {
-    const int width;
-    const int height;
+    const double width;
+    const double height;
 
-    Source s {{0, 0}, -1, 5, 600};
-    Dest d {{0, 0}, 5};
+    Source s {{.0, .0}, -1, 5, 600};
+    Dest d {{.0, .0}, 5};
 
     std::vector<Wall> walls;
     std::vector<Mirror> mirrors;
@@ -53,7 +53,7 @@ class Level : public Observable
      * @param w la largeur de la carte.
      * @param h la hauteur de la carte.
      */
-    Level(int w, int h);
+    Level(double w, double h);
 
     /**
      * Retourne la source de la carte.

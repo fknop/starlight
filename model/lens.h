@@ -19,8 +19,8 @@ class Lens
 {
     Point pos;
 
-    int width;
-    int height;
+    double width;
+    double height;
 
     int wlmin;
     int wlmax;
@@ -38,7 +38,7 @@ class Lens
      * @param wlmax la longueur d'onde maximale des rayons
      *              autorisés à franchir la lentille.
      */
-    Lens(const Point & p, int w, int h, int wlmin, int wlmax);
+    Lens(const Point & p, double w, double h, int wlmin, int wlmax);
 
     /**
      * Retourne la position du coin supérieur gauche du
@@ -52,13 +52,13 @@ class Lens
      * Retourne la largeur de la lentille.
      * @return la largeur de la lentille.
      */
-    int getWidth() const;
+    double getWidth() const;
 
     /**
      * Retourne la hauteur de la lentille.
      * @return la hauteur de la lentille.
      */
-    int getHeight() const;
+    double getHeight() const;
 
     /**
      * Retourne la longueur d'onde minimale des rayons

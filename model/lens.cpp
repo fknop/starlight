@@ -1,12 +1,16 @@
 #include "lens.h"
 
-Lens::Lens(const Point & p, int w, int h, int wlmin, int wlmax) : pos {p},
+Lens::Lens(const Point & p, double w, double h, int wlmin, int wlmax) : pos {p},
 width {w}, height {h}, wlmin {wlmin}, wlmax {wlmax}
 {
-    // TODO : valider width, height, wlmin et wlmax
+    if (wlmin > wlmax)
+    {
+        throw "La longueur d'onde minimale ne peut pas être plus grande que "
+        "la longueur d'onde maximale";
+    }
     if (width <= 0 || height <= 0)
     {
-        //throw "La taille et la longueur doivent etre strictement positives";
+        throw "La taille et la longueur doivent etre strictement positives";
     }
 }
 
@@ -15,12 +19,12 @@ const Point & Lens::getPosition() const
     return pos;
 }
 
-int Lens::getWidth() const
+double Lens::getWidth() const
 {
     return width;
 }
 
-int Lens::getHeight() const
+double Lens::getHeight() const
 {
     return height;
 }

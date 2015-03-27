@@ -21,7 +21,7 @@ public:
      * @param rad un angle en radians.
      * @return un angle en degrés.
      */
-    static double radToDegree(double rad);
+    static double getDegrees(double rad);
 
     /**
      * Retrouve la pente d'un segment entre deux points.
@@ -29,14 +29,14 @@ public:
      * @param p2 le deuxième point.
      * @return la pente du segment constitué des deux points donnés.
      */
-    static double findSlope(const Point& p1, const Point& p2);
+    static double getSlope(const Point& p1, const Point& p2);
 
     /**
      * Transforme un angle en radian en une pente.
      * @param rad l'angle en radian.
      * @return la pente d'un angle.
      */
-    static double getSlopeFromRadian(double rad);
+    static double getSlope(double rad);
 
 
     /**

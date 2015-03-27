@@ -1,7 +1,7 @@
 #include "crystal.h"
 
 
-Crystal::Crystal(const Point & p, int r, int m) : center {p}, rad {r},
+Crystal::Crystal(const Point & p, double r, int m) : center {p}, rad {r},
 mod {m}
 {
     // TODO : valider rad (et mod ?)
@@ -17,7 +17,7 @@ int Crystal::getModifier() const
     return mod;
 }
 
-int Crystal::getRadius() const
+double Crystal::getRadius() const
 {
     return rad;
 }
