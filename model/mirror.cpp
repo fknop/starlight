@@ -105,6 +105,7 @@ bool Mirror::checkPivotRange(const Point & p) const
 
 void Mirror::rotate(double angle)
 {
+
     //if (checkAngleRange(alpha + angle))
         // translate le mirroir , modifie l'inclinaison et le retranslate
 }
@@ -120,6 +121,7 @@ void Mirror::translate(double x, double y)
             newX = xMin;
         else if (newX > xMax)
             newY = xMax;
+
         if (newY < yMin)
             newY = yMin;
         else if (newY > yMax)

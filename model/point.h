@@ -69,6 +69,8 @@ class Point
      */
     double distance(const Point &p);
 
+
+
     /**
      * Redéfinit l'opérateur <.
      * Renvoie vrai si une des coordonnées est plus petite que
