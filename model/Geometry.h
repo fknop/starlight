@@ -54,6 +54,12 @@ public:
      * @return le point d’intersection entre la ligne et le segment.
      */
     static Point* getIntersection(const Line& l, const LineSegment& li);
+
+    static double getAngle(const Point& p1, const Point& p2);
+
+    static double getAngle(double slope);
+
+    static double getRadians(double degrees);
 };
 
 #endif // GEOMETRY_H

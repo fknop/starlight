@@ -39,6 +39,8 @@
 #include <iostream>
 #include <cmath>
 #include "model/polarpoint.h"
+#include "model/Geometry.h"
+
 
 int main(int argc, char **argv)
 {
@@ -49,9 +51,12 @@ int main(int argc, char **argv)
     GraphicsView box(level);
     box.show();
 
-    Point p1(3, 3);
-    Point p2 = p1;
-    std::cout << p2;
-
+    Point p1(0, 0);
+    Point p2(1,1);
+    double distance = Point(0,0).distance(p2);
+    std::cout << distance << std::endl;
+    double angle = std::acos(p2.getX() / distance);
+    double angle2 = std::atan2(1,1);
+    std::cout << angle << " " << angle2;
     return app.exec();
 }
