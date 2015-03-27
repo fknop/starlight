@@ -16,9 +16,6 @@ Mirror::Mirror(const Point & p, int x, int len, double a, Point pm,
     if (length <= 0 || xpad < 0)
         throw "La longueur et le décalage doivent etre positifs";
 
-    std::cout << p.getX() << std::endl;
-    std::cout << p.getY() << std::endl;
-    std::cout << "xMin : " << xMin << " yMin : " << yMin << " xMax : " << xMax << " yMax " << yMax << std::endl;
 //    if (p.getX() < xMin || p.getX() > xMax
 //            || p.getY() < yMin || p.getY() > yMax)
 //        throw "La position du miroir est invalide. Il n'est pas compris entre les bornes.";

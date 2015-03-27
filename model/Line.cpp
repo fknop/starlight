@@ -2,6 +2,8 @@
 #include "Geometry.h"
 
 
+
+
 Line::Line(const Point& p, double rad)
 {
    this->p = p;

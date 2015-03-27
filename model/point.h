@@ -4,13 +4,13 @@
 #include <iostream>
 
 /**
- * Cette classe modélise un simple point de coordonnées entières,
+ * Cette classe modélise un simple point de coordonnées réelles
  * utilisés pour modéliser les positions des objets dans le jeu.
  */
 class Point
 {
-    int x {0};
-    int y {0};
+    double x {.0};
+    double y {.0};
 
   public:
     /**
@@ -23,7 +23,7 @@ class Point
      * @param x l'abscisse du point.
      * @param y l'ordonnée du point.
      */
-    Point(int x, int y);
+    Point(double x, double y);
 
     /**
      * Constructeur de recopie.
@@ -35,33 +35,39 @@ class Point
      * Retourne l'abscisse du point.
      * @return l'abscisse du point.
      */
-    int getX() const;
+    double getX() const;
 
     /**
      * Retourne l'ordonnée du point.
      * @return l'ordonnée du point.
      */
-    int getY() const;
+    double getY() const;
 
     /**
      * Déplace le point en l'abscisse donnée.
      * @param x l'abscisse où déplacer le point.
      */
-    void setX(int x);
+    void setX(double x);
 
     /**
      * Déplace le point en l'ordonnée donnée.
      * @param y l'ordonnée où déplacer le point.
      */
-    void setY(int y);
+    void setY(double y);
 
     /**
      * Déplace le point en la coordonnée donnée.
      * @param x l'abscisse où déplacer le point.
      * @param y l'ordonnée où déplacer le point.
      */
-    void setLocation(int x, int y);
+    void setLocation(double x, double y);
 
+    /**
+     * Retourne la distance entre deux points.
+     * @param p l'autre point avec lequel on calcule la distance.
+     * @return la distance entre les deux points.
+     */
+    double distance(const Point &p);
 
     /**
      * Redéfinit l'opérateur <.

@@ -1,6 +1,7 @@
 #include "point.h"
+#include <cmath>
 
-Point::Point(int a, int b) : x {a}, y {b}
+Point::Point(double a, double b) : x {a}, y {b}
 {}
 
 Point::Point(const Point &p)
@@ -9,30 +10,35 @@ Point::Point(const Point &p)
     this->y = p.y;
 }
 
-int Point::getX() const
+double Point::getX() const
 {
     return x;
 }
 
-int Point::getY() const
+double Point::getY() const
 {
     return y;
 }
 
-void Point::setX(int a)
+void Point::setX(double a)
 {
     x = a;
 }
 
-void Point::setY(int a)
+void Point::setY(double a)
 {
     y = a;
 }
 
-void Point::setLocation(int a, int b)
+void Point::setLocation(double a, double b)
 {
     x = a;
     y = b;
+}
+
+double Point::distance(const Point &p)
+{
+    return sqrt(pow(this->x - p.x, 2) + pow(this->y - p.y, 2) );
 }
 
 bool operator <(const Point& p1, const Point& p2)
@@ -50,4 +56,6 @@ bool operator==(const Point& p1, const Point& p2)
 {
     return p1.x == p2.x && p1.y == p2.y;
 }
+
+
 

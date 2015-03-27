@@ -6,9 +6,9 @@
 
 
 /**
- * Cette classe représente une droite sous la forme y = ax + b
- * où a est la pente et b est l’ordonnée à l’origine, x et y
- * étant les paramètres.
+ * Droite de la forme D ≡ ax + by + c = 0
+ * @param p un point de la ligne.
+ * @param rad l'
  */
 class Line
 {
