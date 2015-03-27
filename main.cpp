@@ -34,7 +34,7 @@
 
 
 #include <QApplication>
-#include "view/Map.hpp"
+#include "view/MapView.h"
 #include "MapReader.h"
 
 int main(int argc, char **argv)

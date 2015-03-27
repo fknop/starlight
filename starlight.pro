@@ -26,8 +26,7 @@ SOURCES += main.cpp \
     view/Game.cpp \
     view/WallView.cpp \
     view/MapView.cpp \
-    view/MirrorView.cpp
-    view/Map.cpp \
+    view/MirrorView.cpp \
     model/ellipse.cpp
 
 HEADERS += \
@@ -51,7 +50,7 @@ HEADERS += \
     view/Game.hpp \
     view/WallView.h \
     view/MirrorView.h \
-    view/MapView.h
+    view/MapView.h \
     model/ellipse.h
 
 
