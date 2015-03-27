@@ -105,17 +105,13 @@ bool Mirror::checkPivotRange(const Point & p) const
 
 void Mirror::rotate(double angle)
 {
-
-
-//    PolarPoint p(pivot);
-//    double distance = p.getDistance();
-//    p.setDistance(0);
-//    p.setAngle(p.getAngle() + angle);
-//    p.setDistance(distance);
-
-    //pivot = *p.toPoint();
-
-
+    if (!setAngle(alpha + angle))
+    {
+        if (alpha + angle > alphaMax)
+            setAngle(alphaMax);
+        else
+            setAngle(alphaMin);
+    }
 }
 
 void Mirror::translate(double x, double y)
