@@ -44,12 +44,11 @@ double PolarPoint::getDistance() const
     return this->distance;
 }
 
-const Point& PolarPoint::toPoint() const
+Point * PolarPoint::toPoint()
 {
     double x = distance * std::cos(angle);
     double y = distance * std::sin(angle);
-    const Point &p = Point(x,y);
-    return p;
+    return new Point(x,y);
 }
 
 PolarPoint::~PolarPoint()

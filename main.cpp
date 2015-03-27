@@ -49,6 +49,9 @@ int main(int argc, char **argv)
     GraphicsView box(level);
     box.show();
 
+    Point p1(3, 3);
+    Point p2 = p1;
+    std::cout << p2;
 
     return app.exec();
 }

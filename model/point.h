@@ -82,6 +82,15 @@ class Point
      */
     friend bool operator <(const Point& p1, const Point& p2);
 
+
+    /**
+     * Surcharge de l'opérateur d'assignation.
+     * Assigne les coordonnées d'un point au point courant.
+     * @param p1 le point que l'on copie.
+     * @return l'objet courant.
+     */
+    const Point& operator =(const Point& p1);
+
     /**
      * Surcharge l'opérateur de flux de sortie pour afficher un
      * récapitulatif des caractéristiques du point sous-jacent en
@@ -92,6 +101,11 @@ class Point
                                      const Point & p);
 
 
+    /**
+     * Surcharge de l'opérateur d'égalité.
+     * @return vrai si les coordonnées d'un point sont égales
+     * aux coordonnées d'un autre point.
+     */
     friend bool operator==(const Point&, const Point&);
 
 };

@@ -106,6 +106,18 @@ bool Mirror::checkPivotRange(const Point & p) const
 void Mirror::rotate(double angle)
 {
 
+
+    PolarPoint p(pivot);
+    double distance = p.getDistance();
+    p.setDistance(0);
+    p.setAngle(p.getAngle() + angle);
+    p.setDistance(distance);
+
+    pivot = *p.toPoint();
+
+
+
+
     //if (checkAngleRange(alpha + angle))
         // translate le mirroir , modifie l'inclinaison et le retranslate
 }

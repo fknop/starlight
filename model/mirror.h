@@ -4,7 +4,7 @@
 #include "point.h"
 
 #include <ostream>
-
+#include "polarpoint.h"
 /**
  * Cette classe modélise les miroirs utilisés dans le jeu.
  * </p>
