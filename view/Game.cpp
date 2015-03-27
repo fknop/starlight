@@ -117,7 +117,6 @@ void GameView::paintEvent(QPaintEvent *event)
     Dest d = level->getDestination();
 
 
-
     drawRect(&painter, s.getPosition().getX(), s.getPosition().getY(), s.getEdge(), s.getEdge());
     drawRect(&painter, d.getPosition().getX(), d.getPosition().getY(), d.getEdge(), d.getEdge());
 

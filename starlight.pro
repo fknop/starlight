@@ -27,7 +27,10 @@ SOURCES += main.cpp \
     view/WallView.cpp \
     view/MapView.cpp \
     view/MirrorView.cpp \
-    model/ellipse.cpp
+    model/ellipse.cpp \
+    view/SourceView.cpp \
+    view/DestinationView.cpp \
+    view/NukesView.cpp
 
 HEADERS += \
     MapReader.h \
@@ -51,7 +54,10 @@ HEADERS += \
     view/WallView.h \
     view/MirrorView.h \
     view/MapView.h \
-    model/ellipse.h
+    model/ellipse.h \
+    view/SourceView.h \
+    view/DestinationView.h \
+    view/NukesView.h
 
 
 FORMS += \
