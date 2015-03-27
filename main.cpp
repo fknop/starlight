@@ -36,6 +36,9 @@
 #include <QApplication>
 #include "view/MapView.h"
 #include "MapReader.h"
+#include <iostream>
+#include <cmath>
+#include "model/polarpoint.h"
 
 int main(int argc, char **argv)
 {
@@ -45,5 +48,7 @@ int main(int argc, char **argv)
 
     GraphicsView box(level);
     box.show();
+
+
     return app.exec();
 }

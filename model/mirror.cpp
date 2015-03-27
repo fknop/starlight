@@ -16,12 +16,12 @@ Mirror::Mirror(const Point & p, int x, int len, double a, Point pm,
     if (length <= 0 || xpad < 0)
         throw "La longueur et le décalage doivent etre positifs";
 
-//    if (p.getX() < xMin || p.getX() > xMax
-//            || p.getY() < yMin || p.getY() > yMax)
-//        throw "La position du miroir est invalide. Il n'est pas compris entre les bornes.";
-    // Erreur dans le .lvl -> min est plus grand que max ? -> l'avant avant dernier
-    if (alpha < alphaMin || alpha > alphaMax)
-        throw "L'inclinaison du mirroir est invlaide. Elle n'est pas comprise entre les bornes.";
+   if (!checkPivotRange(p))
+       throw "Le pivot n'est pas dans les bornes autorisées";
+
+    if (!checkAngleRange(alpha))
+        throw "L'inclinaison du mirroir est invalide. "
+        "Elle n'est pas comprise entre les bornes.";
 }
 
 const Point & Mirror::getPivot() const
@@ -67,14 +67,16 @@ Point Mirror::getMaxPivot() const
 bool Mirror::setPivot(const Point & p)
 {
     bool r {checkPivotRange(p)};
-    if (r) pivot = p;
+    if (r)
+        pivot = p;
     return r;
 }
 
 bool Mirror::setAngle(double a)
 {
     bool r {checkAngleRange(a)};
-    if (r) alpha = a;
+    if (r)
+        alpha = a;
     return r;
 }
 
@@ -87,22 +89,49 @@ bool Mirror::checkAngleRange(double a) const
 bool Mirror::checkPivotRange(const Point & p) const
 {
     if (xMin == 0 && xMax == 0 && yMin == 0 && yMax == 0)
-    {
         return true;
-    }
+
     else if (xMin == 0 && xMax == 0)
-    {
         return p.getY() >= yMin && p.getY() <= yMax;
-    }
+
     else if (yMin == 0 && yMax == 0)
-    {
         return p.getX() >= xMin && p.getX() <= xMax;
-    }
+
     else
-    {
         return p.getX() >= xMin && p.getX() <= xMax
                 && p.getY() >= yMin && p.getY() <= yMax;
+
+}
+
+void Mirror::rotate(double angle)
+{
+
+    //if (checkAngleRange(alpha + angle))
+        // translate le mirroir , modifie l'inclinaison et le retranslate
+}
+
+void Mirror::translate(double x, double y)
+{
+
+    double newX = pivot.getX() + x;
+    double newY = pivot.getY() + y;
+    if (!setPivot(Point(newX, newY)))
+    {
+        if (newX < xMin)
+            newX = xMin;
+        else if (newX > xMax)
+            newY = xMax;
+
+        if (newY < yMin)
+            newY = yMin;
+        else if (newY > yMax)
+            newY = yMax;
+
+        setPivot(Point(newX, newY));
+
     }
+
+
 }
 
 std::ostream & operator<<(std::ostream & out, const Mirror & m)

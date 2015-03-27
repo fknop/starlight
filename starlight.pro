@@ -30,7 +30,9 @@ SOURCES += main.cpp \
     model/ellipse.cpp \
     view/SourceView.cpp \
     view/DestinationView.cpp \
-    view/NukesView.cpp
+    view/NukesView.cpp \
+    model/polarpoint.cpp
+
 
 HEADERS += \
     MapReader.h \
@@ -57,7 +59,8 @@ HEADERS += \
     model/ellipse.h \
     view/SourceView.h \
     view/DestinationView.h \
-    view/NukesView.h
+    view/NukesView.h \
+    model/polarpoint.h
 
 
 FORMS += \

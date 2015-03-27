@@ -59,3 +59,10 @@ bool operator==(const Point& p1, const Point& p2)
 
 
 
+/*
+ * Distance (0,0) et (x,y)
+ * x = distance * cos (angle)
+ * y = distance * sin (angle)
+ * cos(angle) = x / distance
+ * angle = arcos(x / distance)
+*/

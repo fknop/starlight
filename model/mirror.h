@@ -184,6 +184,20 @@ class Mirror
     bool checkPivotRange(const Point &) const;
 
     /**
+     * Modifie l'inclinaison de l'angle
+     * @param l'inclinaison à ajouter.
+     */
+    void rotate(double angle);
+
+
+    /**
+     * Déplace le pivot par rapport à une ordonnée et une abscisse.
+     * @param x l'abscisse.
+     * @param y l'ordonnée.
+     */
+    void translate(double x, double y);
+
+    /**
      * Surcharge l'opérateur de flux de sortie pour
      * afficher un récapitulatif des caractéristiques du
      * miroir sous-jacent en console.
