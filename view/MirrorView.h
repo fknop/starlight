@@ -18,6 +18,7 @@ private:
     QPointF initialPos;
     qreal rotation;
 
+
 };
 
 
