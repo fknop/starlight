@@ -25,7 +25,8 @@ SOURCES += main.cpp \
     view/MainMenu.cpp \
     view/Game.cpp \
     view/Mirror.cpp \
-    view/Map.cpp
+    view/Map.cpp \
+    model/ellipse.cpp
 
 HEADERS += \
     MapReader.h \
@@ -47,7 +48,8 @@ HEADERS += \
     view/MainMenu.h \
     view/Game.hpp \
     view/Mirror.hpp \
-    view/Map.hpp
+    view/Map.hpp \
+    model/ellipse.h
 
 FORMS += \
     view/starlightui.ui

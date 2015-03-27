@@ -38,13 +38,6 @@ public:
      */
     static double getSlopeFromRadian(double rad);
 
-    /**
-     * Retourne la distance entre deux points.
-     * @param p1 le premier point.
-     * @param p2 le deuxième point.
-     * @return la distance entre deux points.
-     */
-    static double getDistance(const Point& p1, const Point& p2);
 
     /**
      * Vérifie si un point est sur un segment.

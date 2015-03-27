@@ -10,11 +10,10 @@ Level::Level(int w, int h) : width {w}, height {h},
 {{w, h}, {w, 0}}, {{w, 0}, {0, 0}}
             }
 {
-    //  Taille minimale ?
     if (w <= 0 || h <= 0)
-    {
-        //throw "La taille et la longueur du plateau doivent etre strictement positives";
-    }
+        throw "La taille et la longueur "
+            "du plateau doivent etre strictement positives";
+
 }
 
 const Source & Level::getSource() const
@@ -144,7 +143,7 @@ Point * Level::getClosestIntersectionWithWalls(double & closestDistance, const L
         {
             std::cout << "Intersection avec la ligne : " << *p << std::endl;
 
-            distance = Geometry::getDistance(*p, l.getPoint());
+            distance = p->distance(l.getPoint());
 
             if (distance <= closestDistance)
             {
@@ -182,7 +181,7 @@ Point * Level::getClosestIntersectionWithMirrors(double & closestDistance, const
 
         if (p != nullptr)
         {
-            distance = Geometry::getDistance(*p, l.getPoint());
+            distance = p->distance(l.getPoint());
 
             if (distance <= closestDistance)
             {
@@ -229,7 +228,7 @@ Point * Level::getClosestIntersectionWithCrystals(double & closestDistance, cons
 
             if (p != nullptr)
             {
-                distance = Geometry::getDistance(*p, l.getPoint());
+                distance = p->distance(l.getPoint());
 
                 if (distance <= closestDistance)
                 {
@@ -277,7 +276,7 @@ Point * Level::getClosestIntersectionWithNukes(double & closestDistance, const L
 
             if (p != nullptr)
             {
-                distance = Geometry::getDistance(*p, l.getPoint());
+                distance = p->distance(l.getPoint());
 
                 if (distance <= closestDistance)
                 {
@@ -322,7 +321,7 @@ Point * Level::getClosestIntersectionWithLenses(double & closestDistance, const 
 
             if (p != nullptr)
             {
-                distance = Geometry::getDistance(*p, l.getPoint());
+                distance = p->distance(l.getPoint());
 
                 if (distance <= closestDistance)
                 {
@@ -358,8 +357,7 @@ Point * Level::findClosestPoint(double & oldClosestDistance, double & newClosest
 /* provisoire */
 Point * Level::getClosestIntersection(const Line& l)
 {
-    double closestDistance =
-            Geometry::getDistance(Point(0,0), Point(this->width, this->height)); // distance maximum possible
+    double closestDistance = Point(0,0).distance(Point(this->width, this->height)); // distance maximum possible
     double newClosestDistance = closestDistance;
     Point * closestPoint = nullptr;
 
