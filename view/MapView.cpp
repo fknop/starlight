@@ -11,7 +11,7 @@ MapView::MapView(Level *level) : level{level}
 {
     scene = new QGraphicsScene(0,0,this->level->getWidth(), this->level->getHeight());
     setScene(scene);
-    setFixedSize(this->level->getWidth(), this->level->getHeight());
+    setFixedSize(this->level->getWidth() + 30, this->level->getHeight() + 30);
 
     Source s = level->getSource();
     Dest d = level->getDestination();

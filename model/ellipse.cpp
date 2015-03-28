@@ -26,13 +26,7 @@ bool Ellipse::intersects(const Line & l, std::vector<Point>& points)
     // ((x - x1)² / a²) + ((y- y1)² / b²) = 1
     if (std::abs(std::fmod(l.getAngle(), M_PI)) == (M_PI / 2))
     {
-           // y =  sqrt((1 - ((x - x1)² / a²)) * b²) + y1
-           x2 = x = l.getPoint().getX(); // x de la droite
-           y = std::sqrt(1 - ((std::pow((x - x1), 2) / (std::pow(a, 2)))
-                         * std::pow(b, 2)) + y1);
 
-
-//         *intersection = new Point(x1, y1);
     }
     else
     {

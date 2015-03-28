@@ -11,8 +11,12 @@
 namespace Geometry
 {
 
+    // Pour les utilisateurs de windows,
+    // M_PI n'est pas défini de base dans cmath.
+    #ifndef M_PI
+        #define M_PI 3.141592653589793238463
+    #endif
 
-    #define M_PI 3.141592653589793238463
 
     /**
      * Transforme des radians en degrés.

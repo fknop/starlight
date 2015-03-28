@@ -32,30 +32,36 @@ void MirrorView::mousePressEvent(QGraphicsSceneMouseEvent *event)
 
 void MirrorView::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
 {
-    QPointF pos = mapToScene(event->pos());
+   // QPointF pos = mapToScene(event->pos());
 
     int posX = 0;
     int posY = 0;
 
-    if (pos.y() > initialPos.y())
-    {
-        ++posY;
-    }
-    else
-    {
-        --posY;
-    }
+//    if (pos.y() > initialPos.y())
+//    {
+//        posY = event->pos();
+//    }
+//    else
+//    {
+//        posY = event->pos();
+//    }
 
-    if (pos.x() > initialPos.x())
-    {
-        ++posX;
-    }
-    else
-    {
-        --posX;
-    }
+//    if (pos.x() > initialPos.x())
+//    {
+//        ++posX;
+//    }
+//    else
+//    {
+//        --posX;
+//    }
 
-    moveBy(posX, posY);
+    std::cout << "initial pos x : " << initialPos.x() << std::endl;
+    std::cout << "initial pos y : " << initialPos.y() << std::endl;
+    std::cout << "event pos x : " << event->pos().x() << std::endl;
+    std::cout << "event pos y : " << event->pos().y() << std::endl;
+    std::cout << "pos x : " << initialPos.x() + event->pos().x() << std::endl;
+    std::cout << "pos y : " << initialPos.y() + event->pos().y() << std::endl;
+    setPos(initialPos.x() + event->pos().x(), initialPos.y() + event->pos().y());
 }
 
 int MirrorView::getRotation()
