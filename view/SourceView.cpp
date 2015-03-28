@@ -12,8 +12,8 @@ void SourceView::mousePressEvent(QGraphicsSceneMouseEvent *event)
     //QRectF rect(posX, posY, width, height);
     if (!active)
     {
-        setBrush(QBrush(Qt::darkRed));
-        setPen(QPen(Qt::darkGreen));
+        setBrush(QBrush(Qt::yellow));
+        setPen(QPen(Qt::yellow));
         active = true;
     }
     else

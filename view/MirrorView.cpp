@@ -16,6 +16,7 @@ MirrorView::MirrorView(int pivotX, int pivotY, int xpad, int len, double angle)
 
     setTransformOriginPoint(QPointF(pivotX, pivotY));
     QPen myPen(Qt::red);
+    myPen.setWidth(2);
 
     setPen(myPen);
     setLine(gx, gy, dx, dy);

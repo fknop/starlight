@@ -46,7 +46,7 @@ int main(int argc, char **argv)
     Level * level = MapReader::getLevel("levels/level1.lvl");
     level->computeRays();
 
-    GraphicsView box(level);
+    MapView box(level);
     box.show();
 
     Point p1(3, 3);

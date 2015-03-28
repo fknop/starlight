@@ -7,7 +7,7 @@
 
 #include <iostream>
 
-GraphicsView::GraphicsView(Level *level) : level{level}
+MapView::MapView(Level *level) : level{level}
 {
     QGraphicsScene *scene = new QGraphicsScene(0,0,this->level->getWidth(), this->level->getHeight());
     setScene(scene);
@@ -47,7 +47,7 @@ GraphicsView::GraphicsView(Level *level) : level{level}
 
 }
 
-void GraphicsView::drawWall(QGraphicsScene *s, int x1, int y1, int x2, int y2)
+void MapView::drawWall(QGraphicsScene *s, int x1, int y1, int x2, int y2)
 {
     std::cout << x1 << " " << y1 << " " << x2 << " " << y2 << std::endl;
     WallView *item1 = new WallView(x1, y1, x2, y2);
@@ -56,7 +56,7 @@ void GraphicsView::drawWall(QGraphicsScene *s, int x1, int y1, int x2, int y2)
 }
 
 
-void GraphicsView::drawMirror(QGraphicsScene *s, int pivotX, int pivotY, int xpad, int len, double angle)
+void MapView::drawMirror(QGraphicsScene *s, int pivotX, int pivotY, int xpad, int len, double angle)
 {
     //std::cout << x1 << " " << y1 << " " << x2 << " " << y2 << std::endl;
     MirrorView *item1 = new MirrorView(pivotX, pivotY, xpad, len, angle);

@@ -2,6 +2,6 @@
 
 NukesView::NukesView(int x, int y, int radius)
 {
-//    QRectF rectF(x, y, radius);
+//    QRectF rectF;
 //    setRect(rect);
 }
