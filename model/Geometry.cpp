@@ -36,13 +36,13 @@ double Geometry::getSlope(double rad)
 
 bool Geometry::isInBoundingBox(const Point& p, const LineSegment& ls)
 {
-    Point p1 = ls.getStart();
-    Point p2 = ls.getEnd();
+    Point start = ls.getStart();
+    Point end = ls.getEnd();
 
-    return (( std::min(p1.getX(), p2.getX()) <= p.getX() )
-            && ( p.getX() <= std::max(p1.getX(), p2.getX()) )
-            && (( std::min(p1.getY(), p2.getY()) <= p.getY() )
-            && ( p.getY() <= std::max(p1.getY(), p2.getY()) )));
+    return ((std::min(start.getX(), end.getX()) <= p.getX())
+            && (std::max(start.getX(), end.getX()) >= p.getX())
+            && (std::min(start.getY(), end.getY()) <= p.getY())
+            && (std::max(start.getY(), end.getY()) >= p.getY()));
 }
 
 Point * Geometry::getIntersection(const Line& l, const LineSegment& ls)

@@ -20,7 +20,7 @@ class Observable
 protected:
 
     /**
-     * Le vecteur d'observateurs enregistrés.
+     * Les observateurs enregistrés.
      */
     std::set<Observer *> observers;
 

@@ -32,8 +32,25 @@ public:
     Line(const Point& p1, const Point& p2);
 
 
-    bool intersects(const Line& l, Point& intersecion);
-    bool intersects(const LineSegment& ls, Point& intersection);
+    /**
+     * Retourne vrai si la droite possède une intersection
+     * avec une autre droite et retourne également
+     * le point d'intersection en paramètre.
+     * @param l la deuxième droite.
+     * @param intersecion le point d'intersection.
+     * @return vrai si les droites possèdent une intersection.
+     */
+    bool intersects(const Line& l, Point * intersecion);
+
+    /**
+     * Retourne vrai si la droite possède une intersection
+     * avec un segment et retourne également
+     * le point d'intersection en paramètre.
+     * @param ls le segment.
+     * @param intersecion le point d'intersection.
+     * @return vrai si la droite et le segment possède une intersection.
+     */
+    bool intersects(const LineSegment& ls, Point * intersection);
 
     /**
      * Renvoie un point de la droite.

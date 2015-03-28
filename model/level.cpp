@@ -65,30 +65,6 @@ void Level::setRays(const vector<Ray> & value)
     rays = value;
 }
 
-void Level::computeRays()
-{
-    Point pSource = this->s.getPosition();
-    double rad = this->s.getAngle();
-    Line ray(pSource, rad);
-
-    Point * intersection = getClosestIntersection(ray);
-
-    if (intersection == nullptr)
-    {
-        cout << "computeRays() intersection null" << endl;
-    }
-    else
-        cout << "intersection " << *intersection << endl;
-    /*int gx = pivotX -  (xpad * cos(angle));
-    int gy = pivotY - (xpad * sin(angle));
-
-    int dx = pivotX + ((len-xpad) * cos(angle));
-    int dy = pivotY + ((len-xpad) * sin(angle));*/
-    delete intersection;
-}
-
-
-
 void Level::setWalls(const std::vector<Wall> & value)
 {
     walls = value;
@@ -127,6 +103,113 @@ int Level::getHeight()
 int Level::getWidth()
 {
     return width;
+}
+
+void Level::addMirror(const Mirror & m)
+{
+    mirrors.push_back(m);
+}
+
+void Level::addNuke(const Nuke & n)
+{
+    nukes.push_back(n);
+}
+
+void Level::addWall(const Wall & w)
+{
+    walls.push_back(w);
+}
+
+void Level::addCrystal(const Crystal & c)
+{
+    crystals.push_back(c);
+}
+
+void Level::addLens(const Lens & l)
+{
+    lenses.push_back(l);
+}
+
+void Level::addRay(const Ray & r)
+{
+    rays.push_back(r);
+}
+
+void Level::computeRays()
+{
+
+    Point pSource = this->s.getPosition();
+    double radians = this->s.getAngle();
+    Line ray(pSource, radians);
+    //computeRay(line);
+    // bool b = computeRay(line)
+    // if (b) computeRay(line)
+
+    Point * intersection = getClosestIntersection(ray);
+
+    if (intersection == nullptr)
+    {
+        cout << "computeRays() intersection null" << endl;
+    }
+    else
+        cout << "intersection " << *intersection << endl;
+    /*int gx = pivotX -  (xpad * cos(angle));
+    int gy = pivotY - (xpad * sin(angle));
+
+    int dx = pivotX + ((len-xpad) * cos(angle));
+    int dy = pivotY + ((len-xpad) * sin(angle));*/
+    delete intersection;
+}
+
+bool Level::computeRay(const Line & line, int wl)
+{
+    bool continueRay;
+
+
+    //Mirror * closestMirror = getClosestMirror(Point *, &mirrorDistance);
+    //Lens * closestLens = getClosestLens(Point *, &lensDistance);
+    //Crystal * closestCrystal = getClosestCrystal(Point *, &crystalDistance);
+    //Nuke * closestNuke = getClosestNuke(Point *, &nukeDistance);
+    //Wall * closestWall = getClosestWall(Point *, &wallDistance);
+    // sort les distance,
+    // intersection = type, et point.
+
+    std::pair<Point*, Type> intersection;
+
+
+
+
+    // construction de la nouvelle ligne.
+    // Modification de la longueur d'onde, etc
+    //Line newLine;
+    switch (intersection.second)
+    {
+    case Type::MIRROR:
+        //closestMirror...
+        continueRay = true;
+        break;
+    case Type::CRYSTAL:
+        //closestCrystal...
+
+        break;
+    case Type::LENS:
+        //closestLens...
+        break;
+    case Type::NUKE:
+        //closestNuke...
+        continueRay = false;
+        break;
+    case Type::WALL:
+        //closestWall...
+        continueRay = false;
+        break;
+    }
+
+    //rays.push_back(Ray(line.getOrigin(), *intersection.getFirst(), wl)
+
+//    if (continueRay)
+  //      computeRay(newLine);
+
 }
 
 Point * Level::getClosestIntersectionWithWalls(double & closestDistance, const Line& l)
@@ -399,38 +482,9 @@ Point * Level::getClosestIntersection(const Line& l)
     return closestPoint;
 }
 
-void Level::addMirror(const Mirror & m)
+void Level::notify(Observable * obs)
 {
-    mirrors.push_back(m);
+    for (Observer * o : observers)
+        o->notify(obs);
 }
-
-void Level::addNuke(const Nuke & n)
-{
-    nukes.push_back(n);
-}
-
-void Level::addWall(const Wall & w)
-{
-    walls.push_back(w);
-}
-
-void Level::addCrystal(const Crystal & c)
-{
-    crystals.push_back(c);
-}
-
-void Level::addLens(const Lens & l)
-{
-    lenses.push_back(l);
-}
-
-void Level::addRay(const Ray & r)
-{
-    rays.push_back(r);
-}
-
-//void Level::notify(Observable * obs)
-//{
-
-//}
 
