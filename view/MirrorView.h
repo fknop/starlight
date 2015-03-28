@@ -5,6 +5,9 @@
 #include <QGraphicsLineItem>
 
 #include <QGraphicsSceneMouseEvent>
+#include <QKeyEvent>
+
+#include <iostream>
 
 
 /**
@@ -25,6 +28,8 @@ public:
 
     void mousePressEvent(QGraphicsSceneMouseEvent *event);
     void mouseMoveEvent(QGraphicsSceneMouseEvent *event);
+    int getRotation();
+    void setRotation(qreal angle);
 
 private:
     QPointF initialPos;

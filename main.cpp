@@ -57,8 +57,8 @@ int main(int argc, char **argv)
 
 
 
-    //MapView box(level);
-  //  box.show();
-    return 0;
-   // return app.exec();
+    MapView box(level);
+    box.show();
+//    return 0;
+    return app.exec();
 }

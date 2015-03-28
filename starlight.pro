@@ -64,4 +64,4 @@ HEADERS += \
 
 FORMS +=
 
-QMAKE_CXXFLAGS += -std=c++0x -Wall -Wextra -pedantic
+QMAKE_CXXFLAGS += -std=c++0x -Wall -Wextra -pedantic -fpermissive
