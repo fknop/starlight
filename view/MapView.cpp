@@ -9,7 +9,7 @@
 
 MapView::MapView(Level *level) : level{level}
 {
-    QGraphicsScene *scene = new QGraphicsScene(0,0,this->level->getWidth(), this->level->getHeight());
+    scene = new QGraphicsScene(0,0,this->level->getWidth(), this->level->getHeight());
     setScene(scene);
     setFixedSize(this->level->getWidth(), this->level->getHeight());
 
@@ -65,5 +65,19 @@ void MapView::drawMirror(QGraphicsScene *s, int pivotX, int pivotY, int xpad, in
 }
 
 
-
-
+void MapView::keyPressEvent(QKeyEvent *event)
+{
+    for (MirrorView * i : scene->selectedItems())
+    {
+        if (event->key() == Qt::Key_Left)
+        {
+            i->setRotation(i->getRotation() - 1);
+            break;
+        }
+        else if(event->key() == Qt::Key_Right)
+        {
+            i->setRotation(i->getRotation() + 1);
+            break;
+        }
+    }
+}

@@ -15,8 +15,9 @@ MirrorView::MirrorView(int pivotX, int pivotY, int xpad, int len, double angle)
     int dy = pivotY + ((len-xpad) * sin(angle));
 
     setTransformOriginPoint(QPointF(pivotX, pivotY));
+
     QPen myPen(Qt::red);
-    myPen.setWidth(2);
+    myPen.setWidth(3);
 
     setPen(myPen);
     setLine(gx, gy, dx, dy);
@@ -33,16 +34,38 @@ void MirrorView::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
 {
     QPointF pos = mapToScene(event->pos());
 
+    int posX = 0;
+    int posY = 0;
+
     if (pos.y() > initialPos.y())
     {
-        ++rotation;
+        ++posY;
     }
     else
     {
-        --rotation;
+        --posY;
     }
 
-    setRotation(rotation);
+    if (pos.x() > initialPos.x())
+    {
+        ++posX;
+    }
+    else
+    {
+        --posX;
+    }
 
+    moveBy(posX, posY);
+}
+
+int MirrorView::getRotation()
+{
+    return rotation;
+}
+
+void MirrorView::setRotation(qreal angle)
+{
+    rotation = angle;
+    QGraphicsLineItem::setRotation(angle);
 }
 
