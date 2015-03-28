@@ -7,6 +7,11 @@ double Geometry::getDegrees(double rad)
     return (rad * 180) / M_PI;
 }
 
+double Geometry::getRadians(double degrees)
+{
+    return (degrees * M_PI) / 180;
+}
+
 double Geometry::getAngle(const Point& p1, const Point& p2)
 {
     return std::atan(getSlope(p1, p2));
@@ -17,10 +22,6 @@ double Geometry::getAngle(double slope)
     return std::atan(slope);
 }
 
-double Geometry::getRadians(double degrees)
-{
-    return (degrees * M_PI) / 180;
-}
 
 double Geometry::getSlope(const Point& p1, const Point& p2)
 {
