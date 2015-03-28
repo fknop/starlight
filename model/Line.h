@@ -40,7 +40,7 @@ public:
      * @param intersecion le point d'intersection.
      * @return vrai si les droites possèdent une intersection.
      */
-    bool intersects(const Line& l, Point * intersecion);
+    bool intersects(const Line& l, Point ** intersecion);
 
     /**
      * Retourne vrai si la droite possède une intersection
@@ -50,7 +50,7 @@ public:
      * @param intersecion le point d'intersection.
      * @return vrai si la droite et le segment possède une intersection.
      */
-    bool intersects(const LineSegment& ls, Point * intersection);
+    bool intersects(const LineSegment& ls, Point ** intersection);
 
     /**
      * Renvoie un point de la droite.
@@ -75,6 +75,8 @@ public:
      * @param le nouvel angle en radians de la droite.
      */
     void setAngle(double rad);
+
+    friend bool operator==(const Line& l1, const Line& l2);
 };
 
 #endif // LINE_H

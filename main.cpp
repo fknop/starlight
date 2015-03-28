@@ -46,17 +46,19 @@ int main(int argc, char **argv)
 {
     QApplication app(argc, argv);
     Level * level = MapReader::getLevel("levels/level1.lvl");
-    level->computeRays();
+    //level->computeRays();
 
-    MapView box(level);
-    box.show();
+    Line l(Point(10,0), -(M_PI / 4));
+    LineSegment l2(Point(37, 0), Point(37, 50));
 
-    Point p1(0, 0);
-    Point p2(1,1);
-    double distance = Point(0,0).distance(p2);
-    std::cout << distance << std::endl;
-    double angle = std::acos(p2.getX() / distance);
-    double angle2 = std::atan2(1,1);
-    std::cout << angle << " " << angle2;
-    return app.exec();
+    Point * i;
+    if (l.intersects(l2, &i))
+        std::cout << *i;
+
+
+
+    //MapView box(level);
+  //  box.show();
+    return 0;
+   // return app.exec();
 }
