@@ -8,20 +8,17 @@
 #include "Line.h"
 
 
-#define M_PI 3.14159265358979323846
-
-
-class Geometry
+namespace Geometry
 {
-public:
-    Geometry();
+
+    #define M_PI 3.14159265358979323846
 
     /**
      * Transforme des radians en degrés.
      * @param rad un angle en radians.
      * @return un angle en degrés.
      */
-    static double getDegrees(double rad);
+    double getDegrees(double rad);
 
     /**
      * Retrouve la pente d'un segment entre deux points.
@@ -29,14 +26,14 @@ public:
      * @param p2 le deuxième point.
      * @return la pente du segment constitué des deux points donnés.
      */
-    static double getSlope(const Point& p1, const Point& p2);
+    double getSlope(const Point& p1, const Point& p2);
 
     /**
      * Transforme un angle en radian en une pente.
      * @param rad l'angle en radian.
      * @return la pente d'un angle.
      */
-    static double getSlope(double rad);
+    double getSlope(double rad);
 
 
     /**
@@ -45,7 +42,7 @@ public:
      * @param ls le segment sur lequel vérifier.
      * @return vrai si le point est sur le segment, faux sinon.
      */
-    static bool isInBoundingBox(const Point& p, const LineSegment& ls);
+    bool isInBoundingBox(const Point& p, const LineSegment& ls);
 
     /**
      * Retourne le point d’intersection entre une ligne et un segment.
@@ -53,7 +50,13 @@ public:
      * @param li un segment.
      * @return le point d’intersection entre la ligne et le segment.
      */
-    static Point* getIntersection(const Line& l, const LineSegment& li);
-};
+    Point* getIntersection(const Line& l, const LineSegment& li);
+
+    double getAngle(const Point& p1, const Point& p2);
+
+    double getAngle(double slope);
+
+    double getRadians(double degrees);
+}
 
 #endif // GEOMETRY_H
