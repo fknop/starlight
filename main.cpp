@@ -48,8 +48,8 @@ int main(int argc, char **argv)
     Level * level = MapReader::getLevel("levels/level1.lvl");
     //level->computeRays();
 
-    Line l(Point(10,0), -(M_PI / 4));
-    LineSegment l2(Point(37, 0), Point(37, 50));
+    Line l(Point(9,6), Geometry::getRadians(Geometry::getDegrees(M_PI/4)));
+    LineSegment l2(Point(17, 0), Point(37, 50));
 
     Point * i;
     if (l.intersects(l2, &i))

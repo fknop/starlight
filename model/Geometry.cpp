@@ -4,7 +4,7 @@
 
 double Geometry::getDegrees(double rad)
 {
-    return (rad * 180) / M_PI;
+    return (rad * 180.0) / M_PI;
 }
 
 double Geometry::getRadians(double degrees)
@@ -30,6 +30,9 @@ double Geometry::getSlope(const Point& p1, const Point& p2)
 
 double Geometry::getSlope(double rad)
 {
+    if (std::abs(rad) == M_PI)
+        return 0; // Pour éviter la perte de précision.
+
     return -tan(rad); // - car on travaille dans un repère inversé
 }
 
