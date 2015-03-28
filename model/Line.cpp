@@ -73,10 +73,10 @@ bool Line::intersects(const Line &l, Point ** intersection)
         x2     = l.origin.getX();
         x1     = x2;
         slope1 = Geometry::getSlope(this->angle);
-        b1     = this->origin.getY() - (slope1 * l.origin.getX());
+        b1     = this->origin.getY() - (slope1 * this->origin.getX());
         y1     = (x1 * slope1) + b1;
 
-        *intersection = new Point(x1, x2);
+        *intersection = new Point(x1, y1);
    }
    else
    {
@@ -100,10 +100,8 @@ bool Line::intersects(const LineSegment &ls, Point ** intersection)
     Point start = ls.getStart();
     Point end = ls.getEnd();
     double rad = Geometry::getAngle(start, end);
-    std::cout << rad << std::endl;
     if (intersects(Line(start, rad), intersection))
     {
-        std::cout << **intersection << std::endl;
         if (!Geometry::isInBoundingBox(**intersection, ls))
         {
             *intersection = nullptr;
