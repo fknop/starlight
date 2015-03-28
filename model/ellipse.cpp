@@ -28,7 +28,7 @@ bool Ellipse::intersects(const Line & l, std::vector<Point>& points)
     {
            // y =  sqrt((1 - ((x - x1)² / a²)) * b²) + y1
            x2 = x = l.getPoint().getX(); // x de la droite
-           y = std::sqrt(1 - ((std::pow(x - x1, 2) / (std::pow(a, 2)))
+           y = std::sqrt(1 - ((std::pow((x - x1), 2) / (std::pow(a, 2)))
                          * std::pow(b, 2)) + y1);
 
 
