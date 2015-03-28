@@ -11,7 +11,8 @@
 namespace Geometry
 {
 
-    #define M_PI 3.14159265358979323846
+
+    #define M_PI 3.141592653589793238463
 
     /**
      * Transforme des radians en degrés.

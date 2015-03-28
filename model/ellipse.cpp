@@ -1,4 +1,5 @@
 #include "ellipse.h"
+#include <cmath>
 
 Ellipse::Ellipse(const Point & p, double xRad, double yRad)
         : pos{p}, xRadius(xRad), yRadius(yRad)
@@ -12,24 +13,43 @@ Ellipse::~Ellipse()
 
 }
 
-bool Ellipse::intersects(const LineSegment & l, std::vector<Point>& points)
+bool Ellipse::intersects(const Line & l, std::vector<Point>& points)
 {
 
-    double x;
-    double y;
-    double a = xRadius * 2;
-    double b = yRadius * 2;
+    double x1 = this->pos.getX();
+    double y1 = this->pos.getY();
+    double a = this->xRadius * 2;
+    double b = this->yRadius * 2;
+    double x, y, x2, y2;
 
 
+    // ((x - x1)² / a²) + ((y- y1)² / b²) = 1
+    if (std::abs(std::fmod(l.getAngle(), M_PI)) == (M_PI / 2))
+    {
+           // y =  sqrt((1 - ((x - x1)² / a²)) * b²) + y1
+           x2 = x = l.getPoint().getX(); // x de la droite
+           y = std::sqrt(1 - ((std::pow(x - x1, 2) / (std::pow(a, 2)))
+                         * std::pow(b, 2)) + y1);
 
-    /*
 
-      ((x - x1)² / a²) + ((y- y1)² / b²) = 1
-       x1 et y1 sont les coordonnées du centre.
-        a est la longueur : xRad * 2
-        b est la hauteur : yRad * 2
+//         *intersection = new Point(x1, y1);
+    }
+    else
+    {
+//        slope1 = Geometry::getSlope(this->angle);
+//        slope2 = Geometry::getSlope(l.angle);
+//        b1     = this->origin.getY() - (slope1 * l.origin.getX());
+//        b2     = l.origin.getY() - (slope2 * l.origin.getX());
+//        x1     = (b2 - b1) / (slope1 - slope2);
+//        y1     = (slope2 * x1) + b2;
 
-     */
+//        *intersection = new Point(x1, y1);
+    }
+
+}
+
+bool Ellipse::intersects(const LineSegment & ls, std::vector<Point>& points)
+{
 
 
 
