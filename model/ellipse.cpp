@@ -15,6 +15,8 @@ Ellipse::~Ellipse()
 
 }
 
+
+/* MOYEN DE REFACTOR TOUT CA */
 int Ellipse::intersects(const Line & l, std::vector<Point>& points)
 {
 
@@ -51,7 +53,6 @@ int Ellipse::intersects(const Line & l, std::vector<Point>& points)
         {
             y = -b / (2*a);
             points.push_back(Point(x, y));
-            return 1;
         }
         else if (rho > 0)
         {
@@ -59,11 +60,6 @@ int Ellipse::intersects(const Line & l, std::vector<Point>& points)
             y2 = (-b - std::sqrt(rho)) / (2*a);
             points.push_back(Point(x, y));
             points.push_back(Point(x, y2));
-            return 2;
-        }
-        else
-        {
-            return 0;
         }
     }
     else
@@ -91,16 +87,12 @@ int Ellipse::intersects(const Line & l, std::vector<Point>& points)
         a = lcmy + (lcmx * slope * slope);
         b = -(lcmy * 2 * x1) + (lcmx * 2 * slope * (d-y1));
         rho = umath::rho(a, b, c);
-        std::cout << "a : " << a << std::endl;
-        std::cout << " b  " << b << std::endl;
-        std::cout << "c : " << c << std::endl;
-        std::cout << "rho : " << rho << std::endl;
+
         if (rho == 0)
         {
             x = -b / (2*a);
             y = (slope * x) + d;
             points.push_back(Point(x, y));
-            return 1;
         }
         else if (rho > 0)
         {
@@ -110,21 +102,27 @@ int Ellipse::intersects(const Line & l, std::vector<Point>& points)
             y2 = (slope * x2) + d;
             points.push_back(Point(x, y));
             points.push_back(Point(x2, y2));
-            return 2;
         }
-        else
-        {
-            return 0;
-        }
-
     }
+
+    return points.size();
 
 }
 
 int Ellipse::intersects(const LineSegment & ls, std::vector<Point>& points)
 {
 
+    Point start = ls.getStart();
+    Point end = ls.getEnd();
+    double rad = Geometry::getAngle(start, end);
+    int intersections = intersects(Line(start, rad), points);
 
+    if (intersections > 1 && !Geometry::isInBoundingBox(points.at(1), ls))
+        points.erase(points.end());
+    if (intersections > 0 && !Geometry::isInBoundingBox(points.at(0), ls))
+        points.erase(points.begin());
+
+    return points.size();
 
 }
 
