@@ -9,7 +9,7 @@
 
 **Une fois effectué -> Barrer la ligne !**
 
-* Gérer les lignes verticales.
+* ~~Gérer les lignes verticales.~~
 * Gérer le retour du point d'intersection et de l'objet.
 * Gérer les vérifications dans les constructeurs.
 * Gérer la reflexion du rayon sur un miroir.
