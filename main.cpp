@@ -50,7 +50,7 @@ int main(int argc, char **argv)
     //level->computeRays();
 
 
-    Line l (Point(0, 0), M_PI / 4);
+    Line l (Point(0,0), -M_PI/8);
     Ellipse e(Point(20,20), 20, 10);
 
     std::vector<Point> points;
