@@ -5,8 +5,10 @@ MirrorView::MirrorView(int pivotX, int pivotY, int xpad, int len, double angle)
     rotation = 0;
     setFlags(flags() | QGraphicsItem::ItemIsSelectable);
 
-    //std::cout << "new mirror on " << pivotX << " " << pivotY << std::endl;
-    //std::cout << (len) << " " << (xpad) << " " << cos(angle) << " " << sin(angle) << std::endl;
+    initialPos.setX(pivotX);
+    initialPos.setY(pivotY);
+
+    std::cout << "const " << initialPos.x() << " " << initialPos.y() << std::endl;
 
 
     int gx = pivotX - (xpad * cos(angle));
@@ -14,7 +16,9 @@ MirrorView::MirrorView(int pivotX, int pivotY, int xpad, int len, double angle)
     int dx = pivotX + ((len-xpad) * cos(angle));
     int dy = pivotY + ((len-xpad) * sin(angle));
 
-    setTransformOriginPoint(QPointF(pivotX, pivotY));
+//    setTransformOriginPoint(QPointF(pivotX, pivotY));
+    setTransformOriginPoint(initialPos);
+
 
     QPen myPen(Qt::red);
     myPen.setWidth(3);
@@ -32,36 +36,48 @@ void MirrorView::mousePressEvent(QGraphicsSceneMouseEvent *event)
 
 void MirrorView::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
 {
-   // QPointF pos = mapToScene(event->pos());
+    std::cout << pos().x() << " " << pos().y() << std::endl;
 
-    int posX = 0;
-    int posY = 0;
-
-//    if (pos.y() > initialPos.y())
-//    {
-//        posY = event->pos();
-//    }
-//    else
-//    {
-//        posY = event->pos();
-//    }
-
-//    if (pos.x() > initialPos.x())
-//    {
-//        ++posX;
-//    }
-//    else
-//    {
-//        --posX;
-//    }
 
     std::cout << "initial pos x : " << initialPos.x() << std::endl;
     std::cout << "initial pos y : " << initialPos.y() << std::endl;
     std::cout << "event pos x : " << event->scenePos().x() << std::endl;
     std::cout << "event pos y : " << event->scenePos().y() << std::endl;
-    std::cout << "pos x : " << initialPos.x() + event->pos().x() << std::endl;
-    std::cout << "pos y : " << initialPos.y() + event->pos().y() << std::endl;
-    setPos(initialPos.x() - event->scenePos().x(), initialPos.y() - event->scenePos().y());
+//    std::cout << "pos x : " << event->scenePos().x() - initialPos.x() << std::endl;
+//    std::cout << "pos y : " << event->scenePos().y() - initialPos.y() << std::endl;
+
+    std::cout << std::endl << std::endl;
+
+
+    setPos(event->scenePos().x() - initialPos.x(), event->scenePos().y() - initialPos.y());
+    setTransformOriginPoint(pos());
+
+
+
+
+}
+
+void MirrorView::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
+{
+    initialPos.setX(pos().x());
+    initialPos.setY(pos().y());
+
+    pos().setX(event->scenePos().x() - initialPos.x());
+    pos().setY(event->scenePos().y() - initialPos.y());
+    std::cout << pos().x() << " " << pos().y() << std::endl;
+
+    setTransformOriginPoint(pos());
+
+
+    std::cout << "released event " << event->scenePos().x() << " " << event->scenePos().y() << std::endl;
+//    std::cout << "released initP " << initialPos.x() << " " << initialPos.y() << std::endl;
+//    initialPos.setX(event->scenePos().x());
+//    initialPos.setY(event->scenePos().y());
+//    initialPos.setX(pos().x());
+//    initialPos.setY(pos().y());
+//    std::cout << "released initP " << initialPos.x() << " " << initialPos.y() << std::endl;
+//    setTransformOriginPoint(initialPos);
+//    std::cout << std::endl << std::endl;
 }
 
 int MirrorView::getRotation()
