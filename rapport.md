@@ -1,5 +1,5 @@
 % Rapport du projet Starlight
-% Florian Knop (39***) - Gatien Bovyn (39189)
+% Florian Knop (39310) - Gatien Bovyn (39189)
 % 29/03/2015
 
 # Table des matières
@@ -11,7 +11,7 @@
 Ce document vise à présenter le travail d’analyse et de programmation effectué
 lors de la réalisation du projet du laboratoire Langage C++ : Starlight.
 
-Ce projet a été réalisé en binôme par Florian Knop, matricule 39*** groupe 2G12,
+Ce projet a été réalisé en binôme par Florian Knop, matricule 39310 groupe 2G13,
 et Gatien Bovyn, matricule 39189 groupe 2G11.
 
 Le programme à concevoir consiste en une implémentation du modèle et d’une interface
