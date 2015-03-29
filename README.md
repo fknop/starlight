@@ -10,13 +10,14 @@
 **Une fois effectué -> Barrer la ligne !**
 
 * ~~Gérer les lignes verticales.~~
-* Gérer le retour du point d'intersection et de l'objet.
-* Gérer les vérifications dans les constructeurs.
-* Gérer la reflexion du rayon sur un miroir.
+* ~~Gérer les intersections entres droites, segments, ellipses.~~
+* Gérer le retour du point d'intersection et de l'objet. 
+* Gérer les vérifications dans les constructeurs. - A FINIR
+* Gérer la reflexion du rayon sur un miroir. 
 * Gérer les divers évènements lors de l'intersection avec un objet.
 * Gérer l'affichage.
-* Gérer le déplacement des miroirs.
-* Gérer la rotations des miroirs.
+* Gérer le déplacement des miroirs. - A TESTER
+* Gérer la rotations des miroirs.   - A TESTER
 
 # Rules
 
