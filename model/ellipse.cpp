@@ -71,11 +71,11 @@ int Ellipse::intersects(const Line & l, std::vector<Point>& points)
 
         // E == ((x - x1)² / a²) + ((y- y1)² / b²) = 1
         // D == y = ax + b
-        // D dans E : lcmy * (x-x1)² + lcmx * (ax + b - y1)² = lcm
-        // lcmy * (x² - 2*x1*x + x1²) + lcmx * (a²x² - 2*a*x*(b-y1) + (b-y1)²) = lcm
+        // D dans E : lcmy * (x-x1)² + lcmx * ((ax + (b-y1)² = lcm
+        // lcmy * (x² - 2*x1*x + x1²) + lcmx * (a²x² + 2*a*x*(b-y1) + (b-y1)²) = lcm
         // lcmy * x² - lcmy*2*x1*x + lcmy*x1²
         //          + lcmx*a²x² - lcmx*2*a*x*(b-y1)
-        //          + (b-y1)² - lcm = 0
+        //          + lcmx*(b-y1)² - lcm = 0
         // Résoudre x
 
 
@@ -84,14 +84,17 @@ int Ellipse::intersects(const Line & l, std::vector<Point>& points)
 
         // d est b dans y = ax + b
         d     = l.getPoint().getY() - (slope * l.getPoint().getX());
-        std::cout << lcm;
+
         c = -lcm;
-        c += std::pow((d - y1), 2);
+        c += lcmx * std::pow((d - y1), 2);
         c += lcmy * x1 * x1;
         a = lcmy + (lcmx * slope * slope);
-        b = (-lcmy * 2 * x1) + (-lcmx * 2 * slope * (d-y1));
+        b = -(lcmy * 2 * x1) + (lcmx * 2 * slope * (d-y1));
         rho = umath::rho(a, b, c);
-
+        std::cout << "a : " << a << std::endl;
+        std::cout << " b  " << b << std::endl;
+        std::cout << "c : " << c << std::endl;
+        std::cout << "rho : " << rho << std::endl;
         if (rho == 0)
         {
             x = -b / (2*a);
