@@ -48,12 +48,4 @@ bool Geometry::isInBoundingBox(const Point& p, const LineSegment& ls)
             && (std::max(start.getY(), end.getY()) >= p.getY()));
 }
 
-Point * Geometry::getIntersection(const Line& l, const LineSegment& ls)
-{
-//    Point * p = l.getIntersection(Line(ls.getStart(), ls.getEnd()));
 
-//    if (p != nullptr && Geometry::isInBoundingBox(*p, ls))
-//        return p;
-//    else
-        return nullptr;
-}

@@ -12,11 +12,7 @@
 PolarPoint::PolarPoint(const Point& p)
 {
    distance = Point(0,0).distance(p);
-
-   /* Equivaut à faire :
-    * angle = std::atan2(p.getX(), p.getY());
-    */
-   angle = std::acos(p.getX() / distance);
+   angle = std::atan2(p.getX(), p.getY());
 }
 
 PolarPoint::PolarPoint(double distance, double angle)

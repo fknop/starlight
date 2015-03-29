@@ -41,7 +41,7 @@
 #include "model/polarpoint.h"
 #include "model/Geometry.h"
 #include "model/ellipse.h"
-
+#include "model/umath.h"
 
 int main(int argc, char **argv)
 {
@@ -50,16 +50,18 @@ int main(int argc, char **argv)
     //level->computeRays();
 
 
-    Line l (Point(15, 0), M_PI / 2);
+    Line l (Point(0, 0), M_PI / 4);
     Ellipse e(Point(20,20), 20, 10);
 
     std::vector<Point> points;
 
-    if (e.intersects(l, points))
+    if (int i = e.intersects(l, points))
     {
         std::cout << points.at(0) << std::endl;
-        std::cout << points.at(1) << std::endl;
+        if (i == 2)
+            std::cout << points.at(1) << std::endl;
     }
+
 
 
 

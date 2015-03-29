@@ -1,5 +1,7 @@
 #include "ellipse.h"
 #include <cmath>
+#include "umath.h"
+#include "Geometry.h"
 
 Ellipse::Ellipse(const Point & p, double xRad, double yRad)
         : pos{p}, xRadius(xRad), yRadius(yRad)
@@ -20,40 +22,43 @@ int Ellipse::intersects(const Line & l, std::vector<Point>& points)
     double y1 = this->pos.getY();
     double xR = this->xRadius;
     double yR = this->yRadius;
-    double x, y, x2, y2;
+    double x, y, d, x2, y2, slope;
     double a, b, c;
     double rho;
-    double yPoint1;
-    double yPoint2;
+    double lcm = umath::dlcm(xR*xR, yR*yR);
+    double lcmx = lcm / (yR*yR);
+    double lcmy = lcm / (xR*xR);
 
+    // lcm correspond au plus petit commun multiple de a² et b²
     // xR correspond au a, yR correspond au b :
     // ((x - x1)² / a²) + ((y- y1)² / b²) = 1
     // (y² - 2*y*y1 + y1²) * a² + b² * (x-x1)² = a² * b²
     // a² * y² - 2*a²*y*y1 + a²*y1² + x²*b² - 2*b²*x*x1 + x1² - a² * b² = 0
     if (std::abs(std::fmod(l.getAngle(), M_PI)) == (M_PI / 2))
     {
+
         x = l.getPoint().getX();
-        c = (yR*yR * x*x);
-        c -= (2 * yR*yR * x*x1);
-        c += (yR*yR * x1*x1);
-        c -= (xR*xR * yR*yR);
-        c += (xR*xR * y1*y1);
-        a = (xR*xR);
-        b = (-2* xR*xR * y1);
-        rho = (b*b) - (4 * a * c);
+        c = (lcmy * x*x);
+        c -= (2 * lcmy * x*x1);
+        c += (lcmy * x1*x1);
+        c -= (lcm);
+        c += (lcmx * y1*y1);
+        a = (lcmx);
+        b = (-2* lcmx * y1);
+        rho = umath::rho(a, b ,c);
 
         if (rho == 0)
         {
-            yPoint1 = -b / (2*a);
-            points.push_back(Point(x, yPoint1));
+            y = -b / (2*a);
+            points.push_back(Point(x, y));
             return 1;
         }
         else if (rho > 0)
         {
-            yPoint1 = (-b + std::sqrt(rho)) / (2*a);
-            yPoint2 = (-b - std::sqrt(rho)) / (2*a);
-            points.push_back(Point(x, yPoint1));
-            points.push_back(Point(x, yPoint2));
+            y = (-b + std::sqrt(rho)) / (2*a);
+            y2 = (-b - std::sqrt(rho)) / (2*a);
+            points.push_back(Point(x, y));
+            points.push_back(Point(x, y2));
             return 2;
         }
         else
@@ -63,14 +68,52 @@ int Ellipse::intersects(const Line & l, std::vector<Point>& points)
     }
     else
     {
-//        slope1 = Geometry::getSlope(this->angle);
-//        slope2 = Geometry::getSlope(l.angle);
-//        b1     = this->origin.getY() - (slope1 * l.origin.getX());
-//        b2     = l.origin.getY() - (slope2 * l.origin.getX());
-//        x1     = (b2 - b1) / (slope1 - slope2);
-//        y1     = (slope2 * x1) + b2;
 
-//        *intersection = new Point(x1, y1);
+        // E == ((x - x1)² / a²) + ((y- y1)² / b²) = 1
+        // D == y = ax + b
+        // D dans E : lcmy * (x-x1)² + lcmx * (ax + b - y1)² = lcm
+        // lcmy * (x² - 2*x1*x + x1²) + lcmx * (a²x² - 2*a*x*(b-y1) + (b-y1)²) = lcm
+        // lcmy * x² - lcmy*2*x1*x + lcmy*x1²
+        //          + lcmx*a²x² - lcmx*2*a*x*(b-y1)
+        //          + (b-y1)² - lcm = 0
+        // Résoudre x
+
+
+        // la pente de la droite
+        slope = Geometry::getSlope(l.getAngle());
+
+        // d est b dans y = ax + b
+        d     = l.getPoint().getY() - (slope * l.getPoint().getX());
+        std::cout << lcm;
+        c = -lcm;
+        c += std::pow((d - y1), 2);
+        c += lcmy * x1 * x1;
+        a = lcmy + (lcmx * slope * slope);
+        b = (-lcmy * 2 * x1) + (-lcmx * 2 * slope * (d-y1));
+        rho = umath::rho(a, b, c);
+
+        if (rho == 0)
+        {
+            x = -b / (2*a);
+            y = (slope * x) + d;
+            points.push_back(Point(x, y));
+            return 1;
+        }
+        else if (rho > 0)
+        {
+            x = (-b + std::sqrt(rho)) / (2*a);
+            x2 = (-b - std::sqrt(rho)) / (2*a);
+            y = (slope * x) + d;
+            y2 = (slope * x2) + d;
+            points.push_back(Point(x, y));
+            points.push_back(Point(x2, y2));
+            return 2;
+        }
+        else
+        {
+            return 0;
+        }
+
     }
 
 }

@@ -19,9 +19,10 @@ namespace Geometry
 
 
     /**
-     * Transforme des radians en degrés.
-     * @param rad un angle en radians.
-     * @return un angle en degrés.
+     * Retourne l'angle en degrés d'un angle
+     * donné en radians.
+     * @param rad l'angle en radians.
+     * @return l'angle en degrés.
      */
     double getDegrees(double rad);
 
@@ -50,17 +51,27 @@ namespace Geometry
     bool isInBoundingBox(const Point& p, const LineSegment& ls);
 
     /**
-     * Retourne le point d’intersection entre une ligne et un segment.
-     * @param l une ligne.
-     * @param li un segment.
-     * @return le point d’intersection entre la ligne et le segment.
+     * Retourne l'angle en radians de la pente du segment
+     * qui rejoint deux points.
+     * @param p1 le premier point.
+     * @param p2 le dexième point.
+     * @return l'angle en radians de la pente.
      */
-    Point* getIntersection(const Line& l, const LineSegment& li);
-
     double getAngle(const Point& p1, const Point& p2);
 
+    /**
+     * Retourne l'angle en radians de la pente donnée.
+     * @param slope la pente.
+     * @return l'angle en radians de la pente donnée.
+     */
     double getAngle(double slope);
 
+    /**
+     * Retourne l'angle en radians d'un angle donné
+     * en degrés.
+     * @param degrees l'angle en degrés.
+     * @return l'angle en radians.
+     */
     double getRadians(double degrees);
 }
 
