@@ -1,12 +1,13 @@
 #include "view/WallView.h"
 
-WallView::WallView(int x1, int y1, int x2, int y2)
+WallView::WallView(const Wall& wall)
 {
     QPen myPen(Qt::black);
     myPen.setWidth(2);
 
     setPen(myPen);
-    setLine(x1, y1, x2, y2);
+    setLine(wall.getStart().getX(), wall.getStart().getY(),
+            wall.getEnd().getX(), wall.getEnd().getY());
 }
 
 

@@ -8,8 +8,8 @@ class MapView : public QGraphicsView
 {
 public:
     MapView(Level *level);
-    void drawWall(QGraphicsScene *s, int x1, int y1, int x2, int y2);
-    void drawMirror(QGraphicsScene *s, int pivotX, int pivotY, int xpad, int len, double angle);
+    void drawWall(QGraphicsScene *s, const Wall& wall);
+    void drawMirror(QGraphicsScene *s, const Mirror& mirror);
 
     void keyPressEvent(QKeyEvent *event);
 

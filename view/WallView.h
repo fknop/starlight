@@ -5,6 +5,7 @@
 #include <QGraphicsLineItem>
 
 #include <QGraphicsSceneMouseEvent>
+#include "model/wall.h"
 
 /**
  * Modélisation visuelle d’un mur (ne reflétant pas la lumière).
@@ -19,7 +20,7 @@ public:
      * @param x2 abscisse de l’autre extrémité du mur.
      * @param y2 ordonnée de l’autre extrémité du mur.
      */
-    WallView(int x1, int y1, int x2, int y2);
+    WallView(const Wall& wall);
 
 private:
     QPointF initialPos;
