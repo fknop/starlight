@@ -4,10 +4,10 @@
 #include <QGraphicsView>
 #include <QGraphicsEllipseItem>
 
-class NukesView : QGraphicsEllipseItem
+class NukeView : QGraphicsEllipseItem
 {
 public:
-    NukesView(int x, int y, int radius);
+    NukeView(int x, int y, int radius);
 };
 
 #endif // NUKESVIEW_H

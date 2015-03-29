@@ -28,10 +28,10 @@ SOURCES += main.cpp \
     model/ellipse.cpp \
     view/SourceView.cpp \
     view/DestinationView.cpp \
-    view/NukesView.cpp \
     model/polarpoint.cpp \
     obs/observable.cpp \
-    model/umath.cpp
+    model/umath.cpp \
+    view/NukeView.cpp
 
 
 HEADERS += \
@@ -57,11 +57,11 @@ HEADERS += \
     model/ellipse.h \
     view/SourceView.h \
     view/DestinationView.h \
-    view/NukesView.h \
     model/polarpoint.h \
     obs/observer.h \
     obs/observable.h \
-    model/umath.h
+    model/umath.h \
+    view/NukeView.h
 
 
 FORMS +=
