@@ -37,18 +37,18 @@ public:
      * intersections avec l'ellipse.
      * @param l le segment de droite.
      * @param points un vecteur de points d'intersections.
-     * @return vrai si le segment coupe l'ellipse, faux sinon.
+     * @return le nombre d'intersections entre l'ellipse et la droite.
      */
-    bool intersects(const LineSegment & ls, std::vector<Point>& points);
+    int intersects(const LineSegment & ls, std::vector<Point>& points);
 
     /**
      * Vérifie si une droite possède une ou des intersections
      * avec l'ellipse.
      * @param l la droite.
      * @param points un vecteur de points d'intersections.
-     * @return vrai si la droite coupe l'ellipse, faux sinon.
+     * @return le nombre d'intersections entre l'ellipse et la droite.
      */
-    bool intersects(const Line& l, std::vector<Point> &points);
+    int intersects(const Line& l, std::vector<Point> &points);
 };
 
 #endif // ELLIPSE_H
