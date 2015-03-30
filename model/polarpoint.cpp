@@ -2,13 +2,7 @@
 
 #include <cmath>
 
-/*
- * Distance (0,0) et (x,y)
- * x = distance * cos (angle)
- * y = distance * sin (angle)
- * cos(angle) = x / distance
- * angle = arcos(x / distance)
-*/
+
 PolarPoint::PolarPoint(const Point& p)
 {
    distance = Point(0,0).distance(p);
@@ -19,7 +13,7 @@ PolarPoint::PolarPoint(double distance, double angle)
                 : distance{distance}, angle{angle}
 {
     if (distance < 0)
-        throw "La distance ne peut pas être négative";
+        throw std::string("La distance ne peut pas être négative");
 }
 
 void PolarPoint::setAngle(double a)

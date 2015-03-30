@@ -4,9 +4,9 @@
 double umath::dgcd(double a, double b)
 {
     if (b == 0)
-           return a;
+        return a;
     else
-           return dgcd(b, std::fmod(a, b));
+        return dgcd(b, std::fmod(a, b));
 }
 
 double umath::dlcm(double a, double b)

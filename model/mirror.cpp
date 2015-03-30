@@ -14,14 +14,14 @@ Mirror::Mirror(const Point & p, double x, double len, double a, Point pm,
       alphaMax {aM}
 {
     if (length <= 0 || xpad < 0)
-        throw "La longueur et le décalage doivent etre positifs";
+        throw std::string("La longueur et le décalage doivent etre positifs");
 
    if (!checkPivotRange(p))
-       throw "Le pivot n'est pas dans les bornes autorisées";
+       throw std::string("Le pivot n'est pas dans les bornes autorisées");
 
     if (!checkAngleRange(alpha))
-        throw "L'inclinaison du mirroir est invalide. "
-        "Elle n'est pas comprise entre les bornes.";
+        throw std::string("L'inclinaison du mirroir est invalide. "
+        "Elle n'est pas comprise entre les bornes.");
 }
 
 const Point & Mirror::getPivot() const
@@ -116,7 +116,6 @@ void Mirror::rotate(double angle)
 
 void Mirror::translate(double x, double y)
 {
-
     double newX = pivot.getX() + x;
     double newY = pivot.getY() + y;
     if (!setPivot(Point(newX, newY)))
@@ -132,10 +131,7 @@ void Mirror::translate(double x, double y)
             newY = yMax;
 
         setPivot(Point(newX, newY));
-
     }
-
-
 }
 
 std::ostream & operator<<(std::ostream & out, const Mirror & m)

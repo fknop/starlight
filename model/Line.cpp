@@ -8,18 +8,12 @@ Line::Line(const Point& origin, double angle)
 {
    this->origin = origin;
    this->angle = angle;
-
-//   this->b = this->origin.getY() - (this->slope * this->origin.getX());
 }
 
 Line::Line(const Point& p1, const Point& p2)
 {
    this->origin = p1;
    this->angle = Geometry::getSlope(p1, p2);
-   // y = ax + b
-   // b = y - ax
-   //this->b = this->origin.getY() - (this->slope * this->origin.getX());
-
 }
 
 /**
@@ -57,7 +51,7 @@ bool Line::intersects(const Line &l, Point ** intersection)
 
    // Droites verticales
    // Faire une méthode pour refactor
-   if (std::abs(std::fmod(this->angle, M_PI)) == (M_PI / 2))
+   if (std::abs(std::fmod(this->angle, M_PI)) == (M_PI_2))
    {
         x1     = this->origin.getX();
         x2     = x1;
@@ -68,7 +62,7 @@ bool Line::intersects(const Line &l, Point ** intersection)
         *intersection = new Point(x2, y2);
 
    }
-   else if (std::abs(std::fmod(l.angle, M_PI)) == (M_PI / 2))
+   else if (std::abs(std::fmod(l.angle, M_PI)) == (M_PI_2))
    {
         x2     = l.origin.getX();
         x1     = x2;
@@ -97,6 +91,7 @@ bool Line::intersects(const Line &l, Point ** intersection)
 bool Line::intersects(const LineSegment &ls, Point ** intersection)
 {
 
+    bool doIntersects = false;
     Point start = ls.getStart();
     Point end = ls.getEnd();
     double rad = Geometry::getAngle(start, end);
@@ -104,16 +99,16 @@ bool Line::intersects(const LineSegment &ls, Point ** intersection)
     {
         if (!Geometry::isInBoundingBox(**intersection, ls))
         {
+            delete *intersection;
             *intersection = nullptr;
-            return false;
+        }
+        else
+        {
+            doIntersects = true;
         }
     }
-    else
-    {
-        return false;
-    }
 
-    return true;
+    return doIntersects;
 }
 
 const Point& Line::getPoint() const

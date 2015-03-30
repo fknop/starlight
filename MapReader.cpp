@@ -172,5 +172,6 @@ Level * MapReader::getLevel(std::string path)
 
 void MapReader::endLevel()
 {
+    delete l;
     l = nullptr;
 }

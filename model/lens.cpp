@@ -1,16 +1,29 @@
 #include "lens.h"
+#include "ray.h"
 
 Lens::Lens(const Point & p, double w, double h, int wlmin, int wlmax) : pos {p},
 width {w}, height {h}, wlmin {wlmin}, wlmax {wlmax}
 {
+
+
+    if (wlmin <= Ray::WL_MIN || wlmax >= Ray::WL_MAX)
+        throw std::string("Les bornes de longueurs d'ondes"
+                          "ne peuvent pas être plus petites"
+                          "que le minimum ou plus grande"
+                          "que le maximum");
+
     if (wlmin > wlmax)
     {
-        throw "La longueur d'onde minimale ne peut pas être plus grande que "
-        "la longueur d'onde maximale";
+        throw std::string("La longueur d'onde minimale "
+                          "ne peut pas être plus grande que "
+                          "la longueur d'onde maximale");
     }
+
+
+
     if (width <= 0 || height <= 0)
     {
-        throw "La taille et la longueur doivent etre strictement positives";
+        throw std::string("La taille et la longueur doivent etre strictement positives");
     }
 }
 

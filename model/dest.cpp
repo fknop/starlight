@@ -2,9 +2,8 @@
 
 Dest::Dest(const Point & p, double e) : pos {p}, edge {e}
 {
-    // TODO : valider edge
-
-    //Que faut-il vérifier ?
+    if (e <= 0)
+        throw std::string("La longueur doit être strictement supérieure à 0");
 }
 
 const Point & Dest::getPosition() const

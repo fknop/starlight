@@ -50,7 +50,7 @@ int main(int argc, char **argv)
     //level->computeRays();
 
 
-    LineSegment l (Point(0,0), Point(17,30));
+    LineSegment l (Point(0,0), Point(0, 30));
     Ellipse e(Point(20,20), 20, 10);
 
     std::vector<Point> points;
@@ -64,8 +64,9 @@ int main(int argc, char **argv)
 
 
 
+    return 0;
 
-    MapView box(level);
-    box.show();
-      return app.exec();
+//    MapView box(level);
+//    box.show();
+//      return app.exec();
 }

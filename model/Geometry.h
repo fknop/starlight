@@ -16,6 +16,10 @@ namespace Geometry
     #ifndef M_PI
         #define M_PI 3.141592653589793238463
     #endif
+    #ifndef M_PI_2
+        #define M_PI_2 M_PI / 2
+    #endif
+
 
 
     /**

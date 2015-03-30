@@ -2,11 +2,12 @@
 
 Nuke::Nuke(const Point & p, double r) : pos {p}, rad {r}
 {
-    // TODO : valider rad
+    if (r <= 0)
+        throw std::string("Le rayon doit être strictement supérieur à 0");
 
 }
 
-const Point &Nuke::getLocation() const
+const Point& Nuke::getLocation() const
 {
     return pos;
 }

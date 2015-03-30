@@ -4,7 +4,8 @@
 Crystal::Crystal(const Point & p, double r, int m) : center {p}, rad {r},
 mod {m}
 {
-    // TODO : valider rad (et mod ?)
+    if (r <= 0)
+        throw std::string("Le rayon doit être strictement strictement positif");
 }
 
 const Point & Crystal::getCenter() const

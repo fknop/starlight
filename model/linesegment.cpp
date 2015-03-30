@@ -5,7 +5,6 @@ LineSegment::LineSegment(const Point& start, const Point& end)
 {
     this->start = start;
     this->end = end;
-
 }
 
 const Point& LineSegment::getStart() const

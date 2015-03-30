@@ -7,7 +7,7 @@ Ellipse::Ellipse(const Point & p, double xRad, double yRad)
         : pos{p}, xRadius(xRad), yRadius(yRad)
 {
     if (xRad <= 0 || yRad <= 0)
-        throw "Les rayons de l'ellipse doivent être strictement positif";
+        throw std::string("Les rayons de l'ellipse doivent être strictement positif");
 }
 
 Ellipse::~Ellipse()
@@ -79,7 +79,7 @@ int Ellipse::intersects(const Line & l, std::vector<Point>& points)
         slope = Geometry::getSlope(l.getAngle());
 
         // d est b dans y = ax + b
-        d     = l.getPoint().getY() - (slope * l.getPoint().getX());
+        d = l.getPoint().getY() - (slope * l.getPoint().getX());
 
         c = -lcm;
         c += lcmx * std::pow((d - y1), 2);

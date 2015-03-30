@@ -10,8 +10,8 @@ Level::Level(double w, double h) : width {w}, height {h},
             {{w, h}, {w, .0}}, {{w, .0}, {.0, .0}} }
 {
     if (w <= 0 || h <= 0)
-        throw "La taille et la longueur "
-            "du plateau doivent etre strictement positives";
+        throw std::string("La taille et la longueur "
+            "du plateau doivent etre strictement positives");
 
 }
 
