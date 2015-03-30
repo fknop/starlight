@@ -31,11 +31,6 @@ int Ellipse::intersects(const Line & l, std::vector<Point>& points)
     double lcmx = lcm / (yR*yR);
     double lcmy = lcm / (xR*xR);
 
-    // lcm correspond au plus petit commun multiple de a² et b²
-    // xR correspond au a, yR correspond au b :
-    // ((x - x1)² / a²) + ((y- y1)² / b²) = 1
-    // (y² - 2*y*y1 + y1²) * a² + b² * (x-x1)² = a² * b²
-    // a² * y² - 2*a²*y*y1 + a²*y1² + x²*b² - 2*b²*x*x1 + x1² - a² * b² = 0
     if (std::abs(std::fmod(l.getAngle(), M_PI)) == (M_PI_2))
     {
 
@@ -64,23 +59,10 @@ int Ellipse::intersects(const Line & l, std::vector<Point>& points)
     }
     else
     {
-
-        // E == ((x - x1)² / a²) + ((y- y1)² / b²) = 1
-        // D == y = ax + b
-        // D dans E : lcmy * (x-x1)² + lcmx * ((ax + (b-y1)² = lcm
-        // lcmy * (x² - 2*x1*x + x1²) + lcmx * (a²x² + 2*a*x*(b-y1) + (b-y1)²) = lcm
-        // lcmy * x² - lcmy*2*x1*x + lcmy*x1²
-        //          + lcmx*a²x² - lcmx*2*a*x*(b-y1)
-        //          + lcmx*(b-y1)² - lcm = 0
-        // Résoudre x
-
-
         // la pente de la droite
         slope = Geometry::getSlope(l.getAngle());
-
         // d est b dans y = ax + b
         d = l.getPoint().getY() - (slope * l.getPoint().getX());
-
         c = -lcm;
         c += lcmx * std::pow((d - y1), 2);
         c += lcmy * x1 * x1;
@@ -111,7 +93,6 @@ int Ellipse::intersects(const Line & l, std::vector<Point>& points)
 
 int Ellipse::intersects(const LineSegment & ls, std::vector<Point>& points)
 {
-
     Point start = ls.getStart();
     Point end = ls.getEnd();
     double rad = Geometry::getAngle(start, end);
@@ -123,6 +104,5 @@ int Ellipse::intersects(const LineSegment & ls, std::vector<Point>& points)
         points.erase(points.begin());
 
     return points.size();
-
 }
 
