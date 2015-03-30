@@ -57,6 +57,12 @@ int main(int argc, char **argv)
 
 
 
+    Line l(Point(0,0), -M_PI / 4);
+    Line l2(Point(0,10), M_PI);
+
+    Point * p;
+    if (l.intersects(l2, &p))
+        std::cout << *p;
 
     return 0;
 

@@ -28,19 +28,9 @@ Point * Line::verticalLineIntersection(const Line& verticalL, const Line line)
 }
 
 
-/**
- * @brief Line::intersects
- * @param l
- * @param intersection
- * @return
- */
+
 bool Line::intersects(const Line &l, Point ** intersection)
-{
-    /* Passage par pointeur de pointeur
-       car un pointeur est passé par valeur et donc ne sera pas
-       le même que celui de base et l'assignation de la valeur
-       se fera sur un autre pointeur.
-      */
+{   
     double x, y;
     double b1, b2;
     double slope1, slope2;
@@ -60,9 +50,7 @@ bool Line::intersects(const Line &l, Point ** intersection)
         return true;
     }
 
-
    // Droites verticales
-   // Faire une méthode pour refactor
    if (std::abs(std::fmod(this->angle, M_PI)) == (M_PI_2))
    {
        *intersection = verticalLineIntersection(*this, l);
@@ -71,11 +59,12 @@ bool Line::intersects(const Line &l, Point ** intersection)
    {
        *intersection = verticalLineIntersection(l, *this);
    }
+   // droites non verticales
    else
    {
        slope1 = Geometry::getSlope(this->angle);
        slope2 = Geometry::getSlope(l.angle);
-       b1     = this->origin.getY() - (slope1 * l.origin.getX());
+       b1     = this->origin.getY() - (slope1 * this->origin.getX());
        b2     = l.origin.getY()     - (slope2 * l.origin.getX());
        x     = (b2 - b1) / (slope1 - slope2);
        y     = (slope2 * x) + b2;
