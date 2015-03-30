@@ -6,6 +6,7 @@
 #include "Line.h"
 #include <vector>
 
+
 /**
  * Classe Ellipse
  * La position représente la position du centre de l'ellipse.

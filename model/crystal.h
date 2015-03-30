@@ -3,6 +3,7 @@
 
 #include "point.h"
 #include <ostream>
+#include "element.h"
 
 /**
  * Cette classe modélise les cristaux utilisés dans le jeu.
@@ -14,7 +15,7 @@
  * longueur d'onde (en l'augmentant ou en la diminuant d'une
  * certaine valeur) mais pas sa trajectoire.
  */
-class Crystal
+class Crystal : public Element
 {
     Point center;
     double rad;

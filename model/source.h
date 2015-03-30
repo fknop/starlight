@@ -3,6 +3,7 @@
 
 #include "point.h"
 #include <iostream>
+#include "element.h"
 
 /**
  * Modélise la source lumineuse utilisée dans le jeu.
@@ -14,7 +15,7 @@
  * Le rayon lumineux est émis depuis la position, i.e., le coin
  * supérieur gauche, de la source.
  */
-class Source
+class Source : public Element
 {
     bool on {false};
     Point pos;

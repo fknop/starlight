@@ -5,6 +5,8 @@
 
 #include <ostream>
 #include "polarpoint.h"
+#include "element.h"
+
 /**
  * Cette classe modélise les miroirs utilisés dans le jeu.
  * </p>
@@ -16,7 +18,7 @@
  * Les miroirs sont capables d'être déplacés et pivotés dans
  *  une certaine limite.
  */
-class Mirror
+class Mirror : public Element
 {
     Point pivot;
     double length;

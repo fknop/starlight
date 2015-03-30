@@ -31,7 +31,8 @@ SOURCES += main.cpp \
     model/polarpoint.cpp \
     obs/observable.cpp \
     model/umath.cpp \
-    view/NukeView.cpp
+    view/NukeView.cpp \
+    model/element.cpp
 
 
 HEADERS += \
@@ -61,7 +62,8 @@ HEADERS += \
     obs/observer.h \
     obs/observable.h \
     model/umath.h \
-    view/NukeView.h
+    view/NukeView.h \
+    model/element.h
 
 
 FORMS +=

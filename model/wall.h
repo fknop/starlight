@@ -3,6 +3,8 @@
 
 #include "point.h"
 #include <iostream>
+#include "element.h"
+
 
 /**
  * Cette classe modélise les murs utilisés dans le jeu.
@@ -10,7 +12,7 @@
  * Les murs sont des segments de droite qui ne réfléchissent
  * pas la lumière.
  */
-class Wall
+class Wall : public Element
 {
     Point start;
     Point end;

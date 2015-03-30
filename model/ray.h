@@ -3,6 +3,7 @@
 
 #include "point.h"
 #include <iostream>
+#include "element.h"
 
 /**
  * Cette classe modélise les rayons lumineux, concept central du jeu.
@@ -10,7 +11,7 @@
  * Un rayon lumineux est un segment de droite muni d'une longueur
  * d'onde.
  */
-class Ray
+class Ray : public Element
 {
     Point start;
     Point end;

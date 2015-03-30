@@ -3,6 +3,7 @@
 
 #include "point.h"
 #include <ostream>
+#include "element.h"
 
 /**
  * Cette classe modélise la destination utilisée dans le jeu.
@@ -10,7 +11,7 @@
  * Une destination est un objet carré qui, quand traversé par
  * un rayon lumineux, fait remporter la partie au joueur.
  */
-class Dest
+class Dest : public Element
 {
     Point pos;
     double edge;

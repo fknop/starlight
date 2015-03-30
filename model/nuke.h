@@ -3,6 +3,7 @@
 
 #include "point.h"
 #include <ostream>
+#include "element.h"
 
 /**
  * Cette classe modélise les bombes utilisées dans le jeu.
@@ -10,7 +11,7 @@
  * Une bombe est un objet circulaire qui, si illuminé par
  * un rayon, fait perdre la partie au joueur.
  */
-class Nuke
+class Nuke : public Element
 {
     Point pos;
     double rad;

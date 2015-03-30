@@ -4,6 +4,7 @@
 #include "point.h"
 
 #include <ostream>
+#include "element.h"
 
 /**
  * Cette classe modélise les lentilles utilisées dans le jeu.
@@ -15,7 +16,7 @@
  * aucune modification. Sinon, la lentille se comporte comme un
  * mur.
  */
-class Lens
+class Lens : public Element
 {
     Point pos;
 
