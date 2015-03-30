@@ -38,28 +38,123 @@
 
 ### Line
 
-Dans les méthodes intersects(...) de la classe Line, un passage
-par pointeur de pointeur est fait car un pointeur est passé par 
-valeur et lors de l'initialisation il ne pointera donc pas la même
-adresse mémoire que le pointeur d'origine.
-Si on passait donc par simple pointeur, notre pointeur copié
-aurait une bonne zone mémoire mais notre pointeur d'origine
-resterait à *nullptr*.
+	Cette classe représente une droite, elle possède un point et un
+	angle. Gràce à cela on peut trouver n'importe quel point de la 
+	droite gràce en ayant la distance entre le point d'origine
+	et le point d'arrivée.
+
+	Dans les méthodes intersects(...) de la classe Line, un passage
+	par pointeur de pointeur est fait car un pointeur est passé par 
+	valeur et lors de l'initialisation il ne pointera donc pas la même
+	adresse mémoire que le pointeur d'origine.
+	Si on passait donc par simple pointeur, notre pointeur copié
+	aurait une bonne zone mémoire mais notre pointeur d'origine
+	resterait à *nullptr*.
+
+### Ellipse
+
+	Cette classe représente une conique de forme elliptique.
+	C'est à dire une ellipse ou un cercle.
+
+	La formule d'une ellipse est : 
+
+	E ≡ ((x - x1)² / a²) + ((y - y1)² / b²) = 1
+	où x1 et y1 sont respectivement les coordonnées
+	x et y du centre de l'ellipse.
+	où a et b sont respectement les rayons de l'axe
+	x et y.
+
+	Pour trouver une intersection entre une ellipse
+	et une droite, il faut égaler deux variables 
+	identiques :
+
+	L'équation d'une droite non verticale est : 
+
+		D ≡ y = ax + b
+
+	L'équation d'une droite verticale sera : 
+
+		D ≡ x = k
+			où k est une valeur quelquonque sur l'axe des x.
+		
+	On doit donc remplacer la variable x ou y de la droite dans
+	l'équation de l'ellipse.
+
+	Le cas de la droite verticale : 
+
+	Dans ce cas la, il n'y a pas de choix, il faut remplacer
+	x dans l'équation de l'ellipse.
+	Nous avons également décidé de refactoriser l'équation en 
+	prenant le PPCM (Plus petit commun multiple) de a² * b² que
+	nous apellerons ici lcm pour Least Commun Multiple.
+	Ce choix a été fait pour éviter les overflows lorsque 
+	de nombres trop grands sont mis au carré et multipliés.
+	Bien que dans notre cas, on nous avons rarement des nombre
+	pouvant obtenir un tel résultat.
+	
+	E ≡ (lcmy * (k - x1)²) + ((y - y1)² * lcmx) = lcm  
+		où lcmy est le facteur par lequel il faut multiplier
+		b² (rayon y au carré) pour obtenir lcm.
+		où lcmx est le facteur par lequel il faut multiplier
+		a² (raaon x au carré) pour obtenir lcm.
+	
+	E ≡ (lcmy * (k-x1)² + (y² + y1² - 2*y1*y) * lcmx = lcm
+	E ≡ lcmy * (k-x1)² + lcmx*y² + lcmx * y1² - 2*lcmx*y1*y - lcm = 0
+
+	Avec ceci, il reste plus qu'à résoudre l'équation du second degré 
+	avec rho = b² - 4*a*c
+		où a = lcmx
+		   b = 2*lcmx*y1*y
+		   c = (lcmy * (k-x1)²) + (lcmx * y1²) - lcm
+	
+	
+	On a donc trois possibilités : 
+
+		rho < 0 : Pas d'intersections
+		rho = 0 : une seule intersection dont le y du point vaut : 
+			y = -b / (2 * a)
+		rho > 0 : deux intersections : 
+			y1 = (-b + sqrt(rho)) / (2 * a)
+			y2 = (-b - sqrt(rho)) / (2 * a)
+	
+		On a donc le(s) y du/des points d'intersections, et le x
+		vaut k (de l'équation de départ).
+
+
+
+	Le cas de la droite non verticale : 
+
+
+	C'est le même principe que le cas de la droite verticale sauf
+	que pour trouver la deuxième variable finale il faudra
+	remplacer la variable trouvée dans l'équation de la droite.
+
+	// NE PAS TOUCHER JAI PAS FINI
+
+	// D dans E : lcmy * (x-x1)² + lcmx * ((ax + (b-y1)² = lcm
+	// lcmy * (x² - 2*x1*x + x1²) + lcmx * (a²x² +
+	2*a*x*(b-y1) + (b-y1)²) = lcm
+	// lcmy * x² - lcmy*2*x1*x + lcmy*x1²
+	//          + lcmx*a²x² -
+lcmx*2*a*x*(b-y1)
+	//          + lcmx*(b-y1)² -
+	lcm = 0
+	// Résoudre x
 
 
 ## Vue
 
 
-L’interface graphique a été réalisée en `Qt` à la main.
+	L’interface graphique a été réalisée en `Qt` à la main.
 
-Les classes composant la partie vue de l’application sont :
+	Les classes composant la partie vue de l’application sont :
 
 ### DestinationView
 
 
 #### Description
 
-Classe modélisant la destination à atteindre par le rayon émis depuis la source pour gagner la partie.
+	Classe modélisant la destination à atteindre par le rayon émis depuis la source pour gagner la partie.
 
 #### MapView
 

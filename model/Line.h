@@ -7,8 +7,11 @@
 
 
 /**
- * Droite de la forme D ≡ ax + by + c = 0
- *
+ * Cette classe représente une droite.
+ * Elle possède un point d'origine et un
+ * angle. De cette manière on peut
+ * trouver n'importe quel point se trouvant
+ * sur la droite en ayant une distance.
  */
 class Line
 {

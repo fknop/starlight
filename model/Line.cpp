@@ -73,7 +73,6 @@ bool Line::intersects(const Line &l, Point ** intersection)
    }
 
    return true;
-
 }
 
 bool Line::intersects(const LineSegment &ls, Point ** intersection)
