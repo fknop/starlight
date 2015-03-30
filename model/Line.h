@@ -77,6 +77,9 @@ public:
     void setAngle(double rad);
 
     friend bool operator==(const Line& l1, const Line& l2);
+
+private:
+    static Point * verticalLineIntersection(const Line& l1, const Line l2);
 };
 
 #endif // LINE_H

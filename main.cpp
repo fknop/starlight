@@ -42,25 +42,19 @@
 #include "model/Geometry.h"
 #include "model/ellipse.h"
 #include "model/umath.h"
+#include "view/MainMenu.h"
 
 int main(int argc, char **argv)
 {
     QApplication app(argc, argv);
     Level * level = MapReader::getLevel("levels/level1.lvl");
-    //level->computeRays();
 
 
-    LineSegment l (Point(0,0), Point(0, 30));
-    Ellipse e(Point(20,20), 20, 10);
+//    Game game;
 
-    std::vector<Point> points;
+//    game.show();
+//    return app.exec();
 
-    if (int i = e.intersects(l, points))
-    {
-        std::cout << points.at(0) << std::endl;
-        if (i == 2)
-            std::cout << points.at(1) << std::endl;
-    }
 
 
 

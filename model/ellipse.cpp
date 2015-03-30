@@ -36,7 +36,7 @@ int Ellipse::intersects(const Line & l, std::vector<Point>& points)
     // ((x - x1)² / a²) + ((y- y1)² / b²) = 1
     // (y² - 2*y*y1 + y1²) * a² + b² * (x-x1)² = a² * b²
     // a² * y² - 2*a²*y*y1 + a²*y1² + x²*b² - 2*b²*x*x1 + x1² - a² * b² = 0
-    if (std::abs(std::fmod(l.getAngle(), M_PI)) == (M_PI / 2))
+    if (std::abs(std::fmod(l.getAngle(), M_PI)) == (M_PI_2))
     {
 
         x = l.getPoint().getX();

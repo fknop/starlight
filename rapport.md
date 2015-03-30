@@ -1,6 +1,6 @@
 % Rapport du projet Starlight
 % Florian Knop (39310) - Gatien Bovyn (39189)
-% 29/03/2015
+	% 29/03/2015
 
 # Table des matières
 
@@ -8,14 +8,14 @@
 # Introduction
 
 
-Ce document vise à présenter le travail d’analyse et de programmation effectué
-lors de la réalisation du projet du laboratoire Langage C++ : Starlight.
+	Ce document vise à présenter le travail d’analyse et de programmation effectué
+	lors de la réalisation du projet du laboratoire Langage C++ : Starlight.
 
-Ce projet a été réalisé en binôme par Florian Knop, matricule 39310 groupe 2G13,
-et Gatien Bovyn, matricule 39189 groupe 2G11.
+	Ce projet a été réalisé en binôme par Florian Knop, matricule 39310 groupe 2G13,
+	et Gatien Bovyn, matricule 39189 groupe 2G11.
 
-Le programme à concevoir consiste en une implémentation du modèle et d’une interface
-graphique du jeu baptisé Starlight, puzzle à 2 dimensions basé sur la lumière.
+	Le programme à concevoir consiste en une implémentation du modèle et d’une interface
+	graphique du jeu baptisé Starlight, puzzle à 2 dimensions basé sur la lumière.
 
 
 # Sections
@@ -24,17 +24,27 @@ graphique du jeu baptisé Starlight, puzzle à 2 dimensions basé sur la lumièr
 # Présentation des différentes classes
 
 
-L’implémentation du projet est divisée entre la partie modèle et la partie vue.
-Elle est également basée sur le design pattern  Observeur / Observé  comme demandé
-dans les consignes.
+	L’implémentation du projet est divisée entre la partie modèle et la partie vue.
+	Elle est également basée sur le design pattern  Observeur / Observé  comme demandé
+	dans les consignes.
 
 
 ## Modèle
 
 
-Un squelette de l’application nous a été fourni par Monsieur Absil. Ce squelette contient les fichiers suivants :
+	Un squelette de l’application nous a été fourni par Monsieur Absil. Ce squelette contient les fichiers suivants :
 
-`point.h, source.h, dest.h, nuke.h, wall.h, crystal.h, lens.h, mirror.h, ray.h, level.h`.
+	`point.h, source.h, dest.h, nuke.h, wall.h, crystal.h, lens.h, mirror.h, ray.h, level.h`.
+
+### Line
+
+Dans les méthodes intersects(...) de la classe Line, un passage
+par pointeur de pointeur est fait car un pointeur est passé par 
+valeur et lors de l'initialisation il ne pointera donc pas la même
+adresse mémoire que le pointeur d'origine.
+Si on passait donc par simple pointeur, notre pointeur copié
+aurait une bonne zone mémoire mais notre pointeur d'origine
+resterait à *nullptr*.
 
 
 ## Vue
