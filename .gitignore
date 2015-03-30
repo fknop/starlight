@@ -9,3 +9,8 @@ release/
 starlight
 moc_*
 ui_*
+rapport/rapport.aux
+rapport/rapport.log
+rapport/rapport.out
+rapport/rapport.toc
+
