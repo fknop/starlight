@@ -55,14 +55,14 @@ int main(int argc, char **argv)
 //    game.show();
 //    return app.exec();
 
-    Mirror r(Point(1,1), 0, 15, 1.5);
-    Element * e =  &r;
-    std::cout << e->isMirror();
+//    Mirror r(Point(1,1), 0, 15, 1.5);
+//    Element * e =  &r;
+//    std::cout << e->isMirror();
 
 
-    return 0;
+//    return 0;
 
-//    MapView box(level);
-//    box.show();
-//      return app.exec();
+    MapView box(level);
+    box.show();
+      return app.exec();
 }

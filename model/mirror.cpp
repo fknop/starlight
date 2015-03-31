@@ -14,10 +14,10 @@ Mirror::Mirror(const Point & p, double x, double len, double a, Point pm,
       alphaMax {aM}
 {
     if (length <= 0 || xpad < 0)
-        throw std::string("La longueur et le décalage doivent etre positifs");
+        throw std::string("La longueur et le décalage doivent etre positifs.");
 
    if (!checkPivotRange(p))
-       throw std::string("Le pivot n'est pas dans les bornes autorisées");
+       throw std::string("Le pivot n'est pas dans les bornes autorisées.");
 
     if (!checkAngleRange(alpha))
         throw std::string("L'inclinaison du mirroir est invalide. "
