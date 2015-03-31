@@ -32,7 +32,9 @@ SOURCES += main.cpp \
     obs/observable.cpp \
     model/umath.cpp \
     view/NukeView.cpp \
-    model/element.cpp
+    model/element.cpp \
+    view/LensView.cpp \
+    view/CrystalView.cpp
 
 
 HEADERS += \
@@ -63,7 +65,9 @@ HEADERS += \
     obs/observable.h \
     model/umath.h \
     view/NukeView.h \
-    model/element.h
+    model/element.h \
+    view/LensView.h \
+    view/CrystalView.h
 
 
 FORMS +=

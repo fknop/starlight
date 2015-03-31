@@ -10,6 +10,9 @@ public:
     MapView(Level *level);
     void drawWall(QGraphicsScene *s, const Wall& wall);
     void drawMirror(QGraphicsScene *s, const Mirror& mirror);
+    void drawNuke(QGraphicsScene *s, const Nuke& nuke);
+    void drawLens(QGraphicsScene *s, const Lens& lens);
+    void drawCrystal(QGraphicsScene *s, const Crystal& crystal);
 
     void keyPressEvent(QKeyEvent *event);
 

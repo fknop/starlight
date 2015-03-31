@@ -24,7 +24,7 @@ public:
      * @param len longueur totale du miroir.
      * @param angle angle d’inclinaison du miroir.
      */
-    MirrorView(const Mirror& MirrorView);
+    MirrorView(const Mirror& mirror);
 
     void mousePressEvent(QGraphicsSceneMouseEvent *event);
     void mouseMoveEvent(QGraphicsSceneMouseEvent *event);

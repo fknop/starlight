@@ -1,7 +1,10 @@
 #include <QGraphicsScene>
+#include "view/CrystalView.h"
 #include "view/DestinationView.h"
+#include "view/LensView.h"
 #include "view/MapView.h"
 #include "view/MirrorView.h"
+#include "view/NukeView.h"
 #include "view/SourceView.h"
 #include "view/WallView.h"
 
@@ -35,11 +38,25 @@ MapView::MapView(Level *level) : level{level}
         drawMirror(scene, i);
     }
 
+    for (auto &i : this->level->getNukes())
+    {
+        drawNuke(scene, i);
+    }
+
+    for (auto &i : this->level->getLenses())
+    {
+        drawLens(scene, i);
+    }
+
+    for (auto &i : this->level->getCrystals())
+    {
+        drawCrystal(scene, i);
+    }
+
 }
 
 void MapView::drawWall(QGraphicsScene *s, const Wall& wall)
 {
-    //std::cout << x1 << " " << y1 << " " << x2 << " " << y2 << std::endl;
     WallView *item1 = new WallView(wall);
 
     s->addItem(item1);
@@ -48,8 +65,29 @@ void MapView::drawWall(QGraphicsScene *s, const Wall& wall)
 
 void MapView::drawMirror(QGraphicsScene *s, const Mirror& mirror)
 {
-    //std::cout << x1 << " " << y1 << " " << x2 << " " << y2 << std::endl;
     MirrorView *item1 = new MirrorView(mirror);
+
+    s->addItem(item1);
+}
+
+
+void MapView::drawNuke(QGraphicsScene *s, const Nuke& nuke)
+{
+    NukeView *item1 = new NukeView(nuke);
+
+    s->addItem(item1);
+}
+
+void MapView::drawLens(QGraphicsScene *s, const Lens& lens)
+{
+    LensView *item1 = new LensView(lens);
+
+    s->addItem(item1);
+}
+
+void MapView::drawCrystal(QGraphicsScene *s, const Crystal& crystal)
+{
+    CrystalView *item1 = new CrystalView(crystal);
 
     s->addItem(item1);
 }
