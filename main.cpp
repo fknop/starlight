@@ -55,8 +55,9 @@ int main(int argc, char **argv)
 //    game.show();
 //    return app.exec();
 
-    Ray r(Point(0,0), Point(10,10));
-    std::cout << r.isMirror();
+    Mirror r(Point(1,1), 0, 15, 1.5);
+    Element * e =  &r;
+    std::cout << e->isMirror();
 
 
     return 0;

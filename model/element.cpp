@@ -20,38 +20,30 @@ Element::~Element()
 
 bool Element::isMirror()
 {
-    try
-    {
-        dynamic_cast<Mirror&> (*this);
-        return true;
-    }
-    catch(std::bad_cast e)
-    {
-        return false;
-    }
+     return (dynamic_cast<Mirror*> (this) != nullptr);
 }
 
 bool Element::isCrystal()
 {
-
+    return (dynamic_cast<Crystal*> (this) != nullptr);
 }
 
 bool Element::isLens()
 {
-
+    return (dynamic_cast<Lens*> (this) != nullptr);
 }
 
 bool Element::isDest()
 {
-
+    return (dynamic_cast<Dest*> (this) != nullptr);
 }
 
 bool Element::isNuke()
 {
-
+    return (dynamic_cast<Nuke*> (this) != nullptr);
 }
 
 bool Element::isWall()
 {
-
+    return (dynamic_cast<Wall*> (this) != nullptr);
 }
