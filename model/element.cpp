@@ -36,7 +36,6 @@ Element::Type Element::getType()
 
     if (isWall())
         return Element::Type::WALL;
-
 }
 
 bool Element::isMirror()

@@ -14,7 +14,8 @@ public:
         MIRROR,
         CRYSTAL,
         NUKE,
-        LENS
+        LENS,
+        DEST
     };
 
     Type getType();

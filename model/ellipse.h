@@ -51,8 +51,7 @@ public:
      */
     int intersects(const Line& l, std::vector<Point> &points);
 
-    std::vector<Point> methodeA(std::vector<Point> points, double x, double x1, double y1, double lcm, double lcmx, double lcmy);
-    std::vector<Point> methodeB(std::vector<Point> points, double x, double y, double x1, double y1, double slope, double lcm, double lcmx, double lcmy);
+
 };
 
 #endif // ELLIPSE_H

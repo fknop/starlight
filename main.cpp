@@ -59,10 +59,21 @@ int main(int argc, char **argv)
 //    Element * e =  &r;
 //    std::cout << e->isMirror();
 
+    Ellipse e(Point(20,20), 20, 10);
+    Line l(Point(0,0), - M_PI / 4);
 
-//    return 0;
+    std::vector<Point> points;
+    if (e.intersects(l, points) > 0) {
+        for (auto &i : points)
+        std::cout << i;
+    }
 
-    MapView box(level);
-    box.show();
-      return app.exec();
+
+
+
+     return 0;
+
+//    MapView box(level);
+//    box.show();
+//      return app.exec();
 }

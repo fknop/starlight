@@ -164,16 +164,6 @@ class Level : public Observable
 
 private:
 
-    enum class Type
-    {
-        WALL,
-        MIRROR,
-        CRYSTAL,
-        NUKE,
-        LENS
-    };
-
-
     bool computeRay(const Line&, int wl);
     Point * getClosestIntersection(const Line&);
     Point * getClosestIntersectionWithWalls(double &, const Line&);
