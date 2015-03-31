@@ -15,43 +15,46 @@ Ellipse::~Ellipse()
 
 }
 
-/* MOYEN DE REFACTOR TOUT CA */
+/*
+ * cf. annexes du rapport du projet
+ * pour les détails mathématiques
+ * de cette méthode.
+*/
 int Ellipse::intersects(const Line & l, std::vector<Point>& points)
 {
 
+    double x = l.getPoint().getX();
+    double y = l.getPoint().getY();
+    double slope = Geometry::getSlope(l.getAngle()); // pente -> a dans y = ax + b
+    double d = y - (slope * x); // d -> b dans y = ax + b
     double x1 = this->pos.getX();
     double y1 = this->pos.getY();
     double xR = this->xRadius;
     double yR = this->yRadius;
-    double d = y - (slope * x); // d -> b dans y = ax + b
-    double slope = Geometry::getSlope(l.getAngle()); // pente -> a dans y = ax + b
     double a, b, c; // a, b, c dans rho = b² - ac
     double rho;     // rho
     double lcm = umath::dlcm(xR*xR, yR*yR); // ppcm de a² et b²
     double lcmx = lcm / (yR*yR);
     double lcmy = lcm / (xR*xR);
-    double x = l.getPoint().getX();
-    double y = l.getPoint().getY();
+
 
     bool verticalLine = (std::abs(std::fmod(l.getAngle(), M_PI)) == (M_PI_2));
 
     if (verticalLine)
     {
-        // Voir annexe rapport de projet
         a = (lcmx);
         b = (-2* lcmx * y1);
-        c = (lcmy * x * x) + (lcmy * x1 * x1) +(lcmx * y1 * y1);
+        c = (lcmy * x * x) + (lcmy * x1 * x1) +(lcmx * y1 * y1)
                 - (2 * lcmy * x * x1) - (lcm);
     }
     else
     {
-        // Voir annexe rapport de projet
         a = lcmy + (slope * slope * lcmx);
         b = -(2 * lcmy * d) - (2 * slope * lcmy * x1)
                 - (2 * slope * slope * lcmx * y1);
         c = (lcmy * d * d) + (lcmy * slope * slope * x1 * x1)
-                + (2 * slope * x1 * d);
-                + (lcmx * slope * slope * y1 * y1);
+                + (2 * slope * x1 * d)
+                + (lcmx * slope * slope * y1 * y1)
                 - (lcm * slope * slope);
     }
 
