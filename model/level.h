@@ -164,13 +164,8 @@ class Level : public Observable
 
 private:
 
-    bool computeRay(const Line&, int wl);
-    Point * getClosestIntersection(const Line&);
-    Point * getClosestIntersectionWithWalls(double &, const Line&);
-    Point * getClosestIntersectionWithMirrors(double &, const Line&);
-    Point * getClosestIntersectionWithCrystals(double &, const Line&);
-    Point * getClosestIntersectionWithNukes(double &, const Line&);
-    Point * getClosestIntersectionWithLenses(double &, const Line&);
+    bool computeRay(Line&, int wl);
+    std::pair<Point*, Element> getClosestIntersection(Line&);
     Point * findClosestPoint(double &, double &, Point *, Point *);
 };
 

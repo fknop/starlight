@@ -5,8 +5,8 @@
 \usepackage[francais]{babel}
 
 \usepackage[unicode=true,
-          colorlinks=true,
-          linkcolor=blue]{hyperref}
+	colorlinks=true,
+linkcolor=blue]{hyperref}
 
 \hypersetup{breaklinks=true, pdfborder={0 0 0}}
 \setlength{\parindent}{0pt}
@@ -77,83 +77,6 @@ resterait à *nullptr*.
 Cette classe représente une conique de forme elliptique.
 C'est à dire une ellipse ou un cercle.
 
-La formule d'une ellipse est : 
-
-$$ E \equiv \frac{(x - x1)^2}{a^2} + \frac{(y - y1)^2}{b^2} = 1 $$
-
-où $x1$ et $y1$ sont respectivement les coordonnées
-$x$ et $y$ du centre de l'ellipse.
-où $a$ et $b$ sont respectement les rayons de l'axe
-$x$ et $y$.
-
-Pour trouver une intersection entre une ellipse
-et une droite, il faut égaler deux variables 
-identiques :
-
-L'équation d'une droite non verticale est : 
-
-    $$ D \equiv y = ax + b $$
-
-L'équation d'une droite verticale sera : 
-
-    $$ D \equiv x = k $$
-        où $k$ est une valeur quelquonque sur l'axe des $x$.
-
-On doit donc remplacer la variable $x$ ou $y$ de la droite dans
-l'équation de l'ellipse.
-
-Le cas de la droite verticale : 
-
-Dans ce cas la, il n'y a pas de choix, il faut remplacer
-$x$ dans l'équation de l'ellipse.
-Nous avons également décidé de refactoriser l'équation en 
-prenant le PPCM (Plus petit commun multiple) de $a^2 * b^2$ que
-nous apellerons ici $lcm$ pour Least Commun Multiple.
-Ce choix a été fait pour éviter les overflows lorsque 
-de nombres trop grands sont mis au carré et multipliés.
-Bien que dans notre cas, on nous avons rarement des nombre
-pouvant obtenir un tel résultat.
-
-$$ E \equiv (lcmy \cdot (k - x1)^2) + ((y - y1)^2 \cdot lcmx) = lcm $$  
-    où $lcmy$ est le facteur par lequel il faut multiplier
-    $b^2$ (rayon $y$ au carré) pour obtenir $lcm$, \linebreak
-    où $lcmx$ est le facteur par lequel il faut multiplier
-    $a^2$ (rayon $x$ au carré) pour obtenir $lcm$.
-
-$$ E \equiv lcmy \cdot (k-x1)^2 + (y^2 + y1^2 - 2 \cdot y1 \cdot y)
-\cdot lcmx = lcm$$
-$$ E \equiv lcmy \cdot (k-x1)^2 + lcmx \cdot y^2 + lcmx \cdot
-y1^2 - 2 \cdot lcmx \cdot y1 \cdot y - lcm = 0 $$
-
-Avec ceci, il reste plus qu'à résoudre l'équation du second degré 
-avec 
-$$ \rho = b^2 - 4ac$$
-    où $$ a = lcmx $$
-       $$ b = 2 \cdot lcmx \cdot y1 \cdot y $$
-       $$ c = (lcmy \cdot (k-x1)^2) + (lcmx \cdot y1^2) - lcm $$
-
-
-On a donc trois possibilités : 
-
-    $\rho < 0$ : Pas d'intersections. \newline
-    $\rho = 0$ : une seule intersection dont le y du point vaut : 
-
-		$$ y = \frac {-b}{2a} $$
-    $\rho > 0$ : deux intersections : 
-	$$ y1 = \frac{(-b + \sqrt{\rho})}{2a} $$
-	$$ y2 = \frac{(-b - \sqrt{\rho})}{2a} $$
-
-    On a donc le(s) $y$ du/des points d'intersections, et le $x$
-    vaut $k$ (de l'équation de départ).
-
-
-
-Le cas de la droite non verticale : 
-
-
-C'est le même principe que le cas de la droite verticale sauf
-que pour trouver la deuxième variable finale il faudra
-remplacer la variable trouvée dans l'équation de la droite.
 
 \subsection{Vue}
 
@@ -183,6 +106,142 @@ Classe modélisant la destination à atteindre par le rayon émis depuis la sour
 
 \section{Bibliographie}
 
-\section{Annexes (facultatif)}
+\section{Annexes}
+
+\subsection{Démarches mathématique}
+
+\subsubsection{Trouver l'intersection entre deux droites}
+
+
+
+\begin{equation} \label{eq:droite}
+	D \equiv y = ax + b 
+\end{equation}
+\begin{equation} \label{eq:droiteverticale}
+	D \equiv x = k 
+\end{equation}
+
+
+\eqref {eq:droite} 
+représente une droite non verticale.
+\eqref {eq:droiteverticale} 
+représente une droite verticale où k est une valeur
+quelquonque sur l'axe des x.
+
+Dans un premier temps, il faut tester que la pente $a$ est différente. 
+Si cette dernière est égale, il n'y a pas d'intersections. En effet,
+si les pentes sont les mêmes, cela signifie que les droites sont soit
+parallèles soit égales. Dans le cas de droites égales, on considère qu'il
+n'y a pas d'intersections, bien qu'en réalité il y en a une infinité.
+
+Si la pente est différente,
+l'intersection entre deux droites est assez simple, il suffit 
+d'injecter une variable d'une des deux équations dans l'autre.
+Dans le cadre du projet, il faut evidemment faire attention aux 
+droites verticales.
+
+Le cas d'une droite verticale : 
+
+On injecte \eqref{eq:droiteverticale} dans \eqref{eq:droite}.
+
+\begin{equation} \label{eq:interv}
+	D \equiv y = ak + b
+\end{equation}
+
+Avec \eqref{eq:interv} on obtient $y$ du point dont le $x = k$
+pour une droite verticale \eqref{eq:droiteverticale}.
+
+Pour deux droites non verticales on injecte le $y$ d'une équation
+de type \eqref{eq:droite} dans le $y$ d'une autre équation de typ \eqref{eq:droite}.
+
+\begin{equation} \label{eq:internv}
+	a remplir
+\end{equation}
+
+$ x = \frac {(y - b)}{ a} $ pour une droite non verticale
+dont le y est celui obtenu plus tôt \eqref{eq:droite}.
+
+\subsubsection{Trouver l'intersection entre une droite et un segment}
+
+\subsubsection{Trouver le(s) intersections entre une ellipse et une droite}
+
+La formule d'une ellipse est : 
+
+$$ E \equiv \frac{(x - x1)^2}{a^2} + \frac{(y - y1)^2}{b^2} = 1 $$
+
+où $x1$ et $y1$ sont respectivement les coordonnées
+$x$ et $y$ du centre de l'ellipse.
+où $a$ et $b$ sont respectement les rayons de l'axe
+$x$ et $y$.
+
+Pour trouver une intersection entre une ellipse
+et une droite, il faut égaler deux variables 
+identiques :
+
+
+On doit donc remplacer la variable $x$ ou $y$ de la droite dans
+l'équation de l'ellipse.
+
+Le cas de la droite verticale : 
+
+Dans ce cas la, il n'y a pas de choix, il faut remplacer
+$x$ dans l'équation de l'ellipse.
+Nous avons également décidé de refactoriser l'équation en 
+prenant le PPCM (Plus petit commun multiple) de $a^2 * b^2$ que
+nous apellerons ici $lcm$ pour Least Commun Multiple.
+Ce choix a été fait pour éviter les overflows lorsque 
+de nombres trop grands sont mis au carré et multipliés.
+Bien que dans notre cas, on nous avons rarement des nombre
+pouvant obtenir un tel résultat.
+
+$$ E \equiv (lcmy \cdot (k - x1)^2) + ((y - y1)^2 \cdot lcmx) = lcm $$  
+où $lcmy$ est le facteur par lequel il faut multiplier
+$b^2$ (rayon $y$ au carré) pour obtenir $lcm$, \linebreak
+où $lcmx$ est le facteur par lequel il faut multiplier
+$a^2$ (rayon $x$ au carré) pour obtenir $lcm$.
+
+$$ E \equiv lcmy \cdot (k-x1)^2 + (y^2 + y1^2 - 2 \cdot y1 \cdot y)
+\cdot lcmx = lcm$$
+$$ E \equiv lcmy \cdot (k-x1)^2 + lcmx \cdot y^2 + lcmx \cdot
+y1^2 - 2 \cdot lcmx \cdot y1 \cdot y - lcm = 0 $$
+
+Avec ceci, il reste plus qu'à résoudre l'équation du second degré 
+avec 
+$$ \rho = b^2 - 4ac$$
+où $$ a = lcmx $$
+$$ b = 2 \cdot lcmx \cdot y1 \cdot y $$
+$$ c = (lcmy \cdot (k-x1)^2) + (lcmx \cdot y1^2) - lcm $$
+
+
+
+Le nombre d'intersections est différent selon la valeur de $\rho$.
+
+\[
+	n =
+	\begin{cases}
+		0 & \text{si } \rho < 0 \\
+		1 & \text{si } \rho = 0 \\ 
+		2 & \text{si } \rho > 0  
+	\end{cases}
+\]
+
+$$ y = \frac {-b}{2a} $$
+
+$$ y1 = \frac{(-b + \sqrt{\rho})}{2a} $$
+$$ y2 = \frac{(-b - \sqrt{\rho})}{2a} $$
+
+On a donc le(s) $y$ du/des points d'intersections, et le $x$
+vaut $k$ (de l'équation de départ).
+
+
+
+Le cas de la droite non verticale : 
+
+
+C'est le même principe que le cas de la droite verticale sauf
+que pour trouver la deuxième variable finale il faudra
+remplacer la variable trouvée dans l'équation de la droite.
+
+\subsubsection{Trouver le(s) intersections entre une ellipse et un segment}
 
 \end{document}

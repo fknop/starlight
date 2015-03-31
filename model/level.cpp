@@ -146,19 +146,57 @@ void Level::computeRays()
 }
 
 //template <class T>
-bool Level::computeRay(const Line & line, int wl)
+bool Level::computeRay(Line & line, int wl)
 {
     bool continueRay;
 
-//    std::pair<Point*, T> intersection = getClosestIntersection(line);
+    std::pair<Point*, Element> intersection = getClosestIntersection(line);
+
+    rays.push_back(Ray(line.getPoint(), *intersection.first));
+
+    Element::Type type = intersection.second.getType();
+    switch (type)
+    {
+    case Element::Type::CRYSTAL:
+        break;
+    case Element::Type::DEST:
+        d.setLightedUp(true);
+        continueRay = false;
+        //Notifie vue -> Allumer la dest.
+        // bool = gagner ?
+        break;
+    case Element::Type::LENS:
+        continueRay = true;
+        break;
+    case Element::Type::MIRROR:
+        continueRay = true;
+        break;
+    case Element::Type::NUKE:
+        continueRay = false;
+        break;
+    case Element::Type::WALL:
+        continueRay = false;
+        break;
+    }
 
 }
 
-//template <class T>
-//std::pair<Point*, T> Level::getClosestIntersection(const Line& line)
-//{
 
-//}
+std::pair<Point*, Element> Level::getClosestIntersection(Line& line)
+{
+    double distance = 0;
+    std::pair<Point*, Element> intersection;
+    Point * p = nullptr;
+
+    for (auto &i : walls)
+    {
+        if (line.intersects(LineSegment(i.getStart(), i.getEnd()), &p))
+            intersection.first = p;
+
+    }
+
+
+}
 
 void Level::notify(Observable * obs)
 {
