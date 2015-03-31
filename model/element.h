@@ -8,6 +8,19 @@ public:
     Element();
     virtual ~Element();
 
+    enum class Type
+    {
+        WALL,
+        MIRROR,
+        CRYSTAL,
+        NUKE,
+        LENS
+    };
+
+    Type getType();
+
+private:
+
     bool isMirror();
     bool isCrystal();
     bool isLens();

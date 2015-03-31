@@ -17,10 +17,31 @@ Element::~Element()
 
 }
 
+Element::Type Element::getType()
+{
+    if (isMirror())
+        return Element::Type::MIRROR;
+
+    if (isCrystal())
+        return Element::Type::CRYSTAL;
+
+    if (isLens())
+        return Element::Type::LENS;
+
+    if (isDest())
+        return Element::Type::DEST;
+
+    if (isNuke())
+        return Element::Type::NUKE;
+
+    if (isWall())
+        return Element::Type::WALL;
+
+}
 
 bool Element::isMirror()
 {
-     return (dynamic_cast<Mirror*> (this) != nullptr);
+    return (dynamic_cast<Mirror*> (this) != nullptr);
 }
 
 bool Element::isCrystal()
