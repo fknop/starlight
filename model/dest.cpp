@@ -1,6 +1,6 @@
 #include "dest.h"
 
-Dest::Dest(const Point & p, double e) : pos {p}, edge {e}
+Dest::Dest(const Point & p, double e) : Element(Element::Type::DEST), pos {p}, edge {e}
 {
     if (e <= 0)
         throw std::string("La longueur doit être strictement supérieure à 0");

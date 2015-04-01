@@ -9,7 +9,8 @@ Mirror::Mirror(const Point & p, double x, double len, double a)
 
 Mirror::Mirror(const Point & p, double x, double len, double a, Point pm,
                Point pM, double am, double aM)
-    : pivot {p}, length(len), xpad(x), xMin {pm.getX()}, xMax {pM.getX()},
+    : Element(Element::Type::MIRROR),
+      pivot {p}, length(len), xpad(x), xMin {pm.getX()}, xMax {pM.getX()},
       yMin {pm.getY()}, yMax {pM.getY()}, alpha {a}, alphaMin {am},
       alphaMax {aM}
 {

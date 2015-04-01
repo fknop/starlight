@@ -1,8 +1,9 @@
 #include "crystal.h"
 
 
-Crystal::Crystal(const Point & p, double r, int m) : center {p}, rad {r},
-mod {m}
+Crystal::Crystal(const Point & p, double r, int m) :
+    Element(Element::Type::CRYSTAL),
+    center {p}, rad {r}, mod {m}
 {
     if (r <= 0)
         throw std::string("Le rayon doit être strictement strictement positif");

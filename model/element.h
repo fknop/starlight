@@ -5,9 +5,6 @@
 class Element
 {
 public:
-    Element();
-    virtual ~Element();
-
     enum class Type
     {
         WALL,
@@ -18,16 +15,16 @@ public:
         DEST
     };
 
+    Element(Element::Type);
+    virtual ~Element();
+
+
+
     Type getType();
 
 private:
+    Type type;
 
-    bool isMirror();
-    bool isCrystal();
-    bool isLens();
-    bool isDest();
-    bool isNuke();
-    bool isWall();
 
 };
 

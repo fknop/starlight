@@ -1,6 +1,7 @@
 #include "nuke.h"
 
-Nuke::Nuke(const Point & p, double r) : pos {p}, rad {r}
+Nuke::Nuke(const Point & p, double r) : Element(Element::Type::NUKE),
+    pos {p}, rad {r}
 {
     if (r <= 0)
         throw std::string("Le rayon doit être strictement supérieur à 0");

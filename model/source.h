@@ -15,7 +15,7 @@
  * Le rayon lumineux est émis depuis la position, i.e., le coin
  * supérieur gauche, de la source.
  */
-class Source : public Element
+class Source
 {
     bool on {false};
     Point pos;

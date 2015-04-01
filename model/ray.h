@@ -11,7 +11,7 @@
  * Un rayon lumineux est un segment de droite muni d'une longueur
  * d'onde.
  */
-class Ray : public Element
+class Ray
 {
     Point start;
     Point end;

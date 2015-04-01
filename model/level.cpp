@@ -185,13 +185,13 @@ bool Level::computeRay(Line & line, int wl)
 std::pair<Point*, Element> Level::getClosestIntersection(Line& line)
 {
     double distance = 0;
-    std::pair<Point*, Element> intersection;
+    //std::pair<Point*, Element> intersection;
     Point * p = nullptr;
 
     for (auto &i : walls)
     {
-        if (line.intersects(LineSegment(i.getStart(), i.getEnd()), &p))
-            intersection.first = p;
+        //if (line.intersects(LineSegment(i.getStart(), i.getEnd()), &p))
+            //intersection.first = p;
 
     }
 

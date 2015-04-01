@@ -1,8 +1,9 @@
 #include "lens.h"
 #include "ray.h"
 
-Lens::Lens(const Point & p, double w, double h, int wlmin, int wlmax) : pos {p},
-width {w}, height {h}, wlmin {wlmin}, wlmax {wlmax}
+Lens::Lens(const Point & p, double w, double h, int wlmin, int wlmax) :
+    Element(Element::Type::LENS), pos {p},
+    width {w}, height {h}, wlmin {wlmin}, wlmax {wlmax}
 {
 
 
