@@ -1,66 +1,66 @@
 #include "point.h"
 #include <cmath>
 
-Point::Point(double a, double b) : x {a}, y {b}
+Point::Point(double x, double y) : x_ {x}, y_ {y}
 {}
 
 Point::Point(const Point &p)
 {
-    this->x = p.x;
-    this->y = p.y;
+    this->x_ = p.x_;
+    this->y_ = p.y_;
 }
 
-double Point::getX() const
+double Point::x() const
 {
-    return x;
+    return x_;
 }
 
-double Point::getY() const
+double Point::y() const
 {
-    return y;
+    return y_;
 }
 
-void Point::setX(double a)
+void Point::set_x(double x)
 {
-    x = a;
+    x_ = x;
 }
 
-void Point::setY(double a)
+void Point::set_y(double y)
 {
-    y = a;
+    y_ = y;
 }
 
-void Point::setLocation(double a, double b)
+void Point::set_location(double x, double y)
 {
-    x = a;
-    y = b;
+    x_ = x;
+    y_ = y;
 }
 
 double Point::distance(const Point &p)
 {
-    return sqrt(pow(this->x - p.x, 2) + pow(this->y - p.y, 2) );
+    return sqrt(pow(this->x_ - p.x_, 2) + pow(this->y_ - p.y_, 2) );
 }
 
 bool operator <(const Point& p1, const Point& p2)
 {
-    return p1.x < p2.x || p1.y < p2.y;
+    return p1.x_ < p2.x_ || p1.y_ < p2.y_;
 }
 
 std::ostream & operator<<(std::ostream & out, const Point & p)
 {
-    out << "( " << p.x << " , " << p.y << " )";
+    out << "( " << p.x_ << " , " << p.y_ << " )";
     return out;
 }
 
 bool operator==(const Point& p1, const Point& p2)
 {
-    return p1.x == p2.x && p1.y == p2.y;
+    return p1.x_ == p2.x_ && p1.y_ == p2.y_;
 }
 
 const Point& Point::operator =(const Point& p2)
 {
-    x = p2.x;
-    y = p2.y;
+    x_ = p2.x_;
+    y_ = p2.y_;
 
     return *this;
 }

@@ -25,7 +25,7 @@ double Geometry::getAngle(double slope)
 
 double Geometry::getSlope(const Point& p1, const Point& p2)
 {
-    return  - ((p1.getY() - p2.getY()) / (p1.getX() - p2.getX()));
+    return  - ((p1.y() - p2.y()) / (p1.x() - p2.x()));
 }
 
 double Geometry::getSlope(double rad)
@@ -42,10 +42,10 @@ bool Geometry::isInBoundingBox(const Point& p, const LineSegment& ls)
     Point start = ls.getStart();
     Point end = ls.getEnd();
 
-    return ((std::min(start.getX(), end.getX()) <= p.getX())
-            && (std::max(start.getX(), end.getX()) >= p.getX())
-            && (std::min(start.getY(), end.getY()) <= p.getY())
-            && (std::max(start.getY(), end.getY()) >= p.getY()));
+    return ((std::min(start.x(), end.x()) <= p.x())
+            && (std::max(start.x(), end.x()) >= p.x())
+            && (std::min(start.y(), end.y()) <= p.y())
+            && (std::max(start.y(), end.y()) >= p.y()));
 }
 
 

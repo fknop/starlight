@@ -62,8 +62,8 @@ int Lens::getMaxWavelength() const
 
 Ellipse Lens::toEllipse()
 {
-    Point center(this->pos.getX() + this->width / 2,
-                 this->pos.getY() + this->height / 2);
+    Point center(this->pos.x() + this->width / 2,
+                 this->pos.y() + this->height / 2);
     return Ellipse(center, this->width / 2, this->height / 2);
 }
 

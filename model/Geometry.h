@@ -1,24 +1,27 @@
 #ifndef GEOMETRY_H
 #define GEOMETRY_H
 
-#include "point.h"
+
 #include <cmath>
 #include <vector>
+
 #include "linesegment.h"
 #include "Line.h"
+#include "point.h"
 
+// Pour les utilisateurs de windows,
+// M_PI n'est pas défini de base dans cmath.
+#ifndef M_PI
+    #define M_PI 3.141592653589793238463
+#endif
+#ifndef M_PI_2
+    #define M_PI_2 M_PI / 2
+#endif
 
 namespace Geometry
 {
 
-    // Pour les utilisateurs de windows,
-    // M_PI n'est pas défini de base dans cmath.
-    #ifndef M_PI
-        #define M_PI 3.141592653589793238463
-    #endif
-    #ifndef M_PI_2
-        #define M_PI_2 M_PI / 2
-    #endif
+
 
 
 
@@ -77,6 +80,7 @@ namespace Geometry
      * @return l'angle en radians.
      */
     double getRadians(double degrees);
-}
+
+} // namespace Geometry
 
 #endif // GEOMETRY_H

@@ -4,7 +4,7 @@
 #include "Geometry.h"
 
 Ellipse::Ellipse(const Point & p, double xRad, double yRad)
-        : pos{p}, xRadius(xRad), yRadius(yRad)
+        : pos_{p}, x_rad_(xRad), y_rad_(yRad)
 {
     if (xRad <= 0 || yRad <= 0)
         throw std::string("Les rayons de l'ellipse doivent être strictement positifs.");
@@ -23,14 +23,14 @@ Ellipse::~Ellipse()
 int Ellipse::intersects(const Line & l, std::vector<Point>& points)
 {
 
-    double x = l.getPoint().getX();
-    double y = l.getPoint().getY();
-    double slope = Geometry::getSlope(l.getAngle()); // pente -> a dans y = ax + b
+    double x = l.origin().x();
+    double y = l.origin().y();
+    double slope = Geometry::getSlope(l.angle()); // pente -> a dans y = ax + b
     double d = y - (slope * x); // d -> b dans y = ax + b
-    double x1 = this->pos.getX();
-    double y1 = this->pos.getY();
-    double xR = this->xRadius;
-    double yR = this->yRadius;
+    double x1 = this->pos_.x();
+    double y1 = this->pos_.y();
+    double xR = this->x_rad_;
+    double yR = this->y_rad_;
     double a, b, c; // a, b, c dans rho = b² - ac
     double rho;     // rho
     double lcm = umath::dlcm(xR*xR, yR*yR); // ppcm de a² et b²
@@ -38,7 +38,7 @@ int Ellipse::intersects(const Line & l, std::vector<Point>& points)
     double lcmy = lcm / (xR*xR);
 
 
-    bool verticalLine = (std::abs(std::fmod(l.getAngle(), M_PI)) == (M_PI_2));
+    bool verticalLine = (std::abs(std::fmod(l.angle(), M_PI)) == (M_PI_2));
 
     if (verticalLine)
     {

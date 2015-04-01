@@ -5,43 +5,43 @@
 
 PolarPoint::PolarPoint(const Point& p)
 {
-   distance = Point(0,0).distance(p);
-   angle = std::atan2(p.getX(), p.getY());
+   distance_ = Point(0,0).distance(p);
+   angle_ = std::atan2(p.x(), p.y());
 }
 
 PolarPoint::PolarPoint(double distance, double angle)
-                : distance{distance}, angle{angle}
+                : distance_{distance}, angle_{angle}
 {
     if (distance < 0)
         throw std::string("La distance ne peut pas être négative");
 }
 
-void PolarPoint::setAngle(double a)
+void PolarPoint::set_angle(double a)
 {
-    this->angle = a;
+    this->angle_ = a;
 }
 
-double PolarPoint::getAngle() const
+double PolarPoint::angle() const
 {
-    return this->angle;
+    return this->angle_;
 }
 
-void PolarPoint::setDistance(double d)
+void PolarPoint::set_distance(double d)
 {
-    if (distance < 0)
-      this->distance = d;
+    if (distance_ < 0)
+      this->distance_ = d;
     throw "La distance ne peut pas être négative";
 }
 
-double PolarPoint::getDistance() const
+double PolarPoint::distance() const
 {
-    return this->distance;
+    return this->distance_;
 }
 
-Point * PolarPoint::toPoint()
+Point * PolarPoint::to_point()
 {
-    double x = distance * std::cos(angle);
-    double y = distance * std::sin(angle);
+    double x = this->distance_ * std::cos(this->angle_);
+    double y = this->distance_ * std::sin(this->angle_);
     return new Point(x,y);
 }
 

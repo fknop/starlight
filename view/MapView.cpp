@@ -23,8 +23,8 @@ MapView::MapView(Level *level) : level{level}
     Source s = level->getSource();
     Dest d = level->getDestination();
 
-    SourceView *source = new SourceView(s.getPosition().getX(), s.getPosition().getY(), s.getEdge(), s.getEdge());
-    DestinationView *dest = new DestinationView(d.getPosition().getX(), d.getPosition().getY(), d.getEdge(), d.getEdge());
+    SourceView *source = new SourceView(s.getPosition().x(), s.getPosition().y(), s.getEdge(), s.getEdge());
+    DestinationView *dest = new DestinationView(d.getPosition().x(), d.getPosition().y(), d.getEdge(), d.getEdge());
 
     scene->addItem(source);
     scene->addItem(dest);

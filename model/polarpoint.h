@@ -7,8 +7,8 @@ class PolarPoint
 {
 
 private:
-    double distance;
-    double angle;
+    double distance_;
+    double angle_;
 public:
 
     /**
@@ -23,7 +23,7 @@ public:
      * @param distance la distance par rapport à l'origine du répère.
      * @param angle l'angle par rapport à l'origine du repère.
      */
-    PolarPoint(double distance, double angle);
+    PolarPoint(double distance, double set_angle);
 
     ~PolarPoint();
 
@@ -33,7 +33,7 @@ public:
      * cartésiennes.
      * @param a le nouvel angle.
      */
-    void setAngle(double a);
+    void set_angle(double a);
 
     /**
      * Modifie la distance du point polaire.
@@ -41,25 +41,25 @@ public:
      * cartésiennes.
      * @param d la nouvelle distance.
      */
-    void setDistance(double d);
+    void set_distance(double d);
 
     /**
      * Retourne l'angle.
      * @return l'angle.
      */
-    double getAngle() const;
+    double angle() const;
 
     /**
      * Retourne la distance.
      * @return la distance.
      */
-    double getDistance() const;
+    double distance() const;
 
     /**
      * Transforme le point polaire en point cartésien.
      * @return le point cartésien correspondant au point polaire.
      */
-    Point * toPoint();
+    Point * to_point();
 
 
 };

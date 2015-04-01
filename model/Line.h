@@ -15,8 +15,8 @@
  */
 class Line
 {
-    Point origin;
-    double angle;
+    Point origin_;
+    double angle_;
 
 public:
     /**
@@ -59,30 +59,30 @@ public:
      * Renvoie un point de la droite.
      * @return un point de la droite.
      */
-    const Point& getPoint() const;
+    const Point& origin() const;
 
     /**
      * Modifie le point d'origine de la droite.
      * @param origin le nouveau point d'origine.
      */
-    void setPoint(const Point& origin);
+    void set_origin(const Point& origin_);
 
     /**
      * Retourne la pente de la droite.
      * @return la pente de la droite.
      */
-    double getAngle() const;
+    double angle() const;
 
     /**
      * Modifie l'angle de la droite.
      * @param le nouvel angle en radians de la droite.
      */
-    void setAngle(double rad);
+    void set_angle(double rad);
 
     friend bool operator==(const Line& l1, const Line& l2);
 
 private:
-    static Point * verticalLineIntersection(const Line& l1, const Line l2);
+    static Point * vertical_line_intersection(const Line& l1, const Line l2);
 };
 
 #endif // LINE_H

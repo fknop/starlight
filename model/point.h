@@ -11,8 +11,8 @@
  */
 class Point
 {
-    double x {.0};
-    double y {.0};
+    double x_ {.0};
+    double y_ {.0};
 
   public:
     /**
@@ -37,32 +37,32 @@ class Point
      * Retourne l'abscisse du point.
      * @return l'abscisse du point.
      */
-    double getX() const;
+    double x() const;
 
     /**
      * Retourne l'ordonnée du point.
      * @return l'ordonnée du point.
      */
-    double getY() const;
+    double y() const;
 
     /**
      * Déplace le point en l'abscisse donnée.
      * @param x l'abscisse où déplacer le point.
      */
-    void setX(double x);
+    void set_x(double x_);
 
     /**
      * Déplace le point en l'ordonnée donnée.
      * @param y l'ordonnée où déplacer le point.
      */
-    void setY(double y);
+    void set_y(double y_);
 
     /**
      * Déplace le point en la coordonnée donnée.
      * @param x l'abscisse où déplacer le point.
      * @param y l'ordonnée où déplacer le point.
      */
-    void setLocation(double x, double y);
+    void set_location(double x_, double y_);
 
     /**
      * Retourne la distance entre deux points.

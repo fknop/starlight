@@ -152,7 +152,7 @@ bool Level::computeRay(Line & line, int wl)
 
     std::pair<Point*, Element> intersection = getClosestIntersection(line);
 
-    rays.push_back(Ray(line.getPoint(), *intersection.first));
+    rays.push_back(Ray(line.origin(), *intersection.first));
 
     Element::Type type = intersection.second.getType();
     switch (type)
@@ -185,9 +185,8 @@ bool Level::computeRay(Line & line, int wl)
 std::pair<Point*, Element> Level::getClosestIntersection(Line& line)
 {
 
+    //if (d.toRectangle().intersects(line, points))
 
-
-    //tester dest
 
     for (auto &i : walls)
     {

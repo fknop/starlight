@@ -11,8 +11,8 @@ Mirror::Mirror(const Point & p, double x, double len, double a)
 Mirror::Mirror(const Point & p, double x, double len, double a, Point pm,
                Point pM, double am, double aM)
     : Element(Element::Type::MIRROR),
-      pivot {p}, length(len), xpad(x), xMin {pm.getX()}, xMax {pM.getX()},
-      yMin {pm.getY()}, yMax {pM.getY()}, alpha {a}, alphaMin {am},
+      pivot {p}, length(len), xpad(x), xMin {pm.x()}, xMax {pM.x()},
+      yMin {pm.y()}, yMax {pM.y()}, alpha {a}, alphaMin {am},
       alphaMax {aM}
 {
     if (length <= 0 || xpad < 0)
@@ -94,14 +94,14 @@ bool Mirror::checkPivotRange(const Point & p) const
         return true;
 
     else if (xMin == 0 && xMax == 0)
-        return p.getY() >= yMin && p.getY() <= yMax;
+        return p.y() >= yMin && p.y() <= yMax;
 
     else if (yMin == 0 && yMax == 0)
-        return p.getX() >= xMin && p.getX() <= xMax;
+        return p.x() >= xMin && p.x() <= xMax;
 
     else
-        return p.getX() >= xMin && p.getX() <= xMax
-                && p.getY() >= yMin && p.getY() <= yMax;
+        return p.x() >= xMin && p.x() <= xMax
+                && p.y() >= yMin && p.y() <= yMax;
 
 }
 
@@ -118,8 +118,8 @@ void Mirror::rotate(double angle)
 
 void Mirror::translate(double x, double y)
 {
-    double newX = pivot.getX() + x;
-    double newY = pivot.getY() + y;
+    double newX = pivot.x() + x;
+    double newY = pivot.y() + y;
     if (!setPivot(Point(newX, newY)))
     {
         if (newX < xMin)
@@ -138,8 +138,8 @@ void Mirror::translate(double x, double y)
 
 LineSegment Mirror::toLineSegment()
 {
-    double pivotX = this->pivot.getX();
-    double pivotY = this->pivot.getY();
+    double pivotX = this->pivot.x();
+    double pivotY = this->pivot.y();
     double gx = pivotX - (this->xpad * std::cos(this->alpha));
     double gy = pivotY - (xpad * sin(this->alpha));
     double dx = pivotX + ((this->length - xpad) * std::cos(this->alpha));

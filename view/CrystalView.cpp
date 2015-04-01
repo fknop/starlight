@@ -6,6 +6,6 @@ CrystalView::CrystalView(const Crystal& crystal) : crystal{crystal}
 {
     Point p = crystal.getCenter();
     double radius = crystal.getRadius();
-    setRect(p.getX() - radius, p.getY() + radius,
+    setRect(p.x() - radius, p.y() + radius,
             radius + radius, radius + radius);
 }

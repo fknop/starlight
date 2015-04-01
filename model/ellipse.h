@@ -18,9 +18,9 @@ class Ellipse
 {
 
 private:
-    Point pos;
-    double xRadius;
-    double yRadius;
+    Point pos_;
+    double x_rad_;
+    double y_rad_;
 
 public:
 
@@ -30,7 +30,7 @@ public:
      * @param xRad le rayon sur l'axe des X.
      * @param yRad le rayon sur l'axe des Y.
      */
-    Ellipse(const Point& p, double xRad, double yRad);
+    Ellipse(const Point& p, double x, double y);
     ~Ellipse();
 
     /**

@@ -2,5 +2,5 @@
 
 LensView::LensView(const Lens& lens) : lens{lens}
 {
-    setRect(lens.getPosition().getX(), lens.getPosition().getY(), lens.getWidth(), lens.getHeight());
+    setRect(lens.getPosition().x(), lens.getPosition().y(), lens.getWidth(), lens.getHeight());
 }

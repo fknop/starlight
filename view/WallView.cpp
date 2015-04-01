@@ -6,8 +6,8 @@ WallView::WallView(const Wall& wall)
     myPen.setWidth(2);
 
     setPen(myPen);
-    setLine(wall.getStart().getX(), wall.getStart().getY(),
-            wall.getEnd().getX(), wall.getEnd().getY());
+    setLine(wall.getStart().x(), wall.getStart().y(),
+            wall.getEnd().x(), wall.getEnd().y());
 }
 
 

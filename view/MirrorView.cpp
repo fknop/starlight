@@ -9,8 +9,8 @@ MirrorView::MirrorView(const Mirror& mirror) : mirror{mirror}
 
 //    std::cout << "const " << initialPos.x() << " " << initialPos.y() << std::endl;
 
-    double pivotX = mirror.getPivot().getX();
-    double pivotY = mirror.getPivot().getY();
+    double pivotX = mirror.getPivot().x();
+    double pivotY = mirror.getPivot().y();
     double len    = mirror.getLength();
     double xpad   = mirror.getXPad();
     double angle  = mirror.getAngle();

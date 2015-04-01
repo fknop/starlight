@@ -11,21 +11,23 @@ Rectangle::Rectangle(const Point& upperLeft, double width, double height)
 int Rectangle::intersects(const Line& line, std::vector<Point> & points)
 {
     /* On crée les 3 coins manquants du rectangle */
-    Point bottomLeft(this->upperLeft.getX(),
-                     this->upperLeft.getY() + this->height);
+    Point bottomLeft(this->upperLeft.x(),
+                     this->upperLeft.y() + this->height);
 
-    Point upperRight(this->upperLeft.getX() + this->width,
-                     this->upperLeft.getY());
+    Point upperRight(this->upperLeft.x() + this->width,
+                     this->upperLeft.y());
 
-    Point bottomRight(this->upperLeft.getX() + this->width,
-                      this->upperLeft.getY() + this->height);
+    Point bottomRight(this->upperLeft.x() + this->width,
+                      this->upperLeft.y() + this->height);
 
     /* On push les 4 cotés du rectangle dans un vecteur */
-    std::vector<LineSegment> segments;
-    segments.push_back(LineSegment(this->upperLeft, upperRight));
-    segments.push_back(LineSegment(bottomLeft, bottomRight));
-    segments.push_back(LineSegment(this->upperLeft, bottomLeft));
-    segments.push_back(LineSegment(upperRight, bottomRight));
+    std::vector<LineSegment> segments
+    {
+            LineSegment(this->upperLeft, upperRight),
+            LineSegment(bottomLeft, bottomRight),
+            LineSegment(this->upperLeft, bottomLeft),
+            LineSegment(upperRight, bottomRight)
+    };
 
     /* Pour chaque coté, si il existe une intersection
      * on le push dans le vecteur de points */
@@ -49,8 +51,8 @@ int Rectangle::intersects(const LineSegment& ls, std::vector<Point> & points)
 
     /* Pour chaque points, si il n'est pas sur le segment,
      * on l'enlève du vecteur */
-    auto i = points.begin();
-    while (i != points.end())
+
+    for (auto i = points.begin(); i != points.end(); )
     {
         if (!Geometry::isInBoundingBox(*i, ls))
         {
