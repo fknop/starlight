@@ -4,6 +4,7 @@
 #include "point.h"
 #include <iostream>
 #include "element.h"
+#include "linesegment.h"
 
 
 /**
@@ -25,6 +26,8 @@ class Wall : public Element
      */
     Wall(const Point & p1, const Point & p2);
 
+    Wall(const Wall&);
+
     /**
      * Retourne le début du mur.
      * @return le début du mur.
@@ -36,6 +39,8 @@ class Wall : public Element
      * @return la fin du mur.
      */
     const Point & getEnd() const;
+
+    LineSegment toLineSegment();
 
     /**
      * Surcharge l'opérateur de flux de sortie pour afficher

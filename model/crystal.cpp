@@ -9,6 +9,13 @@ Crystal::Crystal(const Point & p, double r, int m) :
         throw std::string("Le rayon doit être strictement strictement positif");
 }
 
+Crystal::Crystal(const Crystal & crystal) : Element(Element::Type::CRYSTAL)
+{
+    this->center = crystal.center;
+    this->mod = crystal.mod;
+    this->rad = crystal.rad;
+}
+
 const Point & Crystal::getCenter() const
 {
     return center;

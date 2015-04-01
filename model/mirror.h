@@ -6,6 +6,7 @@
 #include <ostream>
 #include "polarpoint.h"
 #include "element.h"
+#include "linesegment.h"
 
 /**
  * Cette classe modélise les miroirs utilisés dans le jeu.
@@ -198,6 +199,8 @@ class Mirror : public Element
      * @param y l'ordonnée.
      */
     void translate(double x, double y);
+
+    LineSegment toLineSegment();
 
     /**
      * Surcharge l'opérateur de flux de sortie pour

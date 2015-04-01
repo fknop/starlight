@@ -34,7 +34,8 @@ SOURCES += main.cpp \
     view/NukeView.cpp \
     model/element.cpp \
     view/LensView.cpp \
-    view/CrystalView.cpp
+    view/CrystalView.cpp \
+    model/rectangle.cpp
 
 
 HEADERS += \
@@ -67,7 +68,8 @@ HEADERS += \
     view/NukeView.h \
     model/element.h \
     view/LensView.h \
-    view/CrystalView.h
+    view/CrystalView.h \
+    model/rectangle.h
 
 
 FORMS +=

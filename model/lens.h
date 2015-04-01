@@ -5,6 +5,7 @@
 
 #include <ostream>
 #include "element.h"
+#include "ellipse.h"
 
 /**
  * Cette classe modélise les lentilles utilisées dans le jeu.
@@ -40,7 +41,7 @@ class Lens : public Element
      *              autorisés à franchir la lentille.
      */
     Lens(const Point & p, double w, double h, int wlmin, int wlmax);
-
+    Lens(const Lens&);
     /**
      * Retourne la position du coin supérieur gauche du
      * rectangle modélisant la lentille.
@@ -76,6 +77,8 @@ class Lens : public Element
      * autorisés à franchir la lentille.
      */
     int getMaxWavelength() const;
+
+    Ellipse toEllipse();
 
     /**
      * Surcharge l'opérateur de flux de sortie pour afficher

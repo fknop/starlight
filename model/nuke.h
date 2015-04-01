@@ -4,6 +4,7 @@
 #include "point.h"
 #include <ostream>
 #include "element.h"
+#include "ellipse.h"
 
 /**
  * Cette classe modélise les bombes utilisées dans le jeu.
@@ -49,6 +50,8 @@ class Nuke : public Element
      * @param q vrai pour illuminer la bombe, faux sinon.
      */
     void setLightedUp(bool q);
+
+    Ellipse toEllipse();
 
     /**
      * Surcharge l'opérateur de flux de sortie pour afficher un

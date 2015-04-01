@@ -32,6 +32,8 @@ class Crystal : public Element
      */
     Crystal(const Point & p, double r, int m);
 
+    Crystal(const Crystal&);
+
     /**
      * Retourne la coordonnée du centre du cristal.
      * @return  la coordonnée du centre du cristal.

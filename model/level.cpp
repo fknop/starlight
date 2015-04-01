@@ -184,14 +184,33 @@ bool Level::computeRay(Line & line, int wl)
 
 std::pair<Point*, Element> Level::getClosestIntersection(Line& line)
 {
-    double distance = 0;
-    //std::pair<Point*, Element> intersection;
-    Point * p = nullptr;
+
+
+
+    //tester dest
 
     for (auto &i : walls)
     {
-        //if (line.intersects(LineSegment(i.getStart(), i.getEnd()), &p))
-            //intersection.first = p;
+
+    }
+
+    for (auto &i : lenses)
+    {
+
+    }
+
+    for (auto &i : mirrors)
+    {
+
+    }
+
+    for (auto &i : nukes)
+    {
+
+    }
+
+    for (auto &i : crystals)
+    {
 
     }
 

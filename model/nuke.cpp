@@ -28,6 +28,11 @@ void Nuke::setLightedUp(bool q)
     light = q;
 }
 
+Ellipse Nuke::toEllipse()
+{
+    return Ellipse(this->pos, this->rad, this->rad);
+}
+
 std::ostream & operator<<(std::ostream & out, const Nuke & s)
 {
     out << "Nuke --- Position : " << s.pos << " , Radius : " << s.rad <<

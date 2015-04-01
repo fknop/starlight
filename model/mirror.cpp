@@ -1,5 +1,6 @@
 #include "mirror.h"
 #include <iostream>
+#include <cmath>
 
 Mirror::Mirror(const Point & p, double x, double len, double a)
     : Mirror {p, x, len, a, {.0, .0}, {.0, .0}, .0, .0}
@@ -133,6 +134,20 @@ void Mirror::translate(double x, double y)
 
         setPivot(Point(newX, newY));
     }
+}
+
+LineSegment Mirror::toLineSegment()
+{
+    double pivotX = this->pivot.getX();
+    double pivotY = this->pivot.getY();
+    double gx = pivotX - (this->xpad * std::cos(this->alpha));
+    double gy = pivotY - (xpad * sin(this->alpha));
+    double dx = pivotX + ((this->length - xpad) * std::cos(this->alpha));
+    double dy = pivotY + ((this->length - xpad) * std::sin(this->alpha));
+    Point start(gx, gy);
+    Point end(dx, dy);
+
+    return LineSegment(start, end);
 }
 
 std::ostream & operator<<(std::ostream & out, const Mirror & m)

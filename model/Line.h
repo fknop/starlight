@@ -43,7 +43,7 @@ public:
      * @param intersecion le point d'intersection.
      * @return vrai si les droites possèdent une intersection.
      */
-    bool intersects(const Line& l, Point ** intersecion);
+    bool intersects(const Line& l, Point ** intersecion) const;
 
     /**
      * Retourne vrai si la droite possède une intersection
@@ -53,7 +53,7 @@ public:
      * @param intersecion le point d'intersection.
      * @return vrai si la droite et le segment possède une intersection.
      */
-    bool intersects(const LineSegment& ls, Point ** intersection);
+    bool intersects(const LineSegment& ls, Point ** intersection) const;
 
     /**
      * Renvoie un point de la droite.

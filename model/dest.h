@@ -4,6 +4,7 @@
 #include "point.h"
 #include <ostream>
 #include "element.h"
+#include "rectangle.h"
 
 /**
  * Cette classe modélise la destination utilisée dans le jeu.
@@ -25,6 +26,8 @@ class Dest : public Element
      * @param e la longueur du côté du carré.
      */
     Dest(const Point & p, double e);
+
+    Dest(const Dest&);
 
     /**
      * Retourne la position du coin supérieur gauche du carré.
@@ -54,6 +57,7 @@ class Dest : public Element
      */
     void setLightedUp(const bool q);
 
+    Rectangle toRectangle();
     /**
      * Surcharge l'opérateur de flux de sortie pour afficher.
      * un récapitulatif des caractéristiques de la destination

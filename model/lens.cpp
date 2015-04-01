@@ -20,12 +20,19 @@ Lens::Lens(const Point & p, double w, double h, int wlmin, int wlmax) :
                           "la longueur d'onde maximale");
     }
 
-
-
     if (width <= 0 || height <= 0)
     {
         throw std::string("La taille et la longueur doivent etre strictement positives");
     }
+}
+
+Lens::Lens(const Lens& l) : Element(Element::Type::LENS)
+{
+    this->height = l.height;
+    this->pos = l.pos;
+    this->width = l.width;
+    this->wlmax = l.wlmax;
+    this->wlmin = l.wlmin;
 }
 
 const Point & Lens::getPosition() const
@@ -51,6 +58,13 @@ int Lens::getMinWavelength() const
 int Lens::getMaxWavelength() const
 {
     return wlmax;
+}
+
+Ellipse Lens::toEllipse()
+{
+    Point center(this->pos.getX() + this->width / 2,
+                 this->pos.getY() + this->height / 2);
+    return Ellipse(center, this->width / 2, this->height / 2);
 }
 
 std::ostream & operator<<(std::ostream & out, const Lens & l)

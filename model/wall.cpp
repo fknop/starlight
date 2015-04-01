@@ -12,6 +12,12 @@ Wall::Wall(const Point & p1, const Point & p2) : Element(Element::Type::WALL),
 
 }
 
+Wall::Wall(const Wall& wall) : Element(Element::Type::WALL)
+{
+    this->start = wall.start;
+    this->end = wall.end;
+}
+
 const Point & Wall::getStart() const
 {
     return start;
@@ -21,6 +27,12 @@ const Point & Wall::getEnd() const
 {
     return end;
 }
+
+LineSegment Wall::toLineSegment()
+{
+    return LineSegment(this->getStart(), this->getEnd());
+}
+
 
 std::ostream & operator<<(std::ostream & out, const Wall & w)
 {

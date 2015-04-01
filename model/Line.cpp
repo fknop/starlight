@@ -29,7 +29,7 @@ Point * Line::verticalLineIntersection(const Line& verticalL, const Line line)
 
 
 
-bool Line::intersects(const Line &l, Point ** intersection)
+bool Line::intersects(const Line &l, Point ** intersection) const
 {   
     double x, y;
     double b1, b2;
@@ -75,7 +75,7 @@ bool Line::intersects(const Line &l, Point ** intersection)
    return true;
 }
 
-bool Line::intersects(const LineSegment &ls, Point ** intersection)
+bool Line::intersects(const LineSegment &ls, Point ** intersection) const
 {
     Point start = ls.getStart();
     Point end = ls.getEnd();
