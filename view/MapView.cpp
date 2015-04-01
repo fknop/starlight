@@ -16,6 +16,8 @@ MapView::MapView(Level *level) : level{level}
 
     setScene(scene);
 
+    setRenderHints(QPainter::Antialiasing);
+
     setFixedSize(this->level->getWidth() + 30, this->level->getHeight() + 30);
 
     Source s = level->getSource();
