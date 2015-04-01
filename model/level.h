@@ -46,18 +46,18 @@ struct Intersection
  */
 class Level : public Observable
 {
-    const double width;
-    const double height;
+    const double width_;
+    const double height_;
 
-    Source s {{.0, .0}, -1, 5, 600};
-    Dest d {{.0, .0}, 5};
+    Source source_ {{.0, .0}, -1, 5, 600};
+    Dest dest_ {{.0, .0}, 5};
 
-    std::vector<Wall> walls;
-    std::vector<Mirror> mirrors;
-    std::vector<Crystal> crystals;
-    std::vector<Lens> lenses;
-    std::vector<Ray> rays;
-    std::vector<Nuke> nukes;
+    std::vector<Wall> walls_;
+    std::vector<Mirror> mirrors_;
+    std::vector<Crystal> crystals_;
+    std::vector<Lens> lenses_;
+    std::vector<Ray> rays_;
+    std::vector<Nuke> nukes_;
 
   public:
 
@@ -81,113 +81,112 @@ class Level : public Observable
      * Retourne la source de la carte.
      * @return la source de la carte.
      */
-    const Source & getSource() const;
+    const Source& source() const;
 
     /**
      * Change la source de la carte.
      * @param value la nouvelle source.
      */
-    void setSource(const Source & value);
+    void set_source(const Source& value);
 
     /**
      * Retourne la desination de la carte.
      * @return la destination de la carte.
      */
-    const Dest & getDestination() const;
+    const Dest& dest() const;
 
     /**
      * Change la destination de la carte.
      * @param value la destination de la carte.
      */
-    void setDestination(const Dest & value);
+    void set_dest(const Dest& value);
 
     /**
      * Retourne l'ensemble des murs de la carte.
      * @return l'ensemble des murs de la carte.
      */
-    const std::vector<Wall> & getWalls() const;
+    const std::vector<Wall>& walls() const;
 
     /**
      * Retourne l'ensemble des miroirs de la carte.
      * @return l'ensemble des miroirs de la carte.
      */
-    const std::vector<Mirror> & getMirrors() const;
+    const std::vector<Mirror>& mirrors() const;
 
     /**
      * Retourne l'ensemble des cristaux de la carte.
      * @return l'ensemble des cristaux de la carte.
      */
-    const std::vector<Crystal> & getCrystals() const;
+    const std::vector<Crystal>& crystals() const;
 
     /**
      * Retourne l'ensemble des lentilles de la carte.
      * @return l'ensemble des lentilles de la carte.
      */
-    const std::vector<Lens> & getLenses() const;
+    const std::vector<Lens>& lenses() const;
 
     /**
      * Retourne l'ensemble des rayons de la carte.
      * @return l'ensemble des rayons de la carte.
      */
-    const std::vector<Ray> & getRays() const;
+    const std::vector<Ray>& rays() const;
 
-    const std::vector<Nuke> & getNukes() const;
+    const std::vector<Nuke>& nukes() const;
 
     /**
      * Change l'ensemble des rayons de la carte.
      * @param le nouvel ensemble de rayons de la carte.
      */
-    void setRays(const std::vector<Ray>&);
+    void set_rays(const std::vector<Ray>& rays);
 
-    void setWalls(const std::vector<Wall> &);
+    void set_walls(const std::vector<Wall>& walls);
 
-    void setCrystals(const std::vector<Crystal>&);
+    void set_crystals(const std::vector<Crystal>& crystals);
 
-    void setNukes(const std::vector<Nuke>&);
+    void set_nukes(const std::vector<Nuke>& nukes);
 
-    void setLenses(const std::vector<Lens>&);
+    void set_lenses(const std::vector<Lens>& lenses);
 
-    void setMirrors(const std::vector<Mirror>&);
+    void set_mirrors(const std::vector<Mirror>& mirrors);
 
     /**
      * Retourne la taille de la carte.
      * @return la taille de la carte.
      */
-    int getHeight();
+    int height();
 
     /**
      * Retourne la longueur de la carte.
      * @return la longueur de la carte.
      */
-    int getWidth();
+    int width();
 
     /**
      * Calcule les rayons lumineux de la carte.
      * </p>
      * Cette fonction doit être surchargée obligatoirement.
      */
-    void computeRays();
+    void compute_rays();
 
-    void addMirror(const Mirror & m);
+    void add_mirror(const Mirror& m);
 
-    void addNuke(const Nuke & n);
+    void add_nuke(const Nuke& n);
 
-    void addWall(const Wall & w);
+    void add_wall(const Wall& w);
 
-    void addCrystal(const Crystal & c);
+    void add_crystal(const Crystal& c);
 
-    void addLens(const Lens & l);
+    void add_lens(const Lens& l);
 
-    void addRay(const Ray & r);
+    void add_ray(const Ray& r);
 
-    void notify(Observable*);
+    void notify(Observable* o);
 
 
 private:
 
-    bool computeRay(Line&, int wl);
-    Intersection getClosestIntersection(Line&);
-    Point * findClosestPoint(double &, double &, Point *, Point *);
+    bool compute_ray(Line&, int wl);
+    const Intersection& get_closest_intersection(Line& line);
 };
 
 

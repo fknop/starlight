@@ -73,7 +73,7 @@ void MapReader::readCrystalInfo(std::string line)
     double rad  = (iss >> rad, rad);
     int mod     = (iss >> mod, mod);
 
-    l->addCrystal(Crystal(Point(x,y), rad, mod));
+    l->add_crystal(Crystal(Point(x,y), rad, mod));
 }
 
 void MapReader::readDestinationInfo(std::string line)
@@ -85,7 +85,7 @@ void MapReader::readDestinationInfo(std::string line)
     double y     = (iss >> y, y);
     double edge  = (iss >> edge, edge);
 
-    l->setDestination(Dest(Point(x, y), edge));
+    l->set_dest(Dest(Point(x, y), edge));
 }
 
 void MapReader::readLensInfo(std::string line)
@@ -100,7 +100,7 @@ void MapReader::readLensInfo(std::string line)
     int wlmin      = (iss >> wlmin, wlmin);
     int wlmax      = (iss >> wlmax, wlmax);
 
-    l->addLens(Lens(Point(x,y), width, height, wlmin, wlmax));
+    l->add_lens(Lens(Point(x,y), width, height, wlmin, wlmax));
 }
 
 void MapReader::readMirrorInfo(std::string line)
@@ -119,7 +119,7 @@ void MapReader::readMirrorInfo(std::string line)
     double alphaMin = (iss >> alphaMin, alphaMin);
     double alphaMax = (iss >> alphaMax, alphaMax);
 
-    l->addMirror(Mirror(Point(x,y), xPad, length, alpha,
+    l->add_mirror(Mirror(Point(x,y), xPad, length, alpha,
                   Point(xMin, yMin), Point(xMax, yMax),
                   alphaMin, alphaMax));
 }
@@ -132,7 +132,7 @@ void MapReader::readNukeInfo(std::string line)
     double y    = (iss >> y, y);
     double rad  = (iss >> rad, rad);
 
-    l->addNuke(Nuke(Point(x, y), rad));
+    l->add_nuke(Nuke(Point(x, y), rad));
 }
 
 void MapReader::readSourceInfo(std::string line)
@@ -146,7 +146,7 @@ void MapReader::readSourceInfo(std::string line)
     double alpha = (iss >> alpha, alpha);
     int wl       = (iss >> wl, wl);
 
-    l->setSource(Source(Point(x,y), edge, alpha, wl));
+    l->set_source(Source(Point(x,y), edge, alpha, wl));
 }
 
 void MapReader::readWallInfo(std::string line)
@@ -158,7 +158,7 @@ void MapReader::readWallInfo(std::string line)
     int x2 = (iss >> x2, x2);
     int y2 = (iss >> y2, y2);
 
-    l->addWall(Wall(Point(x1,y1), Point(x2, y2)));
+    l->add_wall(Wall(Point(x1,y1), Point(x2, y2)));
 }
 
 Level * MapReader::getLevel(std::string path)

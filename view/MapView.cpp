@@ -12,16 +12,16 @@
 
 MapView::MapView(Level *level) : level{level}
 {
-    scene = new QGraphicsScene(0,0,this->level->getWidth(), this->level->getHeight());
+    scene = new QGraphicsScene(0,0,this->level->width(), this->level->height());
 
     setScene(scene);
 
     setRenderHints(QPainter::Antialiasing);
 
-    setFixedSize(this->level->getWidth() + 30, this->level->getHeight() + 30);
+    setFixedSize(this->level->width() + 30, this->level->height() + 30);
 
-    Source s = level->getSource();
-    Dest d = level->getDestination();
+    Source s = level->source();
+    Dest d = level->dest();
 
     SourceView *source = new SourceView(s.getPosition().x(), s.getPosition().y(), s.getEdge(), s.getEdge());
     DestinationView *dest = new DestinationView(d.getPosition().x(), d.getPosition().y(), d.getEdge(), d.getEdge());
@@ -30,27 +30,27 @@ MapView::MapView(Level *level) : level{level}
     scene->addItem(dest);
 
 
-    for (auto &i : this->level->getWalls())
+    for (auto &i : this->level->walls())
     {
         drawWall(scene, i);
     }
 
-    for (auto &i : this->level->getMirrors())
+    for (auto &i : this->level->mirrors())
     {
         drawMirror(scene, i);
     }
 
-    for (auto &i : this->level->getNukes())
+    for (auto &i : this->level->nukes())
     {
         drawNuke(scene, i);
     }
 
-    for (auto &i : this->level->getLenses())
+    for (auto &i : this->level->lenses())
     {
         drawLens(scene, i);
     }
 
-    for (auto &i : this->level->getCrystals())
+    for (auto &i : this->level->crystals())
     {
         drawCrystal(scene, i);
     }
