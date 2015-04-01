@@ -9,7 +9,7 @@
 
 Element::Element(Element::Type type)
 {
-    this->type = type;
+    type_ = type;
 }
 
 Element::~Element()
@@ -17,7 +17,7 @@ Element::~Element()
 
 }
 
-Element::Type Element::getType()
+Element::Type Element::type() const
 {
-    return this->type;
+    return type_;
 }

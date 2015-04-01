@@ -17,6 +17,27 @@
 #include "obs/observable.h"
 #include "obs/observer.h"
 
+
+struct Intersection
+{
+    Point point_;
+    Element element_;
+    Intersection(Point p, Element e)
+        : point_{p}, element_{e} {}
+
+    const Point& point() const
+    {
+        return point_;
+    }
+
+    const Element& element() const
+    {
+        return element_;
+    }
+
+};
+
+
 /**
  * Modélise une carte telle qu'utilisée dans le jeu.
  * </p>
@@ -165,8 +186,10 @@ class Level : public Observable
 private:
 
     bool computeRay(Line&, int wl);
-    std::pair<Point*, Element> getClosestIntersection(Line&);
+    Intersection getClosestIntersection(Line&);
     Point * findClosestPoint(double &, double &, Point *, Point *);
 };
+
+
 
 #endif // LEVEL_H

@@ -20,10 +20,10 @@ public:
 
 
 
-    Type getType();
+    Type type() const;
 
 private:
-    Type type;
+    Type type_;
 
 
 };

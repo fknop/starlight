@@ -150,11 +150,11 @@ bool Level::computeRay(Line & line, int wl)
 {
     bool continueRay;
 
-    std::pair<Point*, Element> intersection = getClosestIntersection(line);
+    Intersection intersection = getClosestIntersection(line);
 
-    rays.push_back(Ray(line.origin(), *intersection.first));
 
-    Element::Type type = intersection.second.getType();
+
+    Element::Type type = intersection.element().type();
     switch (type)
     {
     case Element::Type::CRYSTAL:
@@ -182,10 +182,13 @@ bool Level::computeRay(Line & line, int wl)
 }
 
 
-std::pair<Point*, Element> Level::getClosestIntersection(Line& line)
+Intersection Level::getClosestIntersection(Line& line)
 {
+    std::vector<Intersection> intersections;
+    std::vector<Point> points;
 
-    //if (d.toRectangle().intersects(line, points))
+    if (d.toRectangle().intersects(line, points))
+        std::cout << "intersects";
 
 
     for (auto &i : walls)
