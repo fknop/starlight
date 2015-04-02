@@ -1,5 +1,4 @@
 #include "CrystalView.h"
-
 #include "model/crystal.h"
 
 CrystalView::CrystalView(const Crystal& crystal) : crystal{crystal}

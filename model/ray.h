@@ -1,8 +1,9 @@
 #ifndef RAY_H
 #define RAY_H
 
-#include "point.h"
 #include <iostream>
+
+#include "point.h"
 #include "element.h"
 
 /**

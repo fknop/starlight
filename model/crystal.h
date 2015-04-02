@@ -1,8 +1,9 @@
 #ifndef CRYSTAL_H
 #define CRYSTAL_H
 
-#include "point.h"
 #include <ostream>
+
+#include "point.h"
 #include "element.h"
 
 /**

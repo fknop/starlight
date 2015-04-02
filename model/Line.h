@@ -1,8 +1,9 @@
 #ifndef LINE_H
 #define LINE_H
 
-#include "point.h"
 #include <cstddef>
+
+#include "point.h"
 #include "linesegment.h"
 
 

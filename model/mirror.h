@@ -1,9 +1,9 @@
 #ifndef MIRROR_H
 #define MIRROR_H
 
-#include "point.h"
-
 #include <ostream>
+
+#include "point.h"
 #include "polarpoint.h"
 #include "element.h"
 #include "linesegment.h"

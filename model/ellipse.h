@@ -1,10 +1,12 @@
 #ifndef ELLIPSE_H
 #define ELLIPSE_H
 
+#include <vector>
+
 #include "point.h"
 #include "linesegment.h"
 #include "Line.h"
-#include <vector>
+
 
 
 /**

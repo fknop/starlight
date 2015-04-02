@@ -1,9 +1,9 @@
 #ifndef LENS_H
 #define LENS_H
 
-#include "point.h"
-
 #include <ostream>
+
+#include "point.h"
 #include "element.h"
 #include "ellipse.h"
 

@@ -1,4 +1,6 @@
 #include <QGraphicsScene>
+#include <iostream>
+
 #include "view/CrystalView.h"
 #include "view/DestinationView.h"
 #include "view/LensView.h"
@@ -8,7 +10,7 @@
 #include "view/SourceView.h"
 #include "view/WallView.h"
 
-#include <iostream>
+
 
 MapView::MapView(Level *level) : level{level}
 {

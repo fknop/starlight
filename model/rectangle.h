@@ -1,8 +1,9 @@
 #ifndef RECTANGLE_H
 #define RECTANGLE_H
 
-#include "point.h"
 #include <vector>
+
+#include "point.h"
 #include "Line.h"
 #include "linesegment.h"
 

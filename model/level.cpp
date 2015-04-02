@@ -15,122 +15,122 @@ Level::Level(double w, double h) : width_ {w}, height_ {h},
 
 const Source & Level::source() const
 {
-    return source_;
+    return this->source_;
 }
 
 void Level::set_source(const Source & value)
 {
-    source_ = value;
+    this->source_ = value;
 }
 
 const Dest & Level::dest() const
 {
-    return dest_;
+    return this->dest_;
 }
 
 void Level::set_dest(const Dest & value)
 {
-    dest_ = value;
+    this->dest_ = value;
 }
 
 const std::vector<Wall> & Level::walls() const
 {
-    return walls_;
+    return this->walls_;
 }
 
 const std::vector<Mirror> & Level::mirrors() const
 {
-    return mirrors_;
+    return this->mirrors_;
 }
 
 const std::vector<Crystal> & Level::crystals() const
 {
-    return crystals_;
+    return this->crystals_;
 }
 
 const std::vector<Lens> & Level::lenses() const
 {
-    return lenses_;
+    return this->lenses_;
 }
 
 const std::vector<Ray> & Level::rays() const
 {
-    return rays_;
+    return this->rays_;
 }
 
 void Level::set_rays(const std::vector<Ray> & value)
 {
-    rays_ = value;
+    this->rays_ = value;
 }
 
 void Level::set_walls(const std::vector<Wall> & value)
 {
-    walls_ = value;
+    this->walls_ = value;
 }
 
 void Level::set_crystals(const std::vector<Crystal>& value)
 {
-    crystals_ = value;
+    this->crystals_ = value;
 }
 
 void Level::set_nukes(const std::vector<Nuke>& value)
 {
-    nukes_ = value;
+    this->nukes_ = value;
 }
 
 void Level::set_lenses(const std::vector<Lens>& value)
 {
-    lenses_ = value;
+    this->lenses_ = value;
 }
 
 void Level::set_mirrors(const std::vector<Mirror>& value)
 {
-    mirrors_ = value;
+    this->mirrors_ = value;
 }
 
 const std::vector<Nuke> & Level::nukes() const
 {
-    return nukes_;
+    return this->nukes_;
 }
 
 int Level::height()
 {
-    return height_;
+    return this->height_;
 }
 
 int Level::width()
 {
-    return width_;
+    return this->width_;
 }
 
 void Level::add_mirror(const Mirror & m)
 {
-    mirrors_.push_back(m);
+    this->mirrors_.push_back(m);
 }
 
 void Level::add_nuke(const Nuke & n)
 {
-    nukes_.push_back(n);
+    this->nukes_.push_back(n);
 }
 
 void Level::add_wall(const Wall & w)
 {
-    walls_.push_back(w);
+    this->walls_.push_back(w);
 }
 
 void Level::add_crystal(const Crystal & c)
 {
-    crystals_.push_back(c);
+    this->crystals_.push_back(c);
 }
 
 void Level::add_lens(const Lens & l)
 {
-    lenses_.push_back(l);
+    this->lenses_.push_back(l);
 }
 
 void Level::add_ray(const Ray & r)
 {
-    rays_.push_back(r);
+    this->rays_.push_back(r);
 }
 
 //template <class T>
@@ -158,7 +158,7 @@ bool Level::compute_ray(Line & line, int wl)
     case Element::Type::CRYSTAL:
         break;
     case Element::Type::DEST:
-        dest_.setLightedUp(true);
+        this->dest_.setLightedUp(true);
         continueRay = false;
         //Notifie vue -> Allumer la dest.
         // bool = gagner ?
@@ -185,31 +185,31 @@ const Intersection& Level::get_closest_intersection(Line& line)
     std::vector<Intersection> intersections;
     std::vector<Point> points;
 
-    if (dest_.toRectangle().intersects(line, points))
+    if (this->dest_.toRectangle().intersects(line, points))
         std::cout << "intersects";
 
 
-    for (auto &i : walls_)
+    for (auto &i : this->walls_)
     {
 
     }
 
-    for (auto &i : lenses_)
+    for (auto &i : this->lenses_)
     {
 
     }
 
-    for (auto &i : mirrors_)
+    for (auto &i : this->mirrors_)
     {
 
     }
 
-    for (auto &i : nukes_)
+    for (auto &i : this->nukes_)
     {
 
     }
 
-    for (auto &i : crystals_)
+    for (auto &i : this->crystals_)
     {
 
     }
@@ -219,7 +219,7 @@ const Intersection& Level::get_closest_intersection(Line& line)
 
 void Level::notify(Observable * obs)
 {
-    for (Observer * o : observers_)
+    for (Observer * o : this->observers_)
         o->notify(obs);
 }
 

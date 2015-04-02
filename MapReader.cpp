@@ -1,5 +1,6 @@
-#include "MapReader.h"
 #include <vector>
+
+#include "MapReader.h"
 
 Level * MapReader::l = nullptr;
 

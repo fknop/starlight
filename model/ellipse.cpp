@@ -1,5 +1,6 @@
 #include "ellipse.h"
 #include <cmath>
+
 #include "umath.h"
 #include "Geometry.h"
 
@@ -38,7 +39,7 @@ int Ellipse::intersects(const Line & l, std::vector<Point>& points)
     double lcmy = lcm / (xR*xR);
 
 
-    bool verticalLine = (std::abs(std::fmod(l.angle(), M_PI)) == (M_PI_2));
+    bool verticalLine = std::isinf(slope);
 
     if (verticalLine)
     {

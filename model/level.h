@@ -1,6 +1,9 @@
 #ifndef LEVEL_H
 #define LEVEL_H
 
+#include <vector>
+#include <unordered_map>
+
 #include "crystal.h"
 #include "dest.h"
 #include "lens.h"
@@ -11,9 +14,6 @@
 #include "point.h"
 #include "nuke.h"
 #include "Line.h"
-
-#include <vector>
-#include <unordered_map>
 #include "obs/observable.h"
 #include "obs/observer.h"
 

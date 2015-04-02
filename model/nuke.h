@@ -1,8 +1,9 @@
 #ifndef NUKE_H
 #define NUKE_H
 
-#include "point.h"
 #include <ostream>
+
+#include "point.h"
 #include "element.h"
 #include "ellipse.h"
 

@@ -1,8 +1,9 @@
 #ifndef WALL_H
 #define WALL_H
 
-#include "point.h"
 #include <iostream>
+
+#include "point.h"
 #include "element.h"
 #include "linesegment.h"
 

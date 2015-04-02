@@ -1,6 +1,8 @@
+#include <cmath>
+
 #include "polarpoint.h"
 
-#include <cmath>
+
 
 
 PolarPoint::PolarPoint(const Point& p)
