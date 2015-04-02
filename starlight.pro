@@ -35,7 +35,20 @@ SOURCES += main.cpp \
     view/nukeview.cpp \
     view/sourceview.cpp \
     view/wallview.cpp \
-    mapreader.cpp
+    mapreader.cpp \
+    model/line.cpp \
+    model/Geometry.cpp \
+    view/Button.cpp \
+    view/CrystalView.cpp \
+    view/DestinationView.cpp \
+    view/LensView.cpp \
+    view/MainMenu.cpp \
+    view/MapView.cpp \
+    view/MirrorView.cpp \
+    view/NukeView.cpp \
+    view/SourceView.cpp \
+    view/WallView.cpp \
+    MapReader.cpp
 
 
 HEADERS += \
@@ -69,7 +82,19 @@ HEADERS += \
     view/nukeview.h \
     view/sourceview.h \
     view/wallview.h \
-    mapreader.h
+    mapreader.h \
+    model/Geometry.h \
+    view/Button.h \
+    view/CrystalView.h \
+    view/DestinationView.h \
+    view/LensView.h \
+    view/MainMenu.h \
+    view/MapView.h \
+    view/MirrorView.h \
+    view/NukeView.h \
+    view/SourceView.h \
+    view/WallView.h \
+    MapReader.h
 
 
 FORMS +=
