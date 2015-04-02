@@ -1,7 +1,8 @@
-#include "Button.h"
-#include <QGraphicsTextItem>
 #include <QBrush>
 #include <QFont>
+#include <QGraphicsTextItem>
+
+#include "button.h"
 
 
 Button::Button(QString name, QGraphicsItem *parent) : color(color), hoverColor(hoverColor)

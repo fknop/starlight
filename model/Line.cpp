@@ -1,5 +1,5 @@
-#include "Line.h"
-#include "Geometry.h"
+#include "geometry.h"
+#include "line.h"
 
 
 Line::Line(const Point& origin, double angle)
@@ -11,11 +11,11 @@ Line::Line(const Point& origin, double angle)
 Line::Line(const Point& p1, const Point& p2)
 {
    this->origin_ = p1;
-   this->angle_ = Geometry::getSlope(p1, p2);
+   this->angle_ = Geometry::get_slope(p1, p2);
 }
 
 bool Line::intersects(const Line &l, Point ** intersection) const
-{   
+{
     double x, y,
            b1, b2,
            slope1, slope2;
@@ -47,8 +47,8 @@ bool Line::intersects(const Line &l, Point ** intersection) const
    // droites non verticales
    else
    {
-       slope1 = Geometry::getSlope(this->angle_);
-       slope2 = Geometry::getSlope(l.angle_);
+       slope1 = Geometry::get_slope(this->angle_);
+       slope2 = Geometry::get_slope(l.angle_);
        b1     = this->origin_.y() - (slope1 * this->origin_.x());
        b2     = l.origin_.y()     - (slope2 * l.origin_.x());
        x     = (b2 - b1) / (slope1 - slope2);
@@ -62,14 +62,14 @@ bool Line::intersects(const Line &l, Point ** intersection) const
 
 bool Line::intersects(const LineSegment &ls, Point ** intersection) const
 {
-    Point start = ls.getStart();
-    Point end = ls.getEnd();
-    double rad = Geometry::getAngle(start, end);
+    Point start = ls.get_start();
+    Point end = ls.get_end();
+    double rad = Geometry::angle(start, end);
 
     if ((intersects(Line(start, rad), intersection)) &&
-         (Geometry::isInBoundingBox(**intersection, ls)))
+         (Geometry::is_in_bounding_box(**intersection, ls)))
             return true;
-    
+
 
     delete *intersection;
     *intersection = nullptr;
@@ -105,7 +105,7 @@ bool operator==(const Line& l1, const Line& l2)
 Point * Line::vertical_line_intersection(const Line& verticalL, const Line line)
 {
     double x     = verticalL.origin_.x();
-    double slope = Geometry::getSlope(line.angle_);
+    double slope = Geometry::get_slope(line.angle_);
     double b     = line.origin_.y() - (slope * line.origin_.x());
     double y     = (x * slope) + b;
 

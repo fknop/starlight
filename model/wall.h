@@ -1,11 +1,11 @@
 #ifndef WALL_H
 #define WALL_H
 
-#include "point.h"
 #include <iostream>
+
 #include "element.h"
 #include "linesegment.h"
-
+#include "point.h"
 
 /**
  * Cette classe modélise les murs utilisés dans le jeu.
@@ -15,8 +15,8 @@
  */
 class Wall : public Element
 {
-    Point start;
-    Point end;
+    Point start_;
+    Point end_;
 
   public:
     /**
@@ -26,21 +26,21 @@ class Wall : public Element
      */
     Wall(const Point & p1, const Point & p2);
 
-    Wall(const Wall&);
+    Wall(const Wall &);
 
     /**
      * Retourne le début du mur.
      * @return le début du mur.
      */
-    const Point &getStart() const;
+    const Point & start() const;
 
     /**
      * Retourne la fin du mur.
      * @return la fin du mur.
      */
-    const Point & getEnd() const;
+    const Point & end() const;
 
-    LineSegment toLineSegment();
+    LineSegment to_line_segment();
 
     /**
      * Surcharge l'opérateur de flux de sortie pour afficher

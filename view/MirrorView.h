@@ -8,6 +8,7 @@
 #include <QKeyEvent>
 
 #include <iostream>
+
 #include "model/mirror.h"
 
 /**
@@ -24,19 +25,17 @@ public:
      * @param len longueur totale du miroir.
      * @param angle angle d’inclinaison du miroir.
      */
-    MirrorView(const Mirror& mirror);
+    MirrorView(const Mirror & mirror);
 
-    void mousePressEvent(QGraphicsSceneMouseEvent *event);
-    void mouseMoveEvent(QGraphicsSceneMouseEvent *event);
-    int getRotation();
-    void setRotation(qreal angle);
+    void mousePressEvent(QGraphicsSceneMouseEvent * event);
+    void mouseMoveEvent(QGraphicsSceneMouseEvent * event);
+    int rotation();
+    void set_rotation(qreal angle);
 
 private:
-    QPointF initialPos;
-    qreal rotation;
-    Mirror mirror;
-
-
+    QPointF initialPos_;
+    Mirror mirror_;
+    qreal rotation_;
 };
 
 

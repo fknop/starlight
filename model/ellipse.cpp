@@ -1,7 +1,9 @@
-#include "ellipse.h"
 #include <cmath>
+
+#include "ellipse.h"
+#include "geometry.h"
 #include "umath.h"
-#include "Geometry.h"
+
 
 Ellipse::Ellipse(const Point & p, double xRad, double yRad)
         : pos_{p}, x_rad_(xRad), y_rad_(yRad)
@@ -22,10 +24,9 @@ Ellipse::~Ellipse()
 */
 int Ellipse::intersects(const Line & l, std::vector<Point>& points)
 {
-
     double x = l.origin().x();
     double y = l.origin().y();
-    double slope = Geometry::getSlope(l.angle()); // pente -> a dans y = ax + b
+    double slope = Geometry::get_slope(l.angle()); // pente -> a dans y = ax + b
     double d = y - (slope * x); // d -> b dans y = ax + b
     double x1 = this->pos_.x();
     double y1 = this->pos_.y();
@@ -80,15 +81,15 @@ int Ellipse::intersects(const Line & l, std::vector<Point>& points)
 
 int Ellipse::intersects(const LineSegment & ls, std::vector<Point>& points)
 {
-    Point start = ls.getStart();
-    Point end = ls.getEnd();
-    double rad = Geometry::getAngle(start, end);
+    Point start = ls.get_start();
+    Point end = ls.get_end();
+    double rad = Geometry::angle(start, end);
     int intersections = intersects(Line(start, rad), points);
 
-    if (intersections > 1 && !Geometry::isInBoundingBox(points.at(1), ls))
+    if (intersections > 1 && !Geometry::is_in_bounding_box(points.at(1), ls))
         points.erase(points.end());
 
-    if (intersections > 0 && !Geometry::isInBoundingBox(points.at(0), ls))
+    if (intersections > 0 && !Geometry::is_in_bounding_box(points.at(0), ls))
         points.erase(points.begin());
 
     return points.size();

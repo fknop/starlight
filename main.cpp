@@ -42,12 +42,13 @@
 #include "model/Geometry.h"
 #include "model/ellipse.h"
 #include "model/umath.h"
-#include "view/MainMenu.h"
+#include "view/mainmenu.h"
+
 
 int main(int argc, char **argv)
 {
     QApplication app(argc, argv);
-    Level * level = MapReader::getLevel("levels/level1.lvl");
+    Level * level = MapReader::level("level1.lvl");
 
 
 //    Game game;
@@ -69,6 +70,7 @@ int main(int argc, char **argv)
 //    }
 
 //     return 0;
+
 
     MapView box(level);
     box.show();

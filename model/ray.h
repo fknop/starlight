@@ -1,9 +1,11 @@
 #ifndef RAY_H
 #define RAY_H
 
-#include "point.h"
 #include <iostream>
+
 #include "element.h"
+#include "point.h"
+
 
 /**
  * Cette classe modélise les rayons lumineux, concept central du jeu.
@@ -13,9 +15,9 @@
  */
 class Ray
 {
-    Point start;
-    Point end;
-    int wavelength;
+    Point start_;
+    Point end_;
+    int wavelength_;
 
   public:
     /**
@@ -66,31 +68,31 @@ class Ray
      * Retourne le début du rayon.
      * @return le début du rayon.
      */
-    const Point & getStart() const;
+    const Point & start() const;
 
     /**
      * Retourne la fin du rayon.
      * @return la fin du rayon.
      */
-    const Point & getEnd() const;
+    const Point & end() const;
 
     /**
      * Retourne la longueur d'onde du rayon.
      * @return la longueur d'onde du rayon.
      */
-    int getWavelength() const;
+    int wavelength() const;
 
     /**
      * Change la coordonnée du début du rayon.
      * @param p la nouvelle coordonnée du début du rayon.
      */
-    void setStart(const Point & p);
+    void set_start(const Point & p);
 
     /**
      * Change la coordonnée de la fin du rayon.
      * @param p la nouvelle coordonnée de la fin du rayon.
      */
-    void setEnd(const Point & p);
+    void set_end(const Point & p);
 
     /**
      * Change la longueur d'onde du rayon. Si la longueur d'onde
@@ -101,7 +103,7 @@ class Ray
      * @return vrai si la longueur d'onde a bel et bien été changée,
      * retourne faux sinon.
      */
-    bool setWavelength(int wl);
+    bool set_wavelength(int wl);
 
     /**
      * Surcharge l'opérateur de flux de sortie pour afficher un

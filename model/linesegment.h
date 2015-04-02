@@ -5,8 +5,8 @@
 
 class LineSegment
 {
-    Point start;
-    Point end;
+    Point start_;
+    Point end_;
 
 public:
     /**
@@ -20,25 +20,25 @@ public:
      * Retourne la première extrémité du segment.
      * @return la première extrémité du segment.
      */
-    const Point& getStart() const;
+    const Point& get_start() const;
 
     /**
      * Retourne la seconde extrémité du segment.
      * @return la seconde extrémité du segment.
      */
-    const Point& getEnd() const;
+    const Point& get_end() const;
 
     /**
      * Modifie le point de début du segment.
      * @param start le nouveau point de début du segment.
      */
-    void setStart(const Point& start);
+    void set_start(const Point& start);
 
     /**
      * Modifie le point de fin du segment.
      * @param end le nouveau point de fin du segment.
      */
-    void setEnd(const Point& end);
+    void set_end(const Point& end);
 };
 
 #endif // LINESEGMENT_H

@@ -1,10 +1,11 @@
-#include "MainMenu.h"
-#include "Button.h"
-#include <QPixmap>
+#include <iostream>
 #include <QIcon>
 #include <QPalette>
+#include <QPixmap>
 
-#include <iostream>
+#include "mainmenu.h"
+#include "button.h"
+
 
 Game::Game(QWidget * parent)
 {

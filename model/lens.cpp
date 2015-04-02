@@ -1,9 +1,10 @@
 #include "lens.h"
 #include "ray.h"
 
+
 Lens::Lens(const Point & p, double w, double h, int wlmin, int wlmax) :
-    Element(Element::Type::LENS), pos {p},
-    width {w}, height {h}, wlmin {wlmin}, wlmax {wlmax}
+    Element(Element::Type::LENS), pos_ {p},
+    width_ {w}, height_ {h}, wlmin_ {wlmin}, wlmax_ {wlmax}
 {
 
 
@@ -20,7 +21,7 @@ Lens::Lens(const Point & p, double w, double h, int wlmin, int wlmax) :
                           "la longueur d'onde maximale");
     }
 
-    if (width <= 0 || height <= 0)
+    if (width_ <= 0 || height_ <= 0)
     {
         throw std::string("La taille et la longueur doivent etre strictement positives");
     }
@@ -28,49 +29,49 @@ Lens::Lens(const Point & p, double w, double h, int wlmin, int wlmax) :
 
 Lens::Lens(const Lens& l) : Element(Element::Type::LENS)
 {
-    this->height = l.height;
-    this->pos = l.pos;
-    this->width = l.width;
-    this->wlmax = l.wlmax;
-    this->wlmin = l.wlmin;
+    this->height_ = l.height_;
+    this->pos_ = l.pos_;
+    this->width_ = l.width_;
+    this->wlmax_ = l.wlmax_;
+    this->wlmin_ = l.wlmin_;
 }
 
-const Point & Lens::getPosition() const
+const Point & Lens::position() const
 {
-    return pos;
+    return pos_;
 }
 
-double Lens::getWidth() const
+double Lens::width() const
 {
-    return width;
+    return width_;
 }
 
-double Lens::getHeight() const
+double Lens::height() const
 {
-    return height;
+    return height_;
 }
 
-int Lens::getMinWavelength() const
+int Lens::min_wavelength() const
 {
-    return wlmin;
+    return wlmin_;
 }
 
-int Lens::getMaxWavelength() const
+int Lens::max_wavelength() const
 {
-    return wlmax;
+    return wlmax_;
 }
 
-Ellipse Lens::toEllipse()
+Ellipse Lens::to_ellipse()
 {
-    Point center(this->pos.x() + this->width / 2,
-                 this->pos.y() + this->height / 2);
-    return Ellipse(center, this->width / 2, this->height / 2);
+    Point center(this->pos_.x() + this->width_ / 2,
+                 this->pos_.y() + this->height_ / 2);
+    return Ellipse(center, this->width_ / 2, this->height_ / 2);
 }
 
 std::ostream & operator<<(std::ostream & out, const Lens & l)
 {
-    out << "Lens -- Position : " << l.pos << " , width : " << l.width
-        << " , height : " << l.height << " , Freq. Min. : " << l.wlmin <<
-        " , Freq. Max. : " << l.wlmax;
+    out << "Lens -- Position : " << l.pos_ << " , width : " << l.width_
+        << " , height : " << l.height_ << " , Freq. Min. : " << l.wlmin_ <<
+        " , Freq. Max. : " << l.wlmax_;
     return out;
 }

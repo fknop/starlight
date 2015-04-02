@@ -1,9 +1,10 @@
 #ifndef DEST_H
 #define DEST_H
 
-#include "point.h"
 #include <ostream>
+
 #include "element.h"
+#include "point.h"
 #include "rectangle.h"
 
 /**
@@ -14,9 +15,9 @@
  */
 class Dest : public Element
 {
-    Point pos;
-    double edge;
-    bool light {false};
+    Point pos_;
+    double edge_;
+    bool light_ {false};
 
   public:
     /**
@@ -27,20 +28,20 @@ class Dest : public Element
      */
     Dest(const Point & p, double e);
 
-    Dest(const Dest&);
+    Dest(const Dest &);
 
     /**
      * Retourne la position du coin supérieur gauche du carré.
      * modélisant la destination.
      * @return la position de la destination.
      */
-    const Point & getPosition() const;
+    const Point & position() const;
 
     /**
      * Retourne la longueur du côté du carré.
      * @return la longueur du côté du carré.
      */
-    double getEdge() const;
+    double edge() const;
 
     /**
      * Retourne vrai si la destination est illuminée,
@@ -48,16 +49,17 @@ class Dest : public Element
      * @return vrai si la destination est illuminée,
      * faux sinon.
      */
-    bool isLightedUp() const;
+    bool is_lighted_up() const;
 
     /**
      * Illumine la destination ou non.
      * @param vrai si la destination doit être illuminée,
      * faux sinon.
      */
-    void setLightedUp(const bool q);
+    void set_lighted_up(const bool q);
 
-    Rectangle toRectangle();
+    Rectangle to_rectangle();
+
     /**
      * Surcharge l'opérateur de flux de sortie pour afficher.
      * un récapitulatif des caractéristiques de la destination

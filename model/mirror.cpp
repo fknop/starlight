@@ -1,6 +1,8 @@
-#include "mirror.h"
-#include <iostream>
 #include <cmath>
+#include <iostream>
+
+#include "mirror.h"
+
 
 Mirror::Mirror(const Point & p, double x, double len, double a)
     : Mirror {p, x, len, a, {.0, .0}, {.0, .0}, .0, .0}
@@ -11,139 +13,139 @@ Mirror::Mirror(const Point & p, double x, double len, double a)
 Mirror::Mirror(const Point & p, double x, double len, double a, Point pm,
                Point pM, double am, double aM)
     : Element(Element::Type::MIRROR),
-      pivot {p}, length(len), xpad(x), xMin {pm.x()}, xMax {pM.x()},
-      yMin {pm.y()}, yMax {pM.y()}, alpha {a}, alphaMin {am},
-      alphaMax {aM}
+      pivot_ {p}, length_(len), xpad_(x), xMin_ {pm.x()}, xMax_ {pM.x()},
+      yMin_ {pm.y()}, yMax_ {pM.y()}, alpha_ {a}, alphaMin_ {am},
+      alphaMax_ {aM}
 {
-    if (length <= 0 || xpad < 0)
+    if (length_ <= 0 || xpad_ < 0)
         throw std::string("La longueur et le décalage doivent etre positifs.");
 
-   if (!checkPivotRange(p))
+   if (!check_pivot_range(p))
        throw std::string("Le pivot n'est pas dans les bornes autorisées.");
 
-    if (!checkAngleRange(alpha))
+    if (!check_angle_range(alpha_))
         throw std::string("L'inclinaison du mirroir est invalide. "
         "Elle n'est pas comprise entre les bornes.");
 }
 
-const Point & Mirror::getPivot() const
+const Point & Mirror::pivot() const
 {
-    return pivot;
+    return pivot_;
 }
 
-double Mirror::getLength() const
+double Mirror::length() const
 {
-    return length;
+    return length_;
 }
 
-double Mirror::getXPad() const
+double Mirror::x_pad() const
 {
-    return xpad;
+    return xpad_;
 }
 
-double Mirror::getAngle() const
+double Mirror::angle() const
 {
-    return alpha;
+    return alpha_;
 }
 
-double Mirror::getMinAngle() const
+double Mirror::min_angle() const
 {
-    return alphaMin;
+    return alphaMin_;
 }
 
-double Mirror::getMaxAngle() const
+double Mirror::max_angle() const
 {
-    return alphaMax;
+    return alphaMax_;
 }
 
-Point Mirror::getMinPivot() const
+Point Mirror::min_pivot() const
 {
-    return Point {xMin, yMin};
+    return Point {xMin_, yMin_};
 }
 
-Point Mirror::getMaxPivot() const
+Point Mirror::max_pivot() const
 {
-    return Point {xMax, yMax};
+    return Point {xMax_, yMax_};
 }
 
-bool Mirror::setPivot(const Point & p)
+bool Mirror::set_pivot(const Point & p)
 {
-    bool r {checkPivotRange(p)};
+    bool r {check_pivot_range(p)};
     if (r)
-        pivot = p;
+        pivot_ = p;
     return r;
 }
 
-bool Mirror::setAngle(double a)
+bool Mirror::set_angle(double a)
 {
-    bool r {checkAngleRange(a)};
+    bool r {check_angle_range(a)};
     if (r)
-        alpha = a;
+        alpha_ = a;
     return r;
 }
 
-bool Mirror::checkAngleRange(double a) const
+bool Mirror::check_angle_range(double a) const
 {
-    return (alphaMin == 0 && alphaMax == 0) ||
-            (a >= alphaMin && a <= alphaMax);
+    return (alphaMin_ == 0 && alphaMax_ == 0) ||
+            (a >= alphaMin_ && a <= alphaMax_);
 }
 
-bool Mirror::checkPivotRange(const Point & p) const
+bool Mirror::check_pivot_range(const Point & p) const
 {
-    if (xMin == 0 && xMax == 0 && yMin == 0 && yMax == 0)
+    if (xMin_ == 0 && xMax_ == 0 && yMin_ == 0 && yMax_ == 0)
         return true;
 
-    else if (xMin == 0 && xMax == 0)
-        return p.y() >= yMin && p.y() <= yMax;
+    else if (xMin_ == 0 && xMax_ == 0)
+        return p.y() >= yMin_ && p.y() <= yMax_;
 
-    else if (yMin == 0 && yMax == 0)
-        return p.x() >= xMin && p.x() <= xMax;
+    else if (yMin_ == 0 && yMax_ == 0)
+        return p.x() >= xMin_ && p.x() <= xMax_;
 
     else
-        return p.x() >= xMin && p.x() <= xMax
-                && p.y() >= yMin && p.y() <= yMax;
+        return p.x() >= xMin_ && p.x() <= xMax_
+                && p.y() >= yMin_ && p.y() <= yMax_;
 
 }
 
 void Mirror::rotate(double angle)
 {
-    if (!setAngle(alpha + angle))
+    if (!set_angle(alpha_ + angle))
     {
-        if (alpha + angle >= alphaMax)
-            setAngle(alphaMax);
+        if (alpha_ + angle >= alphaMax_)
+            set_angle(alphaMax_);
         else
-            setAngle(alphaMin);
+            set_angle(alphaMin_);
     }
 }
 
 void Mirror::translate(double x, double y)
 {
-    double newX = pivot.x() + x;
-    double newY = pivot.y() + y;
-    if (!setPivot(Point(newX, newY)))
+    double newX = pivot_.x() + x;
+    double newY = pivot_.y() + y;
+    if (!set_pivot(Point(newX, newY)))
     {
-        if (newX < xMin)
-            newX = xMin;
-        else if (newX > xMax)
-            newY = xMax;
+        if (newX < xMin_)
+            newX = xMin_;
+        else if (newX > xMax_)
+            newY = xMax_;
 
-        if (newY < yMin)
-            newY = yMin;
-        else if (newY > yMax)
-            newY = yMax;
+        if (newY < yMin_)
+            newY = yMin_;
+        else if (newY > yMax_)
+            newY = yMax_;
 
-        setPivot(Point(newX, newY));
+        set_pivot(Point(newX, newY));
     }
 }
 
-LineSegment Mirror::toLineSegment()
+LineSegment Mirror::to_line_segment()
 {
-    double pivotX = this->pivot.x();
-    double pivotY = this->pivot.y();
-    double gx = pivotX - (this->xpad * std::cos(this->alpha));
-    double gy = pivotY - (xpad * sin(this->alpha));
-    double dx = pivotX + ((this->length - xpad) * std::cos(this->alpha));
-    double dy = pivotY + ((this->length - xpad) * std::sin(this->alpha));
+    double pivotX = this->pivot_.x();
+    double pivotY = this->pivot_.y();
+    double gx = pivotX - (this->xpad_ * std::cos(this->alpha_));
+    double gy = pivotY - (xpad_ * sin(this->alpha_));
+    double dx = pivotX + ((this->length_ - xpad_) * std::cos(this->alpha_));
+    double dy = pivotY + ((this->length_ - xpad_) * std::sin(this->alpha_));
     Point start(gx, gy);
     Point end(dx, dy);
 
@@ -152,10 +154,10 @@ LineSegment Mirror::toLineSegment()
 
 std::ostream & operator<<(std::ostream & out, const Mirror & m)
 {
-    out << "Mirror --- Pivot : " << m.pivot << " , Length : " << m.length
-        << " , x-pad : " << m.xpad << ", Angle : " << m.alpha <<
-           " , Angle range : [" << m.alphaMin << "," << m.alphaMax << "]" <<
-           "Pivot range : [(" << m.xMin << "," << m.yMin << "),(" << m.xMax <<
-           "," << m.yMax << ")]";
+    out << "Mirror --- Pivot : " << m.pivot_ << " , Length : " << m.length_
+        << " , x-pad : " << m.xpad_ << ", Angle : " << m.alpha_ <<
+           " , Angle range : [" << m.alphaMin_ << "," << m.alphaMax_ << "]" <<
+           "Pivot range : [(" << m.xMin_ << "," << m.yMin_ << "),(" << m.xMax_ <<
+           "," << m.yMax_ << ")]";
     return out;
 }

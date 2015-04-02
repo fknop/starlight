@@ -1,8 +1,9 @@
+#include "geometry.h"
 #include "rectangle.h"
-#include "Geometry.h"
+
 
 Rectangle::Rectangle(const Point& upperLeft, double width, double height)
-    : upperLeft {upperLeft}, width{width}, height{height}
+    : upperLeft_ {upperLeft}, width_{width}, height_{height}
 {
     if (width <= 0 || height <= 0)
         throw std::string("Dimensions invalides");
@@ -11,30 +12,32 @@ Rectangle::Rectangle(const Point& upperLeft, double width, double height)
 int Rectangle::intersects(const Line& line, std::vector<Point> & points)
 {
     /* On crée les 3 coins manquants du rectangle */
-    Point bottomLeft(this->upperLeft.x(),
-                     this->upperLeft.y() + this->height);
+    Point bottomLeft(this->upperLeft_.x(),
+                     this->upperLeft_.y() + this->height_);
 
-    Point upperRight(this->upperLeft.x() + this->width,
-                     this->upperLeft.y());
+    Point upperRight(this->upperLeft_.x() + this->width_,
+                     this->upperLeft_.y());
 
-    Point bottomRight(this->upperLeft.x() + this->width,
-                      this->upperLeft.y() + this->height);
+    Point bottomRight(this->upperLeft_.x() + this->width_,
+                      this->upperLeft_.y() + this->height_);
 
     /* On push les 4 cotés du rectangle dans un vecteur */
     std::vector<LineSegment> segments
     {
-            LineSegment(this->upperLeft, upperRight),
+            LineSegment(this->upperLeft_, upperRight),
             LineSegment(bottomLeft, bottomRight),
-            LineSegment(this->upperLeft, bottomLeft),
+            LineSegment(this->upperLeft_, bottomLeft),
             LineSegment(upperRight, bottomRight)
     };
 
     /* Pour chaque coté, si il existe une intersection
      * on le push dans le vecteur de points */
     Point * p = nullptr;
+
     for (auto &i : segments) {
         if (line.intersects(i, &p))
             points.push_back(Point(*p));
+
         delete p;
     }
 
@@ -43,9 +46,9 @@ int Rectangle::intersects(const Line& line, std::vector<Point> & points)
 
 int Rectangle::intersects(const LineSegment& ls, std::vector<Point> & points)
 {
-    Point start = ls.getStart();
-    Point end = ls.getEnd();
-    double rad = Geometry::getAngle(start, end);
+    Point start = ls.get_start();
+    Point end = ls.get_end();
+    double rad = Geometry::angle(start, end);
 
     intersects(Line(start, rad), points);
 
@@ -54,7 +57,7 @@ int Rectangle::intersects(const LineSegment& ls, std::vector<Point> & points)
 
     for (auto i = points.begin(); i != points.end(); )
     {
-        if (!Geometry::isInBoundingBox(*i, ls))
+        if (!Geometry::is_in_bounding_box(*i, ls))
         {
             i = points.erase(i);
         }

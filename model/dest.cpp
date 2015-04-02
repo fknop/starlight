@@ -1,6 +1,7 @@
 #include "dest.h"
 
-Dest::Dest(const Point & p, double e) : Element(Element::Type::DEST), pos {p}, edge {e}
+
+Dest::Dest(const Point & p, double e) : Element(Element::Type::DEST), pos_ {p}, edge_ {e}
 {
     if (e <= 0)
         throw std::string("La longueur doit être strictement supérieure à 0");
@@ -8,39 +9,39 @@ Dest::Dest(const Point & p, double e) : Element(Element::Type::DEST), pos {p}, e
 
 Dest::Dest(const Dest & dest) : Element(Element::Type::DEST)
 {
-    this->edge = dest.edge;
-    this->light = dest.light;
-    this->pos = dest.pos;
+    this->edge_ = dest.edge_;
+    this->light_ = dest.light_;
+    this->pos_ = dest.pos_;
 }
 
-const Point & Dest::getPosition() const
+const Point & Dest::position() const
 {
-    return pos;
+    return pos_;
 }
 
-double Dest::getEdge() const
+double Dest::edge() const
 {
-    return edge;
+    return edge_;
 }
 
-bool Dest::isLightedUp() const
+bool Dest::is_lighted_up() const
 {
-    return light;
+    return light_;
 }
 
-void Dest::setLightedUp(const bool q)
+void Dest::set_lighted_up(const bool q)
 {
-    light = q;
+    light_ = q;
 }
 
-Rectangle Dest::toRectangle()
+Rectangle Dest::to_rectangle()
 {
-    return Rectangle(this->pos, this->edge, this->edge);
+    return Rectangle(this->pos_, this->edge_, this->edge_);
 }
 
 std::ostream & operator<<(std::ostream & out, const Dest & d)
 {
-    out << "Dest --- Position : " << d.pos <<  " , Edge : " << d.edge <<
-        " , lighted up : " << d.light;
+    out << "Dest --- Position : " << d.pos_ <<  " , Edge : " << d.edge_ <<
+        " , lighted up : " << d.light_;
     return out;
 }

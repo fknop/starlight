@@ -1,19 +1,17 @@
-#include "view/MirrorView.h"
+#include "view/mirrorview.h"
 
-MirrorView::MirrorView(const Mirror& mirror) : mirror{mirror}
+
+MirrorView::MirrorView(const Mirror& mirror) : mirror_{mirror}, rotation_{0}
 {
-    rotation = 0;
     setFlags(flags() | QGraphicsItem::ItemIsSelectable);
-
-
 
 //    std::cout << "const " << initialPos.x() << " " << initialPos.y() << std::endl;
 
-    double pivotX = mirror.getPivot().x();
-    double pivotY = mirror.getPivot().y();
-    double len    = mirror.getLength();
-    double xpad   = mirror.getXPad();
-    double angle  = mirror.getAngle();
+    double pivotX = mirror.pivot().x();
+    double pivotY = mirror.pivot().y();
+    double len    = mirror.length();
+    double xpad   = mirror.x_pad();
+    double angle  = mirror.angle();
     double gx = pivotX - (xpad * cos(angle));
     double gy = pivotY - (xpad * sin(angle));
     double dx = pivotX + ((len-xpad) * cos(angle));
@@ -31,7 +29,7 @@ MirrorView::MirrorView(const Mirror& mirror) : mirror{mirror}
 
 void MirrorView::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
-    initialPos = event->pos();
+    initialPos_ = event->pos();
     QGraphicsItem::mousePressEvent(event);
 }
 
@@ -41,20 +39,20 @@ void MirrorView::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
     std::cout << "event scenepos y : " << event->scenePos().y() << std::endl;
 
 
-    setPos(this->mapToParent(event->pos() - initialPos));
+    setPos(this->mapToParent(event->pos() - initialPos_));
     // set position pivot
 
 }
 
 
-int MirrorView::getRotation()
+int MirrorView::rotation()
 {
-    return rotation;
+    return rotation_;
 }
 
-void MirrorView::setRotation(qreal angle)
+void MirrorView::set_rotation(qreal angle)
 {
-    rotation = angle;
+    rotation_ = angle;
     QGraphicsLineItem::setRotation(angle);
 
 }

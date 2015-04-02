@@ -9,10 +9,10 @@
 class NukeView : public QGraphicsEllipseItem
 {
 public:
-    NukeView(const Nuke &nuke);
+    NukeView(const Nuke & nuke);
 
 private:
-    Nuke nuke;
+    Nuke nuke_;
 };
 
 #endif // NUKESVIEW_H

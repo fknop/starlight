@@ -1,63 +1,62 @@
 #include <QGraphicsScene>
 #include "view/CrystalView.h"
 #include "view/DestinationView.h"
-#include "view/LensView.h"
-#include "view/MapView.h"
-#include "view/MirrorView.h"
-#include "view/NukeView.h"
-#include "view/SourceView.h"
-#include "view/WallView.h"
-
 #include <iostream>
 
-MapView::MapView(Level *level) : level{level}
+#include "view/lensview.h"
+#include "view/mapview.h"
+#include "view/mirrorview.h"
+#include "view/nukeview.h"
+#include "view/sourceview.h"
+#include "view/wallview.h"
+
+
+MapView::MapView(Level * level) : level_{level}
 {
-    scene = new QGraphicsScene(0,0,this->level->width(), this->level->height());
+    scene_ = new QGraphicsScene(0, 0, this->level_->width(), this->level_->height());
 
-    setScene(scene);
-
+    setScene(scene_);
     setRenderHints(QPainter::Antialiasing);
-
-    setFixedSize(this->level->width() + 30, this->level->height() + 30);
+    setFixedSize(this->level_->width() + 30, this->level_->height() + 30);
 
     Source s = level->source();
     Dest d = level->dest();
 
-    SourceView *source = new SourceView(s.getPosition().x(), s.getPosition().y(), s.getEdge(), s.getEdge());
-    DestinationView *dest = new DestinationView(d.getPosition().x(), d.getPosition().y(), d.getEdge(), d.getEdge());
+    SourceView *source = new SourceView(s.position().x(), s.position().y(), s.edge(), s.edge());
+    DestinationView *dest = new DestinationView(d.position().x(), d.position().y(), d.edge(), d.edge());
 
-    scene->addItem(source);
-    scene->addItem(dest);
+    scene_->addItem(source);
+    scene_->addItem(dest);
 
 
-    for (auto &i : this->level->walls())
+    for (auto &i : this->level_->walls())
     {
-        drawWall(scene, i);
+        draw_wall(scene_, i);
     }
 
-    for (auto &i : this->level->mirrors())
+    for (auto &i : this->level_->mirrors())
     {
-        drawMirror(scene, i);
+        draw_mirror(scene_, i);
     }
 
-    for (auto &i : this->level->nukes())
+    for (auto &i : this->level_->nukes())
     {
-        drawNuke(scene, i);
+        draw_nuke(scene_, i);
     }
 
-    for (auto &i : this->level->lenses())
+    for (auto &i : this->level_->lenses())
     {
-        drawLens(scene, i);
+        draw_lens(scene_, i);
     }
 
-    for (auto &i : this->level->crystals())
+    for (auto &i : this->level_->crystals())
     {
-        drawCrystal(scene, i);
+        draw_crystal(scene_, i);
     }
 
 }
 
-void MapView::drawWall(QGraphicsScene *s, const Wall& wall)
+void MapView::draw_wall(QGraphicsScene *s, const Wall& wall)
 {
     WallView *item1 = new WallView(wall);
 
@@ -65,7 +64,7 @@ void MapView::drawWall(QGraphicsScene *s, const Wall& wall)
 }
 
 
-void MapView::drawMirror(QGraphicsScene *s, const Mirror& mirror)
+void MapView::draw_mirror(QGraphicsScene *s, const Mirror& mirror)
 {
     MirrorView *item1 = new MirrorView(mirror);
 
@@ -73,21 +72,21 @@ void MapView::drawMirror(QGraphicsScene *s, const Mirror& mirror)
 }
 
 
-void MapView::drawNuke(QGraphicsScene *s, const Nuke& nuke)
+void MapView::draw_nuke(QGraphicsScene *s, const Nuke& nuke)
 {
     NukeView *item1 = new NukeView(nuke);
 
     s->addItem(item1);
 }
 
-void MapView::drawLens(QGraphicsScene *s, const Lens& lens)
+void MapView::draw_lens(QGraphicsScene *s, const Lens& lens)
 {
     LensView *item1 = new LensView(lens);
 
     s->addItem(item1);
 }
 
-void MapView::drawCrystal(QGraphicsScene *s, const Crystal& crystal)
+void MapView::draw_crystal(QGraphicsScene *s, const Crystal& crystal)
 {
     CrystalView *item1 = new CrystalView(crystal);
 
@@ -97,16 +96,16 @@ void MapView::drawCrystal(QGraphicsScene *s, const Crystal& crystal)
 
 void MapView::keyPressEvent(QKeyEvent *event)
 {
-    for (MirrorView * i : scene->selectedItems())
+    for (MirrorView * i : scene_->selectedItems())
     {
         if (event->key() == Qt::Key_Left)
         {
-            i->setRotation(i->getRotation() - 1);
+            i->set_rotation(i->rotation() - 1);
             break;
         }
         else if(event->key() == Qt::Key_Right)
         {
-            i->setRotation(i->getRotation() + 1);
+            i->set_rotation(i->rotation() + 1);
             break;
         }
     }

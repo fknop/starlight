@@ -18,14 +18,10 @@ public:
     Element(Element::Type);
     virtual ~Element();
 
-
-
     Type type() const;
 
 private:
     Type type_;
-
-
 };
 
 #endif // ELEMENT_H

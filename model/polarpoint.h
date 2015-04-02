@@ -9,6 +9,7 @@ class PolarPoint
 private:
     double distance_;
     double angle_;
+
 public:
 
     /**

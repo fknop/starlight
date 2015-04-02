@@ -1,12 +1,13 @@
 #ifndef MIRROR_H
 #define MIRROR_H
 
-#include "point.h"
-
 #include <ostream>
-#include "polarpoint.h"
+
 #include "element.h"
 #include "linesegment.h"
+#include "point.h"
+#include "polarpoint.h"
+
 
 /**
  * Cette classe modélise les miroirs utilisés dans le jeu.
@@ -21,16 +22,16 @@
  */
 class Mirror : public Element
 {
-    Point pivot;
-    double length;
-    double xpad;
-    double xMin {.0};
-    double xMax {.0};
-    double yMin {.0};
-    double yMax {.0};
-    double alpha;
-    double alphaMin {.0};
-    double alphaMax {.0};
+    Point pivot_;
+    double length_;
+    double xpad_;
+    double xMin_ {.0};
+    double xMax_ {.0};
+    double yMin_ {.0};
+    double yMax_ {.0};
+    double alpha_;
+    double alphaMin_ {.0};
+    double alphaMax_ {.0};
 
   public:
     /**
@@ -80,13 +81,13 @@ class Mirror : public Element
      * Retourne la position (et le pivot) du miroir.
      * @return la position (et le pivot) du miroir.
      */
-    const Point & getPivot() const;
+    const Point & pivot() const;
 
     /**
      * Retourne la longueur du miroir.
      * @return la longueur du miroir
      */
-    double getLength() const;
+    double length() const;
 
     /**
      * Retourne le décalage du pivot par rapport au bord gauche
@@ -94,13 +95,13 @@ class Mirror : public Element
      * @return le décalage du pivot par rapport au bord gauche
      * du miroir.
      */
-    double getXPad() const;
+    double x_pad() const;
 
     /**
      * Retourne l'inclinaison du miroir.
      * @return l'inclinaison du miroir.
      */
-    double getAngle() const;
+    double angle() const;
 
     /**
      * Retourne l'inclinaison minimum du miroir.
@@ -112,7 +113,7 @@ class Mirror : public Element
      * être pivoté librement.
      * @return l'inclinaison minimum du miroir.
      */
-    double getMinAngle() const;
+    double min_angle() const;
 
     /**
      * Retourne l'inclinaison maximum du miroir.
@@ -124,7 +125,7 @@ class Mirror : public Element
      * peut être pivoté librement.
      * @return l'inclinaison minimum du miroir.
      */
-    double getMaxAngle() const;
+    double max_angle() const;
 
     /**
      * Retourne la position minimum du miroir.
@@ -135,7 +136,7 @@ class Mirror : public Element
      * peut être déplacé librement.
      * @return la position minimum du miroir.
      */
-    Point getMinPivot() const;
+    Point min_pivot() const;
 
     /**
      * Retourne la position maximum du miroir.
@@ -146,7 +147,7 @@ class Mirror : public Element
      * peut être déplacé librement.
      * @return la position maximum du miroir.
      */
-    Point getMaxPivot() const;
+    Point max_pivot() const;
 
     /**
      * Déplace le miroir en la position donnée, si c'est
@@ -156,7 +157,7 @@ class Mirror : public Element
      * correctement, retourne faux sinon.
      * @see Mirror::getPivot()
      */
-    bool setPivot(const Point &);
+    bool set_pivot(const Point &);
 
     /**
      * Pivote le miroir sur un angle donné, si c'est
@@ -166,7 +167,7 @@ class Mirror : public Element
      * correctement, retourne faux sinon.
      * @see Mirror::getAngle()
      */
-    bool setAngle(double);
+    bool set_angle(double);
 
     /**
      * Retoune vrai si le miroir peut être pivoté sur
@@ -175,7 +176,7 @@ class Mirror : public Element
      * l'angle donné, retourne faux sinon.
      * @see Mirror::getAngle()
      */
-    bool checkAngleRange(double) const;
+    bool check_angle_range(double) const;
 
     /**
      * Retoune vrai si le miroir peut être déplacé en la
@@ -184,7 +185,7 @@ class Mirror : public Element
      * la position donnée, retourne faux sinon.
      * @see Mirror::getPivot()
      */
-    bool checkPivotRange(const Point &) const;
+    bool check_pivot_range(const Point &) const;
 
     /**
      * Modifie l'inclinaison de l'angle
@@ -200,7 +201,7 @@ class Mirror : public Element
      */
     void translate(double x, double y);
 
-    LineSegment toLineSegment();
+    LineSegment to_line_segment();
 
     /**
      * Surcharge l'opérateur de flux de sortie pour

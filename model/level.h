@@ -1,27 +1,28 @@
 #ifndef LEVEL_H
 #define LEVEL_H
 
+#include <vector>
+#include <unordered_map>
+
 #include "crystal.h"
 #include "dest.h"
 #include "lens.h"
+#include "line.h"
 #include "mirror.h"
+#include "nuke.h"
+#include "obs/observable.h"
+#include "obs/observer.h"
+#include "point.h"
 #include "ray.h"
 #include "source.h"
 #include "wall.h"
-#include "point.h"
-#include "nuke.h"
-#include "Line.h"
-
-#include <vector>
-#include <unordered_map>
-#include "obs/observable.h"
-#include "obs/observer.h"
 
 
 struct Intersection
 {
     Point point_;
     Element element_;
+
     Intersection(Point p, Element e)
         : point_{p}, element_{e} {}
 
@@ -34,7 +35,6 @@ struct Intersection
     {
         return element_;
     }
-
 };
 
 

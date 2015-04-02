@@ -1,11 +1,13 @@
-#include "MapReader.h"
 #include <vector>
+
+#include "mapreader.h"
+
 
 Level * MapReader::l = nullptr;
 
-void MapReader::readFile(std::string path)
+void MapReader::read_file(std::string path)
 {
-    std::fstream level(path, std::ios::in);
+    std::fstream level("C:\\Users\\Gatien\\Documents\\starlight\\levels\\level1.lvl", std::ios::in);
 
     if (level)
     {
@@ -16,58 +18,58 @@ void MapReader::readFile(std::string path)
             switch (line.at(0))
             {
             case 'S': // Source
-                readSourceInfo(line);
+                read_source(line);
                 break;
 
             case 'D': // Destination
-                readDestinationInfo(line);
+                read_destination(line);
                 break;
 
             case 'C': // Crystal
-                readCrystalInfo(line);
+                read_crystal(line);
                 break;
 
             case 'L': // Lens
-                readLensInfo(line);
+                read_lens(line);
                 break;
 
             case 'W': // Wall
-                readWallInfo(line);
+                read_wall(line);
                 break;
 
             case 'N': // Nuke
-                readNukeInfo(line);
+                read_nuke(line);
                 break;
 
             case 'M': // Mirror
-                readMirrorInfo(line);
+                read_mirror(line);
                 break;
 
             default: // Width + Height
-                readSizesInfo(line);
+                read_size(line);
                 break;
             }
         }
     }
-
-
 }
 
 
-void MapReader::readSizesInfo(std::string line)
+void MapReader::read_size(std::string line)
 {
     std::istringstream iss(line);
+
     double width  = (iss >> width, width);
     double height = (iss >> height, height);
 
     l = new Level(width, height);
 }
 
-void MapReader::readCrystalInfo(std::string line)
+void MapReader::read_crystal(std::string line)
 {
 
     std::istringstream iss(line);
     iss.ignore();
+
     double x    = (iss >> x, x);
     double y    = (iss >> y, y);
     double rad  = (iss >> rad, rad);
@@ -76,11 +78,12 @@ void MapReader::readCrystalInfo(std::string line)
     l->add_crystal(Crystal(Point(x,y), rad, mod));
 }
 
-void MapReader::readDestinationInfo(std::string line)
+void MapReader::read_destination(std::string line)
 {
 
     std::istringstream iss(line);
     iss.ignore();
+
     double x     = (iss >> x, x);
     double y     = (iss >> y, y);
     double edge  = (iss >> edge, edge);
@@ -88,11 +91,12 @@ void MapReader::readDestinationInfo(std::string line)
     l->set_dest(Dest(Point(x, y), edge));
 }
 
-void MapReader::readLensInfo(std::string line)
+void MapReader::read_lens(std::string line)
 {
 
     std::istringstream iss(line);
     iss.ignore();
+
     double x       = (iss >> x, x);
     double y       = (iss >> y, y);
     double width   = (iss >> width, width);
@@ -100,13 +104,14 @@ void MapReader::readLensInfo(std::string line)
     int wlmin      = (iss >> wlmin, wlmin);
     int wlmax      = (iss >> wlmax, wlmax);
 
-    l->add_lens(Lens(Point(x,y), width, height, wlmin, wlmax));
+    l->add_lens(Lens(Point(x, y), width, height, wlmin, wlmax));
 }
 
-void MapReader::readMirrorInfo(std::string line)
+void MapReader::read_mirror(std::string line)
 {
     std::istringstream iss(line);
     iss.ignore();
+
     double x        = (iss >> x, x);
     double y        = (iss >> y, y);
     double xPad     = (iss >> xPad, xPad);
@@ -119,15 +124,16 @@ void MapReader::readMirrorInfo(std::string line)
     double alphaMin = (iss >> alphaMin, alphaMin);
     double alphaMax = (iss >> alphaMax, alphaMax);
 
-    l->add_mirror(Mirror(Point(x,y), xPad, length, alpha,
+    l->add_mirror(Mirror(Point(x, y), xPad, length, alpha,
                   Point(xMin, yMin), Point(xMax, yMax),
                   alphaMin, alphaMax));
 }
 
-void MapReader::readNukeInfo(std::string line)
+void MapReader::read_nuke(std::string line)
 {
     std::istringstream iss(line);
     iss.ignore();
+
     double x    = (iss >> x, x);
     double y    = (iss >> y, y);
     double rad  = (iss >> rad, rad);
@@ -135,42 +141,43 @@ void MapReader::readNukeInfo(std::string line)
     l->add_nuke(Nuke(Point(x, y), rad));
 }
 
-void MapReader::readSourceInfo(std::string line)
+void MapReader::read_source(std::string line)
 {
 
     std::istringstream iss(line);
     iss.ignore();
+
     double x     = (iss >> x, x);
     double y     = (iss >> y, y);
     double edge  = (iss >> edge, edge);
     double alpha = (iss >> alpha, alpha);
     int wl       = (iss >> wl, wl);
 
-    l->set_source(Source(Point(x,y), edge, alpha, wl));
+    l->set_source(Source(Point(x ,y), edge, alpha, wl));
 }
 
-void MapReader::readWallInfo(std::string line)
+void MapReader::read_wall(std::string line)
 {
     std::istringstream iss(line);
     iss.ignore();
+
     int x1 = (iss >> x1, x1);
     int y1 = (iss >> y1, y1);
     int x2 = (iss >> x2, x2);
     int y2 = (iss >> y2, y2);
 
-    l->add_wall(Wall(Point(x1,y1), Point(x2, y2)));
+    l->add_wall(Wall(Point(x1, y1), Point(x2, y2)));
 }
 
-Level * MapReader::getLevel(std::string path)
+Level * MapReader::level(std::string path)
 {
-
     if (l == nullptr)
-        readFile(path);
+        read_file(path);
 
     return l;
 }
 
-void MapReader::endLevel()
+void MapReader::end_level()
 {
     delete l;
     l = nullptr;

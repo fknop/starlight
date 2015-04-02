@@ -1,5 +1,7 @@
-#include "umath.h"
 #include <cmath>
+
+#include "umath.h"
+
 
 double umath::dgcd(double a, double b)
 {

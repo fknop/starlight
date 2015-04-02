@@ -4,7 +4,6 @@
 #include <iostream>
 
 
-
 /**
  * Cette classe modélise un simple point de coordonnées réelles
  * utilisés pour modéliser les positions des objets dans le jeu.
@@ -62,7 +61,7 @@ class Point
      * @param x l'abscisse où déplacer le point.
      * @param y l'ordonnée où déplacer le point.
      */
-    void set_location(double x_, double y_);
+    void set_position(double x_, double y_);
 
     /**
      * Retourne la distance entre deux points.
@@ -70,7 +69,6 @@ class Point
      * @return la distance entre les deux points.
      */
     double distance(const Point &p);
-
 
 
     /**

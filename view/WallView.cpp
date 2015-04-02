@@ -1,4 +1,5 @@
-#include "view/WallView.h"
+#include "view/wallview.h"
+
 
 WallView::WallView(const Wall& wall)
 {
@@ -6,8 +7,8 @@ WallView::WallView(const Wall& wall)
     myPen.setWidth(2);
 
     setPen(myPen);
-    setLine(wall.getStart().x(), wall.getStart().y(),
-            wall.getEnd().x(), wall.getEnd().y());
+    setLine(wall.start().x(), wall.start().y(),
+            wall.end().x(), wall.end().y());
 }
 
 

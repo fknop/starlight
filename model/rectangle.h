@@ -1,18 +1,20 @@
 #ifndef RECTANGLE_H
 #define RECTANGLE_H
 
-#include "point.h"
 #include <vector>
-#include "Line.h"
+
+#include "line.h"
 #include "linesegment.h"
+#include "point.h"
+
 
 class Rectangle
 {
 
 private:
-    Point upperLeft;
-    double width;
-    double height;
+    Point upperLeft_;
+    double width_;
+    double height_;
 
 public:
     Rectangle(const Point&, double, double);

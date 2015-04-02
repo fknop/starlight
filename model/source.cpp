@@ -1,48 +1,49 @@
-#include "source.h"
 #include "ray.h"
+#include "source.h"
 
-Source::Source(const Point & p, double e, double a, int wl) : pos {p},
-    alpha {a}, edge {e}, wavelength {wl}
+
+Source::Source(const Point & p, double e, double a, int wl) : pos_ {p},
+    alpha_ {a}, edge_ {e}, wavelength_ {wl}
 {
     if (wl < 360 || wl > 830)
-        wavelength = 600;
+        wavelength_ = 600;
 }
 
-const Point & Source::getPosition() const
+const Point & Source::position() const
 {
-    return pos;
+    return pos_;
 }
 
-double Source::getAngle() const
+double Source::angle() const
 {
-    return alpha;
+    return alpha_;
 }
 
-int Source::getEdge() const
+int Source::edge() const
 {
-    return edge;
+    return edge_;
 }
 
-int Source::getWavelength() const
+int Source::wavelength() const
 {
-    return wavelength;
+    return wavelength_;
 }
 
-bool Source::isOn() const
+bool Source::is_on() const
 {
-    return on;
+    return on_;
 }
 
-void Source::setOn(bool q)
+void Source::set_on(bool q)
 {
-    on = q;
+    on_ = q;
 }
 
 std::ostream & operator<<(std::ostream & out, const Source & s)
 {
-    out << "Source --- Position : " << s.pos << " , Angle : " << s.alpha
-        << "Frequency : " << s.wavelength << " , Edge : " << s.edge <<
-           " , on : " <<
-           s.on;
+    out << "Source --- Position : " << s.pos_ << " , Angle : " << s.alpha_
+        << "Frequency : " << s.wavelength_ << " , Edge : " << s.edge_ <<
+           " , on : " << s.on_;
+
     return out;
 }

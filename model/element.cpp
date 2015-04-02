@@ -1,11 +1,11 @@
-#include "element.h"
-#include "mirror.h"
 #include "crystal.h"
+#include "dest.h"
+#include "element.h"
 #include "lens.h"
+#include "mirror.h"
 #include "nuke.h"
 #include "wall.h"
-#include "dest.h"
-#include <typeinfo>
+
 
 Element::Element(Element::Type type)
 {

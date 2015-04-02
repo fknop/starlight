@@ -1,7 +1,8 @@
 #include "wall.h"
 
+
 Wall::Wall(const Point & p1, const Point & p2) : Element(Element::Type::WALL),
-    start {p1}, end {p2}
+    start_ {p1}, end_ {p2}
 {
     if (p1 == p2)
         throw std::string("Les deux extrémités du murs ne peuvent pas êtres égales");
@@ -14,28 +15,28 @@ Wall::Wall(const Point & p1, const Point & p2) : Element(Element::Type::WALL),
 
 Wall::Wall(const Wall& wall) : Element(Element::Type::WALL)
 {
-    this->start = wall.start;
-    this->end = wall.end;
+    this->start_ = wall.start_;
+    this->end_ = wall.end_;
 }
 
-const Point & Wall::getStart() const
+const Point & Wall::start() const
 {
-    return start;
+    return start_;
 }
 
-const Point & Wall::getEnd() const
+const Point & Wall::end() const
 {
-    return end;
+    return end_;
 }
 
-LineSegment Wall::toLineSegment()
+LineSegment Wall::to_line_segment()
 {
-    return LineSegment(this->getStart(), this->getEnd());
+    return LineSegment(this->start(), this->end());
 }
 
 
 std::ostream & operator<<(std::ostream & out, const Wall & w)
 {
-    out << "Wall --- Start : "  << w.start << ", End : " << w.end;
+    out << "Wall --- Start : "  << w.start_ << ", End : " << w.end_;
     return out;
 }

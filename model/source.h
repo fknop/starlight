@@ -1,9 +1,11 @@
 #ifndef SOURCE_H
 #define SOURCE_H
 
-#include "point.h"
 #include <iostream>
+
 #include "element.h"
+#include "point.h"
+
 
 /**
  * Modélise la source lumineuse utilisée dans le jeu.
@@ -17,11 +19,11 @@
  */
 class Source
 {
-    bool on {false};
-    Point pos;
-    double alpha;
-    double edge;
-    int wavelength;
+    bool on_ {false};
+    Point pos_;
+    double alpha_;
+    double edge_;
+    int wavelength_;
 
   public:
     /**
@@ -51,25 +53,25 @@ class Source
      * @return la coordonnée du coin supérieur gauche du carré
      * modélisant la source.
      */
-    const Point & getPosition() const;
+    const Point & position() const;
 
     /**
      * Retourne l'angle du rayon émis.
      * @return l'angle du rayon émis.
      */
-    double getAngle() const;
+    double angle() const;
 
     /**
      * Retourne la longueur du côté du carré.
      * @return la longueur du côté du carré.
      */
-    int getEdge() const;
+    int edge() const;
 
     /**
      * Retourne la longueur d'onde du rayon émis.
      * @return la longueur d'onde du rayon émis.
      */
-    int getWavelength() const;
+    int wavelength() const;
 
     /**
      * Retourne vrai si la source émet un rayon lumineux,
@@ -77,14 +79,14 @@ class Source
      * @return vrai si la source émet un rayon lumineux,
      * faux sinon.
      */
-    bool isOn() const;
+    bool is_on() const;
 
     /**
      * Allume ou éteint la source.
      * @param q vrai si la source doit être allumée,
      * faux sinon.
      */
-    void setOn(bool q);
+    void set_on(bool q);
 
     /**
      * Surcharge l'opérateur de flux de sortie pour afficher

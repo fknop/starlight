@@ -1,10 +1,12 @@
 #ifndef NUKE_H
 #define NUKE_H
 
-#include "point.h"
 #include <ostream>
+
 #include "element.h"
 #include "ellipse.h"
+#include "point.h"
+
 
 /**
  * Cette classe modélise les bombes utilisées dans le jeu.
@@ -14,9 +16,9 @@
  */
 class Nuke : public Element
 {
-    Point pos;
-    double rad;
-    bool light {false};
+    Point pos_;
+    double rad_;
+    bool light_ {false};
 
   public:
     /**
@@ -31,27 +33,27 @@ class Nuke : public Element
      * Retourne la position de la bombe.
      * @return la position de la bombe.
      */
-    const Point & getLocation() const;
+    const Point & position() const;
 
     /**
      * Retourne le rayon de la bombe.
      * @return le rayon de la bombe.
      */
-    double getRadius() const;
+    double radius() const;
 
     /**
      * Retourne vrai si la bombe est illuminée, faux sinon.
      * @return vrai si la bombe est illuminée, faux sinon.
      */
-    bool isLightedUp() const;
+    bool is_lighted_up() const;
 
     /**
      * Illumine la bombe ou non.
      * @param q vrai pour illuminer la bombe, faux sinon.
      */
-    void setLightedUp(bool q);
+    void set_lighted_up(bool q);
 
-    Ellipse toEllipse();
+    Ellipse to_ellipse();
 
     /**
      * Surcharge l'opérateur de flux de sortie pour afficher un

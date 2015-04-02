@@ -5,9 +5,10 @@
 #include <cmath>
 #include <vector>
 
+#include "line.h"
 #include "linesegment.h"
-#include "Line.h"
 #include "point.h"
+
 
 // Pour les utilisateurs de windows,
 // M_PI n'est pas défini de base dans cmath.
@@ -20,18 +21,13 @@
 
 namespace Geometry
 {
-
-
-
-
-
     /**
      * Retourne l'angle en degrés d'un angle
      * donné en radians.
      * @param rad l'angle en radians.
      * @return l'angle en degrés.
      */
-    double getDegrees(double rad);
+    double get_degrees(double rad);
 
     /**
      * Retrouve la pente d'un segment entre deux points.
@@ -39,14 +35,14 @@ namespace Geometry
      * @param p2 le deuxième point.
      * @return la pente du segment constitué des deux points donnés.
      */
-    double getSlope(const Point& p1, const Point& p2);
+    double get_slope(const Point& p1, const Point& p2);
 
     /**
      * Transforme un angle en radian en une pente.
      * @param rad l'angle en radian.
      * @return la pente d'un angle.
      */
-    double getSlope(double rad);
+    double get_slope(double rad);
 
 
     /**
@@ -55,7 +51,7 @@ namespace Geometry
      * @param ls le segment sur lequel vérifier.
      * @return vrai si le point est sur le segment, faux sinon.
      */
-    bool isInBoundingBox(const Point& p, const LineSegment& ls);
+    bool is_in_bounding_box(const Point& p, const LineSegment& ls);
 
     /**
      * Retourne l'angle en radians de la pente du segment
@@ -64,14 +60,14 @@ namespace Geometry
      * @param p2 le dexième point.
      * @return l'angle en radians de la pente.
      */
-    double getAngle(const Point& p1, const Point& p2);
+    double angle(const Point& p1, const Point& p2);
 
     /**
      * Retourne l'angle en radians de la pente donnée.
      * @param slope la pente.
      * @return l'angle en radians de la pente donnée.
      */
-    double getAngle(double slope);
+    double angle(double slope);
 
     /**
      * Retourne l'angle en radians d'un angle donné
@@ -79,7 +75,7 @@ namespace Geometry
      * @param degrees l'angle en degrés.
      * @return l'angle en radians.
      */
-    double getRadians(double degrees);
+    double radians(double degrees);
 
 } // namespace Geometry
 

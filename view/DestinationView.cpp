@@ -1,4 +1,5 @@
-#include "DestinationView.h"
+#include "destinationview.h"
+
 
 DestinationView::DestinationView(int posX, int posY, int width, int height)
 {

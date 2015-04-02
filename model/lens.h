@@ -1,11 +1,12 @@
 #ifndef LENS_H
 #define LENS_H
 
-#include "point.h"
-
 #include <ostream>
+
 #include "element.h"
 #include "ellipse.h"
+#include "point.h"
+
 
 /**
  * Cette classe modélise les lentilles utilisées dans le jeu.
@@ -19,13 +20,13 @@
  */
 class Lens : public Element
 {
-    Point pos;
+    Point pos_;
 
-    double width;
-    double height;
+    double width_;
+    double height_;
 
-    int wlmin;
-    int wlmax;
+    int wlmin_;
+    int wlmax_;
 
   public:
     /**
@@ -40,7 +41,7 @@ class Lens : public Element
      * @param wlmax la longueur d'onde maximale des rayons
      *              autorisés à franchir la lentille.
      */
-    Lens(const Point & p, double w, double h, int wlmin, int wlmax);
+    Lens(const Point & p, double w, double h, int wlmin_, int wlmax_);
     Lens(const Lens&);
     /**
      * Retourne la position du coin supérieur gauche du
@@ -48,19 +49,19 @@ class Lens : public Element
      * @return la position du coin supérieur gauche du
      * rectangle modélisant la lentille
      */
-    const Point & getPosition() const;
+    const Point & position() const;
 
     /**
      * Retourne la largeur de la lentille.
      * @return la largeur de la lentille.
      */
-    double getWidth() const;
+    double width() const;
 
     /**
      * Retourne la hauteur de la lentille.
      * @return la hauteur de la lentille.
      */
-    double getHeight() const;
+    double height() const;
 
     /**
      * Retourne la longueur d'onde minimale des rayons
@@ -68,7 +69,7 @@ class Lens : public Element
      * @return la longueur d'onde minimale des rayons
      * autorisés à franchir la lentille.
      */
-    int getMinWavelength() const;
+    int min_wavelength() const;
 
     /**
      * Retourne la longueur d'onde maximale des rayons
@@ -76,9 +77,9 @@ class Lens : public Element
      * @return la longueur d'onde maximale des rayons
      * autorisés à franchir la lentille.
      */
-    int getMaxWavelength() const;
+    int max_wavelength() const;
 
-    Ellipse toEllipse();
+    Ellipse to_ellipse();
 
     /**
      * Surcharge l'opérateur de flux de sortie pour afficher

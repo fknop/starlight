@@ -1,5 +1,7 @@
-#include "point.h"
 #include <cmath>
+
+#include "point.h"
+
 
 Point::Point(double x, double y) : x_ {x}, y_ {y}
 {}
@@ -30,7 +32,7 @@ void Point::set_y(double y)
     y_ = y;
 }
 
-void Point::set_location(double x, double y)
+void Point::set_position(double x, double y)
 {
     x_ = x;
     y_ = y;

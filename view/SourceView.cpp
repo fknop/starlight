@@ -1,4 +1,5 @@
-#include "SourceView.h"
+#include "sourceview.h"
+
 
 SourceView::SourceView(int posX, int posY, int width, int height) : active{false}
 {

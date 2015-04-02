@@ -1,28 +1,29 @@
+#include "geometry.h"
 #include "linesegment.h"
-#include "Geometry.h"
+
 
 LineSegment::LineSegment(const Point& start, const Point& end)
 {
-    this->start = start;
-    this->end = end;
+    this->start_ = start;
+    this->end_ = end;
 }
 
-const Point& LineSegment::getStart() const
+const Point& LineSegment::get_start() const
 {
-    return this->start;
+    return this->start_;
 }
 
-const Point& LineSegment::getEnd() const
+const Point& LineSegment::get_end() const
 {
-    return this->end;
+    return this->end_;
 }
 
-void LineSegment::setStart(const Point& start)
+void LineSegment::set_start(const Point& start)
 {
-    this->start = start;
+    this->start_ = start;
 }
 
-void LineSegment::setEnd(const Point &end)
+void LineSegment::set_end(const Point &end)
 {
-    this->end = end;
+    this->end_ = end;
 }

@@ -3,8 +3,8 @@
 
 #include <QGraphicsView>
 #include <QGraphicsLineItem>
-
 #include <QGraphicsSceneMouseEvent>
+
 #include "model/wall.h"
 
 /**

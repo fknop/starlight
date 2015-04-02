@@ -1,5 +1,6 @@
 #include "ray.h"
 
+
 // réservation des attributs statiques
 const int Ray::WL_MIN;
 const int Ray::WL_MAX;
@@ -8,8 +9,8 @@ const int Ray::WL_DFT;
 Ray::Ray(const Point & p1, const Point & p2) : Ray {p1, p2, Ray::WL_DFT}
 { }
 
-Ray::Ray(const Point & p1, const Point & p2, int wl) : start {p1},
-end {p2}, wavelength {wl}
+Ray::Ray(const Point & p1, const Point & p2, int wl) : start_ {p1},
+end_ {p2}, wavelength_ {wl}
 {
     if (wl < WL_MIN || wl > WL_MAX)
         throw std::string("Longueur d'onde invalide");
@@ -19,43 +20,44 @@ end {p2}, wavelength {wl}
 
 }
 
-const Point & Ray::getStart() const
+const Point & Ray::start() const
 {
-    return start;
+    return start_;
 }
 
-const Point & Ray::getEnd() const
+const Point & Ray::end() const
 {
-    return end;
+    return end_;
 }
 
-int Ray::getWavelength() const
+int Ray::wavelength() const
 {
-    return wavelength;
+    return wavelength_;
 }
 
-void Ray::setStart(const Point & p)
+void Ray::set_start(const Point & p)
 {
-    start = p;
+    start_ = p;
 }
 
-void Ray::setEnd(const Point & p)
+void Ray::set_end(const Point & p)
 {
-    end = p;
+    end_ = p;
 }
 
-bool Ray::setWavelength(int wl)
+bool Ray::set_wavelength(int wl)
 {
-    bool r = wl >= WL_MIN && wl <= WL_MAX;
+    bool r = ((wl >= WL_MIN) && (wl <= WL_MAX));
     if (r)
-        wavelength = wl;
+        wavelength_ = wl;
 
     return r;
 }
 
 std::ostream & operator<<(std::ostream & out, const Ray & p)
 {
-    out << p.start << " ---------- " << p.end << " (" << p.wavelength <<
+    out << p.start_ << " ---------- " << p.end_ << " (" << p.wavelength_ <<
         " nm)";
+
     return out;
 }
