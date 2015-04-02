@@ -55,19 +55,23 @@ Les fichiers sont entièrement en minuscule et possèdes les extensions .h
 pour les headers et .cpp pour les fichiers sources.
 
 \begin{itemize}
-	\item nomfichier.h
-	\item nomfichier.cpp
+	\item \textbf{nomfichier.h}
+	\item \textbf{nomfichier.cpp}
 \end{itemize}
 
 \subsection{Classes}
 
 Les noms des classes commencent par une majuscule à chaque mot du nom.
+Cette convention est également valable pour les énumérations et structures.
 
 \begin{itemize}
-	\item Classe 
-	\item NomClasse
+	\item \textbf{Classe}
+	\item \textbf{NomClasse}
+	\item \textbf{NomStruct}
+	\item \textbf {NomEnumeration}
 \end{itemize}
 
+\newpage
 
 \subsection{Variables}
 
@@ -77,11 +81,12 @@ Les noms des variables de classes sont en minuscules, les mots sont
 séparés par des underscore et le nom finit par un underscore.
 
 \begin{itemize}
-	\item variable\_
-	\item nom\_variable\_
+	\item \textbf{variable\_}
+	\item \textbf{nom\_variable\_}
 \end{itemize}
 
-Cette convention est également valable pour les énumérations et structures.
+Cette convention est également valable pour les variables d'une
+structure.
 
 \subsubsection{Variables locales}
 
@@ -89,8 +94,8 @@ Les noms des variables locales commencent par une minuscule, et par
 la suite d'une majuscule à chaque début de mot.
 
 \begin{itemize}
-	\item variable
-	\item nomVariable
+	\item \textbf{variable}
+	\item \textbf{nomVariable}
 \end{itemize}
 
 \subsubsection{Constantes}
@@ -99,8 +104,8 @@ Les noms des constantes sont entièrement en majuscules et les mots sont
 séparés par des underscores.
 
 \begin{itemize}
-	\item CONSTANTE
-	\item NOM\_CONSTANTE
+	\item \textbf{CONSTANTE}
+	\item \textbf{NOM\_CONSTANTE}
 \end{itemize}
 
 \subsection{Méthodes}
@@ -110,24 +115,24 @@ séparés par des underscores.
 
 \subsubsection{Getters}
 
-Le nom d'un getter (accesseur en lecture de variable de classe)
+Le nom d'un getter (accesseur en lecture de variable de classe/structure)
 est égal au nom 
 de la variable de classe sans l'underscore final.
 
 \begin{itemize}
-	\item Variable : variable\_ - Getter : variable()
-	\item Variable : nom\_var\_ - Getter : nom\_var()
+	\item Variable : \textbf{variable\_} - Getter : \textbf{variable()}
+	\item Variable : \textbf{nom\_var\_} - Getter : \textbf{nom\_var()}
 \end{itemize}
 
 \subsubsection{Setters}
 
-Le nom d'un setter (accesseur en écriture de variable de classe)
+Le nom d'un setter (accesseur en écriture de variable de classe/structure)
 est égal au nom de la variable sans l'underscore final précédé
 d'un set.
 
 \begin{itemize}
-	\item Variable : variable\_ - Setter : set\_variable()
-	\item Variable : nom\_var\_ - Setter : set\_nom\_var()
+	\item Variable : \textbf{variable\_} - Setter : \textbf{set\_variable()}
+	\item Variable : \textbf{nom\_var\_} - Setter : \textbf{set\_nom\_var()}
 \end{itemize}
 
 \subsubsection{Autres méthodes}
@@ -135,9 +140,14 @@ d'un set.
 Les autres méthodes possèdent les mêmes conventions.
 
 \begin{itemize}
-	\item methode()
-	\item nom\_methode()
+	\item \textbf{methode()}
+	\item \textbf{nom\_methode()}
 \end{itemize}
+
+\subsection{Éléments d'une énumération} 
+
+Les éléments d'une énumération suivent les mêmes conventions que les 
+constantes.
 
 \section{Présentation des différentes classes}
 
