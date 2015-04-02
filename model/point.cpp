@@ -12,28 +12,28 @@ Point::Point(const Point &p)
 
 double Point::x() const
 {
-    return x_;
+    return this->x_;
 }
 
 double Point::y() const
 {
-    return y_;
+    return this->y_;
 }
 
 void Point::set_x(double x)
 {
-    x_ = x;
+    this->x_ = x;
 }
 
 void Point::set_y(double y)
 {
-    y_ = y;
+    this->y_ = y;
 }
 
 void Point::set_location(double x, double y)
 {
-    x_ = x;
-    y_ = y;
+    this->x_ = x;
+    this->y_ = y;
 }
 
 double Point::distance(const Point &p)
@@ -59,18 +59,10 @@ bool operator==(const Point& p1, const Point& p2)
 
 const Point& Point::operator =(const Point& p2)
 {
-    x_ = p2.x_;
-    y_ = p2.y_;
+    this->x_ = p2.x_;
+    this->y_ = p2.y_;
 
     return *this;
 }
 
 
-
-/*
- * Distance (0,0) et (x,y)
- * x = distance * cos (angle)
- * y = distance * sin (angle)
- * cos(angle) = x / distance
- * angle = arcos(x / distance)
-*/

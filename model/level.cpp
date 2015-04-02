@@ -1,9 +1,7 @@
-#include "level.h"
-
 #include <string>
-#include "Geometry.h"
 
-using namespace std;
+#include "level.h"
+#include "Geometry.h"
 
 Level::Level(double w, double h) : width_ {w}, height_ {h},
     walls_ { {{.0, .0}, {.0, h}}, {{.0, h}, {w, h}},
@@ -35,32 +33,32 @@ void Level::set_dest(const Dest & value)
     dest_ = value;
 }
 
-const vector<Wall> & Level::walls() const
+const std::vector<Wall> & Level::walls() const
 {
     return walls_;
 }
 
-const vector<Mirror> & Level::mirrors() const
+const std::vector<Mirror> & Level::mirrors() const
 {
     return mirrors_;
 }
 
-const vector<Crystal> & Level::crystals() const
+const std::vector<Crystal> & Level::crystals() const
 {
     return crystals_;
 }
 
-const vector<Lens> & Level::lenses() const
+const std::vector<Lens> & Level::lenses() const
 {
     return lenses_;
 }
 
-const vector<Ray> & Level::rays() const
+const std::vector<Ray> & Level::rays() const
 {
     return rays_;
 }
 
-void Level::set_rays(const vector<Ray> & value)
+void Level::set_rays(const std::vector<Ray> & value)
 {
     rays_ = value;
 }
@@ -90,7 +88,7 @@ void Level::set_mirrors(const std::vector<Mirror>& value)
     mirrors_ = value;
 }
 
-const vector<Nuke> & Level::nukes() const
+const std::vector<Nuke> & Level::nukes() const
 {
     return nukes_;
 }
@@ -221,7 +219,7 @@ const Intersection& Level::get_closest_intersection(Line& line)
 
 void Level::notify(Observable * obs)
 {
-    for (Observer * o : observers)
+    for (Observer * o : observers_)
         o->notify(obs);
 }
 

@@ -1,19 +1,19 @@
 #include "observable.h"
 #include "observer.h"
 
-void Observable::addObserver(Observer * obs)
+void Observable::add_observer(Observer * obs)
 {
-    observers.insert(obs);
+    this->observers_.insert(obs);
 }
 
-void Observable::removeObserver(Observer * obs)
+void Observable::remove_observer(Observer * obs)
 {
-    observers.erase(obs);
+    this->observers_.erase(obs);
 }
 
 
-void Observable::notifyAll()
+void Observable::notify_all()
 {
-    for (auto i : observers)
+    for (auto i : this->observers_)
         i->notify(this);
 }

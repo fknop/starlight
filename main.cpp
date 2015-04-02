@@ -50,6 +50,9 @@ int main(int argc, char **argv)
     Level * level = MapReader::getLevel("levels/level1.lvl");
 
 
+
+
+
 //    Game game;
 
 //    game.show();
@@ -59,8 +62,8 @@ int main(int argc, char **argv)
 //    Element * e =  &r;
 //    std::cout << e->isMirror();
 
-//    Ellipse e(Point(20,20), 20, 10);
-//    Line l(Point(0,0), - M_PI / 4);
+    Ellipse e(Point(20,20), 20, 10);
+    Line l(Point(0,0), - M_PI / 4);
 
 //    std::vector<Point> points;
 //    if (e.intersects(l, points) > 0) {
