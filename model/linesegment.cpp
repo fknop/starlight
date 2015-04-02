@@ -8,12 +8,12 @@ LineSegment::LineSegment(const Point& start, const Point& end)
     this->end_ = end;
 }
 
-const Point& LineSegment::get_start() const
+const Point& LineSegment::start() const
 {
     return this->start_;
 }
 
-const Point& LineSegment::get_end() const
+const Point& LineSegment::end() const
 {
     return this->end_;
 }

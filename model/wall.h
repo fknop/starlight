@@ -7,6 +7,7 @@
 #include "linesegment.h"
 #include "point.h"
 
+
 /**
  * Cette classe modélise les murs utilisés dans le jeu.
  * </p>

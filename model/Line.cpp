@@ -62,8 +62,8 @@ bool Line::intersects(const Line &l, Point ** intersection) const
 
 bool Line::intersects(const LineSegment &ls, Point ** intersection) const
 {
-    Point start = ls.get_start();
-    Point end = ls.get_end();
+    Point start = ls.start();
+    Point end = ls.end();
     double rad = Geometry::angle(start, end);
 
     if ((intersects(Line(start, rad), intersection)) &&

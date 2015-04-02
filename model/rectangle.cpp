@@ -46,8 +46,8 @@ int Rectangle::intersects(const Line& line, std::vector<Point> & points)
 
 int Rectangle::intersects(const LineSegment& ls, std::vector<Point> & points)
 {
-    Point start = ls.get_start();
-    Point end = ls.get_end();
+    Point start = ls.start();
+    Point end = ls.end();
     double rad = Geometry::angle(start, end);
 
     intersects(Line(start, rad), points);
@@ -58,13 +58,9 @@ int Rectangle::intersects(const LineSegment& ls, std::vector<Point> & points)
     for (auto i = points.begin(); i != points.end(); )
     {
         if (!Geometry::is_in_bounding_box(*i, ls))
-        {
             i = points.erase(i);
-        }
         else
-        {
             i++;
-        }
     }
 
     return points.size();

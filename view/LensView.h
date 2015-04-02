@@ -11,7 +11,7 @@ public:
     LensView(const Lens & lens);
 
 private:
-    Lens lens;
+    Lens lens_;
 };
 
 #endif // LENSVIEW_H

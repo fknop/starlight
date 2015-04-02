@@ -39,7 +39,7 @@ int Ellipse::intersects(const Line & l, std::vector<Point>& points)
     double lcmy = lcm / (xR*xR);
 
 
-    bool verticalLine = (std::abs(std::fmod(l.angle(), M_PI)) == (M_PI_2));
+    bool verticalLine = std::isinf(slope);
 
     if (verticalLine)
     {
@@ -81,16 +81,19 @@ int Ellipse::intersects(const Line & l, std::vector<Point>& points)
 
 int Ellipse::intersects(const LineSegment & ls, std::vector<Point>& points)
 {
-    Point start = ls.get_start();
-    Point end = ls.get_end();
+    Point start = ls.start();
+    Point end = ls.end();
     double rad = Geometry::angle(start, end);
-    int intersections = intersects(Line(start, rad), points);
 
-    if (intersections > 1 && !Geometry::is_in_bounding_box(points.at(1), ls))
-        points.erase(points.end());
+    intersects(Line(start, rad), points);
 
-    if (intersections > 0 && !Geometry::is_in_bounding_box(points.at(0), ls))
-        points.erase(points.begin());
+    for (auto i = points.begin(); i != points.end(); )
+    {
+        if (!Geometry::is_in_bounding_box(*i, ls))
+            i = points.erase(i);
+        else
+            i++;
+    }
 
     return points.size();
 }

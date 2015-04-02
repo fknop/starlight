@@ -22,8 +22,6 @@ signals:
 
 private:
     QGraphicsTextItem * name;
-    int color;
-    int hoverColor;
 };
 
 #endif // BUTTON_H

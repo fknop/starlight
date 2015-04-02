@@ -20,13 +20,13 @@ public:
      * Retourne la première extrémité du segment.
      * @return la première extrémité du segment.
      */
-    const Point& get_start() const;
+    const Point& start() const;
 
     /**
      * Retourne la seconde extrémité du segment.
      * @return la seconde extrémité du segment.
      */
-    const Point& get_end() const;
+    const Point& end() const;
 
     /**
      * Modifie le point de début du segment.

@@ -7,7 +7,7 @@ Level * MapReader::l = nullptr;
 
 void MapReader::read_file(std::string path)
 {
-    std::fstream level("C:\\Users\\Gatien\\Documents\\starlight\\levels\\level1.lvl", std::ios::in);
+    std::fstream level(path, std::ios::in);
 
     if (level)
     {

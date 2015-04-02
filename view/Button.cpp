@@ -5,7 +5,7 @@
 #include "button.h"
 
 
-Button::Button(QString name, QGraphicsItem *parent) : color(color), hoverColor(hoverColor)
+Button::Button(QString name, QGraphicsItem *parent)
 {
 
     setRect(0,0, 200, 50);

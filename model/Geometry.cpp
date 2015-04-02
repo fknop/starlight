@@ -21,7 +21,6 @@ double Geometry::angle(double slope)
     return std::atan(slope);
 }
 
-
 double Geometry::get_slope(const Point& p1, const Point& p2)
 {
     return  - ((p1.y() - p2.y()) / (p1.x() - p2.x()));
@@ -38,13 +37,13 @@ double Geometry::get_slope(double rad)
 
 bool Geometry::is_in_bounding_box(const Point& p, const LineSegment& ls)
 {
-    Point start = ls.get_start();
-    Point end = ls.get_end();
+    Point start = ls.start();
+    Point end = ls.end();
 
-    return ((std::min(start.x(), end.x()) <= p.x())
-            && (std::max(start.x(), end.x()) >= p.x())
-            && (std::min(start.y(), end.y()) <= p.y())
-            && (std::max(start.y(), end.y()) >= p.y()));
+    return ((std::min(start.x(), end.x()) <= p.x()) &&
+            (std::max(start.x(), end.x()) >= p.x()) &&
+            (std::min(start.y(), end.y()) <= p.y()) &&
+            (std::max(start.y(), end.y()) >= p.y()));
 }
 
 

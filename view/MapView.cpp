@@ -1,8 +1,8 @@
 #include <QGraphicsScene>
-#include "view/CrystalView.h"
-#include "view/DestinationView.h"
 #include <iostream>
 
+#include "view/crystalview.h"
+#include "view/destinationview.h"
 #include "view/lensview.h"
 #include "view/mapview.h"
 #include "view/mirrorview.h"

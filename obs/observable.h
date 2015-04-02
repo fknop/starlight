@@ -1,4 +1,3 @@
-
 #ifndef __OBSERVABLE__H__
 #define __OBSERVABLE__H__
 
@@ -29,7 +28,7 @@ protected:
      * Notifie tous les observateurs enregistrés d'un changement
      * d'état.
      */
-    virtual void notifyAll();
+    virtual void notify_all();
 
 public:
     /**

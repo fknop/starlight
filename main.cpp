@@ -1,38 +1,3 @@
-//#include <iostream>
-
-//#include "model/level.h"
-//#include "MapReader.h"
-//#include <typeinfo>
-//#include "view/Game.hpp"
-//#include <QApplication>
-
-//using namespace std;
-
-
-////int argc, char *argv[]
-//int main(int argc, char * argv[])
-//{
-//    QApplication a(argc, argv);
-
-
-//    Level * level = MapReader::getLevel("levels/level1.lvl");
-//    level->computeRays();
-//    GameView * game = new GameView(level);
-//    game->show();
-//    a.exec();
-
-//    delete level;
-
-//    return 0;
-
-//}
-
-
-
-
-
-
-
 #include <QApplication>
 #include "view/MapView.h"
 #include "MapReader.h"
@@ -51,6 +16,9 @@ int main(int argc, char **argv)
     Level * level = MapReader::level("level1.lvl");
 
 
+
+
+
 //    Game game;
 
 //    game.show();
@@ -60,8 +28,8 @@ int main(int argc, char **argv)
 //    Element * e =  &r;
 //    std::cout << e->isMirror();
 
-//    Ellipse e(Point(20,20), 20, 10);
-//    Line l(Point(0,0), - M_PI / 4);
+    Ellipse e(Point(20,20), 20, 10);
+    Line l(Point(0,0), - M_PI / 4);
 
 //    std::vector<Point> points;
 //    if (e.intersects(l, points) > 0) {
