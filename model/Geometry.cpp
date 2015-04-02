@@ -1,7 +1,5 @@
 #include "Geometry.h"
 
-
-
 double Geometry::getDegrees(double rad)
 {
     return (rad * 180.0) / M_PI;
@@ -22,7 +20,6 @@ double Geometry::getAngle(double slope)
     return std::atan(slope);
 }
 
-
 double Geometry::getSlope(const Point& p1, const Point& p2)
 {
     return  - ((p1.y() - p2.y()) / (p1.x() - p2.x()));
@@ -42,10 +39,10 @@ bool Geometry::isInBoundingBox(const Point& p, const LineSegment& ls)
     Point start = ls.getStart();
     Point end = ls.getEnd();
 
-    return ((std::min(start.x(), end.x()) <= p.x())
-            && (std::max(start.x(), end.x()) >= p.x())
-            && (std::min(start.y(), end.y()) <= p.y())
-            && (std::max(start.y(), end.y()) >= p.y()));
+    return ((std::min(start.x(), end.x()) <= p.x()) &&
+            (std::max(start.x(), end.x()) >= p.x()) &&
+            (std::min(start.y(), end.y()) <= p.y()) &&
+            (std::max(start.y(), end.y()) >= p.y()));
 }
 
 

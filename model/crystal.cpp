@@ -1,6 +1,5 @@
 #include "crystal.h"
 
-
 Crystal::Crystal(const Point & p, double r, int m) :
     Element(Element::Type::CRYSTAL),
     center {p}, rad {r}, mod {m}

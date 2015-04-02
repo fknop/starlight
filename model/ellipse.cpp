@@ -84,13 +84,15 @@ int Ellipse::intersects(const LineSegment & ls, std::vector<Point>& points)
     Point start = ls.getStart();
     Point end = ls.getEnd();
     double rad = Geometry::getAngle(start, end);
-    int intersections = intersects(Line(start, rad), points);
+    intersects(Line(start, rad), points);
 
-    if (intersections > 1 && !Geometry::isInBoundingBox(points.at(1), ls))
-        points.erase(points.end());
-
-    if (intersections > 0 && !Geometry::isInBoundingBox(points.at(0), ls))
-        points.erase(points.begin());
+    for (auto i = points.begin(); i != points.end(); )
+    {
+        if (!Geometry::isInBoundingBox(*i, ls))
+            i = points.erase(i);
+        else
+            i++;
+    }
 
     return points.size();
 }

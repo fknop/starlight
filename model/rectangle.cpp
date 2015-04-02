@@ -55,13 +55,9 @@ int Rectangle::intersects(const LineSegment& ls, std::vector<Point> & points)
     for (auto i = points.begin(); i != points.end(); )
     {
         if (!Geometry::isInBoundingBox(*i, ls))
-        {
             i = points.erase(i);
-        }
         else
-        {
             i++;
-        }
     }
 
     return points.size();
