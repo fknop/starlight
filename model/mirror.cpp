@@ -109,7 +109,7 @@ void Mirror::rotate(double angle)
 {
     if (!setAngle(alpha + angle))
     {
-        if (alpha + angle > alphaMax)
+        if (alpha + angle >= alphaMax)
             setAngle(alphaMax);
         else
             setAngle(alphaMin);

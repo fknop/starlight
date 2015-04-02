@@ -41,6 +41,104 @@ graphique du jeu baptisé Starlight, puzzle à 2 dimensions basé sur la lumièr
 
 \section{Sections}
 
+\section{Conventions de nommages utilisées}
+
+Dans cette section, nous présentons les différentes conventions 
+utilisées lors de ce projet. Nous avons décidé de reprendre certaines
+conventions utilisées par la STL tout en gardant d'autres conventions.
+
+Tous les noms de variables, classes, fichiers, etc. sont en anglais.
+
+\subsection{Nommage des fichiers}
+
+Les fichiers sont entièrement en minuscule et possèdes les extensions .h
+pour les headers et .cpp pour les fichiers sources.
+
+\begin{itemize}
+	\item nomfichier.h
+	\item nomfichier.cpp
+\end{itemize}
+
+\subsection{Classes}
+
+Les noms des classes commencent par une majuscule à chaque mot du nom.
+
+\begin{itemize}
+	\item Classe 
+	\item NomClasse
+\end{itemize}
+
+
+\subsection{Variables}
+
+\subsubsection{Variables de classe}
+
+Les noms des variables de classes sont en minuscules, les mots sont 
+séparés par des underscore et le nom finit par un underscore.
+
+\begin{itemize}
+	\item variable\_
+	\item nom\_variable\_
+\end{itemize}
+
+Cette convention est également valable pour les énumérations et structures.
+
+\subsubsection{Variables locales}
+
+Les noms des variables locales commencent par une minuscule, et par
+la suite d'une majuscule à chaque début de mot.
+
+\begin{itemize}
+	\item variable
+	\item nomVariable
+\end{itemize}
+
+\subsubsection{Constantes}
+
+Les noms des constantes sont entièrement en majuscules et les mots sont
+séparés par des underscores.
+
+\begin{itemize}
+	\item CONSTANTE
+	\item NOM\_CONSTANTE
+\end{itemize}
+
+\subsection{Méthodes}
+
+D'une manière générale, les noms de méthodes sont en minuscules et
+séparés par des underscores.
+
+\subsubsection{Getters}
+
+Le nom d'un getter (accesseur en lecture de variable de classe)
+est égal au nom 
+de la variable de classe sans l'underscore final.
+
+\begin{itemize}
+	\item Variable : variable\_ - Getter : variable()
+	\item Variable : nom\_var\_ - Getter : nom\_var()
+\end{itemize}
+
+\subsubsection{Setters}
+
+Le nom d'un setter (accesseur en écriture de variable de classe)
+est égal au nom de la variable sans l'underscore final précédé
+d'un set.
+
+\begin{itemize}
+	\item Variable : variable\_ - Setter : set\_variable()
+	\item Variable : nom\_var\_ - Setter : set\_nom\_var()
+\end{itemize}
+
+\subsubsection{Autres méthodes}
+
+Les autres méthodes possèdent les mêmes conventions.
+
+\begin{itemize}
+	\item methode()
+	\item nom\_methode()
+\end{itemize}
+
 \section{Présentation des différentes classes}
 
 
