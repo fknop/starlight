@@ -12,7 +12,7 @@ class Rectangle
 {
 
 private:
-    Point upperLeft_;
+    Point upper_left_;
     double width_;
     double height_;
 

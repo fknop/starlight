@@ -1,4 +1,6 @@
 #include <vector>
+#include <fstream>
+#include <sstream>
 
 #include "mapreader.h"
 

@@ -1,12 +1,9 @@
 #ifndef MAPREADER_H
 #define MAPREADER_H
 
-#include <fstream>
 #include <string>
-#include <sstream>
 
 #include "model/level.h"
-
 
 class MapReader
 {

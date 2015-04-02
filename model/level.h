@@ -2,7 +2,6 @@
 #define LEVEL_H
 
 #include <vector>
-#include <unordered_map>
 
 #include "crystal.h"
 #include "dest.h"

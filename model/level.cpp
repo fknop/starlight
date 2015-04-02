@@ -160,7 +160,7 @@ bool Level::compute_ray(Line & line, int wl)
     case Element::Type::CRYSTAL:
         break;
     case Element::Type::DEST:
-        dest_.set_lighted_up(true);
+        this->dest_.set_lighted_up(true);
         continueRay = false;
         //Notifie vue -> Allumer la dest.
         // bool = gagner ?
@@ -187,7 +187,7 @@ const Intersection& Level::get_closest_intersection(Line& line)
     std::vector<Intersection> intersections;
     std::vector<Point> points;
 
-    if (dest_.to_rectangle().intersects(line, points))
+    if (this->dest_.to_rectangle().intersects(line, points))
         std::cout << "intersects";
 
 
@@ -221,7 +221,7 @@ const Intersection& Level::get_closest_intersection(Line& line)
 
 void Level::notify(Observable * obs)
 {
-    for (Observer * o : observers_)
+    for (Observer * o : this->observers_)
         o->notify(obs);
 }
 

@@ -25,13 +25,13 @@ class Mirror : public Element
     Point pivot_;
     double length_;
     double xpad_;
-    double xMin_ {.0};
-    double xMax_ {.0};
-    double yMin_ {.0};
-    double yMax_ {.0};
+    double x_min_ {.0};
+    double x_max_ {.0};
+    double y_min_ {.0};
+    double y_max_ {.0};
     double alpha_;
-    double alphaMin_ {.0};
-    double alphaMax_ {.0};
+    double alpha_min_ {.0};
+    double alpha_max_ {.0};
 
   public:
     /**
@@ -74,14 +74,14 @@ class Mirror : public Element
      * @param amin l'angle d'inclinaison minimum du miroir.
      * @param amax l'angle d'inclinaison maximum du miroir.
      */
-    Mirror(const Point & p, double x, double len, double a, Point min,
+    Mirror(const Point& p, double x, double len, double a, Point min,
            Point max, double amin, double amax);
 
     /**
      * Retourne la position (et le pivot) du miroir.
      * @return la position (et le pivot) du miroir.
      */
-    const Point & pivot() const;
+    const Point& pivot() const;
 
     /**
      * Retourne la longueur du miroir.
@@ -122,7 +122,7 @@ class Mirror : public Element
      * que a < b, le miroir pivote dans le sens horloger, si
      * a = b le miroir ne peut pas pivoter, si a > b, le miroir
      * pivote dans le sens anti-horloger. Si a = b = 0, le miroir
-     * peut être pivoté librement.
+     * peut être pialphaMax_voté librement.
      * @return l'inclinaison minimum du miroir.
      */
     double max_angle() const;

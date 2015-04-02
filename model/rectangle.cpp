@@ -3,7 +3,7 @@
 
 
 Rectangle::Rectangle(const Point& upperLeft, double width, double height)
-    : upperLeft_ {upperLeft}, width_{width}, height_{height}
+    : upper_left_ {upperLeft}, width_{width}, height_{height}
 {
     if (width <= 0 || height <= 0)
         throw std::string("Dimensions invalides");
@@ -12,21 +12,21 @@ Rectangle::Rectangle(const Point& upperLeft, double width, double height)
 int Rectangle::intersects(const Line& line, std::vector<Point> & points)
 {
     /* On crée les 3 coins manquants du rectangle */
-    Point bottomLeft(this->upperLeft_.x(),
-                     this->upperLeft_.y() + this->height_);
+    Point bottomLeft(this->upper_left_.x(),
+                     this->upper_left_.y() + this->height_);
 
-    Point upperRight(this->upperLeft_.x() + this->width_,
-                     this->upperLeft_.y());
+    Point upperRight(this->upper_left_.x() + this->width_,
+                     this->upper_left_.y());
 
-    Point bottomRight(this->upperLeft_.x() + this->width_,
-                      this->upperLeft_.y() + this->height_);
+    Point bottomRight(this->upper_left_.x() + this->width_,
+                      this->upper_left_.y() + this->height_);
 
     /* On push les 4 cotés du rectangle dans un vecteur */
     std::vector<LineSegment> segments
     {
-            LineSegment(this->upperLeft_, upperRight),
+            LineSegment(this->upper_left_, upperRight),
             LineSegment(bottomLeft, bottomRight),
-            LineSegment(this->upperLeft_, bottomLeft),
+            LineSegment(this->upper_left_, bottomLeft),
             LineSegment(upperRight, bottomRight)
     };
 
