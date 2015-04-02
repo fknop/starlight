@@ -42,6 +42,11 @@ class Lens : public Element
      *              autorisés à franchir la lentille.
      */
     Lens(const Point& p, double w, double h, int wlmin_, int wlmax_);
+
+    /**
+     * Constructeur de copie.
+     * @param lens la lentille à copier.
+     */
     Lens(const Lens& lens);
     /**
      * Retourne la position du coin supérieur gauche du

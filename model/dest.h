@@ -28,6 +28,10 @@ class Dest : public Element
      */
     Dest(const Point& p, double e);
 
+    /**
+     * Constructeur de copie.
+     * @param dest la destination à copier.
+     */
     Dest(const Dest& dest);
 
     /**

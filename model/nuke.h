@@ -18,7 +18,7 @@ class Nuke : public Element
 {
     Point pos_;
     double rad_;
-    bool light_ {false};
+    bool lighted_up_ {false};
 
   public:
     /**
@@ -45,7 +45,7 @@ class Nuke : public Element
      * Retourne vrai si la bombe est illuminée, faux sinon.
      * @return vrai si la bombe est illuminée, faux sinon.
      */
-    inline bool is_lighted_up() const;
+    inline bool lighted_up() const;
 
     /**
      * Illumine la bombe ou non.
@@ -53,6 +53,10 @@ class Nuke : public Element
      */
     inline void set_lighted_up(bool q);
 
+    /**
+     * Renvoie l'ellipse correspondante à la bombe.
+     * @return l'ellipse correspondante à la bombe.
+     */
     Ellipse to_ellipse();
 
     /**
@@ -77,14 +81,14 @@ double Nuke::radius() const
     return this->rad_;
 }
 
-bool Nuke::is_lighted_up() const
+bool Nuke::lighted_up() const
 {
-    return this->light_;
+    return this->lighted_up_;
 }
 
 void Nuke::set_lighted_up(bool q)
 {
-    this->light_ = q;
+    this->lighted_up_ = q;
 }
 
 #endif // NUKE_H

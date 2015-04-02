@@ -201,6 +201,10 @@ class Mirror : public Element
      */
     void translate(double x, double y);
 
+    /**
+     * Renvoie le segment correspondant au miroir.
+     * @return le segment correspondant au miroir.
+     */
     LineSegment to_line_segment();
 
     /**

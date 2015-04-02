@@ -65,10 +65,3 @@ int Rectangle::intersects(const LineSegment& ls, std::vector<Point> & points)
 
     return points.size();
 }
-
-
-Rectangle::~Rectangle()
-{
-
-}
-

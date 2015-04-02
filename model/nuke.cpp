@@ -17,6 +17,6 @@ Ellipse Nuke::to_ellipse()
 std::ostream& operator<<(std::ostream& out, const Nuke& s)
 {
     out << "Nuke --- Position : " << s.pos_ << " , Radius : " << s.rad_ <<
-        " On : " << s.light_;
+        " On : " << s.lighted_up_;
     return out;
 }

@@ -18,14 +18,40 @@ private:
 
 public:
     Rectangle(const Point&, double, double);
-    ~Rectangle();
 
+    /**
+     * Retourne le coin supérieur gauche du rectangle.
+     * @return le coin supérieur gauche du rectangle.
+     */
     inline const Point& upper_left() const;
+
+    /**
+     * Retourne la longueur du rectangle (axe X).
+     * @return la longueur du rectangle.
+     */
     inline double width() const;
+
+    /**
+     * Retourne la hauteur du rectangle (axe Y).
+     * @return la hauteur du rectangle.
+     */
     inline double height() const;
 
-    int intersects(const Line& line, std::vector<Point> &);
-    int intersects(const LineSegment& ls, std::vector<Point> &);
+    /**
+     * Vérifie si une droite coupe un rectangle.
+     * @param line la droite.
+     * @param points le vecteur de points d'intersections trouvés.
+     * @return le nombre d'intersections.
+     */
+    int intersects(const Line& line, std::vector<Point>& points);
+
+    /**
+     * Vérifie si un segment de droite coupe un rectangle.
+     * @param ls le segment de droite.
+     * @param points le vecteur de points d'intersections trouvés.
+     * @return le nombre d'intersections.
+     */
+    int intersects(const LineSegment& ls, std::vector<Point>& points);
 };
 
 /* Fonctions inlines */

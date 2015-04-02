@@ -26,8 +26,6 @@ public:
      */
     PolarPoint(double distance, double set_angle);
 
-    ~PolarPoint();
-
     /**
      * Modifie l'angle du point polaire.
      * Le point est donc déplacé par rapport aux coordonnées

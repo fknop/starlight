@@ -33,7 +33,11 @@ class Crystal : public Element
      */
     Crystal(const Point& p, double r, int m);
 
-    Crystal(const Crystal &);
+    /**
+     * Constructeur de copie.
+     * @param crystal le cristal à copier.
+     */
+    Crystal(const Crystal& crystal);
 
     /**
      * Retourne la coordonnée du centre du cristal.

@@ -22,8 +22,3 @@ Point * PolarPoint::to_point()
     double y = this->distance_ * std::sin(this->angle_);
     return new Point(x,y);
 }
-
-PolarPoint::~PolarPoint()
-{
-
-}

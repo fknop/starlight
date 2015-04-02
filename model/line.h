@@ -80,6 +80,14 @@ public:
      */
     inline void set_angle(double rad);
 
+    /**
+     * Redéfinition de l'opérateur d'égalité, renvoie vrai
+     * si les deux droites ont le même angle et point
+     * d'origine.
+     * @param l1 la première droite.
+     * @param l2 la deuxième droite.
+     * @return vrai si les droites sont égales, faux sinon.
+     */
     friend bool operator==(const Line& l1, const Line& l2);
 
 private:

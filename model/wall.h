@@ -27,7 +27,11 @@ class Wall : public Element
      */
     Wall(const Point& p1, const Point& p2);
 
-    Wall(const Wall&);
+    /**
+     * Constructeur de copie.
+     * @param wall le mur à copier.
+     */
+    Wall(const Wall& wall);
 
     /**
      * Retourne le début du mur.
@@ -41,6 +45,10 @@ class Wall : public Element
      */
     inline const Point& end() const;
 
+    /**
+     * Renvoie le segment correspondant au mur.
+     * @return le segment correspondant au mur.
+     */
     LineSegment to_line_segment();
 
     /**

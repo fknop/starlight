@@ -27,8 +27,8 @@ class Point
     Point(double x, double y);
 
     /**
-     * Constructeur de recopie.
-     * @param p le point à recopier.
+     * Constructeur de copie.
+     * @param p le point à copier.
      */
     Point(const Point& p);
 
