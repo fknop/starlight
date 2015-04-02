@@ -25,21 +25,21 @@ class Wall : public Element
      * @param p1 le début du mur.
      * @param p2 la fin du mur.
      */
-    Wall(const Point & p1, const Point & p2);
+    Wall(const Point& p1, const Point& p2);
 
-    Wall(const Wall &);
+    Wall(const Wall&);
 
     /**
      * Retourne le début du mur.
      * @return le début du mur.
      */
-    const Point & start() const;
+    inline const Point& start() const;
 
     /**
      * Retourne la fin du mur.
      * @return la fin du mur.
      */
-    const Point & end() const;
+    inline const Point& end() const;
 
     LineSegment to_line_segment();
 
@@ -49,8 +49,20 @@ class Wall : public Element
      * en console.
      * @return le flux dans lequel le mur a été imprimé.
      */
-    friend std::ostream & operator<<(std::ostream &,
-                                     const Wall &);
+    friend std::ostream& operator<<(std::ostream& out,
+                                     const Wall& wall);
 };
+
+/* Fonctions inlines */
+
+const Point& Wall::start() const
+{
+    return this->start_;
+}
+
+const Point& Wall::end() const
+{
+    return this->end_;
+}
 
 #endif // WALL_H

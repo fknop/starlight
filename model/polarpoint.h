@@ -34,7 +34,7 @@ public:
      * cartésiennes.
      * @param a le nouvel angle.
      */
-    void set_angle(double a);
+    inline void set_angle(double a);
 
     /**
      * Modifie la distance du point polaire.
@@ -42,27 +42,53 @@ public:
      * cartésiennes.
      * @param d la nouvelle distance.
      */
-    void set_distance(double d);
+    inline void set_distance(double d);
 
     /**
      * Retourne l'angle.
      * @return l'angle.
      */
-    double angle() const;
+    inline double angle() const;
 
     /**
      * Retourne la distance.
      * @return la distance.
      */
-    double distance() const;
+    inline double distance() const;
 
     /**
      * Transforme le point polaire en point cartésien.
      * @return le point cartésien correspondant au point polaire.
      */
-    Point * to_point();
+    Point* to_point();
 
 
 };
+
+/* Fonctions inlines */
+
+
+void PolarPoint::set_angle(double a)
+{
+    this->angle_ = a;
+}
+
+double PolarPoint::angle() const
+{
+    return this->angle_;
+}
+
+void PolarPoint::set_distance(double d)
+{
+    if (this->distance_ < 0)
+      throw "La distance ne peut pas être négative";
+
+    this->distance_ = d;
+}
+
+double PolarPoint::distance() const
+{
+    return this->distance_;
+}
 
 #endif // POLARPOINT_H

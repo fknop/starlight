@@ -45,7 +45,7 @@ class Source
      * @see Ray::WL_MAX
      * @see Ray::WL_DFT
      */
-    Source(const Point & p, double e, double a, int wl);
+    Source(const Point& p, double e, double a, int wl);
 
     /**
      * Retourne la coordonnée du coin supérieur gauche du carré
@@ -53,25 +53,25 @@ class Source
      * @return la coordonnée du coin supérieur gauche du carré
      * modélisant la source.
      */
-    const Point & position() const;
+    inline const Point& position() const;
 
     /**
      * Retourne l'angle du rayon émis.
      * @return l'angle du rayon émis.
      */
-    double angle() const;
+    inline double angle() const;
 
     /**
      * Retourne la longueur du côté du carré.
      * @return la longueur du côté du carré.
      */
-    int edge() const;
+    inline int edge() const;
 
     /**
      * Retourne la longueur d'onde du rayon émis.
      * @return la longueur d'onde du rayon émis.
      */
-    int wavelength() const;
+    inline int wavelength() const;
 
     /**
      * Retourne vrai si la source émet un rayon lumineux,
@@ -79,14 +79,14 @@ class Source
      * @return vrai si la source émet un rayon lumineux,
      * faux sinon.
      */
-    bool is_on() const;
+    inline bool on() const;
 
     /**
      * Allume ou éteint la source.
      * @param q vrai si la source doit être allumée,
      * faux sinon.
      */
-    void set_on(bool q);
+    inline void set_on(bool q);
 
     /**
      * Surcharge l'opérateur de flux de sortie pour afficher
@@ -94,8 +94,41 @@ class Source
      * sous-jacente en console.
      * @return le flux dans lequel la source a été imprimée.
      */
-    friend std::ostream & operator<<(std::ostream & out,
-                                     const Source & s);
+    friend std::ostream & operator<<(std::ostream& out,
+                                     const Source& s);
 };
+
+/* Fonctions inlines */
+
+
+const Point& Source::position() const
+{
+    return this->pos_;
+}
+
+double Source::angle() const
+{
+    return this->alpha_;
+}
+
+int Source::edge() const
+{
+    return this->edge_;
+}
+
+int Source::wavelength() const
+{
+    return this->wavelength_;
+}
+
+bool Source::on() const
+{
+    return this->on_;
+}
+
+void Source::set_on(bool q)
+{
+    this->on_ = q;
+}
 
 #endif // SOURCE_H

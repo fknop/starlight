@@ -12,31 +12,6 @@ Point::Point(const Point &p)
     this->y_ = p.y_;
 }
 
-double Point::x() const
-{
-    return this->x_;
-}
-
-double Point::y() const
-{
-    return this->y_;
-}
-
-void Point::set_x(double x)
-{
-    this->x_ = x;
-}
-
-void Point::set_y(double y)
-{
-    this->y_ = y;
-}
-
-void Point::set_position(double x, double y)
-{
-    this->x_ = x;
-    this->y_ = y;
-}
 
 double Point::distance(const Point &p)
 {

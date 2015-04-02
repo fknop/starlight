@@ -10,7 +10,7 @@ class MapReader
 
 private:
 
-    static Level *l;
+    static Level* l_;
 
     static void read_file(std::string);
     static void read_source(std::string);
@@ -24,7 +24,7 @@ private:
 
 
 public:
-    static Level * level(std::string);
+    static Level* level(std::string);
     static void end_level();
 };
 

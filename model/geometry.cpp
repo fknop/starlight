@@ -1,32 +1,32 @@
 #include "geometry.h"
 
 
-double Geometry::get_degrees(double rad)
+double Geometry::rad_to_deg(double rad)
 {
     return (rad * 180.0) / M_PI;
 }
 
-double Geometry::radians(double degrees)
+double Geometry::deg_to_rad(double degrees)
 {
     return (degrees * M_PI) / 180;
 }
 
-double Geometry::angle(const Point& p1, const Point& p2)
+double Geometry::slope_to_rad(const Point& p1, const Point& p2)
 {
-    return std::atan(get_slope(p1, p2));
+    return std::atan(rad_to_slope(p1, p2));
 }
 
-double Geometry::angle(double slope)
+double Geometry::slope_to_rad(double slope)
 {
     return std::atan(slope);
 }
 
-double Geometry::get_slope(const Point& p1, const Point& p2)
+double Geometry::rad_to_slope(const Point& p1, const Point& p2)
 {
     return  - ((p1.y() - p2.y()) / (p1.x() - p2.x()));
 }
 
-double Geometry::get_slope(double rad)
+double Geometry::rad_to_slope(double rad)
 {
     if (std::abs(rad) == M_PI)
         return 0; // Pour éviter la perte de précision.
@@ -35,15 +35,5 @@ double Geometry::get_slope(double rad)
 }
 
 
-bool Geometry::is_in_bounding_box(const Point& p, const LineSegment& ls)
-{
-    Point start = ls.start();
-    Point end = ls.end();
-
-    return ((std::min(start.x(), end.x()) <= p.x()) &&
-            (std::max(start.x(), end.x()) >= p.x()) &&
-            (std::min(start.y(), end.y()) <= p.y()) &&
-            (std::max(start.y(), end.y()) >= p.y()));
-}
 
 

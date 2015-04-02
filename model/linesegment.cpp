@@ -8,22 +8,10 @@ LineSegment::LineSegment(const Point& start, const Point& end)
     this->end_ = end;
 }
 
-const Point& LineSegment::start() const
+bool LineSegment::contains(const Point& p) const
 {
-    return this->start_;
-}
-
-const Point& LineSegment::end() const
-{
-    return this->end_;
-}
-
-void LineSegment::set_start(const Point& start)
-{
-    this->start_ = start;
-}
-
-void LineSegment::set_end(const Point &end)
-{
-    this->end_ = end;
+    return ((std::min(this->start_.x(), this->end_.x()) <= p.x()) &&
+            (std::max(this->start_.x(), this->end_.x()) >= p.x()) &&
+            (std::min(this->start_.y(), this->end_.y()) <= p.y()) &&
+            (std::max(this->start_.y(), this->end_.y()) >= p.y()));
 }

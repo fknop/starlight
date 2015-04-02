@@ -31,7 +31,7 @@ class Crystal : public Element
      * @param r le rayon du cristal.
      * @param m le modificateur de longueur d'onde du cristal.
      */
-    Crystal(const Point & p, double r, int m);
+    Crystal(const Point& p, double r, int m);
 
     Crystal(const Crystal &);
 
@@ -39,19 +39,19 @@ class Crystal : public Element
      * Retourne la coordonnée du centre du cristal.
      * @return  la coordonnée du centre du cristal.
      */
-    const Point & center() const;
+    inline const Point& center() const;
 
     /**
      * Retourne le modificateur de longueur d'onde du cristal.
      * @return  le modificateur de longueur d'onde du cristal.
      */
-    int modifier() const;
+    inline int modifier() const;
 
     /**
      * Retourne le rayon du cristal.
      * @return le rayon du cristal.
      */
-    double radius() const;
+    inline double radius() const;
 
     /**
      * Surcharge l'opérateur de flux de sortie pour afficher.
@@ -59,9 +59,28 @@ class Crystal : public Element
      * sous-jacent en console.
      * @return le flux dans lequel le cristal a été imprimé.
      */
-    friend std::ostream & operator<<(std::ostream &,
+    friend std::ostream& operator<<(std::ostream&,
                                      const Crystal &);
 
 };
+
+/* Fonctions inlines */
+
+
+const Point& Crystal::center() const
+{
+    return this->center_;
+}
+
+int Crystal::modifier() const
+{
+    return this->mod_;
+}
+
+double Crystal::radius() const
+{
+    return this->rad_;
+}
+
 
 #endif // CRYSTAL_H

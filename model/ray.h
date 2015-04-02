@@ -62,37 +62,37 @@ class Ray
      * @see Ray::WL_MAX
      * @see Ray::WL_DFT
      */
-    Ray(const Point & p1, const Point & p2, int wl);
+    Ray(const Point& p1, const Point& p2, int wl);
 
     /**
      * Retourne le début du rayon.
      * @return le début du rayon.
      */
-    const Point & start() const;
+    inline const Point& start() const;
 
     /**
      * Retourne la fin du rayon.
      * @return la fin du rayon.
      */
-    const Point & end() const;
+    inline const Point& end() const;
 
     /**
      * Retourne la longueur d'onde du rayon.
      * @return la longueur d'onde du rayon.
      */
-    int wavelength() const;
+    inline int wavelength() const;
 
     /**
      * Change la coordonnée du début du rayon.
      * @param p la nouvelle coordonnée du début du rayon.
      */
-    void set_start(const Point & p);
+    inline void set_start(const Point& p);
 
     /**
      * Change la coordonnée de la fin du rayon.
      * @param p la nouvelle coordonnée de la fin du rayon.
      */
-    void set_end(const Point & p);
+    inline void set_end(const Point& p);
 
     /**
      * Change la longueur d'onde du rayon. Si la longueur d'onde
@@ -103,7 +103,7 @@ class Ray
      * @return vrai si la longueur d'onde a bel et bien été changée,
      * retourne faux sinon.
      */
-    bool set_wavelength(int wl);
+    inline bool set_wavelength(int wl);
 
     /**
      * Surcharge l'opérateur de flux de sortie pour afficher un
@@ -111,7 +111,44 @@ class Ray
      * console.
      * @return le flux dans lequel le rayon a été imprimé.
      */
-    friend std::ostream & operator<<(std::ostream & out, const Ray & p);
+    friend std::ostream& operator<<(std::ostream& out, const Ray& p);
 };
+
+/* Fonctions inlines */
+
+
+const Point & Ray::start() const
+{
+    return this->start_;
+}
+
+const Point & Ray::end() const
+{
+    return this->end_;
+}
+
+int Ray::wavelength() const
+{
+    return this->wavelength_;
+}
+
+void Ray::set_start(const Point & p)
+{
+    this->start_ = p;
+}
+
+void Ray::set_end(const Point & p)
+{
+    this->end_ = p;
+}
+
+bool Ray::set_wavelength(int wl)
+{
+    bool r = ((wl >= this->WL_MIN) && (wl <= this->WL_MAX));
+    if (r)
+        this->wavelength_ = wl;
+
+    return r;
+}
 
 #endif // RAY_H

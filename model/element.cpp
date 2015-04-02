@@ -9,15 +9,9 @@
 
 Element::Element(Element::Type type)
 {
-    type_ = type;
+    this->type_ = type;
 }
 
-Element::~Element()
-{
+Element::~Element(){}
 
-}
 
-Element::Type Element::type() const
-{
-    return type_;
-}

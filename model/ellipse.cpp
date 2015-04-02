@@ -6,15 +6,10 @@
 
 
 Ellipse::Ellipse(const Point & p, double xRad, double yRad)
-        : pos_{p}, x_rad_(xRad), y_rad_(yRad)
+        : center_{p}, x_rad_(xRad), y_rad_(yRad)
 {
     if (xRad <= 0 || yRad <= 0)
         throw std::string("Les rayons de l'ellipse doivent être strictement positifs.");
-}
-
-Ellipse::~Ellipse()
-{
-
 }
 
 /*
@@ -26,10 +21,10 @@ int Ellipse::intersects(const Line & l, std::vector<Point>& points)
 {
     double x = l.origin().x();
     double y = l.origin().y();
-    double slope = Geometry::get_slope(l.angle()); // pente -> a dans y = ax + b
+    double slope = Geometry::rad_to_slope(l.angle()); // pente -> a dans y = ax + b
     double d = y - (slope * x); // d -> b dans y = ax + b
-    double x1 = this->pos_.x();
-    double y1 = this->pos_.y();
+    double x1 = this->center_.x();
+    double y1 = this->center_.y();
     double xR = this->x_rad_;
     double yR = this->y_rad_;
     double a, b, c; // a, b, c dans rho = b² - ac
@@ -83,16 +78,16 @@ int Ellipse::intersects(const LineSegment & ls, std::vector<Point>& points)
 {
     Point start = ls.start();
     Point end = ls.end();
-    double rad = Geometry::angle(start, end);
+    double rad = Geometry::slope_to_rad(start, end);
 
     intersects(Line(start, rad), points);
 
     for (auto i = points.begin(); i != points.end(); )
     {
-        if (!Geometry::is_in_bounding_box(*i, ls))
-            i = points.erase(i);
+        if (ls.contains(*i))
+            ++i;
         else
-            i++;
+            i = points.erase(i);
     }
 
     return points.size();

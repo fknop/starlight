@@ -17,7 +17,7 @@ class Dest : public Element
 {
     Point pos_;
     double edge_;
-    bool light_ {false};
+    bool light_up_ {false};
 
   public:
     /**
@@ -26,22 +26,22 @@ class Dest : public Element
      *        la destination.
      * @param e la longueur du côté du carré.
      */
-    Dest(const Point & p, double e);
+    Dest(const Point& p, double e);
 
-    Dest(const Dest &);
+    Dest(const Dest& dest);
 
     /**
      * Retourne la position du coin supérieur gauche du carré.
      * modélisant la destination.
      * @return la position de la destination.
      */
-    const Point & position() const;
+    inline const Point& position() const;
 
     /**
      * Retourne la longueur du côté du carré.
      * @return la longueur du côté du carré.
      */
-    double edge() const;
+    inline double edge() const;
 
     /**
      * Retourne vrai si la destination est illuminée,
@@ -49,14 +49,14 @@ class Dest : public Element
      * @return vrai si la destination est illuminée,
      * faux sinon.
      */
-    bool is_lighted_up() const;
+    inline bool lighted_up() const;
 
     /**
      * Illumine la destination ou non.
      * @param vrai si la destination doit être illuminée,
      * faux sinon.
      */
-    void set_lighted_up(const bool q);
+    inline void set_lighted_up(const bool q);
 
     Rectangle to_rectangle();
 
@@ -66,8 +66,30 @@ class Dest : public Element
      * sous-jacente en console.
      * @return le flux dans lequel la destination a été imprimée.
      */
-    friend std::ostream & operator<<(std::ostream & out,
-                                     const Dest & s);
+    friend std::ostream& operator<<(std::ostream& out,
+                                     const Dest& s);
 };
+
+/* Fonction inlines */
+
+const Point& Dest::position() const
+{
+    return this->pos_;
+}
+
+double Dest::edge() const
+{
+    return this->edge_;
+}
+
+bool Dest::lighted_up() const
+{
+    return this->light_up_;
+}
+
+void Dest::set_lighted_up(const bool q)
+{
+    this->light_up_ = q;
+}
 
 #endif // DEST_H

@@ -27,31 +27,31 @@ class Nuke : public Element
      * @param p la position de la bombe.
      * @param r le rayon de la bombe.
      */
-    Nuke(const Point & p, double r);
+    Nuke(const Point& p, double r);
 
     /**
      * Retourne la position de la bombe.
      * @return la position de la bombe.
      */
-    const Point & position() const;
+    inline const Point& position() const;
 
     /**
      * Retourne le rayon de la bombe.
      * @return le rayon de la bombe.
      */
-    double radius() const;
+    inline double radius() const;
 
     /**
      * Retourne vrai si la bombe est illuminée, faux sinon.
      * @return vrai si la bombe est illuminée, faux sinon.
      */
-    bool is_lighted_up() const;
+    inline bool is_lighted_up() const;
 
     /**
      * Illumine la bombe ou non.
      * @param q vrai pour illuminer la bombe, faux sinon.
      */
-    void set_lighted_up(bool q);
+    inline void set_lighted_up(bool q);
 
     Ellipse to_ellipse();
 
@@ -61,8 +61,30 @@ class Nuke : public Element
      * sous-jacente en console.
      * @return le flux dans lequel la bombe a été imprimée.
      */
-    friend std::ostream & operator<<(std::ostream & out,
-                                     const Nuke & s);
+    friend std::ostream & operator<<(std::ostream& out,
+                                     const Nuke& s);
 };
+
+/* Fonctions inlines */
+
+const Point& Nuke::position() const
+{
+    return this->pos_;
+}
+
+double Nuke::radius() const
+{
+    return this->rad_;
+}
+
+bool Nuke::is_lighted_up() const
+{
+    return this->light_;
+}
+
+void Nuke::set_lighted_up(bool q)
+{
+    this->light_ = q;
+}
 
 #endif // NUKE_H

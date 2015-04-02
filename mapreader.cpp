@@ -5,7 +5,7 @@
 #include "mapreader.h"
 
 
-Level * MapReader::l = nullptr;
+Level * MapReader::l_ = nullptr;
 
 void MapReader::read_file(std::string path)
 {
@@ -63,7 +63,7 @@ void MapReader::read_size(std::string line)
     double width  = (iss >> width, width);
     double height = (iss >> height, height);
 
-    l = new Level(width, height);
+    l_ = new Level(width, height);
 }
 
 void MapReader::read_crystal(std::string line)
@@ -77,7 +77,7 @@ void MapReader::read_crystal(std::string line)
     double rad  = (iss >> rad, rad);
     int mod     = (iss >> mod, mod);
 
-    l->add_crystal(Crystal(Point(x,y), rad, mod));
+    l_->add_crystal(Crystal(Point(x,y), rad, mod));
 }
 
 void MapReader::read_destination(std::string line)
@@ -90,7 +90,7 @@ void MapReader::read_destination(std::string line)
     double y     = (iss >> y, y);
     double edge  = (iss >> edge, edge);
 
-    l->set_dest(Dest(Point(x, y), edge));
+    l_->set_dest(Dest(Point(x, y), edge));
 }
 
 void MapReader::read_lens(std::string line)
@@ -106,7 +106,7 @@ void MapReader::read_lens(std::string line)
     int wlmin      = (iss >> wlmin, wlmin);
     int wlmax      = (iss >> wlmax, wlmax);
 
-    l->add_lens(Lens(Point(x, y), width, height, wlmin, wlmax));
+    l_->add_lens(Lens(Point(x, y), width, height, wlmin, wlmax));
 }
 
 void MapReader::read_mirror(std::string line)
@@ -126,7 +126,7 @@ void MapReader::read_mirror(std::string line)
     double alphaMin = (iss >> alphaMin, alphaMin);
     double alphaMax = (iss >> alphaMax, alphaMax);
 
-    l->add_mirror(Mirror(Point(x, y), xPad, length, alpha,
+    l_->add_mirror(Mirror(Point(x, y), xPad, length, alpha,
                   Point(xMin, yMin), Point(xMax, yMax),
                   alphaMin, alphaMax));
 }
@@ -140,7 +140,7 @@ void MapReader::read_nuke(std::string line)
     double y    = (iss >> y, y);
     double rad  = (iss >> rad, rad);
 
-    l->add_nuke(Nuke(Point(x, y), rad));
+    l_->add_nuke(Nuke(Point(x, y), rad));
 }
 
 void MapReader::read_source(std::string line)
@@ -155,7 +155,7 @@ void MapReader::read_source(std::string line)
     double alpha = (iss >> alpha, alpha);
     int wl       = (iss >> wl, wl);
 
-    l->set_source(Source(Point(x ,y), edge, alpha, wl));
+    l_->set_source(Source(Point(x ,y), edge, alpha, wl));
 }
 
 void MapReader::read_wall(std::string line)
@@ -168,19 +168,19 @@ void MapReader::read_wall(std::string line)
     int x2 = (iss >> x2, x2);
     int y2 = (iss >> y2, y2);
 
-    l->add_wall(Wall(Point(x1, y1), Point(x2, y2)));
+    l_->add_wall(Wall(Point(x1, y1), Point(x2, y2)));
 }
 
 Level * MapReader::level(std::string path)
 {
-    if (l == nullptr)
+    if (l_ == nullptr)
         read_file(path);
 
-    return l;
+    return l_;
 }
 
 void MapReader::end_level()
 {
-    delete l;
-    l = nullptr;
+    delete l_;
+    l_ = nullptr;
 }

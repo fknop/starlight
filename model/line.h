@@ -44,7 +44,7 @@ public:
      * @param intersecion le point d'intersection.
      * @return vrai si les droites possèdent une intersection.
      */
-    bool intersects(const Line& l, Point ** intersecion) const;
+    bool intersects(const Line& l, Point** intersecion) const;
 
     /**
      * Retourne vrai si la droite possède une intersection
@@ -54,36 +54,59 @@ public:
      * @param intersecion le point d'intersection.
      * @return vrai si la droite et le segment possède une intersection.
      */
-    bool intersects(const LineSegment& ls, Point ** intersection) const;
+    bool intersects(const LineSegment& ls, Point** intersection) const;
 
     /**
      * Renvoie un point de la droite.
      * @return un point de la droite.
      */
-    const Point& origin() const;
+    inline const Point& origin() const;
 
     /**
      * Modifie le point d'origine de la droite.
      * @param origin le nouveau point d'origine.
      */
-    void set_origin(const Point& origin_);
+    inline void set_origin(const Point& origin);
 
     /**
      * Retourne la pente de la droite.
      * @return la pente de la droite.
      */
-    double angle() const;
+    inline double angle() const;
 
     /**
      * Modifie l'angle de la droite.
      * @param le nouvel angle en radians de la droite.
      */
-    void set_angle(double rad);
+    inline void set_angle(double rad);
 
     friend bool operator==(const Line& l1, const Line& l2);
 
 private:
-    static Point * vertical_line_intersection(const Line& l1, const Line l2);
+    static Point * vertical_line_intersection(const Line& l1, const Line& l2);
 };
+
+/* Fonctions inlines */
+
+
+const Point& Line::origin() const
+{
+    return this->origin_;
+}
+
+void Line::set_origin(const Point &origin)
+{
+    this->origin_ = origin;
+}
+
+double Line::angle() const
+{
+    return this->angle_;
+}
+
+void Line::set_angle(double angle)
+{
+    this->angle_ = angle;
+}
 
 #endif // LINE_H

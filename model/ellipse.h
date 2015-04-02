@@ -19,7 +19,7 @@ class Ellipse
 {
 
 private:
-    Point pos_;
+    Point center_;
     double x_rad_;
     double y_rad_;
 
@@ -32,7 +32,25 @@ public:
      * @param yRad le rayon sur l'axe des Y.
      */
     Ellipse(const Point& p, double x, double y);
-    ~Ellipse();
+
+
+    /**
+     * Retourne le point central de l'ellipse.
+     * @return le centre de l'ellipse.
+     */
+    inline const Point& center() const;
+
+    /**
+     * Retourne le rayon sur l'axe X.
+     * @return le rayon sur l'axe X.
+     */
+    inline double x_rad() const;
+
+    /**
+     * Retourne le rayon sur l'axe Y.
+     * @return le rayon sur l'axe Y.
+     */
+    inline double y_rad() const;
 
     /**
      * Vérifie si un segment de droite possède une ou des
@@ -41,7 +59,7 @@ public:
      * @param points un vecteur de points d'intersections.
      * @return le nombre d'intersections entre l'ellipse et la droite.
      */
-    int intersects(const LineSegment & ls, std::vector<Point>& points);
+    int intersects(const LineSegment& ls, std::vector<Point>& points);
 
     /**
      * Vérifie si une droite possède une ou des intersections
@@ -54,5 +72,22 @@ public:
 
 
 };
+
+/* Fonctions inline */
+
+const Point& Ellipse::center() const
+{
+    return this->center_;
+}
+
+double Ellipse::x_rad() const
+{
+    return this->x_rad_;
+}
+
+double Ellipse::y_rad() const
+{
+    return this->y_rad_;
+}
 
 #endif // ELLIPSE_H

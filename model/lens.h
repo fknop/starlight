@@ -41,27 +41,27 @@ class Lens : public Element
      * @param wlmax la longueur d'onde maximale des rayons
      *              autorisés à franchir la lentille.
      */
-    Lens(const Point & p, double w, double h, int wlmin_, int wlmax_);
-    Lens(const Lens&);
+    Lens(const Point& p, double w, double h, int wlmin_, int wlmax_);
+    Lens(const Lens& lens);
     /**
      * Retourne la position du coin supérieur gauche du
      * rectangle modélisant la lentille.
      * @return la position du coin supérieur gauche du
      * rectangle modélisant la lentille
      */
-    const Point & position() const;
+    inline const Point & position() const;
 
     /**
      * Retourne la largeur de la lentille.
      * @return la largeur de la lentille.
      */
-    double width() const;
+    inline double width() const;
 
     /**
      * Retourne la hauteur de la lentille.
      * @return la hauteur de la lentille.
      */
-    double height() const;
+    inline double height() const;
 
     /**
      * Retourne la longueur d'onde minimale des rayons
@@ -69,7 +69,7 @@ class Lens : public Element
      * @return la longueur d'onde minimale des rayons
      * autorisés à franchir la lentille.
      */
-    int min_wavelength() const;
+    inline int wl_max() const;
 
     /**
      * Retourne la longueur d'onde maximale des rayons
@@ -77,8 +77,13 @@ class Lens : public Element
      * @return la longueur d'onde maximale des rayons
      * autorisés à franchir la lentille.
      */
-    int max_wavelength() const;
+    inline int wl_min() const;
 
+    /**
+     * Retourne une ellipse correspondante
+     * à la lentille.
+     * @return l'ellipse correspondante à la lentille.
+     */
     Ellipse to_ellipse();
 
     /**
@@ -87,8 +92,36 @@ class Lens : public Element
      * sous-jacente en console.
      * @return le flux dans lequel la lentille a été imprimée.
      */
-    friend std::ostream & operator<<(std::ostream & out,
-                                     const Lens & m);
+    friend std::ostream& operator<<(std::ostream& out,
+                                     const Lens& m);
 };
+
+/* Fonctions inlines */
+
+
+const Point & Lens::position() const
+{
+    return pos_;
+}
+
+double Lens::width() const
+{
+    return width_;
+}
+
+double Lens::height() const
+{
+    return height_;
+}
+
+int Lens::wl_max() const
+{
+    return wlmin_;
+}
+
+int Lens::wl_min() const
+{
+    return wlmax_;
+}
 
 #endif // LENS_H

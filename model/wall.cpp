@@ -19,16 +19,6 @@ Wall::Wall(const Wall& wall) : Element(Element::Type::WALL)
     this->end_ = wall.end_;
 }
 
-const Point & Wall::start() const
-{
-    return start_;
-}
-
-const Point & Wall::end() const
-{
-    return end_;
-}
-
 LineSegment Wall::to_line_segment()
 {
     return LineSegment(this->start(), this->end());

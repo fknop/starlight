@@ -36,32 +36,32 @@ class Point
      * Retourne l'abscisse du point.
      * @return l'abscisse du point.
      */
-    double x() const;
+    inline double x() const;
 
     /**
      * Retourne l'ordonnée du point.
      * @return l'ordonnée du point.
      */
-    double y() const;
+    inline double y() const;
 
     /**
      * Déplace le point en l'abscisse donnée.
      * @param x l'abscisse où déplacer le point.
      */
-    void set_x(double x_);
+    inline void set_x(double x_);
 
     /**
      * Déplace le point en l'ordonnée donnée.
      * @param y l'ordonnée où déplacer le point.
      */
-    void set_y(double y_);
+    inline void set_y(double y_);
 
     /**
      * Déplace le point en la coordonnée donnée.
      * @param x l'abscisse où déplacer le point.
      * @param y l'ordonnée où déplacer le point.
      */
-    void set_position(double x_, double y_);
+    inline void set_position(double x_, double y_);
 
     /**
      * Retourne la distance entre deux points.
@@ -97,8 +97,8 @@ class Point
      * console.
      * @return le flux dans lequel le point a été imprimé.
      */
-    friend std::ostream & operator<<(std::ostream & out,
-                                     const Point & p);
+    friend std::ostream& operator<<(std::ostream& out,
+                                     const Point& p);
 
 
     /**
@@ -106,8 +106,37 @@ class Point
      * @return vrai si les coordonnées d'un point sont égales
      * aux coordonnées d'un autre point.
      */
-    friend bool operator==(const Point&, const Point&);
+    friend bool operator==(const Point& p1, const Point& p2);
 
 };
+
+/* Fonctions inlines */
+
+
+double Point::x() const
+{
+    return this->x_;
+}
+
+double Point::y() const
+{
+    return this->y_;
+}
+
+void Point::set_x(double x)
+{
+    this->x_ = x;
+}
+
+void Point::set_y(double y)
+{
+    this->y_ = y;
+}
+
+void Point::set_position(double x, double y)
+{
+    this->x_ = x;
+    this->y_ = y;
+}
 
 #endif // POINT_H

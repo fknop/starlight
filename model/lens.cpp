@@ -36,31 +36,6 @@ Lens::Lens(const Lens& l) : Element(Element::Type::LENS)
     this->wlmin_ = l.wlmin_;
 }
 
-const Point & Lens::position() const
-{
-    return pos_;
-}
-
-double Lens::width() const
-{
-    return width_;
-}
-
-double Lens::height() const
-{
-    return height_;
-}
-
-int Lens::min_wavelength() const
-{
-    return wlmin_;
-}
-
-int Lens::max_wavelength() const
-{
-    return wlmax_;
-}
-
 Ellipse Lens::to_ellipse()
 {
     Point center(this->pos_.x() + this->width_ / 2,

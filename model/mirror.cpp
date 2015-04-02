@@ -28,62 +28,6 @@ Mirror::Mirror(const Point & p, double x, double len, double a, Point pm,
         "Elle n'est pas comprise entre les bornes.");
 }
 
-const Point & Mirror::pivot() const
-{
-    return this->pivot_;
-}
-
-double Mirror::length() const
-{
-    return this->length_;
-}
-
-double Mirror::x_pad() const
-{
-    return this->xpad_;
-}
-
-double Mirror::angle() const
-{
-    return this->alpha_;
-}
-
-double Mirror::min_angle() const
-{
-    return this->alpha_min_;
-}
-
-double Mirror::max_angle() const
-{
-    return this->alpha_max_;
-}
-
-Point Mirror::min_pivot() const
-{
-    return Point {this->x_min_, this->y_min_};
-}
-
-Point Mirror::max_pivot() const
-{
-    return Point {this->x_max_, this->y_max_};
-}
-
-bool Mirror::set_pivot(const Point& p)
-{
-    bool r {check_pivot_range(p)};
-    if (r)
-        pivot_ = p;
-    return r;
-}
-
-bool Mirror::set_angle(double a)
-{
-    bool r {check_angle_range(a)};
-    if (r)
-        this->alpha_ = a;
-    return r;
-}
-
 bool Mirror::check_angle_range(double a) const
 {
     return (this->alpha_min_ == 0 && this->alpha_max_ == 0) ||

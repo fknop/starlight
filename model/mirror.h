@@ -81,13 +81,13 @@ class Mirror : public Element
      * Retourne la position (et le pivot) du miroir.
      * @return la position (et le pivot) du miroir.
      */
-    const Point& pivot() const;
+    inline const Point& pivot() const;
 
     /**
      * Retourne la longueur du miroir.
      * @return la longueur du miroir
      */
-    double length() const;
+    inline double length() const;
 
     /**
      * Retourne le décalage du pivot par rapport au bord gauche
@@ -95,13 +95,13 @@ class Mirror : public Element
      * @return le décalage du pivot par rapport au bord gauche
      * du miroir.
      */
-    double x_pad() const;
+    inline double x_pad() const;
 
     /**
      * Retourne l'inclinaison du miroir.
      * @return l'inclinaison du miroir.
      */
-    double angle() const;
+    inline double angle() const;
 
     /**
      * Retourne l'inclinaison minimum du miroir.
@@ -113,7 +113,7 @@ class Mirror : public Element
      * être pivoté librement.
      * @return l'inclinaison minimum du miroir.
      */
-    double min_angle() const;
+    inline double min_angle() const;
 
     /**
      * Retourne l'inclinaison maximum du miroir.
@@ -125,7 +125,7 @@ class Mirror : public Element
      * peut être pialphaMax_voté librement.
      * @return l'inclinaison minimum du miroir.
      */
-    double max_angle() const;
+    inline double max_angle() const;
 
     /**
      * Retourne la position minimum du miroir.
@@ -136,7 +136,7 @@ class Mirror : public Element
      * peut être déplacé librement.
      * @return la position minimum du miroir.
      */
-    Point min_pivot() const;
+    inline Point min_pivot() const;
 
     /**
      * Retourne la position maximum du miroir.
@@ -147,7 +147,7 @@ class Mirror : public Element
      * peut être déplacé librement.
      * @return la position maximum du miroir.
      */
-    Point max_pivot() const;
+    inline Point max_pivot() const;
 
     /**
      * Déplace le miroir en la position donnée, si c'est
@@ -157,7 +157,7 @@ class Mirror : public Element
      * correctement, retourne faux sinon.
      * @see Mirror::getPivot()
      */
-    bool set_pivot(const Point &);
+    inline bool set_pivot(const Point& pivot);
 
     /**
      * Pivote le miroir sur un angle donné, si c'est
@@ -167,7 +167,7 @@ class Mirror : public Element
      * correctement, retourne faux sinon.
      * @see Mirror::getAngle()
      */
-    bool set_angle(double);
+    inline bool set_angle(double angle);
 
     /**
      * Retoune vrai si le miroir peut être pivoté sur
@@ -176,7 +176,7 @@ class Mirror : public Element
      * l'angle donné, retourne faux sinon.
      * @see Mirror::getAngle()
      */
-    bool check_angle_range(double) const;
+    bool check_angle_range(double angle) const;
 
     /**
      * Retoune vrai si le miroir peut être déplacé en la
@@ -185,7 +185,7 @@ class Mirror : public Element
      * la position donnée, retourne faux sinon.
      * @see Mirror::getPivot()
      */
-    bool check_pivot_range(const Point &) const;
+    bool check_pivot_range(const Point& pivot) const;
 
     /**
      * Modifie l'inclinaison de l'angle
@@ -209,8 +209,67 @@ class Mirror : public Element
      * miroir sous-jacent en console.
      * @return le flux dans lequel le miroir a été imprimé
      */
-    friend std::ostream & operator<<(std::ostream & out,
-                                     const Mirror & m);
+    friend std::ostream & operator<<(std::ostream& out,
+                                     const Mirror& m);
 };
+
+/* Fonctions inlines */
+
+
+const Point& Mirror::pivot() const
+{
+    return this->pivot_;
+}
+
+double Mirror::length() const
+{
+    return this->length_;
+}
+
+double Mirror::x_pad() const
+{
+    return this->xpad_;
+}
+
+double Mirror::angle() const
+{
+    return this->alpha_;
+}
+
+double Mirror::min_angle() const
+{
+    return this->alpha_min_;
+}
+
+double Mirror::max_angle() const
+{
+    return this->alpha_max_;
+}
+
+Point Mirror::min_pivot() const
+{
+    return Point {this->x_min_, this->y_min_};
+}
+
+Point Mirror::max_pivot() const
+{
+    return Point {this->x_max_, this->y_max_};
+}
+
+bool Mirror::set_pivot(const Point& p)
+{
+    bool r {check_pivot_range(p)};
+    if (r)
+        pivot_ = p;
+    return r;
+}
+
+bool Mirror::set_angle(double a)
+{
+    bool r {check_angle_range(a)};
+    if (r)
+        this->alpha_ = a;
+    return r;
+}
 
 #endif // MIRROR_H
