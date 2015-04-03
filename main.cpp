@@ -26,12 +26,17 @@ int main(int argc, char **argv)
 
     std::vector<Point> vectors
     {
-        Point(4,4),
-        Point(5,5),
-        Point(2,1),
-        Point(1,1),
-        Point(3,3),
-        Point(9,9)
+                Point(4,4),
+                Point(5,5),
+                Point(2,2),
+                Point(10,10),
+                Point(15,15),
+                Point(3,3),
+                Point(6,6),
+                Point(7,7),
+                Point(1,1),
+                Point(3,3),
+                Point(9,9)
     };
 
     std::sort(vectors.begin(), vectors.end(),

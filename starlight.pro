@@ -84,4 +84,5 @@ SOURCES += \
     main.cpp \
     Tests/pointtest.cpp \
     Tests/intersectionstest.cpp \
-    view/rayview.cpp
+    view/rayview.cpp \
+    Tests/sortpointtest.cpp

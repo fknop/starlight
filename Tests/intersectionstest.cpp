@@ -90,12 +90,11 @@ TEST_CASE("Intersections ellipses, droites, segments")
 
 TEST_CASE("Intersections rectangle, droite, segment")
 {
-<<<<<<< HEAD
-    /* x : 10 -> 5.
-     * y : 10 -> 14
-     */
+
     Rectangle rec(Point(10,10), 5, 4);
     std::vector<Point> points;
+    Rectangle rectangle(Point(20,0), 5., 5.);
+
     SECTION("Intersection rectangle, droite")
     {
         Line l(Point(0,0), -M_PI_4);
@@ -103,12 +102,13 @@ TEST_CASE("Intersections rectangle, droite, segment")
         REQUIRE(nb == 2);
         REQUIRE(points.at(0) == Point(10,10));
         REQUIRE(points.at(1) == Point(14,14));
-=======
-    Rectangle rectangle(Point(20,0), 5., 5.);
-    std::vector<Point> points;
 
+
+
+    }
     SECTION("Intersection rectangle, droite avec meme point origine")
     {
+
         Line l(Point(20,0), -M_PI_4);
         int nb = rectangle.intersects(l, points);
         REQUIRE (nb == 2);
@@ -123,23 +123,15 @@ TEST_CASE("Intersections rectangle, droite, segment")
         REQUIRE(nb == 2);
         REQUIRE(points.at(0) == Point(20, 0));
         REQUIRE(points.at(1) == Point(20, 5));
->>>>>>> b2d35f24e17f165165bc0da04ad3d951e87ab0da
+
     }
 
     SECTION("Intersection rectangle, segment")
     {
-<<<<<<< HEAD
         LineSegment ls(Point(0,0), Point(13,13));
         int nb = rec.intersects(ls, points);
         REQUIRE(nb == 1);
         REQUIRE(points.at(0) == Point(10,10));
-=======
-        LineSegment ls(Point(15,0), Point(25,5));
-        int nb = rectangle.intersects(ls, points);
-        REQUIRE(nb == 2);
-        REQUIRE(points.at(0) == Point(25, 5));
-        REQUIRE(points.at(1) == Point(20, 2.5));
->>>>>>> b2d35f24e17f165165bc0da04ad3d951e87ab0da
     }
 }
 
