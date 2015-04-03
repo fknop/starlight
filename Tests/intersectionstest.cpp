@@ -9,6 +9,7 @@
 #include "model/line.h"
 #include "model/linesegment.h"
 #include "model/constants.h"
+#include "model/geometry.h"
 
 TEST_CASE("Intersections droites, segments")
 {
@@ -112,6 +113,37 @@ TEST_CASE("Intersections rectangle, droite, segment")
     }
 }
 
+TEST_CASE("Vérification si un point est du bon coté selon l'angle de la droite")
+{
+    SECTION("Droite verticale")
+    {
+        Line l(Point(4,4), M_PI_2);
+        Point p(4,5);
+        bool b = Geometry::is_on_good_side(l, p);
+        REQUIRE(b == false);
+        Point p2(4,2);
+        b = Geometry::is_on_good_side(l, p2);
+        REQUIRE(b == true);
+        // même point = faux
+        Point p3(4,4);
+        b = Geometry::is_on_good_side(l, p3);
+        REQUIRE(b == false);
+    }
+
+    SECTION("Droite non verticale")
+    {
+        Line l(Point(10,10), -M_PI_4);
+        Point p(3,3);
+        bool b = Geometry::is_on_good_side(l, p);
+        REQUIRE(b == false);
+        Point p2(15,15);
+        b = Geometry::is_on_good_side(l, p2);
+        REQUIRE(b == true);
+        Point p3(10,10);
+        b = Geometry::is_on_good_side(l, p3);
+        REQUIRE(b == false);
+    }
+}
 
 #endif
 

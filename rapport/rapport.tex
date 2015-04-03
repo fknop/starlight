@@ -155,17 +155,22 @@ conventions des constantes énoncées ci-dessus.
 
 \section{Présentation des différentes classes}
 
-
+Dans cettte section, nous allons décrire les différentes classes
+composants ce projet.
 L’implémentation du projet est divisée entre la partie modèle et la partie vue.
 Elle est également basée sur le design pattern  Observeur / Observé  comme demandé
 dans les consignes.
 
 \subsection{Modèle}
 
-
-Un squelette de l’application nous a été fourni par Monsieur Absil. Ce squelette contient les fichiers suivants :
-
-`point.h, source.h, dest.h, nuke.h, wall.h, crystal.h, lens.h, mirror.h, ray.h, level.h`.
+Dans cette section, nous allons décrire les différentes classes du modèle 
+(classes métiers).
+Un squelette de classes a été fourni par Monsieur Absil.
+Ce squelette contenait les fichiers suivants :
+`point.h, source.h, dest.h, nuke.h, wall.h,
+crystal.h, lens.h, mirror.h, ray.h, level.h`.
+Nous avons décidé de modifier ce squelette tout en gardant la 
+structure générale.
 
 \subsubsection{Line}
 
@@ -183,13 +188,27 @@ Si on passait donc par simple pointeur, notre pointeur copié
 aurait une bonne zone mémoire mais notre pointeur d'origine
 resterait à *nullptr*.
 
+\subsubsection{LineSegment}
+
+Cette classe représente un segment de droite, elle possède
+deux points qui représentent les extrémités du segment.
+
 \subsubsection{Ellipse}
 
 
 Cette classe représente une conique de forme elliptique.
 C'est à dire une ellipse ou un cercle.
 
+\subsubsection{Rectangle}
 
+Cette classe représente une forme géométrique rectangulaire.
+Elle possède un point supérieur gauche ainsi qu'une longueur et hauteur 
+nous permettant de retrouver facilement les autrex extrémités de la 
+forme.
+
+Cette classe sert à représenter la classe Dest (la destination) qui est
+le seul objet de forme rectangulaire.
+	
 \subsection{Vue}
 
 

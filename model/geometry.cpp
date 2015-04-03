@@ -45,9 +45,7 @@ bool Geometry::is_on_good_side(const Line& l, const Point& p)
 {
     double angle = l.angle();
     double tmp = angle < 0 ? (2 * M_PI) + angle : angle;
-    // -270 : 90
     tmp = std::fmod(tmp, M_PI);
-    std::cout << tmp;
 
     if (tmp == M_PI_2)
     {
