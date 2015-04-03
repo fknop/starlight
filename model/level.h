@@ -242,7 +242,7 @@ class Level : public Observable
 
 private:
 
-    bool compute_ray(Line&, int wl);
+    void compute_ray(Line& line, int wl);
     const Intersection& get_closest_intersection(const Line& line);
 };
 

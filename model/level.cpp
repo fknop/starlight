@@ -27,7 +27,7 @@ void Level::compute_rays()
 
 }
 
-bool Level::compute_ray(Line& line, int wl)
+void Level::compute_ray(Line& line, int wl)
 {
     bool continueRay;
 
@@ -146,9 +146,6 @@ const Intersection& Level::get_closest_intersection(const Line& line)
     // Retourner l'interesction la plus proche
 
     return intersections.at(0);
-
-
-
 }
 
 void Level::notify(Observable * obs)
