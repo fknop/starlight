@@ -50,10 +50,28 @@ TEST_CASE("Intersections droites, segments")
 
 TEST_CASE("Intersections ellipses, droites, segments")
 {
+
+    Ellipse ellipse(Point(20,20), 20, 10);
+    std::vector<Point> points;
     SECTION("Intersection ellipse, droite")
     {
+        Line l(Point(20, 0), M_PI_2);
+        int nb = ellipse.intersects(l, points);
+        REQUIRE(nb == 2);
+        REQUIRE(points.at(0) == Point(20, 30));
+        REQUIRE(points.at(1) == Point(20, 10));
+    }
+
+    SECTION("Intersection ellipse, droite n°2")
+    {
+        Line l(Point(0,0), -M_PI_4);
+        int nb = ellipse.intersects(l, points);
+        REQUIRE (nb == 2);
+        REQUIRE(points.at(0) == Point(28.9443, 28.9443));
+        REQUIRE(points.at(1) == Point(11.0557, 11.0557));
 
     }
+
 
     SECTION("Intersection ellipse, segment")
     {
