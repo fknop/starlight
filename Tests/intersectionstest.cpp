@@ -89,14 +89,26 @@ TEST_CASE("Intersections ellipses, droites, segments")
 
 TEST_CASE("Intersections rectangle, droite, segment")
 {
+    /* x : 10 -> 5.
+     * y : 10 -> 14
+     */
+    Rectangle rec(Point(10,10), 5, 4);
+    std::vector<Point> points;
     SECTION("Intersection rectangle, droite")
     {
-
+        Line l(Point(0,0), -M_PI_4);
+        int nb = rec.intersects(l, points);
+        REQUIRE(nb == 2);
+        REQUIRE(points.at(0) == Point(10,10));
+        REQUIRE(points.at(1) == Point(14,14));
     }
 
     SECTION("Intersection rectangle, segment")
     {
-
+        LineSegment ls(Point(0,0), Point(13,13));
+        int nb = rec.intersects(ls, points);
+        REQUIRE(nb == 1);
+        REQUIRE(points.at(0) == Point(10,10));
     }
 }
 

@@ -7,6 +7,12 @@
 #include "point.h"
 
 /*
+ * y = (-y*b)x + -a/y
+ * a = - by - c / x
+ * ax + by + c = 0;
+ * pente = -a / b
+ * terme = -c / b
+ *
  * y = -ax -c / b
  * y = -a/b
  * x = -c/b
