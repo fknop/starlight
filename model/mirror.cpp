@@ -48,7 +48,6 @@ bool Mirror::check_pivot_range(const Point & p) const
     else
         return p.x() >= this->x_min_ && p.x() <= this->x_max_
                 && p.y() >= this->y_min_ && p.y() <= this->y_max_;
-
 }
 
 void Mirror::rotate(double angle)

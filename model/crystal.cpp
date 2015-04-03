@@ -15,6 +15,11 @@ Crystal::Crystal(const Crystal& crystal) : Element(Element::Type::CRYSTAL)
     this->rad_ = crystal.rad_;
 }
 
+Ellipse Crystal::to_ellipse() const
+{
+    return Ellipse(this->center_, this->rad_, this->rad_);
+}
+
 std::ostream& operator<<(std::ostream& out, const Crystal& c)
 {
     out << "Crystal --- Center : " << c.center_ << " , Radius : " << c.rad_

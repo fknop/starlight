@@ -22,6 +22,8 @@ void Level::compute_rays()
     double radians = this->source_.angle();
     Line ray(pSource, radians);
 
+    while (compute_ray(ray, 600));
+
 }
 
 bool Level::compute_ray(Line & line, int wl)
@@ -60,39 +62,54 @@ bool Level::compute_ray(Line & line, int wl)
 }
 
 
-const Intersection& Level::get_closest_intersection(Line& line)
+const Intersection& Level::get_closest_intersection(const Line& line)
 {
     std::vector<Intersection> intersections;
     std::vector<Point> points;
+    Point * p;
 
     if (this->dest_.to_rectangle().intersects(line, points))
-        std::cout << "intersects";
+        std::cout << "Dest intersections TODO";
 
 
     for (auto &i : this->walls_)
     {
-
+        if (line.intersects(i.to_line_segment(), &p))
+        {
+            points.push_back(Point(*p));
+            std::cout << "Walls intersections TODO";
+        }
     }
 
     for (auto &i : this->lenses_)
     {
-
+        if (i.to_ellipse().intersects(line, points))
+            std::cout << "Lenses intersections TODO";
     }
 
     for (auto &i : this->mirrors_)
     {
-
+        if (line.intersects( i.to_line_segment(), &p))
+        {
+            points.push_back(Point(*p));
+            std::cout << "Mirrors intersections TODO";
+        }
     }
 
     for (auto &i : this->nukes_)
     {
-
+        if (i.to_ellipse().intersects(line, points))
+            std::cout << "Nukes intersections TODO";
     }
 
     for (auto &i : this->crystals_)
     {
-
+        if (i.to_ellipse().intersects(line, points))
+            std::cout << "Crystals intersections TODO";
     }
+
+    for (auto &i : points)
+        std::cout << i << std::endl;
 
 
 }

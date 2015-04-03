@@ -4,6 +4,7 @@
 #include <ostream>
 
 #include "element.h"
+#include "ellipse.h"
 #include "point.h"
 
 /**
@@ -56,6 +57,8 @@ class Crystal : public Element
      * @return le rayon du cristal.
      */
     inline double radius() const;
+
+    Ellipse to_ellipse() const;
 
     /**
      * Surcharge l'opérateur de flux de sortie pour afficher.

@@ -16,7 +16,7 @@ public:
      * Instancie un nouveau point à coordonnées polaires.
      * @param p le point à transformer.
      */
-    PolarPoint(const Point & p);
+    PolarPoint(const Point& p);
 
     /**
      * Instancie un nouveau point à coordonnées polaires
@@ -24,7 +24,7 @@ public:
      * @param distance la distance par rapport à l'origine du répère.
      * @param angle l'angle par rapport à l'origine du repère.
      */
-    PolarPoint(double distance, double set_angle);
+    PolarPoint(double distance, double angle);
 
     /**
      * Modifie l'angle du point polaire.
@@ -58,7 +58,9 @@ public:
      * Transforme le point polaire en point cartésien.
      * @return le point cartésien correspondant au point polaire.
      */
-    Point* to_point();
+    Point to_point();
+
+    friend std::ostream& operator<<(std::ostream& out, const PolarPoint& p);
 
 
 };

@@ -12,20 +12,19 @@
 
 int main(int argc, char **argv)
 {
-    QApplication app(argc, argv);
-    Level * level = MapReader::level("levels/level1.lvl");
+//    QApplication app(argc, argv);
+//    Level * level = MapReader::level("levels/level1.lvl");
+//    level->compute_rays();
+//    MapView box(level);
+//    box.show();
+//    return app.exec();
+
+    Point p(3, 17);
+    PolarPoint pp(p);
 
 
+    std::cout << pp << std::endl;
+    std::cout << pp.to_point() << std::endl;
+    return 0;
 
-
-
-    Ellipse e(Point(20,20), 20, 10);
-    Line l(Point(0,0), - M_PI / 4);
-
-
-
-
-    MapView box(level);
-    box.show();
-    return app.exec();
 }

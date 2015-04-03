@@ -1,6 +1,7 @@
 #include <cmath>
 
 #include "point.h"
+#include "polarpoint.h"
 
 
 Point::Point(double x, double y) : x_ {x}, y_ {y}
@@ -11,7 +12,6 @@ Point::Point(const Point &p)
     this->x_ = p.x_;
     this->y_ = p.y_;
 }
-
 
 double Point::distance(const Point &p)
 {

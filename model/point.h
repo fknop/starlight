@@ -3,6 +3,7 @@
 
 #include <iostream>
 
+class PolarPoint;
 
 /**
  * Cette classe modélise un simple point de coordonnées réelles
@@ -69,7 +70,6 @@ class Point
      * @return la distance entre les deux points.
      */
     double distance(const Point &p);
-
 
     /**
      * Redéfinit l'opérateur <.
