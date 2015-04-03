@@ -21,11 +21,8 @@ int main(int argc, char **argv)
 //    box.show();
 //    return app.exec();
 
-    Line l(Point(0,0), Point(6,6));
-    Line vl(Point(4,0), Point(4, 10));
-    Point * p = nullptr;
-    bool b = l.intersects(vl, &p);
-    std::cout << (*p == Point(4,4));
+    Line l(Point(0,0),  -M_PI_4);
+    std::cout << Geometry::rad_to_slope(l.angle());
     return 0;
 
 }

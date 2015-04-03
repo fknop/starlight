@@ -35,8 +35,8 @@ double Geometry::rad_to_slope(const Point& p1, const Point& p2)
 
 double Geometry::rad_to_slope(double rad)
 {
-    if (umath::double_equals(std::abs(rad), M_PI))
-        return 0; // Pour éviter la perte de précision.
+//    if (umath::double_equals(std::abs(rad), M_PI))
+//        return 0; // Pour éviter la perte de précision.
 
     return -tan(rad); // - car on travaille dans un repère inversé
 }

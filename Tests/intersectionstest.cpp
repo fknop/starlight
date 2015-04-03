@@ -1,8 +1,7 @@
-
-
-
 #include "test.h"
 #ifdef RUNTEST
+
+#include <cmath>
 
 #include "catch.hpp"
 #include "model/ellipse.h"
@@ -67,15 +66,24 @@ TEST_CASE("Intersections ellipses, droites, segments")
         Line l(Point(0,0), -M_PI_4);
         int nb = ellipse.intersects(l, points);
         REQUIRE (nb == 2);
-        REQUIRE(points.at(0) == Point(28.9443, 28.9443));
-        REQUIRE(points.at(1) == Point(11.0557, 11.0557));
-
+        /*
+         * Round pour éviter de préciser une valeur exacte avec
+         * trop de décimale
+         */
+        REQUIRE(std::round(points.at(0).x()) == 29.0);
+        REQUIRE(std::round(points.at(0).y()) == 29.0);
+        REQUIRE(std::round(points.at(1).x()) == 11.0);
+        REQUIRE(std::round(points.at(1).y()) == 11.0);
     }
 
 
     SECTION("Intersection ellipse, segment")
     {
-
+        LineSegment l(Point(0,0), Point(20,20));
+        int nb = ellipse.intersects(l, points);
+        REQUIRE(nb == 1);
+        REQUIRE(std::round(points.at(0).x()) == 11.0);
+        REQUIRE(std::round(points.at(0).y()) == 11.0);
     }
 }
 
