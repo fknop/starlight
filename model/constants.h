@@ -3,7 +3,7 @@
 
 
 #ifndef EPSILON
-    #define EPSILON 0.000000000000001
+    #define EPSILON 0.0001
 #endif
 
 #ifndef INF
