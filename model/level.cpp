@@ -3,6 +3,7 @@
 
 #include "geometry.h"
 #include "level.h"
+#include "algorithm"
 
 
 Level::Level(double w, double h) : width_ {w}, height_ {h},
@@ -134,9 +135,17 @@ const Intersection& Level::get_closest_intersection(const Line& line)
             ++i;
     }
 
-
+    std::sort(intersections.begin(), intersections.end(),
+        [line](const Intersection& a, const Intersection& b) -> bool
+    {
+        double da = a.point().distance(line.origin());
+        double db = b.point().distance(line.origin());
+        return da < db;
+    });
     // Trier les points
     // Retourner l'interesction la plus proche
+
+    return intersections.at(0);
 
 
 

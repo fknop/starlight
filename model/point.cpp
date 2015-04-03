@@ -14,7 +14,7 @@ Point::Point(const Point &p)
     this->y_ = p.y_;
 }
 
-double Point::distance(const Point &p)
+double Point::distance(const Point& p) const
 {
     return sqrt(pow(this->x_ - p.x_, 2) + pow(this->y_ - p.y_, 2) );
 }
