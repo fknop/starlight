@@ -9,6 +9,7 @@
 #include "model/rectangle.h"
 #include "model/line.h"
 #include "model/linesegment.h"
+#include "model/constants.h"
 
 TEST_CASE("Intersections droites, segments")
 {
@@ -20,12 +21,30 @@ TEST_CASE("Intersections droites, segments")
     {
         Point * p = nullptr;
         bool b = l.intersects(vl, &p);
+
         REQUIRE(b == true);
         REQUIRE(*p == Point(4,4));
+        delete p;
     }
-    SECTION("Intersection droite / segment")
-    {
 
+    SECTION("Non-intersection de deux droites verticales")
+    {
+        Point * p = nullptr;
+        Line vl2(Point(0,0), Point(0,10));
+        bool b = vl.intersects(vl2, &p);
+        REQUIRE(b == false);
+        REQUIRE(p == nullptr);
+        delete p;
+    }
+
+    SECTION("Intersection droite / droite")
+    {
+       Point* p = nullptr;
+       Line l2(Point(5,0), M_PI_4);
+       bool b = l.intersects(l2, &p);
+       REQUIRE(b == true);
+       REQUIRE(*p == Point(2.5, 2.5));
+       delete p;
     }
 }
 

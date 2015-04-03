@@ -39,7 +39,8 @@ TEST_CASE("Opérateurs")
     SECTION("Opérateur d'égalité")
     {
         REQUIRE(p2 == p1);
-        REQUIRE(!(p2==p3));
+        REQUIRE(!(p2 == p3));
+        REQUIRE(p2 == Point(4,5));
     }
 
     SECTION("Opérateur d'infériorité")
@@ -52,4 +53,4 @@ TEST_CASE("Opérateurs")
 
 }
 
-#endif TEST
+#endif

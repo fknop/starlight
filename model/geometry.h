@@ -8,16 +8,7 @@
 #include "line.h"
 #include "linesegment.h"
 #include "point.h"
-
-
-// M_PI n'est pas standard, il est donc
-// nécessaire de le redéfinir
-#ifndef M_PI
-    #define M_PI 3.141592653589793238463
-#endif
-#ifndef M_PI_2
-    #define M_PI_2 M_PI / 2
-#endif
+#include "constants.h"
 
 namespace Geometry
 {
