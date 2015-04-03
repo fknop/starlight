@@ -8,7 +8,6 @@
 #include "line.h"
 #include "linesegment.h"
 #include "point.h"
-#include "constants.h"
 
 namespace Geometry
 {

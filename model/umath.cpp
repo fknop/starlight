@@ -1,5 +1,6 @@
 #include <cmath>
 
+#include "constants.h"
 #include "umath.h"
 
 
@@ -21,8 +22,8 @@ double umath::rho(double a, double b, double c)
     return (b*b) - (4 * a * c);
 }
 
-bool umath::double_equals(double a, double b, double epsilon = 0.0001)
+bool umath::double_equals(double a, double b)
 {
-    return std::abs(a - b) < epsilon;
+    return std::abs(a - b) < EPSILON;
 }
 

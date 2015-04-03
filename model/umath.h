@@ -37,7 +37,7 @@ namespace umath
      * @param epsilon différence tolérée.
      * @return vrai si les 2 doubles sont égaux module l’epsilon, faux sinon.
      */
-    bool double_equals(double a, double b, double epsilon=0.0001);
+    bool double_equals(double a, double b);
 
 } // namespace umath
 
