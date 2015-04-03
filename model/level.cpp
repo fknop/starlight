@@ -26,7 +26,7 @@ void Level::compute_rays()
 
 }
 
-bool Level::compute_ray(Line & line, int wl)
+bool Level::compute_ray(Line& line, int wl)
 {
     bool continueRay;
 
@@ -65,51 +65,70 @@ bool Level::compute_ray(Line & line, int wl)
 const Intersection& Level::get_closest_intersection(const Line& line)
 {
     std::vector<Intersection> intersections;
+
+
+
     std::vector<Point> points;
-    Point * p;
-
-    if (this->dest_.to_rectangle().intersects(line, points))
-        std::cout << "Dest intersections TODO";
-
+    if (this->dest_.to_rectangle().intersects(line, points) > 0)
+    {
+         for (auto &i : points)
+            intersections.push_back(Intersection(i, this->dest_));
+    }
 
     for (auto &i : this->walls_)
     {
+        Point * p = nullptr;
         if (line.intersects(i.to_line_segment(), &p))
-        {
-            points.push_back(Point(*p));
-            std::cout << "Walls intersections TODO";
-        }
+            intersections.push_back(Intersection(Point(*p), i));
+
+        delete p;
     }
 
     for (auto &i : this->lenses_)
     {
-        if (i.to_ellipse().intersects(line, points))
-            std::cout << "Lenses intersections TODO";
+        points.clear();
+        if (i.to_ellipse().intersects(line, points) > 0)
+        {
+            for (auto &j : points)
+            {
+                intersections.push_back(Intersection(j, i));
+            }
+        }
     }
 
     for (auto &i : this->mirrors_)
     {
+        Point* p = nullptr;
         if (line.intersects( i.to_line_segment(), &p))
-        {
-            points.push_back(Point(*p));
-            std::cout << "Mirrors intersections TODO";
-        }
+            intersections.push_back(Intersection(Point(*p), i));
+
+        delete p;
     }
 
     for (auto &i : this->nukes_)
     {
+        points.clear();
         if (i.to_ellipse().intersects(line, points))
-            std::cout << "Nukes intersections TODO";
+        {
+            for (auto &j : points)
+                intersections.push_back(Intersection(j, i));
+        }
     }
 
     for (auto &i : this->crystals_)
     {
+        points.clear();
         if (i.to_ellipse().intersects(line, points))
-            std::cout << "Crystals intersections TODO";
+        {
+            for (auto &j : points)
+                intersections.push_back(Intersection(j, i));
+        }
     }
 
-    for (auto &i : points)
-        std::cout << i << std::endl;
+    // Lamba : virer les points qui sont du mauvais coté
+    // Trier les points
+    // Retourner l'interesction la plus proche
+
 
 
 }

@@ -27,12 +27,22 @@ struct Intersection
 
     const Point& point() const
     {
-        return point_;
+        return this->point_;
+    }
+
+    void set_point(const Point& point)
+    {
+        this->point_ = point;
     }
 
     const Element& element() const
     {
-        return element_;
+        return this->element_;
+    }
+
+    void set_element(const Element& element)
+    {
+        this->element_ = element;
     }
 };
 
