@@ -8,6 +8,7 @@
 #include "model/ellipse.h"
 #include "model/umath.h"
 #include "view/mainmenu.h"
+#include "model/constants.h"
 
 #include "Tests/test.h"
 
@@ -21,8 +22,10 @@ int main(int argc, char **argv)
 //    box.show();
 //    return app.exec();
 
-    Line l(Point(0,0),  -M_PI_4);
-    std::cout << Geometry::rad_to_slope(l.angle());
+    Line l(Point(5,5), -M_PI_2);
+    Point p(5,6);
+    std::cout << Geometry::is_on_good_side(l, p);
+
     return 0;
 
 }

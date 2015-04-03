@@ -1,7 +1,7 @@
 #ifndef TEST
 #define TEST
 
-#define RUNTEST
+//#define RUNTEST
 
 #endif // TEST
 

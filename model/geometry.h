@@ -58,6 +58,8 @@ namespace Geometry
      */
     double deg_to_rad(double degrees);
 
+    bool is_on_good_side(const Line& l, const Point& p);
+
 } // namespace Geometry
 
 #endif // GEOMETRY_H

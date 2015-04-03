@@ -7,7 +7,7 @@
 #endif
 
 #ifndef INF
-    #define INF 1.0 / 0
+    #define INF 1. / 0
 #endif
 
 #ifndef M_PI
@@ -22,6 +22,10 @@
     #define M_PI_4 M_PI / 4
 #endif
 
+/* 3 * M_PI_2 */
+#ifndef M_PI_2_3
+    #define M_PI_2_3 3 * M_PI_2
+#endif
 
 
 
