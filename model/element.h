@@ -1,6 +1,7 @@
 #ifndef ELEMENT_H
 #define ELEMENT_H
 
+#include "ostream"
 
 /**
  * Cette classe sert de super-classe
@@ -36,7 +37,7 @@ public:
      */
     inline const Type& type() const;
 
-private:
+
     Type type_;
 };
 

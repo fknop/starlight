@@ -16,8 +16,8 @@
 int main(int argc, char **argv)
 {
 //    QApplication app(argc, argv);
-//    Level * level = MapReader::level("levels/level1.lvl");
-//    level->compute_rays();
+   Level * level = MapReader::level("levels/level1.lvl");
+    level->compute_rays();
 //    MapView box(level);
 //    box.show();
 //    return app.exec();
