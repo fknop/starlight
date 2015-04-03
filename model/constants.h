@@ -27,7 +27,5 @@
     #define M_PI_2_3 3 * M_PI_2
 #endif
 
-
-
 #endif // CONSTANTS_H
 

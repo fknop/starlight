@@ -7,6 +7,7 @@
 #include "point.h"
 #include "rectangle.h"
 
+
 /**
  * Cette classe modélise la destination utilisée dans le jeu.
  * </p>
