@@ -31,7 +31,9 @@ std::ostream & operator<<(std::ostream & out, const Point & p)
 
 bool Point::operator==(const Point p) const
 {
-    return p.x_ == this->x_ && p.y_ == this->y_;
+    double epsilon = 0.001;
+
+    return std::abs(p.x_ - this->x_) < epsilon && abs(p.y_ - this->y_) < epsilon;
 }
 
 const Point& Point::operator =(const Point& p2)
