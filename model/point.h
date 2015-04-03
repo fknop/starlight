@@ -106,7 +106,8 @@ class Point
      * @return vrai si les coordonnées d'un point sont égales
      * aux coordonnées d'un autre point.
      */
-    friend bool operator==(const Point& p1, const Point& p2);
+    bool operator==(const Point p) const;
+
 
 };
 

@@ -9,7 +9,9 @@
 #include "model/umath.h"
 #include "view/mainmenu.h"
 
+#include "Tests/test.h"
 
+#ifndef RUNTEST
 int main(int argc, char **argv)
 {
 //    QApplication app(argc, argv);
@@ -19,12 +21,12 @@ int main(int argc, char **argv)
 //    box.show();
 //    return app.exec();
 
-    Point p(3, 17);
-    PolarPoint pp(p);
-
-
-    std::cout << pp << std::endl;
-    std::cout << pp.to_point() << std::endl;
+    Line l(Point(0,0), Point(6,6));
+    Line vl(Point(4,0), Point(4, 10));
+    Point * p = nullptr;
+    bool b = l.intersects(vl, &p);
+    std::cout << (*p == Point(4,4));
     return 0;
 
 }
+#endif

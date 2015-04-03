@@ -44,7 +44,9 @@ HEADERS += \
     view/mirrorview.h \
     view/nukeview.h \
     view/sourceview.h \
-    view/wallview.h
+    view/wallview.h \
+    Tests/catch.hpp \
+    Tests/test.h
 
 SOURCES += \
     mapreader.cpp \
@@ -77,4 +79,6 @@ SOURCES += \
     view/nukeview.cpp \
     view/sourceview.cpp \
     view/wallview.cpp \
-    main.cpp
+    main.cpp \
+    Tests/pointtest.cpp \
+    Tests/intersectionstest.cpp

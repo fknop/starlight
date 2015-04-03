@@ -6,6 +6,13 @@
 #include "linesegment.h"
 #include "point.h"
 
+/*
+ * y = -ax -c / b
+ * y = -a/b
+ * x = -c/b
+ * Verticale si b = 0
+ * |a/b| > infini
+ */
 
 /**
  * Cette classe représente une droite.
@@ -91,7 +98,8 @@ public:
     friend bool operator==(const Line& l1, const Line& l2);
 
 private:
-    static Point * vertical_line_intersection(const Line& l1, const Line& l2);
+    static bool vertical_line_intersection(const Line& l1, const Line& l2,
+                                              Point** intersection);
 };
 
 /* Fonctions inlines */

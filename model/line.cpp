@@ -11,7 +11,7 @@ Line::Line(const Point& origin, double angle)
 Line::Line(const Point& p1, const Point& p2)
 {
    this->origin_ = p1;
-   this->angle_ = Geometry::rad_to_slope(p1, p2);
+   this->angle_ = Geometry::slope_to_rad(p1, p2);
 }
 
 bool Line::intersects(const Line &l, Point ** intersection) const
@@ -38,11 +38,11 @@ bool Line::intersects(const Line &l, Point ** intersection) const
    // Droites verticales
    if (std::abs(std::fmod(this->angle_, M_PI)) == (M_PI_2))
    {
-       *intersection = vertical_line_intersection(*this, l);
+       vertical_line_intersection(*this, l, intersection);
    }
    else if (std::abs(std::fmod(l.angle_, M_PI)) == (M_PI_2))
    {
-       *intersection = vertical_line_intersection(l, *this);
+       vertical_line_intersection(l, *this, intersection);
    }
    // droites non verticales
    else
@@ -82,12 +82,13 @@ bool operator==(const Line& l1, const Line& l2)
 }
 
 // méthode privée
-Point * Line::vertical_line_intersection(const Line& verticalL, const Line& line)
+bool Line::vertical_line_intersection(const Line& verticalL, const Line& line,
+                                      Point** intersection)
 {
     double x     = verticalL.origin_.x();
     double slope = Geometry::rad_to_slope(line.angle_);
     double b     = line.origin_.y() - (slope * line.origin_.x());
     double y     = (x * slope) + b;
-
-    return new Point(x, y);
+    *intersection = new Point(x,y);
+    return true;
 }

@@ -29,9 +29,9 @@ std::ostream & operator<<(std::ostream & out, const Point & p)
     return out;
 }
 
-bool operator==(const Point& p1, const Point& p2)
+bool Point::operator==(const Point p) const
 {
-    return p1.x_ == p2.x_ && p1.y_ == p2.y_;
+    return p.x_ == this->x_ && p.y_ == this->y_;
 }
 
 const Point& Point::operator =(const Point& p2)
