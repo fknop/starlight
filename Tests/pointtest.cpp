@@ -49,8 +49,6 @@ TEST_CASE("Opérateurs")
     }
 
 
-
-
 }
 
 #endif
