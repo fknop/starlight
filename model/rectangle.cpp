@@ -1,3 +1,5 @@
+#include <algorithm>
+
 #include "geometry.h"
 #include "rectangle.h"
 
@@ -31,11 +33,14 @@ int Rectangle::intersects(const Line & line, std::vector<Point> & points)
     };
 
     /* Pour chaque côté, s’il existe une intersection
-     * on le push dans le vecteur de points */
+     * on la push dans le vecteur de points, à moins que
+     * l’intersection soit déjà présente */
     Point * p = nullptr;
 
     for (auto &i : segments) {
-        if (line.intersects(i, &p))
+        if (line.intersects(i, &p)
+                //&& !std::binary_search(points.begin(), points.end(), *p))
+                && std::find(points.begin(), points.end(), *p) == points.end())
             points.push_back(Point(*p));
 
         delete p;
