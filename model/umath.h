@@ -30,6 +30,15 @@ namespace umath
      */
     double rho(double a, double b, double c);
 
+    /**
+     * Renvoie vrai si les 2 doubles sont égaux.
+     * @param a premier double à comparer.
+     * @param b second double à comparer.
+     * @param epsilon différence tolérée.
+     * @return vrai si les 2 doubles sont égaux module l’epsilon, faux sinon.
+     */
+    bool double_equals(double a, double b, double epsilon);
+
 } // namespace umath
 
 

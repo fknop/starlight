@@ -21,3 +21,8 @@ double umath::rho(double a, double b, double c)
     return (b*b) - (4 * a * c);
 }
 
+bool umath::double_equals(double a, double b, double epsilon = 0.0001)
+{
+    return std::abs(a - b) < epsilon;
+}
+
