@@ -9,9 +9,10 @@
 #include "view/nukeview.h"
 #include "view/sourceview.h"
 #include "view/wallview.h"
+#include "view/rayview.h"
 
 
-MapView::MapView(Level * level) : level_{level}
+MapView::MapView(Level ** level) : level_{*level}
 {
     scene_ = new QGraphicsScene(0, 0, this->level_->width(), this->level_->height());
 
@@ -19,14 +20,18 @@ MapView::MapView(Level * level) : level_{level}
     setRenderHints(QPainter::Antialiasing);
     setFixedSize(this->level_->width() + 30, this->level_->height() + 30);
 
-    Source s = level->source();
-    Dest d = level->dest();
+
+    level_->compute_rays();
+    Source s = level_->source();
+    Dest d = level_->dest();
 
     SourceView *source = new SourceView(s.position().x(), s.position().y(), s.edge(), s.edge());
     DestinationView *dest = new DestinationView(d.position().x(), d.position().y(), d.edge(), d.edge());
 
     scene_->addItem(source);
     scene_->addItem(dest);
+
+
 
 
     for (auto &i : this->level_->walls())
@@ -54,6 +59,18 @@ MapView::MapView(Level * level) : level_{level}
         draw_crystal(scene_, i);
     }
 
+    for (auto &i : this->level_->rays())
+    {
+        draw_ray(scene_, i);
+    }
+
+}
+
+void MapView::draw_ray(QGraphicsScene* s, const Ray &ray)
+{
+    RayView *item = new RayView(ray);
+
+    s->addItem(item);
 }
 
 void MapView::draw_wall(QGraphicsScene *s, const Wall& wall)

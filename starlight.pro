@@ -47,7 +47,8 @@ HEADERS += \
     view/wallview.h \
     Tests/catch.hpp \
     Tests/test.h \
-    model/constants.h
+    model/constants.h \
+    view/rayview.h
 
 SOURCES += \
     mapreader.cpp \
@@ -82,4 +83,5 @@ SOURCES += \
     view/wallview.cpp \
     main.cpp \
     Tests/pointtest.cpp \
-    Tests/intersectionstest.cpp
+    Tests/intersectionstest.cpp \
+    view/rayview.cpp

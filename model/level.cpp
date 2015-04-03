@@ -32,6 +32,7 @@ bool Level::compute_ray(Line& line, int wl)
 
     Intersection intersection = get_closest_intersection(line);
 
+    this->rays_.push_back(Ray(line.origin(), intersection.point()));
 
     Line newLine(line);
     Element::Type type = intersection.element().type();
