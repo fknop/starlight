@@ -25,6 +25,13 @@ struct Intersection
     Intersection(Point p, Element e)
         : point_{p}, element_{e} {}
 
+
+//    Intersection(const Intersection& i)
+//     {
+//        //this->point_ = i.point_;
+//        //this->element_(i.element_);
+//    }
+
     const Point& point() const
     {
         return this->point_;
@@ -35,7 +42,7 @@ struct Intersection
         this->point_ = point;
     }
 
-    const Element& element() const
+    const Element& element()
     {
         return this->element_;
     }
@@ -243,7 +250,7 @@ class Level : public Observable
 private:
 
     void compute_ray(Line& line, int wl);
-    const Intersection& get_closest_intersection(const Line& line);
+    Intersection* get_closest_intersection(const Line& line);
 };
 
 /* Fonctions inlines */

@@ -71,6 +71,7 @@ bool Line::intersects(const LineSegment &ls, Point ** intersection) const
          (ls.contains(**intersection)))
             return true;
 
+
     delete *intersection;
     *intersection = nullptr;
     return false;

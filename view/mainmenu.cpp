@@ -31,7 +31,7 @@ Game::~Game()
 void Game::start()
 {
     //start le jeu dans une nouvelle fenetre  (et ferme cette fenetre ou resize et crée dans la meme)?
-    std::cout << "start" << std::endl;
+//    std::cout << "start" << std::endl;
 }
 
 void Game::displayMainMenu()

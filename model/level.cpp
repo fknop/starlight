@@ -30,16 +30,15 @@ void Level::compute_rays()
 void Level::compute_ray(Line& line, int wl)
 {
     bool continueRay;
+    Intersection* intersection = get_closest_intersection(line);
+    Element::Type type = intersection->element().type();
 
-    Intersection intersection = get_closest_intersection(line);
+    this->rays_.push_back(Ray(line.origin(), intersection->point()));
 
-    this->rays_.push_back(Ray(line.origin(), intersection.point()));
-
-    Line newLine(line);
-    Element::Type type = intersection.element().type();
     switch (type)
     {
     case Element::Type::CRYSTAL:
+        //Crystal* crystal = dynamic_cast<Crystal*> (intersection.element());
         break;
     case Element::Type::DEST:
         this->dest_.set_lighted_up(true);
@@ -61,13 +60,17 @@ void Level::compute_ray(Line& line, int wl)
         break;
     }
 
+    // TODO
+    Line newLine(intersection->point(), M_PI);
+
+
     if (continueRay)
         compute_ray(newLine, wl);
 
 }
 
 
-const Intersection& Level::get_closest_intersection(const Line& line)
+Intersection* Level::get_closest_intersection(const Line& line)
 {
     std::vector<Intersection> intersections;
 
@@ -82,7 +85,12 @@ const Intersection& Level::get_closest_intersection(const Line& line)
     {
         Point * p = nullptr;
         if (line.intersects(i.to_line_segment(), &p))
+        {
             intersections.push_back(Intersection(Point(*p), i));
+
+            std::cout << *p;
+        }
+
 
         delete p;
     }
@@ -138,14 +146,14 @@ const Intersection& Level::get_closest_intersection(const Line& line)
     std::sort(intersections.begin(), intersections.end(),
         [line](const Intersection& a, const Intersection& b) -> bool
     {
-        double da = a.point().distance(line.origin());
-        double db = b.point().distance(line.origin());
-        return da < db;
+        double distanceA = a.point().distance(line.origin());
+        double distanceB = b.point().distance(line.origin());
+        return distanceA < distanceB;
     });
-    // Trier les points
-    // Retourner l'interesction la plus proche
 
-    return intersections.at(0);
+
+
+    return new Intersection(intersections.at(0));
 }
 
 void Level::notify(Observable * obs)

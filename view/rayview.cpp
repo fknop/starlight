@@ -8,6 +8,6 @@ RayView::RayView(const Ray& ray)
     setPen(myPen);
     setLine(ray.start().x(), ray.start().y(),
             ray.end().x(), ray.end().y());
-    std::cout << "tzst";
+
 }
 
