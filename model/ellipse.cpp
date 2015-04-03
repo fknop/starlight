@@ -3,6 +3,7 @@
 #include "ellipse.h"
 #include "geometry.h"
 #include "umath.h"
+#include "constants.h"
 
 
 Ellipse::Ellipse(const Point & p, double xRad, double yRad)
@@ -17,7 +18,7 @@ Ellipse::Ellipse(const Point & p, double xRad, double yRad)
  * pour les détails mathématiques
  * de cette méthode.
 */
-int Ellipse::intersects(const Line & l, std::vector<Point>& points)
+int Ellipse::intersects(const Line& l, std::vector<Point>& points)
 {
     double x = l.origin().x();
     double y = l.origin().y();

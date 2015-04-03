@@ -46,7 +46,8 @@ HEADERS += \
     view/sourceview.h \
     view/wallview.h \
     Tests/catch.hpp \
-    Tests/test.h
+    Tests/test.h \
+    model/constants.h
 
 SOURCES += \
     mapreader.cpp \
