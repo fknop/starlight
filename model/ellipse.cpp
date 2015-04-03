@@ -33,8 +33,7 @@ int Ellipse::intersects(const Line & l, std::vector<Point>& points)
     double lcmx = lcm / (yR*yR);
     double lcmy = lcm / (xR*xR);
 
-
-    bool verticalLine = std::abs(std::fmod(l.angle(), M_PI)) == (M_PI_2);
+    bool verticalLine = umath::double_equals(std::abs(std::fmod(l.angle(), M_PI)), (M_PI_2));
 
     if (verticalLine)
     {

@@ -1,5 +1,6 @@
 #include "geometry.h"
 #include "line.h"
+#include "umath.h"
 
 
 Line::Line(const Point& origin, double angle)
@@ -36,11 +37,11 @@ bool Line::intersects(const Line &l, Point ** intersection) const
     }
 
    // Droites verticales
-   if (std::abs(std::fmod(this->angle_, M_PI)) == (M_PI_2))
+   if (umath::double_equals(std::abs(std::fmod(this->angle_, M_PI)), (M_PI_2)))
    {
        vertical_line_intersection(*this, l, intersection);
    }
-   else if (std::abs(std::fmod(l.angle_, M_PI)) == (M_PI_2))
+   else if (umath::double_equals(std::abs(std::fmod(l.angle_, M_PI)), (M_PI_2)))
    {
        vertical_line_intersection(l, *this, intersection);
    }
@@ -51,8 +52,8 @@ bool Line::intersects(const Line &l, Point ** intersection) const
        slope2 = Geometry::rad_to_slope(l.angle_);
        b1     = this->origin_.y() - (slope1 * this->origin_.x());
        b2     = l.origin_.y()     - (slope2 * l.origin_.x());
-       x     = (b2 - b1) / (slope1 - slope2);
-       y     = (slope2 * x) + b2;
+       x      = (b2 - b1) / (slope1 - slope2);
+       y      = (slope2 * x) + b2;
 
        *intersection = new Point(x, y);
    }
@@ -69,7 +70,6 @@ bool Line::intersects(const LineSegment &ls, Point ** intersection) const
     if ((intersects(Line(start, rad), intersection)) &&
          (ls.contains(**intersection)))
             return true;
-
 
     delete *intersection;
     *intersection = nullptr;

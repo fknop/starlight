@@ -20,12 +20,12 @@ Mirror::Mirror(const Point & p, double x, double len, double a, Point pm,
     if (length_ <= 0 || xpad_ < 0)
         throw std::string("La longueur et le décalage doivent etre positifs.");
 
-   if (!check_pivot_range(p))
-       throw std::string("Le pivot n'est pas dans les bornes autorisées.");
+    if (!check_pivot_range(p))
+        throw std::string("Le pivot n'est pas dans les bornes autorisées.");
 
     if (!check_angle_range(alpha_))
         throw std::string("L'inclinaison du mirroir est invalide. "
-        "Elle n'est pas comprise entre les bornes.");
+                          "Elle n'est pas comprise entre les bornes.");
 }
 
 bool Mirror::check_angle_range(double a) const
@@ -65,6 +65,7 @@ void Mirror::translate(double x, double y)
 {
     double newX = this->pivot_.x() + x;
     double newY = this->pivot_.y() + y;
+
     if (!set_pivot(Point(newX, newY)))
     {
         if (newX < this->x_min_)

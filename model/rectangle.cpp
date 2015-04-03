@@ -2,14 +2,14 @@
 #include "rectangle.h"
 
 
-Rectangle::Rectangle(const Point& upperLeft, double width, double height)
+Rectangle::Rectangle(const Point & upperLeft, double width, double height)
     : upper_left_ {upperLeft}, width_{width}, height_{height}
 {
     if (width <= 0 || height <= 0)
         throw std::string("Dimensions invalides");
 }
 
-int Rectangle::intersects(const Line& line, std::vector<Point> & points)
+int Rectangle::intersects(const Line & line, std::vector<Point> & points)
 {
     /* On crée les 3 coins manquants du rectangle */
     Point bottomLeft(this->upper_left_.x(),
@@ -21,7 +21,7 @@ int Rectangle::intersects(const Line& line, std::vector<Point> & points)
     Point bottomRight(this->upper_left_.x() + this->width_,
                       this->upper_left_.y() + this->height_);
 
-    /* On push les 4 cotés du rectangle dans un vecteur */
+    /* On push les 4 côtés du rectangle dans un vecteur */
     std::vector<LineSegment> segments
     {
             LineSegment(this->upper_left_, upperRight),
@@ -30,7 +30,7 @@ int Rectangle::intersects(const Line& line, std::vector<Point> & points)
             LineSegment(upperRight, bottomRight)
     };
 
-    /* Pour chaque coté, si il existe une intersection
+    /* Pour chaque côté, s’il existe une intersection
      * on le push dans le vecteur de points */
     Point * p = nullptr;
 
@@ -52,8 +52,8 @@ int Rectangle::intersects(const LineSegment& ls, std::vector<Point> & points)
 
     intersects(Line(start, rad), points);
 
-    /* Pour chaque points, si il n'est pas sur le segment,
-     * on l'enlève du vecteur */
+    /* Enlève chaque point du vecteur qui n’est pas
+     * sur le segment. */
 
     for (auto i = points.begin(); i != points.end(); )
     {

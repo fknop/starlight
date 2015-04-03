@@ -44,7 +44,6 @@ namespace Geometry
      */
     double rad_to_slope(double rad);
 
-
     /**
      * Retourne l'angle en radians de la pente du segment
      * qui rejoint deux points.

@@ -2,6 +2,7 @@
 
 #include "point.h"
 #include "polarpoint.h"
+#include "umath.h"
 
 
 Point::Point(double x, double y) : x_ {x}, y_ {y}
@@ -31,9 +32,7 @@ std::ostream & operator<<(std::ostream & out, const Point & p)
 
 bool Point::operator==(const Point p) const
 {
-    double epsilon = 0.001;
-
-    return std::abs(p.x_ - this->x_) < epsilon && abs(p.y_ - this->y_) < epsilon;
+    return umath::double_equals(p.x_, this->x_) && umath::double_equals(p.y_, this->y_);
 }
 
 const Point& Point::operator =(const Point& p2)
