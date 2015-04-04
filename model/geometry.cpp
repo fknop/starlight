@@ -55,12 +55,12 @@ bool Geometry::is_on_good_side(const Line& l, const Point& p)
         else
             return p.y() < l.origin().y();
     }
-    else if (tmp > M_PI_2)
+    else if (angle > M_PI_2 && angle < M_PI_2_3)
     {
-        return p.x() > l.origin().x();
+        return p.x() < l.origin().x();
     }
     else
     {
-        return p.x() < l.origin().x();
+        return p.x() > l.origin().x();
     }
 }

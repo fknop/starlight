@@ -28,11 +28,11 @@ struct Intersection
         element_ = e;
     }
 
-    ~Intersection()
-    {
-        delete point_;
-        delete element_;
-    }
+//    ~Intersection()
+//    {
+//        delete point_;
+//        delete element_;
+//    }
 
     Point* point() const
     {

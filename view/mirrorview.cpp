@@ -12,7 +12,7 @@ MirrorView::MirrorView(const Mirror& mirror) : mirror_{mirror}, rotation_{0}
     double len    = mirror.length();
     double xpad   = mirror.x_pad();
     double angle  = mirror.angle();
-    double gx = pivotX - (xpad * cos(angle));
+    double gx = pivotX -(xpad * cos(angle));
     double gy = pivotY - (xpad * sin(angle));
     double dx = pivotX + ((len-xpad) * cos(angle));
     double dy = pivotY + ((len-xpad) * sin(angle));
