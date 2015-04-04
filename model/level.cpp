@@ -21,7 +21,8 @@ void Level::compute_rays()
 
     add_mirror(Mirror(Point(30, 500), 29, 58, (M_PI*2 - M_PI_4)));
     add_mirror(Mirror(Point(60,500), 0, 58, M_PI_4));
-    add_mirror(Mirror(Point(50, 400), 0, 58, -M_PI_4 - 0.3));
+    add_mirror(Mirror(Point(40, 400), 0, 58, M_PI_4));
+    add_mirror(Mirror(Point(90, 380), 0, 58, M_PI_2 + 0.5));
     Point pSource = this->source_.position();
     double radians = this->source_.angle();
     Line ray(pSource, radians);
@@ -79,23 +80,26 @@ Level::State Level::compute_ray(Line& line, int wl)
         double mirrorAngle =
                 mirror->angle() < 0 ? (2*M_PI) + mirror->angle() : mirror->angle();
 
-        double a = line.angle() - M_PI;
+        double a = std::fmod(line.angle(), M_PI);
         double b = std::abs(a - mirrorAngle);
         double c;
+
 
         if (b > M_PI)
             c = a + std::abs(2 * (M_PI_2 - b));
         else
-            c = a - std::abs(2 * (M_PI_2 -b));
+            c = a - std::abs(2 * (M_PI_2 - b));
+
+
+        if (c < 0)
+            c += (2*M_PI);
 
         if (c > (2*M_PI))
-            c = c - (2*M_PI);
+            c -= (2*M_PI);
+
         angle = c;
 
-        std::cout << "Angle mirroir : " << Geometry::rad_to_deg(mirror->angle()) << std::endl;
-        std::cout << "Angle rayon : " << Geometry::rad_to_deg(line.angle()) << std::endl;
-        std::cout << "Angle =/= axe X mirroir : " << Geometry::rad_to_deg(a) << std::endl;
-        std::cout << "Angle =/= Mirroir  : " << Geometry::rad_to_deg(b) << std::endl;
+
         std::cout << "Angle réfléchi : " << Geometry::rad_to_deg(c) << std::endl;
         state = State::CONTINUE;
         break;
@@ -143,15 +147,18 @@ Intersection* Level::get_closest_intersection(const Line& line)
             intersections.push_back(Intersection(&i, &this->dest_));
     }
 
+    std::cout << "Après dest : " << intersections.size() << std::endl;
+
     for (auto &i : this->walls_)
     {
         Point * p = nullptr;
         if (line.intersects(i.to_line_segment(), &p))
-        {
             intersections.push_back(Intersection(new Point(*p), &i));
-        }
+
         delete p;
     }
+
+    std::cout << "Après walls : " << intersections.size() << std::endl;
 
     for (auto &i : this->lenses_)
     {
@@ -163,6 +170,8 @@ Intersection* Level::get_closest_intersection(const Line& line)
         }
     }
 
+    std::cout << "Après lens : " << intersections.size() << std::endl;
+
     for (auto &i : this->mirrors_)
     {
         Point* p = nullptr;
@@ -171,6 +180,8 @@ Intersection* Level::get_closest_intersection(const Line& line)
 
         delete p;
     }
+
+    std::cout << "Après mirrors : " << intersections.size() << std::endl;
 
     for (auto &i : this->nukes_)
     {
@@ -182,6 +193,8 @@ Intersection* Level::get_closest_intersection(const Line& line)
         }
     }
 
+    std::cout << "Après nukes : " << intersections.size() << std::endl;
+
     for (auto &i : this->crystals_)
     {
         points.clear();
@@ -192,14 +205,26 @@ Intersection* Level::get_closest_intersection(const Line& line)
         }
     }
 
+    std::cout << "Après crystals : " << intersections.size() << std::endl;
+
+    for (auto &i : intersections)
+    {
+        std::cout << *i.point() << std::endl;
+        std::cout << line.angle() << std::endl;
+    }
+
     // Supression des points du mauvais coté
-    for (auto i = intersections.begin(); i != intersections.end();)
+    for (auto i = intersections.begin(); i != intersections.end(); )
     {
         if (!Geometry::is_on_good_side(line, *(*i).point()))
             i = intersections.erase(i);
         else
             ++i;
     }
+
+    std::cout << "Après erase : " << intersections.size() << std::endl;
+
+
 
     std::sort(intersections.begin(), intersections.end(),
               [line](const Intersection& a, const Intersection& b) -> bool
