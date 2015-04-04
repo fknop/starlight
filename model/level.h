@@ -52,7 +52,7 @@ struct Intersection
  * Une carte est un ensemble de composants tels que des murs,
  * des miroirs, etc.
  */
-class Level : public Observable
+class Level : public Observer
 {
 
     enum class State

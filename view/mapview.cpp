@@ -68,46 +68,48 @@ MapView::MapView(Level ** level) : level_{*level}
 
 void MapView::draw_ray(QGraphicsScene* s, const Ray &ray)
 {
-    RayView *item = new RayView(ray);
+    RayView *rv = new RayView(ray);
 
-    s->addItem(item);
+    s->addItem(rv);
 }
 
 void MapView::draw_wall(QGraphicsScene *s, const Wall& wall)
 {
-    WallView *item1 = new WallView(wall);
+    WallView *wv = new WallView(wall);
 
-    s->addItem(item1);
+    s->addItem(wv);
 }
 
 
 void MapView::draw_mirror(QGraphicsScene *s, const Mirror& mirror)
 {
-    MirrorView *item1 = new MirrorView(mirror);
+    MirrorView *mv = new MirrorView(mirror);
 
-    s->addItem(item1);
+    //mirror.add_observer(this->level_);
+
+    s->addItem(mv);
 }
 
 
 void MapView::draw_nuke(QGraphicsScene *s, const Nuke& nuke)
 {
-    NukeView *item1 = new NukeView(nuke);
+    NukeView *nv = new NukeView(nuke);
 
-    s->addItem(item1);
+    s->addItem(nv);
 }
 
 void MapView::draw_lens(QGraphicsScene *s, const Lens& lens)
 {
-    LensView *item1 = new LensView(lens);
+    LensView *lv = new LensView(lens);
 
-    s->addItem(item1);
+    s->addItem(lv);
 }
 
 void MapView::draw_crystal(QGraphicsScene *s, const Crystal& crystal)
 {
-    CrystalView *item1 = new CrystalView(crystal);
+    CrystalView *cv = new CrystalView(crystal);
 
-    s->addItem(item1);
+    s->addItem(cv);
 }
 
 

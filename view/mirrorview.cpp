@@ -30,7 +30,7 @@ MirrorView::MirrorView(const Mirror& mirror) : mirror_{mirror}, rotation_{0}
 
 void MirrorView::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
-    initialPos_ = event->pos();
+    init_pos_ = event->pos();
     QGraphicsItem::mousePressEvent(event);
 }
 
@@ -40,9 +40,10 @@ void MirrorView::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
     std::cout << "event scenepos y : " << event->scenePos().y() << std::endl;
 
 
-    setPos(this->mapToParent(event->pos() - initialPos_));
+    setPos(this->mapToParent(event->pos() - init_pos_));
     // set position pivot
 
+    mirror_.set_pivot(Point(event->pos().x() - init_pos_.x(), event->pos().y() - init_pos_.y()));
 }
 
 

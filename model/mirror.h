@@ -5,6 +5,7 @@
 
 #include "element.h"
 #include "linesegment.h"
+#include "obs/observable.h"
 #include "point.h"
 #include "polarpoint.h"
 
@@ -20,7 +21,7 @@
  * Les miroirs sont capables d'être déplacés et pivotés dans
  *  une certaine limite.
  */
-class Mirror : public Element
+class Mirror : public Element, public Observable
 {
     Point pivot_;
     double length_;

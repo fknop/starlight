@@ -4,6 +4,7 @@
 #include <iostream>
 
 #include "element.h"
+#include "obs/observable.h"
 #include "point.h"
 
 
@@ -17,7 +18,7 @@
  * Le rayon lumineux est émis depuis la position, i.e., le coin
  * supérieur gauche, de la source.
  */
-class Source
+class Source : public Observable
 {
     bool on_ {false};
     Point pos_;

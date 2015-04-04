@@ -203,7 +203,7 @@ Intersection* Level::get_closest_intersection(const Line& line)
 
 void Level::notify(Observable * obs)
 {
-    for (Observer * o : this->observers_)
-        o->notify(obs);
+//    for (Observer * o : this->observers_)
+//        o->notify(obs);
 }
 

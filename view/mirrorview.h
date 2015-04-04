@@ -33,7 +33,7 @@ public:
     void set_rotation(qreal angle);
 
 private:
-    QPointF initialPos_;
+    QPointF init_pos_;
     Mirror mirror_;
     qreal rotation_;
 };
