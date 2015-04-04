@@ -74,26 +74,18 @@ Level::State Level::compute_ray(Line& line, int wl)
     case Element::Type::MIRROR:
     {
         mirror = dynamic_cast<Mirror*> (intersection->element());
+        double mirrorAngle =
+                mirror->angle() < 0 ? (2*M_PI) + mirror->angle() : mirror->angle();
+
+        double a = line.angle() > M_PI ? line.angle() - M_PI : line.angle() + M_PI;
+        double b = std::abs(a - mirrorAngle);
+        double c = a + (2* std::abs(M_PI_2 - b));
+        angle = c;
+
         std::cout << "Angle mirroir : " << Geometry::rad_to_deg(mirror->angle()) << std::endl;
         std::cout << "Angle rayon : " << Geometry::rad_to_deg(line.angle()) << std::endl;
-        double a = line.angle() > M_PI ? line.angle() - M_PI : line.angle() + M_PI;
         std::cout << "Angle =/= axe X mirroir : " << Geometry::rad_to_deg(a) << std::endl;
-        double b = std::abs(a - mirror->angle());
         std::cout << "Angle =/= Mirroir  : " << Geometry::rad_to_deg(b) << std::endl;
-        double d = a + (2* std::abs(M_PI_2 - b));
-        angle = d;
-
-        // Angle A = Angle > 180 ? Angle MOD pi : Angle + 180
-        // Angle B : |Angle A - angle inclinaison|
-        // Angle C : Angle M_PI_2 + inclinaison
-        // Angle D : Angle A + 2*(C-B)
-
-        // Angle A : 315 degré MOD PI : 135
-        // Angle B : 105 degré
-        // Angle C : 120 degré
-        // Angle D : 135 + 30;
-
-
         state = State::CONTINUE;
         break;
     }
