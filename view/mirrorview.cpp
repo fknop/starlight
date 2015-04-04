@@ -56,6 +56,6 @@ void MirrorView::set_rotation(qreal angle)
 {
     rotation_ = angle;
     QGraphicsLineItem::setRotation(angle);
-
+    mirror_.set_angle(angle);
 }
 
