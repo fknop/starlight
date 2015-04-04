@@ -19,8 +19,9 @@ Level::Level(double w, double h) : width_ {w}, height_ {h},
 void Level::compute_rays()
 {
 
-    add_mirror(Mirror(Point(30, 500), 29, 58, -M_PI_4));
+    add_mirror(Mirror(Point(30, 500), 29, 58, (M_PI*2 - M_PI_4)));
     add_mirror(Mirror(Point(60,500), 0, 58, M_PI_4));
+    add_mirror(Mirror(Point(50, 400), 0, 58, -M_PI_4 - 0.3));
     Point pSource = this->source_.position();
     double radians = this->source_.angle();
     Line ray(pSource, radians);
@@ -78,9 +79,14 @@ Level::State Level::compute_ray(Line& line, int wl)
         double mirrorAngle =
                 mirror->angle() < 0 ? (2*M_PI) + mirror->angle() : mirror->angle();
 
-        double a = line.angle() > M_PI ? line.angle() - M_PI : line.angle() + M_PI;
+        double a = line.angle() - M_PI;
         double b = std::abs(a - mirrorAngle);
-        double c = a + std::abs(2 * (M_PI_2 - b));
+        double c;
+
+        if (b > M_PI)
+            c = a + std::abs(2 * (M_PI_2 - b));
+        else
+            c = a - std::abs(2 * (M_PI_2 -b));
 
         if (c > (2*M_PI))
             c = c - (2*M_PI);
