@@ -33,6 +33,8 @@ void Level::compute_ray(Line& line, int wl)
     Intersection* intersection = get_closest_intersection(line);
     Element::Type type = intersection->element().type();
 
+
+
     this->rays_.push_back(Ray(line.origin(), intersection->point()));
 
     switch (type)
@@ -45,11 +47,14 @@ void Level::compute_ray(Line& line, int wl)
         continueRay = false;
         //Notifie vue -> Allumer la dest.
         // bool = gagner ?
+
         break;
     case Element::Type::LENS:
+        //mur ou passer
         continueRay = true;
         break;
     case Element::Type::MIRROR:
+        //reflexion
         continueRay = true;
         break;
     case Element::Type::NUKE:

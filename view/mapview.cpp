@@ -21,7 +21,7 @@ MapView::MapView(Level ** level) : level_{*level}
     setFixedSize(this->level_->width() + 30, this->level_->height() + 30);
 
 
-    level_->compute_rays();
+
     Source s = level_->source();
     Dest d = level_->dest();
 

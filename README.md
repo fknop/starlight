@@ -9,9 +9,10 @@
 
 **Une fois effectué -> Barrer la ligne !**
 
+* PRIORITE : Faire le cast d'un élément en sous-élément !
 * ~~Gérer les lignes verticales.~~
 * ~~Gérer les intersections entres droites, segments, ellipses.~~
-* Gérer le retour du point d'intersection et de l'objet. 
+* ~~Gérer le retour du point d'intersection et de l'objet.~~
 * Gérer les vérifications dans les constructeurs. - A FINIR
 * Gérer la reflexion du rayon sur un miroir. 
 * Gérer les divers évènements lors de l'intersection avec un objet.
