@@ -61,7 +61,7 @@ bool Line::intersects(const Line &l, Point ** intersection) const
    return true;
 }
 
-bool Line::intersects(const LineSegment &ls, Point ** intersection) const
+bool Line::intersects(const LineSegment &ls, Point** intersection) const
 {
     Point start = ls.start();
     Point end = ls.end();
