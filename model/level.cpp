@@ -19,7 +19,7 @@ Level::Level(double w, double h) : width_ {w}, height_ {h},
 void Level::compute_rays()
 {
 
-    add_mirror(Mirror(Point(30, 500), 29, 58, 0.872664626));
+    add_mirror(Mirror(Point(30, 500), 29, 58, -M_PI_4));
     Point pSource = this->source_.position();
     double radians = this->source_.angle();
     Line ray(pSource, radians);

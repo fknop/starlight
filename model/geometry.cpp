@@ -44,23 +44,45 @@ double Geometry::rad_to_slope(double rad)
 bool Geometry::is_on_good_side(const Line& l, const Point& p)
 {
     double angle = l.angle();
-    double tmp = angle < 0 ? (2 * M_PI) + angle : angle;
-    tmp = std::fmod(tmp, M_PI);
 
-    if (tmp == M_PI_2)
-    {
-        if (umath::double_equals(angle, M_PI_2_3) || umath::double_equals(angle, -M_PI_2))
+    if (umath::double_equals(angle, M_PI_2)
+            || umath::double_equals(angle, -M_PI_2_3))
+            return umath::double_equals(p.x(), l.origin().x())
+                && p.y() < l.origin().y();
+
+    if (umath::double_equals(angle, M_PI_2_3)
+            || umath::double_equals(angle, -M_PI_2))
             return p.y() > l.origin().y();
 
-        else
-            return p.y() < l.origin().y();
-    }
-    else if (angle > M_PI_2 && angle < M_PI_2_3)
+
+    if (umath::double_equals(angle, M_PI)
+            || umath::double_equals(angle, -M_PI))
+        return umath::double_equals(p.y(), l.origin().y())
+                && p.x() < l.origin.x();
+
+    if (umath::double_equals(angle, 0)
+            || umath::double_equals(std::abs(angle), 2*M_PI))
+        return umath::double_equals(p.y(), l.origin().y())
+                && p.x() > l.origin.x();
+
+    // IL FAUT AUSSI GERER LES ANGLES NEGATIFS !
+    if (angle > 0 && angle < M_PI_2)
     {
+        //premier quadrant
         return p.x() < l.origin().x();
     }
-    else
+    else if (angle > M_PI_2 && angle < M_PI)
     {
+        //deuxième quadrant
         return p.x() > l.origin().x();
     }
+    else if (angle > M_PI && angle < M_PI_2_3)
+    {
+        //3eme quadrant
+    }
+    else if (angle > M_PI_2_3 && angle < 2 * M_PI)
+    {
+        //4eme quadrant
+    }
+
 }
