@@ -8,11 +8,11 @@
 
 Level::Level(double w, double h) : width_ {w}, height_ {h},
     walls_ { {{.0, .0}, {.0, h}}, {{.0, h}, {w, h}},
-            {{w, h}, {w, .0}}, {{w, .0}, {.0, .0}} }
+{{w, h}, {w, .0}}, {{w, .0}, {.0, .0}} }
 {
     if (w <= 0 || h <= 0)
         throw std::string("La taille et la longueur "
-            "du plateau doivent etre strictement positives");
+                          "du plateau doivent etre strictement positives");
 
 }
 
@@ -27,50 +27,84 @@ void Level::compute_rays()
 
 }
 
-void Level::compute_ray(Line& line, int wl)
+Level::State Level::compute_ray(Line& line, int wl)
 {
-    bool continueRay;
+    State state;
+    double angle = line.angle();
     Intersection* intersection = get_closest_intersection(line);
-    Element::Type type = intersection->element().type();
+    Element::Type type = intersection->element()->type();
 
+    this->rays_.push_back(Ray(line.origin(), *intersection->point()));
 
-
-    this->rays_.push_back(Ray(line.origin(), intersection->point()));
+    Nuke* nuke = nullptr;
+    Mirror* mirror = nullptr;
+    Lens* lens = nullptr;
+    Crystal* crystal = nullptr;
 
     switch (type)
     {
-    case Element::Type::CRYSTAL:
-        //Crystal* crystal = dynamic_cast<Crystal*> (intersection.element());
-        break;
-    case Element::Type::DEST:
-        this->dest_.set_lighted_up(true);
-        continueRay = false;
-        //Notifie vue -> Allumer la dest.
-        // bool = gagner ?
 
-        break;
-    case Element::Type::LENS:
-        //mur ou passer
-        continueRay = true;
-        break;
-    case Element::Type::MIRROR:
-        //reflexion
-        continueRay = true;
-        break;
-    case Element::Type::NUKE:
-        continueRay = false;
-        break;
-    case Element::Type::WALL:
-        continueRay = false;
+    case Element::Type::CRYSTAL:
+    {
+        crystal = dynamic_cast<Crystal*> (intersection->element());
+        wl += crystal->modifier();
+        state = State::CONTINUE;
         break;
     }
 
-    // TODO
-    Line newLine(intersection->point(), M_PI);
+    case Element::Type::DEST:
+    {
+        this->dest_.set_lighted_up(true);
 
+        state = State::WIN;
+        break;
+    }
 
-    if (continueRay)
+    case Element::Type::LENS:
+    {
+        lens = dynamic_cast<Lens*> (intersection->element());
+        if (wl >= lens->wl_min() && wl <= lens->wl_max())
+            state = State::CONTINUE; // ou stop
+        else
+            state = State::STOP;
+        break;
+    }
+
+    case Element::Type::MIRROR:
+    {
+        mirror = dynamic_cast<Mirror*> (intersection->element());
+
+        state = State::CONTINUE;
+        break;
+    }
+
+    case Element::Type::NUKE:
+    {
+
+        nuke = dynamic_cast<Nuke*> (intersection->element());
+        nuke->set_lighted_up(true);
+        state = State::LOSE;
+        break;
+
+    }
+
+    case Element::Type::WALL:
+    {
+        state = State::STOP;
+        break;
+    }
+
+    }
+
+    if (state == State::CONTINUE)
+    {
+        Line newLine(Point(*intersection->point()), angle);
         compute_ray(newLine, wl);
+    }
+
+    delete intersection;
+    return state;
+
 
 }
 
@@ -82,8 +116,8 @@ Intersection* Level::get_closest_intersection(const Line& line)
     std::vector<Point> points;
     if (this->dest_.to_rectangle().intersects(line, points) > 0)
     {
-         for (auto &i : points)
-            intersections.push_back(Intersection(i, this->dest_));
+        for (auto &i : points)
+            intersections.push_back(Intersection(&i, &this->dest_));
     }
 
     for (auto &i : this->walls_)
@@ -91,12 +125,8 @@ Intersection* Level::get_closest_intersection(const Line& line)
         Point * p = nullptr;
         if (line.intersects(i.to_line_segment(), &p))
         {
-            intersections.push_back(Intersection(Point(*p), i));
-
-            std::cout << *p;
+            intersections.push_back(Intersection(new Point(*p), &i));
         }
-
-
         delete p;
     }
 
@@ -106,7 +136,7 @@ Intersection* Level::get_closest_intersection(const Line& line)
         if (i.to_ellipse().intersects(line, points) > 0)
         {
             for (auto &j : points)
-                intersections.push_back(Intersection(j, i));
+                intersections.push_back(Intersection(&j, &i));
         }
     }
 
@@ -114,7 +144,7 @@ Intersection* Level::get_closest_intersection(const Line& line)
     {
         Point* p = nullptr;
         if (line.intersects( i.to_line_segment(), &p))
-            intersections.push_back(Intersection(Point(*p), i));
+            intersections.push_back(Intersection(new Point(*p), &i));
 
         delete p;
     }
@@ -125,7 +155,7 @@ Intersection* Level::get_closest_intersection(const Line& line)
         if (i.to_ellipse().intersects(line, points))
         {
             for (auto &j : points)
-                intersections.push_back(Intersection(j, i));
+                intersections.push_back(Intersection(new Point(j), &i));
         }
     }
 
@@ -135,28 +165,26 @@ Intersection* Level::get_closest_intersection(const Line& line)
         if (i.to_ellipse().intersects(line, points))
         {
             for (auto &j : points)
-                intersections.push_back(Intersection(j, i));
+                intersections.push_back(Intersection(new Point(j), &i));
         }
     }
 
     // Supression des points du mauvais coté
     for (auto i = intersections.begin(); i != intersections.end();)
     {
-        if (!Geometry::is_on_good_side(line, (*i).point()))
+        if (!Geometry::is_on_good_side(line, *(*i).point()))
             i = intersections.erase(i);
         else
             ++i;
     }
 
     std::sort(intersections.begin(), intersections.end(),
-        [line](const Intersection& a, const Intersection& b) -> bool
+              [line](const Intersection& a, const Intersection& b) -> bool
     {
-        double distanceA = a.point().distance(line.origin());
-        double distanceB = b.point().distance(line.origin());
+        double distanceA = a.point()->distance(line.origin());
+        double distanceB = b.point()->distance(line.origin());
         return distanceA < distanceB;
     });
-
-
 
     return new Intersection(intersections.at(0));
 }

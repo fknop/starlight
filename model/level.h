@@ -19,37 +19,29 @@
 
 struct Intersection
 {
-    Point point_;
-    Element element_;
+    Point* point_;
+    Element* element_;
 
-    Intersection(Point p, Element e)
-        : point_{p}, element_{e} {}
+    Intersection(Point* p, Element* e)
+    {
+        point_ = p;
+        element_ = e;
+    }
 
+    ~Intersection()
+    {
+        delete point_;
+        delete element_;
+    }
 
-//    Intersection(const Intersection& i)
-//     {
-//        //this->point_ = i.point_;
-//        //this->element_(i.element_);
-//    }
-
-    const Point& point() const
+    Point* point() const
     {
         return this->point_;
     }
 
-    void set_point(const Point& point)
-    {
-        this->point_ = point;
-    }
-
-    const Element& element()
+    Element* element()
     {
         return this->element_;
-    }
-
-    void set_element(const Element& element)
-    {
-        this->element_ = element;
     }
 };
 
@@ -62,6 +54,16 @@ struct Intersection
  */
 class Level : public Observable
 {
+
+    enum class State
+    {
+        WIN,
+        LOSE,
+        STOP,
+        CONTINUE
+    };
+
+
     const double width_;
     const double height_;
 
@@ -249,7 +251,7 @@ class Level : public Observable
 
 private:
 
-    void compute_ray(Line& line, int wl);
+    State compute_ray(Line& line, int wl);
     Intersection* get_closest_intersection(const Line& line);
 };
 
