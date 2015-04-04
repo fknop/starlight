@@ -25,13 +25,14 @@ MapView::MapView(Level ** level) : level_{*level}
     Source s = level_->source();
     Dest d = level_->dest();
 
-    SourceView *source = new SourceView(s.position().x(), s.position().y(), s.edge(), s.edge());
+    SourceView *source = new SourceView(s);
     DestinationView *dest = new DestinationView(d.position().x(), d.position().y(), d.edge(), d.edge());
 
     scene_->addItem(source);
     scene_->addItem(dest);
 
 
+    s.add_observer(this->level_);
 
 
     for (auto &i : this->level_->walls())

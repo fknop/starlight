@@ -5,6 +5,9 @@
 #include <QGraphicsRectItem>
 #include <QGraphicsSceneMouseEvent>
 
+#include "model/source.h"
+
+
 /**
  * Modélisation visuelle d’une source.
  */
@@ -18,13 +21,14 @@ public:
      * @param width longueur du carré représentant la source.
      * @param height hauteur du carré représentant la source.
      */
-    SourceView(int posX, int posY, int width, int height);
+    SourceView(const Source& source);
 
     void mousePressEvent(QGraphicsSceneMouseEvent *event);
     void mouseMoveEvent(QGraphicsSceneMouseEvent *event);
 
 private:
     bool active;
+    Source source_;
 
 };
 

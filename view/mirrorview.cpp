@@ -9,9 +9,9 @@ MirrorView::MirrorView(const Mirror& mirror) : mirror_{mirror}, rotation_{0}
 
     double pivotX = mirror.pivot().x();
     double pivotY = mirror.pivot().y();
-    double len    = mirror.length();
-    double xpad   = mirror.x_pad();
-    double angle  = mirror.angle();
+//    double len    = mirror.length();
+//    double xpad   = mirror.x_pad();
+//    double angle  = mirror.angle();
     LineSegment seg = mirror.to_line_segment();
     double gx = seg.start().x();
     double gy = seg.start().y();

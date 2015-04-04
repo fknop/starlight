@@ -1,9 +1,10 @@
+#include "model/source.h"
 #include "sourceview.h"
 
 
-SourceView::SourceView(int posX, int posY, int width, int height) : active{false}
+SourceView::SourceView(const Source& source) : source_{source}, active{false}
 {
-    QRectF rect(posX, posY, width, height);
+    QRectF rect(source.position().x(), source.position().y(), source.edge(), source.edge());
 
     setRect(rect);
 }
@@ -23,6 +24,8 @@ void SourceView::mousePressEvent(QGraphicsSceneMouseEvent *event)
         setPen(QPen(Qt::black));
         active = false;
     }
+
+    //source_.set_on(active);
 }
 
 void SourceView::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
