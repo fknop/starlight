@@ -22,9 +22,8 @@
     #define M_PI_4 M_PI / 4
 #endif
 
-/* 3 * M_PI_2 */
 #ifndef M_PI_2_3
-    #define M_PI_2_3 3 * M_PI_2
+    #define M_PI_2_3 (3 * M_PI_2)
 #endif
 
 #endif // CONSTANTS_H

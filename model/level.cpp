@@ -1,10 +1,10 @@
 #include <string>
 #include <vector>
+#include <algorithm>
 
 #include "geometry.h"
 #include "level.h"
-#include "algorithm"
-
+#include "constants.h"
 
 Level::Level(double w, double h) : width_ {w}, height_ {h},
     walls_ { {{.0, .0}, {.0, h}}, {{.0, h}, {w, h}},
@@ -73,6 +73,21 @@ Level::State Level::compute_ray(Line& line, int wl)
     case Element::Type::MIRROR:
     {
         mirror = dynamic_cast<Mirror*> (intersection->element());
+        double a = line.angle() > M_PI ? line.angle() - M_PI : line.angle() + M_PI;
+        double b = std::abs(a - mirror->angle());
+        double c = a < 180 ? M_PI_2 + mirror->angle() : M_PI_2_3 + mirror->angle();
+        double d = a + (2* (c - b));
+        angle = d;
+        // Angle A = Angle > 180 ? Angle MOD pi : Angle + 180
+        // Angle B : |Angle A - angle inclinaison|
+        // Angle C : Angle M_PI_2 + inclinaison
+        // Angle D : Angle A + 2*(C-B)
+
+        // Angle A : 315 degré MOD PI : 135
+        // Angle B : 105 degré
+        // Angle C : 120 degré
+        // Angle D : 135 + 30;
+
 
         state = State::CONTINUE;
         break;
