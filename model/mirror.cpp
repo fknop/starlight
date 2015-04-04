@@ -82,14 +82,14 @@ void Mirror::translate(double x, double y)
     }
 }
 
-LineSegment Mirror::to_line_segment()
+LineSegment Mirror::to_line_segment() const
 {
     double pivotX = this->pivot_.x();
     double pivotY = this->pivot_.y();
     double gx = pivotX - (this->xpad_ * std::cos(this->alpha_));
-    double gy = pivotY - (xpad_ * sin(this->alpha_));
+    double gy = pivotY + (xpad_ * sin(this->alpha_));
     double dx = pivotX + ((this->length_ - xpad_) * std::cos(this->alpha_));
-    double dy = pivotY + ((this->length_ - xpad_) * std::sin(this->alpha_));
+    double dy = pivotY - ((this->length_ - xpad_) * std::sin(this->alpha_));
     Point start(gx, gy);
     Point end(dx, dy);
 

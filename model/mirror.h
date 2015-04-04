@@ -205,7 +205,7 @@ class Mirror : public Element
      * Renvoie le segment correspondant au miroir.
      * @return le segment correspondant au miroir.
      */
-    LineSegment to_line_segment();
+    LineSegment to_line_segment() const;
 
     /**
      * Surcharge l'opérateur de flux de sortie pour
