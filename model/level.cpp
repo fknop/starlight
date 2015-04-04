@@ -20,6 +20,7 @@ void Level::compute_rays()
 {
 
     add_mirror(Mirror(Point(30, 500), 29, 58, -M_PI_4));
+    add_mirror(Mirror(Point(60,500), 0, 58, M_PI_4));
     Point pSource = this->source_.position();
     double radians = this->source_.angle();
     Line ray(pSource, radians);
@@ -79,13 +80,17 @@ Level::State Level::compute_ray(Line& line, int wl)
 
         double a = line.angle() > M_PI ? line.angle() - M_PI : line.angle() + M_PI;
         double b = std::abs(a - mirrorAngle);
-        double c = a + (2* std::abs(M_PI_2 - b));
+        double c = a + std::abs(2 * (M_PI_2 - b));
+
+        if (c > (2*M_PI))
+            c = c - (2*M_PI);
         angle = c;
 
         std::cout << "Angle mirroir : " << Geometry::rad_to_deg(mirror->angle()) << std::endl;
         std::cout << "Angle rayon : " << Geometry::rad_to_deg(line.angle()) << std::endl;
         std::cout << "Angle =/= axe X mirroir : " << Geometry::rad_to_deg(a) << std::endl;
         std::cout << "Angle =/= Mirroir  : " << Geometry::rad_to_deg(b) << std::endl;
+        std::cout << "Angle réfléchi : " << Geometry::rad_to_deg(c) << std::endl;
         state = State::CONTINUE;
         break;
     }
