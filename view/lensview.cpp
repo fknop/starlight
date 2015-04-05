@@ -3,5 +3,6 @@
 
 LensView::LensView(const Lens & lens) : lens_{lens}
 {
-    setRect(lens.position().x(), lens.position().y(), lens.width(), lens.height());
+    setRect(lens_.position().x(), lens_.position().y(),
+            lens_.width(), lens_.height());
 }

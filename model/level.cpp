@@ -29,6 +29,8 @@ void Level::compute_rays()
 
     compute_ray(ray, 600);
 
+    notify_all();
+
 }
 
 Level::State Level::compute_ray(Line& line, int wl)
@@ -147,8 +149,6 @@ Intersection* Level::get_closest_intersection(const Line& line)
             intersections.push_back(Intersection(&i, &this->dest_));
     }
 
-    std::cout << "Après dest : " << intersections.size() << std::endl;
-
     for (auto &i : this->walls_)
     {
         Point * p = nullptr;
@@ -157,8 +157,6 @@ Intersection* Level::get_closest_intersection(const Line& line)
 
         delete p;
     }
-
-    std::cout << "Après walls : " << intersections.size() << std::endl;
 
     for (auto &i : this->lenses_)
     {
@@ -170,8 +168,6 @@ Intersection* Level::get_closest_intersection(const Line& line)
         }
     }
 
-    std::cout << "Après lens : " << intersections.size() << std::endl;
-
     for (auto &i : this->mirrors_)
     {
         Point* p = nullptr;
@@ -180,8 +176,6 @@ Intersection* Level::get_closest_intersection(const Line& line)
 
         delete p;
     }
-
-    std::cout << "Après mirrors : " << intersections.size() << std::endl;
 
     for (auto &i : this->nukes_)
     {
@@ -193,8 +187,6 @@ Intersection* Level::get_closest_intersection(const Line& line)
         }
     }
 
-    std::cout << "Après nukes : " << intersections.size() << std::endl;
-
     for (auto &i : this->crystals_)
     {
         points.clear();
@@ -205,14 +197,6 @@ Intersection* Level::get_closest_intersection(const Line& line)
         }
     }
 
-    std::cout << "Après crystals : " << intersections.size() << std::endl;
-
-    for (auto &i : intersections)
-    {
-        std::cout << *i.point() << std::endl;
-        std::cout << line.angle() << std::endl;
-    }
-
     // Supression des points du mauvais coté
     for (auto i = intersections.begin(); i != intersections.end(); )
     {
@@ -221,10 +205,6 @@ Intersection* Level::get_closest_intersection(const Line& line)
         else
             ++i;
     }
-
-    std::cout << "Après erase : " << intersections.size() << std::endl;
-
-
 
     std::sort(intersections.begin(), intersections.end(),
               [line](const Intersection& a, const Intersection& b) -> bool

@@ -12,7 +12,7 @@
 #include "view/rayview.h"
 
 
-MapView::MapView(Level ** level) : level_{*level}
+MapView::MapView(Level* level) : level_{level}
 {
     scene_ = new QGraphicsScene(0, 0, this->level_->width(), this->level_->height());
 
@@ -22,11 +22,10 @@ MapView::MapView(Level ** level) : level_{*level}
 
 
 
-    Source s = level_->source();
-    Dest d = level_->dest();
 
-    SourceView *source = new SourceView(s);
-    DestinationView *dest = new DestinationView(d.position().x(), d.position().y(), d.edge(), d.edge());
+
+    SourceView *source = new SourceView(level_->source());
+    DestinationView *dest = new DestinationView(level_->dest());
 
     scene_->addItem(source);
     scene_->addItem(dest);
@@ -55,18 +54,11 @@ MapView::MapView(Level ** level) : level_{*level}
     {
         draw_crystal(scene_, i);
     }
-
-    for (auto &i : this->level_->rays())
-    {
-        draw_ray(scene_, i);
-    }
-
 }
 
 void MapView::draw_ray(QGraphicsScene* s, const Ray &ray)
 {
     RayView *rv = new RayView(ray);
-
     s->addItem(rv);
 }
 
@@ -124,3 +116,13 @@ void MapView::keyPressEvent(QKeyEvent *event)
         }
     }
 }
+
+void MapView::notify(Observable *sdo)
+{
+    for (auto &i : this->level_->rays())
+    {
+        draw_ray(scene_, i);
+    }
+}
+
+

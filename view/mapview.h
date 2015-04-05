@@ -4,11 +4,12 @@
 #include <QGraphicsView>
 
 #include "model/level.h"
+#include "view/rayview.h"
 
-class MapView : public QGraphicsView
+class MapView : public QGraphicsView, public ObserverInterface
 {
 public:
-    MapView(Level ** level_);
+    MapView(Level* level_);
     void draw_wall(QGraphicsScene * s, const Wall & wall);
     void draw_mirror(QGraphicsScene * s, const Mirror & mirror);
     void draw_nuke(QGraphicsScene * s, const Nuke & nuke);
@@ -17,6 +18,8 @@ public:
     void draw_ray(QGraphicsScene* s, const Ray& ray);
 
     void keyPressEvent(QKeyEvent * event);
+
+    void notify(Observable *sdo);
 
 private:
     Level * level_;

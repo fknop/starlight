@@ -17,3 +17,9 @@ std::ostream& operator<<(std::ostream& out, const Source& s)
 
     return out;
 }
+
+void Source::notify_all()
+{
+    for (ObserverInterface* o : this->observers_)
+        o->notify(this);
+}

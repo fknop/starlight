@@ -2,33 +2,25 @@
 #include "sourceview.h"
 
 
-SourceView::SourceView(const Source& source) : source_{source}, active{false}
+SourceView::SourceView(const Source& source) : source_{source}
 {
-    QRectF rect(source.position().x(), source.position().y(), source.edge(), source.edge());
-
-    setRect(rect);
+    setRect(source.position().x(), source.position().y(),
+            source.edge(), source.edge());
 }
 
 void SourceView::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
-    //QRectF rect(posX, posY, width, height);
-    if (!active)
+    if (!source_.on())
     {
         setBrush(QBrush(Qt::yellow));
         setPen(QPen(Qt::yellow));
-        active = true;
     }
     else
     {
         setBrush(QBrush(Qt::white));
         setPen(QPen(Qt::black));
-        active = false;
     }
 
-    //source_.set_on(active);
+    source_.set_on(!source_.on());
 }
 
-void SourceView::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
-{
-
-}

@@ -24,10 +24,8 @@ public:
     SourceView(const Source& source);
 
     void mousePressEvent(QGraphicsSceneMouseEvent *event);
-    void mouseMoveEvent(QGraphicsSceneMouseEvent *event);
 
 private:
-    bool active;
     Source source_;
 
 };

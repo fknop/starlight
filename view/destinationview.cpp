@@ -1,7 +1,8 @@
 #include "destinationview.h"
 
 
-DestinationView::DestinationView(int posX, int posY, int width, int height)
+DestinationView::DestinationView(const Dest& dest) : dest_(dest)
 {
-    setRect(posX, posY, width, height);
+    setRect(dest_.position().x(), dest_.position().y(),
+            dest_.edge(), dest_.edge());
 }

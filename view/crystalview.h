@@ -8,10 +8,10 @@
 class CrystalView : public QGraphicsEllipseItem
 {
 public:
-    CrystalView(const Crystal & crystal);
+    CrystalView(const Crystal & crystal_);
 
 private:
-    Crystal crystal;
+    Crystal crystal_;
 };
 
 #endif // CRYSTALVIEW_H

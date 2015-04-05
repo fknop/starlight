@@ -4,6 +4,7 @@
 #include <QGraphicsView>
 #include <QGraphicsRectItem>
 
+#include "model/dest.h"
 /**
  * Modélisation visuelle de la destination.
  */
@@ -17,9 +18,10 @@ public:
      * @param width longueur de la destination.
      * @param height hauteur de la destination.
      */
-    DestinationView(int posX, int posY, int width, int height);
+    DestinationView(const Dest&);
 
 private:
+    Dest dest_;
 
 };
 

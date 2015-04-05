@@ -5,20 +5,13 @@ MirrorView::MirrorView(const Mirror& mirror) : mirror_{mirror}, rotation_{0}
 {
     setFlags(flags() | QGraphicsItem::ItemIsSelectable);
 
-//    std::cout << "const " << initialPos.x() << " " << initialPos.y() << std::endl;
-
-    double pivotX = mirror.pivot().x();
-    double pivotY = mirror.pivot().y();
-//    double len    = mirror.length();
-//    double xpad   = mirror.x_pad();
-//    double angle  = mirror.angle();
-    LineSegment seg = mirror.to_line_segment();
+    LineSegment seg = mirror_.to_line_segment();
     double gx = seg.start().x();
     double gy = seg.start().y();
     double dx = seg.end().x();
     double dy = seg.end().y();
 
-    setTransformOriginPoint(QPointF(pivotX, pivotY));
+    setTransformOriginPoint(QPointF(mirror_.pivot().x(), mirror_.pivot().y()));
 
     QPen myPen(Qt::red);
     myPen.setWidth(3);

@@ -5,6 +5,7 @@
 
 #include "element.h"
 #include "obs/observable.h"
+#include "obs/observerinterface.h"
 #include "point.h"
 
 
@@ -88,6 +89,8 @@ class Source : public Observable
      * faux sinon.
      */
     inline void set_on(bool q);
+
+    void notify_all();
 
     /**
      * Surcharge l'opérateur de flux de sortie pour afficher
