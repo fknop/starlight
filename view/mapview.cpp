@@ -31,10 +31,6 @@ MapView::MapView(Level ** level) : level_{*level}
     scene_->addItem(source);
     scene_->addItem(dest);
 
-
-    s.add_observer(this->level_);
-
-
     for (auto &i : this->level_->walls())
     {
         draw_wall(scene_, i);
