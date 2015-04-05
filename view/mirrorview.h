@@ -35,6 +35,9 @@ public:
     void set_rotation(qreal angle);
     void notify(Observable * obs);
 
+
+    void MirrorView::translate(int x = 0, int y = 0);
+
 private:
     QPointF init_pos_;
     Mirror* mirror_;

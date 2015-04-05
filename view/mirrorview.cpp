@@ -38,6 +38,11 @@ void MirrorView::mousePressEvent(QGraphicsSceneMouseEvent *event)
     //QGraphicsItem::mousePressEvent(event);
 }
 
+void MirrorView::translate(int x, int y)
+{
+    mirror_->translate(x, y);
+}
+
 void MirrorView::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
 {
 //    double x = event->pos().x()- init_pos_.x();
