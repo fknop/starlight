@@ -102,12 +102,12 @@ void MapView::keyPressEvent(QKeyEvent *event)
     {
         if (event->key() == Qt::Key_Left)
         {
-            i->set_rotation(i->rotation() - 1);
+            i->set_rotation(-1);
             break;
         }
         else if(event->key() == Qt::Key_Right)
         {
-            i->set_rotation(i->rotation() + 1);
+            i->set_rotation(1);
             break;
         }
     }

@@ -276,6 +276,7 @@ bool Mirror::set_angle(double a)
     if (r)
         this->alpha_ = a;
     return r;
+
 }
 
 #endif // MIRROR_H
