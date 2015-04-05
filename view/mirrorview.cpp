@@ -30,17 +30,33 @@ void MirrorView::mousePressEvent(QGraphicsSceneMouseEvent *event)
 
 void MirrorView::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
 {
-    double x = event->pos().x()- init_pos_.x();
-    double y = event->pos().y()- init_pos_.y();
-    if (event->pos().x() < init_pos_.x() && event->pos().y() < init_pos_.y())
-        mirror_->translate(-1, -1);
-    else if (event->pos().x() > init_pos_.x() && event->pos().y() > init_pos_.y())
-        mirror_->translate(1, 1);
-    else if (event->pos().x() < init_pos_.x() && event->pos().y() > init_pos_.y())
-        mirror_->translate(-1, 1);
-    else if (event->pos().x() > init_pos_.x() && event->pos().y() < init_pos_.y())
-        mirror_->translate(1,-1);
+//    double x = event->pos().x()- init_pos_.x();
+//    double y = event->pos().y()- init_pos_.y();
 
+    init_pos_ = QPointF(mirror_->pivot().x(), mirror_->pivot().y());
+
+    std::cout << "pos " << pos().x() << " " << pos().y() << std::endl;
+
+    if      (event->pos().x() < init_pos_.x() && event->pos().y() < init_pos_.y())
+    {
+        mirror_->translate(-1, -1);
+        setPos(pos().x() - 1, pos().y() - 1);
+    }
+    else if (event->pos().x() > init_pos_.x() && event->pos().y() > init_pos_.y())
+    {
+        mirror_->translate(1, 1);
+        setPos(pos().x() + 1, pos().y() + 1);
+    }
+    else if (event->pos().x() < init_pos_.x() && event->pos().y() > init_pos_.y())
+    {
+        mirror_->translate(-1, 1);
+        setPos(pos().x() - 1, pos().y() + 1);
+    }
+    else if (event->pos().x() > init_pos_.x() && event->pos().y() < init_pos_.y())
+    {
+        mirror_->translate(1,-1);
+        setPos(pos().x() + 1, pos().y() - 1);
+    }
 }
 
 int MirrorView::rotation()
