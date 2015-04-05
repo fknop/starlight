@@ -133,6 +133,7 @@ bool Source::on() const
 void Source::set_on(bool q)
 {
     this->on_ = q;
+    std::cout << "dans source : " << this->on_ << std::endl;
     notify_all();
 }
 

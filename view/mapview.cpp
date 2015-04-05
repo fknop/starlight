@@ -20,10 +20,6 @@ MapView::MapView(Level* level) : level_{level}
     setRenderHints(QPainter::Antialiasing);
     setFixedSize(this->level_->width() + 30, this->level_->height() + 30);
 
-
-
-
-
     SourceView *source = new SourceView(level_->source());
     DestinationView *dest = new DestinationView(level_->dest());
 
@@ -59,6 +55,7 @@ MapView::MapView(Level* level) : level_{level}
 void MapView::draw_ray(QGraphicsScene* s, const Ray &ray)
 {
     RayView *rv = new RayView(ray);
+    rays_.push_back(rv);
     s->addItem(rv);
 }
 
@@ -119,6 +116,16 @@ void MapView::keyPressEvent(QKeyEvent *event)
 
 void MapView::notify(Observable *sdo)
 {
+    for (auto i : rays_)
+    {
+        scene_->removeItem(i);
+        delete i;
+    }
+
+
+
+    rays_.clear();
+
     for (auto &i : this->level_->rays())
     {
         draw_ray(scene_, i);

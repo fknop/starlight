@@ -22,6 +22,7 @@ public:
     void notify(Observable *sdo);
 
 private:
+    std::vector<RayView*> rays_;
     Level * level_;
     QGraphicsScene * scene_;
 };

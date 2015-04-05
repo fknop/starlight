@@ -26,7 +26,7 @@ public:
     void mousePressEvent(QGraphicsSceneMouseEvent *event);
 
 private:
-    Source source_;
+    Source* source_;
 
 };
 

@@ -19,15 +19,21 @@ Level::Level(double w, double h) : width_ {w}, height_ {h},
 void Level::compute_rays()
 {
 
+    rays_.clear();
     add_mirror(Mirror(Point(30, 500), 29, 58, (M_PI*2 - M_PI_4)));
     add_mirror(Mirror(Point(60,500), 0, 58, M_PI_4));
     add_mirror(Mirror(Point(40, 400), 0, 58, M_PI_4));
     add_mirror(Mirror(Point(90, 380), 0, 58, M_PI_2 + 0.5));
-    Point pSource = this->source_.position();
-    double radians = this->source_.angle();
-    Line ray(pSource, radians);
 
-    compute_ray(ray, 600);
+    std::cout << source_.on() << std::endl;
+    if (source_.on())
+    {
+        Point pSource = this->source_.position();
+        double radians = this->source_.angle();
+        Line ray(pSource, radians);
+
+        compute_ray(ray, this->source_.wavelength());
+    }
 
     notify_all();
 
