@@ -1,6 +1,8 @@
 #include "observable.h"
 #include "observerinterface.h"
 
+#include <iostream>
+
 void Observable::add_observer(ObserverInterface * obs)
 {
     observers_.insert(obs);

@@ -20,10 +20,10 @@ void Level::compute_rays()
 {
 
     rays_.clear();
-    add_mirror(Mirror(Point(30, 500), 29, 58, (M_PI*2 - M_PI_4)));
-    add_mirror(Mirror(Point(60,500), 0, 58, M_PI_4));
-    add_mirror(Mirror(Point(40, 400), 0, 58, M_PI_4));
-    add_mirror(Mirror(Point(90, 380), 0, 58, M_PI_2 + 0.5));
+//    add_mirror(Mirror(Point(30, 500), 29, 58, (M_PI*2 - M_PI_4)));
+//    add_mirror(Mirror(Point(60,500), 0, 58, M_PI_4));
+//    add_mirror(Mirror(Point(40, 400), 0, 58, M_PI_4));
+//    add_mirror(Mirror(Point(90, 380), 0, 58, M_PI_2 + 0.5));
 
     if (source_.on())
     {

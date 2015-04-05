@@ -30,16 +30,12 @@ void MirrorView::mousePressEvent(QGraphicsSceneMouseEvent *event)
 
 void MirrorView::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
 {
-   // std::cout << "event scenepos x : " << event->scenePos().x() << std::endl;
-    //std::cout << "event scenepos y : " << event->scenePos().y() << std::endl;
     double x = event->pos().x() - init_pos_.x();
     double y = event->pos().y() - init_pos_.y();
-    std::cout << x << "      " << y;
-    mirror_->translate(0, 0);
 
-    //std::cout << "(" << pos().x() << " , " << pos.y() << ")" << std::endl;
-   // std::cout << "(" << this->pos().x() << " , " << this->pos().y() << ")" << std::endl;
-    //mirror_.set_pivot(Point(event->pos().x() - init_pos_.x(), event->pos().y() - init_pos_.y()));
+    mirror_->translate(x, y);
+
+
 
 }
 
