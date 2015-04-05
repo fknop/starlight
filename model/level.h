@@ -241,7 +241,6 @@ class Level : public ObserverInterface, public Observable
     inline void add_ray(const Ray& r);
 
     void notify(Observable* o);
-    void notify_all();
 
 private:
 

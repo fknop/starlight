@@ -25,7 +25,6 @@ void Level::compute_rays()
     add_mirror(Mirror(Point(40, 400), 0, 58, M_PI_4));
     add_mirror(Mirror(Point(90, 380), 0, 58, M_PI_2 + 0.5));
 
-    std::cout << source_.on() << std::endl;
     if (source_.on())
     {
         Point pSource = this->source_.position();
@@ -108,7 +107,7 @@ Level::State Level::compute_ray(Line& line, int wl)
         angle = c;
 
 
-        std::cout << "Angle réfléchi : " << Geometry::rad_to_deg(c) << std::endl;
+        //std::cout << "Angle réfléchi : " << Geometry::rad_to_deg(c) << std::endl;
         state = State::CONTINUE;
         break;
     }
@@ -228,8 +227,3 @@ void Level::notify(Observable* obs)
     compute_rays();
 }
 
-void Level::notify_all()
-{
-    for (ObserverInterface* o : this->observers_)
-        o->notify(this);
-}

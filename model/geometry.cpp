@@ -83,7 +83,7 @@ bool Geometry::is_on_good_side(const Line& l, const Point& p)
         return p.x() < l.origin().x() && p.y() > l.origin().y();
         //3eme quadrant
     }
-    else if (angle > M_PI_2_3 && angle < 2 * M_PI)
+    else // (angle > M_PI_2_3 && angle < 2 * M_PI)
     {
         return p.x() > l.origin().x() && p.y() > l.origin().y();
         //4eme quadrant

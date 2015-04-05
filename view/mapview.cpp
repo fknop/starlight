@@ -70,7 +70,6 @@ void MapView::draw_wall(QGraphicsScene *s, const Wall& wall)
 void MapView::draw_mirror(QGraphicsScene *s, const Mirror& mirror)
 {
     MirrorView *mv = new MirrorView(mirror);
-
     s->addItem(mv);
 }
 
@@ -121,8 +120,6 @@ void MapView::notify(Observable *sdo)
         scene_->removeItem(i);
         delete i;
     }
-
-
 
     rays_.clear();
 

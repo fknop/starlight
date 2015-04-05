@@ -216,6 +216,7 @@ class Mirror : public Element, public Observable
      */
     friend std::ostream & operator<<(std::ostream& out,
                                      const Mirror& m);
+
 };
 
 /* Fonctions inlines */

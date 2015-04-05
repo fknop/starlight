@@ -80,6 +80,9 @@ void Mirror::translate(double x, double y)
 
         set_pivot(Point(newX, newY));
     }
+
+    notify_all();
+
 }
 
 LineSegment Mirror::to_line_segment() const
@@ -105,3 +108,4 @@ std::ostream & operator<<(std::ostream & out, const Mirror & m)
            "," << m.y_max_ << ")]";
     return out;
 }
+
