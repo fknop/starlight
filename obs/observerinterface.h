@@ -5,12 +5,12 @@
 class Observable;
 
 
-class Observer
+class ObserverInterface
 {
 public:
     virtual void notify(Observable * sdo) = 0;
 
-    virtual ~Observer() = default;
+    virtual ~ObserverInterface() = default;
 };
 
 #endif

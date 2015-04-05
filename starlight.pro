@@ -34,7 +34,6 @@ HEADERS += \
     model/umath.h \
     model/wall.h \
     obs/observable.h \
-    obs/observer.h \
     view/button.h \
     view/crystalview.h \
     view/destinationview.h \
@@ -48,7 +47,8 @@ HEADERS += \
     Tests/catch.hpp \
     Tests/test.h \
     model/constants.h \
-    view/rayview.h
+    view/rayview.h \
+    obs/observerinterface.h
 
 SOURCES += \
     mapreader.cpp \

@@ -10,7 +10,7 @@
 #include "mirror.h"
 #include "nuke.h"
 #include "obs/observable.h"
-#include "obs/observer.h"
+#include "obs/observerinterface.h"
 #include "point.h"
 #include "ray.h"
 #include "source.h"
@@ -27,12 +27,6 @@ struct Intersection
         point_ = p;
         element_ = e;
     }
-
-//    ~Intersection()
-//    {
-//        delete point_;
-//        delete element_;
-//    }
 
     Point* point() const
     {
@@ -52,7 +46,7 @@ struct Intersection
  * Une carte est un ensemble de composants tels que des murs,
  * des miroirs, etc.
  */
-class Level : public Observer
+class Level : public ObserverInterface, public Observable
 {
 
     enum class State
@@ -247,7 +241,7 @@ class Level : public Observer
     inline void add_ray(const Ray& r);
 
     void notify(Observable* o);
-
+    void notify_all();
 
 private:
 
@@ -355,6 +349,7 @@ void Level::add_mirror(const Mirror& m)
 void Level::add_nuke(const Nuke& n)
 {
     this->nukes_.push_back(n);
+
 }
 
 void Level::add_wall(const Wall& w)
@@ -375,6 +370,7 @@ void Level::add_lens(const Lens& l)
 void Level::add_ray(const Ray& r)
 {
     this->rays_.push_back(r);
+
 }
 
 #endif // LEVEL_H

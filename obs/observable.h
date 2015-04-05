@@ -3,7 +3,7 @@
 
 #include <set>
 
-class Observer;
+class ObserverInterface;
 
 /*!
  * Classe représentant un élément observable
@@ -17,7 +17,7 @@ protected:
     /**
      * Les observateurs enregistrés.
      */
-    std::set<Observer *> observers_;
+    std::set<ObserverInterface *> observers_;
 
     /**
      * Constructeur protégé pour éviter l'instanciation.
@@ -42,7 +42,7 @@ public:
      *
      * @param obs un pointeur vers un observateur à ajouter.
      */
-    virtual void add_observer(Observer * obs);
+    virtual void add_observer(ObserverInterface * obs);
 
     /**
      * Méthode permettant à un observateur de se retirer de la
@@ -50,7 +50,7 @@ public:
      *
      * @param obs l'adresse de l'observateur à supprimer.
      */
-    virtual void remove_observer(Observer * obs);
+    virtual void remove_observer(ObserverInterface * obs);
 };
 
 #endif
