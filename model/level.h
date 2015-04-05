@@ -259,6 +259,7 @@ const Source& Level::source() const
 void Level::set_source(const Source& value)
 {
     this->source_ = value;
+    this->source_.add_observer(this);
 }
 
 const Dest& Level::dest() const
@@ -323,10 +324,9 @@ void Level::set_lenses(const std::vector<Lens>& value)
 
 void Level::set_mirrors(const std::vector<Mirror>& value)
 {
-    for (auto mirror : value)
-        const_cast<Mirror&>(mirror).add_observer(this);
-
     this->mirrors_ = value;
+    for (auto &mirror : mirrors_)
+        mirror.add_observer(this);
 }
 
 const std::vector<Nuke> & Level::nukes() const
@@ -346,9 +346,8 @@ int Level::width() const
 
 void Level::add_mirror(const Mirror& m)
 {
-    const_cast<Mirror&>(m).add_observer(this);
-
     this->mirrors_.push_back(m);
+    this->mirrors_.back().add_observer(this);
 }
 
 void Level::add_nuke(const Nuke& n)
