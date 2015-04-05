@@ -237,10 +237,13 @@ Intersection* Level::get_closest_intersection(const Line& line)
     return new Intersection(intersections.at(0));
 }
 
-void Level::notify(Observable * obs)
+void Level::notify(Observable* obs)
 {
-
-//    for (Observer * o : this->observers_)
-//        o->notify(obs);
+    compute_rays();
 }
 
+void Level::notify_all()
+{
+    for (ObserverInterface* o : this->observers_)
+        o->notify(this);
+}

@@ -1,12 +1,12 @@
 #include "observable.h"
-#include "observer.h"
+#include "observerinterface.h"
 
-void Observable::add_observer(Observer * obs)
+void Observable::add_observer(ObserverInterface * obs)
 {
     observers_.insert(obs);
 }
 
-void Observable::remove_observer(Observer * obs)
+void Observable::remove_observer(ObserverInterface * obs)
 {
     observers_.erase(obs);
 }
