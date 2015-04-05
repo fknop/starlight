@@ -86,8 +86,6 @@ void MapView::draw_mirror(QGraphicsScene *s, const Mirror& mirror)
 {
     MirrorView *mv = new MirrorView(mirror);
 
-    const_cast<Mirror&>(mirror).add_observer(this->level_);
-
     s->addItem(mv);
 }
 
