@@ -59,6 +59,8 @@ void Mirror::rotate(double angle)
         else
             set_angle(this->alpha_min_);
     }
+
+    notify_all();
 }
 
 void Mirror::translate(double x, double y)

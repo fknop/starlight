@@ -13,7 +13,7 @@ MirrorView::MirrorView(const Mirror& mirror) : rotation_{0}
     double dx = seg.end().x();
     double dy = seg.end().y();
 
-    //setTransformOriginPoint(QPointF(mirror_->pivot().x(), mirror_->pivot().y()));
+    setTransformOriginPoint(QPointF(mirror_->pivot().x(), mirror_->pivot().y()));
 
     QPen myPen(Qt::red);
     myPen.setWidth(3);
@@ -24,18 +24,22 @@ MirrorView::MirrorView(const Mirror& mirror) : rotation_{0}
 
 void MirrorView::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
-    init_pos_ = event->pos();
-    QGraphicsItem::mousePressEvent(event);
+    init_pos_ = QPointF(mirror_->pivot().x(), mirror_->pivot().y());
+    //QGraphicsItem::mousePressEvent(event);
 }
 
 void MirrorView::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
 {
-    double x = event->pos().x() - init_pos_.x();
-    double y = event->pos().y() - init_pos_.y();
-
-    mirror_->translate(x, y);
-
-
+    double x = event->pos().x()- init_pos_.x();
+    double y = event->pos().y()- init_pos_.y();
+    if (event->pos().x() < init_pos_.x() && event->pos().y() < init_pos_.y())
+        mirror_->translate(-1, -1);
+    else if (event->pos().x() > init_pos_.x() && event->pos().y() > init_pos_.y())
+        mirror_->translate(1, 1);
+    else if (event->pos().x() < init_pos_.x() && event->pos().y() > init_pos_.y())
+        mirror_->translate(-1, 1);
+    else if (event->pos().x() > init_pos_.x() && event->pos().y() < init_pos_.y())
+        mirror_->translate(1,-1);
 
 }
 
@@ -53,11 +57,12 @@ void MirrorView::set_rotation(qreal angle)
 
 void MirrorView::notify(Observable *obs)
 {
-    LineSegment seg = mirror_->to_line_segment();
-    double gx = seg.start().x();
-    double gy = seg.start().y();
-    double dx = seg.end().x();
-    double dy = seg.end().y();
-    setLine(gx, gy, dx, dy);
+
+    double x = mirror_->pivot().x() - init_pos_.x();
+    double y = mirror_->pivot().y() - init_pos_.y();
+    init_pos_.setX(mirror_->pivot().x());
+    init_pos_.setY(mirror_->pivot().y());
+    moveBy(x,y);
+
 
 }
