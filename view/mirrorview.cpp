@@ -9,22 +9,24 @@ MirrorView::MirrorView(const Mirror& mirror) : rotation_{Geometry::rad_to_deg(mi
 
     setFlags(flags() | QGraphicsItem::ItemIsSelectable);
 
-    //LineSegment seg = mirror_->to_line_segment();
+    LineSegment seg = mirror_->to_line_segment();
     double pivotX = mirror_->pivot().x();
     double pivotY = mirror_->pivot().y();
     double len = mirror_->length();
     double xpad = mirror_->x_pad();
-    double gx = pivotX - (xpad * cos(0));
-    double dx = pivotX + ((len-xpad) * cos(0));
-
+    double angle = mirror_->angle();
+    double gx = pivotX - (xpad * cos(angle));
+    double gy = pivotY + (xpad * sin(angle));
+    double dx = pivotX + ((len-xpad) * cos(angle));
+    double dy = pivotY -  ((len-xpad) * sin(angle));
 
     QPen myPen(Qt::red);
     myPen.setWidth(3);
     setPen(myPen);
 
-    setLine(gx, pivotY, dx, pivotY);
+    setLine(gx, gy, dx, dy);
     setTransformOriginPoint(QPointF(mirror_->pivot().x(), mirror_->pivot().y()));
-    QGraphicsLineItem::setRotation(rotation_);
+   // QGraphicsLineItem::setRotation(rotation_);
 
 
 }

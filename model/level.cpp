@@ -18,13 +18,6 @@ Level::Level(double w, double h) : width_ {w}, height_ {h},
 
 void Level::compute_rays()
 {
-
-
-//    add_mirror(Mirror(Point(30, 500), 29, 58, (M_PI*2 - M_PI_4)));
-//    add_mirror(Mirror(Point(60,500), 0, 58, M_PI_4));
-//    add_mirror(Mirror(Point(40, 400), 0, 58, M_PI_4));
-//    add_mirror(Mirror(Point(90, 380), 0, 58, M_PI_2 + 0.5));
-
     if (source_.on())
     {
         Point pSource = this->source_.position();
@@ -147,32 +140,19 @@ Intersection* Level::get_intersection(const Line& line)
 ////////////////////////////// TODO ////////////////////////////////////
 double Level::get_reflection_angle(double startAngle, double mirrorAngle)
 {
-    double mAlpha =
-            mirrorAngle < 0 ? (2*M_PI) + mirrorAngle : mirrorAngle;
+    double angle = startAngle;
+    double p = M_PI_2 + mirrorAngle;
+    double angleRayMirror = std::abs(p - (std::fmod(angle, M_PI)));
 
+    if (angle > (p + M_PI))
+        return std::fmod((angle - (2 * angleRayMirror) - M_PI), (2 * M_PI));
+    else if (angle < (p + M_PI))
+        return std::fmod((angle + (2 * angleRayMirror) + M_PI), (2 * M_PI));
+    else if (angle == p)
+        return std::fmod((p + M_PI), (2 * M_PI));
+    else  //  angle == p + M_PI
+        return p;
 
-    double a = std::fmod(startAngle, M_PI);
-    double b = std::abs(a - mAlpha);
-    double c;
-
-    // Perpendiculaire au miroir.
-    double d = (M_PI_2 + mirrorAngle);
-    if (d < 0)
-        d = (2*M_PI) - d;
-
-    if (b > M_PI)
-        c = a + std::abs(2 * (M_PI_2 - b));
-    else
-        c = a - std::abs(2 * (M_PI_2 - b));
-
-
-    if (c < 0)
-        c += (2*M_PI);
-
-    if (c > (2*M_PI))
-        c -= (2*M_PI);
-
-    return c;
 }
 
 void Level::dest_intersections(const Line &line,
