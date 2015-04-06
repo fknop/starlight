@@ -138,9 +138,8 @@ Intersection* Level::get_intersection(const Line& line)
 
 
 ////////////////////////////// TODO ////////////////////////////////////
-double Level::get_reflection_angle(double startAngle, double mirrorAngle)
+double Level::get_reflection_angle(double angle, double mirrorAngle)
 {
-    double angle = startAngle;
     double p = M_PI_2 + mirrorAngle;
     double angleRayMirror = std::abs(p - (std::fmod(angle, M_PI)));
 
@@ -148,11 +147,8 @@ double Level::get_reflection_angle(double startAngle, double mirrorAngle)
         return std::fmod((angle - (2 * angleRayMirror) - M_PI), (2 * M_PI));
     else if (angle < (p + M_PI))
         return std::fmod((angle + (2 * angleRayMirror) + M_PI), (2 * M_PI));
-    else if (angle == p)
-        return std::fmod((p + M_PI), (2 * M_PI));
-    else  //  angle == p + M_PI
-        return p;
-
+    else
+        return std::fmod((p + M_PI), (2 * M_PI)); // perpendiculaire
 }
 
 void Level::dest_intersections(const Line &line,
