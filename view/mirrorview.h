@@ -34,7 +34,7 @@ public:
     int rotation();
     void set_rotation(qreal angle);
     void notify(Observable * obs);
-
+    void notify(Observable * obs, std::string msg);
 
     void translate(int x = 0, int y = 0);
 

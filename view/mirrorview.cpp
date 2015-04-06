@@ -4,13 +4,10 @@
 
 MirrorView::MirrorView(const Mirror& mirror) : rotation_{Geometry::rad_to_deg(mirror.angle())}
 {
-
     mirror_ = &mirror;
     mirror_->add_observer(this);
 
     setFlags(flags() | QGraphicsItem::ItemIsSelectable);
-
-
 
     //LineSegment seg = mirror_->to_line_segment();
     double pivotX = mirror_->pivot().x();
@@ -87,13 +84,20 @@ void MirrorView::set_rotation(qreal angle)
 
 void MirrorView::notify(Observable *obs)
 {
-
     double x = mirror_->pivot().x() - init_pos_.x();
     double y = mirror_->pivot().y() - init_pos_.y();
     init_pos_.setX(mirror_->pivot().x());
     init_pos_.setY(mirror_->pivot().y());
     moveBy(x,y);
     QGraphicsLineItem::setRotation(Geometry::rad_to_deg(mirror_->angle()));
+}
 
-
+void MirrorView::notify(Observable* obs, std::string msg)
+{
+    double x = mirror_->pivot().x() - init_pos_.x();
+    double y = mirror_->pivot().y() - init_pos_.y();
+    init_pos_.setX(mirror_->pivot().x());
+    init_pos_.setY(mirror_->pivot().y());
+    moveBy(x,y);
+    QGraphicsLineItem::setRotation(Geometry::rad_to_deg(mirror_->angle()));
 }

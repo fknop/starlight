@@ -60,7 +60,7 @@ void Mirror::rotate(double angle)
             set_angle(this->alpha_min_);
     }
 
-    notify_all();
+    notify_all("ROTATE_MIRROR");
 }
 
 void Mirror::translate(double x, double y)
@@ -83,7 +83,7 @@ void Mirror::translate(double x, double y)
         set_pivot(Point(newX, newY));
     }
 
-    notify_all();
+    notify_all("TRANSLATE_MIRROR");
 
 }
 

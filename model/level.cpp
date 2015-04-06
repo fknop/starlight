@@ -38,7 +38,7 @@ void Level::compute_rays()
             std::cout << "TODO";
     }
 
-    notify_all();
+    notify_all("UPDATE_RAYS");
 
 }
 
@@ -285,6 +285,11 @@ void Level::sort_intersections(const Line &line,
 }
 
 void Level::notify(Observable* obs)
+{
+    compute_rays();
+}
+
+void Level::notify(Observable* obs, std::string msg)
 {
     compute_rays();
 }

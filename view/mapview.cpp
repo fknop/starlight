@@ -145,4 +145,19 @@ void MapView::notify(Observable *sdo)
     }
 }
 
+void MapView::notify(Observable *sdo, std::string msg)
+{
+    for (auto i : rays_)
+    {
+        scene_->removeItem(i);
+        delete i;
+    }
+
+    rays_.clear();
+
+    for (auto &i : this->level_->rays())
+    {
+        draw_ray(scene_, i);
+    }
+}
 

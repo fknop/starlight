@@ -2,9 +2,11 @@
 #define MAP_HPP
 
 #include <QGraphicsView>
+#include <string>
 
 #include "model/level.h"
 #include "view/rayview.h"
+
 
 class MapView : public QGraphicsView, public ObserverInterface
 {
@@ -20,6 +22,7 @@ public:
     void keyPressEvent(QKeyEvent * event);
 
     void notify(Observable *sdo);
+    void notify(Observable *sdo, std::string msg);
 
 private:
     std::vector<RayView*> rays_;
