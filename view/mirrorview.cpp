@@ -12,7 +12,7 @@ MirrorView::MirrorView(const Mirror& mirror) : rotation_{Geometry::rad_to_deg(mi
 
 
 
-    LineSegment seg = mirror_->to_line_segment();
+    //LineSegment seg = mirror_->to_line_segment();
     double pivotX = mirror_->pivot().x();
     double pivotY = mirror_->pivot().y();
     double len = mirror_->length();

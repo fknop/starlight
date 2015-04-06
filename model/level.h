@@ -245,7 +245,34 @@ class Level : public ObserverInterface, public Observable
 private:
 
     State compute_ray(Line& line, int wl);
-    Intersection* get_closest_intersection(const Line& line);
+    Intersection* get_intersection(const Line& line);
+    double get_reflexion_angle(double startAngle, double mirrorAngle);
+    void dest_intersections(const Line& line,
+                            std::vector<Intersection>& intersections,
+                            std::vector<Point>& points);
+
+    void walls_intersections(const Line& line,
+                             std::vector<Intersection>& intersections,
+                             Point** p);
+
+    void lenses_intersections(const Line& line,
+                              std::vector<Intersection>& intersections,
+                              std::vector<Point>& points);
+
+    void mirrors_intersections(const Line& line,
+                               std::vector<Intersection>& intersections,
+                               Point** p);
+
+    void nukes_intersections(const Line& line,
+                             std::vector<Intersection>& intersections,
+                             std::vector<Point>& points);
+
+    void crystals_intersections(const Line& line,
+                                std::vector<Intersection>& intersections,
+                                std::vector<Point>& points);
+
+    void erase_wrongs_intersections(const Line& line,
+                                    std::vector<Intersection>& intersections);
 };
 
 /* Fonctions inlines */
