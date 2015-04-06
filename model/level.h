@@ -33,7 +33,7 @@ struct Intersection
         return this->point_;
     }
 
-    Element* element()
+    Element* element() const
     {
         return this->element_;
     }
@@ -244,9 +244,30 @@ class Level : public ObserverInterface, public Observable
 
 private:
 
+    /**
+     * Permet de calculer la trajectoire d'un rayon.
+     * @param line la droite du rayon.
+     * @param wl la longueur d'onde du rayon.
+     * @return l'état du jeu après avoir créer le rayon.
+     */
     State compute_ray(Line& line, int wl);
+
+    /**
+     * Retourne l'intersection la plus proche du rayon avec un objet.
+     * @param line la droite du rayon.
+     * @return l'intersection la plus proche.
+     */
     Intersection* get_intersection(const Line& line);
+
+    /**
+     * Calcule l'angle de reflexion d'un rayon sur un miroir.
+     * @param startAngle l'angle de départ.
+     * @param mirrorAngle l'inclinaison du miroir.
+     * @return l'angle réfléchi.
+     */
     double get_reflexion_angle(double startAngle, double mirrorAngle);
+
+
     void dest_intersections(const Line& line,
                             std::vector<Intersection>& intersections,
                             std::vector<Point>& points);
@@ -273,6 +294,9 @@ private:
 
     void erase_wrongs_intersections(const Line& line,
                                     std::vector<Intersection>& intersections);
+
+    void sort_intersections(const Line& line,
+                            std::vector<Intersection> &intersections);
 };
 
 /* Fonctions inlines */

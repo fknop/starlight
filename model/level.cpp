@@ -46,10 +46,11 @@ Level::State Level::compute_ray(Line& line, int wl)
 {
     State state;
     double angle = line.angle();
+
     Intersection* intersection = get_intersection(line);
     Element::Type type = intersection->element()->type();
 
-    this->rays_.push_back(Ray(line.origin(), *intersection->point()));
+
 
     Nuke* nuke = nullptr;
     Mirror* mirror = nullptr;
@@ -59,57 +60,54 @@ Level::State Level::compute_ray(Line& line, int wl)
     switch (type)
     {
 
-    case Element::Type::CRYSTAL:
-    {
-        crystal = dynamic_cast<Crystal*> (intersection->element());
-        wl += crystal->modifier();
-        state = State::CONTINUE;
-        break;
-    }
-
-    case Element::Type::DEST:
-    {
-        this->dest_.set_lighted_up(true);
-        state = State::WIN;
-        break;
-    }
-
-    case Element::Type::LENS:
-    {
-        lens = dynamic_cast<Lens*> (intersection->element());
-        if (wl >= lens->wl_min() && wl <= lens->wl_max())
+        case Element::Type::CRYSTAL:
+        {
+            crystal = dynamic_cast<Crystal*> (intersection->element());
+            wl += crystal->modifier();
             state = State::CONTINUE;
-        else
+            break;
+        }
+        case Element::Type::DEST:
+        {
+            this->dest_.set_lighted_up(true);
+            state = State::WIN;
+            break;
+        }
+        case Element::Type::LENS:
+        {
+            lens = dynamic_cast<Lens*> (intersection->element());
+            if (wl >= lens->wl_min() && wl <= lens->wl_max())
+                state = State::CONTINUE;
+            else
+                state = State::STOP;
+            break;
+        }
+        case Element::Type::MIRROR:
+        {
+            mirror = dynamic_cast<Mirror*> (intersection->element());
+            angle = get_reflexion_angle(angle, mirror->angle());
+            //std::cout << "Angle réfléchi : " << Geometry::rad_to_deg(c) << std::endl;
+            state = State::CONTINUE;
+            break;
+        }
+        case Element::Type::NUKE:
+        {
+
+            nuke = dynamic_cast<Nuke*> (intersection->element());
+            nuke->set_lighted_up(true);
+            state = State::LOSE;
+            break;
+
+        }
+        case Element::Type::WALL:
+        {
             state = State::STOP;
-        break;
-    }
-
-    case Element::Type::MIRROR:
-    {
-        mirror = dynamic_cast<Mirror*> (intersection->element());
-        angle = get_reflexion_angle(angle, mirror->angle());
-        //std::cout << "Angle réfléchi : " << Geometry::rad_to_deg(c) << std::endl;
-        state = State::CONTINUE;
-        break;
-    }
-
-    case Element::Type::NUKE:
-    {
-
-        nuke = dynamic_cast<Nuke*> (intersection->element());
-        nuke->set_lighted_up(true);
-        state = State::LOSE;
-        break;
+            break;
+        }
 
     }
 
-    case Element::Type::WALL:
-    {
-        state = State::STOP;
-        break;
-    }
-
-    }
+    this->rays_.push_back(Ray(line.origin(), *intersection->point(), wl));
 
     if (state == State::CONTINUE)
     {
@@ -119,10 +117,7 @@ Level::State Level::compute_ray(Line& line, int wl)
 
     delete intersection;
     return state;
-
-
 }
-
 
 Intersection* Level::get_intersection(const Line& line)
 {
@@ -140,15 +135,11 @@ Intersection* Level::get_intersection(const Line& line)
 
     // Suppression des intersections du mauvais côté.
     erase_wrongs_intersections(line, intersections);
+    // Trie les intersections selon leur distance par rapport
+    // à l'origine du rayon
+    sort_intersections(line, intersections);
 
-    std::sort(intersections.begin(), intersections.end(),
-              [line](const Intersection& a, const Intersection& b) -> bool
-    {
-        double distanceA = a.point()->distance(line.origin());
-        double distanceB = b.point()->distance(line.origin());
-        return distanceA < distanceB;
-    });
-
+    // Retour de l'intersection la plus proche
     return new Intersection(intersections.at(0));
 }
 
@@ -276,6 +267,21 @@ void Level::erase_wrongs_intersections(const Line& line,
         else
             ++i;
     }
+}
+
+///////////////////// TO CHECK ///////////////
+void Level::sort_intersections(const Line &line,
+                               std::vector<Intersection>& intersections)
+{
+    std::sort(intersections.begin(), intersections.end(),
+              [line](const Intersection& a, const Intersection& b) -> bool
+    {
+        int distanceA = std::rint(a.point()->distance(line.origin()));
+        int distanceB = std::rint(b.point()->distance(line.origin()));
+        return (distanceA < distanceB) ||
+                (distanceA == distanceB &&
+                 a.element()->type() < b.element()->type());
+    });
 }
 
 void Level::notify(Observable* obs)
