@@ -48,7 +48,8 @@ HEADERS += \
     Tests/test.h \
     model/constants.h \
     view/rayview.h \
-    obs/observerinterface.h
+    obs/observerinterface.h \
+    view/mainwindow.h
 
 SOURCES += \
     mapreader.cpp \
@@ -85,4 +86,5 @@ SOURCES += \
     Tests/pointtest.cpp \
     Tests/intersectionstest.cpp \
     view/rayview.cpp \
-    Tests/sortpointtest.cpp
+    Tests/sortpointtest.cpp \
+    view/mainwindow.cpp

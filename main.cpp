@@ -21,10 +21,14 @@ int main(int argc, char **argv)
     Level * level = MapReader::level("levels/level1.lvl");
     //level->compute_rays();
 
+    Game * game = new Game();
+    game->show();
+    game->displayMainMenu();
 
-    MapView* box = new MapView(level);
-    level->add_observer(box);
-    box->show();
+
+//    MapView* box = new MapView(level);
+//    level->add_observer(box);
+//    box->show();
     return app.exec();
 
 

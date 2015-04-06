@@ -1,10 +1,14 @@
 #include <iostream>
+#include <QFileDialog>
 #include <QIcon>
 #include <QPalette>
 #include <QPixmap>
 
 #include "mainmenu.h"
+#include "mainwindow.h"
 #include "button.h"
+
+
 
 
 Game::Game(QWidget * parent)
@@ -30,8 +34,26 @@ Game::~Game()
 
 void Game::start()
 {
+    //    QString fileName = QFileDialog::getOpenFileName(this, tr("Charger un niveau"),
+    //    "levels/", tr("Fichiers .lvl (*.lvl)"));
+
+    //    std::cout << fileName.toStdString() << std::endl;
+
+    //    if (fileName != nullptr)
+    //    {
+    //        Level * level = MapReader::level("levels/level1.lvl");
+
+    //        if (level)
+    //        {
+    hide();
+
+    MainWindow * mw = new MainWindow();
+    mw->show();
+    std::cout << "mw showed" << std::endl;
+    //        }
+    //    }
     //start le jeu dans une nouvelle fenetre  (et ferme cette fenetre ou resize et crée dans la meme)?
-//    std::cout << "start" << std::endl;
+    //    std::cout << "start" << std::endl;
 }
 
 void Game::displayMainMenu()
