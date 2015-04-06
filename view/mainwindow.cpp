@@ -34,9 +34,13 @@ void MainWindow::loadLevel()
     {
         Level * level = MapReader::level(file_name.toStdString());
 
+        level->compute_rays();
+
         if (level)
         {
-            setCentralWidget(new MapView(level));
+            MapView * box = new MapView(level);
+            level->add_observer(box);
+            setCentralWidget(box);
         }
     }
 }
