@@ -15,12 +15,12 @@ class Element
 public:
     enum class Type
     {
-        WALL,
         MIRROR,
         CRYSTAL,
-        NUKE,
         LENS,
-        DEST
+        DEST,
+        NUKE,
+        WALL
     };
 
     /**

@@ -18,3 +18,9 @@ void Observable::notify_all()
     for (auto i : observers_)
         i->notify(this);
 }
+
+void Observable::notify_all(std::string msg)
+{
+    for (auto i : observers_)
+        i->notify(this, msg);
+}

@@ -12,8 +12,6 @@ Element::Element(Element::Type type)
     this->type_ = type;
 }
 
-Element::~Element(){
-
-}
+Element::~Element(){}
 
 

@@ -45,48 +45,45 @@ bool Geometry::is_on_good_side(const Line& l, const Point& p)
 {
     double angle = l.angle();
 
+    // Angle à 90°
     if (umath::double_equals(angle, M_PI_2)
             || umath::double_equals(angle, -M_PI_2_3))
             return umath::double_equals(p.x(), l.origin().x())
                 && p.y() < l.origin().y();
 
+    // Angle à 270°
     if (umath::double_equals(angle, M_PI_2_3)
             || umath::double_equals(angle, -M_PI_2))
             return p.y() > l.origin().y();
 
-
+    // Angle à 180°
     if (umath::double_equals(angle, M_PI)
             || umath::double_equals(angle, -M_PI))
         return umath::double_equals(p.y(), l.origin().y())
                 && p.x() < l.origin().x();
 
+    // Angle à 0°
     if (umath::double_equals(angle, 0)
             || umath::double_equals(std::abs(angle), 2*M_PI))
         return umath::double_equals(p.y(), l.origin().y())
                 && p.x() > l.origin().x();
 
-    // IL FAUT AUSSI GERER LES ANGLES NEGATIFS !
-    if (angle > 0 && angle < M_PI_2)
-    {
-        //premier quadrant
+    // Premier quadrant
+    if ((angle > 0 && angle < M_PI_2) ||
+            (angle < -M_PI_2_3 && angle > -(2*M_PI)))
         return p.x() > l.origin().x() && p.y() < l.origin().y();
 
-    }
-    else if (angle > M_PI_2 && angle < M_PI)
-    {
+    // Deuxième quadrant
+    else if ((angle > M_PI_2 && angle < M_PI) ||
+             (angle < -M_PI && angle > -M_PI_2_3))
         return p.x() < l.origin().x() && p.y() < l.origin().y();
-        //deuxième quadrant
 
-    }
-    else if (angle > M_PI && angle < M_PI_2_3)
-    {
+    // Troisième quadrant
+    else if ((angle > M_PI && angle < M_PI_2_3) ||
+             (angle < -M_PI_2 && angle > -M_PI))
         return p.x() < l.origin().x() && p.y() > l.origin().y();
-        //3eme quadrant
-    }
-    else // (angle > M_PI_2_3 && angle < 2 * M_PI)
-    {
-        return p.x() > l.origin().x() && p.y() > l.origin().y();
-        //4eme quadrant
-    }
 
+    // Quatrième quadrant
+    else
+        return p.x() > l.origin().x() && p.y() > l.origin().y();
 }
