@@ -85,7 +85,7 @@ Level::State Level::compute_ray(Line& line, int wl)
         case Element::Type::MIRROR:
         {
             mirror = dynamic_cast<Mirror*> (intersection->element());
-            angle = get_reflexion_angle(angle, mirror->angle());
+            angle = get_reflection_angle(angle, mirror->angle());
             //std::cout << "Angle réfléchi : " << Geometry::rad_to_deg(c) << std::endl;
             state = State::CONTINUE;
             break;
@@ -145,7 +145,7 @@ Intersection* Level::get_intersection(const Line& line)
 
 
 ////////////////////////////// TODO ////////////////////////////////////
-double Level::get_reflexion_angle(double startAngle, double mirrorAngle)
+double Level::get_reflection_angle(double startAngle, double mirrorAngle)
 {
     double mAlpha =
             mirrorAngle < 0 ? (2*M_PI) + mirrorAngle : mirrorAngle;

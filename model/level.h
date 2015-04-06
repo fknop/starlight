@@ -266,7 +266,7 @@ private:
      * @param mirrorAngle l'inclinaison du miroir.
      * @return l'angle réfléchi.
      */
-    double get_reflexion_angle(double startAngle, double mirrorAngle);
+    double get_reflection_angle(double startAngle, double mirrorAngle);
 
 
     void dest_intersections(const Line& line,
