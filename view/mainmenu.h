@@ -1,27 +1,29 @@
-#ifndef GAME_H
-#define GAME_H
+#ifndef MAINMENU_H
+#define MAINMENU_H
 
 #include <QGraphicsView>
 #include <QGraphicsScene>
 
-class Game : public QGraphicsView
+class MainMenu : public QGraphicsView
 {
 
     Q_OBJECT
 
 public:
-    Game(QWidget * parent = NULL);
-    ~Game();
+    MainMenu(QWidget * parent = NULL);
+    ~MainMenu();
 
     void displayMainMenu();
 
-
-    QGraphicsScene * scene;
+private:
+    QGraphicsScene * scene_;
+    MainWindow * main_window_;
 
 public slots:
     void start();
+    void help();
 };
 
 
 
-#endif // GAME_H
+#endif // MAINMENU_H

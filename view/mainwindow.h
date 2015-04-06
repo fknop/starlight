@@ -4,19 +4,19 @@
 #include <QMainWindow>
 
 #include "mapview.h"
+#include "mainmenu.h"
 
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    explicit MainWindow(QWidget *parent = 0);
+    explicit MainWindow(MainMenu *parent = 0);
     ~MainWindow();
 
-    QMenuBar *menu_bar_;
-    QToolBar *main_tool_bar_;
-    QWidget *central_widget_;
-    QStatusBar *status_bar_;
+    QMenuBar * menu_bar_;
+    QToolBar * main_tool_bar_;
+    QStatusBar * status_bar_;
 
     MapView * map_view_;
     Level * level_;
@@ -25,16 +25,20 @@ public:
     QAction * open_level_action_;
     QAction * close_level_action_;
     QAction * quit_action_;
+    QAction * help_action_;
+
+    MainMenu * parent_;
 
     void setupUi();
 
 
 private:
-    MainWindow *ui;
+    MainWindow * ui;
 
 private slots:
     void loadLevel();
     void closeLevel();
+    void help();
 };
 
 #endif // MAINWINDOW_H

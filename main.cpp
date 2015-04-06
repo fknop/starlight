@@ -21,7 +21,7 @@ int main(int argc, char **argv)
     //Level * level = MapReader::level("levels/level1.lvl");
     //level->compute_rays();
 
-    Game * game = new Game();
+    MainMenu * game = new MainMenu();
     game->show();
     game->displayMainMenu();
 

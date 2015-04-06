@@ -13,12 +13,15 @@
 #include <QtWidgets/QToolBar>
 //#include <QtWidgets/QWidget>
 #include <QCoreApplication>
+#include <QMessageBox>
 
 #include "model/level.h"
 #include "mapreader.h"
 #include "mapview.h"
 
-MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
+#include "mainmenu.h"
+
+MainWindow::MainWindow(MainMenu * parent) : QMainWindow(parent), parent_(parent)
 {
     setupUi();
 
@@ -29,7 +32,6 @@ void MainWindow::loadLevel()
 {
     QString file_name = QFileDialog::getOpenFileName(
                 this, tr("Load Starlight level"), "levels/", tr("Files .lvl (*.lvl)"));
-
 
     if (file_name != nullptr)
     {
@@ -91,6 +93,9 @@ void MainWindow::setupUi()
     connect(quit_action_, &QAction::triggered, &QCoreApplication::quit);
     file_menu_->addAction(quit_action_);
 
+    help_action_ = menu_bar_->addAction("&Help");
+    connect(help_action_, SIGNAL(triggered()), this, SLOT(help()));
+
     setMenuBar(menu_bar_);
 
 
@@ -99,9 +104,9 @@ void MainWindow::setupUi()
 //    main_tool_bar_->setObjectName(QStringLiteral("mainToolBar"));
 //    addToolBar(main_tool_bar_);
 
-    central_widget_ = new QWidget(this);
-    central_widget_->setObjectName(QStringLiteral("centralWidget"));
-    setCentralWidget(central_widget_);
+    QWidget * central_widget = new QWidget(this);
+    central_widget->setObjectName(QStringLiteral("centralWidget"));
+    setCentralWidget(central_widget);
 
 //    status_bar_ = new QStatusBar(this);
 //    status_bar_->setObjectName(QStringLiteral("statusBar"));
@@ -113,7 +118,33 @@ void MainWindow::setupUi()
     close_level_action_->setEnabled(false);
 }
 
+void MainWindow::help()
+{
+
+    parent_->help();
+//    QMessageBox::information(this, "Starlight Help",
+//                             "<p>Starlight is a 2D puzzle where you have to make the light go from the source to the destination without touching a nuke or… BOOM!, you lose.</p>"
+//                             "<p>Mirrors can be moved and rotated with your keyboard."
+//                             "<p>Movements are achieved with the following keys:</p>"
+//                             "<ul>"
+//                                 "<li>Z: Move the mirror up.</li>"
+//                                 "<li>S: Move the mirror down.</li>"
+//                                 "<li>Q: Move the mirror left.</li>"
+//                                 "<li>D: Move the mirror right.</li>"
+//                             "</ul>"
+//                             "<p>while mirror rotation are done through:"
+//                             "<ul>"
+//                             "<li>left arrow key: +1 in sens horloger</li>"
+//                             "<li>right arrow key: -1 in sens horloger</li>"
+//                             "</ul>"
+//                             "<p style='font-weight: bold;'>Enjoy your game!</p>");
+}
+
 MainWindow::~MainWindow()
 {
     delete ui;
+    delete map_view_;
+    map_view_ = nullptr;
+    delete level_;
+    level_ = nullptr;
 }
