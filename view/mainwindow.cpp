@@ -12,6 +12,7 @@
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QToolBar>
 //#include <QtWidgets/QWidget>
+#include <QCoreApplication>
 
 #include "model/level.h"
 #include "mapreader.h"
@@ -32,17 +33,31 @@ void MainWindow::loadLevel()
 
     if (file_name != nullptr)
     {
-        Level * level = MapReader::level(file_name.toStdString());
+        level_ = MapReader::level(file_name.toStdString());
 
-        level->compute_rays();
-
-        if (level)
+        if (level_)
         {
-            MapView * box = new MapView(level);
-            level->add_observer(box);
-            setCentralWidget(box);
+            map_view_ = new MapView(level_);
+            level_->add_observer(map_view_);
+            setCentralWidget(map_view_);
+
+            centralWidget()->setEnabled(true);
+            open_level_action_->setEnabled(false);
+            close_level_action_->setEnabled(true);
         }
     }
+}
+
+void MainWindow::closeLevel()
+{
+    level_->remove_observer(map_view_);
+
+    centralWidget()->setEnabled(false);
+    open_level_action_->setEnabled(true);
+    close_level_action_->setEnabled(false);
+
+    delete map_view_;
+    map_view_ = nullptr;
 }
 
 void MainWindow::setupUi()
@@ -51,42 +66,51 @@ void MainWindow::setupUi()
     //resize(400, 300);
     showMaximized();
 
+
+
     menu_bar_ = new QMenuBar(this);
     menu_bar_->setObjectName(QStringLiteral("menuBar"));
 
-    QMenu * fileMenu = menu_bar_->addMenu("&File");
+    file_menu_ = menu_bar_->addMenu("&File");
 
-    QAction * open_level_action = new QAction("&Open level", menu_bar_);
-    open_level_action->setShortcuts(QKeySequence::Open);
-    open_level_action->setStatusTip("Open a Starlight level");
-    connect(open_level_action, SIGNAL(triggered()), this, SLOT(loadLevel()));
-    fileMenu->addAction(open_level_action);
+    open_level_action_ = new QAction("&Open level", menu_bar_);
+    open_level_action_->setShortcuts(QKeySequence::Open);
+    open_level_action_->setStatusTip("Open a Starlight level");
+    connect(open_level_action_, SIGNAL(triggered()), this, SLOT(loadLevel()));
+    file_menu_->addAction(open_level_action_);
 
-    QAction * close_level_action = new QAction("&Close level", menu_bar_);
-    close_level_action->setShortcuts(QKeySequence::Close);
-    close_level_action->setStatusTip("Close a Starlight level");
-    fileMenu->addAction(close_level_action);
+    close_level_action_ = new QAction("&Close level", menu_bar_);
+    close_level_action_->setShortcuts(QKeySequence::Close);
+    close_level_action_->setStatusTip("Close a Starlight level");
+    connect(close_level_action_, SIGNAL(triggered()), this, SLOT(closeLevel()));
+    file_menu_->addAction(close_level_action_);
 
-    QAction * quit_action = new QAction("&Quit", menu_bar_);
-    quit_action->setShortcuts(QKeySequence::Quit);
-    quit_action->setStatusTip("Quit the program");
-    fileMenu->addAction(quit_action);
+    quit_action_ = new QAction("&Quit", menu_bar_);
+    quit_action_->setShortcuts(QKeySequence::Quit);
+    quit_action_->setStatusTip("Quit the program");
+    connect(quit_action_, &QAction::triggered, &QCoreApplication::quit);
+    file_menu_->addAction(quit_action_);
 
     setMenuBar(menu_bar_);
 
 
 
-    main_tool_bar_ = new QToolBar(this);
-    main_tool_bar_->setObjectName(QStringLiteral("mainToolBar"));
-    addToolBar(main_tool_bar_);
+//    main_tool_bar_ = new QToolBar(this);
+//    main_tool_bar_->setObjectName(QStringLiteral("mainToolBar"));
+//    addToolBar(main_tool_bar_);
 
     central_widget_ = new QWidget(this);
     central_widget_->setObjectName(QStringLiteral("centralWidget"));
     setCentralWidget(central_widget_);
 
-    status_bar_ = new QStatusBar(this);
-    status_bar_->setObjectName(QStringLiteral("statusBar"));
-    setStatusBar(status_bar_);
+//    status_bar_ = new QStatusBar(this);
+//    status_bar_->setObjectName(QStringLiteral("statusBar"));
+//    setStatusBar(status_bar_);
+
+
+    centralWidget()->setEnabled(false);
+    open_level_action_->setEnabled(true);
+    close_level_action_->setEnabled(false);
 }
 
 MainWindow::~MainWindow()

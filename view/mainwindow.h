@@ -3,6 +3,8 @@
 
 #include <QMainWindow>
 
+#include "mapview.h"
+
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
@@ -16,6 +18,14 @@ public:
     QWidget *central_widget_;
     QStatusBar *status_bar_;
 
+    MapView * map_view_;
+    Level * level_;
+
+    QMenu * file_menu_;
+    QAction * open_level_action_;
+    QAction * close_level_action_;
+    QAction * quit_action_;
+
     void setupUi();
 
 
@@ -24,6 +34,7 @@ private:
 
 private slots:
     void loadLevel();
+    void closeLevel();
 };
 
 #endif // MAINWINDOW_H
