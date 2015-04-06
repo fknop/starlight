@@ -19,7 +19,7 @@ Level::Level(double w, double h) : width_ {w}, height_ {h},
 void Level::compute_rays()
 {
 
-    rays_.clear();
+
 //    add_mirror(Mirror(Point(30, 500), 29, 58, (M_PI*2 - M_PI_4)));
 //    add_mirror(Mirror(Point(60,500), 0, 58, M_PI_4));
 //    add_mirror(Mirror(Point(40, 400), 0, 58, M_PI_4));
@@ -38,7 +38,7 @@ void Level::compute_rays()
             std::cout << "TODO";
     }
 
-    notify_all("UPDATE_RAYS");
+
 
 }
 
@@ -286,11 +286,19 @@ void Level::sort_intersections(const Line &line,
 
 void Level::notify(Observable* obs)
 {
-    compute_rays();
+    rays_.clear();
+    if (source_.on())
+        compute_rays();
+
+    notify_all("UPDATE_RAYS");
 }
 
 void Level::notify(Observable* obs, std::string msg)
 {
-    compute_rays();
+    rays_.clear();
+    if (source_.on())
+        compute_rays();
+
+    notify_all("UPDATE_RAYS");
 }
 
