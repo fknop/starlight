@@ -26,9 +26,11 @@ void Level::compute_rays()
 
         State state = compute_ray(ray, this->source_.wavelength());
         if (state == State::WIN)
-            std::cout << "TODO";
+            notify_all("GAME_WON");
         else if (state == State::LOSE)
-            std::cout << "TODO";
+            notify_all("GAME_LOST");
+        else
+            notify_all("CONTINUE");
     }
 
 
@@ -282,7 +284,5 @@ void Level::notify(Observable* obs, std::string msg)
     rays_.clear();
     if (source_.on())
         compute_rays();
-
-    notify_all(msg);
 }
 
