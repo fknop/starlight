@@ -43,8 +43,6 @@ Level::State Level::compute_ray(Line& line, int wl)
     Intersection* intersection = get_intersection(line);
     Element::Type type = intersection->element()->type();
 
-
-
     Nuke* nuke = nullptr;
     Mirror* mirror = nullptr;
     Lens* lens = nullptr;
@@ -273,6 +271,6 @@ void Level::notify(Observable* obs, std::string msg)
     if (source_.on())
         compute_rays();
 
-    notify_all("UPDATE_RAYS");
+    notify_all(msg);
 }
 

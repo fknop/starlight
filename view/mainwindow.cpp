@@ -13,7 +13,7 @@
 #include "model/level.h"
 
 
-MainWindow::MainWindow(MainMenu * parent) : QMainWindow(parent), main_menu_(parent)
+MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
 {
     setupUi();
 }
@@ -119,7 +119,7 @@ void MainWindow::setupUi()
 
 void MainWindow::help()
 {
-    main_menu_->help();
+    QMessageBox::information(this, "Help", STARLIGHT_RULES.c_str());
 }
 
 MainWindow::~MainWindow()
