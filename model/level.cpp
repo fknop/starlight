@@ -39,7 +39,7 @@ Level::State Level::compute_ray(Line& line, int wl)
 {
     State state;
     double angle = line.angle();
-
+    double new_wl = wl;
     Intersection* intersection = get_intersection(line);
     Element::Type type = intersection->element()->type();
 
@@ -54,7 +54,7 @@ Level::State Level::compute_ray(Line& line, int wl)
         case Element::Type::CRYSTAL:
         {
             crystal = dynamic_cast<Crystal*> (intersection->element());
-            wl += crystal->modifier();
+            new_wl += crystal->modifier();
             state = State::CONTINUE;
             break;
         }
@@ -67,10 +67,18 @@ Level::State Level::compute_ray(Line& line, int wl)
         case Element::Type::LENS:
         {
             lens = dynamic_cast<Lens*> (intersection->element());
+
             if (wl >= lens->wl_min() && wl <= lens->wl_max())
+            {
                 state = State::CONTINUE;
+                std::cout << "continue";
+            }
             else
+            {
+                std::cout << "stop";
                 state = State::STOP;
+            }
+
             break;
         }
         case Element::Type::MIRROR:
@@ -103,7 +111,7 @@ Level::State Level::compute_ray(Line& line, int wl)
     if (state == State::CONTINUE)
     {
         Line newLine(Point(*intersection->point()), angle);
-        compute_ray(newLine, wl);
+        compute_ray(newLine, new_wl);
     }
 
     delete intersection;
