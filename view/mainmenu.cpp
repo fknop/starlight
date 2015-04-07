@@ -1,15 +1,13 @@
 #include <iostream>
 #include <QFileDialog>
 #include <QIcon>
+#include <QMessageBox>
 #include <QPalette>
 #include <QPixmap>
-#include <QMessageBox>
 
 #include "mainmenu.h"
 #include "mainwindow.h"
 #include "button.h"
-
-
 
 
 MainMenu::MainMenu(QWidget * parent)
@@ -55,8 +53,8 @@ void MainMenu::help()
                              "</ul>"
                              "<p>while mirror rotation are done through:"
                              "<ul>"
-                             "<li>left arrow key: +1 in counterclockwise direction</li>"
-                             "<li>right arrow key: -1 in counterclockwise direction</li>"
+                                 "<li>left arrow key: +1 in counterclockwise direction</li>"
+                                 "<li>right arrow key: -1 in counterclockwise direction</li>"
                              "</ul>"
                              "<p style='font-weight: bold;'>Enjoy your game!</p>");
 }

@@ -4,7 +4,8 @@
 #include <QMainWindow>
 
 #include "mapview.h"
-#include "mainmenu.h"
+
+class MainMenu;
 
 class MainWindow : public QMainWindow
 {
