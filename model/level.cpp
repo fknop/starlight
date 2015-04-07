@@ -267,15 +267,6 @@ void Level::sort_intersections(const Line &line,
     });
 }
 
-void Level::notify(Observable* obs)
-{
-    rays_.clear();
-    if (source_.on())
-        compute_rays();
-
-    notify_all("UPDATE_RAYS");
-}
-
 void Level::notify(Observable* obs, std::string msg)
 {
     rays_.clear();

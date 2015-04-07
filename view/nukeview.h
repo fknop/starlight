@@ -4,15 +4,18 @@
 #include <QGraphicsView>
 #include <QGraphicsEllipseItem>
 
+#include "obs/observable.h"
+#include "obs/observerinterface.h"
 #include "model/nuke.h"
 
-class NukeView : public QGraphicsEllipseItem
+class NukeView : public QGraphicsEllipseItem, public ObserverInterface
 {
 public:
     NukeView(const Nuke & nuke);
+    void notify(Observable *sdo, std::string msg);
 
 private:
-    Nuke nuke_;
+    Nuke * nuke_;
 };
 
 #endif // NUKESVIEW_H

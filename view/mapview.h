@@ -20,8 +20,6 @@ public:
     void draw_ray(QGraphicsScene* s, const Ray& ray);
 
     void keyPressEvent(QKeyEvent * event);
-
-    void notify(Observable *sdo);
     void notify(Observable *sdo, std::string msg);
 
 private:

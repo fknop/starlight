@@ -29,16 +29,13 @@ public:
      */
     MirrorView(const Mirror& mirror);
 
-    int rotation();
-    void set_rotation(qreal angle);
-    void notify(Observable * obs);
+    void rotate(qreal angle);
     void notify(Observable * obs, std::string msg);
 
     void translate(int x = 0, int y = 0);
 
 private:
     Mirror* mirror_;
-    qreal rotation_;
 };
 
 

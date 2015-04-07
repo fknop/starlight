@@ -95,10 +95,7 @@ LineSegment Mirror::to_line_segment() const
     double gy = pivotY + (xpad_ * sin(this->alpha_));
     double dx = pivotX + ((this->length_ - xpad_) * std::cos(this->alpha_));
     double dy = pivotY - ((this->length_ - xpad_) * std::sin(this->alpha_));
-    Point start(gx, gy);
-    Point end(dx, dy);
-
-    return LineSegment(start, end);
+    return LineSegment(Point(gx, gy), Point(dx, dy));
 }
 
 std::ostream & operator<<(std::ostream & out, const Mirror & m)
