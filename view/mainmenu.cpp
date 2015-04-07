@@ -37,13 +37,13 @@ void MainMenu::start()
 {
     hide();
 
-    MainWindow * mw = new MainWindow(this);
-    mw->show();
+    main_window_ = new MainWindow(this);
+    main_window_->show();
 }
 
 void MainMenu::help()
 {
-    QMessageBox::information(this, "Help",
+    QMessageBox::information(main_window_, "Help",
                              "<p>Starlight is a 2D puzzle where you have to make the light go from the source to the destination without touching a nuke or… BOOM!, you lose.</p>"
                              "<p>Mirrors can be moved and rotated with your keyboard."
                              "<p>Movements are achieved with the following keys:</p>"
@@ -55,8 +55,8 @@ void MainMenu::help()
                              "</ul>"
                              "<p>while mirror rotation are done through:"
                              "<ul>"
-                             "<li>left arrow key: +1 in sens horloger</li>"
-                             "<li>right arrow key: -1 in sens horloger</li>"
+                             "<li>left arrow key: +1 in counterclockwise direction</li>"
+                             "<li>right arrow key: -1 in counterclockwise direction</li>"
                              "</ul>"
                              "<p style='font-weight: bold;'>Enjoy your game!</p>");
 }

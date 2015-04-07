@@ -27,7 +27,7 @@ public:
     QAction * quit_action_;
     QAction * help_action_;
 
-    MainMenu * parent_;
+    MainMenu * main_menu_;
 
     void setupUi();
 

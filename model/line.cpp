@@ -1,6 +1,7 @@
 #include "geometry.h"
 #include "line.h"
 #include "umath.h"
+#include "constants.h"
 
 
 Line::Line(const Point& origin, double angle)
