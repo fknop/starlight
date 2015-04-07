@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/images">
+        <file alias="WindowIcon.png">ressources/images/WindowIcon.png</file>
+    </qresource>
+    <qresource prefix="/sounds">
+        <file alias="nuke.mp3">ressources/sounds/nuke.mp3</file>
+        <file alias="victory.mp3">ressources/sounds/victory.mp3</file>
+    </qresource>
+</RCC>

@@ -15,6 +15,8 @@ NukeView::NukeView(const Nuke& nuke)
 
     setRect(p.x() - radius, p.y() - radius,
             radius + radius, radius + radius);
+
+    //QSound::play("sounds/croack.wav");
 }
 
 void NukeView::notify(Observable* sdo, std::string msg)

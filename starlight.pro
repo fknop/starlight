@@ -1,4 +1,4 @@
-QT += core gui
+QT += core gui multimedia
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = starlight
@@ -88,3 +88,6 @@ SOURCES += \
     view/rayview.cpp \
     Tests/sortpointtest.cpp \
     view/mainwindow.cpp
+
+RESOURCES += \
+    ressources.qrc
