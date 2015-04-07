@@ -23,6 +23,8 @@ MapView::MapView(Level* level) : level_{level}
     setRenderHints(QPainter::Antialiasing);
     //setFixedSize(this->level_->width() + 30, this->level_->height() + 30);
 
+    sound_ = new QMediaPlayer();
+
     SourceView *source = new SourceView(level_->source());
     DestinationView *dest = new DestinationView(level_->dest());
 
@@ -54,6 +56,16 @@ MapView::MapView(Level* level) : level_{level}
         draw_mirror(scene_, i);
     }
 
+}
+
+MapView::~MapView()
+{
+    delete level_;
+    level_ = nullptr;
+    delete scene_;
+    scene_ = nullptr;
+    delete sound_;
+    sound_ = nullptr;
 }
 
 void MapView::draw_ray(QGraphicsScene* s, const Ray &ray)
@@ -167,30 +179,26 @@ void MapView::notify(Observable *sdo, std::string msg)
         draw_ray(scene_, i);
     }
 
-//    if (msg == "GAME_LOST")
-//    {
-//        QMediaPlayer * sound = new QMediaPlayer();
-//        sound->setMedia(QUrl("qrc:/sounds/nuke.mp3"));
-//        // http://soundbible.com/106-Car-Explosion.html  Uploaded: 05.03.09 | License: Attribution 3.0 | Recorded by Mike Koenig |
-//        sound->play();
-//    }
-//    else if (msg == "GAME_WON")
-//    {
-//        std::cout << "win" << std::endl;
-//        QMediaPlayer * sound = new QMediaPlayer();
-//        sound->setMedia(QUrl("qrc:/sounds/victory.mp3"));
-//        sound->play();
-//        // http://soundbible.com/1003-Ta-Da.html Uploaded: 09.14.09 | License: Attribution 3.0 | Recorded by Mike Koenig
 
+    if (msg == "GAME_LOST")
+    {
+        sound_->setMedia(QUrl("qrc:/sounds/nuke.mp3"));
+        sound_->play();
+        // http://soundbible.com/106-Car-Explosion.html  Uploaded: 05.03.09 | License: Attribution 3.0 | Recorded by Mike Koenig |
+    }
+    else if (msg == "GAME_WON")
+    {
+        sound_->setMedia(QUrl("qrc:/sounds/victory.mp3"));
+        sound_->play();
+        // http://soundbible.com/1003-Ta-Da.html Uploaded: 09.14.09 | License: Attribution 3.0 | Recorded by Mike Koenig
+    }
+    // TO REMOVE
+    else
+    {
+        //QMediaPlayer * sound = new QMediaPlayer();
+        sound_->setMedia(QUrl("qrc:/sounds/nuke.mp3"));
+        sound_->play();
+    }
 
-//    }
-//    // TO REMOVE
-//    else
-//    {
-//        QMediaPlayer * sound = new QMediaPlayer();
-//        sound->setMedia(QUrl("qrc:/sounds/nuke.mp3"));
-//        sound->play();
-//    }
-    //
 }
 
