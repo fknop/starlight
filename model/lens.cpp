@@ -2,7 +2,7 @@
 #include "ray.h"
 
 
-Lens::Lens(const Point & p, double w, double h, int wlmin, int wlmax) :
+Lens::Lens(const Point& p, double w, double h, int wlmin, int wlmax) :
     Element(Element::Type::LENS), pos_ {p},
     width_ {w}, height_ {h}, wl_min_ {wlmin}, wl_max_ {wlmax}
 {
