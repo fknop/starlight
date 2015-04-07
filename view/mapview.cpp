@@ -31,11 +31,6 @@ MapView::MapView(Level* level) : level_{level}
         draw_wall(scene_, i);
     }
 
-    for (auto &i : this->level_->mirrors())
-    {
-        draw_mirror(scene_, i);
-    }
-
     for (auto &i : this->level_->nukes())
     {
         draw_nuke(scene_, i);
@@ -50,6 +45,12 @@ MapView::MapView(Level* level) : level_{level}
     {
         draw_crystal(scene_, i);
     }
+
+    for (auto &i : this->level_->mirrors())
+    {
+        draw_mirror(scene_, i);
+    }
+
 }
 
 void MapView::draw_ray(QGraphicsScene* s, const Ray &ray)

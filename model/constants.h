@@ -3,7 +3,6 @@
 
 #include <string>
 
-
 #ifndef EPSILON
     #define EPSILON 0.0001
 #endif
