@@ -25,8 +25,8 @@ class Lens : public Element
     double width_;
     double height_;
 
-    int wlmin_;
-    int wlmax_;
+    int wl_min_;
+    int wl_max_;
 
   public:
     /**
@@ -41,7 +41,7 @@ class Lens : public Element
      * @param wlmax la longueur d'onde maximale des rayons
      *              autorisés à franchir la lentille.
      */
-    Lens(const Point& p, double w, double h, int wlmin_, int wlmax_);
+    Lens(const Point& p, double w, double h, int wl_min, int wl_max);
 
     /**
      * Constructeur de copie.
@@ -121,12 +121,12 @@ double Lens::height() const
 
 int Lens::wl_max() const
 {
-    return wlmin_;
+    return wl_max_;
 }
 
 int Lens::wl_min() const
 {
-    return wlmax_;
+    return wl_min_;
 }
 
 #endif // LENS_H
