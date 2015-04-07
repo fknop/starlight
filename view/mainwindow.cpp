@@ -27,12 +27,6 @@ void MainWindow::loadLevel()
     {
         level_ = MapReader::level(file_name.toStdString());
 
-//        level_->add_mirror(Mirror(Point(30, 500), 29, 58, (M_PI*2 - M_PI_4)));
-//        level_->add_mirror(Mirror(Point(60,500), 0, 58, M_PI_4));
-//        level_->add_mirror(Mirror(Point(40, 400), 0, 58, M_PI_4 - 0.2));
-//        level_->add_mirror(Mirror(Point(100, 420), 0, 58, M_PI_4));
-//        level_->add_mirror(Mirror(Point(60, 430), 0, 58, M_PI_2));
-
         if (level_)
         {
             map_view_ = new MapView(level_);
@@ -49,7 +43,7 @@ void MainWindow::loadLevel()
 void MainWindow::closeLevel()
 {
     level_->remove_observer(map_view_);
-
+    MapReader::end_level();
     centralWidget()->setEnabled(false);
     open_level_action_->setEnabled(true);
     close_level_action_->setEnabled(false);

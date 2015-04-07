@@ -55,7 +55,7 @@ MapView::MapView(Level* level) : level_{level}
 
 void MapView::draw_ray(QGraphicsScene* s, const Ray &ray)
 {
-    RayView *rv = new RayView(ray);
+    RayView* rv = new RayView(ray);
     rays_.push_back(rv);
     s->addItem(rv);
 }
