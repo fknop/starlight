@@ -4,14 +4,14 @@
 #include <QMainWindow>
 
 #include "mapview.h"
-#include "mainmenu.h"
+
 
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    explicit MainWindow(MainMenu *parent = 0);
+    explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
     QMenuBar * menu_bar_;
@@ -26,8 +26,6 @@ public:
     QAction * close_level_action_;
     QAction * quit_action_;
     QAction * help_action_;
-
-    MainMenu * main_menu_;
 
     void setupUi();
 

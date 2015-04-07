@@ -1,32 +1,21 @@
-#include "mainwindow.h"
-
 #include <QFileDialog>
 
-//#include <QtCore/QVariant>
 #include <QtWidgets/QAction>
-//#include <QtWidgets/QApplication>
-//#include <QtWidgets/QButtonGroup>
-//#include <QtWidgets/QHeaderView>
-//#include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
-#include <QtWidgets/QStatusBar>
-#include <QtWidgets/QToolBar>
-//#include <QtWidgets/QWidget>
 #include <QCoreApplication>
 #include <QMessageBox>
 
-#include "model/level.h"
+#include "mainmenu.h"
+#include "mainwindow.h"
 #include "mapreader.h"
 #include "mapview.h"
-
-#include "mainmenu.h"
 #include "model/constants.h"
+#include "model/level.h"
 
-MainWindow::MainWindow(MainMenu * parent) : QMainWindow(parent), main_menu_(parent)
+
+MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
 {
     setupUi();
-
-
 }
 
 void MainWindow::loadLevel()
@@ -130,7 +119,7 @@ void MainWindow::setupUi()
 
 void MainWindow::help()
 {
-    main_menu_->help();
+    QMessageBox::information(this, "Help", STARLIGHT_RULES.c_str());
 }
 
 MainWindow::~MainWindow()

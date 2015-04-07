@@ -10,7 +10,7 @@ class Observable;
 class ObserverInterface
 {
 public:
-    virtual void notify(Observable * sdo, std::string msg) = 0;
+    virtual void notify(Observable * sdo, std::string msg="UPDATE_RAYS") = 0;
     virtual ~ObserverInterface() = default;
 };
 
