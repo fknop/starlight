@@ -70,6 +70,11 @@ int Ellipse::intersects(const Line& l, std::vector<Point>& points)
         }
     }
 
+
+    for (auto &i : points)
+        std::cout << i << std::endl;
+
+
     return points.size();
 
 }

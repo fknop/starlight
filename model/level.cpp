@@ -13,7 +13,6 @@ Level::Level(double w, double h) : width_ {w}, height_ {h},
     if (w <= 0 || h <= 0)
         throw std::string("La taille et la longueur "
                           "du plateau doivent etre strictement positives");
-
 }
 
 void Level::compute_rays()
@@ -32,6 +31,11 @@ void Level::compute_rays()
         else
             notify_all("CONTINUE");
     }
+    else
+    {
+        notify_all("CLEAR_RAYS");
+    }
+
 
 
 
@@ -49,7 +53,7 @@ Level::State Level::compute_ray(Line& line, int wl)
     Mirror* mirror = nullptr;
     Lens* lens = nullptr;
     Crystal* crystal = nullptr;
-
+    std::cout << line.angle() << std::endl;
     switch (type)
     {
 
@@ -73,7 +77,6 @@ Level::State Level::compute_ray(Line& line, int wl)
         case Element::Type::LENS:
         {
             lens = dynamic_cast<Lens*> (intersection->element());
-
             if (wl >= lens->wl_min() && wl <= lens->wl_max())
             {
                 state = State::CONTINUE;
@@ -177,7 +180,7 @@ void Level::dest_intersections(const Line &line,
     if (this->dest_.to_rectangle().intersects(line, points) > 0)
     {
         for (auto &i : points)
-            intersections.push_back(Intersection(&i, &this->dest_));
+            intersections.push_back(Intersection(new Point(i), &this->dest_));
     }
 }
 
@@ -201,10 +204,10 @@ void Level::lenses_intersections(const Line &line,
     for (auto &i : this->lenses_)
     {
         points.clear();
-        if (i.to_ellipse().intersects(line, points) > 0)
+        if (i.to_ellipse().intersects(line, points))
         {
             for (auto &j : points)
-                intersections.push_back(Intersection(&j, &i));
+                intersections.push_back(Intersection(new Point(j), &i));
         }
     }
 }
@@ -273,19 +276,21 @@ void Level::sort_intersections(const Line &line,
     {
         int distance_a = std::rint(a.point()->distance(line.origin()));
         int distance_b = std::rint(b.point()->distance(line.origin()));
-        return (distance_a < distance_b) ||
-                (distance_a == distance_b &&
-                 a.element()->type() < b.element()->type());
+        return (distance_a < distance_b);
     });
 }
 
 void Level::notify(Observable* obs, std::string msg)
 {
     rays_.clear();
+
     if (source_.on())
         compute_rays();
 
     if (msg == "SOURCE_ON")
         notify_all("SOURCE_ON");
+
+    compute_rays();
+
 }
 

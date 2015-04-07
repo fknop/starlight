@@ -28,6 +28,14 @@ struct Intersection
         element_ = e;
     }
 
+    ~Intersection()
+    {
+        /* Pas de delete sur l'élément sinon
+         * on le supprime de level
+         */
+
+    }
+
     Point* point() const
     {
         return this->point_;

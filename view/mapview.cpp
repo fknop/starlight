@@ -182,6 +182,7 @@ void MapView::notify(Observable *sdo, std::string msg)
 
     std::cout << "mapview msg " << msg << std::endl;
 
+
     if (msg == "GAME_LOST")
     {
         if (sound_->state() == QMediaPlayer::PlayingState)
@@ -207,14 +208,9 @@ void MapView::notify(Observable *sdo, std::string msg)
 
         sound_->setMedia(QUrl("qrc:/sounds/switch.mp3"));
         sound_->play();
+        // http://soundbible.com/761-Switch.html  Uploaded: 07.20.09 | License: Attribution 3.0 | Recorded by Mike Koenig |
     }
-    // TO REMOVE
-    else
-    {
-        //QMediaPlayer * sound = new QMediaPlayer();
-        sound_->setMedia(QUrl("qrc:/sounds/nuke.mp3"));
-        sound_->play();
-    }
-    //
+
+
 }
 
