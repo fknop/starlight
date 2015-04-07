@@ -5,10 +5,7 @@
 
 
 Mirror::Mirror(const Point & p, double x, double len, double a)
-    : Mirror {p, x, len, a, {.0, .0}, {.0, .0}, .0, .0}
-{
-
-}
+    : Mirror {p, x, len, a, {.0, .0}, {.0, .0}, .0, .0} {}
 
 Mirror::Mirror(const Point & p, double x, double len, double a, Point pm,
                Point pM, double am, double aM)
@@ -38,13 +35,6 @@ bool Mirror::check_pivot_range(const Point & p) const
 {
     if (this->x_min_ == 0 && this->x_max_ == 0 && this->y_min_ == 0 && this->y_max_ == 0)
         return true;
-
-    else if (this->x_min_ == 0 && this->x_max_ == 0)
-        return p.y() >= this->y_min_ && p.y() <= this->y_max_;
-
-    else if (this->y_min_ == 0 && this->y_max_ == 0)
-        return p.x() >= this->x_min_ && p.x() <= this->x_max_;
-
     else
         return p.x() >= this->x_min_ && p.x() <= this->x_max_
                 && p.y() >= this->y_min_ && p.y() <= this->y_max_;
@@ -52,14 +42,7 @@ bool Mirror::check_pivot_range(const Point & p) const
 
 void Mirror::rotate(double angle)
 {
-    if (!set_angle(this->alpha_ + angle))
-    {
-        if (this->alpha_ + angle >= this->alpha_max_)
-            set_angle(this->alpha_max_);
-        else
-            set_angle(this->alpha_min_);
-    }
-
+    set_angle(this->alpha_ + angle);
     notify_all("ROTATE_MIRROR");
 }
 
@@ -67,22 +50,9 @@ void Mirror::translate(double x, double y)
 {
     double newX = this->pivot_.x() + x;
     double newY = this->pivot_.y() + y;
-
-    if (!set_pivot(Point(newX, newY)))
-    {
-        if (newX < this->x_min_)
-            newX = this->x_min_;
-        else if (newX > this->x_max_)
-            newY = this->x_max_;
-
-        if (newY < this->y_min_)
-            newY = this->y_min_;
-        else if (newY > this->y_max_)
-            newY = this->y_max_;
-
-        set_pivot(Point(newX, newY));
-    }
-
+    // Check la nouvelle position du pivot
+    // et la modifie si OK.
+    set_pivot(Point(newX, newY));
     notify_all("TRANSLATE_MIRROR");
 
 }
