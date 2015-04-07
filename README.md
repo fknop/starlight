@@ -9,16 +9,16 @@
 
 **Une fois effectué -> Barrer la ligne !**
 
-* PRIORITE : Faire le cast d'un élément en sous-élément !
+* Gérer la reflexion du rayon sur un miroir.  A FINIR (+ un seul côté)
+* Gérer les divers évènements lors de l'intersection avec un objet. A FINIR 
+* ~~Faire le cast d'un élément en sous-élément~~ !
 * ~~Gérer les lignes verticales.~~
 * ~~Gérer les intersections entres droites, segments, ellipses.~~
 * ~~Gérer le retour du point d'intersection et de l'objet.~~
-* Gérer les vérifications dans les constructeurs. - A FINIR
-* Gérer la reflexion du rayon sur un miroir. 
-* Gérer les divers évènements lors de l'intersection avec un objet.
+* ~~Gérer les vérifications dans les constructeurs. - A FINIR~~
 * Gérer l'affichage.
-* Gérer le déplacement des miroirs. - A TESTER
-* Gérer la rotations des miroirs.   - A TESTER
+* ~~Gérer le déplacement des miroirs. ~~
+* ~~Gérer la rotations des miroirs.   - A TESTER~~
 
 # Rules
 
