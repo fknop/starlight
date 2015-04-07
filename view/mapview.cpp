@@ -86,6 +86,7 @@ void MapView::draw_wall(QGraphicsScene *s, const Wall& wall)
 void MapView::draw_mirror(QGraphicsScene *s, const Mirror& mirror)
 {
     MirrorView *mv = new MirrorView(mirror);
+
     s->addItem(mv);
 }
 
@@ -179,17 +180,33 @@ void MapView::notify(Observable *sdo, std::string msg)
         draw_ray(scene_, i);
     }
 
+    std::cout << "mapview msg " << msg << std::endl;
+
     if (msg == "GAME_LOST")
     {
+        if (sound_->state() == QMediaPlayer::PlayingState)
+            sound_->stop();
+
         sound_->setMedia(QUrl("qrc:/sounds/nuke.mp3"));
         sound_->play();
         // http://soundbible.com/106-Car-Explosion.html  Uploaded: 05.03.09 | License: Attribution 3.0 | Recorded by Mike Koenig |
     }
     else if (msg == "GAME_WON")
     {
+        if (sound_->state() == QMediaPlayer::PlayingState)
+            sound_->stop();
+
         sound_->setMedia(QUrl("qrc:/sounds/victory.mp3"));
         sound_->play();
         // http://soundbible.com/1003-Ta-Da.html Uploaded: 09.14.09 | License: Attribution 3.0 | Recorded by Mike Koenig
+    }
+    else if (msg == "SOURCE_ON")
+    {
+        if (sound_->state() == QMediaPlayer::PlayingState)
+            sound_->stop();
+
+        sound_->setMedia(QUrl("qrc:/sounds/switch.mp3"));
+        sound_->play();
     }
     // TO REMOVE
     else

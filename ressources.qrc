@@ -5,5 +5,6 @@
     <qresource prefix="/sounds">
         <file alias="nuke.mp3">ressources/sounds/nuke.mp3</file>
         <file alias="victory.mp3">ressources/sounds/victory.mp3</file>
+        <file alias="switch.mp3">ressources/sounds/switch.mp3</file>
     </qresource>
 </RCC>
