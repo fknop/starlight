@@ -150,6 +150,7 @@ void MapView::keyPressEvent(QKeyEvent *event)
 
 void MapView::notify(Observable *sdo, std::string msg)
 {
+
     for (auto i : rays_)
     {
         scene_->removeItem(i);
@@ -163,9 +164,13 @@ void MapView::notify(Observable *sdo, std::string msg)
         draw_ray(scene_, i);
     }
 
-    for (auto &i : this->level_->nukes())
+    if (msg == "GAME_LOST")
     {
-        // Allumer la nuke et lose.
+
+    }
+    else if (msg == "GAME_WON")
+    {
+
     }
 }
 
