@@ -27,7 +27,9 @@
     #define M_PI_2_3 (3 * M_PI_2)
 #endif
 
-const std::string STARLIGHT_RULES = "<p>Starlight is a 2D puzzle where you have to make the light go from the source to the destination without touching a nuke or… BOOM!, you lose.</p>"
+const std::string STARLIGHT_RULES = "<p>Starlight is a 2D puzzle where you have "
+        "to make the light go from the source to the destination without touching "
+        "a nuke or… BOOM!, you lose.</p>"
         "<p>Mirrors can be moved and rotated with your keyboard."
         "<p>Movements are achieved with the following keys:</p>"
         "<ul>"
@@ -36,11 +38,12 @@ const std::string STARLIGHT_RULES = "<p>Starlight is a 2D puzzle where you have 
             "<li>Q: Move the mirror left.</li>"
             "<li>D: Move the mirror right.</li>"
         "</ul>"
-        "<p>while mirror rotation are done through:"
+        "<p>while mirror rotations are done through:"
         "<ul>"
             "<li>left arrow key: +1 in counterclockwise direction</li>"
             "<li>right arrow key: -1 in counterclockwise direction</li>"
         "</ul>"
+        "<p>You can boost your move by pressing the 'Shift' key.</p>"
         "<p style='font-weight: bold;'>Enjoy your game!</p>";
 
 

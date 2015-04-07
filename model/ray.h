@@ -151,4 +151,5 @@ bool Ray::set_wavelength(int wl)
     return r;
 }
 
+
 #endif // RAY_H

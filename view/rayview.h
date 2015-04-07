@@ -10,6 +10,13 @@ public:
 
    RayView(const Ray& ray);
 
+   /**
+    * Set color on basis of the wavelength.
+    * Source: http://www.efg2.com/Lab/ScienceAndEngineering/Spectra.htm
+    * @param wl wavelength of a the ray.
+    */
+   void set_color(double wl);
+
 private:
 
 };
