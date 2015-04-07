@@ -2,6 +2,7 @@
 #define MAP_HPP
 
 #include <QGraphicsView>
+#include <QMediaPlayer>
 #include <string>
 
 #include "model/level.h"
@@ -12,6 +13,7 @@ class MapView : public QGraphicsView, public ObserverInterface
 {
 public:
     MapView(Level* level_);
+    ~MapView();
     void draw_wall(QGraphicsScene * s, const Wall & wall);
     void draw_mirror(QGraphicsScene * s, const Mirror& mirror);
     void draw_nuke(QGraphicsScene * s, const Nuke & nuke);
@@ -26,6 +28,7 @@ private:
     std::vector<RayView*> rays_;
     Level * level_;
     QGraphicsScene * scene_;
+    QMediaPlayer * sound_;
 };
 
 #endif // MAP_HPP
