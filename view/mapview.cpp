@@ -103,29 +103,47 @@ void MapView::keyPressEvent(QKeyEvent *event)
     {
         if (event->key() == Qt::Key_Left)
         {
-            i->rotate(-1);
+            if (event->modifiers() & Qt::ShiftModifier)
+                i->rotate(-5);
+            else
+                i->rotate(-1);
             break;
         }
         else if(event->key() == Qt::Key_Right)
         {
-            i->rotate(1);
+            if (event->modifiers() & Qt::ShiftModifier)
+                i->rotate(5);
+            else
+                i->rotate(1);
             break;
         }
         else if(event->key() == Qt::Key_Z)
         {
-            i->translate(0, -1);
+            if (event->modifiers() & Qt::ShiftModifier)
+                i->translate(0, -5);
+            else
+                i->translate(0, -1);
         }
         else if(event->key() == Qt::Key_S || event->key() == Qt::Key_U)
         {
-            i->translate(0, 1);
+            if (event->modifiers() & Qt::ShiftModifier)
+                i->translate(0, 5);
+            else
+                i->translate(0, 1);
         }
         else if(event->key() == Qt::Key_Q || event->key() == Qt::Key_A)
         {
-            i->translate(-1, 0);
+            if (event->modifiers() & Qt::ShiftModifier)
+                i->translate(-5, 0);
+            else
+                i->translate(-1, 0);
         }
         else if(event->key() == Qt::Key_D || event->key() == Qt::Key_I)
         {
-            i->translate(1, 0);
+            if (event->modifiers() & Qt::ShiftModifier)
+                i->translate(5, 0);
+            else
+                i->translate(1, 0);
         }
     }
 }

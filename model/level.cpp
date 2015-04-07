@@ -54,7 +54,9 @@ Level::State Level::compute_ray(Line& line, int wl)
         case Element::Type::CRYSTAL:
         {
             crystal = dynamic_cast<Crystal*> (intersection->element());
+            std::cout << wl << std::endl;
             wl += crystal->modifier();
+            std::cout << wl << std::endl;
             state = State::CONTINUE;
             break;
         }
@@ -67,6 +69,7 @@ Level::State Level::compute_ray(Line& line, int wl)
         case Element::Type::LENS:
         {
             lens = dynamic_cast<Lens*> (intersection->element());
+            std::cout << "wavelength " << wl << std::endl;
             if (wl >= lens->wl_min() && wl <= lens->wl_max())
                 state = State::CONTINUE;
             else
@@ -257,10 +260,10 @@ void Level::sort_intersections(const Line &line,
     std::sort(intersections.begin(), intersections.end(),
               [line](const Intersection& a, const Intersection& b) -> bool
     {
-        int distanceA = std::rint(a.point()->distance(line.origin()));
-        int distanceB = std::rint(b.point()->distance(line.origin()));
-        return (distanceA < distanceB) ||
-                (distanceA == distanceB &&
+        int distance_a = std::rint(a.point()->distance(line.origin()));
+        int distance_b = std::rint(b.point()->distance(line.origin()));
+        return (distance_a < distance_b) ||
+                (distance_a == distance_b &&
                  a.element()->type() < b.element()->type());
     });
 }
