@@ -9,11 +9,12 @@ NukeView::NukeView(const Nuke& nuke)
     Point p = nuke_->position();
     double radius = nuke_->radius();
 
+
+
     QBrush brush(Qt::black);
     brush.setStyle(Qt::SolidPattern);
     this->setBrush(brush);
-
-    setRect(p.x() - radius, p.y() + radius,
+    setRect(p.x() - radius, p.y() - radius,
             radius + radius, radius + radius);
 }
 
