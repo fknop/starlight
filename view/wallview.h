@@ -23,7 +23,7 @@ public:
     WallView(const Wall& wall);
 
 private:
-    QPointF initialPos;
+
 };
 
 

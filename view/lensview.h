@@ -8,10 +8,10 @@
 class LensView : public QGraphicsEllipseItem
 {
 public:
-    LensView(const Lens & lens);
+    LensView(const Lens& lens);
 
 private:
-    Lens lens_;
+    const Lens* lens_;
 };
 
 #endif // LENSVIEW_H

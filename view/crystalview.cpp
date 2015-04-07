@@ -1,11 +1,12 @@
 #include "crystalview.h"
-#include "model/crystal.h"
 
-
-CrystalView::CrystalView(const Crystal& crystal) : crystal_{crystal}
+CrystalView::CrystalView(const Crystal& crystal)
 {
-    Point p = crystal.center();
-    double radius = crystal.radius();
+    this->crystal_ = &crystal;
+
+    Point p        = this->crystal_->center();
+    double radius  = this->crystal_->radius();
+
     setRect(p.x() - radius, p.y() - radius,
             radius + radius, radius + radius);
 }

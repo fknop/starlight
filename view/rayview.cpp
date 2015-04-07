@@ -9,7 +9,5 @@ RayView::RayView(const Ray& ray)
     setLine(ray.start().x(), ray.start().y(),
             ray.end().x(), ray.end().y());
 
-
-
 }
 

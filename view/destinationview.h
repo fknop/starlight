@@ -21,7 +21,7 @@ public:
     DestinationView(const Dest&);
 
 private:
-    Dest dest_;
+    const Dest* dest_;
 
 };
 

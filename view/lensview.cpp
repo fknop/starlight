@@ -1,8 +1,11 @@
 #include "lensview.h"
 
 
-LensView::LensView(const Lens & lens) : lens_{lens}
+LensView::LensView(const Lens& lens)
 {
-    setRect(lens_.position().x(), lens_.position().y(),
-            lens_.width(), lens_.height());
+    this->lens_ = &lens;
+    setRect(this->lens_->position().x(),
+            this->lens_->position().y(),
+            this->lens_->width(),
+            this->lens_->height());
 }

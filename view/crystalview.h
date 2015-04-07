@@ -11,7 +11,7 @@ public:
     CrystalView(const Crystal & crystal_);
 
 private:
-    Crystal crystal_;
+    const Crystal * crystal_;
 };
 
 #endif // CRYSTALVIEW_H

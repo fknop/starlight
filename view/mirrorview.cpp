@@ -4,7 +4,7 @@
 
 MirrorView::MirrorView(const Mirror& mirror)
 {
-    mirror_ = &mirror;
+    mirror_ = &(const_cast<Mirror&>(mirror));
     mirror_->add_observer(this);
 
     setFlags(flags() | QGraphicsItem::ItemIsSelectable);

@@ -4,14 +4,16 @@
 
 SourceView::SourceView(const Source& source)
 {
-    source_ = &source;
-    setRect(source.position().x(), source.position().y(),
-            source.edge(), source.edge());
+    this->source_ = &(const_cast<Source&>(source));
+    setRect(this->source_->position().x(),
+            this->source_->position().y(),
+            this->source_->edge(),
+            this->source_->edge());
 }
 
 void SourceView::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
-    if (!source_->on())
+    if (!this->source_->on())
     {
         setBrush(QBrush(Qt::yellow));
         setPen(QPen(Qt::yellow));
@@ -22,6 +24,6 @@ void SourceView::mousePressEvent(QGraphicsSceneMouseEvent *event)
         setPen(QPen(Qt::black));
     }
 
-    source_->set_on(!source_->on());
+    this->source_->set_on(!this->source_->on());
 }
 
