@@ -29,12 +29,6 @@ protected:
      * Notifie tous les observateurs enregistrés d'un changement
      * d'état.
      */
-    virtual void notify_all();
-
-    /**
-     * Notifie tous les observateurs enregistrés d'un changement
-     * d'état.
-     */
     virtual void notify_all(std::string msg);
 
 public:

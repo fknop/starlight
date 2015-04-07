@@ -102,12 +102,12 @@ void MapView::keyPressEvent(QKeyEvent *event)
     {
         if (event->key() == Qt::Key_Left)
         {
-            i->set_rotation(-1);
+            i->rotate(-1);
             break;
         }
         else if(event->key() == Qt::Key_Right)
         {
-            i->set_rotation(1);
+            i->rotate(1);
             break;
         }
         else if(event->key() == Qt::Key_Z)
@@ -129,22 +129,6 @@ void MapView::keyPressEvent(QKeyEvent *event)
     }
 }
 
-void MapView::notify(Observable *sdo)
-{
-    for (auto i : rays_)
-    {
-        scene_->removeItem(i);
-        delete i;
-    }
-
-    rays_.clear();
-
-    for (auto &i : this->level_->rays())
-    {
-        draw_ray(scene_, i);
-    }
-}
-
 void MapView::notify(Observable *sdo, std::string msg)
 {
     for (auto i : rays_)
@@ -158,6 +142,11 @@ void MapView::notify(Observable *sdo, std::string msg)
     for (auto &i : this->level_->rays())
     {
         draw_ray(scene_, i);
+    }
+
+    for (auto &i : this->level_->nukes())
+    {
+        // Allumer la nuke et lose.
     }
 }
 
