@@ -6,6 +6,8 @@
 #include "element.h"
 #include "point.h"
 #include "rectangle.h"
+#include "obs/observable.h"
+#include "obs/observerinterface.h"
 
 
 /**
@@ -14,7 +16,7 @@
  * Une destination est un objet carré qui, quand traversé par
  * un rayon lumineux, fait remporter la partie au joueur.
  */
-class Dest : public Element
+class Dest : public Element, public Observable
 {
     Point pos_;
     double edge_;
@@ -95,6 +97,8 @@ bool Dest::lighted_up() const
 void Dest::set_lighted_up(const bool q)
 {
     this->light_up_ = q;
+    notify_all("LIGHTED_UP");
+
 }
 
 #endif // DEST_H
