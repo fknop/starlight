@@ -5,7 +5,7 @@
 
 #include <QHBoxLayout>
 #include <QPushButton>
-#include <QgroupBox>
+#include <QGroupBox>
 #include <QLabel>
 #include <QDoubleSpinBox>
 
