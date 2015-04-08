@@ -23,7 +23,7 @@ public:
     QPushButton *pushButton;
     QPushButton *pushButton_2;
     QPushButton *pushButton_3;
-    MapView *mapview;
+    MapView *mapview_;
     QVBoxLayout *verticalLayout_2;
     QPushButton *pushButton_4;
     QPushButton *pushButton_5;

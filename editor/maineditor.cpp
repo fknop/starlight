@@ -15,7 +15,7 @@ MainEditor::MainEditor(QWidget *parent) : QMainWindow(parent), level_{new Level(
     setupUi();
     add_connections();
 
-    mapview = new MapView();
+    //mapview = new MapView();
 //    mapview->draw_wall(Wall(Point(0,0), Point(500,300)));
 
 //    mapview->update();
@@ -32,15 +32,10 @@ void MainEditor::add_connections()
 
 void MainEditor::add_mirror()
 {
-    std::cout << "adding new mirror" << std::endl;
-    Mirror mirror(Point(50, 50), 100, 25, 75);
+    Mirror mirror(Point(0, 0), 58, 100, 1.57);
     level_->add_mirror(mirror);
 
-    mapview->draw_mirror(mirror);
-    mapview->draw_crystal(Crystal(Point(0,0), 75, 400));
-
-    mapview->update();
-    mapview->viewport()->update();
+    mapview_->draw_mirror(mirror);
 }
 
 void MainEditor::setupUi()
@@ -78,20 +73,17 @@ void MainEditor::setupUi()
 
     horizontalLayout->addWidget(elements);
 
-    mapview = new QWidget(centralWidget);
-    verticalLayout_2 = new QVBoxLayout(mapview);
+    mapview_ = new MapView();
+    verticalLayout_2 = new QVBoxLayout(mapview_);
     verticalLayout_2->setSpacing(6);
     verticalLayout_2->setContentsMargins(11, 11, 11, 11);
 
 
-    MapView * map_view = new MapView();
-    verticalLayout_2->addWidget(map_view);
-
     QSizePolicy sp_mapview(QSizePolicy::Preferred, QSizePolicy::Preferred);
     sp_mapview.setHorizontalStretch(2);
-    mapview->setSizePolicy(sp_mapview);
+    mapview_->setSizePolicy(sp_mapview);
 
-    horizontalLayout->addWidget(mapview);
+    horizontalLayout->addWidget(mapview_);
 
     properties = new QWidget(centralWidget);
 

@@ -20,8 +20,6 @@ MapView::MapView()
     scene_ = new QGraphicsScene(0, 0, 500, 500);
 
     setScene(scene_);
-
-    scene_->addLine(0,0,500,500);
 }
 
 MapView::MapView(Level* level) : level_{level}
@@ -96,6 +94,8 @@ void MapView::draw_mirror(const Mirror& mirror)
 {
     std::cout << mirror.angle() << std::endl;
     MirrorView *mv = new MirrorView(mirror);
+    std::cout << mv->boundingRect().bottomLeft().x() << std::endl;
+    std::cout << mv->boundingRect().bottomRight().x() << std::endl;
 
     scene_->addItem(mv);
 }
