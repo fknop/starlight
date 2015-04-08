@@ -40,10 +40,6 @@ void Level::compute_rays()
     {
         notify_all("CLEAR_RAYS");
     }
-
-
-
-
 }
 
 Level::State Level::compute_ray(Line& line, int wl)

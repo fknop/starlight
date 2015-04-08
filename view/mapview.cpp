@@ -183,7 +183,6 @@ void MapView::keyPressEvent(QKeyEvent *event)
 
 void MapView::notify(Observable *sdo, std::string msg)
 {
-
     for (auto i : rays_)
     {
         scene_->removeItem(i);

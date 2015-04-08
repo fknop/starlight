@@ -45,6 +45,7 @@ void SourceView::mousePressEvent(QGraphicsSceneMouseEvent *event)
     sound_->play();
     // http://soundbible.com/761-Switch.html  Uploaded: 07.20.09 | License: Attribution 3.0 | Recorded by Mike Koenig |
 
+
     this->source_->set_on(!this->source_->on());
 }
 

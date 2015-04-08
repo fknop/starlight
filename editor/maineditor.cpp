@@ -45,30 +45,21 @@ void MainEditor::add_mirror()
 
 void MainEditor::create_level()
 {
-    bool value_ok = (level_height_dsb->value() > 0 && level_width_dsb->value() > 0);
+    pushButton->setEnabled(true);
+    pushButton_2->setEnabled(true);
+    pushButton_3->setEnabled(true);
 
-    pushButton->setEnabled(value_ok);
-    pushButton_2->setEnabled(value_ok);
-    pushButton_3->setEnabled(value_ok);
+    level_ = new Level(level_height_dsb->value(), level_width_dsb->value());
 
-    if (value_ok)
-    {
-        level_ = new Level(level_height_dsb->value(), level_width_dsb->value());
+    Source source(Point(0,0), 29, 4.75, 400);
+    Dest dest(Point(level_height_dsb->value() - 29,level_width_dsb->value() - 29), 29);
 
-        Source source(Point(0,0), 29, 4.75, 400);
-        Dest dest(Point(level_height_dsb->value() - 29,level_width_dsb->value() - 29), 29);
+    level_->set_source(source);
+    level_->set_dest(dest);
 
-        level_->set_source(source);
-        level_->set_dest(dest);
-
-        verticalLayout_2->removeWidget(mapview_);
-        mapview_ = new MapView(level_);
-        verticalLayout_2->addWidget(mapview_);
-
-        mapview_->draw_source(source);
-        mapview_->draw_dest(dest);
-    }
-
+    verticalLayout_2->removeWidget(mapview_);
+    mapview_ = new MapView(level_);
+    verticalLayout_2->addWidget(mapview_);
 }
 
 void MainEditor::setupUi()
