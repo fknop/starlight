@@ -17,13 +17,15 @@ Level::Level(double w, double h) : width_ {w}, height_ {h},
 
 void Level::compute_rays()
 {
+    this->rays_.clear();
+
     if (source_.on())
     {
         Point pSource = this->source_.position();
         double radians = this->source_.angle();
         Line ray(pSource, radians);
 
-        State state = compute_ray(ray, this->source_.wavelength());
+        Level::State state = compute_ray(ray, this->source_.wavelength());
         if (state == State::WIN)
             notify_all("GAME_WON");
         else if (state == State::LOSE)
@@ -43,106 +45,117 @@ void Level::compute_rays()
 
 Level::State Level::compute_ray(Line& line, int wl)
 {
-    State state;
-    double angle = line.angle();
-    double new_wl = wl;
-    Intersection* intersection = get_intersection(line);
-    Element::Type type = intersection->element()->type();
 
     Nuke* nuke = nullptr;
     Mirror* mirror = nullptr;
     Lens* lens = nullptr;
     Crystal* crystal = nullptr;
+    Level::State state;
+
+    double angle = line.angle();
+    double new_wl = wl;
+
+    get_intersections(line);
+
+    Element::Type type = this->intersections_.at(0).element()->type();
+    Point* new_line_origin = this->intersections_.at(0).point();
 
     switch (type)
     {
 
         case Element::Type::CRYSTAL:
         {
-            std::cout << "CRYSTAL" << std::endl;
-            crystal = dynamic_cast<Crystal*> (intersection->element());
+            crystal = dynamic_cast<Crystal*> (this->intersections_.at(0).element());
             new_wl += crystal->modifier();
+
+            if (this->intersections_.at(1).element() == crystal)
+                new_line_origin = this->intersections_.at(1).point();
+
             state = State::CONTINUE;
             break;
         }
+
         case Element::Type::DEST:
         {
             this->dest_.set_lighted_up(true);
             state = State::WIN;
-            std::cout << "DEST"<< std::endl;
             break;
         }
+
         case Element::Type::LENS:
         {
-            std::cout << "LENS" << std::endl;
-            lens = dynamic_cast<Lens*> (intersection->element());
+            lens = dynamic_cast<Lens*> (this->intersections_.at(0).element());
             if (wl >= lens->wl_min() && wl <= lens->wl_max())
+            {
+                if (this->intersections_.at(1).element() == lens)
+                    new_line_origin = this->intersections_.at(1).point();
                 state = State::CONTINUE;
+            }
             else
+            {
                 state = State::STOP;
+            }
 
             break;
         }
+
         case Element::Type::MIRROR:
         {
-            std::cout << "MIRROR" << std::endl;
-            mirror = dynamic_cast<Mirror*> (intersection->element());
+            mirror = dynamic_cast<Mirror*> (this->intersections_.at(0).element());
             angle = get_reflection_angle(angle, mirror->angle());
             state = State::CONTINUE;
             break;
         }
+
         case Element::Type::NUKE:
         {
-            std::cout << "NUKE" << std::endl;
-            nuke = dynamic_cast<Nuke*> (intersection->element());
+            nuke = dynamic_cast<Nuke*> (this->intersections_.at(0).element());
             nuke->set_lighted_up(true);
             state = State::LOSE;
             break;
 
         }
+
         case Element::Type::WALL:
         {
-            std::cout << "WALL" << std::endl;
             state = State::STOP;
             break;
         }
 
     }
 
-    this->rays_.push_back(Ray(line.origin(), *intersection->point(), wl));
+    this->rays_.push_back(Ray(line.origin(),
+                          *(this->intersections_.at(0).point()),
+                          wl));
 
     if (state == State::CONTINUE)
     {
-        Line newLine(Point(*intersection->point()), angle);
+        Line newLine(Point(*new_line_origin), angle);
         compute_ray(newLine, new_wl);
     }
 
-    delete intersection;
     return state;
 }
 
-Intersection* Level::get_intersection(const Line& line)
+void Level::get_intersections(const Line& line)
 {
-    std::vector<Intersection> intersections;
+    this->intersections_.clear();
     std::vector<Point> points;
     Point* p = nullptr;
 
     // Ajout des intersections au vecteur d'intersections
-    mirrors_intersections(line, intersections, &p);
-    lenses_intersections(line, intersections, points);
-    walls_intersections(line, intersections, &p);
-    dest_intersections(line, intersections, points);
-    nukes_intersections(line, intersections, points);
-    crystals_intersections(line, intersections, points);
+    mirrors_intersections(line, this->intersections_, &p);
+    lenses_intersections(line, this->intersections_, points);
+    walls_intersections(line, this->intersections_, &p);
+    dest_intersections(line, this->intersections_, points);
+    nukes_intersections(line, this->intersections_, points);
+    crystals_intersections(line, this->intersections_, points);
 
     // Suppression des intersections du mauvais côté.
-    erase_wrongs_intersections(line, intersections);
+    erase_wrongs_intersections(line, this->intersections_);
     // Trie les intersections selon leur distance par rapport
     // à l'origine du rayon
-    sort_intersections(line, intersections);
-
-    // Retour de l'intersection la plus proche
-    return new Intersection(intersections.at(0));
+    sort_intersections(line, this->intersections_);
 }
 
 
@@ -276,8 +289,6 @@ void Level::sort_intersections(const Line &line,
 
 void Level::notify(Observable* obs, std::string msg)
 {
-    rays_.clear();
-
     compute_rays();
 }
 

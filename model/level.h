@@ -72,6 +72,7 @@ class Level : public ObserverInterface, public Observable
     Source source_ {{.0, .0}, -1, 5, 600};
     Dest dest_ {{.0, .0}, 5};
 
+    std::vector<Intersection> intersections_;
     std::vector<Wall> walls_;
     std::vector<Mirror> mirrors_;
     std::vector<Crystal> crystals_;
@@ -265,7 +266,7 @@ private:
      * @param line la droite du rayon.
      * @return l'intersection la plus proche.
      */
-    Intersection* get_intersection(const Line& line);
+    void get_intersections(const Line& line);
 
     /**
      * Calcule l'angle de reflexion d'un rayon sur un miroir.
