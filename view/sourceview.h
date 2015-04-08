@@ -2,7 +2,8 @@
 #define SOURCEVIEW_H
 
 #include <QGraphicsView>
-#include <QGraphicsRectItem>
+#include <QGraphicsPixmapItem>
+//#include <QGraphicsRectItem>
 #include <QGraphicsSceneMouseEvent>
 
 #include "model/source.h"
@@ -11,7 +12,7 @@
 /**
  * Modélisation visuelle d’une source.
  */
-class SourceView : public QGraphicsRectItem
+class SourceView : public QGraphicsPixmapItem //QGraphicsRectItem
 {
 public:
     /**

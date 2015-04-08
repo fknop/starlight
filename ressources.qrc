@@ -1,6 +1,8 @@
 <RCC>
     <qresource prefix="/images">
         <file alias="WindowIcon.png">ressources/images/WindowIcon.png</file>
+        <file alias="lightbulboff.png">ressources/images/lightbulboff.png</file>
+        <file alias="lightbulbon.png">ressources/images/lightbulbon.png</file>
     </qresource>
     <qresource prefix="/sounds">
         <file alias="nuke.mp3">ressources/sounds/nuke.mp3</file>
