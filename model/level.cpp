@@ -53,7 +53,7 @@ Level::State Level::compute_ray(Line& line, int wl)
     Mirror* mirror = nullptr;
     Lens* lens = nullptr;
     Crystal* crystal = nullptr;
-    std::cout << line.angle() << std::endl;
+
     switch (type)
     {
 
@@ -72,6 +72,7 @@ Level::State Level::compute_ray(Line& line, int wl)
         {
             this->dest_.set_lighted_up(true);
             state = State::WIN;
+            std::cout << " WIN ";
             break;
         }
         case Element::Type::LENS:
@@ -134,10 +135,10 @@ Intersection* Level::get_intersection(const Line& line)
     Point* p = nullptr;
 
     // Ajout des intersections au vecteur d'intersections
-    dest_intersections(line, intersections, points);
-    walls_intersections(line, intersections, &p);
-    lenses_intersections(line, intersections, points);
     mirrors_intersections(line, intersections, &p);
+    lenses_intersections(line, intersections, points);
+    walls_intersections(line, intersections, &p);
+    dest_intersections(line, intersections, points);
     nukes_intersections(line, intersections, points);
     crystals_intersections(line, intersections, points);
 

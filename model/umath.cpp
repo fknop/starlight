@@ -19,7 +19,10 @@ double umath::dlcm(double a, double b)
 
 double umath::rho(double a, double b, double c)
 {
-    return (b*b) - (4 * a * c);
+    double rho = (b*b) - (4*a*c);
+
+
+    return rho;
 }
 
 bool umath::double_equals(double a, double b)
