@@ -17,7 +17,7 @@
 * ~~Gérer le retour du point d'intersection et de l'objet.~~
 * ~~Gérer les vérifications dans les constructeurs. - A FINIR~~
 * Gérer l'affichage.
-* ~~Gérer le déplacement des miroirs. ~~
+* ~~Gérer le déplacement des miroirs.~~
 * ~~Gérer la rotations des miroirs.   - A TESTER~~
 
 # Rules
@@ -162,3 +162,4 @@ sudo ln -s g++-4.9 g++
 ### Liens utiles
 
 * http://i.imgur.com/Vl122xn.png
+* Solution Level 1 : http://i.imgur.com/StfYIJY.png
