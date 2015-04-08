@@ -92,10 +92,7 @@ void MapView::draw_wall(const Wall& wall)
 
 void MapView::draw_mirror(const Mirror& mirror)
 {
-    std::cout << mirror.angle() << std::endl;
     MirrorView *mv = new MirrorView(mirror);
-    std::cout << mv->boundingRect().bottomLeft().x() << std::endl;
-    std::cout << mv->boundingRect().bottomRight().x() << std::endl;
 
     scene_->addItem(mv);
 }
