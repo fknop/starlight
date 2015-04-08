@@ -9,14 +9,13 @@
 #include "view/mapview.h"
 #include "properties.h"
 
-MainEditor::MainEditor(QWidget *parent) : QMainWindow(parent), level_{new Level(this->size().height(), this->size().width())},
-    mapview{new MapView()}
+MainEditor::MainEditor(QWidget *parent) : QMainWindow(parent), level_{new Level(this->size().height(), this->size().width())}
 {
 
     setupUi();
     add_connections();
 
-//    mapview = new MapView();
+    mapview = new MapView();
 //    mapview->draw_wall(Wall(Point(0,0), Point(500,300)));
 
 //    mapview->update();
