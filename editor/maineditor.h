@@ -6,6 +6,9 @@
 #include <QHBoxLayout>
 #include <QPushButton>
 
+#include "model/level.h"
+#include "view/mapview.h"
+
 class MainEditor : public QMainWindow
 {
     Q_OBJECT
@@ -20,7 +23,7 @@ public:
     QPushButton *pushButton;
     QPushButton *pushButton_2;
     QPushButton *pushButton_3;
-    QWidget *mapview;
+    MapView *mapview;
     QVBoxLayout *verticalLayout_2;
     QPushButton *pushButton_4;
     QPushButton *pushButton_5;
@@ -31,11 +34,16 @@ public:
     QPushButton *pushButton_8;
     QPushButton *pushButton_9;
 
+    Level * level_;
+
+private:
+    void add_connections();
 
 
 signals:
 
 public slots:
+    void add_mirror();
 
 };
 

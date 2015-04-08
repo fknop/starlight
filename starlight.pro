@@ -50,7 +50,9 @@ HEADERS += \
     view/rayview.h \
     obs/observerinterface.h \
     view/mainwindow.h \
-    editor/maineditor.h
+    editor/maineditor.h \
+    editor/properties.h \
+    editor/mirrorprop.h
 
 SOURCES += \
     mapreader.cpp \
@@ -89,7 +91,9 @@ SOURCES += \
     view/rayview.cpp \
     Tests/sortpointtest.cpp \
     view/mainwindow.cpp \
-    editor/maineditor.cpp
+    editor/maineditor.cpp \
+    editor/properties.cpp \
+    editor/mirrorprop.cpp
 
 RESOURCES += \
     ressources.qrc

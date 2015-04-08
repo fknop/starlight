@@ -15,6 +15,14 @@
 #include "view/sourceview.h"
 #include "view/wallview.h"
 
+MapView::MapView()
+{
+    scene_ = new QGraphicsScene(0, 0, 500, 500);
+
+    setScene(scene_);
+
+    scene_->addLine(0,0,500,500);
+}
 
 MapView::MapView(Level* level) : level_{level}
 {
@@ -24,7 +32,7 @@ MapView::MapView(Level* level) : level_{level}
     setRenderHints(QPainter::Antialiasing);
     //setFixedSize(this->level_->width() + 30, this->level_->height() + 30);
 
-    sound_ = new QMediaPlayer();
+    sound_ = new QMediaPlayer(nullptr);
 
     SourceView *source = new SourceView(level_->source());
     DestinationView *dest = new DestinationView(level_->dest());
@@ -34,27 +42,27 @@ MapView::MapView(Level* level) : level_{level}
 
     for (auto &i : this->level_->walls())
     {
-        draw_wall(scene_, i);
+        draw_wall(i);
     }
 
     for (auto &i : this->level_->nukes())
     {
-        draw_nuke(scene_, i);
+        draw_nuke(i);
     }
 
     for (auto &i : this->level_->lenses())
     {
-        draw_lens(scene_, i);
+        draw_lens(i);
     }
 
     for (auto &i : this->level_->crystals())
     {
-        draw_crystal(scene_, i);
+        draw_crystal(i);
     }
 
     for (auto &i : this->level_->mirrors())
     {
-        draw_mirror(scene_, i);
+        draw_mirror(i);
     }
 
 }
@@ -69,48 +77,49 @@ MapView::~MapView()
     sound_ = nullptr;
 }
 
-void MapView::draw_ray(QGraphicsScene* s, const Ray &ray)
+void MapView::draw_ray(const Ray &ray)
 {
     RayView* rv = new RayView(ray);
     rays_.push_back(rv);
-    s->addItem(rv);
+    scene_->addItem(rv);
 }
 
-void MapView::draw_wall(QGraphicsScene *s, const Wall& wall)
+void MapView::draw_wall(const Wall& wall)
 {
     WallView *wv = new WallView(wall);
 
-    s->addItem(wv);
+    scene_->addItem(wv);
 }
 
 
-void MapView::draw_mirror(QGraphicsScene *s, const Mirror& mirror)
+void MapView::draw_mirror(const Mirror& mirror)
 {
+    std::cout << mirror.angle() << std::endl;
     MirrorView *mv = new MirrorView(mirror);
 
-    s->addItem(mv);
+    scene_->addItem(mv);
 }
 
 
-void MapView::draw_nuke(QGraphicsScene *s, const Nuke& nuke)
+void MapView::draw_nuke(const Nuke& nuke)
 {
     NukeView *nv = new NukeView(nuke);
 
-    s->addItem(nv);
+    scene_->addItem(nv);
 }
 
-void MapView::draw_lens(QGraphicsScene *s, const Lens& lens)
+void MapView::draw_lens(const Lens& lens)
 {
     LensView *lv = new LensView(lens);
 
-    s->addItem(lv);
+    scene_->addItem(lv);
 }
 
-void MapView::draw_crystal(QGraphicsScene *s, const Crystal& crystal)
+void MapView::draw_crystal(const Crystal& crystal)
 {
     CrystalView *cv = new CrystalView(crystal);
 
-    s->addItem(cv);
+    scene_->addItem(cv);
 }
 
 
@@ -178,7 +187,7 @@ void MapView::notify(Observable *sdo, std::string msg)
 
     for (auto &i : this->level_->rays())
     {
-        draw_ray(scene_, i);
+        draw_ray(i);
     }
 
     std::cout << "mapview msg " << msg << std::endl;

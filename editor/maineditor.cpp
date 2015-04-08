@@ -6,42 +6,70 @@
 
 #include <QMenuBar>
 
-MainEditor::MainEditor(QWidget *parent) :
-    QMainWindow(parent)
+#include "view/mapview.h"
+#include "properties.h"
+
+MainEditor::MainEditor(QWidget *parent) : QMainWindow(parent), level_{new Level(this->size().height(), this->size().width())},
+    mapview{new MapView()}
 {
+
     setupUi();
+    add_connections();
+
+//    mapview = new MapView();
+//    mapview->draw_wall(Wall(Point(0,0), Point(500,300)));
+
+//    mapview->update();
+
+//    mapview->scene()->addRect(0,0,250,50);
+
+
+}
+
+void MainEditor::add_connections()
+{
+    connect(pushButton, SIGNAL(clicked()), this, SLOT(add_mirror()));
+}
+
+void MainEditor::add_mirror()
+{
+    std::cout << "adding new mirror" << std::endl;
+    Mirror mirror(Point(50, 50), 100, 25, 75);
+    level_->add_mirror(mirror);
+
+    mapview->draw_mirror(mirror);
+    mapview->draw_crystal(Crystal(Point(0,0), 75, 400));
+
+    mapview->update();
+    mapview->viewport()->update();
 }
 
 void MainEditor::setupUi()
 {
-
     resize(975, 649);
 
 
     centralWidget = new QWidget();
-    centralWidget->setObjectName(QStringLiteral("centralWidget"));
+
     horizontalLayout = new QHBoxLayout(centralWidget);
     horizontalLayout->setSpacing(6);
     horizontalLayout->setContentsMargins(11, 11, 11, 11);
-    horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
+
     elements = new QWidget(centralWidget);
-    elements->setObjectName(QStringLiteral("elements"));
+
     verticalLayout = new QVBoxLayout(elements);
     verticalLayout->setSpacing(6);
     verticalLayout->setContentsMargins(11, 11, 11, 11);
-    verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
-    pushButton = new QPushButton(elements);
-    pushButton->setObjectName(QStringLiteral("pushButton"));
+
+    pushButton = new QPushButton("Mirror", elements);
 
     verticalLayout->addWidget(pushButton);
 
-    pushButton_2 = new QPushButton(elements);
-    pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
+    pushButton_2 = new QPushButton("Source", elements);
 
     verticalLayout->addWidget(pushButton_2);
 
-    pushButton_3 = new QPushButton(elements);
-    pushButton_3->setObjectName(QStringLiteral("pushButton_3"));
+    pushButton_3 = new QPushButton("Destination", elements);
 
     verticalLayout->addWidget(pushButton_3);
 
@@ -52,26 +80,13 @@ void MainEditor::setupUi()
     horizontalLayout->addWidget(elements);
 
     mapview = new QWidget(centralWidget);
-    mapview->setObjectName(QStringLiteral("mapview"));
     verticalLayout_2 = new QVBoxLayout(mapview);
     verticalLayout_2->setSpacing(6);
     verticalLayout_2->setContentsMargins(11, 11, 11, 11);
-    verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
-    pushButton_4 = new QPushButton(mapview);
-    pushButton_4->setObjectName(QStringLiteral("pushButton_4"));
 
-    verticalLayout_2->addWidget(pushButton_4);
 
-    pushButton_5 = new QPushButton(mapview);
-    pushButton_5->setObjectName(QStringLiteral("pushButton_5"));
-
-    verticalLayout_2->addWidget(pushButton_5);
-
-    pushButton_6 = new QPushButton(mapview);
-    pushButton_6->setObjectName(QStringLiteral("pushButton_6"));
-
-    verticalLayout_2->addWidget(pushButton_6);
-
+    MapView * map_view = new MapView();
+    verticalLayout_2->addWidget(map_view);
 
     QSizePolicy sp_mapview(QSizePolicy::Preferred, QSizePolicy::Preferred);
     sp_mapview.setHorizontalStretch(2);
@@ -80,25 +95,15 @@ void MainEditor::setupUi()
     horizontalLayout->addWidget(mapview);
 
     properties = new QWidget(centralWidget);
-    properties->setObjectName(QStringLiteral("properties"));
+
     verticalLayout_3 = new QVBoxLayout(properties);
     verticalLayout_3->setSpacing(6);
     verticalLayout_3->setContentsMargins(11, 11, 11, 11);
-    verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
-    pushButton_7 = new QPushButton(properties);
-    pushButton_7->setObjectName(QStringLiteral("pushButton_7"));
 
-    verticalLayout_3->addWidget(pushButton_7);
 
-    pushButton_8 = new QPushButton(properties);
-    pushButton_8->setObjectName(QStringLiteral("pushButton_8"));
 
-    verticalLayout_3->addWidget(pushButton_8);
-
-    pushButton_9 = new QPushButton(properties);
-    pushButton_9->setObjectName(QStringLiteral("pushButton_9"));
-
-    verticalLayout_3->addWidget(pushButton_9);
+    Properties * prefs = new Properties();
+    verticalLayout_3->addWidget(prefs);
 
 
     QSizePolicy sp_properties(QSizePolicy::Preferred, QSizePolicy::Preferred);
