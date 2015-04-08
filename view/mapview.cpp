@@ -32,11 +32,8 @@ MapView::MapView(Level* level) : level_{level}
 
     sound_ = new QMediaPlayer(nullptr);
 
-    SourceView *source = new SourceView(level_->source());
-    DestinationView *dest = new DestinationView(level_->dest());
-
-    scene_->addItem(source);
-    scene_->addItem(dest);
+    draw_source(level->source());
+    draw_dest(level->dest());
 
     for (auto &i : this->level_->walls())
     {
@@ -62,7 +59,6 @@ MapView::MapView(Level* level) : level_{level}
     {
         draw_mirror(i);
     }
-
 }
 
 MapView::~MapView()
@@ -73,6 +69,20 @@ MapView::~MapView()
     scene_ = nullptr;
     delete sound_;
     sound_ = nullptr;
+}
+
+void MapView::draw_source(const Source &source)
+{
+    SourceView * sv = new SourceView(source);
+
+    scene_->addItem(sv);
+}
+
+void MapView::draw_dest(const Dest &dest)
+{
+    DestinationView * dv = new DestinationView(dest);
+
+    scene_->addItem(dv);
 }
 
 void MapView::draw_ray(const Ray &ray)

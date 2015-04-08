@@ -21,6 +21,8 @@ public:
     void draw_lens(const Lens & lens);
     void draw_crystal(const Crystal & crystal);
     void draw_ray(const Ray& ray);
+    void draw_source(const Source &source);
+    void draw_dest(const Dest &dest);
 
     void keyPressEvent(QKeyEvent * event);
     void notify(Observable *sdo, std::string msg);

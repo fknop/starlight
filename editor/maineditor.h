@@ -5,6 +5,9 @@
 
 #include <QHBoxLayout>
 #include <QPushButton>
+#include <QgroupBox>
+#include <QLabel>
+#include <QDoubleSpinBox>
 
 #include "model/level.h"
 #include "view/mapview.h"
@@ -20,6 +23,7 @@ public:
     QHBoxLayout *horizontalLayout;
     QWidget *elements;
     QVBoxLayout *verticalLayout;
+    QVBoxLayout *verticalLayout_1;
     QPushButton *pushButton;
     QPushButton *pushButton_2;
     QPushButton *pushButton_3;
@@ -33,6 +37,13 @@ public:
     QPushButton *pushButton_7;
     QPushButton *pushButton_8;
     QPushButton *pushButton_9;
+    QDoubleSpinBox *level_height_dsb;
+    QDoubleSpinBox *level_width_dsb;
+
+    QGroupBox * groupBox;
+    QLabel * level_height_label;
+    QLabel * level_width_label;
+    QPushButton *level_apply_pb;
 
     Level * level_;
 
@@ -40,10 +51,13 @@ private:
     void add_connections();
 
 
+
 signals:
 
 public slots:
     void add_mirror();
+    void create_level();
+
 
 };
 

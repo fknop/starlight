@@ -5,22 +5,26 @@
 #include <QPushButton>
 
 #include <QMenuBar>
+#include <QFormLayout>
 
 #include "view/mapview.h"
 #include "properties.h"
 
-MainEditor::MainEditor(QWidget *parent) : QMainWindow(parent), level_{new Level(this->size().height(), this->size().width())}
+#include "view/sourceview.h"
+#include "view/destinationview.h"
+
+MainEditor::MainEditor(QWidget *parent) : QMainWindow(parent), level_{new Level(750,580)}
 {
 
     setupUi();
     add_connections();
 
-    //mapview = new MapView();
-//    mapview->draw_wall(Wall(Point(0,0), Point(500,300)));
 
-//    mapview->update();
 
-//    mapview->scene()->addRect(0,0,250,50);
+
+    pushButton->setEnabled(false);
+    pushButton_2->setEnabled(false);
+    pushButton_3->setEnabled(false);
 
 
 }
@@ -28,14 +32,43 @@ MainEditor::MainEditor(QWidget *parent) : QMainWindow(parent), level_{new Level(
 void MainEditor::add_connections()
 {
     connect(pushButton, SIGNAL(clicked()), this, SLOT(add_mirror()));
+    connect(level_apply_pb, SIGNAL(clicked()), this, SLOT(create_level()));
 }
 
 void MainEditor::add_mirror()
 {
-    Mirror mirror(Point(0, 0), 58, 100, 1.57);
+    Mirror mirror(Point(50, 50), 58, 100, 1.57);
     level_->add_mirror(mirror);
 
     mapview_->draw_mirror(mirror);
+}
+
+void MainEditor::create_level()
+{
+    bool value_ok = (level_height_dsb->value() > 0 && level_width_dsb->value() > 0);
+
+    pushButton->setEnabled(value_ok);
+    pushButton_2->setEnabled(value_ok);
+    pushButton_3->setEnabled(value_ok);
+
+    if (value_ok)
+    {
+        level_ = new Level(level_height_dsb->value(), level_width_dsb->value());
+
+        Source source(Point(0,0), 29, 4.75, 400);
+        Dest dest(Point(level_height_dsb->value() - 29,level_width_dsb->value() - 29), 29);
+
+        level_->set_source(source);
+        level_->set_dest(dest);
+
+        verticalLayout_2->removeWidget(mapview_);
+        mapview_ = new MapView(level_);
+        verticalLayout_2->addWidget(mapview_);
+
+        mapview_->draw_source(source);
+        mapview_->draw_dest(dest);
+    }
+
 }
 
 void MainEditor::setupUi()
@@ -55,6 +88,41 @@ void MainEditor::setupUi()
     verticalLayout->setSpacing(6);
     verticalLayout->setContentsMargins(11, 11, 11, 11);
 
+    groupBox = new QGroupBox(elements);
+    groupBox->setTitle("Level");
+
+    QFormLayout * formLayout = new QFormLayout(groupBox);
+
+    level_height_label = new QLabel(groupBox);
+    level_height_label->setText("Height: ");
+
+    formLayout->setWidget(0, QFormLayout::LabelRole, level_height_label);
+
+    level_height_dsb = new QDoubleSpinBox(groupBox);
+    level_height_dsb->setMinimum(400);
+    level_height_dsb->setMaximum(1000);
+
+    formLayout->setWidget(0, QFormLayout::FieldRole, level_height_dsb);
+
+    level_width_label = new QLabel(groupBox);
+    level_width_label->setText("Width: ");
+
+    formLayout->setWidget(1, QFormLayout::LabelRole, level_width_label);
+
+    level_width_dsb = new QDoubleSpinBox(groupBox);
+    level_width_dsb->setMinimum(400);
+    level_width_dsb->setMaximum(1000);
+
+    formLayout->setWidget(1, QFormLayout::FieldRole, level_width_dsb);
+
+    level_apply_pb = new QPushButton();
+    level_apply_pb->setText("Apply");
+
+    formLayout->setWidget(2, QFormLayout::FieldRole, level_apply_pb);
+
+
+    verticalLayout->addWidget(groupBox);
+
     pushButton = new QPushButton("Mirror", elements);
 
     verticalLayout->addWidget(pushButton);
@@ -73,14 +141,14 @@ void MainEditor::setupUi()
 
     horizontalLayout->addWidget(elements);
 
-    mapview_ = new MapView();
+    mapview_ = new QWidget(); //new MapView();
     verticalLayout_2 = new QVBoxLayout(mapview_);
     verticalLayout_2->setSpacing(6);
     verticalLayout_2->setContentsMargins(11, 11, 11, 11);
 
 
     QSizePolicy sp_mapview(QSizePolicy::Preferred, QSizePolicy::Preferred);
-    sp_mapview.setHorizontalStretch(2);
+    sp_mapview.setHorizontalStretch(4);
     mapview_->setSizePolicy(sp_mapview);
 
     horizontalLayout->addWidget(mapview_);
@@ -104,16 +172,16 @@ void MainEditor::setupUi()
     horizontalLayout->addWidget(properties);
 
     setCentralWidget(centralWidget);
-//    menuBar = new QMenuBar();
-//    menuBar->setObjectName(QStringLiteral("menuBar"));
-//    menuBar->setGeometry(QRect(0, 0, 975, 21));
-//    setMenuBar(menuBar);
-//    mainToolBar = new QToolBar();
-//    mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
-//    addToolBar(Qt::TopToolBarArea, mainToolBar);
-//    statusBar = new QStatusBar();
-//    statusBar->setObjectName(QStringLiteral("statusBar"));
-//    setStatusBar(statusBar);
+    //    menuBar = new QMenuBar();
+    //    menuBar->setObjectName(QStringLiteral("menuBar"));
+    //    menuBar->setGeometry(QRect(0, 0, 975, 21));
+    //    setMenuBar(menuBar);
+    //    mainToolBar = new QToolBar();
+    //    mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
+    //    addToolBar(Qt::TopToolBarArea, mainToolBar);
+    //    statusBar = new QStatusBar();
+    //    statusBar->setObjectName(QStringLiteral("statusBar"));
+    //    setStatusBar(statusBar);
 
 
 
