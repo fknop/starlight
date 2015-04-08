@@ -26,12 +26,15 @@ void Level::compute_rays()
         Line ray(pSource, radians);
 
         Level::State state = compute_ray(ray, this->source_.wavelength());
-        if (state == State::WIN)
+        switch (state)
+        {
+        case State::WIN:
             notify_all("GAME_WON");
-        else if (state == State::LOSE)
+        case State::LOSE:
             notify_all("GAME_LOST");
-        else
+        case State::CONTINUE: case State::STOP:
             notify_all("CONTINUE");
+        }
     }
     else
     {
@@ -71,14 +74,14 @@ Level::State Level::compute_ray(Line& line, int wl)
             if (this->intersections_.at(1).element() == crystal)
                 new_line_origin = this->intersections_.at(1).point();
 
-            state = State::CONTINUE;
+            state = Level::State::CONTINUE;
             break;
         }
 
         case Element::Type::DEST:
         {
             this->dest_.set_lighted_up(true);
-            state = State::WIN;
+            state = Level::State::WIN;
             break;
         }
 
@@ -89,11 +92,11 @@ Level::State Level::compute_ray(Line& line, int wl)
             {
                 if (this->intersections_.at(1).element() == lens)
                     new_line_origin = this->intersections_.at(1).point();
-                state = State::CONTINUE;
+                state = Level::State::CONTINUE;
             }
             else
             {
-                state = State::STOP;
+                state = Level::State::STOP;
             }
 
             break;
@@ -103,7 +106,7 @@ Level::State Level::compute_ray(Line& line, int wl)
         {
             mirror = dynamic_cast<Mirror*> (this->intersections_.at(0).element());
             angle = get_reflection_angle(angle, mirror->angle());
-            state = State::CONTINUE;
+            state =  Level::State::CONTINUE;
             break;
         }
 
@@ -111,14 +114,14 @@ Level::State Level::compute_ray(Line& line, int wl)
         {
             nuke = dynamic_cast<Nuke*> (this->intersections_.at(0).element());
             nuke->set_lighted_up(true);
-            state = State::LOSE;
+            state = Level::State::LOSE;
             break;
 
         }
 
         case Element::Type::WALL:
         {
-            state = State::STOP;
+            state = Level::State::STOP;
             break;
         }
 
@@ -128,13 +131,17 @@ Level::State Level::compute_ray(Line& line, int wl)
                           *(this->intersections_.at(0).point()),
                           wl));
 
-    if (state == State::CONTINUE)
+    if (state == Level::State::CONTINUE)
     {
         Line newLine(Point(*new_line_origin), angle);
-        compute_ray(newLine, new_wl);
+        return compute_ray(newLine, new_wl);
+    }
+    else
+    {
+        return state;
     }
 
-    return state;
+
 }
 
 void Level::get_intersections(const Line& line)
