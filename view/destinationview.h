@@ -4,11 +4,13 @@
 #include <QGraphicsView>
 #include <QGraphicsRectItem>
 
+#include "obs/observable.h"
+#include "obs/observerinterface.h"
 #include "model/dest.h"
 /**
  * Modélisation visuelle de la destination.
  */
-class DestinationView : public QGraphicsRectItem
+class DestinationView : public QGraphicsRectItem, public ObserverInterface
 {
 public:
     /**
@@ -19,9 +21,10 @@ public:
      * @param height hauteur de la destination.
      */
     DestinationView(const Dest&);
+    void notify(Observable *sdo, std::string msg);
 
 private:
-    const Dest* dest_;
+    Dest* dest_;
 
 };
 
