@@ -49,7 +49,8 @@ HEADERS += \
     model/constants.h \
     view/rayview.h \
     obs/observerinterface.h \
-    view/mainwindow.h
+    view/mainwindow.h \
+    editor/maineditor.h
 
 SOURCES += \
     mapreader.cpp \
@@ -87,7 +88,8 @@ SOURCES += \
     Tests/intersectionstest.cpp \
     view/rayview.cpp \
     Tests/sortpointtest.cpp \
-    view/mainwindow.cpp
+    view/mainwindow.cpp \
+    editor/maineditor.cpp
 
 RESOURCES += \
     ressources.qrc

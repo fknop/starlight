@@ -4,17 +4,20 @@
 #include "Tests/test.h"
 
 
-#include "model/ellipse.h"
+#include "editor/maineditor.h"
+
+
+
+
 #ifndef RUNTEST
 int main(int argc, char **argv)
 {
     QApplication app(argc, argv);
-    MainMenu * game = new MainMenu();
-    game->show();
-    game->displayMainMenu();
+//    MainMenu * game = new MainMenu();
+//    game->show();
+//    game->displayMainMenu();
+    MainEditor * editor = new MainEditor();
+    editor->show();
     return app.exec();
-
-
-    return 0;
 }
 #endif
