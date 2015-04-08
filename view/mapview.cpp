@@ -1,6 +1,7 @@
 #include <QGraphicsScene>
 
 #include <QMediaPlayer>
+#include <QMessageBox>
 
 #include <iostream>
 
@@ -10,9 +11,9 @@
 #include "view/mapview.h"
 #include "view/mirrorview.h"
 #include "view/nukeview.h"
+#include "view/rayview.h"
 #include "view/sourceview.h"
 #include "view/wallview.h"
-#include "view/rayview.h"
 
 
 MapView::MapView(Level* level) : level_{level}
@@ -191,6 +192,8 @@ void MapView::notify(Observable *sdo, std::string msg)
         sound_->setMedia(QUrl("qrc:/sounds/nuke.mp3"));
         sound_->play();
         // http://soundbible.com/106-Car-Explosion.html  Uploaded: 05.03.09 | License: Attribution 3.0 | Recorded by Mike Koenig |
+
+        QMessageBox::information(this, "You lose!", "Outch, looks like you exploded the whole map…");
     }
     else if (msg == "GAME_WON")
     {
@@ -200,17 +203,8 @@ void MapView::notify(Observable *sdo, std::string msg)
         sound_->setMedia(QUrl("qrc:/sounds/victory.mp3"));
         sound_->play();
         // http://soundbible.com/1003-Ta-Da.html Uploaded: 09.14.09 | License: Attribution 3.0 | Recorded by Mike Koenig
+
+        QMessageBox::information(this, "WIN!", "Congrats! You made it!");
     }
-    else if (msg == "SOURCE_ON")
-    {
-        if (sound_->state() == QMediaPlayer::PlayingState)
-            sound_->stop();
-
-        sound_->setMedia(QUrl("qrc:/sounds/switch.mp3"));
-        sound_->play();
-        // http://soundbible.com/761-Switch.html  Uploaded: 07.20.09 | License: Attribution 3.0 | Recorded by Mike Koenig |
-    }
-
-
 }
 

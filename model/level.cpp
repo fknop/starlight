@@ -278,13 +278,6 @@ void Level::notify(Observable* obs, std::string msg)
 {
     rays_.clear();
 
-    if (source_.on())
-        compute_rays();
-
-    if (msg == "SOURCE_ON")
-        notify_all("SOURCE_ON");
-
     compute_rays();
-
 }
 

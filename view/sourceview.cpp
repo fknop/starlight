@@ -16,6 +16,8 @@ SourceView::SourceView(const Source& source)
     QPixmap p(":/images/lightbulboff.png");
     setPixmap(p.scaled(this->source_->edge(), this->source_->edge(), Qt::KeepAspectRatio));
 
+    sound_ = new QMediaPlayer();
+
 }
 
 void SourceView::mousePressEvent(QGraphicsSceneMouseEvent *event)
@@ -35,6 +37,13 @@ void SourceView::mousePressEvent(QGraphicsSceneMouseEvent *event)
 //        setBrush(QBrush(Qt::white));
 //        setPen(QPen(Qt::black));
     }
+
+    if (sound_->state() == QMediaPlayer::PlayingState)
+        sound_->stop();
+
+    sound_->setMedia(QUrl("qrc:/sounds/switch.mp3"));
+    sound_->play();
+    // http://soundbible.com/761-Switch.html  Uploaded: 07.20.09 | License: Attribution 3.0 | Recorded by Mike Koenig |
 
     this->source_->set_on(!this->source_->on());
 }

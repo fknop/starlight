@@ -5,6 +5,7 @@
 #include <QGraphicsPixmapItem>
 //#include <QGraphicsRectItem>
 #include <QGraphicsSceneMouseEvent>
+#include <QMediaPlayer>
 
 #include "model/source.h"
 
@@ -28,6 +29,7 @@ public:
 
 private:
     Source* source_;
+    QMediaPlayer * sound_;
 
 };
 
