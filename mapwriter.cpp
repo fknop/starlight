@@ -15,11 +15,11 @@ MapWriter::~MapWriter()
 
 void MapWriter::write(const Level* level, std::string filename)
 {
-
     std::ofstream level_writer(filename);
 
-
-    level_writer << level->width() << " " << level->height() << std::endl;
+    level_writer << level->width() << " "
+                 << level->height()
+                 << std::endl;
 
     level_writer << "S "
                  << level->source().position().x() << " "
@@ -37,9 +37,10 @@ void MapWriter::write(const Level* level, std::string filename)
 
     for (auto &i : level->walls())
     {
-        if (!(i.start() == Point(0,0) || i.start() == Point(0, level->height())
-                || i.start() == Point(level->width(),  0)
-                || i.start() == Point(level->width(), level->height())))
+        if (!(i.start() == Point(0,0) ||
+              i.start() == Point(0, level->height()) ||
+              i.start() == Point(level->width(),  0) ||
+              i.start() == Point(level->width(), level->height())))
         {
             level_writer << "W "
                          << i.start().x() << " "
@@ -99,6 +100,4 @@ void MapWriter::write(const Level* level, std::string filename)
     }
 
     level_writer.close();
-
-
 }
