@@ -59,12 +59,9 @@ Level::State Level::compute_ray(Line& line, int wl)
 
         case Element::Type::CRYSTAL:
         {
+            std::cout << "CRYSTAL" << std::endl;
             crystal = dynamic_cast<Crystal*> (intersection->element());
-
-            wl += crystal->modifier();
-
             new_wl += crystal->modifier();
-
             state = State::CONTINUE;
             break;
         }
@@ -72,36 +69,31 @@ Level::State Level::compute_ray(Line& line, int wl)
         {
             this->dest_.set_lighted_up(true);
             state = State::WIN;
-            std::cout << " WIN ";
+            std::cout << "DEST"<< std::endl;
             break;
         }
         case Element::Type::LENS:
         {
+            std::cout << "LENS" << std::endl;
             lens = dynamic_cast<Lens*> (intersection->element());
             if (wl >= lens->wl_min() && wl <= lens->wl_max())
-            {
                 state = State::CONTINUE;
-                std::cout << "continue";
-            }
             else
-            {
-                std::cout << "stop";
                 state = State::STOP;
-            }
 
             break;
         }
         case Element::Type::MIRROR:
         {
+            std::cout << "MIRROR" << std::endl;
             mirror = dynamic_cast<Mirror*> (intersection->element());
             angle = get_reflection_angle(angle, mirror->angle());
-            //std::cout << "Angle réfléchi : " << Geometry::rad_to_deg(c) << std::endl;
             state = State::CONTINUE;
             break;
         }
         case Element::Type::NUKE:
         {
-
+            std::cout << "NUKE" << std::endl;
             nuke = dynamic_cast<Nuke*> (intersection->element());
             nuke->set_lighted_up(true);
             state = State::LOSE;
@@ -110,6 +102,7 @@ Level::State Level::compute_ray(Line& line, int wl)
         }
         case Element::Type::WALL:
         {
+            std::cout << "WALL" << std::endl;
             state = State::STOP;
             break;
         }

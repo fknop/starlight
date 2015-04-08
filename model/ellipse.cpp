@@ -34,12 +34,6 @@ int Ellipse::intersects(const Line& l, std::vector<Point>& points)
     double lcmx = lcm / (yR*yR);
     double lcmy = lcm / (xR*xR);
 
-    std::cout << "D : " << d << std::endl;
-    std::cout << "SLOPE : " << slope << std::endl;
-    std::cout << "LCM : " << lcm << std::endl;
-    std::cout << "LCMX : " << lcmx << std::endl;
-    std::cout << "LCMY : " << lcmy << std::endl;
-
     bool horizontalLine = umath::double_equals(0, slope);
     bool verticalLine = umath::double_equals(std::abs(std::fmod(l.angle(), M_PI)), (M_PI_2));
 
@@ -79,10 +73,6 @@ int Ellipse::intersects(const Line& l, std::vector<Point>& points)
 
     rho = umath::rho(a, b, c);
 
-    std::cout << "A : " << a << std::endl;
-    std::cout << "B : " << b << std::endl;
-    std::cout << "C : " << c << std::endl;
-    std::cout << "RHO : " << rho << std::endl;
     if (rho >= 0)
     {
         if (horizontalLine)
@@ -114,16 +104,7 @@ int Ellipse::intersects(const Line& l, std::vector<Point>& points)
         }
     }
 
-
-    for (auto &i : points)
-    {
-        std::cout << "ELLIPSE SIZE : " << this->center();
-        std::cout << "ELLIPSE INTERSECTION : " << i << std::endl;
-    }
-
-
     return points.size();
-
 }
 
 int Ellipse::intersects(const LineSegment & ls, std::vector<Point>& points)
