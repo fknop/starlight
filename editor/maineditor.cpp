@@ -15,18 +15,12 @@
 
 MainEditor::MainEditor(QWidget *parent) : QMainWindow(parent), level_{new Level(750,580)}
 {
-
     setupUi();
     add_connections();
-
-
-
 
     pushButton->setEnabled(false);
     pushButton_2->setEnabled(false);
     pushButton_3->setEnabled(false);
-
-
 }
 
 void MainEditor::add_connections()
@@ -51,6 +45,7 @@ void MainEditor::create_level()
 
     level_ = new Level(level_height_dsb->value(), level_width_dsb->value());
 
+
     Source source(Point(0,0), 29, 4.75, 400);
     Dest dest(Point(level_height_dsb->value() - 29,level_width_dsb->value() - 29), 29);
 
@@ -59,6 +54,7 @@ void MainEditor::create_level()
 
     verticalLayout_2->removeWidget(mapview_);
     mapview_ = new MapView(level_);
+    level_->add_observer(mapview_);
     verticalLayout_2->addWidget(mapview_);
 }
 

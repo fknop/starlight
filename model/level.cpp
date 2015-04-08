@@ -17,6 +17,7 @@ Level::Level(double w, double h) : width_ {w}, height_ {h},
 
 void Level::compute_rays()
 {
+    std::cout << "compute rays" << std::endl;
     this->rays_.clear();
 
     if (source_.on())
