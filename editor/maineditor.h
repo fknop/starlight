@@ -4,6 +4,7 @@
 #include <QMainWindow>
 
 #include <QHBoxLayout>
+#include <QPushButton>
 
 class MainEditor : public QMainWindow
 {
@@ -14,12 +15,21 @@ public:
 
     QWidget *centralWidget;
     QHBoxLayout *horizontalLayout;
-    QWidget *widget;
-    QWidget *widget_2;
-    QWidget *widget_3;
-    QMenuBar *menuBar;
-    QToolBar *mainToolBar;
-    QStatusBar *statusBar;
+    QWidget *elements;
+    QVBoxLayout *verticalLayout;
+    QPushButton *pushButton;
+    QPushButton *pushButton_2;
+    QPushButton *pushButton_3;
+    QWidget *mapview;
+    QVBoxLayout *verticalLayout_2;
+    QPushButton *pushButton_4;
+    QPushButton *pushButton_5;
+    QPushButton *pushButton_6;
+    QWidget *properties;
+    QVBoxLayout *verticalLayout_3;
+    QPushButton *pushButton_7;
+    QPushButton *pushButton_8;
+    QPushButton *pushButton_9;
 
 
 
