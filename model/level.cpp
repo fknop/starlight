@@ -17,23 +17,22 @@ Level::Level(double w, double h) : width_ {w}, height_ {h},
 
 void Level::compute_rays()
 {
-    std::cout << "compute rays" << std::endl;
-    this->rays_.clear();
+    if (this->rays_.size() > 0)
+        this->rays_.clear();
 
     if (source_.on())
     {
-        Point pSource = this->source_.position();
-        double radians = this->source_.angle();
-        Line ray(pSource, radians);
-
+        Line ray(this->source_.position(), this->source_.angle());
         State state = compute_ray(ray, this->source_.wavelength());
+
         switch (state)
         {
         case State::WIN:
             notify_all("GAME_WON");
         case State::LOSE:
             notify_all("GAME_LOST");
-        case State::CONTINUE: case State::STOP:
+        case State::CONTINUE:
+        case State::STOP:
             notify_all("CONTINUE");
         }
     }
@@ -45,28 +44,26 @@ void Level::compute_rays()
 
 Level::State Level::compute_ray(Line& line, int wl)
 {
-
+    double angle = line.angle();
     Nuke* nuke = nullptr;
     Mirror* mirror = nullptr;
     Lens* lens = nullptr;
     Crystal* crystal = nullptr;
+    Point* new_line_origin = nullptr;
     State state;
-
-    double angle = line.angle();
-    double new_wl = wl;
+    Element::Type type;
 
     get_intersections(line);
 
-    Element::Type type = this->intersections_.at(0).element()->type();
-    Point* new_line_origin = this->intersections_.at(0).point();
+    type = this->intersections_.at(0).element()->type();
+    new_line_origin = this->intersections_.at(0).point();
 
     switch (type)
     {
-
         case Element::Type::CRYSTAL:
         {
             crystal = dynamic_cast<Crystal*> (this->intersections_.at(0).element());
-            new_wl += crystal->modifier();
+            wl += crystal->modifier();
 
             if (this->intersections_.at(1).element() == crystal)
                 new_line_origin = this->intersections_.at(1).point();
@@ -121,24 +118,22 @@ Level::State Level::compute_ray(Line& line, int wl)
             state = State::STOP;
             break;
         }
-
     }
 
     this->rays_.push_back(Ray(line.origin(),
                           *(this->intersections_.at(0).point()),
                           wl));
 
+
     if (state == State::CONTINUE)
     {
         Line newLine(Point(*new_line_origin), angle);
-        return compute_ray(newLine, new_wl);
+        return compute_ray(newLine, wl);
     }
-    else
+    else  
     {
         return state;
     }
-
-
 }
 
 void Level::get_intersections(const Line& line)
@@ -285,8 +280,8 @@ void Level::sort_intersections(const Line &line,
     std::sort(intersections.begin(), intersections.end(),
               [line](const Intersection& a, const Intersection& b) -> bool
     {
-        int distance_a = std::rint(a.point()->distance(line.origin()));
-        int distance_b = std::rint(b.point()->distance(line.origin()));
+        int distance_a = a.point()->distance(line.origin());
+        int distance_b = b.point()->distance(line.origin());
         return (distance_a < distance_b);
     });
 }

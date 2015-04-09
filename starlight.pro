@@ -97,7 +97,8 @@ SOURCES += \
     editor/properties.cpp \
     editor/mirrorprop.cpp \
     mapwriter.cpp \
-    editor/elements.cpp
+    editor/elements.cpp \
+    Tests/gametest.cpp
 
 RESOURCES += \
     ressources.qrc

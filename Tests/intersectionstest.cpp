@@ -78,6 +78,8 @@ TEST_CASE("Intersections ellipses, droites, segments")
     }
 
 
+
+
     SECTION("Intersection ellipse, segment")
     {
         LineSegment l(Point(0,0), Point(20,20));
@@ -102,10 +104,17 @@ TEST_CASE("Intersections rectangle, droite, segment")
         REQUIRE(nb == 2);
         REQUIRE(points.at(0) == Point(10,10));
         REQUIRE(points.at(1) == Point(14,14));
-
-
-
     }
+
+    SECTION("Intersection rectange droite avec un coin en intersection")
+    {
+        Rectangle r(Point(4,0), 4, 4);
+        Line l(Point(0,0), -M_PI_4);
+        r.intersects(l, points);
+        REQUIRE(points.at(0) == Point(4,4));
+    }
+
+
     SECTION("Intersection rectangle, droite avec meme point origine")
     {
 
