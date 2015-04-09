@@ -261,7 +261,7 @@ void MapView::notify(Observable *sdo, std::string msg)
     std::cout << "mapview msg " << msg << std::endl;
 
 
-    if (msg == "GAME_LOST")
+    if (msg.compare("GAME_LOST") == 0)
     {
         if (sound_->state() == QMediaPlayer::PlayingState)
             sound_->stop();
@@ -272,7 +272,7 @@ void MapView::notify(Observable *sdo, std::string msg)
 
         QMessageBox::information(this, "You lose!", "Outch, looks like you exploded the whole map…");
     }
-    else if (msg == "GAME_WON")
+    else if (msg.compare("GAME_WON") == 0)
     {
         if (sound_->state() == QMediaPlayer::PlayingState)
             sound_->stop();

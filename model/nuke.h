@@ -89,7 +89,7 @@ bool Nuke::lighted_up() const
 void Nuke::set_lighted_up(bool q)
 {
     this->lighted_up_ = q;
-    notify_all("LIGHTED_UP");
+    notify_all(std::string("LIGHTED_UP"));
 }
 
 #endif // NUKE_H

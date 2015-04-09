@@ -132,7 +132,7 @@ bool Source::on() const
 void Source::set_on(bool q)
 {
     this->on_ = q;
-    notify_all("SOURCE_ON");
+    notify_all(std::string("SOURCE_ON"));
 }
 
 #endif // SOURCE_H
