@@ -68,19 +68,19 @@ bool Geometry::is_on_good_side(const Line& l, const Point& p)
     // Premier quadrant
     if ((angle > 0 && angle < M_PI_2) ||
             (angle < -M_PI_2_3 && angle > -(2*M_PI)))
-        return p.x() > l.origin().x() && p.y() < l.origin().y();
+        return p.x() > l.origin().x() + EPSILON && p.y() < l.origin().y() - EPSILON;
 
     // Deuxième quadrant
     else if ((angle > M_PI_2 && angle < M_PI) ||
              (angle < -M_PI && angle > -M_PI_2_3))
-        return p.x() < l.origin().x() && p.y() < l.origin().y();
+        return p.x() < l.origin().x() - EPSILON && p.y() < l.origin().y() - EPSILON;
 
     // Troisième quadrant
     else if ((angle > M_PI && angle < M_PI_2_3) ||
              (angle < -M_PI_2 && angle > -M_PI))
-        return p.x() < l.origin().x() && p.y() > l.origin().y();
+        return p.x() < l.origin().x() - EPSILON && p.y() > l.origin().y() + EPSILON;
 
     // Quatrième quadrant
     else
-        return p.x() > l.origin().x() && p.y() > l.origin().y();
+        return p.x() > l.origin().x() + EPSILON && p.y() > l.origin().y() + EPSILON;
 }

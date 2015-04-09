@@ -143,9 +143,10 @@ void Level::get_intersections(const Line& line)
     Point* p = nullptr;
 
     // Ajout des intersections au vecteur d'intersections
+    walls_intersections(line, this->intersections_, &p);
     mirrors_intersections(line, this->intersections_, &p);
     lenses_intersections(line, this->intersections_, points);
-    walls_intersections(line, this->intersections_, &p);
+
     dest_intersections(line, this->intersections_, points);
     nukes_intersections(line, this->intersections_, points);
     crystals_intersections(line, this->intersections_, points);
