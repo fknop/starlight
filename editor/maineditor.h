@@ -14,6 +14,7 @@
 
 #include "obs/observerinterface.h"
 #include "elements.h"
+#include "properties.h"
 
 class MainEditor : public QMainWindow, public ObserverInterface
 {
@@ -32,7 +33,7 @@ public:
     QPushButton *pushButton_4;
     QPushButton *pushButton_5;
     QPushButton *pushButton_6;
-    QWidget *properties;
+    Properties *properties;
     QVBoxLayout *verticalLayout_3;
     QPushButton *pushButton_7;
     QPushButton *pushButton_8;

@@ -18,11 +18,6 @@
 MainEditor::MainEditor(QWidget *parent) : QMainWindow(parent), level_{new Level(750,580)}
 {
     setupUi();
-
-
-//    pushButton->setEnabled(false);
-//    pushButton_2->setEnabled(false);
-//    pushButton_3->setEnabled(false);
 }
 
 
@@ -41,25 +36,18 @@ void MainEditor::add_mirror()
 
 void MainEditor::create_level()
 {
-//    pushButton->setEnabled(true);
-//    pushButton_2->setEnabled(true);
-//    pushButton_3->setEnabled(true);
+    level_ = elements->level();
 
+    Source source(Point(0,0), 29, 4.75, 400);
+    Dest dest(Point(level_->width() - 29, level_->height() - 29), 29);
 
+    level_->set_source(source);
+    level_->set_dest(dest);
 
-//    level_ = new Level(level_height_dsb->value(), level_width_dsb->value());
-
-
-//    Source source(Point(0,0), 29, 4.75, 400);
-//    Dest dest(Point(level_height_dsb->value() - 29,level_width_dsb->value() - 29), 29);
-
-//    level_->set_source(source);
-//    level_->set_dest(dest);
-
-//    verticalLayout_2->removeWidget(mapview_);
-//    mapview_ = new MapView(level_);
-//    level_->add_observer(mapview_);
-//    verticalLayout_2->addWidget(mapview_);
+    verticalLayout_2->removeWidget(mapview_);
+    mapview_ = new MapView(level_);
+    level_->add_observer(mapview_);
+    verticalLayout_2->addWidget(mapview_);
 }
 
 void MainEditor::setupUi()
@@ -92,16 +80,16 @@ void MainEditor::setupUi()
 
     horizontalLayout->addWidget(mapview_);
 
-    properties = new QWidget(centralWidget);
+    properties = new Properties(centralWidget);
 
-    verticalLayout_3 = new QVBoxLayout(properties);
-    verticalLayout_3->setSpacing(6);
-    verticalLayout_3->setContentsMargins(11, 11, 11, 11);
+//    verticalLayout_3 = new QVBoxLayout(properties);
+//    verticalLayout_3->setSpacing(6);
+//    verticalLayout_3->setContentsMargins(11, 11, 11, 11);
 
 
 
-    Properties * prefs = new Properties();
-    verticalLayout_3->addWidget(prefs);
+//    properties = new Properties();
+//    verticalLayout_3->addWidget(properties);
 
 
     QSizePolicy sp_properties(QSizePolicy::Preferred, QSizePolicy::Preferred);
@@ -117,10 +105,24 @@ void MainEditor::notify(Observable * sdo, std::string msg="UPDATE_RAYS")
 {
     if (msg == "LEVEL_CREATED")
     {
+        std::cout << "level added!" << std::endl;
         create_level();
+    }
+    else if (msg == "LEVEL_RESET")
+    {
+        std::cout << "level reset" << std::endl;
+//        horizontalLayout->removeWidget(mapview_);
+
+        verticalLayout_2->removeWidget(mapview_);
+        verticalLayout_2->setEnabled(false);
+        //mapview_ = new QWidget();
+        //horizontalLayout->addWidget(mapview_);
+//        verticalLayout_2 = new QVBoxLayout(mapview_);
+//        verticalLayout_2->setEnabled(false);
     }
     else if (msg == "MIRROR_ADDED")
     {
         std::cout << "mirror added!" << std::endl;
+        add_mirror();
     }
 }
