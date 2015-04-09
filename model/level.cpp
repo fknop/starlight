@@ -17,23 +17,22 @@ Level::Level(double w, double h) : width_ {w}, height_ {h},
 
 void Level::compute_rays()
 {
-    std::cout << "compute rays" << std::endl;
-    this->rays_.clear();
+    if (this->rays_.size() > 0)
+        this->rays_.clear();
 
     if (source_.on())
     {
-        Point pSource = this->source_.position();
-        double radians = this->source_.angle();
-        Line ray(pSource, radians);
-
+        Line ray(this->source_.position(), this->source_.angle());
         State state = compute_ray(ray, this->source_.wavelength());
+
         switch (state)
         {
         case State::WIN:
             notify_all("GAME_WON");
         case State::LOSE:
             notify_all("GAME_LOST");
-        case State::CONTINUE: case State::STOP:
+        case State::CONTINUE:
+        case State::STOP:
             notify_all("CONTINUE");
         }
     }
@@ -45,28 +44,26 @@ void Level::compute_rays()
 
 Level::State Level::compute_ray(Line& line, int wl)
 {
-
+    double angle = line.angle();
     Nuke* nuke = nullptr;
     Mirror* mirror = nullptr;
     Lens* lens = nullptr;
     Crystal* crystal = nullptr;
+    Point* new_line_origin = nullptr;
     State state;
-
-    double angle = line.angle();
-    double new_wl = wl;
+    Element::Type type;
 
     get_intersections(line);
 
-    Element::Type type = this->intersections_.at(0).element()->type();
-    Point* new_line_origin = this->intersections_.at(0).point();
+    type = this->intersections_.at(0).element()->type();
+    new_line_origin = this->intersections_.at(0).point();
 
     switch (type)
     {
-
         case Element::Type::CRYSTAL:
         {
             crystal = dynamic_cast<Crystal*> (this->intersections_.at(0).element());
-            new_wl += crystal->modifier();
+            wl += crystal->modifier();
 
             if (this->intersections_.at(1).element() == crystal)
                 new_line_origin = this->intersections_.at(1).point();
@@ -121,24 +118,22 @@ Level::State Level::compute_ray(Line& line, int wl)
             state = State::STOP;
             break;
         }
-
     }
 
     this->rays_.push_back(Ray(line.origin(),
                           *(this->intersections_.at(0).point()),
                           wl));
 
+
     if (state == State::CONTINUE)
     {
         Line newLine(Point(*new_line_origin), angle);
-        return compute_ray(newLine, new_wl);
+        return compute_ray(newLine, wl);
     }
-    else
+    else  
     {
         return state;
     }
-
-
 }
 
 void Level::get_intersections(const Line& line)
@@ -148,9 +143,10 @@ void Level::get_intersections(const Line& line)
     Point* p = nullptr;
 
     // Ajout des intersections au vecteur d'intersections
+    walls_intersections(line, this->intersections_, &p);
     mirrors_intersections(line, this->intersections_, &p);
     lenses_intersections(line, this->intersections_, points);
-    walls_intersections(line, this->intersections_, &p);
+
     dest_intersections(line, this->intersections_, points);
     nukes_intersections(line, this->intersections_, points);
     crystals_intersections(line, this->intersections_, points);
@@ -166,22 +162,23 @@ void Level::get_intersections(const Line& line)
 ///// SI BUG -- RESTAURER L'ANCIENNE VERSION /////
 double Level::get_reflection_angle(double angle, double alpha)
 {
-    double p = std::fmod((M_PI_2 + alpha), (2 * M_PI));
-    double angleRayMirror = std::abs(p - (std::fmod(angle, M_PI)));
 
-    if (std::fmod(angle, M_PI) == std::fmod(alpha, M_PI))
-        return std::fmod((angle + M_PI), (2*M_PI)); // angle de l'inclinaison
+    if (alpha < 0)
+    {
+        alpha = (2*M_PI) + alpha;
+        alpha = std::fmod(alpha, M_PI);
+    }
 
-    else if (std::fmod(angle, M_PI) == std::fmod(p, M_PI))
-        return std::fmod((p + M_PI), (2 * M_PI)); // perpendiculaire
+    double p = std::fmod((M_PI_2 + alpha), (M_PI));
+    if (p < 0)
+    {
+        p = (2*M_PI) + p;
+        p = std::fmod(p, M_PI);
+    }
 
-    else if ((angle > (p + M_PI)))
-        return std::fmod((angle - (2 * angleRayMirror) + M_PI), (2 * M_PI));
+    double angle_ray_p = p - (std::fmod(angle, M_PI));
 
-    else
-        return std::fmod((angle + (2 * angleRayMirror) + M_PI), (2 * M_PI));
-
-
+    return std::fmod((angle + M_PI + (2 * angle_ray_p)), (2*M_PI));
 }
 
 void Level::dest_intersections(const Line &line,
@@ -285,8 +282,8 @@ void Level::sort_intersections(const Line &line,
     std::sort(intersections.begin(), intersections.end(),
               [line](const Intersection& a, const Intersection& b) -> bool
     {
-        int distance_a = std::rint(a.point()->distance(line.origin()));
-        int distance_b = std::rint(b.point()->distance(line.origin()));
+        int distance_a = a.point()->distance(line.origin());
+        int distance_b = b.point()->distance(line.origin());
         return (distance_a < distance_b);
     });
 }

@@ -16,8 +16,6 @@ end_ {p2}, wavelength_ {wl}
     if (wl < WL_MIN || wl > WL_MAX)
         throw std::string("Longueur d'onde invalide");
 
-    if (p1 < Point(0, 0) || p2 < Point(0, 0))
-        throw std::string("Un rayon ne peut pas sortir de la zone de jeu");
 
 }
 
