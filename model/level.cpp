@@ -28,17 +28,20 @@ void Level::compute_rays()
         switch (state)
         {
         case State::WIN:
-            notify_all("GAME_WON");
+            notify_all(std::string("GAME_WON"));
+            break;
         case State::LOSE:
-            notify_all("GAME_LOST");
+            notify_all(std::string("GAME_LOST"));
+            break;
         case State::CONTINUE:
         case State::STOP:
-            notify_all("CONTINUE");
+            notify_all(std::string("CONTINUE"));
+            break;
         }
     }
     else
     {
-        notify_all("CLEAR_RAYS");
+        notify_all(std::string("CLEAR_RAYS"));
     }
 }
 
@@ -146,7 +149,6 @@ void Level::get_intersections(const Line& line)
     walls_intersections(line, this->intersections_, &p);
     mirrors_intersections(line, this->intersections_, &p);
     lenses_intersections(line, this->intersections_, points);
-
     dest_intersections(line, this->intersections_, points);
     nukes_intersections(line, this->intersections_, points);
     crystals_intersections(line, this->intersections_, points);

@@ -97,7 +97,7 @@ bool Dest::lighted_up() const
 void Dest::set_lighted_up(const bool q)
 {
     this->light_up_ = q;
-    notify_all("LIGHTED_UP");
+    notify_all(std::string("LIGHTED_UP"));
 
 }
 

@@ -43,7 +43,7 @@ bool Mirror::check_pivot_range(const Point & p) const
 void Mirror::rotate(double angle)
 {
     set_angle(this->alpha_ + angle);
-    notify_all("ROTATE_MIRROR");
+    notify_all(std::string("ROTATE_MIRROR"));
 }
 
 void Mirror::translate(double x, double y)
@@ -53,7 +53,8 @@ void Mirror::translate(double x, double y)
     // Check la nouvelle position du pivot
     // et la modifie si OK.
     set_pivot(Point(newX, newY));
-    notify_all("TRANSLATE_MIRROR");
+    notify_all(std::string("TRANSLATE_MIRROR"));
+
 
 }
 
