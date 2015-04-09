@@ -53,7 +53,8 @@ HEADERS += \
     editor/maineditor.h \
     editor/properties.h \
     editor/mirrorprop.h \
-    mapwriter.h
+    mapwriter.h \
+    editor/elements.h
 
 SOURCES += \
     mapreader.cpp \
@@ -95,7 +96,8 @@ SOURCES += \
     editor/maineditor.cpp \
     editor/properties.cpp \
     editor/mirrorprop.cpp \
-    mapwriter.cpp
+    mapwriter.cpp \
+    editor/elements.cpp
 
 RESOURCES += \
     ressources.qrc

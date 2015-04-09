@@ -13,21 +13,19 @@
 #include "view/sourceview.h"
 #include "view/destinationview.h"
 
+#include "elements.h"
+
 MainEditor::MainEditor(QWidget *parent) : QMainWindow(parent), level_{new Level(750,580)}
 {
     setupUi();
-    add_connections();
 
-    pushButton->setEnabled(false);
-    pushButton_2->setEnabled(false);
-    pushButton_3->setEnabled(false);
+
+//    pushButton->setEnabled(false);
+//    pushButton_2->setEnabled(false);
+//    pushButton_3->setEnabled(false);
 }
 
-void MainEditor::add_connections()
-{
-    connect(pushButton, SIGNAL(clicked()), this, SLOT(add_mirror()));
-    connect(level_apply_pb, SIGNAL(clicked()), this, SLOT(create_level()));
-}
+
 
 void MainEditor::add_mirror()
 {
@@ -37,25 +35,30 @@ void MainEditor::add_mirror()
         mapview_->draw_mirror(i);
 }
 
+//Element MainEditor::selected()
+//{
+//    return mapview_->selec
+//}
+
 void MainEditor::create_level()
 {
-    pushButton->setEnabled(true);
-    pushButton_2->setEnabled(true);
-    pushButton_3->setEnabled(true);
+//    pushButton->setEnabled(true);
+//    pushButton_2->setEnabled(true);
+//    pushButton_3->setEnabled(true);
 
-    level_ = new Level(level_height_dsb->value(), level_width_dsb->value());
+//    level_ = new Level(level_height_dsb->value(), level_width_dsb->value());
 
 
-    Source source(Point(0,0), 29, 4.75, 400);
-    Dest dest(Point(level_height_dsb->value() - 29,level_width_dsb->value() - 29), 29);
+//    Source source(Point(0,0), 29, 4.75, 400);
+//    Dest dest(Point(level_height_dsb->value() - 29,level_width_dsb->value() - 29), 29);
 
-    level_->set_source(source);
-    level_->set_dest(dest);
+//    level_->set_source(source);
+//    level_->set_dest(dest);
 
-    verticalLayout_2->removeWidget(mapview_);
-    mapview_ = new MapView(level_);
-    level_->add_observer(mapview_);
-    verticalLayout_2->addWidget(mapview_);
+//    verticalLayout_2->removeWidget(mapview_);
+//    mapview_ = new MapView(level_);
+//    level_->add_observer(mapview_);
+//    verticalLayout_2->addWidget(mapview_);
 }
 
 void MainEditor::setupUi()
@@ -69,62 +72,64 @@ void MainEditor::setupUi()
     horizontalLayout->setSpacing(6);
     horizontalLayout->setContentsMargins(11, 11, 11, 11);
 
-    elements = new QWidget(centralWidget);
+//    elements = new QWidget(centralWidget);
+    elements = new Elements();
+    horizontalLayout->addWidget(elements);
 
-    verticalLayout = new QVBoxLayout(elements);
-    verticalLayout->setSpacing(6);
-    verticalLayout->setContentsMargins(11, 11, 11, 11);
+//    verticalLayout = new QVBoxLayout(elements);
+//    verticalLayout->setSpacing(6);
+//    verticalLayout->setContentsMargins(11, 11, 11, 11);
 
-    groupBox = new QGroupBox(elements);
-    groupBox->setTitle("Level");
+//    groupBox = new QGroupBox(elements);
+//    groupBox->setTitle("Level");
 
-    QFormLayout * formLayout = new QFormLayout(groupBox);
+//    QFormLayout * formLayout = new QFormLayout(groupBox);
 
-    level_height_label = new QLabel(groupBox);
-    level_height_label->setText("Height: ");
+//    level_height_label = new QLabel(groupBox);
+//    level_height_label->setText("Height: ");
 
-    formLayout->setWidget(0, QFormLayout::LabelRole, level_height_label);
+//    formLayout->setWidget(0, QFormLayout::LabelRole, level_height_label);
 
-    level_height_dsb = new QDoubleSpinBox(groupBox);
-    level_height_dsb->setMinimum(400);
-    level_height_dsb->setMaximum(1000);
+//    level_height_dsb = new QDoubleSpinBox(groupBox);
+//    level_height_dsb->setMinimum(400);
+//    level_height_dsb->setMaximum(1000);
 
-    formLayout->setWidget(0, QFormLayout::FieldRole, level_height_dsb);
+//    formLayout->setWidget(0, QFormLayout::FieldRole, level_height_dsb);
 
-    level_width_label = new QLabel(groupBox);
-    level_width_label->setText("Width: ");
+//    level_width_label = new QLabel(groupBox);
+//    level_width_label->setText("Width: ");
 
-    formLayout->setWidget(1, QFormLayout::LabelRole, level_width_label);
+//    formLayout->setWidget(1, QFormLayout::LabelRole, level_width_label);
 
-    level_width_dsb = new QDoubleSpinBox(groupBox);
-    level_width_dsb->setMinimum(400);
-    level_width_dsb->setMaximum(1000);
+//    level_width_dsb = new QDoubleSpinBox(groupBox);
+//    level_width_dsb->setMinimum(400);
+//    level_width_dsb->setMaximum(1000);
 
-    formLayout->setWidget(1, QFormLayout::FieldRole, level_width_dsb);
+//    formLayout->setWidget(1, QFormLayout::FieldRole, level_width_dsb);
 
-    level_apply_pb = new QPushButton();
-    level_apply_pb->setText("Apply");
+//    level_apply_pb = new QPushButton();
+//    level_apply_pb->setText("Apply");
 
-    formLayout->setWidget(2, QFormLayout::FieldRole, level_apply_pb);
+//    formLayout->setWidget(2, QFormLayout::FieldRole, level_apply_pb);
 
 
-    verticalLayout->addWidget(groupBox);
+//    verticalLayout->addWidget(groupBox);
 
-    pushButton = new QPushButton("Mirror", elements);
+//    pushButton = new QPushButton("Mirror", elements);
 
-    verticalLayout->addWidget(pushButton);
+//    verticalLayout->addWidget(pushButton);
 
-    pushButton_2 = new QPushButton("Source", elements);
+//    pushButton_2 = new QPushButton("Nuke", elements);
 
-    verticalLayout->addWidget(pushButton_2);
+//    verticalLayout->addWidget(pushButton_2);
 
-    pushButton_3 = new QPushButton("Destination", elements);
+//    pushButton_3 = new QPushButton("Lens", elements);
 
-    verticalLayout->addWidget(pushButton_3);
+//    verticalLayout->addWidget(pushButton_3);
 
-    QSizePolicy sp_elements(QSizePolicy::Preferred, QSizePolicy::Preferred);
-    sp_elements.setHorizontalStretch(1);
-    elements->setSizePolicy(sp_elements);
+//    QSizePolicy sp_elements(QSizePolicy::Preferred, QSizePolicy::Preferred);
+//    sp_elements.setHorizontalStretch(1);
+//    elements->setSizePolicy(sp_elements);
 
     horizontalLayout->addWidget(elements);
 
