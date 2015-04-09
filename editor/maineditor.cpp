@@ -31,8 +31,7 @@ void MainEditor::add_mirror()
 {
     Mirror mirror(Point(50, 50), 58, 100, 1.57);
     level_->add_mirror(mirror);
-    for (auto &i : level_->mirrors())
-        mapview_->draw_mirror(i);
+    mapview_->draw_mirrors();
 }
 
 //Element MainEditor::selected()

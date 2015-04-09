@@ -18,47 +18,31 @@
 MapView::MapView()
 {
     scene_ = new QGraphicsScene(0, 0, 500, 500);
-
     setScene(scene_);
 }
 
 MapView::MapView(Level* level) : level_{level}
 {
     scene_ = new QGraphicsScene(0, 0, this->level_->width(), this->level_->height());
+    sound_ = new QMediaPlayer(nullptr);
 
     setScene(scene_);
     setRenderHints(QPainter::Antialiasing);
     //setFixedSize(this->level_->width() + 30, this->level_->height() + 30);
 
-    sound_ = new QMediaPlayer(nullptr);
 
-    draw_source(level->source());
-    draw_dest(level->dest());
+    repaint();
+}
 
-    for (auto &i : this->level_->walls())
-    {
-        draw_wall(i);
-    }
-
-    for (auto &i : this->level_->nukes())
-    {
-        draw_nuke(i);
-    }
-
-    for (auto &i : this->level_->lenses())
-    {
-        draw_lens(i);
-    }
-
-    for (auto &i : this->level_->crystals())
-    {
-        draw_crystal(i);
-    }
-
-    for (auto &i : this->level_->mirrors())
-    {
-        draw_mirror(i);
-    }
+void MapView::repaint()
+{
+    draw_source();
+    draw_dest();
+    draw_walls();
+    draw_nukes();
+    draw_lenses();
+    draw_crystals();
+    draw_mirrors();
 }
 
 MapView::~MapView()
@@ -71,61 +55,150 @@ MapView::~MapView()
     sound_ = nullptr;
 }
 
-void MapView::draw_source(const Source &source)
+void MapView::draw_walls()
 {
-    SourceView * sv = new SourceView(source);
+    if (wall_views_.size() > 0)
+    {
+        for (auto &i : wall_views_)
+            scene_->removeItem(i);
 
-    scene_->addItem(sv);
+        wall_views_.clear();
+    }
+
+    for (auto &i : level_->walls())
+        draw_wall(i);
 }
 
-void MapView::draw_dest(const Dest &dest)
+void MapView::draw_mirrors()
 {
-    DestinationView * dv = new DestinationView(dest);
+    if (mirror_views_.size() > 0)
+    {
+        for (auto &i : mirror_views_)
+            scene_->removeItem(i);
 
-    scene_->addItem(dv);
+        mirror_views_.clear();
+    }
+
+    for (auto &i : level_->mirrors())
+        draw_mirror(i);
+}
+
+void MapView::draw_nukes()
+{
+    if (nuke_views_.size() > 0)
+    {
+        for (auto &i : nuke_views_)
+            scene_->removeItem(i);
+
+        nuke_views_.clear();
+    }
+    for (auto &i : level_->nukes())
+        draw_nuke(i);
+}
+
+void MapView::draw_lenses()
+{
+    if (lens_views_.size() > 0)
+    {
+        for (auto &i : lens_views_)
+            scene_->removeItem(i);
+
+        lens_views_.clear();
+    }
+
+    for (auto &i : level_->lenses())
+        draw_lens(i);
+}
+
+void MapView::draw_crystals()
+{
+    if (crystal_views_.size() > 0)
+    {
+        for (auto &i : crystal_views_)
+            scene_->removeItem(i);
+
+        crystal_views_.clear();
+    }
+
+    for (auto &i : level_->crystals())
+        draw_crystal(i);
+}
+
+void MapView::draw_rays()
+{
+    if (ray_views_.size() > 0)
+    {
+        for (auto &i : ray_views_)
+        {
+            scene_->removeItem(i);
+            delete i;
+        }
+        ray_views_.clear();
+    }
+
+    for (auto &i : level_->rays())
+        draw_ray(i);
+}
+
+void MapView::draw_source()
+{
+    if (source_view_ != nullptr)
+         scene_->removeItem(source_view_);
+
+    source_view_ = new SourceView(level_->source());
+    scene_->addItem(source_view_);
+}
+
+void MapView::draw_dest()
+{
+    if (dest_view_ != nullptr)
+        scene_->removeItem(dest_view_);
+
+    dest_view_ = new DestinationView(level_->dest());
+    scene_->addItem(dest_view_);
 }
 
 void MapView::draw_ray(const Ray &ray)
 {
     RayView* rv = new RayView(ray);
-    rays_.push_back(rv);
+    ray_views_.push_back(rv);
     scene_->addItem(rv);
 }
 
 void MapView::draw_wall(const Wall& wall)
 {
-    WallView *wv = new WallView(wall);
-
+    WallView* wv = new WallView(wall);
+    wall_views_.push_back(wv);
     scene_->addItem(wv);
 }
 
 
 void MapView::draw_mirror(const Mirror& mirror)
 {
-    MirrorView *mv = new MirrorView(mirror);
-
+    MirrorView* mv = new MirrorView(mirror);
+    mirror_views_.push_back(mv);
     scene_->addItem(mv);
 }
 
 
 void MapView::draw_nuke(const Nuke& nuke)
 {
-    NukeView *nv = new NukeView(nuke);
-
+    NukeView* nv = new NukeView(nuke);
+    nuke_views_.push_back(nv);
     scene_->addItem(nv);
 }
 
 void MapView::draw_lens(const Lens& lens)
 {
-    LensView *lv = new LensView(lens);
-
+    LensView* lv = new LensView(lens);
+    lens_views_.push_back(lv);
     scene_->addItem(lv);
 }
 
 void MapView::draw_crystal(const Crystal& crystal)
 {
-    CrystalView *cv = new CrystalView(crystal);
-
+    CrystalView* cv = new CrystalView(crystal);
+    crystal_views_.push_back(cv);
     scene_->addItem(cv);
 }
 
@@ -183,18 +256,7 @@ void MapView::keyPressEvent(QKeyEvent *event)
 
 void MapView::notify(Observable *sdo, std::string msg)
 {
-    for (auto i : rays_)
-    {
-        scene_->removeItem(i);
-        delete i;
-    }
-
-    rays_.clear();
-
-    for (auto &i : this->level_->rays())
-    {
-        draw_ray(i);
-    }
+    draw_rays();
 
     std::cout << "mapview msg " << msg << std::endl;
 
