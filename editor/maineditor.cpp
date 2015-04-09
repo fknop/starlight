@@ -45,6 +45,8 @@ void MainEditor::create_level()
 //    pushButton_2->setEnabled(true);
 //    pushButton_3->setEnabled(true);
 
+
+
 //    level_ = new Level(level_height_dsb->value(), level_width_dsb->value());
 
 
@@ -71,64 +73,10 @@ void MainEditor::setupUi()
     horizontalLayout->setSpacing(6);
     horizontalLayout->setContentsMargins(11, 11, 11, 11);
 
-//    elements = new QWidget(centralWidget);
     elements = new Elements();
+    elements->add_observer(this);
     horizontalLayout->addWidget(elements);
 
-//    verticalLayout = new QVBoxLayout(elements);
-//    verticalLayout->setSpacing(6);
-//    verticalLayout->setContentsMargins(11, 11, 11, 11);
-
-//    groupBox = new QGroupBox(elements);
-//    groupBox->setTitle("Level");
-
-//    QFormLayout * formLayout = new QFormLayout(groupBox);
-
-//    level_height_label = new QLabel(groupBox);
-//    level_height_label->setText("Height: ");
-
-//    formLayout->setWidget(0, QFormLayout::LabelRole, level_height_label);
-
-//    level_height_dsb = new QDoubleSpinBox(groupBox);
-//    level_height_dsb->setMinimum(400);
-//    level_height_dsb->setMaximum(1000);
-
-//    formLayout->setWidget(0, QFormLayout::FieldRole, level_height_dsb);
-
-//    level_width_label = new QLabel(groupBox);
-//    level_width_label->setText("Width: ");
-
-//    formLayout->setWidget(1, QFormLayout::LabelRole, level_width_label);
-
-//    level_width_dsb = new QDoubleSpinBox(groupBox);
-//    level_width_dsb->setMinimum(400);
-//    level_width_dsb->setMaximum(1000);
-
-//    formLayout->setWidget(1, QFormLayout::FieldRole, level_width_dsb);
-
-//    level_apply_pb = new QPushButton();
-//    level_apply_pb->setText("Apply");
-
-//    formLayout->setWidget(2, QFormLayout::FieldRole, level_apply_pb);
-
-
-//    verticalLayout->addWidget(groupBox);
-
-//    pushButton = new QPushButton("Mirror", elements);
-
-//    verticalLayout->addWidget(pushButton);
-
-//    pushButton_2 = new QPushButton("Nuke", elements);
-
-//    verticalLayout->addWidget(pushButton_2);
-
-//    pushButton_3 = new QPushButton("Lens", elements);
-
-//    verticalLayout->addWidget(pushButton_3);
-
-//    QSizePolicy sp_elements(QSizePolicy::Preferred, QSizePolicy::Preferred);
-//    sp_elements.setHorizontalStretch(1);
-//    elements->setSizePolicy(sp_elements);
 
     horizontalLayout->addWidget(elements);
 
@@ -163,18 +111,16 @@ void MainEditor::setupUi()
     horizontalLayout->addWidget(properties);
 
     setCentralWidget(centralWidget);
-    //    menuBar = new QMenuBar();
-    //    menuBar->setObjectName(QStringLiteral("menuBar"));
-    //    menuBar->setGeometry(QRect(0, 0, 975, 21));
-    //    setMenuBar(menuBar);
-    //    mainToolBar = new QToolBar();
-    //    mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
-    //    addToolBar(Qt::TopToolBarArea, mainToolBar);
-    //    statusBar = new QStatusBar();
-    //    statusBar->setObjectName(QStringLiteral("statusBar"));
-    //    setStatusBar(statusBar);
+}
 
-
-
-
+void MainEditor::notify(Observable * sdo, std::string msg="UPDATE_RAYS")
+{
+    if (msg == "LEVEL_CREATED")
+    {
+        create_level();
+    }
+    else if (msg == "MIRROR_ADDED")
+    {
+        std::cout << "mirror added!" << std::endl;
+    }
 }

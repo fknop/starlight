@@ -12,7 +12,10 @@
 #include "model/level.h"
 #include "view/mapview.h"
 
-class MainEditor : public QMainWindow
+#include "obs/observerinterface.h"
+#include "elements.h"
+
+class MainEditor : public QMainWindow, public ObserverInterface
 {
     Q_OBJECT
 public:
@@ -21,12 +24,9 @@ public:
 
     QWidget *centralWidget;
     QHBoxLayout *horizontalLayout;
-    QWidget *elements;
-//    QVBoxLayout *verticalLayout;
+    Elements *elements;
     QVBoxLayout *verticalLayout_1;
-//    QPushButton *pushButton;
-//    QPushButton *pushButton_2;
-//    QPushButton *pushButton_3;
+
     MapView *mapview_;
     QVBoxLayout *verticalLayout_2;
     QPushButton *pushButton_4;
@@ -37,15 +37,11 @@ public:
     QPushButton *pushButton_7;
     QPushButton *pushButton_8;
     QPushButton *pushButton_9;
-//    QDoubleSpinBox *level_height_dsb;
-//    QDoubleSpinBox *level_width_dsb;
 
-//    QGroupBox * groupBox;
-//    QLabel * level_height_label;
-//    QLabel * level_width_label;
-//    QPushButton *level_apply_pb;
 
     Level * level_;
+
+    void notify(Observable *sdo, std::string msg);
 
 private:
 
