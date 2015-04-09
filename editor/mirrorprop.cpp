@@ -122,3 +122,9 @@ void MirrorProp::setupUi()
 
     setLayout(formLayout);
 }
+
+void MirrorProp::apply()
+{
+    mirror_->set_pivot(Point(x_dsb->value(), y_dsb->value()));
+    //mirror_->set_angle();
+}

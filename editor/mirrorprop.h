@@ -7,6 +7,8 @@
 #include <QFormLayout>
 #include <QLabel>
 
+#include "model/mirror.h"
+
 class MirrorProp : public QWidget
 {
     Q_OBJECT
@@ -38,6 +40,10 @@ private:
     QDoubleSpinBox *alphamin_dsb;
     QLabel *alphamax_label;
     QDoubleSpinBox *alphamax_dsb;
+
+    Mirror * mirror_;
+
+    void apply();
 
 
 signals:

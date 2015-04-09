@@ -113,8 +113,9 @@ void MainEditor::notify(Observable * sdo, std::string msg="UPDATE_RAYS")
         std::cout << "level reset" << std::endl;
 //        horizontalLayout->removeWidget(mapview_);
 
-        verticalLayout_2->removeWidget(mapview_);
-        verticalLayout_2->setEnabled(false);
+
+//        verticalLayout_2->removeWidget(mapview_);
+//        verticalLayout_2->setEnabled(false);
         //mapview_ = new QWidget();
         //horizontalLayout->addWidget(mapview_);
 //        verticalLayout_2 = new QVBoxLayout(mapview_);

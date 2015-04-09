@@ -6,8 +6,11 @@
 #include <QGridLayout>
 #include <QGroupBox>
 #include <QDialogButtonBox>
+#include <QPushButton>
 
-class Properties : public QWidget
+#include "obs/observable.h"
+
+class Properties : public QWidget, public Observable
 {
     Q_OBJECT
 
@@ -16,10 +19,17 @@ public:
     void setupUi();
     void set_element_prop();
 
+
+
 private:
     QGridLayout *gridLayout;
     QGroupBox *groupBox;
-    QDialogButtonBox *buttonBox;
+//    QDialogButtonBox *buttonBox;
+
+    QPushButton *apply_pb;
+    QPushButton *reset_pb;
+
+    void add_connections();
 
 signals:
 
