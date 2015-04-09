@@ -28,6 +28,7 @@ private:
 
     QPushButton *apply_pb;
     QPushButton *reset_pb;
+    QPushButton *delete_pb;
 
     void add_connections();
 

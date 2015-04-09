@@ -32,7 +32,7 @@ void Properties::setupUi()
     font.setWeight(75);
     groupBox->setFont(font);
 
-    gridLayout->addWidget(groupBox, 0, 0, 1, 2);
+    gridLayout->addWidget(groupBox, 0, 0, 1, 3);
 
 //    buttonBox = new QDialogButtonBox();
 //    buttonBox->setStandardButtons(QDialogButtonBox::Cancel|QDialogButtonBox::Ok);
@@ -49,6 +49,12 @@ void Properties::setupUi()
     reset_pb->setEnabled(false);
 
     gridLayout->addWidget(reset_pb, 1, 1, 1, 1);
+
+    delete_pb = new QPushButton();
+    delete_pb->setText("Delete");
+    delete_pb->setEnabled(false);
+
+    gridLayout->addWidget(delete_pb, 1, 2, 1, 1);
 
     setLayout(gridLayout);
 }
