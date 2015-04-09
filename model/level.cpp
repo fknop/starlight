@@ -187,7 +187,7 @@ void Level::dest_intersections(const Line &line,
                                std::vector<Intersection>& intersections,
                                std::vector<Point>& points)
 {
-    if (this->dest_.to_rectangle().intersects(line, points) > 0)
+    if (Geometry::intersects(this->dest_.to_rectangle(), line, points) > 0)
     {
         for (auto &i : points)
             intersections.push_back(Intersection(new Point(i), &this->dest_));
@@ -200,7 +200,7 @@ void Level::walls_intersections(const Line &line,
 {
     for (auto &i : this->walls_)
     {
-        if (line.intersects(i.to_line_segment(), p))
+        if (Geometry::intersects(line, i.to_line_segment(), p))
             intersections.push_back(Intersection(new Point(**p), &i));
 
         delete *p;
@@ -214,7 +214,7 @@ void Level::lenses_intersections(const Line &line,
     for (auto &i : this->lenses_)
     {
         points.clear();
-        if (i.to_ellipse().intersects(line, points))
+        if (Geometry::intersects(i.to_ellipse(), line, points))
         {
             for (auto &j : points)
                 intersections.push_back(Intersection(new Point(j), &i));
@@ -228,7 +228,7 @@ void Level::mirrors_intersections(const Line &line,
 {
     for (auto &i : this->mirrors_)
     {
-        if (line.intersects( i.to_line_segment(), p))
+        if (Geometry::intersects(line, i.to_line_segment(), p))
             intersections.push_back(Intersection(new Point(**p), &i));
 
         delete *p;
@@ -242,7 +242,7 @@ void Level::nukes_intersections(const Line& line,
     for (auto &i : this->nukes_)
     {
         points.clear();
-        if (i.to_ellipse().intersects(line, points))
+        if (Geometry::intersects(i.to_ellipse(), line, points))
         {
             for (auto &j : points)
                 intersections.push_back(Intersection(new Point(j), &i));
@@ -257,7 +257,7 @@ void Level::crystals_intersections(const Line &line,
     for (auto &i : this->crystals_)
     {
         points.clear();
-        if (i.to_ellipse().intersects(line, points))
+        if (Geometry::intersects(i.to_ellipse(), line, points))
         {
             for (auto &j : points)
                 intersections.push_back(Intersection(new Point(j), &i));
@@ -290,8 +290,40 @@ void Level::sort_intersections(const Line &line,
     });
 }
 
+bool Level::mirror_intersects_elements(Mirror *mirror)
+{
+    LineSegment segment = mirror->to_line_segment();
+    std::vector<Point> points;
+    Point *p;
+    bool intersects = false;
+
+
+//    for (auto &i : walls)
+//    {
+//        if ()
+//    }
+
+    return intersects;
+}
+
 void Level::notify(Observable* obs, std::string msg)
 {
+    if (msg.compare("TRANSLATE_MIRROR") == 0 ||
+            msg.compare("ROTATE_MIRROR") == 0)
+    {
+        //TESTER TOUTES LES INTERSECTIONS
+        Mirror *mirror = dynamic_cast<Mirror*> (obs);
+
+        if (mirror_intersects_elements(mirror))
+        {
+
+            //Rebouger le mirroir?
+        }
+
+
+
+    }
+
     compute_rays();
 }
 

@@ -37,21 +37,6 @@ public:
      */
     inline double height() const;
 
-    /**
-     * Vérifie si une droite coupe un rectangle.
-     * @param line la droite.
-     * @param points le vecteur de points d'intersections trouvés.
-     * @return le nombre d'intersections.
-     */
-    int intersects(const Line& line, std::vector<Point>& points);
-
-    /**
-     * Vérifie si un segment de droite coupe un rectangle.
-     * @param ls le segment de droite.
-     * @param points le vecteur de points d'intersections trouvés.
-     * @return le nombre d'intersections.
-     */
-    int intersects(const LineSegment& ls, std::vector<Point>& points);
 };
 
 /* Fonctions inlines */

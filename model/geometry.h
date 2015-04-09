@@ -5,9 +5,11 @@
 #include <cmath>
 #include <vector>
 
-#include "line.h"
-#include "linesegment.h"
-#include "point.h"
+#include "model/line.h"
+#include "model/linesegment.h"
+#include "model/point.h"
+#include "model/ellipse.h"
+#include "model/rectangle.h"
 
 namespace Geometry
 {
@@ -59,6 +61,75 @@ namespace Geometry
     double deg_to_rad(double degrees);
 
     bool is_on_good_side(const Line& l, const Point& p);
+
+    /**
+     * Retourne vrai si la droite possède une intersection
+     * avec une autre droite et retourne également
+     * le point d'intersection en paramètre.
+     * @param l1 la première droite.
+     * @param l2 la deuxième droite.
+     * @param intersecion le point d'intersection.
+     * @return vrai si les droites possèdent une intersection.
+     */
+    bool intersects(const Line& l1, const Line& l2, Point **p);
+
+    /**
+     * Retourne vrai si la droite possède une intersection
+     * avec un segment et retourne également
+     * le point d'intersection en paramètre.
+     * @param line la droite
+     * @param ls le segment.
+     * @param intersecion le point d'intersection.
+     * @return vrai si la droite et le segment possède une intersection.
+     */
+    bool intersects(const Line& line, const LineSegment& ls, Point **p);
+    bool intersects(const LineSegment& ls1, const LineSegment& ls2, Point **p);
+
+    /**
+     * Vérifie si une droite possède une ou des intersections
+     * avec l'ellipse.
+     * @param ellipse l'ellipse
+     * @param l la droite.
+     * @param points un vecteur de points d'intersections.
+     * @return le nombre d'intersections entre l'ellipse et la droite.
+     */
+    int intersects(const Ellipse& ellipse, const Line& line,
+                   std::vector<Point> &points);
+
+    /**
+     * Vérifie si un segment de droite possède une ou des
+     * intersections avec l'ellipse.
+     * @param ellipse l'ellipse.
+     * @param l le segment de droite.
+     * @param points un vecteur de points d'intersections.
+     * @return le nombre d'intersections entre l'ellipse et la droite.
+     */
+    int intersects(const Ellipse& ellipse, const LineSegment& ls,
+                   std::vector<Point> &points);
+
+    /**
+     * Vérifie si une droite coupe un rectangle.
+     * @param rec le rectangle.
+     * @param line la droite.
+     * @param points le vecteur de points d'intersections trouvés.
+     * @return le nombre d'intersections.
+     */
+    int intersects(const Rectangle& rec, const Line& line,
+                   std::vector<Point> &points);
+
+    /**
+     * Vérifie si un segment de droite coupe un rectangle.
+     * @param rec le rectangle.
+     * @param ls le segment de droite.
+     * @param points le vecteur de points d'intersections trouvés.
+     * @return le nombre d'intersections.
+     */
+    int intersects(const Rectangle& rec, const LineSegment& ls,
+                   std::vector<Point>& points);
+
+    bool vertical_line_intersection(const Line& l1, const Line& l2,
+                                                  Point** intersection);
+
 
 } // namespace Geometry
 
