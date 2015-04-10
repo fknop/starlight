@@ -49,6 +49,8 @@ public:
     bool contains(const Point& point) const;
 
     void translate(double x, double y);
+
+    bool operator==(const LineSegment& ls) const;
 };
 
 /* Fonctions inline */

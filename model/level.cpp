@@ -290,27 +290,26 @@ void Level::sort_intersections(const Line &line,
     });
 }
 
-bool Level::check_collisions(const LineSegment& segment, Mirror *mirror)
+bool Level::check_collisions(const LineSegment& segment)
 {
 
     std::vector<Point> points;
     Point *p;
     bool intersects = false;
 
-
-//    for (auto &i : this->walls_)
-//    {
-//        if (!intersects)
-//            intersects = Geometry::intersects(segment, i.to_line_segment(), &p);
-//    }
+    for (auto &i : this->walls_)
+    {
+        if (!intersects)
+            intersects = Geometry::intersects(segment, i.to_line_segment(), &p);
+    }
 
     std::cout << intersects << std::endl;
 
-//    for (auto &i : this->mirrors_)
-//    {
-//        if (!intersects && !(*mirror == i))
-//            intersects = Geometry::intersects(segment, i.to_line_segment(), &p);
-//    }
+    for (auto &i : this->mirrors_)
+    {
+        if (!intersects)
+            intersects = Geometry::intersects(segment, i.to_line_segment(), &p);
+    }
 
     for (auto &i : this->lenses_)
     {
@@ -348,7 +347,7 @@ void Level::notify(Observable* obs, std::string msg, const std::vector<std::stri
         double x = std::stod(args.at(0));
         double y = std::stod(args.at(1));
         segment.translate(x, y);
-        if (check_collisions(segment, mirror))
+        if (check_collisions(segment))
             mirror->set_movable(false);
     }
     else if (msg.compare("ASK_ROTATE") == 0)
@@ -357,7 +356,7 @@ void Level::notify(Observable* obs, std::string msg, const std::vector<std::stri
         Mirror m(*mirror);
         m.set_angle(std::stod(args.at(0)));
         LineSegment segment = m.to_line_segment();
-        if (check_collisions(segment, mirror))
+        if (check_collisions(segment))
             mirror->set_movable(false);
     }
 

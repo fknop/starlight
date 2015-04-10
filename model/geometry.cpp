@@ -3,6 +3,7 @@
 #include "constants.h"
 #include "geometry.h"
 #include "umath.h"
+#include "linesegment.h"
 
 
 double Geometry::rad_to_deg(double rad)
@@ -151,10 +152,19 @@ bool Geometry::intersects(const Line& line, const LineSegment& ls, Point **inter
 
 bool Geometry::intersects(const LineSegment& ls1, const LineSegment& ls2, Point **p)
 {
-    Point start = ls1.start();
-    Point end = ls1.end();
-    double rad = Geometry::slope_to_rad(start, end);
-    return (intersects(Line(start, rad), ls2, p));
+    if (ls1 == ls2)
+        return false;
+
+    Point start1 = ls1.start();
+    Point end1 = ls1.end();
+    Point start2 = ls2.start();
+    Point end2 = ls2.end();
+    double rad1 = Geometry::slope_to_rad(start1, end1);
+    double rad2 = Geometry::slope_to_rad(start2, end2);
+    return (intersects(Line(start1, rad1), ls2, p) &&
+            ls1.contains(**p));
+
+
 
 }
 
