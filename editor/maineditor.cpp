@@ -131,6 +131,6 @@ void MainEditor::notify(Observable * sdo, std::string msg="UPDATE_RAYS", const s
     }
     else if (msg == "SELECTED")
     {
-
+        properties->set_element_prop(selected());
     }
 }
