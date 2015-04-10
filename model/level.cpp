@@ -22,7 +22,7 @@ void Level::compute_rays()
 
     if (source_.on())
     {
-        Line ray(this->source_.position(), this->source_.angle());
+        Line ray(this->source_.pos(), this->source_.angle());
         State state = compute_ray(ray, this->source_.wavelength());
 
         switch (state)
@@ -187,7 +187,7 @@ void Level::dest_intersections(const Line &line,
                                std::vector<Intersection>& intersections,
                                std::vector<Point>& points)
 {
-    if (this->dest_.to_rectangle().intersects(line, points) > 0)
+    if (Geometry::intersects(this->dest_.to_rectangle(), line, points) > 0)
     {
         for (auto &i : points)
             intersections.push_back(Intersection(new Point(i), &this->dest_));
@@ -200,7 +200,7 @@ void Level::walls_intersections(const Line &line,
 {
     for (auto &i : this->walls_)
     {
-        if (line.intersects(i.to_line_segment(), p))
+        if (Geometry::intersects(line, i.to_line_segment(), p))
             intersections.push_back(Intersection(new Point(**p), &i));
 
         delete *p;
@@ -214,7 +214,7 @@ void Level::lenses_intersections(const Line &line,
     for (auto &i : this->lenses_)
     {
         points.clear();
-        if (i.to_ellipse().intersects(line, points))
+        if (Geometry::intersects(i.to_ellipse(), line, points))
         {
             for (auto &j : points)
                 intersections.push_back(Intersection(new Point(j), &i));
@@ -228,7 +228,7 @@ void Level::mirrors_intersections(const Line &line,
 {
     for (auto &i : this->mirrors_)
     {
-        if (line.intersects( i.to_line_segment(), p))
+        if (Geometry::intersects(line, i.to_line_segment(), p))
             intersections.push_back(Intersection(new Point(**p), &i));
 
         delete *p;
@@ -242,7 +242,7 @@ void Level::nukes_intersections(const Line& line,
     for (auto &i : this->nukes_)
     {
         points.clear();
-        if (i.to_ellipse().intersects(line, points))
+        if (Geometry::intersects(i.to_ellipse(), line, points))
         {
             for (auto &j : points)
                 intersections.push_back(Intersection(new Point(j), &i));
@@ -257,7 +257,7 @@ void Level::crystals_intersections(const Line &line,
     for (auto &i : this->crystals_)
     {
         points.clear();
-        if (i.to_ellipse().intersects(line, points))
+        if (Geometry::intersects(i.to_ellipse(), line, points))
         {
             for (auto &j : points)
                 intersections.push_back(Intersection(new Point(j), &i));
@@ -290,8 +290,85 @@ void Level::sort_intersections(const Line &line,
     });
 }
 
-void Level::notify(Observable* obs, std::string msg)
+bool Level::check_collisions(const LineSegment& segment)
 {
-    compute_rays();
+
+    std::vector<Point> points;
+    Point *p;
+    bool intersects = false;
+
+    for (auto &i : this->walls_)
+    {
+        if (!intersects)
+            intersects = Geometry::intersects(segment, i.to_line_segment(), &p);
+    }
+
+    std::cout << intersects << std::endl;
+
+    for (auto &i : this->mirrors_)
+    {
+        if (!intersects)
+            intersects = Geometry::intersects(segment, i.to_line_segment(), &p);
+    }
+
+    for (auto &i : this->lenses_)
+    {
+        if (!intersects)
+            intersects = (Geometry::intersects(i.to_ellipse(), segment, points) > 0);
+    }
+
+    for (auto &i : this->nukes_)
+    {
+        if (!intersects)
+            intersects = (Geometry::intersects(i.to_ellipse(), segment, points) > 0);
+    }
+
+    for (auto &i : this->crystals_)
+    {
+        if (!intersects)
+            intersects = (Geometry::intersects(i.to_ellipse(), segment, points) > 0);
+    }
+
+    if (!intersects)
+        intersects = (Geometry::intersects(this->dest_.to_rectangle(), segment, points) > 0);
+
+    if (!intersects)
+        intersects = (Geometry::intersects(this->source_.to_rectangle(), segment, points) > 0);
+
+    return intersects;
+}
+
+void Level::notify(Observable* obs, std::string msg, const std::vector<std::string> &args)
+{
+    if (msg.compare("ASK_TRANSLATE") == 0)
+    {
+        Mirror *mirror = dynamic_cast<Mirror*> (obs);
+        LineSegment segment = mirror->to_line_segment();
+        double x = std::stod(args.at(0));
+        double y = std::stod(args.at(1));
+        segment.translate(x, y);
+        if (check_collisions(segment))
+            mirror->set_movable(false);
+    }
+    else if (msg.compare("ASK_ROTATE") == 0)
+    {
+        Mirror *mirror = dynamic_cast<Mirror*> (obs);
+        Mirror m(*mirror);
+        m.set_angle(std::stod(args.at(0)));
+        LineSegment segment = m.to_line_segment();
+        if (check_collisions(segment))
+            mirror->set_movable(false);
+    }
+
+
+    if (msg.compare("TRANSLATE_MIRROR") == 0 ||
+            msg.compare("ROTATE_MIRROR") == 0 ||
+            msg.compare("SOURCE_ON") == 0)
+           compute_rays();
+
+
+
+
+
 }
 

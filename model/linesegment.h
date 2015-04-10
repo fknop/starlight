@@ -47,6 +47,10 @@ public:
      * @return vrai si le point est sur le segment, faux sinon.
      */
     bool contains(const Point& point) const;
+
+    void translate(double x, double y);
+
+    bool operator==(const LineSegment& ls) const;
 };
 
 /* Fonctions inline */

@@ -249,7 +249,9 @@ class Level : public ObserverInterface, public Observable
      */
     inline void add_ray(const Ray& r);
 
-    void notify(Observable* o, std::string msg);
+    void notify(Observable* o,
+                std::string msg,
+                const std::vector<std::string>& args = std::vector<std::string>());
 
 private:
 
@@ -306,6 +308,8 @@ private:
 
     void sort_intersections(const Line& line,
                             std::vector<Intersection> &intersections);
+
+    bool check_collisions(const LineSegment &segment);
 };
 
 /* Fonctions inlines */

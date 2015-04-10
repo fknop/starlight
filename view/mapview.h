@@ -39,7 +39,9 @@ public:
 
 
     void keyPressEvent(QKeyEvent * event);
-    void notify(Observable *sdo, std::string msg);
+    void notify(Observable *sdo,
+                std::string msg,
+                const std::vector<std::string>& args = std::vector<std::string>());
 
 private:
     std::vector<RayView*> ray_views_;

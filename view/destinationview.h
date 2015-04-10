@@ -21,7 +21,9 @@ public:
      * @param height hauteur de la destination.
      */
     DestinationView(const Dest&);
-    void notify(Observable *sdo, std::string msg);
+    void notify(Observable *sdo,
+                std::string msg,
+                const std::vector<std::string>& args = std::vector<std::string>());
 
 private:
     Dest* dest_;

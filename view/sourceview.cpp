@@ -11,8 +11,8 @@ SourceView::SourceView(const Source& source)
 //            this->source_->position().y(),
 //            this->source_->edge(),
 //            this->source_->edge());
-    setPos(this->source_->position().x(),
-           this->source_->position().y());
+    setPos(this->source_->pos().x(),
+           this->source_->pos().y());
     QPixmap p(":/images/lightbulboff.png");
     setPixmap(p.scaled(this->source_->edge(), this->source_->edge(), Qt::KeepAspectRatio));
 

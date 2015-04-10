@@ -270,12 +270,9 @@ void MapView::keyPressEvent(QKeyEvent *event)
     }
 }
 
-void MapView::notify(Observable *sdo, std::string msg)
+void MapView::notify(Observable *sdo, std::string msg, const std::vector<std::string> &args)
 {
     draw_rays();
-
-    std::cout << "mapview msg " << msg << std::endl;
-
 
     if (msg.compare("GAME_LOST") == 0)
     {

@@ -52,25 +52,6 @@ public:
      */
     inline double y_rad() const;
 
-    /**
-     * Vérifie si un segment de droite possède une ou des
-     * intersections avec l'ellipse.
-     * @param l le segment de droite.
-     * @param points un vecteur de points d'intersections.
-     * @return le nombre d'intersections entre l'ellipse et la droite.
-     */
-    int intersects(const LineSegment& ls, std::vector<Point>& points);
-
-    /**
-     * Vérifie si une droite possède une ou des intersections
-     * avec l'ellipse.
-     * @param l la droite.
-     * @param points un vecteur de points d'intersections.
-     * @return le nombre d'intersections entre l'ellipse et la droite.
-     */
-    int intersects(const Line& l, std::vector<Point> &points);
-
-
 };
 
 /* Fonctions inline */

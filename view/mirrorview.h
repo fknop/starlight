@@ -30,7 +30,9 @@ public:
     MirrorView(const Mirror& mirror);
 
     void rotate(qreal angle);
-    void notify(Observable * obs, std::string msg);
+    void notify(Observable * obs,
+                std::string msg,
+                const std::vector<std::string>& args = std::vector<std::string>());
 
     void translate(int x = 0, int y = 0);
 

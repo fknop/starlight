@@ -19,7 +19,7 @@ NukeView::NukeView(const Nuke& nuke)
     //QSound::play("sounds/croack.wav");
 }
 
-void NukeView::notify(Observable* sdo, std::string msg)
+void NukeView::notify(Observable* sdo, std::string msg, const std::vector<std::string> &args)
 {
     if (msg == "LIGHTED_UP")
     {

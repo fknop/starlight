@@ -2,6 +2,7 @@
 #define __OBSERVABLE__H__
 
 #include <set>
+#include <vector>
 #include <string>
 
 class ObserverInterface;
@@ -29,7 +30,8 @@ protected:
      * Notifie tous les observateurs enregistrés d'un changement
      * d'état.
      */
-    virtual void notify_all(std::string msg);
+    virtual void notify_all(std::string msg,
+                            const std::vector<std::string>& args = std::vector<std::string>());
 
 public:
     /**

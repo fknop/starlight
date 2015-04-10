@@ -28,7 +28,7 @@ void MirrorView::rotate(qreal angle)
     mirror_->rotate(Geometry::deg_to_rad(angle));
 }
 
-void MirrorView::notify(Observable* obs, std::string msg)
+void MirrorView::notify(Observable* obs, std::string msg, const std::vector<std::string> &args)
 {
     LineSegment seg = mirror_->to_line_segment();
     setLine(seg.start().x(), seg.start().y(),

@@ -17,3 +17,9 @@ std::ostream& operator<<(std::ostream& out, const Source& s)
 
     return out;
 }
+
+
+Rectangle Source::to_rectangle()
+{
+    return Rectangle(this->pos_, this->edge_, this->edge_);
+}

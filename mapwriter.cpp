@@ -22,16 +22,16 @@ void MapWriter::write(const Level* level, std::string filename)
                  << std::endl;
 
     level_writer << "S "
-                 << level->source().position().x() << " "
-                 << level->source().position().y() << " "
+                 << level->source().pos().x() << " "
+                 << level->source().pos().y() << " "
                  << level->source().edge()         << " "
                  << level->source().angle()        << " "
                  << level->source().wavelength()
                  << std::endl;
 
     level_writer << "D "
-                 << level->dest().position().x() << " "
-                 << level->dest().position().y() << " "
+                 << level->dest().pos().x() << " "
+                 << level->dest().pos().y() << " "
                  << level->dest().edge()
                  << std::endl;
 

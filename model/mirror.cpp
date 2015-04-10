@@ -1,5 +1,7 @@
 #include <cmath>
 #include <iostream>
+#include <sstream>
+#include <vector>
 
 #include "mirror.h"
 
@@ -12,7 +14,7 @@ Mirror::Mirror(const Point & p, double x, double len, double a, Point pm,
     : Element(Element::Type::MIRROR),
       pivot_ {p}, length_(len), xpad_(x), x_min_ {pm.x()}, x_max_ {pM.x()},
       y_min_ {pm.y()}, y_max_ {pM.y()}, alpha_ {a}, alpha_min_ {am},
-      alpha_max_ {aM}
+      alpha_max_ {aM}, movable_{true}
 {
     if (length_ <= 0 || xpad_ < 0)
         throw std::string("La longueur et le décalage doivent etre positifs.");
@@ -42,18 +44,46 @@ bool Mirror::check_pivot_range(const Point & p) const
 
 void Mirror::rotate(double angle)
 {
-    set_angle(this->alpha_ + angle);
-    notify_all(std::string("ROTATE_MIRROR"));
+    this->movable_ = true;
+    if (observers_.size() > 0 && this->check_angle_range(this->alpha_ + angle))
+    {
+        std::ostringstream oss;
+        oss << angle;
+        std::vector<std::string> vec {oss.str()};
+        notify_all("ASK_ROTATE", vec);
+    }
+
+
+    if (this->movable_)
+    {
+        set_angle(this->alpha_ + angle);
+        notify_all(std::string("ROTATE_MIRROR"));
+    }
 }
 
 void Mirror::translate(double x, double y)
 {
+    this->movable_ = true;
     double newX = this->pivot_.x() + x;
     double newY = this->pivot_.y() + y;
-    // Check la nouvelle position du pivot
-    // et la modifie si OK.
-    set_pivot(Point(newX, newY));
-    notify_all(std::string("TRANSLATE_MIRROR"));
+
+
+    if (observers_.size() > 0 && check_pivot_range(Point(newX, newY)))
+    {
+        std::ostringstream ossx;
+        std::ostringstream ossy;
+        ossx << x;
+        ossy << y;
+        std::vector<std::string> vec {ossx.str() ,ossy.str()};
+
+        notify_all("ASK_TRANSLATE", vec);
+    }
+
+    if (this->movable_)
+    {
+        set_pivot(Point(newX, newY));
+        notify_all(std::string("TRANSLATE_MIRROR"));
+    }
 
 
 }
@@ -77,5 +107,21 @@ std::ostream & operator<<(std::ostream & out, const Mirror & m)
            "Pivot range : [(" << m.x_min_ << "," << m.y_min_ << "),(" << m.x_max_ <<
            "," << m.y_max_ << ")]";
     return out;
+}
+
+bool Mirror::operator ==(const Mirror& m) const
+{
+    return
+     pivot_     == m.pivot_ &&
+     length_    == m.length_ &&
+     xpad_      == m.xpad_  &&
+     x_min_     == m.x_min_ &&
+     x_max_     == m.x_max_ &&
+     y_min_     == m.y_min_ &&
+     y_max_     == m.y_max_ &&
+     alpha_     == m.alpha_ &&
+     alpha_min_ == m.alpha_min_ &&
+     alpha_max_ == m.alpha_max_;
+
 }
 

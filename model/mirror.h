@@ -33,6 +33,7 @@ class Mirror : public Element, public Observable
     double alpha_;
     double alpha_min_ {.0};
     double alpha_max_ {.0};
+    bool movable_;
 
   public:
     /**
@@ -170,6 +171,9 @@ class Mirror : public Element, public Observable
      */
     inline bool set_angle(double angle);
 
+    inline void set_movable(bool value);
+    inline bool movable() const;
+
     /**
      * Retoune vrai si le miroir peut être pivoté sur
      * l'angle donné, retourne faux sinon.
@@ -216,6 +220,8 @@ class Mirror : public Element, public Observable
      */
     friend std::ostream & operator<<(std::ostream& out,
                                      const Mirror& m);
+
+    bool operator==(const Mirror& m) const;
 
 };
 
@@ -277,6 +283,16 @@ bool Mirror::set_angle(double a)
         this->alpha_ = a;
     return r;
 
+}
+
+void Mirror::set_movable(bool value)
+{
+    this->movable_ = value;
+}
+
+bool Mirror::movable() const
+{
+    return this->movable_;
 }
 
 #endif // MIRROR_H
