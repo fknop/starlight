@@ -17,7 +17,6 @@ SourceView::SourceView(const Source& source)
     setPixmap(p.scaled(this->source_->edge(), this->source_->edge(), Qt::KeepAspectRatio));
 
     sound_ = new QMediaPlayer();
-
 }
 
 void SourceView::mousePressEvent(QGraphicsSceneMouseEvent *event)

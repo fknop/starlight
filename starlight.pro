@@ -54,7 +54,9 @@ HEADERS += \
     editor/properties.h \
     editor/mirrorprop.h \
     mapwriter.h \
-    editor/elements.h
+    editor/elements.h \
+    editor/propertiesinterface.h \
+    view/elementview.h
 
 SOURCES += \
     mapreader.cpp \
@@ -98,7 +100,9 @@ SOURCES += \
     editor/mirrorprop.cpp \
     mapwriter.cpp \
     editor/elements.cpp \
-    Tests/gametest.cpp
+    Tests/gametest.cpp \
+    editor/propertiesinterface.cpp \
+    view/elementview.cpp
 
 RESOURCES += \
     ressources.qrc

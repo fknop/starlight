@@ -4,6 +4,7 @@
 #include <QGraphicsView>
 #include <QMediaPlayer>
 #include <string>
+#include <QMouseEvent>
 
 #include "model/level.h"
 #include "view/rayview.h"
@@ -14,6 +15,8 @@
 #include "view/nukeview.h"
 #include "view/sourceview.h"
 #include "view/destinationview.h"
+
+#include "view/elementview.h"
 
 class MapView : public QGraphicsView, public ObserverInterface
 {
@@ -30,6 +33,9 @@ public:
     void draw_source();
     void draw_dest();
     void repaint();
+
+    void mousePressEvent(QMouseEvent * event);
+    ElementView *selected();
 
 
     void keyPressEvent(QKeyEvent * event);

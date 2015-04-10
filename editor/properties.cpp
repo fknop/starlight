@@ -14,8 +14,8 @@ Properties::Properties(QWidget *parent) : QWidget(parent)
 
 void Properties::add_connections()
 {
-    connect(apply_pb, SIGNAL(clicked()), this, SLOT(create_level()));
-    connect(reset_pb, SIGNAL(clicked()), this, SLOT(reset_level()));
+//    connect(apply_pb, SIGNAL(clicked()), this, SLOT(apply_changes()));
+//    connect(reset_pb, SIGNAL(clicked()), this, SLOT(reset_changes()));
 }
 
 void Properties::setupUi()

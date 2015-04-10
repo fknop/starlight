@@ -34,6 +34,18 @@ MapView::MapView(Level* level) : level_{level}
     repaint();
 }
 
+QGraphicsItem * MapView::selected()
+{
+    if (scene_->selectedItems().size() > 0)
+    {
+        QGraphicsItem *item = scene_->selectedItems().at(0);
+        //std::cout << "mvbrbr " << mv->boundingRect().bottomRight().x() << std::endl;
+        return item;
+    }
+
+    return nullptr;
+}
+
 void MapView::repaint()
 {
     draw_source();
@@ -202,6 +214,10 @@ void MapView::draw_crystal(const Crystal& crystal)
     scene_->addItem(cv);
 }
 
+void MapView::mousePressEvent(QMouseEvent * event)
+{
+    selected();
+}
 
 void MapView::keyPressEvent(QKeyEvent *event)
 {
