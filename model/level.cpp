@@ -1,7 +1,7 @@
 #include <string>
 #include <vector>
 #include <algorithm>
-
+#include <sstream>
 #include "geometry.h"
 #include "level.h"
 #include "constants.h"
@@ -338,7 +338,7 @@ bool Level::check_collisions(const LineSegment& segment)
     return intersects;
 }
 
-void Level::notify(Observable* obs, std::string msg, const std::vector<std::string> &args)
+void Level::notify(Observable* obs, std::string msg, const std::vector<std::string>& args)
 {
     if (msg.compare("ASK_TRANSLATE") == 0)
     {
@@ -346,6 +346,7 @@ void Level::notify(Observable* obs, std::string msg, const std::vector<std::stri
         LineSegment segment = mirror->to_line_segment();
         double x = std::stod(args.at(0));
         double y = std::stod(args.at(1));
+
         segment.translate(x, y);
         if (check_collisions(segment))
             mirror->set_movable(false);
@@ -354,10 +355,17 @@ void Level::notify(Observable* obs, std::string msg, const std::vector<std::stri
     {
         Mirror *mirror = dynamic_cast<Mirror*> (obs);
         Mirror m(*mirror);
-        m.set_angle(std::stod(args.at(0)));
-        LineSegment segment = m.to_line_segment();
-        if (check_collisions(segment))
-            mirror->set_movable(false);
+        std::stringstream ss(args.at(0));
+        double angle;
+        ss >> angle;
+        std::cout << angle;
+
+
+
+            LineSegment segment = m.to_line_segment();
+            if (check_collisions(segment))
+                mirror->set_movable(false);
+
     }
 
 

@@ -44,8 +44,9 @@ bool Mirror::check_pivot_range(const Point & p) const
 
 void Mirror::rotate(double angle)
 {
+
     this->movable_ = true;
-    if (observers_.size() > 0 && this->check_angle_range(this->alpha_ + angle))
+    if (observers_.size() > 0)
     {
         std::ostringstream oss;
         oss << angle;
@@ -68,7 +69,7 @@ void Mirror::translate(double x, double y)
     double newY = this->pivot_.y() + y;
 
 
-    if (observers_.size() > 0 && check_pivot_range(Point(newX, newY)))
+    if (observers_.size() > 0)
     {
         std::ostringstream ossx;
         std::ostringstream ossy;
