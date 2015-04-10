@@ -42,8 +42,9 @@ public:
 
     Level * level_;
 
-    void notify(Observable *sdo, std::string msg);
-
+    void notify(Observable* o,
+                std::string msg,
+                const std::vector<std::string>& args = std::vector<std::string>());
 private:
 
 

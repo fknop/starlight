@@ -101,7 +101,7 @@ void MainEditor::setupUi()
     setCentralWidget(centralWidget);
 }
 
-void MainEditor::notify(Observable * sdo, std::string msg="UPDATE_RAYS")
+void MainEditor::notify(Observable * sdo, std::string msg="UPDATE_RAYS", const std::vector<std::string> &args)
 {
     if (msg == "LEVEL_CREATED")
     {

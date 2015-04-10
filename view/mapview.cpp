@@ -34,13 +34,13 @@ MapView::MapView(Level* level) : level_{level}
     repaint();
 }
 
-QGraphicsItem * MapView::selected()
+ElementView * MapView::selected()
 {
     if (scene_->selectedItems().size() > 0)
     {
-        QGraphicsItem *item = scene_->selectedItems().at(0);
-        //std::cout << "mvbrbr " << mv->boundingRect().bottomRight().x() << std::endl;
-        return item;
+        ElementView *ev = scene_->selectedItems().at(0);
+        //std::cout << "mvbrbr " << ev->type_view() << std::endl;// boundingRect().bottomRight().x() << std::endl;
+        return ev;
     }
 
     return nullptr;
