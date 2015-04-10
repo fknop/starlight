@@ -356,13 +356,16 @@ void Level::notify(Observable* obs, std::string msg, const std::vector<std::stri
             if (check_collisions(segment))
                 mirror->set_movable(false);
         }
-        else
+        else if (ask_rotate)
         {
             // TO FIX
             std::stringstream ss(args.at(0));
             double angle = (ss >> angle, angle);
+            std::cout << segment.start() << std::endl;
+            segment.rotate(mirror->pivot(), angle);
+            std::cout << segment.end() << std::endl;
             if (check_collisions(segment))
-                        mirror->set_movable(false);
+                mirror->set_movable(false);
             // TO FIX
         }
     }

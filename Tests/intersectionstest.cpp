@@ -20,7 +20,7 @@ TEST_CASE("Intersections droites, segments")
     SECTION("Intersection droite / droite verticale")
     {
         Point * p = nullptr;
-        bool b = l.intersects(vl, &p);
+        bool b = Geometry::intersects(l, vl, &p);
 
         REQUIRE(b == true);
         REQUIRE(*p == Point(4,4));
@@ -31,7 +31,7 @@ TEST_CASE("Intersections droites, segments")
     {
         Point * p = nullptr;
         Line vl2(Point(0,0), Point(0,10));
-        bool b = vl.intersects(vl2, &p);
+        bool b = Geometry::intersects(vl, vl2, &p);
         REQUIRE(b == false);
         REQUIRE(p == nullptr);
         delete p;
@@ -41,7 +41,7 @@ TEST_CASE("Intersections droites, segments")
     {
        Point* p = nullptr;
        Line l2(Point(5,0), M_PI_4);
-       bool b = l.intersects(l2, &p);
+       bool b = Geometry::intersects(l, l2, &p);
        REQUIRE(b == true);
        REQUIRE(*p == Point(2.5, 2.5));
        delete p;
@@ -56,7 +56,7 @@ TEST_CASE("Intersections ellipses, droites, segments")
     SECTION("Intersection ellipse, droite")
     {
         Line l(Point(20, 0), M_PI_2);
-        int nb = ellipse.intersects(l, points);
+        int nb = Geometry::intersects(ellipse, l, points);
         REQUIRE(nb == 2);
         REQUIRE(points.at(0) == Point(20, 30));
         REQUIRE(points.at(1) == Point(20, 10));
@@ -65,7 +65,7 @@ TEST_CASE("Intersections ellipses, droites, segments")
     SECTION("Intersection ellipse, droite n°2")
     {
         Line l(Point(0,0), -M_PI_4);
-        int nb = ellipse.intersects(l, points);
+        int nb = Geometry::intersects(ellipse, l, points);
         REQUIRE (nb == 2);
         /*
          * Round pour éviter de préciser une valeur exacte avec
@@ -83,7 +83,7 @@ TEST_CASE("Intersections ellipses, droites, segments")
     SECTION("Intersection ellipse, segment")
     {
         LineSegment l(Point(0,0), Point(20,20));
-        int nb = ellipse.intersects(l, points);
+        int nb = Geometry::intersects(ellipse, l, points);
         REQUIRE(nb == 1);
         REQUIRE(std::round(points.at(0).x()) == 11.0);
         REQUIRE(std::round(points.at(0).y()) == 11.0);
@@ -100,7 +100,7 @@ TEST_CASE("Intersections rectangle, droite, segment")
     SECTION("Intersection rectangle, droite")
     {
         Line l(Point(0,0), -M_PI_4);
-        int nb = rec.intersects(l, points);
+        int nb = Geometry::intersects(rec, l, points);
         REQUIRE(nb == 2);
         REQUIRE(points.at(0) == Point(10,10));
         REQUIRE(points.at(1) == Point(14,14));
@@ -110,7 +110,7 @@ TEST_CASE("Intersections rectangle, droite, segment")
     {
         Rectangle r(Point(4,0), 4, 4);
         Line l(Point(0,0), -M_PI_4);
-        r.intersects(l, points);
+        Geometry::intersects(r, l, points);
         REQUIRE(points.at(0) == Point(4,4));
     }
 
@@ -119,7 +119,7 @@ TEST_CASE("Intersections rectangle, droite, segment")
     {
 
         Line l(Point(20,0), -M_PI_4);
-        int nb = rectangle.intersects(l, points);
+        int nb = Geometry::intersects(rectangle, l, points);
         REQUIRE (nb == 2);
         REQUIRE(points.at(0) == Point(20, 0));
         REQUIRE(points.at(1) == Point(25, 5));
@@ -128,7 +128,7 @@ TEST_CASE("Intersections rectangle, droite, segment")
     SECTION("Intersection rectangle, droite verticale")
     {
         Line l(Point(20, 0), M_PI_2);
-        int nb = rectangle.intersects(l, points);
+        int nb = Geometry::intersects(rectangle, l, points);
         REQUIRE(nb == 2);
         REQUIRE(points.at(0) == Point(20, 0));
         REQUIRE(points.at(1) == Point(20, 5));
@@ -138,7 +138,7 @@ TEST_CASE("Intersections rectangle, droite, segment")
     SECTION("Intersection rectangle, segment")
     {
         LineSegment ls(Point(0,0), Point(13,13));
-        int nb = rec.intersects(ls, points);
+        int nb = Geometry::intersects(rec, ls, points);
         REQUIRE(nb == 1);
         REQUIRE(points.at(0) == Point(10,10));
     }

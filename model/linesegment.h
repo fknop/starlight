@@ -49,6 +49,7 @@ public:
     bool contains(const Point& point) const;
 
     void translate(double x, double y);
+    void rotate(const Point& pivot, double angle);
 
     bool operator==(const LineSegment& ls) const;
 };
