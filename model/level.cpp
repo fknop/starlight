@@ -306,7 +306,7 @@ bool Level::mirror_intersects_elements(Mirror *mirror)
     return intersects;
 }
 
-void Level::notify(Observable* obs, std::string msg)
+void Level::notify(Observable* obs, std::string msg, const std::vector<std::string> &args)
 {
     if (msg.compare("TRANSLATE_MIRROR") == 0 ||
             msg.compare("ROTATE_MIRROR") == 0)

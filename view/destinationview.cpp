@@ -11,7 +11,7 @@ DestinationView::DestinationView(const Dest& dest)
             this->dest_->edge());
 }
 
-void DestinationView::notify(Observable *sdo, std::string msg)
+void DestinationView::notify(Observable *sdo, std::string msg, const std::vector<std::string> &args)
 {
     if (msg == "LIGHTED_UP")
     {
