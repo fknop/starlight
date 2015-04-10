@@ -79,6 +79,7 @@ class Mirror : public Element, public Observable
     Mirror(const Point& p, double x, double len, double a, Point min,
            Point max, double amin, double amax);
 
+
     /**
      * Retourne la position (et le pivot) du miroir.
      * @return la position (et le pivot) du miroir.

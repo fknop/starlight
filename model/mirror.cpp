@@ -27,6 +27,7 @@ Mirror::Mirror(const Point & p, double x, double len, double a, Point pm,
                           "Elle n'est pas comprise entre les bornes.");
 }
 
+
 bool Mirror::check_angle_range(double a) const
 {
     return (this->alpha_min_ == 0 && this->alpha_max_ == 0) ||
