@@ -31,6 +31,8 @@ public:
      */
     MirrorView(const Mirror& mirror);
 
+    Mirror* mirror();
+
     void rotate(qreal angle);
     void notify(Observable * obs,
                 std::string msg,

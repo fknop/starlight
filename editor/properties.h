@@ -12,6 +12,8 @@
 
 #include "view/elementview.h"
 
+#include "view/mirrorview.h"
+
 class Properties : public QWidget, public Observable
 {
     Q_OBJECT

@@ -34,3 +34,9 @@ void MirrorView::notify(Observable* obs, std::string msg, const std::vector<std:
     setLine(seg.start().x(), seg.start().y(),
             seg.end().x(), seg.end().y());
 }
+
+
+Mirror * MirrorView::mirror()
+{
+    return mirror_;
+}

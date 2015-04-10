@@ -70,7 +70,8 @@ void Properties::set_element_prop(ElementView * ev)
         case ElementView::TypeView::MIRRORVIEW:
         {
             std::cout << "IT'S A MIRROR" << std::endl;
-            MirrorProp * mp = new MirrorProp(groupBox);
+            MirrorView * mv = dynamic_cast<MirrorView *> (ev);
+            MirrorProp * mp = new MirrorProp(mv->mirror(), groupBox);
             QHBoxLayout * qhl = new QHBoxLayout;
             qhl->addWidget(mp);
 

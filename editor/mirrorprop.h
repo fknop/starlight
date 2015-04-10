@@ -13,7 +13,7 @@ class MirrorProp : public QWidget
 {
     Q_OBJECT
 public:
-    explicit MirrorProp(QWidget *parent = 0);
+    MirrorProp(Mirror * mirror, QWidget *parent = 0);
     void setupUi();
 
 private:
@@ -44,6 +44,7 @@ private:
     Mirror * mirror_;
 
     void apply();
+    void reset();
 
 
 signals:

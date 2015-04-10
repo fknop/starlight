@@ -1,9 +1,10 @@
 #include "mirrorprop.h"
 
-MirrorProp::MirrorProp(QWidget *parent) :
-    QWidget(parent)
+MirrorProp::MirrorProp(Mirror *mirror, QWidget *parent) :
+    QWidget(parent), mirror_{mirror}
 {
     setupUi();
+    reset();
 }
 
 void MirrorProp::setupUi()
@@ -121,6 +122,21 @@ void MirrorProp::setupUi()
     formLayout->setWidget(10, QFormLayout::FieldRole, alphamax_dsb);
 
     setLayout(formLayout);
+}
+
+void MirrorProp::reset()
+{
+    x_dsb->setValue(mirror_->pivot().x());
+    y_dsb->setValue(mirror_->pivot().y());
+    length_dsb->setValue(mirror_->length());
+    xpad_dsb->setValue(mirror_->x_pad());
+    alpha_dsb->setValue(mirror_->angle());
+    xmin_dsb->setValue(mirror_->x_min());
+    xmax_dsb->setValue(mirror_->x_max());
+    ymin_dsb->setValue(mirror_->y_min());
+    ymax_dsb->setValue(mirror_->y_max());
+    alphamin_dsb->setValue(mirror_->alpha_min());
+    alphamax_dsb->setValue(mirror_->alpha_max());
 }
 
 void MirrorProp::apply()
