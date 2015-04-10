@@ -2,7 +2,7 @@
 #include "model/geometry.h"
 #include "model/umath.h"
 
-MirrorView::MirrorView(const Mirror& mirror)
+MirrorView::MirrorView(const Mirror& mirror) : ElementView(ElementView::TypeView::MIRRORVIEW)
 {
     mirror_ = &(const_cast<Mirror&>(mirror));
     mirror_->add_observer(this);

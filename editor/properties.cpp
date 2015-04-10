@@ -14,8 +14,8 @@ Properties::Properties(QWidget *parent) : QWidget(parent)
 
 void Properties::add_connections()
 {
-//    connect(apply_pb, SIGNAL(clicked()), this, SLOT(apply_changes()));
-//    connect(reset_pb, SIGNAL(clicked()), this, SLOT(reset_changes()));
+    //    connect(apply_pb, SIGNAL(clicked()), this, SLOT(apply_changes()));
+    //    connect(reset_pb, SIGNAL(clicked()), this, SLOT(reset_changes()));
 }
 
 void Properties::setupUi()
@@ -34,10 +34,10 @@ void Properties::setupUi()
 
     gridLayout->addWidget(groupBox, 0, 0, 1, 3);
 
-//    buttonBox = new QDialogButtonBox();
-//    buttonBox->setStandardButtons(QDialogButtonBox::Cancel|QDialogButtonBox::Ok);
+    //    buttonBox = new QDialogButtonBox();
+    //    buttonBox->setStandardButtons(QDialogButtonBox::Cancel|QDialogButtonBox::Ok);
 
-//    gridLayout->addWidget(buttonBox, 1, 0, 1, 1);
+    //    gridLayout->addWidget(buttonBox, 1, 0, 1, 1);
 
     apply_pb = new QPushButton();
     apply_pb->setText("Apply");
@@ -61,8 +61,21 @@ void Properties::setupUi()
 
 void Properties::set_element_prop(ElementView * ev)
 {
-    if (ev->type_view() == ElementView::TypeView::MIRRORVIEW)
+    std::cout << "[Properties - set_element_prop]" << std::endl;
+
+    if (ev != nullptr)
     {
-        MirrorProp * mp = new MirrorProp(groupBox);
+        switch(ev->type_view())
+        {
+        case ElementView::TypeView::MIRRORVIEW:
+        {
+            MirrorProp * mp = new MirrorProp(groupBox);
+            break;
+        }
+        default:
+        {
+            std::cout << "CASE not found" << std::endl;
+        }
+        }
     }
 }

@@ -2,8 +2,9 @@
 #define ELEMENTVIEW_H
 
 #include <QGraphicsItem>
+#include <QFrame>
 
-class ElementView : public QGraphicsItem
+class ElementView : public QFrame
 {
 public:
     enum class TypeView

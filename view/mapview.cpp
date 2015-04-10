@@ -36,9 +36,11 @@ MapView::MapView(Level* level) : level_{level}
 
 ElementView * MapView::selected()
 {
+    std::cout << (scene_->selectedItems().size() > 0 ? ">0" : "<0") << std::endl;
     if (scene_->selectedItems().size() > 0)
     {
-        ElementView *ev = scene_->selectedItems().at(0);
+        std::cout << "[MapView - selected]" << std::endl;
+        ElementView *ev = dynamic_cast<ElementView *> (scene_->selectedItems().at(0));
         //std::cout << "mvbrbr " << ev->type_view() << std::endl;// boundingRect().bottomRight().x() << std::endl;
         return ev;
     }
@@ -217,6 +219,7 @@ void MapView::draw_crystal(const Crystal& crystal)
 void MapView::mousePressEvent(QMouseEvent * event)
 {
     selected();
+    notify_all("SELECTED");
 }
 
 void MapView::keyPressEvent(QKeyEvent *event)

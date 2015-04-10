@@ -47,6 +47,7 @@ void MainEditor::create_level()
     verticalLayout_2->removeWidget(mapview_);
     mapview_ = new MapView(level_);
     level_->add_observer(mapview_);
+    mapview_->add_observer(this);
     verticalLayout_2->addWidget(mapview_);
 }
 
@@ -103,6 +104,7 @@ void MainEditor::setupUi()
 
 void MainEditor::notify(Observable * sdo, std::string msg="UPDATE_RAYS", const std::vector<std::string> &args)
 {
+    std::cout << msg << std::endl;
     if (msg == "LEVEL_CREATED")
     {
         std::cout << "level added!" << std::endl;
@@ -123,9 +125,12 @@ void MainEditor::notify(Observable * sdo, std::string msg="UPDATE_RAYS", const s
     }
     else if (msg == "MIRROR_ADDED")
     {
-        std::cout << "mirror added!" << std::endl;
+        std::cout << "[MainEditor - notify] - mirror added!" << std::endl;
         add_mirror();
-        std::cout << "properties set leement" << std::endl;
-        properties->set_element_prop(selected());
+//        properties->set_element_prop(selected());
+    }
+    else if (msg == "SELECTED")
+    {
+
     }
 }

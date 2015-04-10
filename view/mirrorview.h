@@ -13,10 +13,12 @@
 #include "obs/observable.h"
 #include "obs/observerinterface.h"
 
+#include "elementview.h"
+
 /**
  * Modélisation visuelle d’un miroir.
  */
-class MirrorView : public QGraphicsLineItem, public ObserverInterface
+class MirrorView : public QGraphicsLineItem, public ObserverInterface, public ElementView
 {
 public:
     /**

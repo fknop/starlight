@@ -18,7 +18,7 @@
 
 #include "view/elementview.h"
 
-class MapView : public QGraphicsView, public ObserverInterface
+class MapView : public QGraphicsView, public ObserverInterface, public Observable
 {
 public:
     MapView(Level* level_);
