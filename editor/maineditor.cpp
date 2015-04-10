@@ -29,10 +29,10 @@ void MainEditor::add_mirror()
     mapview_->draw_mirrors();
 }
 
-//Element MainEditor::selected()
-//{
-//    return mapview_->selec
-//}
+ElementView * MainEditor::selected()
+{
+    return mapview_->selected();
+}
 
 void MainEditor::create_level()
 {
@@ -125,5 +125,7 @@ void MainEditor::notify(Observable * sdo, std::string msg="UPDATE_RAYS", const s
     {
         std::cout << "mirror added!" << std::endl;
         add_mirror();
+        std::cout << "properties set leement" << std::endl;
+        properties->set_element_prop(selected());
     }
 }

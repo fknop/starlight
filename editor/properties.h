@@ -10,6 +10,8 @@
 
 #include "obs/observable.h"
 
+#include "view/elementview.h"
+
 class Properties : public QWidget, public Observable
 {
     Q_OBJECT
@@ -17,7 +19,7 @@ class Properties : public QWidget, public Observable
 public:
     Properties(QWidget *parent = 0);
     void setupUi();
-    void set_element_prop();
+    void set_element_prop(ElementView *ev);
 
 
 

@@ -42,6 +42,8 @@ public:
 
     Level * level_;
 
+    ElementView * selected();
+
     void notify(Observable* o,
                 std::string msg,
                 const std::vector<std::string>& args = std::vector<std::string>());

@@ -6,7 +6,7 @@
 Properties::Properties(QWidget *parent) : QWidget(parent)
 {
     setupUi();
-    set_element_prop();
+    //set_element_prop();
 
     add_connections();
 
@@ -59,7 +59,10 @@ void Properties::setupUi()
     setLayout(gridLayout);
 }
 
-void Properties::set_element_prop()
+void Properties::set_element_prop(ElementView * ev)
 {
-    MirrorProp * mp = new MirrorProp(groupBox);
+    if (ev->type_view() == ElementView::TypeView::MIRRORVIEW)
+    {
+        MirrorProp * mp = new MirrorProp(groupBox);
+    }
 }
