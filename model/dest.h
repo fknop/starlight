@@ -42,7 +42,7 @@ class Dest : public Element, public Observable
      * modélisant la destination.
      * @return la position de la destination.
      */
-    inline const Point& position() const;
+    inline const Point& pos() const;
 
     /**
      * Retourne la longueur du côté du carré.
@@ -79,7 +79,7 @@ class Dest : public Element, public Observable
 
 /* Fonction inlines */
 
-const Point& Dest::position() const
+const Point& Dest::pos() const
 {
     return this->pos_;
 }

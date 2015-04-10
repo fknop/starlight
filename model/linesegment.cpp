@@ -15,3 +15,9 @@ bool LineSegment::contains(const Point& p) const
             (std::min(this->start_.y(), this->end_.y()) <= p.y()) &&
             (std::max(this->start_.y(), this->end_.y()) >= p.y()));
 }
+
+void LineSegment::translate(double x, double y)
+{
+    this->start_.set_position(this->start_.x() + x, this->start_.y() + y);
+    this->end_.set_position(this->end_.x() + x, this->end_.y() + y);
+}

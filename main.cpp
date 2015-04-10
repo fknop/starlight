@@ -7,6 +7,8 @@
 
 #include "mapreader.h"
 #include "mapwriter.h"
+#include <sstream>
+#include <vector>
 #ifndef RUNTEST
 int main(int argc, char **argv)
 {
@@ -14,8 +16,8 @@ int main(int argc, char **argv)
     MainMenu * game = new MainMenu();
     game->show();
     game->displayMainMenu();
-//    MainEditor * editor = new MainEditor();
-//    editor->show();
+////    MainEditor * editor = new MainEditor();
+////    editor->show();
     return app.exec();
 
 

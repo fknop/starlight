@@ -7,6 +7,7 @@
 #include "obs/observable.h"
 #include "obs/observerinterface.h"
 #include "point.h"
+#include "rectangle.h"
 
 
 /**
@@ -55,7 +56,7 @@ class Source : public Observable
      * @return la coordonnée du coin supérieur gauche du carré
      * modélisant la source.
      */
-    inline const Point& position() const;
+    inline const Point& pos() const;
 
     /**
      * Retourne l'angle du rayon émis.
@@ -91,6 +92,9 @@ class Source : public Observable
     inline void set_on(bool q);
 
 
+
+    Rectangle to_rectangle();
+
     /**
      * Surcharge l'opérateur de flux de sortie pour afficher
      * un récapitulatif des caractéristiques de la source
@@ -104,7 +108,7 @@ class Source : public Observable
 /* Fonctions inlines */
 
 
-const Point& Source::position() const
+const Point& Source::pos() const
 {
     return this->pos_;
 }
