@@ -300,13 +300,8 @@ bool Level::check_collisions(const LineSegment& segment)
     for (auto &i : this->walls_)
     {
         if (!intersects)
-        {
-            std::cout << "start wall : " << i.start() << std::endl;
             intersects = Geometry::intersects(segment, i.to_line_segment(), &p);
-        }
     }
-
-    //std::cout << intersects << std::endl;
 
     for (auto &i : this->mirrors_)
     {
@@ -361,8 +356,9 @@ void Level::notify(Observable* obs, std::string msg, const std::vector<std::stri
         std::stringstream ss(args.at(0));
         double angle;
         ss >> angle;
-        LineSegment segment = m.to_line_segment();
-        if (m.set_angle(m.angle() + angle) && check_collisions(segment))
+        //m.set_angle(m.angle() + angle); // MARCHE PAS WHY??
+        LineSegment segment = mirror->to_line_segment();
+        if (check_collisions(segment))
                     mirror->set_movable(false);
 
     }
