@@ -96,7 +96,8 @@ bool Geometry::intersects(const Line& l1, const Line& l2, Point **intersection)
 
     // Même droite ou parallèles
     if ((l1 == l2) ||
-            (std::fmod(l1.angle(), M_PI) == std::fmod(l2.angle(), M_PI)))
+            (umath::double_equals(std::fmod(l1.angle(), M_PI),
+                                  std::fmod(l2.angle(), M_PI))))
     {
         *intersection = nullptr;
         return false;
@@ -161,8 +162,15 @@ bool Geometry::intersects(const LineSegment& ls1, const LineSegment& ls2, Point 
     Point end2 = ls2.end();
     double rad1 = Geometry::slope_to_rad(start1, end1);
     double rad2 = Geometry::slope_to_rad(start2, end2);
-    return (intersects(Line(start1, rad1), ls2, p) &&
-            ls1.contains(**p));
+
+    if (std::abs(rad1 - rad2) < 0.001)
+        return false;
+
+    Line l1(start1, rad1);
+    Line l2(start2, rad2);
+
+    return (intersects(l1, l2, p) &&
+            ls1.contains(**p) && ls2.contains(**p));
 
 
 

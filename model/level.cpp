@@ -303,8 +303,6 @@ bool Level::check_collisions(const LineSegment& segment)
             intersects = Geometry::intersects(segment, i.to_line_segment(), &p);
     }
 
-    std::cout << intersects << std::endl;
-
     for (auto &i : this->mirrors_)
     {
         if (!intersects)
@@ -340,39 +338,40 @@ bool Level::check_collisions(const LineSegment& segment)
 
 void Level::notify(Observable* obs, std::string msg, const std::vector<std::string>& args)
 {
-    if (msg.compare("ASK_TRANSLATE") == 0)
+    bool ask_translate = msg.compare("ASK_TRANSLATE") == 0;
+    bool ask_rotate    = msg.compare("ASK_ROTATE") == 0;
+
+    if (ask_rotate || ask_translate)
     {
         Mirror *mirror = dynamic_cast<Mirror*> (obs);
         LineSegment segment = mirror->to_line_segment();
-        double x = std::stod(args.at(0));
-        double y = std::stod(args.at(1));
 
-        segment.translate(x, y);
-        if (check_collisions(segment))
-            mirror->set_movable(false);
-    }
-    else if (msg.compare("ASK_ROTATE") == 0)
-    {
-        Mirror *mirror = dynamic_cast<Mirror*> (obs);
-        Mirror m(*mirror);
-        std::stringstream ss(args.at(0));
-        double angle;
-        ss >> angle;
-        std::cout << angle;
-
-
-
-            LineSegment segment = m.to_line_segment();
+        if (ask_translate)
+        {
+            std::stringstream ssx(args.at(0));
+            std::stringstream ssy(args.at(1));
+            double x = (ssx >> x, x);
+            double y = (ssy >> y, y);
+            segment.translate(x, y);
             if (check_collisions(segment))
                 mirror->set_movable(false);
-
+        }
+        else
+        {
+            // TO FIX
+            std::stringstream ss(args.at(0));
+            double angle = (ss >> angle, angle);
+            if (check_collisions(segment))
+                        mirror->set_movable(false);
+            // TO FIX
+        }
     }
-
-
-    if (msg.compare("TRANSLATE_MIRROR") == 0 ||
+    else if (msg.compare("TRANSLATE_MIRROR") == 0 ||
             msg.compare("ROTATE_MIRROR") == 0 ||
             msg.compare("SOURCE_ON") == 0)
+    {
            compute_rays();
+    }
 
 
 
