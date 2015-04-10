@@ -309,7 +309,7 @@ private:
     void sort_intersections(const Line& line,
                             std::vector<Intersection> &intersections);
 
-    bool check_collisions(const LineSegment &segment);
+    bool check_collisions(const LineSegment &segment, Mirror *m);
 };
 
 /* Fonctions inlines */
