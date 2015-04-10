@@ -14,8 +14,8 @@ Properties::Properties(QWidget *parent) : QWidget(parent)
 
 void Properties::add_connections()
 {
-    //    connect(apply_pb, SIGNAL(clicked()), this, SLOT(apply_changes()));
-    //    connect(reset_pb, SIGNAL(clicked()), this, SLOT(reset_changes()));
+        connect(apply_pb, SIGNAL(clicked()), this, SLOT(apply_changes()));
+        connect(reset_pb, SIGNAL(clicked()), this, SLOT(reset_changes()));
 }
 
 void Properties::setupUi()
@@ -85,4 +85,14 @@ void Properties::set_element_prop(ElementView * ev)
         }
         }
     }
+}
+
+void Properties::apply_changes()
+{
+
+}
+
+void Properties::reset_changes()
+{
+
 }

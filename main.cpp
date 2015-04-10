@@ -13,11 +13,11 @@
 int main(int argc, char **argv)
 {
     QApplication app(argc, argv);
-    MainMenu * game = new MainMenu();
-    game->show();
-    game->displayMainMenu();
-//    MainEditor * editor = new MainEditor();
-//    editor->show();
+//    MainMenu * game = new MainMenu();
+//    game->show();
+//    game->displayMainMenu();
+    MainEditor * editor = new MainEditor();
+    editor->show();
     return app.exec();
 
 //    LineSegment l(Point(4,4), Point(8,8));
