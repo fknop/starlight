@@ -59,8 +59,6 @@ void MapView::repaint()
 
 MapView::~MapView()
 {
-    delete level_;
-    level_ = nullptr;
     delete scene_;
     scene_ = nullptr;
     delete sound_;
