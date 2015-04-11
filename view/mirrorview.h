@@ -30,6 +30,7 @@ public:
      * @param angle angle d’inclinaison du miroir.
      */
     MirrorView(const Mirror& mirror);
+    MirrorView(const Mirror &mirror, bool selectable);
 
     Mirror* mirror();
 
@@ -40,9 +41,23 @@ public:
 
     void translate(int x = 0, int y = 0);
 
+    inline bool selectable() const;
+    inline void set_selectable(bool value);
+
 private:
     Mirror* mirror_;
+    bool selectable_;
 };
 
+bool MirrorView::selectable() const
+{
+    return this->selectable_;
+}
+
+void MirrorView::set_selectable(bool value)
+{
+    this->selectable_ = value;
+    setFlag(QGraphicsItem::ItemIsSelectable, this->selectable_);
+}
 
 #endif // MirrorView_HPP

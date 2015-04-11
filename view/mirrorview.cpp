@@ -2,12 +2,16 @@
 #include "model/geometry.h"
 #include "model/umath.h"
 
-MirrorView::MirrorView(const Mirror& mirror) : ElementView(ElementView::TypeView::MIRRORVIEW)
+MirrorView::MirrorView(const Mirror& mirror) : MirrorView(mirror, true) {}
+
+MirrorView::MirrorView(const Mirror &mirror, bool selectable) :
+    ElementView(ElementView::TypeView::MIRRORVIEW),
+    selectable_{selectable}
 {
     mirror_ = &(const_cast<Mirror&>(mirror));
     mirror_->add_observer(this);
 
-    setFlags(flags() | QGraphicsItem::ItemIsSelectable);
+    setFlag(QGraphicsItem::ItemIsSelectable, this->selectable_);
 
     QPen myPen(Qt::red);
     myPen.setWidth(3);

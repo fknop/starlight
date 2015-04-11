@@ -69,7 +69,6 @@ void Mirror::translate(double x, double y)
     double newX = this->pivot_.x() + x;
     double newY = this->pivot_.y() + y;
 
-
     if (observers_.size() > 0)
     {
         std::ostringstream ossx;
