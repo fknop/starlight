@@ -292,7 +292,6 @@ void Level::sort_intersections(const Line &line,
 
 bool Level::check_collisions(const LineSegment& segment, Mirror * mirror)
 {
-
     std::vector<Point> points;
     Point *p;
     bool intersects = false;
@@ -303,17 +302,11 @@ bool Level::check_collisions(const LineSegment& segment, Mirror * mirror)
             intersects = Geometry::intersects(segment, i.to_line_segment(), &p);
     }
 
-    std::cout << "Wall : " << intersects << std::endl;
-
     for (auto &i : this->mirrors_)
     {
-
-
         if (!intersects && !(i == *mirror))
             intersects = Geometry::intersects(segment, i.to_line_segment(), &p);
     }
-
-    std::cout << "Mirror : " << intersects << std::endl;
 
     for (auto &i : this->lenses_)
     {
@@ -321,23 +314,17 @@ bool Level::check_collisions(const LineSegment& segment, Mirror * mirror)
             intersects = (Geometry::intersects(i.to_ellipse(), segment, points) > 0);
     }
 
-    std::cout << "Lens : " << intersects << std::endl;
-
     for (auto &i : this->nukes_)
     {
         if (!intersects)
             intersects = (Geometry::intersects(i.to_ellipse(), segment, points) > 0);
     }
 
-    std::cout << "Nuke : " << intersects << std::endl;
-
     for (auto &i : this->crystals_)
     {
         if (!intersects)
             intersects = (Geometry::intersects(i.to_ellipse(), segment, points) > 0);
     }
-
-    std::cout << "Crystal : " << intersects << std::endl;
 
     if (!intersects)
         intersects = (Geometry::intersects(this->dest_.to_rectangle(), segment, points) > 0);
@@ -376,9 +363,7 @@ void Level::notify(Observable* obs, std::string msg, const std::vector<std::stri
             // TO FIX
             std::stringstream ss(args.at(0));
             double angle = (ss >> angle, angle);
-            std::cout << segment.start() << std::endl;
             segment.rotate(mirror->pivot(), angle);
-            std::cout << segment.end() << std::endl;
             if (check_collisions(segment, mirror))
                 mirror->set_movable(false);
             // TO FIX

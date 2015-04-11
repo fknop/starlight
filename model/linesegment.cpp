@@ -31,10 +31,9 @@ void LineSegment::rotate(const Point& pivot, double angle)
     double alpha  = Geometry::slope_to_rad(start_, end_) + angle;
     this->translate(-pivotX, -pivotY);
     double new_start_x = 0 - (xpad * std::cos(alpha));
-    double new_start_y = 0 + (xpad * sin(alpha));
+    double new_start_y = 0 + (xpad * std::sin(alpha));
     double new_end_x = 0 + ((len - xpad) * std::cos(alpha));
     double new_end_y = 0 - ((len - xpad) * std::sin(alpha));
-
     start_.set_position(new_start_x, new_start_y);
     end_.set_position(new_end_x, new_end_y);
     this->translate(pivotX, pivotY);
