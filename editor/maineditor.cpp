@@ -50,6 +50,7 @@ void MainEditor::add_nuke()
 
 void MainEditor::add_wall()
 {
+    std::cout << "MAIN ADD WALL" << std::endl;
     Wall wall(Point(20, 20), Point(60, 60));
     level_->add_wall(wall);
     mapview_->draw_walls();
@@ -150,6 +151,10 @@ void MainEditor::notify(Observable * sdo, std::string msg="UPDATE_RAYS", const s
     else if (msg == "NUKE_ADDED")
     {
         add_nuke();
+    }
+    else if (msg == "WALL_ADDED")
+    {
+        add_wall();
     }
     else if (msg == "SELECTED")
     {
