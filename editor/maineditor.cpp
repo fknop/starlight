@@ -128,6 +128,17 @@ void MainEditor::notify(Observable * sdo, std::string msg="UPDATE_RAYS", const s
     }
     else if (msg == "ELEMENT_DELETED")
     {
+        switch (mapview_->selected()->type_view())
+        {
+        case ElementView::TypeView::MIRRORVIEW:
+        {
+            std::cout << level_->mirrors().size() << std::endl;
+            MirrorView * mv = dynamic_cast<MirrorView *> (selected());
+            level_->remove_mirror(*mv->mirror());
+            std::cout << level_->mirrors().size() << std::endl;
+        }
+        }
+
         std::cout << "ELEMENT_DELETED" << std::endl;
         mapview_->clear();
         //level_->remove_mirror();
