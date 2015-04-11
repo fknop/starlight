@@ -93,6 +93,8 @@ void Properties::apply_changes()
     prop_interface_->apply();
     apply_pb->setEnabled(true);
     reset_pb->setEnabled(true);
+
+    notify_all("ELEMENT_CHANGED");
 }
 
 void Properties::reset_changes()

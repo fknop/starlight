@@ -128,7 +128,10 @@ void MainEditor::notify(Observable * sdo, std::string msg="UPDATE_RAYS", const s
     }
     else if (msg == "ELEMENT_DELETED")
     {
-        switch (mapview_->selected()->type_view())
+        if (mapview_->selected())
+
+        {
+            switch (mapview_->selected()->type_view())
         {
         case ElementView::TypeView::MIRRORVIEW:
         {
@@ -138,12 +141,15 @@ void MainEditor::notify(Observable * sdo, std::string msg="UPDATE_RAYS", const s
             std::cout << level_->mirrors().size() << std::endl;
         }
         }
+        }
 
         std::cout << "ELEMENT_DELETED" << std::endl;
-        mapview_->clear();
-        //level_->remove_mirror();
-        std::cout << "scene cleared" << std::endl;
+
         mapview_->repaint();
         std::cout << "scene repainted" << std::endl;
+    }
+    else if (msg == "ELEMENT_CHANGED")
+    {
+        mapview_->repaint();
     }
 }
