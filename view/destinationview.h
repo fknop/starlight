@@ -7,10 +7,11 @@
 #include "obs/observable.h"
 #include "obs/observerinterface.h"
 #include "model/dest.h"
+#include "view/elementview.h"
 /**
  * Modélisation visuelle de la destination.
  */
-class DestinationView : public QGraphicsRectItem, public ObserverInterface
+class DestinationView : public QGraphicsRectItem, public ObserverInterface, public ElementView
 {
 public:
     /**

@@ -133,7 +133,7 @@ Level::State Level::compute_ray(Line& line, int wl)
         Line newLine(Point(*new_line_origin), angle);
         return compute_ray(newLine, wl);
     }
-    else  
+    else
     {
         return state;
     }

@@ -50,3 +50,12 @@ std::ostream & operator<<(std::ostream & out, const Lens & l)
         " , Freq. Max. : " << l.wl_max_;
     return out;
 }
+
+bool Lens::operator ==(const Lens& l) const
+{
+    return
+     width_ == l.width_ &&
+     height_ == l.height_ &&
+     wl_min_ == l.wl_min_ &&
+     wl_max_ == l.wl_max_;
+}

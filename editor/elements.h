@@ -32,9 +32,11 @@ private:
     QPushButton *level_reset_pb;
     QDoubleSpinBox *level_height_dsb;
     QDoubleSpinBox *level_width_dsb;
+    QPushButton *add_crystal_pb;
     QPushButton *add_mirror_pb;
     QPushButton *add_nuke_pb;
     QPushButton *add_lens_pb;
+    QPushButton *add_wall_pb;
 
     Level * level_;
 
@@ -42,7 +44,11 @@ private:
 signals:
 
 public slots:
+    void add_crystal();
+    void add_lens();
     void add_mirror();
+    void add_nuke();
+    void add_wall();
     void create_level();
     void reset_level();
 

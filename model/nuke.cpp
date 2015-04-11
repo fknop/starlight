@@ -20,3 +20,11 @@ std::ostream& operator<<(std::ostream& out, const Nuke& s)
         " On : " << s.lighted_up_;
     return out;
 }
+
+bool Nuke::operator ==(const Nuke& n) const
+{
+    return
+     pos_ == n.pos_ &&
+     rad_ == n.rad_ &&
+     lighted_up_ == n.lighted_up_;
+}

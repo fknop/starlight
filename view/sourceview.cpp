@@ -4,7 +4,8 @@
 #include <QGraphicsPixmapItem>
 
 
-SourceView::SourceView(const Source& source)
+SourceView::SourceView(const Source& source) :
+    ElementView(ElementView::TypeView::SOURCEVIEW)
 {
     this->source_ = &(const_cast<Source&>(source));
 //    setRect(this->source_->position().x(),
@@ -48,3 +49,7 @@ void SourceView::mousePressEvent(QGraphicsSceneMouseEvent *event)
     this->source_->set_on(!this->source_->on());
 }
 
+Source * SourceView::source()
+{
+    return source_;
+}

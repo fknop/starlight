@@ -30,3 +30,10 @@ std::ostream & operator<<(std::ostream & out, const Wall & w)
     out << "Wall --- Start : "  << w.start_ << ", End : " << w.end_;
     return out;
 }
+
+bool Wall::operator ==(const Wall& w) const
+{
+    return
+     start_ == w.start_ &&
+     end_ == w.end_;
+}

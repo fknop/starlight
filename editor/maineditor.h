@@ -55,7 +55,12 @@ private:
 signals:
 
 public slots:
+    void add_crystal();
+    void add_lens();
     void add_mirror();
+    void add_nuke();
+    void add_wall();
+
     void create_level();
 
 

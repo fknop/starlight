@@ -67,6 +67,9 @@ class Nuke : public Element, public Observable
      */
     friend std::ostream & operator<<(std::ostream& out,
                                      const Nuke& s);
+
+    bool operator==(const Nuke& n) const;
+
 };
 
 /* Fonctions inlines */

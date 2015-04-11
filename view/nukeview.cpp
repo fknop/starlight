@@ -1,7 +1,8 @@
 #include "view/nukeview.h"
 
 
-NukeView::NukeView(const Nuke& nuke)
+NukeView::NukeView(const Nuke& nuke)  :
+    ElementView(ElementView::TypeView::NUKEVIEW)
 {
     this->nuke_ = &(const_cast<Nuke&>(nuke));
     this->nuke_->add_observer(this);
@@ -26,4 +27,9 @@ void NukeView::notify(Observable* sdo, std::string msg, const std::vector<std::s
         this->setBrush(QBrush(Qt::red));
     }
 
+}
+
+Nuke * NukeView::nuke()
+{
+    return nuke_;
 }

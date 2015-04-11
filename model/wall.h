@@ -59,6 +59,9 @@ class Wall : public Element
      */
     friend std::ostream& operator<<(std::ostream& out,
                                      const Wall& wall);
+
+    bool operator==(const Wall& w) const;
+
 };
 
 /* Fonctions inlines */

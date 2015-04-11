@@ -1,7 +1,8 @@
 #include "destinationview.h"
 
 
-DestinationView::DestinationView(const Dest& dest)
+DestinationView::DestinationView(const Dest& dest)  :
+    ElementView(ElementView::TypeView::DESTVIEW)
 {
     this->dest_ = &(const_cast<Dest&>(dest));
     this->dest_->add_observer(this);

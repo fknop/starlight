@@ -99,6 +99,8 @@ class Lens : public Element
      */
     friend std::ostream& operator<<(std::ostream& out,
                                      const Lens& m);
+
+    bool operator==(const Lens& l) const;
 };
 
 /* Fonctions inlines */

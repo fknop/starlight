@@ -125,6 +125,5 @@ bool Mirror::operator ==(const Mirror& m) const
      alpha_     == m.alpha_ &&
      alpha_min_ == m.alpha_min_ &&
      alpha_max_ == m.alpha_max_;
-
 }
 

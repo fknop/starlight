@@ -4,11 +4,13 @@
 #include <QGraphicsEllipseItem>
 
 #include "model/crystal.h"
+#include "view/elementview.h"
 
-class CrystalView : public QGraphicsEllipseItem
+class CrystalView : public QGraphicsEllipseItem, public ElementView
 {
 public:
     CrystalView(const Crystal & crystal_);
+    Crystal * crystal();
 
 private:
     const Crystal * crystal_;
