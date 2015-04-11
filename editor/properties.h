@@ -45,6 +45,7 @@ signals:
 public slots:
     void apply_changes();
     void reset_changes();
+    void delete_element();
 
 };
 

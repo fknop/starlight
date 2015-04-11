@@ -6,16 +6,15 @@
 Properties::Properties(QWidget *parent) : QWidget(parent)
 {
     setupUi();
-    //set_element_prop();
 
     add_connections();
-
 }
 
 void Properties::add_connections()
 {
-        connect(apply_pb, SIGNAL(clicked()), this, SLOT(apply_changes()));
-        connect(reset_pb, SIGNAL(clicked()), this, SLOT(reset_changes()));
+    connect(apply_pb, SIGNAL(clicked()), this, SLOT(apply_changes()));
+    connect(reset_pb, SIGNAL(clicked()), this, SLOT(reset_changes()));
+    connect(delete_pb, SIGNAL(clicked()), this, SLOT(delete_element()));
 }
 
 void Properties::setupUi()
@@ -27,6 +26,8 @@ void Properties::setupUi()
 
     groupBox = new QGroupBox();
     groupBox->setTitle(tr("Properties"));
+    QHBoxLayout * qhl = new QHBoxLayout;
+    groupBox->setLayout(qhl);
     QFont font;
     font.setBold(true);
     font.setWeight(75);
@@ -34,13 +35,9 @@ void Properties::setupUi()
 
     gridLayout->addWidget(groupBox, 0, 0, 1, 3);
 
-    //    buttonBox = new QDialogButtonBox();
-    //    buttonBox->setStandardButtons(QDialogButtonBox::Cancel|QDialogButtonBox::Ok);
-
-    //    gridLayout->addWidget(buttonBox, 1, 0, 1, 1);
-
     apply_pb = new QPushButton();
     apply_pb->setText("Apply");
+    apply_pb->setEnabled(false);
 
     gridLayout->addWidget(apply_pb, 1, 0, 1, 1);
 
@@ -71,13 +68,10 @@ void Properties::set_element_prop(ElementView * ev)
         {
             std::cout << "IT'S A MIRROR" << std::endl;
             MirrorView * mv = dynamic_cast<MirrorView *> (ev);
-//            MirrorProp * mp = new MirrorProp(mv->mirror(), groupBox);
             prop_interface_ = new MirrorProp(mv->mirror(), groupBox);
 
-            QHBoxLayout * qhl = new QHBoxLayout;
-            qhl->addWidget(prop_interface_);
 
-            groupBox->setLayout(qhl);
+            groupBox->layout()->addWidget(prop_interface_);
 
             break;
         }
@@ -87,12 +81,16 @@ void Properties::set_element_prop(ElementView * ev)
         }
         }
     }
+
+    apply_pb->setEnabled(true);
+    reset_pb->setEnabled(true);
+    delete_pb->setEnabled(true);
 }
 
 void Properties::apply_changes()
 {
     prop_interface_->apply();
-    apply_pb->setEnabled(false);
+    apply_pb->setEnabled(true);
     reset_pb->setEnabled(true);
 }
 
@@ -100,5 +98,10 @@ void Properties::reset_changes()
 {
     prop_interface_->reset();
     apply_pb->setEnabled(true);
-    reset_pb->setEnabled(false);
+    reset_pb->setEnabled(true);
+}
+
+void Properties::delete_element()
+{
+    notify_all("ELEMENT_DELETED");
 }
