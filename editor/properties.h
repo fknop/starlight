@@ -14,6 +14,8 @@
 
 #include "view/mirrorview.h"
 
+#include "propertiesinterface.h"
+
 class Properties : public QWidget, public Observable
 {
     Q_OBJECT
@@ -35,6 +37,8 @@ private:
     QPushButton *delete_pb;
 
     void add_connections();
+
+    PropertiesInterface * prop_interface_;
 
 signals:
 

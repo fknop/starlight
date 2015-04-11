@@ -71,9 +71,11 @@ void Properties::set_element_prop(ElementView * ev)
         {
             std::cout << "IT'S A MIRROR" << std::endl;
             MirrorView * mv = dynamic_cast<MirrorView *> (ev);
-            MirrorProp * mp = new MirrorProp(mv->mirror(), groupBox);
+//            MirrorProp * mp = new MirrorProp(mv->mirror(), groupBox);
+            prop_interface_ = new MirrorProp(mv->mirror(), groupBox);
+
             QHBoxLayout * qhl = new QHBoxLayout;
-            qhl->addWidget(mp);
+            qhl->addWidget(prop_interface_);
 
             groupBox->setLayout(qhl);
 
@@ -89,10 +91,14 @@ void Properties::set_element_prop(ElementView * ev)
 
 void Properties::apply_changes()
 {
-
+    prop_interface_->apply();
+    apply_pb->setEnabled(false);
+    reset_pb->setEnabled(true);
 }
 
 void Properties::reset_changes()
 {
-
+    prop_interface_->reset();
+    apply_pb->setEnabled(true);
+    reset_pb->setEnabled(false);
 }

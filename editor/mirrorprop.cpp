@@ -1,7 +1,7 @@
 #include "mirrorprop.h"
 
 MirrorProp::MirrorProp(Mirror *mirror, QWidget *parent) :
-    QWidget(parent), mirror_{mirror}
+     mirror_{mirror}
 {
     setupUi();
     reset();

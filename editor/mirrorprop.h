@@ -9,7 +9,9 @@
 
 #include "model/mirror.h"
 
-class MirrorProp : public QWidget
+#include "propertiesinterface.h"
+
+class MirrorProp : public PropertiesInterface
 {
     Q_OBJECT
 public:

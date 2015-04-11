@@ -101,7 +101,6 @@ SOURCES += \
     mapwriter.cpp \
     editor/elements.cpp \
     Tests/gametest.cpp \
-    editor/propertiesinterface.cpp \
     view/elementview.cpp
 
 RESOURCES += \
