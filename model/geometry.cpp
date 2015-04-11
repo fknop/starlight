@@ -90,13 +90,39 @@ bool Geometry::intersects(const Line& l1, const Line& l2, Point **intersection)
            b1, b2,
            slope1, slope2;
 
-    // Même droite ou parallèles
-    if ((l1 == l2) ||
-            (umath::equals(std::fmod(l1.angle(), M_PI),
-                                  std::fmod(l2.angle(), M_PI))))
+    double l1_angle = std::fmod(l1.angle(), M_PI);
+    double l2_angle = std::fmod(l2.angle(), M_PI);
+    bool l1_vertical   = umath::equals(std::abs(l1_angle), M_PI_2);
+    bool l1_horizontal = umath::equals(std::abs(l1_angle), 0);
+    bool l2_vertical   = umath::equals(std::abs(l2_angle), M_PI_2);
+    bool l2_horizontal = umath::equals(std::abs(l2_angle), 0);
+
+    std::cout << "l1 angle : " << l1_angle << std::endl;
+    std::cout << "l2 angle : " << l2_angle << std::endl;
+
+    // Même droite
+    if ((l1_vertical && l2_vertical && !umath::equals(l1.get_x(0), l2.get_x(0)))
+            || (l1_horizontal && l2_horizontal && !umath::equals(l1.get_y(0), l2.get_y(0))))
     {
+        std::cout << "PAS OK?";
         *intersection = nullptr;
         return false;
+    }
+    else if (l1_vertical && l2_vertical && umath::equals(l1.get_x(0), l2.get_x(0)))
+    {
+        *intersection = new Point(l2.origin());
+        return true;
+    }
+    else if (l1_horizontal && l2_horizontal && umath::equals(l1.get_y(0), l2.get_y(0)))
+    {
+        *intersection = new Point(l2.origin());
+        return true;
+    }
+    else if (umath::equals(l1_angle, l2_angle) && umath::equals(l1.get_x(0), l2.get_x(0)))
+    {
+        std::cout << "OK";
+        *intersection = new Point(l2.origin());
+        return true;
     }
 
     // Même origine donc intersection == origin
@@ -150,7 +176,10 @@ bool Geometry::intersects(const Line& line, const LineSegment& ls, Point **inter
 bool Geometry::intersects(const LineSegment& ls1, const LineSegment& ls2, Point **p)
 {
     if (ls1 == ls2)
-        return false;
+    {
+        *p = new Point(ls1.start());
+        return true;
+    }
 
     Point start1 = ls1.start();
     Point end1 = ls1.end();
@@ -158,9 +187,6 @@ bool Geometry::intersects(const LineSegment& ls1, const LineSegment& ls2, Point 
     Point end2 = ls2.end();
     double rad1 = Geometry::slope_to_rad(start1, end1);
     double rad2 = Geometry::slope_to_rad(start2, end2);
-
-    if (std::abs(rad1 - rad2) < 0.001)
-        return false;
 
     Line l1(start1, rad1);
     Line l2(start2, rad2);

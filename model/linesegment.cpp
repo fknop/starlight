@@ -1,18 +1,25 @@
 #include "geometry.h"
 #include "linesegment.h"
+#include "umath.h"
 
 
-LineSegment::LineSegment(const Point& start, const Point& end)
+LineSegment::LineSegment(const Point& p1, const Point& p2)
 {
-//    if (start.x() < end.x() || (dx == gx && gy < dy))
-//     {
-//        start_ = start;
-//        end_ = end_;
-//    }
-//    else if (gx > dx || (dx == gx && gy > dy))
-//      return LineSegment(Point(dx, dy), Point(gx, gy));
-    this->start_ = start;
-    this->end_ = end;
+    if (p1 == p2)
+        throw std::string("Un segment doit contenir deux points différents");
+
+    if (p1.x() < p2.x() ||
+            (umath::equals(p1.x(), p2.x()) && p1.y() < p2.y()))
+    {
+        this->start_ = p1;
+        this->end_ = p2;
+    }
+    else if (p1.x() > p2.x()
+             || (umath::equals(p1.x(), p2.x()) && p1.y() > p2.y()))
+    {
+        this->start_ = p2;
+        this->end_ = p1;
+    }
 }
 
 bool LineSegment::contains(const Point& p) const
