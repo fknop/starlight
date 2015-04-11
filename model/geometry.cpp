@@ -42,26 +42,26 @@ bool Geometry::is_on_good_side(const Line& l, const Point& p)
     double angle = l.angle();
 
     // Angle à 90°
-    if (umath::double_equals(angle, M_PI_2)
-            || umath::double_equals(angle, -M_PI_2_3))
-            return umath::double_equals(p.x(), l.origin().x())
+    if (umath::equals(angle, M_PI_2)
+            || umath::equals(angle, -M_PI_2_3))
+            return umath::equals(p.x(), l.origin().x())
                 && p.y() < l.origin().y();
 
     // Angle à 270°
-    if (umath::double_equals(angle, M_PI_2_3)
-            || umath::double_equals(angle, -M_PI_2))
+    if (umath::equals(angle, M_PI_2_3)
+            || umath::equals(angle, -M_PI_2))
             return p.y() > l.origin().y();
 
     // Angle à 180°
-    if (umath::double_equals(angle, M_PI)
-            || umath::double_equals(angle, -M_PI))
-        return umath::double_equals(p.y(), l.origin().y())
+    if (umath::equals(angle, M_PI)
+            || umath::equals(angle, -M_PI))
+        return umath::equals(p.y(), l.origin().y())
                 && p.x() < l.origin().x();
 
     // Angle à 0°
-    if (umath::double_equals(angle, 0)
-            || umath::double_equals(std::abs(angle), 2*M_PI))
-        return umath::double_equals(p.y(), l.origin().y())
+    if (umath::equals(angle, 0)
+            || umath::equals(std::abs(angle), 2*M_PI))
+        return umath::equals(p.y(), l.origin().y())
                 && p.x() > l.origin().x();
 
     // Premier quadrant
@@ -92,7 +92,7 @@ bool Geometry::intersects(const Line& l1, const Line& l2, Point **intersection)
 
     // Même droite ou parallèles
     if ((l1 == l2) ||
-            (umath::double_equals(std::fmod(l1.angle(), M_PI),
+            (umath::equals(std::fmod(l1.angle(), M_PI),
                                   std::fmod(l2.angle(), M_PI))))
     {
         *intersection = nullptr;
@@ -107,11 +107,11 @@ bool Geometry::intersects(const Line& l1, const Line& l2, Point **intersection)
     }
 
    // Droites verticales
-   if (umath::double_equals(std::abs(std::fmod(l1.angle(), M_PI)), (M_PI_2)))
+   if (umath::equals(std::abs(std::fmod(l1.angle(), M_PI)), (M_PI_2)))
    {
        vertical_line_intersection(l1, l2, intersection);
    }
-   else if (umath::double_equals(std::abs(std::fmod(l2.angle(), M_PI)), (M_PI_2)))
+   else if (umath::equals(std::abs(std::fmod(l2.angle(), M_PI)), (M_PI_2)))
    {
        vertical_line_intersection(l2, l1, intersection);
    }
@@ -189,8 +189,8 @@ int Geometry::intersects(const Ellipse& e, const Line& l,
     double lcmx = lcm / (yR*yR);
     double lcmy = lcm / (xR*xR);
 
-    bool horizontalLine = umath::double_equals(0, slope);
-    bool verticalLine = umath::double_equals(std::abs(std::fmod(l.angle(), M_PI)), (M_PI_2));
+    bool horizontalLine = umath::equals(0, slope);
+    bool verticalLine = umath::equals(std::abs(std::fmod(l.angle(), M_PI)), (M_PI_2));
 
     if (verticalLine)
     {

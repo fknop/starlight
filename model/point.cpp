@@ -32,7 +32,7 @@ std::ostream & operator<<(std::ostream & out, const Point & p)
 
 bool Point::operator==(const Point& p) const
 {
-    return umath::double_equals(p.x_, this->x_) && umath::double_equals(p.y_, this->y_);
+    return umath::equals(p.x_, this->x_) && umath::equals(p.y_, this->y_);
 }
 
 const Point& Point::operator =(const Point& p2)

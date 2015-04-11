@@ -4,6 +4,13 @@
 
 LineSegment::LineSegment(const Point& start, const Point& end)
 {
+//    if (start.x() < end.x() || (dx == gx && gy < dy))
+//     {
+//        start_ = start;
+//        end_ = end_;
+//    }
+//    else if (gx > dx || (dx == gx && gy > dy))
+//      return LineSegment(Point(dx, dy), Point(gx, gy));
     this->start_ = start;
     this->end_ = end;
 }
