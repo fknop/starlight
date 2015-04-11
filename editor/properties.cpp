@@ -67,6 +67,7 @@ void Properties::set_element_prop(ElementView * ev)
         case ElementView::TypeView::MIRRORVIEW:
         {
             std::cout << "IT'S A MIRROR" << std::endl;
+            groupBox->layout()->removeWidget(prop_interface_);
             MirrorView * mv = dynamic_cast<MirrorView *> (ev);
             prop_interface_ = new MirrorProp(mv->mirror(), groupBox);
 
@@ -92,6 +93,8 @@ void Properties::apply_changes()
     prop_interface_->apply();
     apply_pb->setEnabled(true);
     reset_pb->setEnabled(true);
+
+    notify_all("ELEMENT_CHANGED");
 }
 
 void Properties::reset_changes()

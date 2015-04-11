@@ -24,6 +24,7 @@ private:
 public slots:
     void start();
     void help();
+    void editor();
 };
 
 

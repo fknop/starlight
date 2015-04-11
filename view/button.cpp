@@ -7,7 +7,6 @@
 
 Button::Button(QString name, QGraphicsItem *parent)
 {
-
     setRect(0,0, 200, 50);
     QBrush brush;
     brush.setStyle(Qt::SolidPattern);
