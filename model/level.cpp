@@ -352,6 +352,9 @@ void Level::notify(Observable* obs, std::string msg, const std::vector<std::stri
 {
     bool ask_translate = msg.compare("ASK_TRANSLATE") == 0;
     bool ask_rotate    = msg.compare("ASK_ROTATE") == 0;
+    bool recompute = msg.compare("TRANSLATE_MIRROR") == 0 ||
+                     msg.compare("ROTATE_MIRROR") == 0 ||
+                     msg.compare("SOURCE_ON") == 0;
 
     if (ask_rotate || ask_translate)
     {
@@ -381,9 +384,7 @@ void Level::notify(Observable* obs, std::string msg, const std::vector<std::stri
             // TO FIX
         }
     }
-    else if (msg.compare("TRANSLATE_MIRROR") == 0 ||
-            msg.compare("ROTATE_MIRROR") == 0 ||
-            msg.compare("SOURCE_ON") == 0)
+    else if (recompute)
     {
            compute_rays();
     }

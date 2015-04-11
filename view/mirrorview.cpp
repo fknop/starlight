@@ -12,7 +12,6 @@ MirrorView::MirrorView(const Mirror &mirror, bool selectable) :
     mirror_->add_observer(this);
 
     setFlag(QGraphicsItem::ItemIsSelectable, this->selectable_);
-
     QPen myPen(Qt::red);
     myPen.setWidth(3);
     setPen(myPen);

@@ -226,51 +226,50 @@ void MapView::mousePressEvent(QMouseEvent * event)
 
 void MapView::keyPressEvent(QKeyEvent *event)
 {
-    for (MirrorView * i : scene_->selectedItems())
+    for (auto &i : mirror_views_)
     {
-        if (event->key() == Qt::Key_Left)
+        if (i->isSelected())
         {
-            if (event->modifiers() & Qt::ShiftModifier)
-                i->rotate(-5);
-            else
-                i->rotate(-1);
-            break;
-        }
-        else if(event->key() == Qt::Key_Right)
-        {
-            if (event->modifiers() & Qt::ShiftModifier)
-                i->rotate(5);
-            else
-                i->rotate(1);
-            break;
-        }
-        else if(event->key() == Qt::Key_Z)
-        {
-            if (event->modifiers() & Qt::ShiftModifier)
-                i->translate(0, -5);
-            else
-                i->translate(0, -1);
-        }
-        else if(event->key() == Qt::Key_S || event->key() == Qt::Key_U)
-        {
-            if (event->modifiers() & Qt::ShiftModifier)
-                i->translate(0, 5);
-            else
-                i->translate(0, 1);
-        }
-        else if(event->key() == Qt::Key_Q || event->key() == Qt::Key_A)
-        {
-            if (event->modifiers() & Qt::ShiftModifier)
-                i->translate(-5, 0);
-            else
-                i->translate(-1, 0);
-        }
-        else if(event->key() == Qt::Key_D || event->key() == Qt::Key_I)
-        {
-            if (event->modifiers() & Qt::ShiftModifier)
-                i->translate(5, 0);
-            else
-                i->translate(1, 0);
+            switch(event->key())
+            {
+            case Qt::Key_Left:
+                if (event->modifiers() & Qt::ShiftModifier)
+                    i->rotate(-5);
+                else
+                    i->rotate(-1);
+                break;
+
+            case Qt::Key_Right:
+                if (event->modifiers() & Qt::ShiftModifier)
+                    i->rotate(5);
+                else
+                    i->rotate(1);
+                break;
+            case Qt::Key_Z:
+                if (event->modifiers() & Qt::ShiftModifier)
+                    i->translate(0, -5);
+                else
+                    i->translate(0, -1);
+                break;
+            case Qt::Key_S: case Qt::Key_U:
+                if (event->modifiers() & Qt::ShiftModifier)
+                    i->translate(0, 5);
+                else
+                    i->translate(0, 1);
+                break;
+            case Qt::Key_Q: case Qt::Key_A:
+                if (event->modifiers() & Qt::ShiftModifier)
+                    i->translate(-5, 0);
+                else
+                    i->translate(-1, 0);
+                break;
+            case Qt::Key_D: case Qt::Key_I:
+                if (event->modifiers() & Qt::ShiftModifier)
+                    i->translate(5, 0);
+                else
+                    i->translate(1, 0);
+                break;
+            }
         }
     }
 }
