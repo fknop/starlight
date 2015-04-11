@@ -5,14 +5,21 @@ Elements::Elements(QWidget *parent) : QWidget(parent)
     setupUi();
     add_connections();
 
+    add_crystal_pb->setEnabled(false);
     add_mirror_pb->setEnabled(false);
     add_nuke_pb->setEnabled(false);
     add_lens_pb->setEnabled(false);
+    add_wall_pb->setEnabled(false);
 }
 
 void Elements::add_connections()
 {
+    connect(add_crystal_pb, SIGNAL(clicked()), this, SLOT(add_crystal()));
+    connect(add_lens_pb, SIGNAL(clicked()), this, SLOT(add_lens()));
     connect(add_mirror_pb, SIGNAL(clicked()), this, SLOT(add_mirror()));
+    connect(add_nuke_pb, SIGNAL(clicked()), this, SLOT(add_nuke()));
+    connect(add_wall_pb, SIGNAL(clicked()), this, SLOT(add_wall()));
+
     connect(level_apply_pb, SIGNAL(clicked()), this, SLOT(create_level()));
     connect(level_reset_pb, SIGNAL(clicked()), this, SLOT(reset_level()));
 }
@@ -64,6 +71,14 @@ void Elements::setupUi()
 
     verticalLayout->addWidget(groupBox);
 
+    add_crystal_pb = new QPushButton("Crystal");
+
+    verticalLayout->addWidget(add_crystal_pb);
+
+    add_lens_pb = new QPushButton("Lens");
+
+    verticalLayout->addWidget(add_lens_pb);
+
     add_mirror_pb = new QPushButton("Mirror");
 
     verticalLayout->addWidget(add_mirror_pb);
@@ -72,9 +87,9 @@ void Elements::setupUi()
 
     verticalLayout->addWidget(add_nuke_pb);
 
-    add_lens_pb = new QPushButton("Lens");
+    add_wall_pb = new QPushButton("Wall");
 
-    verticalLayout->addWidget(add_lens_pb);
+    verticalLayout->addWidget(add_wall_pb);
 
     QSizePolicy sp_elements(QSizePolicy::Preferred, QSizePolicy::Preferred);
     sp_elements.setHorizontalStretch(1);
@@ -88,9 +103,11 @@ void Elements::create_level()
     //delete level_;
     level_ = new Level(level_width_dsb->value(), level_height_dsb->value());
 
+    add_crystal_pb->setEnabled(true);
     add_mirror_pb->setEnabled(true);
     add_nuke_pb->setEnabled(true);
     add_lens_pb->setEnabled(true);
+    add_wall_pb->setEnabled(true);
 
     level_apply_pb->setEnabled(false);
     level_width_dsb->setEnabled(false);
@@ -119,9 +136,30 @@ Level * Elements::level()
     return level_;
 }
 
+void Elements::add_crystal()
+{
+    notify_all("CRYSTAL_ADDED");
+}
+
+void Elements::add_lens()
+{
+    notify_all("LENS_ADDED");
+}
+
 void Elements::add_mirror()
 {
     notify_all("MIRROR_ADDED");
     std::cout << "elements add mirror" << std::endl;
 
+}
+
+
+void Elements::add_nuke()
+{
+    notify_all("NUKE_ADDED");
+}
+
+void Elements::add_wall()
+{
+    notify_all("WALL_ADDED");
 }

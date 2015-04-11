@@ -20,13 +20,39 @@ MainEditor::MainEditor(QWidget *parent) : QMainWindow(parent), level_{new Level(
     setupUi();
 }
 
+void MainEditor::add_crystal()
+{
+    Crystal crystal(Point(50, 50), 29, 40);
+    level_->add_crystal(crystal);
+    mapview_->draw_crystals();
+}
 
+void MainEditor::add_lens()
+{
+    Lens lens(Point(50, 50), 58, 116, 500, 600);
+    level_->add_lens(lens);
+    mapview_->draw_lenses();
+}
 
 void MainEditor::add_mirror()
 {
     Mirror mirror(Point(50, 50), 58, 100, 1.57);
     level_->add_mirror(mirror);
     mapview_->draw_mirrors();
+}
+
+void MainEditor::add_nuke()
+{
+    Nuke nuke(Point(50, 50), 29);
+    level_->add_nuke(nuke);
+    mapview_->draw_nukes();
+}
+
+void MainEditor::add_wall()
+{
+    Wall wall(Point(20, 20), Point(60, 60));
+    level_->add_wall(wall);
+    mapview_->draw_walls();
 }
 
 ElementView * MainEditor::selected()
@@ -112,6 +138,18 @@ void MainEditor::notify(Observable * sdo, std::string msg="UPDATE_RAYS", const s
     {
         std::cout << "[MainEditor - notify] - mirror added!" << std::endl;
         add_mirror();
+    }
+    else if (msg == "CRYSTAL_ADDED")
+    {
+        add_crystal();
+    }
+    else if (msg == "LENS_ADDED")
+    {
+        add_lens();
+    }
+    else if (msg == "NUKE_ADDED")
+    {
+        add_nuke();
     }
     else if (msg == "SELECTED")
     {
