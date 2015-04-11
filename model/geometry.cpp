@@ -19,11 +19,7 @@ double Geometry::deg_to_rad(double degrees)
 double Geometry::slope_to_rad(const Point& p1, const Point& p2)
 {
     double slope = rad_to_slope(p1, p2);
-
-    if (slope == INFINITY)
-        return M_PI_2;
-    else
-        return std::atan(slope);
+    return std::atan(slope);
 }
 
 double Geometry::slope_to_rad(double slope)
