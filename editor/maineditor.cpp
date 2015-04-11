@@ -106,15 +106,6 @@ void MainEditor::notify(Observable * sdo, std::string msg="UPDATE_RAYS", const s
     else if (msg == "LEVEL_RESET")
     {
         std::cout << "level reset" << std::endl;
-//        horizontalLayout->removeWidget(mapview_);
-
-
-//        verticalLayout_2->removeWidget(mapview_);
-//        verticalLayout_2->setEnabled(false);
-        //mapview_ = new QWidget();
-        //horizontalLayout->addWidget(mapview_);
-//        verticalLayout_2 = new QVBoxLayout(mapview_);
-//        verticalLayout_2->setEnabled(false);
         mapview_->clear();
     }
     else if (msg == "MIRROR_ADDED")
@@ -129,18 +120,40 @@ void MainEditor::notify(Observable * sdo, std::string msg="UPDATE_RAYS", const s
     else if (msg == "ELEMENT_DELETED")
     {
         if (mapview_->selected())
-
         {
             switch (mapview_->selected()->type_view())
-        {
-        case ElementView::TypeView::MIRRORVIEW:
-        {
-            std::cout << level_->mirrors().size() << std::endl;
-            MirrorView * mv = dynamic_cast<MirrorView *> (selected());
-            level_->remove_mirror(*mv->mirror());
-            std::cout << level_->mirrors().size() << std::endl;
-        }
-        }
+            {
+//            case ElementView::TypeView::CRYSTALVIEW:
+//            {
+//                CrystalView * cv = dynamic_cast<CrystalView *> (selected());
+//                level_->remove_crystal(*cv->crystal());
+//                break;
+//            }
+//            case ElementView::TypeView::LENSVIEW:
+//            {
+//                LensView * lv = dynamic_cast<LensView *> (selected());
+//                level_->remove_lens(*lv->lens());
+//                break;
+//            }
+            case ElementView::TypeView::MIRRORVIEW:
+            {
+                MirrorView * mv = dynamic_cast<MirrorView *> (selected());
+                level_->remove_mirror(*mv->mirror());
+                break;
+            }
+//            case ElementView::TypeView::NUKEVIEW:
+//            {
+//                NukeView * nv = dynamic_cast<NukeView *> (selected());
+//                level_->remove_nuke(*nv->nuke());
+//                break;
+//            }
+//            case ElementView::TypeView::WALLVIEW:
+//            {
+//                WallView * wv = dynamic_cast<WallView *> (selected());
+//                level_->remove_wall(*wv->wall());
+//                break;
+//            }
+            }
         }
 
         std::cout << "ELEMENT_DELETED" << std::endl;

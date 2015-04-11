@@ -35,7 +35,6 @@ struct Intersection
         /* Pas de delete sur l'élément sinon
          * on le supprime de level
          */
-
     }
 
     Point* point() const
@@ -82,7 +81,7 @@ class Level : public ObserverInterface, public Observable
     std::vector<Ray> rays_;
     std::vector<Nuke> nukes_;
 
-  public:
+public:
 
     /**
      * Instancie une carte de largeur et hauteur donnée.
@@ -252,7 +251,13 @@ class Level : public ObserverInterface, public Observable
     inline void add_ray(const Ray& r);
 
 
+//    inline void remove_crystal(const Crystal& c);
+//    inline void remove_lens(const Lens& l);
     inline void remove_mirror(const Mirror& m);
+//    inline void remove_nuke(const Nuke& n);
+//    inline void remove_wall(const Wall& w);
+
+
 
     void notify(Observable* o,
                 std::string msg,
@@ -317,24 +322,48 @@ private:
     bool check_collisions(const LineSegment &segment, Mirror *m);
 };
 
+
 /* Fonctions inlines */
 
+//void Level::remove_crystal(const Crystal& c)
+//{
+//    std::vector<Crystal>::iterator position = std::find(crystals_.begin(), crystals_.end(), c);
 
-void Level::remove_mirror(const Mirror &m)
+//    if (position != crystals_.end()) // == vector.end() means the element was not found
+//        crystals_.erase(position);
+//}
+
+//void Level::remove_lens(const Lens& l)
+//{
+//    std::vector<Lens>::iterator position = std::find(lenses_.begin(), lenses_.end(), l);
+
+//    if (position != lenses_.end()) // == vector.end() means the element was not found
+//        lenses_.erase(position);
+//}
+
+void Level::remove_mirror(const Mirror& m)
 {
-//    for (auto & mirror : mirrors_)
-//    {
-//        if (mirror == m)
-//            mirrors_.erase(&mirror);
-//    }
     std::vector<Mirror>::iterator position = std::find(mirrors_.begin(), mirrors_.end(), m);
+
     if (position != mirrors_.end()) // == vector.end() means the element was not found
         mirrors_.erase(position);
 }
 
+//void Level::remove_nuke(const Nuke& n)
+//{
+//    std::vector<Nuke>::iterator position = std::find(nukes_.begin(), nukes_.end(), n);
 
+//    if (position != nukes_.end()) // == vector.end() means the element was not found
+//        nukes_.erase(position);
+//}
 
+//void Level::remove_wall(const Wall& w)
+//{
+//    std::vector<Wall>::iterator position = std::find(walls_.begin(), walls_.end(), w);
 
+//    if (position != walls_.end()) // == vector.end() means the element was not found
+//        walls_.erase(position);
+//}
 
 const Source& Level::source() const
 {
@@ -458,7 +487,6 @@ void Level::add_lens(const Lens& l)
 void Level::add_ray(const Ray& r)
 {
     this->rays_.push_back(r);
-
 }
 
 #endif // LEVEL_H

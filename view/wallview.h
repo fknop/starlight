@@ -6,11 +6,12 @@
 #include <QGraphicsSceneMouseEvent>
 
 #include "model/wall.h"
+#include "view/elementview.h"
 
 /**
  * Modélisation visuelle d’un mur (ne reflétant pas la lumière).
  */
-class WallView : public QGraphicsLineItem
+class WallView : public QGraphicsLineItem, public ElementView
 {
 public:
     /**
@@ -21,8 +22,10 @@ public:
      * @param y2 ordonnée de l’autre extrémité du mur.
      */
     WallView(const Wall& wall);
+    Wall * wall();
 
 private:
+    Wall * wall_;
 
 };
 

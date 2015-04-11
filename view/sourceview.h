@@ -8,12 +8,13 @@
 #include <QMediaPlayer>
 
 #include "model/source.h"
+#include "view/elementview.h"
 
 
 /**
  * Modélisation visuelle d’une source.
  */
-class SourceView : public QGraphicsPixmapItem //QGraphicsRectItem
+class SourceView : public QGraphicsPixmapItem, public ElementView //QGraphicsRectItem
 {
 public:
     /**
@@ -24,6 +25,7 @@ public:
      * @param height hauteur du carré représentant la source.
      */
     SourceView(const Source& source);
+    Source * source();
 
     void mousePressEvent(QGraphicsSceneMouseEvent *event);
 

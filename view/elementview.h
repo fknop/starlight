@@ -9,11 +9,12 @@ class ElementView : public QFrame
 public:
     enum class TypeView
     {
-        MIRRORVIEW,
         CRYSTALVIEW,
-        LENSVIEW,
         DESTVIEW,
+        LENSVIEW,
+        MIRRORVIEW,
         NUKEVIEW,
+        SOURCEVIEW,
         WALLVIEW
     };
 
