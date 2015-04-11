@@ -28,8 +28,6 @@ MapView::MapView(Level* level) : level_{level}
 
     setScene(scene_);
     setRenderHints(QPainter::Antialiasing);
-    //setFixedSize(this->level_->width() + 30, this->level_->height() + 30);
-
 
     repaint();
 }

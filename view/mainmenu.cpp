@@ -10,6 +10,8 @@
 #include "mainmenu.h"
 #include "mainwindow.h"
 
+#include "editor/maineditor.h"
+
 
 MainMenu::MainMenu(QWidget * parent)
 {
@@ -20,10 +22,10 @@ MainMenu::MainMenu(QWidget * parent)
 
     this->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     this->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    setFixedSize(400,400); // a changer
+    setFixedSize(400,500); // a changer
 
     scene_ = new QGraphicsScene();
-    scene_->setSceneRect(0,0, 400, 400);
+    scene_->setSceneRect(0,0, 400, 500);
     setScene(scene_);
 }
 
@@ -43,6 +45,14 @@ void MainMenu::start()
 void MainMenu::help()
 {
     QMessageBox::information(this, "Help", STARLIGHT_RULES.c_str());
+}
+
+void MainMenu::editor()
+{
+    hide();
+
+    MainEditor * editor = new MainEditor();
+    editor->show();
 }
 
 void MainMenu::displayMainMenu()
@@ -76,10 +86,20 @@ void MainMenu::displayMainMenu()
     scene_->addItem(rulesButton);
 
 
+    Button * editorButton = new Button(tr("Editor"));
+
+    int editX = this->width() / 2 - editorButton->boundingRect().width() /2;
+    int editY = 300;
+    editorButton->setPos(editX, editY);
+    connect(editorButton, &Button::clicked, this, &MainMenu::editor);
+
+    scene_->addItem(editorButton);
+
+
     Button * quitButton = new Button(tr("Exit"));
 
     int quitX = this->width() / 2 - quitButton->boundingRect().width() /2;
-    int quitY = 300;
+    int quitY = 375;
     quitButton->setPos(quitX, quitY);
     connect(quitButton, &Button::clicked, this, &QGraphicsView::close);
 
