@@ -251,11 +251,11 @@ public:
     inline void add_ray(const Ray& r);
 
 
-//    inline void remove_crystal(const Crystal& c);
-//    inline void remove_lens(const Lens& l);
-    inline void remove_mirror(const Mirror& m);
-//    inline void remove_nuke(const Nuke& n);
-//    inline void remove_wall(const Wall& w);
+    inline void remove_crystal(const Crystal& c);
+    inline void remove_lens(const Lens &l);
+    inline void remove_mirror(const Mirror &m);
+    inline void remove_nuke(const Nuke& n);
+    inline void remove_wall(const Wall& w);
 
 
 
@@ -325,21 +325,21 @@ private:
 
 /* Fonctions inlines */
 
-//void Level::remove_crystal(const Crystal& c)
-//{
-//    std::vector<Crystal>::iterator position = std::find(crystals_.begin(), crystals_.end(), c);
+void Level::remove_crystal(const Crystal& c)
+{
+    std::vector<Crystal>::iterator position = std::find(crystals_.begin(), crystals_.end(), c);
 
-//    if (position != crystals_.end()) // == vector.end() means the element was not found
-//        crystals_.erase(position);
-//}
+    if (position != crystals_.end()) // == vector.end() means the element was not found
+        crystals_.erase(position);
+}
 
-//void Level::remove_lens(const Lens& l)
-//{
-//    std::vector<Lens>::iterator position = std::find(lenses_.begin(), lenses_.end(), l);
+void Level::remove_lens(const Lens& l)
+{
+    std::vector<Lens>::iterator position = std::find(lenses_.begin(), lenses_.end(), l);
 
-//    if (position != lenses_.end()) // == vector.end() means the element was not found
-//        lenses_.erase(position);
-//}
+    if (position != lenses_.end()) // == vector.end() means the element was not found
+        lenses_.erase(position);
+}
 
 void Level::remove_mirror(const Mirror& m)
 {
@@ -349,21 +349,21 @@ void Level::remove_mirror(const Mirror& m)
         mirrors_.erase(position);
 }
 
-//void Level::remove_nuke(const Nuke& n)
-//{
-//    std::vector<Nuke>::iterator position = std::find(nukes_.begin(), nukes_.end(), n);
+void Level::remove_nuke(const Nuke& n)
+{
+    std::vector<Nuke>::iterator position = std::find(nukes_.begin(), nukes_.end(), n);
 
-//    if (position != nukes_.end()) // == vector.end() means the element was not found
-//        nukes_.erase(position);
-//}
+    if (position != nukes_.end()) // == vector.end() means the element was not found
+        nukes_.erase(position);
+}
 
-//void Level::remove_wall(const Wall& w)
-//{
-//    std::vector<Wall>::iterator position = std::find(walls_.begin(), walls_.end(), w);
+void Level::remove_wall(const Wall& w)
+{
+    std::vector<Wall>::iterator position = std::find(walls_.begin(), walls_.end(), w);
 
-//    if (position != walls_.end()) // == vector.end() means the element was not found
-//        walls_.erase(position);
-//}
+    if (position != walls_.end()) // == vector.end() means the element was not found
+        walls_.erase(position);
+}
 
 const Source& Level::source() const
 {

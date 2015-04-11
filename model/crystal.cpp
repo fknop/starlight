@@ -26,3 +26,11 @@ std::ostream& operator<<(std::ostream& out, const Crystal& c)
         << " , Modifier : " << c.mod_;
     return out;
 }
+
+bool Crystal::operator ==(const Crystal& c) const
+{
+    return
+     center_ == c.center_ &&
+     rad_ == c.rad_ &&
+     mod_ == c.mod_;
+}

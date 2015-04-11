@@ -69,6 +69,8 @@ class Crystal : public Element
     friend std::ostream& operator<<(std::ostream&,
                                      const Crystal &);
 
+    bool operator==(const Crystal& c) const;
+
 };
 
 /* Fonctions inlines */
