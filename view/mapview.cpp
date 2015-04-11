@@ -41,11 +41,15 @@ ElementView * MapView::selected()
     {
         std::cout << "[MapView - selected]" << std::endl;
         ElementView *ev = dynamic_cast<ElementView *> (scene_->selectedItems().at(0));
-        //std::cout << "mvbrbr " << ev->type_view() << std::endl;// boundingRect().bottomRight().x() << std::endl;
         return ev;
     }
 
     return nullptr;
+}
+
+void MapView::clear()
+{
+    scene_->clear();
 }
 
 void MapView::repaint()

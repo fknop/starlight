@@ -82,15 +82,8 @@ void MainEditor::setupUi()
     horizontalLayout->addWidget(mapview_);
 
     properties = new Properties(centralWidget);
+    properties->add_observer(this);
 
-//    verticalLayout_3 = new QVBoxLayout(properties);
-//    verticalLayout_3->setSpacing(6);
-//    verticalLayout_3->setContentsMargins(11, 11, 11, 11);
-
-
-
-//    properties = new Properties();
-//    verticalLayout_3->addWidget(properties);
 
 
     QSizePolicy sp_properties(QSizePolicy::Preferred, QSizePolicy::Preferred);
@@ -122,15 +115,24 @@ void MainEditor::notify(Observable * sdo, std::string msg="UPDATE_RAYS", const s
         //horizontalLayout->addWidget(mapview_);
 //        verticalLayout_2 = new QVBoxLayout(mapview_);
 //        verticalLayout_2->setEnabled(false);
+        mapview_->clear();
     }
     else if (msg == "MIRROR_ADDED")
     {
         std::cout << "[MainEditor - notify] - mirror added!" << std::endl;
         add_mirror();
-//        properties->set_element_prop(selected());
     }
     else if (msg == "SELECTED")
     {
         properties->set_element_prop(selected());
+    }
+    else if (msg == "ELEMENT_DELETED")
+    {
+        std::cout << "ELEMENT_DELETED" << std::endl;
+        mapview_->clear();
+        //level_->remove_mirror();
+        std::cout << "scene cleared" << std::endl;
+        mapview_->repaint();
+        std::cout << "scene repainted" << std::endl;
     }
 }

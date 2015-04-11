@@ -16,6 +16,8 @@
 #include "source.h"
 #include "wall.h"
 
+#include <algorithm>
+
 
 struct Intersection
 {
@@ -249,6 +251,9 @@ class Level : public ObserverInterface, public Observable
      */
     inline void add_ray(const Ray& r);
 
+
+    inline void remove_mirror(const Mirror& m);
+
     void notify(Observable* o,
                 std::string msg,
                 const std::vector<std::string>& args = std::vector<std::string>());
@@ -313,6 +318,23 @@ private:
 };
 
 /* Fonctions inlines */
+
+
+void Level::remove_mirror(const Mirror &m)
+{
+//    for (auto & mirror : mirrors_)
+//    {
+//        if (mirror == m)
+//            mirrors_.erase(&mirror);
+//    }
+    std::vector<Mirror>::iterator position = std::find(mirrors_.begin(), mirrors_.end(), m);
+    if (position != mirrors_.end()) // == vector.end() means the element was not found
+        mirrors_.erase(position);
+}
+
+
+
+
 
 const Source& Level::source() const
 {

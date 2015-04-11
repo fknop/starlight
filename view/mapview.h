@@ -33,6 +33,7 @@ public:
     void draw_source();
     void draw_dest();
     void repaint();
+    void clear();
 
     void mousePressEvent(QMouseEvent * event);
     ElementView *selected();
