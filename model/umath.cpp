@@ -25,7 +25,7 @@ double umath::rho(double a, double b, double c)
     return rho;
 }
 
-bool umath::double_equals(double a, double b)
+bool umath::equals(double a, double b)
 {
     return std::abs(a - b) < EPSILON;
 }

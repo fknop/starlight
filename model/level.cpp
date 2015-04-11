@@ -160,11 +160,8 @@ void Level::get_intersections(const Line& line)
     sort_intersections(line, this->intersections_);
 }
 
-
-///// SI BUG -- RESTAURER L'ANCIENNE VERSION /////
 double Level::get_reflection_angle(double angle, double alpha)
 {
-
     if (alpha < 0)
     {
         alpha = (2*M_PI) + alpha;
@@ -179,7 +176,6 @@ double Level::get_reflection_angle(double angle, double alpha)
     }
 
     double angle_ray_p = p - (std::fmod(angle, M_PI));
-
     return std::fmod((angle + M_PI + (2 * angle_ray_p)), (2*M_PI));
 }
 

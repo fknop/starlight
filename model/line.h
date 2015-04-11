@@ -72,6 +72,9 @@ public:
      */
     inline void set_angle(double rad);
 
+    double get_x(double y) const;
+    double get_y(double x) const;
+
     /**
      * Redéfinition de l'opérateur d'égalité, renvoie vrai
      * si les deux droites ont le même angle et point
