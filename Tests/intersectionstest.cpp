@@ -15,36 +15,34 @@ TEST_CASE("Intersections droites, segments")
 {
     Line l(Point(0,0), Point(5,5));
     Line vl(Point(4,0), Point(4, 10));
+    bool is_point;
 
 
     SECTION("Intersection droite / droite verticale")
     {
-        Point * p = nullptr;
-        bool b = Geometry::intersects(l, vl, &p);
+        Point p;
+        bool b = Geometry::intersects(l, vl, p, is_point);
 
         REQUIRE(b == true);
-        REQUIRE(*p == Point(4,4));
-        delete p;
+        REQUIRE(p == Point(4,4));
     }
 
     SECTION("Non-intersection de deux droites verticales")
     {
-        Point * p = nullptr;
+        Point p;
         Line vl2(Point(0,0), Point(0,10));
-        bool b = Geometry::intersects(vl, vl2, &p);
+        bool b = Geometry::intersects(vl, vl2, p, is_point);
         REQUIRE(b == false);
-        REQUIRE(p == nullptr);
-        delete p;
     }
 
     SECTION("Intersection droite / droite")
     {
-       Point* p = nullptr;
+       Point p;
        Line l2(Point(5,0), M_PI_4);
-       bool b = Geometry::intersects(l, l2, &p);
+       bool b = Geometry::intersects(l, l2, p, is_point);
        REQUIRE(b == true);
-       REQUIRE(*p == Point(2.5, 2.5));
-       delete p;
+       REQUIRE(p == Point(2.5, 2.5));
+
     }
 }
 
@@ -150,14 +148,14 @@ TEST_CASE("Vérification si un point est du bon coté selon l'angle de la droite
     {
         Line l(Point(4,4), M_PI_2);
         Point p(4,5);
-        bool b = Geometry::is_on_good_side(l, p);
+        bool b = Geometry::is_on_good_side(l, Point(4,4), p);
         REQUIRE(b == false);
         Point p2(4,2);
-        b = Geometry::is_on_good_side(l, p2);
+        b = Geometry::is_on_good_side(l, Point(4,4), p2);
         REQUIRE(b == true);
         // même point = faux
         Point p3(4,4);
-        b = Geometry::is_on_good_side(l, p3);
+        b = Geometry::is_on_good_side(l, Point(4,4), p3);
         REQUIRE(b == false);
     }
 
@@ -165,13 +163,13 @@ TEST_CASE("Vérification si un point est du bon coté selon l'angle de la droite
     {
         Line l(Point(10,10), -M_PI_4);
         Point p(3,3);
-        bool b = Geometry::is_on_good_side(l, p);
+        bool b = Geometry::is_on_good_side(l, Point(10,10), p);
         REQUIRE(b == false);
         Point p2(15,15);
-        b = Geometry::is_on_good_side(l, p2);
+        b = Geometry::is_on_good_side(l,Point(10,10), p2);
         REQUIRE(b == true);
         Point p3(10,10);
-        b = Geometry::is_on_good_side(l, p3);
+        b = Geometry::is_on_good_side(l, Point(10,10),  p3);
         REQUIRE(b == false);
     }
 }

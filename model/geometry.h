@@ -60,18 +60,21 @@ namespace Geometry
      */
     double deg_to_rad(double degrees);
 
-    bool is_on_good_side(const Line& l, const Point& p);
+    bool is_on_good_side(const Line& l, const Point &ref, const Point& p);
 
     /**
      * Retourne vrai si la droite possède une intersection
      * avec une autre droite et retourne également
-     * le point d'intersection en paramètre.
+     * le point d'intersection en paramètre et met
+     * is_point à vrai si l'intersection est un point.
      * @param l1 la première droite.
      * @param l2 la deuxième droite.
-     * @param intersecion le point d'intersection.
+     * @param point le point d'intersection.
+     * @param is_point vrai si l'intersection est un point, faux sinon.
      * @return vrai si les droites possèdent une intersection.
      */
-    bool intersects(const Line& l1, const Line& l2, Point **p);
+    bool intersects(const Line& l1, const Line& l2, Point& point, bool& is_point);
+//    bool intersects(const Line& l1, const Line& l2, Point **p);
 
     /**
      * Retourne vrai si la droite possède une intersection
@@ -82,8 +85,10 @@ namespace Geometry
      * @param intersecion le point d'intersection.
      * @return vrai si la droite et le segment possède une intersection.
      */
-    bool intersects(const Line& line, const LineSegment& ls, Point **p);
-    bool intersects(const LineSegment& ls1, const LineSegment& ls2, Point **p);
+      bool intersects(const Line& line, const LineSegment& ls, Point& point, bool& is_point);
+      bool intersects(const LineSegment& ls1, const LineSegment& ls2, Point& point, bool& is_point);
+//    bool intersects(const Line& line, const LineSegment& ls, Point **p);
+//    bool intersects(const LineSegment& ls1, const LineSegment& ls2, Point **p);
 
     /**
      * Vérifie si une droite possède une ou des intersections

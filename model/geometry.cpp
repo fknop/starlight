@@ -37,174 +37,301 @@ double Geometry::rad_to_slope(double rad)
     return -tan(rad);
 }
 
-bool Geometry::is_on_good_side(const Line& l, const Point& p)
+bool Geometry::is_on_good_side(const Line& l, const Point& ref, const Point& p)
 {
-    double angle = l.angle();
+    double angle = l.alpha();
 
     // Angle à 90°
     if (umath::equals(angle, M_PI_2)
             || umath::equals(angle, -M_PI_2_3))
-            return umath::equals(p.x(), l.origin().x())
-                && p.y() < l.origin().y();
+            return umath::equals(p.x(), ref.x())
+                && p.y() < ref.y();
 
     // Angle à 270°
     if (umath::equals(angle, M_PI_2_3)
             || umath::equals(angle, -M_PI_2))
-            return p.y() > l.origin().y();
+            return umath::equals(p.x(), ref.x()) && p.y() > ref.y();
 
     // Angle à 180°
     if (umath::equals(angle, M_PI)
             || umath::equals(angle, -M_PI))
-        return umath::equals(p.y(), l.origin().y())
-                && p.x() < l.origin().x();
+        return umath::equals(p.y(), ref.y())
+                && p.x() < ref.x();
 
     // Angle à 0°
     if (umath::equals(angle, 0)
             || umath::equals(std::abs(angle), 2*M_PI))
-        return umath::equals(p.y(), l.origin().y())
-                && p.x() > l.origin().x();
+        return umath::equals(p.y(), ref.y())
+                && p.x() > ref.x();
 
     // Premier quadrant
     if ((angle > 0 && angle < M_PI_2) ||
             (angle < -M_PI_2_3 && angle > -(2*M_PI)))
-        return p.x() > l.origin().x() + EPSILON && p.y() < l.origin().y() - EPSILON;
+        return p.x() > ref.x() + EPSILON && p.y() < ref.y() - EPSILON;
 
     // Deuxième quadrant
     else if ((angle > M_PI_2 && angle < M_PI) ||
              (angle < -M_PI && angle > -M_PI_2_3))
-        return p.x() < l.origin().x() - EPSILON && p.y() < l.origin().y() - EPSILON;
+        return p.x() < ref.x() - EPSILON && p.y() < ref.y() - EPSILON;
 
     // Troisième quadrant
     else if ((angle > M_PI && angle < M_PI_2_3) ||
              (angle < -M_PI_2 && angle > -M_PI))
-        return p.x() < l.origin().x() - EPSILON && p.y() > l.origin().y() + EPSILON;
+        return p.x() < ref.x() - EPSILON && p.y() > ref.y() + EPSILON;
 
     // Quatrième quadrant
     else
-        return p.x() > l.origin().x() + EPSILON && p.y() > l.origin().y() + EPSILON;
+        return p.x() > ref.x() + EPSILON && p.y() > ref.y() + EPSILON;
 }
 
-bool Geometry::intersects(const Line& l1, const Line& l2, Point **intersection)
+bool Geometry::intersects(const Line& l1, const Line& l2, Point& point, bool& is_point)
 {
-    double x, y,
-           b1, b2,
-           slope1, slope2;
+    double x, y;
 
-    double l1_angle = std::fmod(l1.angle(), M_PI);
-    double l2_angle = std::fmod(l2.angle(), M_PI);
-    bool l1_vertical   = umath::equals(std::abs(l1_angle), M_PI_2);
-    bool l1_horizontal = umath::equals(std::abs(l1_angle), 0);
-    bool l2_vertical   = umath::equals(std::abs(l2_angle), M_PI_2);
-    bool l2_horizontal = umath::equals(std::abs(l2_angle), 0);
-
-    std::cout << "l1 angle : " << l1_angle << std::endl;
-    std::cout << "l2 angle : " << l2_angle << std::endl;
-
-    // Même droite
-    if ((l1_vertical && l2_vertical && !umath::equals(l1.get_x(0), l2.get_x(0)))
-            || (l1_horizontal && l2_horizontal && !umath::equals(l1.get_y(0), l2.get_y(0))))
+    if (l1 == l2)
     {
-        std::cout << "PAS OK?";
-        *intersection = nullptr;
-        return false;
-    }
-    else if (l1_vertical && l2_vertical && umath::equals(l1.get_x(0), l2.get_x(0)))
-    {
-        *intersection = new Point(l2.origin());
-        return true;
-    }
-    else if (l1_horizontal && l2_horizontal && umath::equals(l1.get_y(0), l2.get_y(0)))
-    {
-        *intersection = new Point(l2.origin());
-        return true;
-    }
-    else if (umath::equals(l1_angle, l2_angle) && umath::equals(l1.get_x(0), l2.get_x(0)))
-    {
-        std::cout << "OK";
-        *intersection = new Point(l2.origin());
+        is_point = false;
         return true;
     }
 
-    // Même origine donc intersection == origin
-    if (l1.origin() == l2.origin())
+    if (l1.parallel(l2)) // deux droites V ou H
     {
-        *intersection = new Point(l1.origin());
-        return true;
+        // x et y ci dessous ne représentent pas
+        // les coordonnées x et y
+        if (l1.vertical()) // droites verticales
+        {
+            x = l1.get_x(0);
+            y = l2.get_x(0);
+        }
+        else if (l1.horizontal())// droites horizontales
+        {
+            x = l1.get_y(0);
+            y = l2.get_y(0);
+        }
+        else // droites parallèles.
+        {
+            x = -l1.c() / l1.b();
+            y = -l2.c() / l2.b();
+        }
+
+        if (umath::equals(x , y))
+        {
+            is_point = false;
+            return true;
+        }
+        else
+        {
+            is_point = false;
+            return false;
+        }
     }
 
-   // Droites verticales
-   if (umath::equals(std::abs(std::fmod(l1.angle(), M_PI)), (M_PI_2)))
-   {
-       vertical_line_intersection(l1, l2, intersection);
-   }
-   else if (umath::equals(std::abs(std::fmod(l2.angle(), M_PI)), (M_PI_2)))
-   {
-       vertical_line_intersection(l2, l1, intersection);
-   }
-   // droites non verticales
-   else
-   {
-       slope1 = Geometry::rad_to_slope(l1.angle());
-       slope2 = Geometry::rad_to_slope(l2.angle());
-       b1     = l1.origin().y() - (slope1 * l1.origin().x());
-       b2     = l2.origin().y() - (slope2 * l2.origin().x());
-       x      = (b2 - b1) / (slope1 - slope2);
-       y      = (slope2 * x) + b2;
+    if (l1.vertical() || l2.vertical() || l1.horizontal() || l2.horizontal())
+    {
+        if (l1.horizontal() && l2.vertical())
+        {
+            x = l2.get_x(0);
+            y = l1.get_y(0);
+        }
+        else if (l2.horizontal() && l1.vertical())
+        {
+            x = l1.get_x(0);
+            y = l2.get_y(0);
+        }
+        else if (l1.vertical())
+        {
+            x = l1.get_x(0);
+            y = l2.get_y(x);
+        }
+        else if (l2.vertical())
+        {
+            x = l2.get_x(0);
+            y = l1.get_y(x);
+        }
+        else if (l1.horizontal())
+        {
+            y = l1.get_y(0);
+            x = l2.get_x(y);
+        }
+        else if (l2.horizontal())
+        {
+            y = l2.get_y(0);
+            x = l1.get_x(y);
+        }
+    }
+    else
+    {
+        x = ((l1.c() * l2.b()) - (l2.c() * l1.b())) /
+                ((l2.a() * l1.b()) - (l1.a() * l2.b()));
+        y = l1.get_y(x);
+    }
 
-       *intersection = new Point(x, y);
-   }
-
-   return true;
+    point = Point(x, y);
+    is_point = true;
+    return true;
 }
 
-bool Geometry::intersects(const Line& line, const LineSegment& ls, Point **intersection)
+bool Geometry::intersects(const Line& line, const LineSegment& ls, Point& point, bool& is_point)
 {
     Point start = ls.start();
     Point end = ls.end();
-    double rad = Geometry::slope_to_rad(start, end);
 
-    if ((intersects(line, Line(start, rad), intersection)) &&
-         (ls.contains(**intersection)))
-            return true;
+    bool do_intersect = intersects(line, Line(start, end), point, is_point);
 
 
-    delete *intersection;
-    *intersection = nullptr;
-    return false;
+    if (do_intersect && !is_point)
+        return true;
+    else if (do_intersect && is_point && ls.contains(point))
+        return true;
+    else
+        return false;
+
 }
 
-bool Geometry::intersects(const LineSegment& ls1, const LineSegment& ls2, Point **p)
+bool Geometry::intersects(const LineSegment& ls1, const LineSegment& ls2, Point& point, bool& is_point)
 {
     if (ls1 == ls2)
     {
-        *p = new Point(ls1.start());
+        is_point = false;
         return true;
     }
 
-    Point start1 = ls1.start();
-    Point end1 = ls1.end();
-    Point start2 = ls2.start();
-    Point end2 = ls2.end();
-    double rad1 = Geometry::slope_to_rad(start1, end1);
-    double rad2 = Geometry::slope_to_rad(start2, end2);
+    Line l1(ls1.start(), ls1.end());
+    Line l2(ls2.start(), ls2.end());
 
-    Line l1(start1, rad1);
-    Line l2(start2, rad2);
+    bool do_intersect = intersects(l1, l2, point, is_point);
 
-    return (intersects(l1, l2, p) &&
-            ls1.contains(**p) && ls2.contains(**p));
+    if (do_intersect && !is_point)
+        return true;
 
-
-
+    if (do_intersect && is_point && ls1.contains(point) && ls2.contains(point))
+        return true;
+    else
+        return false;
 }
 
+
+//bool Geometry::intersects(const Line& l1, const Line& l2, Point **intersection)
+//{
+//    double x, y,
+//           b1, b2,
+//           slope1, slope2;
+
+//    double l1_angle = std::fmod(l1.angle(), M_PI);
+//    double l2_angle = std::fmod(l2.angle(), M_PI);
+//    bool l1_vertical   = umath::equals(std::abs(l1_angle), M_PI_2);
+//    bool l1_horizontal = umath::equals(std::abs(l1_angle), 0);
+//    bool l2_vertical   = umath::equals(std::abs(l2_angle), M_PI_2);
+//    bool l2_horizontal = umath::equals(std::abs(l2_angle), 0);
+
+//    std::cout << "l1 angle : " << l1_angle << std::endl;
+//    std::cout << "l2 angle : " << l2_angle << std::endl;
+
+//    // Même droite
+//    if ((l1_vertical && l2_vertical && !umath::equals(l1.get_x(0), l2.get_x(0)))
+//            || (l1_horizontal && l2_horizontal && !umath::equals(l1.get_y(0), l2.get_y(0))))
+//    {
+//        std::cout << "PAS OK?";
+//        *intersection = nullptr;
+//        return false;
+//    }
+//    else if (l1_vertical && l2_vertical && umath::equals(l1.get_x(0), l2.get_x(0)))
+//    {
+//        *intersection = new Point(l2.origin());
+//        return true;
+//    }
+//    else if (l1_horizontal && l2_horizontal && umath::equals(l1.get_y(0), l2.get_y(0)))
+//    {
+//        *intersection = new Point(l2.origin());
+//        return true;
+//    }
+//    else if (umath::equals(l1_angle, l2_angle) && umath::equals(l1.get_x(0), l2.get_x(0)))
+//    {
+//        std::cout << "OK";
+//        *intersection = new Point(l2.origin());
+//        return true;
+//    }
+
+//    // Même origine donc intersection == origin
+//    if (l1.origin() == l2.origin())
+//    {
+//        *intersection = new Point(l1.origin());
+//        return true;
+//    }
+
+//   // Droites verticales
+//   if (umath::equals(std::abs(std::fmod(l1.angle(), M_PI)), (M_PI_2)))
+//   {
+//       vertical_line_intersection(l1, l2, intersection);
+//   }
+//   else if (umath::equals(std::abs(std::fmod(l2.angle(), M_PI)), (M_PI_2)))
+//   {
+//       vertical_line_intersection(l2, l1, intersection);
+//   }
+//   // droites non verticales
+//   else
+//   {
+//       slope1 = Geometry::rad_to_slope(l1.angle());
+//       slope2 = Geometry::rad_to_slope(l2.angle());
+//       b1     = l1.origin().y() - (slope1 * l1.origin().x());
+//       b2     = l2.origin().y() - (slope2 * l2.origin().x());
+//       x      = (b2 - b1) / (slope1 - slope2);
+//       y      = (slope2 * x) + b2;
+
+//       *intersection = new Point(x, y);
+//   }
+
+//   return true;
+//}
+
+//bool Geometry::intersects(const Line& line, const LineSegment& ls, Point **intersection)
+//{
+//    Point start = ls.start();
+//    Point end = ls.end();
+//    double rad = Geometry::slope_to_rad(start, end);
+
+//    if ((intersects(line, Line(start, rad), intersection)) &&
+//         (ls.contains(**intersection)))
+//            return true;
+
+
+//    delete *intersection;
+//    *intersection = nullptr;
+//    return false;
+//}
+
+//bool Geometry::intersects(const LineSegment& ls1, const LineSegment& ls2, Point **p)
+//{
+//    if (ls1 == ls2)
+//    {
+//        *p = new Point(ls1.start());
+//        return true;
+//    }
+
+//    Point start1 = ls1.start();
+//    Point end1 = ls1.end();
+//    Point start2 = ls2.start();
+//    Point end2 = ls2.end();
+//    double rad1 = Geometry::slope_to_rad(start1, end1);
+//    double rad2 = Geometry::slope_to_rad(start2, end2);
+
+//    Line l1(start1, rad1);
+//    Line l2(start2, rad2);
+
+//    return (intersects(l1, l2, p) &&
+//            ls1.contains(**p) && ls2.contains(**p));
+
+
+
+//}
+
 int Geometry::intersects(const Ellipse& e, const Line& l,
-               std::vector<Point> &points)
+               std::vector<Point>& points)
 {
-    double x = l.origin().x();
-    double y = l.origin().y();
-    double slope = Geometry::rad_to_slope(l.angle()); // pente -> a dans y = ax + b
-    double d = y - (slope * x); // d -> b dans y = ax + b
+    double x;
+    double y;
+    double slope = l.slope();
+    double d = -l.c() / l.b();
     double x1 = e.center().x();
     double y1 = e.center().y();
     double xR = e.x_rad();
@@ -215,31 +342,45 @@ int Geometry::intersects(const Ellipse& e, const Line& l,
     double lcmx = lcm / (yR*yR);
     double lcmy = lcm / (xR*xR);
 
-    bool horizontalLine = umath::equals(0, slope);
-    bool verticalLine = umath::equals(std::abs(std::fmod(l.angle(), M_PI)), (M_PI_2));
 
-    if (verticalLine)
+    // ax + by + c = 0
+    // lcmy(x - x1)² + lcmx(y - y1)² = lcm
+    // ax + c = 0
+    // x = -c / a
+    // x²*lcmy + x1²*lcmy - 2*lcmy*x*x1 + lcmx*y² + lcmx*y1² - 2*lcmx*y*y1 - lcm = 0
+    if (l.vertical())
     {
+        x = l.get_x(0); // = -c/a
         a = (lcmx);
-        b = (-2* lcmx * y1);
-        c = (lcmy * x * x) + (lcmy * x1 * x1) +(lcmx * y1 * y1)
-                - (2 * lcmy * x * x1) - (lcm);
+        b = (-2 * lcmx * y1);
+        c = (lcmy * std::pow((x - x1), 2)) + (lcmx * y1 *y1) - (lcm);
     }
-    else if (horizontalLine)
+    else if (l.horizontal())
     {
-        // y = k
-        // lcmy(x - x1)² + lcmx(k - y1)² = lcm
-        // lcmy(x² + x1² - 2*x*x1) + lcmx (k - y1)² = lcm
-        // lcmy*x² + lcmy * x1² - lcmy * 2 * x * x1 + lcmx(k-y1)² - lcm = 0
-        // a = lcmy
-        // b = -2lcmy*x1
-        // c = lcmy*x1² + lcmx(k-y1)² - lcm
+        // by + c = 0
+        // y = -c / b
+        // lcmy*x² + lcmy*x1² - 2*lcmy*x*x1
+        //  + lcmx*y² + lcmx*y1² - 2*lcmx*y*y1 - lcm = 0
+        y = l.get_y(0);
         a = lcmy;
         b = -2 * lcmy * x1;
         c = (lcmy * x1 * x1) + (lcmx * (std::pow((y - y1), 2))) - lcm;
     }
     else
     {
+        // ax + by + c = 0
+        // y = -ax/b - c/b
+        // lcmy*x² + lcmy*x1² - 2*lcmy*x*x1
+        //  + (slope*x - d + y1)²
+
+        // lcmy*x² + lcmy*x1² - 2*lcmy*x*x1
+        // (lcmx*slope²*x² + lcmx*(d+y1)² - 2*lcmx*slope*x*(d+y1) -lcm = 0
+        // a = lcmy + lcmx*slope*slope
+        // b = -2*lcmy*x1 - 2*lcmx*slope*(d+y1)
+
+//        a = lcmy + (slope*slope*lcmx);
+//        b = -2*lcmy*x1 -2*lcmx*slope*(d+y1);
+//        c = (lcmy*x1*x1) + (lcmx*std::pow((d+y1),2)) - lcm;
         a = lcmy + (slope * slope * lcmx);
         b = -(2 * lcmy * d)
                 - (2 * slope * lcmy * x1)
@@ -256,29 +397,28 @@ int Geometry::intersects(const Ellipse& e, const Line& l,
 
     if (rho >= 0)
     {
-        if (horizontalLine)
-        {
+        if (l.horizontal())
+        { 
             x = (-b + std::sqrt(rho)) / (2*a);
-
         }
         else
         {
             y = (-b + std::sqrt(rho)) / (2*a);
-            x = verticalLine ? x : (y - d) / slope;
+            x = l.get_x(y);
         }
 
         points.push_back(Point(x, y));
 
         if (rho > 0)
         {
-            if (horizontalLine)
+            if (l.horizontal())
             {
                 x = (-b - std::sqrt(rho)) / (2*a);
             }
             else
             {
                 y = (-b - std::sqrt(rho)) / (2*a);
-                x = verticalLine ? x : (y - d) / slope;
+                x = l.get_x(y);
             }
 
             points.push_back(Point(x,y));
@@ -291,11 +431,7 @@ int Geometry::intersects(const Ellipse& e, const Line& l,
 int Geometry::intersects(const Ellipse& e, const LineSegment& ls,
                std::vector<Point>& points)
 {
-    Point start = ls.start();
-    Point end = ls.end();
-    double rad = Geometry::slope_to_rad(start, end);
-
-    intersects(e, Line(start, rad), points);
+    intersects(e, Line(ls.start(), ls.end()), points);
 
     for (auto i = points.begin(); i != points.end(); )
     {
@@ -333,14 +469,14 @@ int Geometry::intersects(const Rectangle& r, const Line& line,
     /* Pour chaque côté, s’il existe une intersection
      * on la push dans le vecteur de points, à moins que
      * l’intersection soit déjà présente */
-    Point* p = nullptr;
-
+    Point p;
+    bool is_point;
     for (auto &i : segments) {
-        if (intersects(line, i, &p) &&
-                 std::find(points.begin(), points.end(), *p) == points.end())
-            points.push_back(Point(*p));
+        if (intersects(line, i, p, is_point) && is_point &&
+                 std::find(points.begin(), points.end(), p) == points.end())
+            points.push_back(Point(p));
 
-        delete p;
+
     }
 
     return points.size();
@@ -349,11 +485,7 @@ int Geometry::intersects(const Rectangle& r, const Line& line,
 int Geometry::intersects(const Rectangle& r, const LineSegment& ls,
                std::vector<Point>& points)
 {
-    Point start = ls.start();
-    Point end = ls.end();
-    double rad = Geometry::slope_to_rad(start, end);
-
-    intersects(r, Line(start, rad), points);
+    intersects(r, Line(ls.start(), ls.end()), points);
 
     /* Enlève chaque point du vecteur qui n’est pas
      * sur le segment. */
@@ -369,14 +501,3 @@ int Geometry::intersects(const Rectangle& r, const LineSegment& ls,
     return points.size();
 }
 
-
-bool Geometry::vertical_line_intersection(const Line& verticalL, const Line& line,
-                                      Point** intersection)
-{
-    double x     = verticalL.origin().x();
-    double slope = Geometry::rad_to_slope(line.angle());
-    double b     = line.origin().y() - (slope * line.origin().x());
-    double y     = (x * slope) + b;
-    *intersection = new Point(x,y);
-    return true;
-}

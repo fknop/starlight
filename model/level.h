@@ -271,14 +271,14 @@ private:
      * @param wl la longueur d'onde du rayon.
      * @return l'état du jeu après avoir créer le rayon.
      */
-    State compute_ray(Line& line, int wl);
+    State compute_ray(Line& line, const Point &start, int wl);
 
     /**
      * Retourne l'intersection la plus proche du rayon avec un objet.
      * @param line la droite du rayon.
      * @return l'intersection la plus proche.
      */
-    void get_intersections(const Line& line);
+    void get_intersections(const Line& line, const Point &start);
 
     /**
      * Calcule l'angle de reflexion d'un rayon sur un miroir.
@@ -295,7 +295,7 @@ private:
 
     void walls_intersections(const Line& line,
                              std::vector<Intersection>& intersections,
-                             Point** p);
+                             Point &p);
 
     void lenses_intersections(const Line& line,
                               std::vector<Intersection>& intersections,
@@ -303,7 +303,7 @@ private:
 
     void mirrors_intersections(const Line& line,
                                std::vector<Intersection>& intersections,
-                               Point** p);
+                               Point& p);
 
     void nukes_intersections(const Line& line,
                              std::vector<Intersection>& intersections,
@@ -314,10 +314,10 @@ private:
                                 std::vector<Point>& points);
 
     void erase_wrongs_intersections(const Line& line,
-                                    std::vector<Intersection>& intersections);
+                                    std::vector<Intersection>& intersections, const Point &start);
 
     void sort_intersections(const Line& line,
-                            std::vector<Intersection> &intersections);
+                            std::vector<Intersection> &intersections, const Point &start);
 
     bool check_collisions(const LineSegment &segment, Mirror *m);
 };
