@@ -19,6 +19,7 @@ public:
         CRYSTAL,
         LENS,
         DEST,
+        SOURCE,
         NUKE,
         WALL
     };

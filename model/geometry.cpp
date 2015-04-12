@@ -129,7 +129,6 @@ bool Geometry::intersects(const Line& l1, const Line& l2, Point& point, bool& is
 
     if (l1.vertical() || l2.vertical() || l1.horizontal() || l2.horizontal())
     {
-
         if (l1.horizontal() && l2.vertical())
         {
             x = l2.get_x(0);

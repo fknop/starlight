@@ -118,6 +118,7 @@ Level::State Level::compute_ray(Line& line, const Point& start, int wl)
         }
 
         case Element::Type::WALL:
+        case Element::Type::SOURCE:
         {
             state = State::STOP;
             break;
@@ -146,18 +147,20 @@ void Level::get_intersections(const Line& line, const Point& start)
     std::vector<Point> points;
 
     // Ajout des intersections au vecteur d'intersections
-    walls_intersections(line, this->intersections_, start);
-    mirrors_intersections(line, this->intersections_, start);
-    lenses_intersections(line, this->intersections_, points);
-    dest_intersections(line, this->intersections_, points);
-    nukes_intersections(line, this->intersections_, points);
-    crystals_intersections(line, this->intersections_, points);
+    this->source_intersections(line, points, start);
+    this->walls_intersections(line, start);
+    this->mirrors_intersections(line, start);
+    this->lenses_intersections(line, points);
+    this->dest_intersections(line, points);
+    this->nukes_intersections(line, points);
+    this->crystals_intersections(line, points);
 
     // Suppression des intersections du mauvais côté.
-    erase_wrongs_intersections(line, this->intersections_, start);
+    this->erase_wrongs_intersections(line, start);
+
     // Trie les intersections selon leur distance par rapport
     // à l'origine du rayon
-    sort_intersections(this->intersections_, start);
+    this->sort_intersections(start);
 }
 
 double Level::get_reflection_angle(double angle, double alpha)
@@ -182,24 +185,38 @@ double Level::get_reflection_angle(double angle, double alpha)
     double p = std::fmod((M_PI_2 + alpha), (M_PI));
     double angle_ray_p = p - (std::fmod(angle, M_PI));
 
+    if (umath::angle_equals_pi(angle, alpha))
+        return std::fmod(angle + M_PI, 2*M_PI);
+
 
 
     return std::fmod((angle + M_PI + (2 * angle_ray_p)), (2*M_PI));
 }
 
 void Level::dest_intersections(const Line &line,
-                               std::vector<Intersection>& intersections,
                                std::vector<Point>& points)
 {
+    points.clear();
     if (Geometry::intersects(this->dest_.to_rectangle(), line, points) > 0)
     {
         for (auto &i : points)
-            intersections.push_back(Intersection(new Point(i), &this->dest_));
+            intersections_.push_back(Intersection(new Point(i), &this->dest_));
+    }
+}
+
+void Level::source_intersections(const Line& line,
+                                 std::vector<Point>& points,
+                                 const Point& start)
+{
+    points.clear();
+    if (!(start == source_.pos()) && Geometry::intersects(this->source_.to_rectangle(), line, points) > 0)
+    {
+        for (auto &i : points)
+            intersections_.push_back(Intersection(new Point(i), &this->source_));
     }
 }
 
 void Level::walls_intersections(const Line &line,
-                                std::vector<Intersection>& intersections,
                                 const Point& start)
 {
     bool is_point;
@@ -216,13 +233,12 @@ void Level::walls_intersections(const Line &line,
                 else
                     p = Point(ls.end());
             }
-            intersections.push_back(Intersection(new Point(p), &i));
+            intersections_.push_back(Intersection(new Point(p), &i));
         }
     }
 }
 
 void Level::lenses_intersections(const Line &line,
-                                 std::vector<Intersection>& intersections,
                                  std::vector<Point>& points)
 {
     for (auto &i : this->lenses_)
@@ -231,13 +247,12 @@ void Level::lenses_intersections(const Line &line,
         if (Geometry::intersects(i.to_ellipse(), line, points))
         {
             for (auto &j : points)
-                intersections.push_back(Intersection(new Point(j), &i));
+                intersections_.push_back(Intersection(new Point(j), &i));
         }
     }
 }
 
 void Level::mirrors_intersections(const Line &line,
-                                  std::vector<Intersection>& intersections,
                                   const Point& start)
 {
     bool is_point;
@@ -247,6 +262,7 @@ void Level::mirrors_intersections(const Line &line,
     {
         if (Geometry::intersects(line, i.to_line_segment(), p, ls, is_point))
         {
+
             if (!is_point)
             {
                 if (start.distance(ls.start()) < start.distance(ls.end()))
@@ -254,13 +270,15 @@ void Level::mirrors_intersections(const Line &line,
                 else
                     p = Point(ls.end());
             }
-            intersections.push_back(Intersection(new Point(p), &i));
+            intersections_.push_back(Intersection(new Point(p), &i));
+        } else
+        {
+            std::cout << "No intersect" << std::endl;
         }
     }
 }
 
 void Level::nukes_intersections(const Line& line,
-                                std::vector<Intersection>& intersections,
                                 std::vector<Point>& points)
 {
     for (auto &i : this->nukes_)
@@ -269,13 +287,12 @@ void Level::nukes_intersections(const Line& line,
         if (Geometry::intersects(i.to_ellipse(), line, points))
         {
             for (auto &j : points)
-                intersections.push_back(Intersection(new Point(j), &i));
+                intersections_.push_back(Intersection(new Point(j), &i));
         }
     }
 }
 
 void Level::crystals_intersections(const Line &line,
-                                   std::vector<Intersection>& intersections,
                                    std::vector<Point>& points)
 {
     for (auto &i : this->crystals_)
@@ -284,29 +301,27 @@ void Level::crystals_intersections(const Line &line,
         if (Geometry::intersects(i.to_ellipse(), line, points))
         {
             for (auto &j : points)
-                intersections.push_back(Intersection(new Point(j), &i));
+                intersections_.push_back(Intersection(new Point(j), &i));
         }
     }
 }
 
 void Level::erase_wrongs_intersections(const Line& line,
-                                       std::vector<Intersection>& intersections,
                                        const Point& start)
 {
-    for (auto i = intersections.begin(); i != intersections.end(); )
+    for (auto i = intersections_.begin(); i != intersections_.end(); )
     {
         if (!Geometry::is_on_good_side(line, start, *(*i).point()))
-            i = intersections.erase(i);
+            i = intersections_.erase(i);
         else
             ++i;
     }
 }
 
 ///////////////////// TO CHECK ///////////////
-void Level::sort_intersections(std::vector<Intersection>& intersections,
-                               const Point& start)
+void Level::sort_intersections(const Point& start)
 {
-    std::sort(intersections.begin(), intersections.end(),
+    std::sort(intersections_.begin(), intersections_.end(),
               [start](const Intersection& a, const Intersection& b) -> bool
     {
         int distance_a = a.point()->distance(start);
