@@ -178,7 +178,6 @@ bool Geometry::intersects(const Line& line, const LineSegment& ls, Point& point,
 
     bool do_intersect = intersects(line, Line(start, end), point, is_point);
 
-
     if (do_intersect && !is_point)
         return true;
     else if (do_intersect && is_point && ls.contains(point))
