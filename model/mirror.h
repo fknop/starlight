@@ -163,6 +163,44 @@ class Mirror : public Element, public Observable
     inline bool set_pivot(const Point& pivot);
 
     /**
+     * Modifie le décalage du pivot par rapport au bord gauche du miroir.
+     * @param x le nouveau décalage.
+     */
+    inline void set_xpad(double x);
+
+    /**
+     * Modifie la longueur du miroir.
+     * @param len la nouvelle longueur du miroir.
+     */
+    inline void set_len(double len);
+
+    /**
+     * Modifie la position minimale du miroir.
+     * @param x abscisse minimale du miroir.
+     * @param y ordonnée minimale du miroir.
+     */
+    inline void set_min(Point min);
+
+    /**
+     * Modifie la position maximale du miroir.
+     * @param x abscisse maximale du miroir.
+     * @param y ordonnée maximale du miroir.
+     */
+    inline void set_max(Point max);
+
+    /**
+     * Modifie l’angle d’inclinaison minimum du miroir.
+     * @param amin le nouvel angle d’inclinaison minimal.
+     */
+    inline void set_alpha_min(double amin);
+
+    /**
+     * Modifie l’angle d’inclinaison maximum du miroir.
+     * @param amax le nouvel angle d’inclinaison maximal.
+     */
+    inline void set_alpha_max(double amax);
+
+    /**
      * Pivote le miroir sur un angle donné, si c'est
      * autorisé. Retourne vrai si la rotation a été effectuée
      * correctement, retourne faux sinon.
@@ -277,13 +315,44 @@ bool Mirror::set_pivot(const Point& p)
     return r;
 }
 
+void Mirror::set_xpad(double x)
+{
+    xpad_ = x;
+}
+
+void Mirror::set_len(double len)
+{
+    length_ = len;
+}
+
+void Mirror::set_min(Point min)
+{
+    x_min_ = min.x();
+    y_min_ = min.y();
+}
+
+void Mirror::set_max(Point max)
+{
+    x_max_ = max.x();
+    y_max_ = max.y();
+}
+
+void Mirror::set_alpha_min(double amin)
+{
+    alpha_min_ = amin;
+}
+
+void Mirror::set_alpha_max(double amax)
+{
+    alpha_max_ = amax;
+}
+
 bool Mirror::set_angle(double a)
 {
     bool r {check_angle_range(a)};
     if (r)
         this->alpha_ = a;
     return r;
-
 }
 
 void Mirror::set_movable(bool value)
