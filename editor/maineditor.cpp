@@ -109,7 +109,7 @@ void MainEditor::setupUi()
     quit_action_ = new QAction("&Quit", menu_bar_);
     quit_action_->setShortcuts(QKeySequence::Quit);
     quit_action_->setStatusTip("Quit the editor");
-    //connect(quit_action_, &QAction::triggered, &QCoreApplication::quit);
+    connect(quit_action_, &QAction::triggered, &QCoreApplication::quit);
 
     file_menu_->addAction(quit_action_);
 
@@ -171,6 +171,9 @@ void MainEditor::load_level()
             level_->add_observer(mapview_);
             mapview_->add_observer(this);
             verticalLayout_2->addWidget(mapview_);
+
+            elements->set_height(level_->height());
+            elements->set_width(level_->width());
         }
     }
 }

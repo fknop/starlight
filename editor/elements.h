@@ -20,6 +20,9 @@ public:
     explicit Elements(QWidget *parent = 0);
     Level * level();
 
+    void set_height(int h);
+    void set_width(int w);
+
 private:
     void setupUi();
     void add_connections();
