@@ -58,6 +58,24 @@ class Crystal : public Element
      */
     inline double radius() const;
 
+    /**
+     * Modifie la coordonée du centre du cristal.
+     * @param c le nouveau centre du cristal.
+     */
+    inline void set_center(const Point &c);
+
+    /**
+     * Modifie le rayon du cristal.
+     * @param rad le nouveau rayon du cristal.
+     */
+    inline void set_radius(double rad);
+
+    /**
+     * Modifie le modificateur de longueur d’onde du cristal.
+     * @param mod le modificateur de longueur d’onde du cristal.
+     */
+    inline void set_modifier(double mod);
+
     Ellipse to_ellipse() const;
 
     /**
@@ -91,5 +109,19 @@ double Crystal::radius() const
     return this->rad_;
 }
 
+void Crystal::set_center(const Point& c)
+{
+    center_ = c;
+}
+
+void Crystal::set_radius(double rad)
+{
+    rad_ = rad;
+}
+
+void Crystal::set_modifier(double mod)
+{
+    mod_ = mod;
+}
 
 #endif // CRYSTAL_H

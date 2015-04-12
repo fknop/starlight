@@ -19,6 +19,8 @@
 * ~~Gérer les vérifications dans les constructeurs. - A FINIR~~
 * ~~Gérer le déplacement des miroirs.~~
 * ~~Gérer la rotations des miroirs.   - A TESTER~~
+* Double constructeur dans Mirror, vraiment nécessaire ? Si retirer premier, gérer x et y qui doivent être entre xmin/ymin et xmax/ymax
+Si pas à retirer, utiliser param par défaut
 
 # Rules
 

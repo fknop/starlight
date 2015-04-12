@@ -45,8 +45,8 @@ class Dest : public Element, public Observable
     inline const Point& pos() const;
 
     /**
-     * Retourne la longueur du côté du carré.
-     * @return la longueur du côté du carré.
+     * Retourne la longueur du côté du carré représentant la destination.
+     * @return la longueur du côté du carré représentant la destination.
      */
     inline double edge() const;
 
@@ -64,6 +64,19 @@ class Dest : public Element, public Observable
      * faux sinon.
      */
     inline void set_lighted_up(const bool q);
+
+    /**
+     * Modifie la position du coin supérieur gauche du carré.
+     * @param pos la nouvelle position du coin supérieur gauche
+     * de la destination.
+     */
+    inline void set_pos(Point pos);
+
+    /**
+     * Modifie la longueur du côté du carré représentant la destination.
+     * @param edge la nouvelle longueur du côté de la destination.
+     */
+    inline void set_edge(double edge);
 
     Rectangle to_rectangle();
 
@@ -98,7 +111,16 @@ void Dest::set_lighted_up(const bool q)
 {
     this->light_up_ = q;
     notify_all(std::string("LIGHTED_UP"));
+}
 
+void Dest::set_pos(Point pos)
+{
+    pos_ = pos;
+}
+
+void Dest::set_edge(double edge)
+{
+    edge_ = edge;
 }
 
 #endif // DEST_H
