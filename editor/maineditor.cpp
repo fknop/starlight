@@ -82,6 +82,35 @@ void MainEditor::setupUi()
 {
     resize(975, 649);
 
+    menu_bar_ = new QMenuBar(this);
+
+    file_menu_ = menu_bar_->addMenu("&File");
+
+    load_level_action_ = new QAction("&Load level", menu_bar_);
+    load_level_action_->setShortcuts(QKeySequence::Open);
+    load_level_action_->setStatusTip("Load a Starlight level");
+    //connect(open_level_action_, SIGNAL(triggered()), this, SLOT(loadLevel()));
+
+    file_menu_->addAction(load_level_action_);
+
+
+    save_level_action_ = new QAction("&Save level", menu_bar_);
+    save_level_action_->setShortcuts(QKeySequence::Save);
+    save_level_action_->setStatusTip("Save a Starlight level");
+    //connect(close_level_action_, SIGNAL(triggered()), this, SLOT(closeLevel()));
+
+    file_menu_->addAction(save_level_action_);
+
+
+    quit_action_ = new QAction("&Quit", menu_bar_);
+    quit_action_->setShortcuts(QKeySequence::Quit);
+    quit_action_->setStatusTip("Quit the program");
+    //connect(quit_action_, &QAction::triggered, &QCoreApplication::quit);
+
+    file_menu_->addAction(quit_action_);
+
+    setMenuBar(menu_bar_);
+
 
     centralWidget = new QWidget();
 

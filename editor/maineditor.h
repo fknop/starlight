@@ -23,6 +23,13 @@ public:
     explicit MainEditor(QWidget *parent = 0);
     void setupUi();
 
+    QMenuBar * menu_bar_;
+    QMenu * file_menu_;
+    QAction * load_level_action_;
+    QAction * save_level_action_;
+    QAction * quit_action_;
+    QAction * help_action_;
+
     QWidget *centralWidget;
     QHBoxLayout *horizontalLayout;
     Elements *elements;

@@ -58,7 +58,6 @@ void MainWindow::setupUi()
     showMaximized();
 
     menu_bar_ = new QMenuBar(this);
-    menu_bar_->setObjectName(QStringLiteral("menuBar"));
 
     file_menu_ = menu_bar_->addMenu("&File");
 
@@ -91,20 +90,8 @@ void MainWindow::setupUi()
 
     setMenuBar(menu_bar_);
 
-
-
-//    main_tool_bar_ = new QToolBar(this);
-//    main_tool_bar_->setObjectName(QStringLiteral("mainToolBar"));
-//    addToolBar(main_tool_bar_);
-
     QWidget * central_widget = new QWidget(this);
-    central_widget->setObjectName(QStringLiteral("centralWidget"));
     setCentralWidget(central_widget);
-
-//    status_bar_ = new QStatusBar(this);
-//    status_bar_->setObjectName(QStringLiteral("statusBar"));
-//    setStatusBar(status_bar_);
-
 
     centralWidget()->setEnabled(false);
     open_level_action_->setEnabled(true);
