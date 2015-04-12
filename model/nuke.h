@@ -54,6 +54,18 @@ class Nuke : public Element, public Observable
     inline void set_lighted_up(bool q);
 
     /**
+     * Modifie la position de la bombe.
+     * @param p la nouvelle position de la bombe.
+     */
+    inline void set_pos(Point p);
+
+    /**
+     * Modifie le rayon de la bombe.
+     * @param r le nouveau rayon de la bombe.
+     */
+    inline void set_radius(double r);
+
+    /**
      * Renvoie l'ellipse correspondante à la bombe.
      * @return l'ellipse correspondante à la bombe.
      */
@@ -93,6 +105,16 @@ void Nuke::set_lighted_up(bool q)
 {
     this->lighted_up_ = q;
     notify_all(std::string("LIGHTED_UP"));
+}
+
+void Nuke::set_pos(Point p)
+{
+    pos_ = p;
+}
+
+void Nuke::set_radius(double r)
+{
+    rad_ = r;
 }
 
 #endif // NUKE_H

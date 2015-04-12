@@ -91,6 +91,33 @@ class Source : public Observable
      */
     inline void set_on(bool q);
 
+    /**
+     * Modifie la coordonnée du coin supérieur gauche du carré
+     * représenant la source.
+     * @param p la nouvelle coordonnée du coin supérieur gauche du carré
+     * représentant la source.
+     */
+    inline void set_pos(Point p);
+
+    /**
+     * Modifie la longueur du côté du carré représentant la source.
+     * @param edge la nouvelle longueur du côté du carré représentant
+     * la source.
+     */
+    inline void set_edge(double edge);
+
+    /**
+     * Modifie l’angle du rayon émis.
+     * @param angle le nouvel angle du rayon émis.
+     */
+    inline void set_alpha(double angle);
+
+    /**
+     * Modifie la longueur d’onde du rayon émis.
+     * @param wl la nouvelle longueur d’onde du rayon émis.
+     */
+    inline void set_wavelength(double wl);
+
 
 
     Rectangle to_rectangle();
@@ -137,6 +164,26 @@ void Source::set_on(bool q)
 {
     this->on_ = q;
     notify_all(std::string("SOURCE_ON"));
+}
+
+void Source::set_pos(Point p)
+{
+    pos_ = p;
+}
+
+void Source::set_edge(double edge)
+{
+    edge_ = edge;
+}
+
+void Source::set_alpha(double a)
+{
+    alpha_ = a;
+}
+
+void Source::set_wavelength(double wl)
+{
+    wavelength_ = wl;
 }
 
 #endif // SOURCE_H

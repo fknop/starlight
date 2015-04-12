@@ -45,6 +45,10 @@ class Wall : public Element
      */
     inline const Point& end() const;
 
+    inline void set_start(Point s);
+
+    inline void set_end(Point e);
+
     /**
      * Renvoie le segment correspondant au mur.
      * @return le segment correspondant au mur.
@@ -74,6 +78,16 @@ const Point& Wall::start() const
 const Point& Wall::end() const
 {
     return this->end_;
+}
+
+void Wall::set_start(Point s)
+{
+    start_ = s;
+}
+
+void Wall::set_end(Point e)
+{
+    end_ = e;
 }
 
 #endif // WALL_H
