@@ -67,6 +67,6 @@ void WallProp::reset()
 
 void WallProp::apply()
 {
-//    wall_->set_pivot(Point(x1_dsb->value(), y1_dsb->value()));
-    //mirror_->set_angle();
+    wall_->set_start(Point(x1_dsb->value(), y1_dsb->value()));
+    wall_->set_end(Point(x2_dsb->value(), y2_dsb->value()));
 }
