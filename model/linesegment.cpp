@@ -58,3 +58,8 @@ bool LineSegment::operator==(const LineSegment& ls) const
     return (this->start_ == ls.start_ && this->end_ == ls.end_)
             || (this->start_ == ls.end_ && this->end_ == ls.start_);
 }
+
+Line LineSegment::to_line() const
+{
+    return Line(start_, end_);
+}

@@ -4,7 +4,7 @@
 #include <string>
 
 #ifndef EPSILON
-    #define EPSILON 0.0001
+    #define EPSILON 0.001
 #endif
 
 #ifndef INF
