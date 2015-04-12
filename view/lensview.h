@@ -9,14 +9,14 @@
 class LensView : public QGraphicsEllipseItem, public ElementView
 {
 public:
-    LensView(const Lens& lens, bool selectable = false);
+    LensView(const Lens & lens, bool selectable = false);
     Lens * lens();
 
     inline bool selectable() const;
     inline void set_selectable(bool value);
 
 private:
-    const Lens* lens_;
+    Lens * lens_;
     bool selectable_;
 };
 

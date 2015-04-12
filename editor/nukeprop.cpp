@@ -1,6 +1,6 @@
 #include "nukeprop.h"
 
-NukeProp::NukeProp(Nuke *nuke, QWidget *parent)
+NukeProp::NukeProp(Nuke *nuke, QWidget *parent) : nuke_{nuke}
 {
     setupUi();
     reset();

@@ -1,7 +1,6 @@
 #include "crystalprop.h"
 
-CrystalProp::CrystalProp(Crystal *crystal, QWidget *parent) :
-    crystal_{crystal}
+CrystalProp::CrystalProp(Crystal *crystal, QWidget *parent) : crystal_{crystal}
 {
     setupUi();
     reset();

@@ -14,7 +14,7 @@ class LensProp : public PropertiesInterface
 {
     Q_OBJECT
 public:
-    LensProp(Lens *lens, QWidget *parent = 0);
+    LensProp(Lens * lens, QWidget *parent = 0);
     void setupUi();
 
 private:
@@ -32,7 +32,6 @@ private:
     QDoubleSpinBox *wl_min_dsb;
     QLabel *wl_max_label;
     QDoubleSpinBox *wl_max_dsb;
-
 
     Lens * lens_;
 

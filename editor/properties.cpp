@@ -1,6 +1,8 @@
 #include "crystalprop.h"
 #include "lensprop.h"
 #include "mirrorprop.h"
+#include "nukeprop.h"
+#include "wallprop.h"
 #include "properties.h"
 
 #include <iostream>
@@ -62,17 +64,20 @@ void Properties::set_element_prop(ElementView * ev)
 {
     std::cout << "[Properties - set_element_prop]" << std::endl;
 
+    if (prop_interface_ != nullptr)
+    {
+        delete prop_interface_;
+        prop_interface_ = nullptr;
+    }
+
     if (ev != nullptr)
     {
-        groupBox->layout()->removeWidget(prop_interface_);
-
         switch(ev->type_view())
         {
         case ElementView::TypeView::MIRRORVIEW:
         {
             MirrorView * mv = dynamic_cast<MirrorView *> (ev);
             prop_interface_ = new MirrorProp(mv->mirror(), groupBox);
-
 
             break;
         }
@@ -90,9 +95,23 @@ void Properties::set_element_prop(ElementView * ev)
 
             break;
         }
+        case ElementView::TypeView::NUKEVIEW:
+        {
+            NukeView * nv = dynamic_cast<NukeView *> (ev);
+            prop_interface_ = new NukeProp(nv->nuke(), groupBox);
+
+            break;
+        }
+        case ElementView::TypeView::WALLVIEW:
+        {
+            WallView * wv = dynamic_cast<WallView *> (ev);
+            prop_interface_ = new WallProp(wv->wall(), groupBox);
+
+            break;
+        }
         default:
         {
-            std::cout << "CASE not found" << std::endl;
+            std::cout << "Unknown ElementView" << std::endl;
         }
         }
 

@@ -15,6 +15,8 @@
 #include "view/crystalview.h"
 #include "view/lensview.h"
 #include "view/mirrorview.h"
+#include "view/nukeview.h"
+#include "view/wallview.h"
 
 #include "propertiesinterface.h"
 

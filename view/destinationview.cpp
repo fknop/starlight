@@ -6,6 +6,7 @@ DestinationView::DestinationView(const Dest& dest, bool selectable)  :
 {
     this->dest_ = &(const_cast<Dest&>(dest));
     this->dest_->add_observer(this);
+
     setRect(this->dest_->pos().x(),
             this->dest_->pos().y(),
             this->dest_->edge(),

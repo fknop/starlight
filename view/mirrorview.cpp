@@ -2,8 +2,6 @@
 #include "model/geometry.h"
 #include "model/umath.h"
 
-//MirrorView::MirrorView(const Mirror& mirror) : MirrorView(mirror, true) {}
-
 MirrorView::MirrorView(const Mirror &mirror, bool selectable) :
     ElementView(ElementView::TypeView::MIRRORVIEW),
     selectable_{selectable}
@@ -11,7 +9,6 @@ MirrorView::MirrorView(const Mirror &mirror, bool selectable) :
     mirror_ = &(const_cast<Mirror&>(mirror));
     mirror_->add_observer(this);
 
-    setFlag(QGraphicsItem::ItemIsSelectable, this->selectable_);
     QPen myPen(Qt::red);
     myPen.setWidth(3);
     setPen(myPen);
@@ -19,6 +16,8 @@ MirrorView::MirrorView(const Mirror &mirror, bool selectable) :
     LineSegment seg = mirror_->to_line_segment();
     setLine(seg.start().x(), seg.start().y(),
             seg.end().x(), seg.end().y());
+
+    setFlag(QGraphicsItem::ItemIsSelectable, this->selectable_);
 }
 
 void MirrorView::translate(int x, int y)
