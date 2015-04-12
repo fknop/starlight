@@ -55,5 +55,6 @@ void LineSegment::rotate(const Point& pivot, double angle)
 
 bool LineSegment::operator==(const LineSegment& ls) const
 {
-    return this->start_ == ls.start_ && this->end_ == ls.end_;
+    return (this->start_ == ls.start_ && this->end_ == ls.end_)
+            || (this->start_ == ls.end_ && this->end_ == ls.start_);
 }
