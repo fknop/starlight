@@ -17,6 +17,9 @@ public:
     */
    void set_color(double wl);
 
+   inline bool selectable() const;
+   inline void set_selectable(bool value);
+
 private:
 
 };

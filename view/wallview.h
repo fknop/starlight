@@ -21,13 +21,30 @@ public:
      * @param x2 abscisse de l’autre extrémité du mur.
      * @param y2 ordonnée de l’autre extrémité du mur.
      */
-    WallView(const Wall& wall);
+    WallView(const Wall& wall, bool selectable = false);
     Wall * wall();
+
+    inline bool selectable() const;
+    inline void set_selectable(bool value);
 
 private:
     Wall * wall_;
+    bool selectable_;
 
 };
+
+/* Fonctions inlines */
+
+bool WallView::selectable() const
+{
+    return this->selectable_;
+}
+
+void WallView::set_selectable(bool value)
+{
+    this->selectable_ = value;
+    setFlag(QGraphicsItem::ItemIsSelectable, this->selectable_);
+}
 
 
 #endif // WALLVIEW_HPP

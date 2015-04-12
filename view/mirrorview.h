@@ -29,8 +29,8 @@ public:
      * @param len longueur totale du miroir.
      * @param angle angle d’inclinaison du miroir.
      */
-    MirrorView(const Mirror& mirror);
-    MirrorView(const Mirror &mirror, bool selectable);
+//    MirrorView(const Mirror& mirror);
+    MirrorView(const Mirror &mirror, bool selectable = false);
 
     Mirror* mirror();
 
@@ -48,6 +48,8 @@ private:
     Mirror* mirror_;
     bool selectable_;
 };
+
+/* Fonctions inlines */
 
 bool MirrorView::selectable() const
 {

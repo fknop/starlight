@@ -2,7 +2,7 @@
 #include "model/geometry.h"
 #include "model/umath.h"
 
-MirrorView::MirrorView(const Mirror& mirror) : MirrorView(mirror, true) {}
+//MirrorView::MirrorView(const Mirror& mirror) : MirrorView(mirror, true) {}
 
 MirrorView::MirrorView(const Mirror &mirror, bool selectable) :
     ElementView(ElementView::TypeView::MIRRORVIEW),
@@ -37,7 +37,6 @@ void MirrorView::notify(Observable* obs, std::string msg, const std::vector<std:
     setLine(seg.start().x(), seg.start().y(),
             seg.end().x(), seg.end().y());
 }
-
 
 Mirror * MirrorView::mirror()
 {

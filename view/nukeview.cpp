@@ -1,8 +1,8 @@
 #include "view/nukeview.h"
 
 
-NukeView::NukeView(const Nuke& nuke)  :
-    ElementView(ElementView::TypeView::NUKEVIEW)
+NukeView::NukeView(const Nuke& nuke, bool selectable)  :
+    ElementView(ElementView::TypeView::NUKEVIEW), selectable_{selectable}
 {
     this->nuke_ = &(const_cast<Nuke&>(nuke));
     this->nuke_->add_observer(this);
@@ -17,7 +17,7 @@ NukeView::NukeView(const Nuke& nuke)  :
     setRect(p.x() - radius, p.y() - radius,
             radius + radius, radius + radius);
 
-    //QSound::play("sounds/croack.wav");
+    setFlag(QGraphicsItem::ItemIsSelectable, this->selectable_);
 }
 
 void NukeView::notify(Observable* sdo, std::string msg, const std::vector<std::string> &args)

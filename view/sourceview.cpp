@@ -4,8 +4,8 @@
 #include <QGraphicsPixmapItem>
 
 
-SourceView::SourceView(const Source& source) :
-    ElementView(ElementView::TypeView::SOURCEVIEW)
+SourceView::SourceView(const Source& source, bool selectable) :
+    ElementView(ElementView::TypeView::SOURCEVIEW), selectable_{selectable}
 {
     this->source_ = &(const_cast<Source&>(source));
 //    setRect(this->source_->position().x(),
@@ -18,6 +18,8 @@ SourceView::SourceView(const Source& source) :
     setPixmap(p.scaled(this->source_->edge(), this->source_->edge(), Qt::KeepAspectRatio));
 
     sound_ = new QMediaPlayer();
+
+    setFlag(QGraphicsItem::ItemIsSelectable, this->selectable_);
 }
 
 void SourceView::mousePressEvent(QGraphicsSceneMouseEvent *event)

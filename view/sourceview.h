@@ -24,15 +24,32 @@ public:
      * @param width longueur du carré représentant la source.
      * @param height hauteur du carré représentant la source.
      */
-    SourceView(const Source& source);
+    SourceView(const Source& source, bool selectable = false);
     Source * source();
 
     void mousePressEvent(QGraphicsSceneMouseEvent *event);
 
+    inline bool selectable() const;
+    inline void set_selectable(bool value);
+
 private:
     Source* source_;
     QMediaPlayer * sound_;
+    bool selectable_;
 
 };
+
+/* Fonctions inlines */
+
+bool SourceView::selectable() const
+{
+    return this->selectable_;
+}
+
+void SourceView::set_selectable(bool value)
+{
+    this->selectable_ = value;
+    setFlag(QGraphicsItem::ItemIsSelectable, this->selectable_);
+}
 
 #endif // SOURCEVIEW_H

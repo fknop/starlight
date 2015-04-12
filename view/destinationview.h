@@ -21,13 +21,17 @@ public:
      * @param width longueur de la destination.
      * @param height hauteur de la destination.
      */
-    DestinationView(const Dest&);
+    DestinationView(const Dest& dest, bool selectable = false);
     void notify(Observable *sdo,
                 std::string msg,
                 const std::vector<std::string>& args = std::vector<std::string>());
 
+    inline bool selectable() const;
+    inline void set_selectable(bool value);
+
 private:
     Dest* dest_;
+    bool selectable_;
 
 };
 

@@ -9,11 +9,28 @@
 class CrystalView : public QGraphicsEllipseItem, public ElementView
 {
 public:
-    CrystalView(const Crystal & crystal_);
+    CrystalView(const Crystal & crystal_, bool selectable = false);
     Crystal * crystal();
+
+    inline bool selectable() const;
+    inline void set_selectable(bool value);
 
 private:
     const Crystal * crystal_;
+    bool selectable_;
 };
+
+/* Fonctions inlines */
+
+bool CrystalView::selectable() const
+{
+    return this->selectable_;
+}
+
+void CrystalView::set_selectable(bool value)
+{
+    this->selectable_ = value;
+    setFlag(QGraphicsItem::ItemIsSelectable, this->selectable_);
+}
 
 #endif // CRYSTALVIEW_H

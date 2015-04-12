@@ -1,8 +1,8 @@
 #include "lensview.h"
 
 
-LensView::LensView(const Lens& lens) :
-    ElementView(ElementView::TypeView::LENSVIEW)
+LensView::LensView(const Lens& lens, bool selectable) :
+    ElementView(ElementView::TypeView::LENSVIEW), selectable_{selectable}
 {
     this->lens_ = &lens;
     setRect(this->lens_->position().x(),
@@ -11,6 +11,8 @@ LensView::LensView(const Lens& lens) :
             this->lens_->height());
 
     this->lens_ = &(const_cast<Lens&>(lens));
+
+    setFlag(QGraphicsItem::ItemIsSelectable, this->selectable_);
 }
 
 Lens * LensView::lens()

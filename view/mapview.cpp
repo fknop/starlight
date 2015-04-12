@@ -159,7 +159,7 @@ void MapView::draw_source()
     if (source_view_ != nullptr)
          scene_->removeItem(source_view_);
 
-    source_view_ = new SourceView(level_->source());
+    source_view_ = new SourceView(level_->source(), true);
     scene_->addItem(source_view_);
 }
 
@@ -168,7 +168,7 @@ void MapView::draw_dest()
     if (dest_view_ != nullptr)
         scene_->removeItem(dest_view_);
 
-    dest_view_ = new DestinationView(level_->dest());
+    dest_view_ = new DestinationView(level_->dest(), true);
     scene_->addItem(dest_view_);
 }
 
@@ -181,7 +181,7 @@ void MapView::draw_ray(const Ray &ray)
 
 void MapView::draw_wall(const Wall& wall)
 {
-    WallView* wv = new WallView(wall);
+    WallView* wv = new WallView(wall, true);
     wall_views_.push_back(wv);
     scene_->addItem(wv);
 }
@@ -189,7 +189,7 @@ void MapView::draw_wall(const Wall& wall)
 
 void MapView::draw_mirror(const Mirror& mirror)
 {
-    MirrorView* mv = new MirrorView(mirror);
+    MirrorView* mv = new MirrorView(mirror, true);
     mirror_views_.push_back(mv);
     scene_->addItem(mv);
 }
@@ -197,21 +197,21 @@ void MapView::draw_mirror(const Mirror& mirror)
 
 void MapView::draw_nuke(const Nuke& nuke)
 {
-    NukeView* nv = new NukeView(nuke);
+    NukeView* nv = new NukeView(nuke, true);
     nuke_views_.push_back(nv);
     scene_->addItem(nv);
 }
 
 void MapView::draw_lens(const Lens& lens)
 {
-    LensView* lv = new LensView(lens);
+    LensView* lv = new LensView(lens, true);
     lens_views_.push_back(lv);
     scene_->addItem(lv);
 }
 
 void MapView::draw_crystal(const Crystal& crystal)
 {
-    CrystalView* cv = new CrystalView(crystal);
+    CrystalView* cv = new CrystalView(crystal, true);
     crystal_views_.push_back(cv);
     scene_->addItem(cv);
 }

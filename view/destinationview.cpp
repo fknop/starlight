@@ -1,8 +1,8 @@
 #include "destinationview.h"
 
 
-DestinationView::DestinationView(const Dest& dest)  :
-    ElementView(ElementView::TypeView::DESTVIEW)
+DestinationView::DestinationView(const Dest& dest, bool selectable)  :
+    ElementView(ElementView::TypeView::DESTVIEW), selectable_{selectable}
 {
     this->dest_ = &(const_cast<Dest&>(dest));
     this->dest_->add_observer(this);
@@ -10,6 +10,8 @@ DestinationView::DestinationView(const Dest& dest)  :
             this->dest_->pos().y(),
             this->dest_->edge(),
             this->dest_->edge());
+
+    setFlag(QGraphicsItem::ItemIsSelectable, this->selectable_);
 }
 
 void DestinationView::notify(Observable *sdo, std::string msg, const std::vector<std::string> &args)
