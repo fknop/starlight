@@ -16,9 +16,11 @@
 #include "view/sourceview.h"
 
 
-MainEditor::MainEditor(QWidget *parent) : QMainWindow(parent), level_{new Level(750,580)}
+MainEditor::MainEditor(QWidget *parent) : QMainWindow(parent), level_{new Level(750, 580)}
 {
     setupUi();
+
+    mapview_ = nullptr;
 }
 
 void MainEditor::add_crystal()
@@ -156,22 +158,21 @@ void MainEditor::load_level()
     QString file_name = QFileDialog::getOpenFileName(
                 this, tr("Load Starlight level"), "levels/", tr("Files .lvl (*.lvl)"));
 
-    if (file_name != nullptr)
-    {
+
+        MapReader::end_level();
         level_ = MapReader::level(file_name.toStdString());
 
-        if (level_)
-        {
-            verticalLayout_2->removeWidget(mapview_);
-            mapview_ = new MapView(level_);
-            level_->add_observer(mapview_);
-            mapview_->add_observer(this);
-            verticalLayout_2->addWidget(mapview_);
 
-            elements->set_height(level_->height());
-            elements->set_width(level_->width());
-        }
-    }
+    verticalLayout_2->removeWidget(mapview_);
+
+    mapview_ = new MapView(level_);
+    level_->add_observer(mapview_);
+    mapview_->add_observer(this);
+
+    verticalLayout_2->addWidget(mapview_);
+
+    elements->set_height(level_->height());
+    elements->set_width(level_->width());
 }
 
 void MainEditor::save_level()
