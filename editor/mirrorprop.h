@@ -2,7 +2,6 @@
 #define MIRRORPREFS_H
 
 #include <QWidget>
-#include <QButtonGroup>
 #include <QDoubleSpinBox>
 #include <QFormLayout>
 #include <QLabel>

@@ -1,5 +1,7 @@
-#include "properties.h"
+#include "crystalprop.h"
+#include "lensprop.h"
 #include "mirrorprop.h"
+#include "properties.h"
 
 #include <iostream>
 
@@ -62,17 +64,29 @@ void Properties::set_element_prop(ElementView * ev)
 
     if (ev != nullptr)
     {
+        groupBox->layout()->removeWidget(prop_interface_);
+
         switch(ev->type_view())
         {
         case ElementView::TypeView::MIRRORVIEW:
         {
-            std::cout << "IT'S A MIRROR" << std::endl;
-            groupBox->layout()->removeWidget(prop_interface_);
             MirrorView * mv = dynamic_cast<MirrorView *> (ev);
             prop_interface_ = new MirrorProp(mv->mirror(), groupBox);
 
 
-            groupBox->layout()->addWidget(prop_interface_);
+            break;
+        }
+        case ElementView::TypeView::CRYSTALVIEW:
+        {
+            CrystalView * cv = dynamic_cast<CrystalView *> (ev);
+            prop_interface_ = new CrystalProp(cv->crystal(), groupBox);
+
+            break;
+        }
+        case ElementView::TypeView::LENSVIEW:
+        {
+            LensView * lv = dynamic_cast<LensView *> (ev);
+            prop_interface_ = new LensProp(lv->lens(), groupBox);
 
             break;
         }
@@ -81,6 +95,8 @@ void Properties::set_element_prop(ElementView * ev)
             std::cout << "CASE not found" << std::endl;
         }
         }
+
+        groupBox->layout()->addWidget(prop_interface_);
     }
 
     apply_pb->setEnabled(true);

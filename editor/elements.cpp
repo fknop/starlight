@@ -119,9 +119,11 @@ void Elements::create_level()
 
 void Elements::reset_level()
 {
+    add_crystal_pb->setEnabled(false);
     add_mirror_pb->setEnabled(false);
     add_nuke_pb->setEnabled(false);
     add_lens_pb->setEnabled(false);
+    add_wall_pb->setEnabled(false);
 
     level_apply_pb->setEnabled(true);
     level_width_dsb->setEnabled(true);

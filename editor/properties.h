@@ -12,6 +12,8 @@
 
 #include "view/elementview.h"
 
+#include "view/crystalview.h"
+#include "view/lensview.h"
 #include "view/mirrorview.h"
 
 #include "propertiesinterface.h"
@@ -30,15 +32,15 @@ public:
 private:
     QGridLayout *gridLayout;
     QGroupBox *groupBox;
-//    QDialogButtonBox *buttonBox;
 
     QPushButton *apply_pb;
     QPushButton *reset_pb;
     QPushButton *delete_pb;
 
+    PropertiesInterface * prop_interface_;
+
     void add_connections();
 
-    PropertiesInterface * prop_interface_;
 
 signals:
 

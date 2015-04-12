@@ -56,7 +56,11 @@ HEADERS += \
     mapwriter.h \
     editor/elements.h \
     editor/propertiesinterface.h \
-    view/elementview.h
+    view/elementview.h \
+    editor/crystalprop.h \
+    editor/lensprop.h \
+    editor/nukeprop.h \
+    editor/wallprop.h
 
 SOURCES += \
     mapreader.cpp \
@@ -101,7 +105,11 @@ SOURCES += \
     mapwriter.cpp \
     editor/elements.cpp \
     Tests/gametest.cpp \
-    view/elementview.cpp
+    view/elementview.cpp \
+    editor/crystalprop.cpp \
+    editor/lensprop.cpp \
+    editor/nukeprop.cpp \
+    editor/wallprop.cpp
 
 RESOURCES += \
     ressources.qrc
