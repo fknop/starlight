@@ -81,6 +81,8 @@ class Level : public ObserverInterface, public Observable
     std::vector<Ray> rays_;
     std::vector<Nuke> nukes_;
 
+    bool check_collisions_;
+
 public:
 
     /**
@@ -249,6 +251,9 @@ public:
      * @param r le nouveau rayon.
      */
     inline void add_ray(const Ray& r);
+
+    inline bool check_collisions() const;
+    inline void set_check_collisions(bool value);
 
 
     inline void remove_crystal(const Crystal& c);
@@ -487,6 +492,16 @@ void Level::add_lens(const Lens& l)
 void Level::add_ray(const Ray& r)
 {
     this->rays_.push_back(r);
+}
+
+bool Level::check_collisions() const
+{
+    return this->check_collisions_;
+}
+
+void Level::set_check_collisions(bool value)
+{
+    this->check_collisions_ = value;
 }
 
 #endif // LEVEL_H

@@ -8,7 +8,7 @@
 
 Level::Level(double w, double h) : width_ {w}, height_ {h},
     walls_ { {{.0, .0}, {.0, h}}, {{.0, h}, {w, h}},
-{{w, h}, {w, .0}}, {{w, .0}, {.0, .0}} }
+{{w, h}, {w, .0}}, {{w, .0}, {.0, .0}} }, check_collisions_{true}
 {
     if (w <= 0 || h <= 0)
         throw std::string("La taille et la longueur "
@@ -340,7 +340,7 @@ void Level::notify(Observable* obs, std::string msg, const std::vector<std::stri
                      msg.compare("ROTATE_MIRROR") == 0 ||
                      msg.compare("SOURCE_ON") == 0;
 
-    if (ask_rotate || ask_translate)
+    if (check_collisions_ && (ask_rotate || ask_translate))
     {
         Mirror *mirror = dynamic_cast<Mirror*> (obs);
         LineSegment segment = mirror->to_line_segment();
@@ -357,13 +357,11 @@ void Level::notify(Observable* obs, std::string msg, const std::vector<std::stri
         }
         else if (ask_rotate)
         {
-            // TO FIX
             std::stringstream ss(args.at(0));
             double angle = (ss >> angle, angle);
             segment.rotate(mirror->pivot(), angle);
             if (check_collisions(segment, mirror))
                 mirror->set_movable(false);
-            // TO FIX
         }
     }
     else if (recompute)
