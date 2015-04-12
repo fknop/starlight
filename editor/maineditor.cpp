@@ -20,7 +20,7 @@ MainEditor::MainEditor(QWidget *parent) : QMainWindow(parent), level_{new Level(
 {
     setupUi();
 
-    mapview_ = nullptr;
+//    mapview_ = nullptr;
 }
 
 void MainEditor::add_crystal()
@@ -82,7 +82,7 @@ void MainEditor::create_level()
 
 void MainEditor::setupUi()
 {
-    resize(975, 649);
+    showMaximized();
 
     menu_bar_ = new QMenuBar(this);
 
@@ -143,7 +143,6 @@ void MainEditor::setupUi()
     properties->add_observer(this);
 
 
-
     QSizePolicy sp_properties(QSizePolicy::Preferred, QSizePolicy::Preferred);
     sp_properties.setHorizontalStretch(1);
     properties->setSizePolicy(sp_properties);
@@ -159,9 +158,8 @@ void MainEditor::load_level()
                 this, tr("Load Starlight level"), "levels/", tr("Files .lvl (*.lvl)"));
 
 
-        MapReader::end_level();
-        level_ = MapReader::level(file_name.toStdString());
-
+    MapReader::end_level();
+    level_ = MapReader::level(file_name.toStdString());
 
     verticalLayout_2->removeWidget(mapview_);
 

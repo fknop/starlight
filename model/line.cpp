@@ -1,5 +1,6 @@
 #include <cmath>
 
+#include "constants.h"
 #include "geometry.h"
 #include "line.h"
 
