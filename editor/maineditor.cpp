@@ -1,23 +1,20 @@
 #include "maineditor.h"
 
+#include <QCoreApplication>
+#include <QFileDialog>
+#include <QFormLayout>
 #include <QHBoxLayout>
-
+#include <QMenuBar>
 #include <QPushButton>
 
-#include <QMenuBar>
-#include <QFormLayout>
-#include <QFileDialog>
-
-#include "view/mapview.h"
-#include "properties.h"
-
-#include "view/sourceview.h"
-#include "view/destinationview.h"
-
+#include "elements.h"
 #include "mapreader.h"
 #include "mapwriter.h"
+#include "properties.h"
+#include "view/destinationview.h"
+#include "view/mapview.h"
+#include "view/sourceview.h"
 
-#include "elements.h"
 
 MainEditor::MainEditor(QWidget *parent) : QMainWindow(parent), level_{new Level(750,580)}
 {
@@ -54,7 +51,6 @@ void MainEditor::add_nuke()
 
 void MainEditor::add_wall()
 {
-    std::cout << "MAIN ADD WALL" << std::endl;
     Wall wall(Point(20, 20), Point(60, 60));
     level_->add_wall(wall);
     mapview_->draw_walls();

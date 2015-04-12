@@ -66,8 +66,6 @@ void Properties::setupUi()
 
 void Properties::set_element_prop(ElementView * ev)
 {
-    std::cout << "[Properties - set_element_prop]" << std::endl;
-
     if (prop_interface_ != nullptr)
     {
         delete prop_interface_;
