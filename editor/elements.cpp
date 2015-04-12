@@ -138,6 +138,16 @@ Level * Elements::level()
     return level_;
 }
 
+void Elements::set_height(int h)
+{
+    level_height_dsb->setValue(h);
+}
+
+void Elements::set_width(int w)
+{
+    level_width_dsb->setValue(w);
+}
+
 void Elements::add_crystal()
 {
     notify_all("CRYSTAL_ADDED");
@@ -151,10 +161,7 @@ void Elements::add_lens()
 void Elements::add_mirror()
 {
     notify_all("MIRROR_ADDED");
-    std::cout << "elements add mirror" << std::endl;
-
 }
-
 
 void Elements::add_nuke()
 {

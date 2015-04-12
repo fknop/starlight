@@ -34,10 +34,8 @@ MapView::MapView(Level* level) : level_{level}
 
 ElementView * MapView::selected()
 {
-    std::cout << (scene_->selectedItems().size() > 0 ? ">0" : "<0") << std::endl;
     if (scene_->selectedItems().size() > 0)
     {
-        std::cout << "[MapView - selected]" << std::endl;
         ElementView *ev = dynamic_cast<ElementView *> (scene_->selectedItems().at(0));
         return ev;
     }

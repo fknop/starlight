@@ -1,23 +1,20 @@
 #include "maineditor.h"
 
+#include <QCoreApplication>
+#include <QFileDialog>
+#include <QFormLayout>
 #include <QHBoxLayout>
-
+#include <QMenuBar>
 #include <QPushButton>
 
-#include <QMenuBar>
-#include <QFormLayout>
-#include <QFileDialog>
-
-#include "view/mapview.h"
-#include "properties.h"
-
-#include "view/sourceview.h"
-#include "view/destinationview.h"
-
+#include "elements.h"
 #include "mapreader.h"
 #include "mapwriter.h"
+#include "properties.h"
+#include "view/destinationview.h"
+#include "view/mapview.h"
+#include "view/sourceview.h"
 
-#include "elements.h"
 
 MainEditor::MainEditor(QWidget *parent) : QMainWindow(parent), level_{new Level(750,580)}
 {
@@ -54,7 +51,6 @@ void MainEditor::add_nuke()
 
 void MainEditor::add_wall()
 {
-    std::cout << "MAIN ADD WALL" << std::endl;
     Wall wall(Point(20, 20), Point(60, 60));
     level_->add_wall(wall);
     mapview_->draw_walls();
@@ -109,7 +105,7 @@ void MainEditor::setupUi()
     quit_action_ = new QAction("&Quit", menu_bar_);
     quit_action_->setShortcuts(QKeySequence::Quit);
     quit_action_->setStatusTip("Quit the editor");
-    //connect(quit_action_, &QAction::triggered, &QCoreApplication::quit);
+    connect(quit_action_, &QAction::triggered, &QCoreApplication::quit);
 
     file_menu_->addAction(quit_action_);
 
@@ -171,6 +167,9 @@ void MainEditor::load_level()
             level_->add_observer(mapview_);
             mapview_->add_observer(this);
             verticalLayout_2->addWidget(mapview_);
+
+            elements->set_height(level_->height());
+            elements->set_width(level_->width());
         }
     }
 }
