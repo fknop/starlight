@@ -66,6 +66,7 @@ ElementView * MainEditor::selected()
 void MainEditor::create_level()
 {
     level_ = elements->level();
+    level_->set_check_collisions(false);
 
     Source source(Point(0,0), 29, 4.75, 400);
     Dest dest(Point(level_->width() - 29, level_->height() - 29), 29);
@@ -160,6 +161,7 @@ void MainEditor::load_level()
 
     MapReader::end_level();
     level_ = MapReader::level(file_name.toStdString());
+    level_->set_check_collisions(false);
 
     verticalLayout_2->removeWidget(mapview_);
 
