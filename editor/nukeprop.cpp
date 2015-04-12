@@ -55,6 +55,6 @@ void NukeProp::reset()
 
 void NukeProp::apply()
 {
-//    nuke_->set_pivot(Point(x_dsb->value(), y_dsb->value()));
-    //nuke_->set_angle();
+    nuke_->set_pos(Point(x_dsb->value(), y_dsb->value()));
+    nuke_->set_radius(rad_dsb->value());
 }

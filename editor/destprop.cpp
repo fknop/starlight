@@ -55,6 +55,6 @@ void DestProp::reset()
 
 void DestProp::apply()
 {
-//    dest_->set_pivot(Point(x_dsb->value(), y_dsb->value()));
-    //mirror_->set_angle();
+    dest_->set_pos(Point(x_dsb->value(), y_dsb->value()));
+    dest_->set_edge(edge_dsb->value());
 }

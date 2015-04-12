@@ -79,6 +79,8 @@ void SourceProp::reset()
 
 void SourceProp::apply()
 {
-//    mirror_->set_pivot(Point(x_dsb->value(), y_dsb->value()));
-    //mirror_->set_angle();
+    source_->set_pos(Point(x_dsb->value(), y_dsb->value()));
+    source_->set_edge(edge_dsb->value());
+    source_->set_alpha(alpha_dsb->value());
+    source_->set_wavelength(wavelength_dsb->value());
 }

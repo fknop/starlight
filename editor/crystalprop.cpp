@@ -67,6 +67,7 @@ void CrystalProp::reset()
 
 void CrystalProp::apply()
 {
-//    crystal_->set_center(Point(x_dsb->value(), y_dsb->value()));
-    //crystal_->set_angle();
+    crystal_->set_center(Point(x_dsb->value(), y_dsb->value()));
+    crystal_->set_modifier(mod_dsb->value());
+    crystal_->set_radius(rad_dsb->value());
 }

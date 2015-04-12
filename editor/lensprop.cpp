@@ -77,7 +77,6 @@ void LensProp::setupUi()
 
     formLayout->setWidget(6, QFormLayout::FieldRole, wl_max_dsb);
 
-
     setLayout(formLayout);
 }
 
@@ -93,6 +92,9 @@ void LensProp::reset()
 
 void LensProp::apply()
 {
-//    lens_->set_pivot(Point(x_dsb->value(), y_dsb->value()));
-    //lens_->set_angle();
+    lens_->set_pos(Point(x_dsb->value(), y_dsb->value()));
+    lens_->set_width(width_dsb->value());
+    lens_->set_height(height_dsb->value());
+    lens_->set_wl_min(wl_min_dsb->value());
+    lens_->set_wl_max(wl_max_dsb->value());
 }
