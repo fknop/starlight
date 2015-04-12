@@ -62,7 +62,7 @@ class Crystal : public Element
      * Modifie la coordonée du centre du cristal.
      * @param c le nouveau centre du cristal.
      */
-    inline void set_center(const Point &c);
+    inline void set_center(Point c);
 
     /**
      * Modifie le rayon du cristal.
@@ -109,7 +109,7 @@ double Crystal::radius() const
     return this->rad_;
 }
 
-void Crystal::set_center(const Point& c)
+void Crystal::set_center(Point c)
 {
     center_ = c;
 }

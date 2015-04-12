@@ -43,16 +43,27 @@ void SourceProp::setupUi()
 
     formLayout->setWidget(2, QFormLayout::FieldRole, edge_dsb);
 
+    alpha_label = new QLabel();
+    alpha_label->setText("Alpha");
+    alpha_label->setMinimumSize(QSize(100, 20));
+
+    formLayout->setWidget(3, QFormLayout::LabelRole, alpha_label);
+
+    alpha_dsb = new QDoubleSpinBox();
+    alpha_dsb->setMaximum(999.);
+
+    formLayout->setWidget(3, QFormLayout::FieldRole, alpha_dsb);
+
     wavelength_label = new QLabel();
     wavelength_label->setText("Wavelength");
     wavelength_label->setMinimumSize(QSize(100, 20));
 
-    formLayout->setWidget(3, QFormLayout::LabelRole, wavelength_label);
+    formLayout->setWidget(4, QFormLayout::LabelRole, wavelength_label);
 
     wavelength_dsb = new QDoubleSpinBox();
     wavelength_dsb->setMaximum(999.);
 
-    formLayout->setWidget(3, QFormLayout::FieldRole, wavelength_dsb);
+    formLayout->setWidget(4, QFormLayout::FieldRole, wavelength_dsb);
 
     setLayout(formLayout);
 }
@@ -62,6 +73,7 @@ void SourceProp::reset()
     x_dsb->setValue(source_->pos().x());
     y_dsb->setValue(source_->pos().y());
     edge_dsb->setValue(source_->edge());
+    alpha_dsb->setValue(source_->angle());
     wavelength_dsb->setValue(source_->wavelength());
 }
 

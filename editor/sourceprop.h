@@ -24,6 +24,8 @@ private:
     QLabel *y_label;
     QDoubleSpinBox *y_dsb;
     QLabel *edge_label;
+    QDoubleSpinBox *alpha_dsb;
+    QLabel *alpha_label;
     QDoubleSpinBox *edge_dsb;
     QLabel *wavelength_label;
     QDoubleSpinBox *wavelength_dsb;

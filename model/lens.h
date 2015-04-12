@@ -85,6 +85,36 @@ class Lens : public Element
     inline int wl_min() const;
 
     /**
+     * Modifie la position de la lentille.
+     * @param pos la nouvelle position de la lentille.
+     */
+    inline void set_pos(Point pos);
+
+    /**
+     * Modifie la largeur de la lentille.
+     * @param w la nouvelle largeur de la lentille.
+     */
+    inline void set_width(double w);
+
+    /**
+     * Modifie la hauteur de la lentille.
+     * @param h la nouvelle hauteur de la lentille.
+     */
+    inline void set_height(double h);
+
+    /**
+     * Modifie la longueur d’onde minimale de la lentille.
+     * @param wl_min la nouvelle longueur d’onde minimale.
+     */
+    inline void set_wl_min(double wl_min);
+
+    /**
+     * Modifie la longueur d’onde maximale de la lentille.
+     * @param wl_max la nouvelle longueur d’onde maximale.
+     */
+    inline void set_wl_max(double wl_max);
+
+    /**
      * Retourne une ellipse correspondante
      * à la lentille.
      * @return l'ellipse correspondante à la lentille.
@@ -129,6 +159,31 @@ int Lens::wl_max() const
 int Lens::wl_min() const
 {
     return wl_min_;
+}
+
+void Lens::set_pos(Point pos)
+{
+    pos_ = pos;
+}
+
+void Lens::set_width(double w)
+{
+    width_ = w;
+}
+
+void Lens::set_height(double h)
+{
+    height_ = h;
+}
+
+void Lens::set_wl_min(double wl_min)
+{
+    wl_min_ = wl_min;
+}
+
+void Lens::set_wl_max(double wl_max)
+{
+    wl_max_ = wl_max;
 }
 
 #endif // LENS_H
