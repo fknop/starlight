@@ -31,7 +31,7 @@ void NukeProp::setupUi()
     formLayout->setWidget(1, QFormLayout::FieldRole, y_dsb);
 
     rad_label = new QLabel();
-    rad_label->setText("Rad");
+    rad_label->setText("Radius");
     rad_label->setMinimumSize(QSize(100, 20));
 
     formLayout->setWidget(2, QFormLayout::LabelRole, rad_label);
