@@ -13,6 +13,8 @@ Properties::Properties(QWidget *parent) : QWidget(parent)
 {
     setupUi();
 
+    prop_interface_ = nullptr;
+
     add_connections();
 }
 

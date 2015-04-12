@@ -17,6 +17,7 @@ void CrystalProp::setupUi()
     formLayout->setWidget(0, QFormLayout::LabelRole, x_label);
 
     x_dsb = new QDoubleSpinBox();
+    x_dsb->setMaximum(999.);
 
     formLayout->setWidget(0, QFormLayout::FieldRole, x_dsb);
 
@@ -27,6 +28,7 @@ void CrystalProp::setupUi()
     formLayout->setWidget(1, QFormLayout::LabelRole, y_label);
 
     y_dsb = new QDoubleSpinBox();
+    y_dsb->setMaximum(999.);
 
     formLayout->setWidget(1, QFormLayout::FieldRole, y_dsb);
 
@@ -37,6 +39,7 @@ void CrystalProp::setupUi()
     formLayout->setWidget(2, QFormLayout::LabelRole, rad_label);
 
     rad_dsb = new QDoubleSpinBox();
+    rad_dsb->setMaximum(999.);
 
     formLayout->setWidget(2, QFormLayout::FieldRole, rad_dsb);
 
@@ -47,6 +50,7 @@ void CrystalProp::setupUi()
     formLayout->setWidget(3, QFormLayout::LabelRole, mod_label);
 
     mod_dsb = new QDoubleSpinBox();
+    mod_dsb->setMaximum(999.);
 
     formLayout->setWidget(3, QFormLayout::FieldRole, mod_dsb);
 

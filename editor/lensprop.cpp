@@ -18,6 +18,7 @@ void LensProp::setupUi()
     formLayout->setWidget(0, QFormLayout::LabelRole, x_label);
 
     x_dsb = new QDoubleSpinBox();
+    x_dsb->setMaximum(999.);
 
     formLayout->setWidget(0, QFormLayout::FieldRole, x_dsb);
 
@@ -28,6 +29,7 @@ void LensProp::setupUi()
     formLayout->setWidget(1, QFormLayout::LabelRole, y_label);
 
     y_dsb = new QDoubleSpinBox();
+    y_dsb->setMaximum(999.);
 
     formLayout->setWidget(1, QFormLayout::FieldRole, y_dsb);
 
@@ -38,6 +40,7 @@ void LensProp::setupUi()
     formLayout->setWidget(2, QFormLayout::LabelRole, width_label);
 
     width_dsb = new QDoubleSpinBox();
+    width_dsb->setMaximum(999.);
 
     formLayout->setWidget(2, QFormLayout::FieldRole, width_dsb);
 
@@ -48,6 +51,7 @@ void LensProp::setupUi()
     formLayout->setWidget(3, QFormLayout::LabelRole, height_label);
 
     height_dsb = new QDoubleSpinBox();
+    height_dsb->setMaximum(999.);
 
     formLayout->setWidget(3, QFormLayout::FieldRole, height_dsb);
 
@@ -58,6 +62,7 @@ void LensProp::setupUi()
     formLayout->setWidget(5, QFormLayout::LabelRole, wl_min_label);
 
     wl_min_dsb = new QDoubleSpinBox();
+    wl_min_dsb->setMaximum(999.);
 
     formLayout->setWidget(5, QFormLayout::FieldRole, wl_min_dsb);
 
@@ -68,6 +73,7 @@ void LensProp::setupUi()
     formLayout->setWidget(6, QFormLayout::LabelRole, wl_max_label);
 
     wl_max_dsb = new QDoubleSpinBox();
+    wl_max_dsb->setMaximum(999.);
 
     formLayout->setWidget(6, QFormLayout::FieldRole, wl_max_dsb);
 

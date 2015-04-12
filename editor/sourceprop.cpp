@@ -17,6 +17,7 @@ void SourceProp::setupUi()
     formLayout->setWidget(0, QFormLayout::LabelRole, x_label);
 
     x_dsb = new QDoubleSpinBox();
+    x_dsb->setMaximum(999.);
 
     formLayout->setWidget(0, QFormLayout::FieldRole, x_dsb);
 
@@ -27,6 +28,7 @@ void SourceProp::setupUi()
     formLayout->setWidget(1, QFormLayout::LabelRole, y_label);
 
     y_dsb = new QDoubleSpinBox();
+    y_dsb->setMaximum(999.);
 
     formLayout->setWidget(1, QFormLayout::FieldRole, y_dsb);
 
@@ -37,6 +39,7 @@ void SourceProp::setupUi()
     formLayout->setWidget(2, QFormLayout::LabelRole, edge_label);
 
     edge_dsb = new QDoubleSpinBox();
+    edge_dsb->setMaximum(999.);
 
     formLayout->setWidget(2, QFormLayout::FieldRole, edge_dsb);
 
@@ -47,6 +50,7 @@ void SourceProp::setupUi()
     formLayout->setWidget(3, QFormLayout::LabelRole, wavelength_label);
 
     wavelength_dsb = new QDoubleSpinBox();
+    wavelength_dsb->setMaximum(999.);
 
     formLayout->setWidget(3, QFormLayout::FieldRole, wavelength_dsb);
 
@@ -55,17 +59,10 @@ void SourceProp::setupUi()
 
 void SourceProp::reset()
 {
-//    x_dsb->setValue(mirror_->pivot().x());
-//    y_dsb->setValue(mirror_->pivot().y());
-//    edge_dsb->setValue(mirror_->edge());
-//    wavelength_dsb->setValue(mirror_->x_pad());
-//    alpha_dsb->setValue(mirror_->angle());
-//    xmin_dsb->setValue(mirror_->min_pivot().x());
-//    xmax_dsb->setValue(mirror_->max_pivot().x());
-//    ymin_dsb->setValue(mirror_->min_pivot().y());
-//    ymax_dsb->setValue(mirror_->max_pivot().y());
-//    alphamin_dsb->setValue(mirror_->min_angle());
-//    alphamax_dsb->setValue(mirror_->max_angle());
+    x_dsb->setValue(source_->pos().x());
+    y_dsb->setValue(source_->pos().y());
+    edge_dsb->setValue(source_->edge());
+    wavelength_dsb->setValue(source_->wavelength());
 }
 
 void SourceProp::apply()
