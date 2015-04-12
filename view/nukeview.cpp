@@ -29,7 +29,4 @@ void NukeView::notify(Observable* sdo, std::string msg, const std::vector<std::s
 
 }
 
-Nuke * NukeView::nuke()
-{
-    return nuke_;
-}
+

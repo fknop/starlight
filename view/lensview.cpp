@@ -14,7 +14,4 @@ LensView::LensView(const Lens& lens, bool selectable) :
     setFlag(QGraphicsItem::ItemIsSelectable, this->selectable_);
 }
 
-Lens * LensView::lens()
-{
-    return lens_;
-}
+

@@ -22,7 +22,7 @@ public:
      * @param y2 ordonnée de l’autre extrémité du mur.
      */
     WallView(const Wall& wall, bool selectable = false);
-    Wall * wall();
+    inline Wall * wall();
 
     inline bool selectable() const;
     inline void set_selectable(bool value);
@@ -34,6 +34,11 @@ private:
 };
 
 /* Fonctions inlines */
+
+Wall * WallView::wall()
+{
+    return wall_;
+}
 
 bool WallView::selectable() const
 {

@@ -31,7 +31,7 @@ public:
      */
     MirrorView(const Mirror &mirror, bool selectable = false);
 
-    Mirror* mirror();
+    inline Mirror* mirror();
 
     void rotate(qreal angle);
     void notify(Observable * obs,
@@ -49,6 +49,11 @@ private:
 };
 
 /* Fonctions inlines */
+
+Mirror * MirrorView::mirror()
+{
+    return mirror_;
+}
 
 bool MirrorView::selectable() const
 {

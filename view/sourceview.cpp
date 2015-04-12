@@ -51,7 +51,3 @@ void SourceView::mousePressEvent(QGraphicsSceneMouseEvent *event)
     this->source_->set_on(!this->source_->on());
 }
 
-Source * SourceView::source()
-{
-    return source_;
-}

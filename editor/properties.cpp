@@ -1,7 +1,9 @@
 #include "crystalprop.h"
+#include "destprop.h"
 #include "lensprop.h"
 #include "mirrorprop.h"
 #include "nukeprop.h"
+#include "sourceprop.h"
 #include "wallprop.h"
 #include "properties.h"
 
@@ -74,17 +76,17 @@ void Properties::set_element_prop(ElementView * ev)
     {
         switch(ev->type_view())
         {
-        case ElementView::TypeView::MIRRORVIEW:
-        {
-            MirrorView * mv = dynamic_cast<MirrorView *> (ev);
-            prop_interface_ = new MirrorProp(mv->mirror(), groupBox);
-
-            break;
-        }
         case ElementView::TypeView::CRYSTALVIEW:
         {
             CrystalView * cv = dynamic_cast<CrystalView *> (ev);
             prop_interface_ = new CrystalProp(cv->crystal(), groupBox);
+
+            break;
+        }
+        case ElementView::TypeView::DESTVIEW:
+        {
+            DestinationView * dv = dynamic_cast<DestinationView *> (ev);
+            prop_interface_ = new DestProp(dv->dest(), groupBox);
 
             break;
         }
@@ -95,10 +97,24 @@ void Properties::set_element_prop(ElementView * ev)
 
             break;
         }
+        case ElementView::TypeView::MIRRORVIEW:
+        {
+            MirrorView * mv = dynamic_cast<MirrorView *> (ev);
+            prop_interface_ = new MirrorProp(mv->mirror(), groupBox);
+
+            break;
+        }
         case ElementView::TypeView::NUKEVIEW:
         {
             NukeView * nv = dynamic_cast<NukeView *> (ev);
             prop_interface_ = new NukeProp(nv->nuke(), groupBox);
+
+            break;
+        }
+        case ElementView::TypeView::SOURCEVIEW:
+        {
+            SourceView * sv = dynamic_cast<SourceView *> (ev);
+            prop_interface_ = new SourceProp(sv->source(), groupBox);
 
             break;
         }

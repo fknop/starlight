@@ -13,7 +13,7 @@ class NukeView : public QGraphicsEllipseItem, public ObserverInterface, public E
 {
 public:
     NukeView(const Nuke & nuke, bool selectable = false);
-    Nuke * nuke();
+    inline Nuke * nuke();
 
     void notify(Observable *sdo, std::string msg, const std::vector<std::string> &args);
 
@@ -26,6 +26,11 @@ private:
 };
 
 /* Fonctions inlines */
+
+Nuke * NukeView::nuke()
+{
+    return nuke_;
+}
 
 bool NukeView::selectable() const
 {

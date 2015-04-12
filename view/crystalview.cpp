@@ -13,8 +13,3 @@ CrystalView::CrystalView(const Crystal& crystal, bool selectable) :
 
     setFlag(QGraphicsItem::ItemIsSelectable, this->selectable_);
 }
-
-Crystal * CrystalView::crystal()
-{
-    return crystal_;
-}

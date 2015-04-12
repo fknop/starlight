@@ -13,9 +13,11 @@
 #include "view/elementview.h"
 
 #include "view/crystalview.h"
+#include "view/destinationview.h"
 #include "view/lensview.h"
 #include "view/mirrorview.h"
 #include "view/nukeview.h"
+#include "view/sourceview.h"
 #include "view/wallview.h"
 
 #include "propertiesinterface.h"

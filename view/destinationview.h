@@ -26,6 +26,8 @@ public:
                 std::string msg,
                 const std::vector<std::string>& args = std::vector<std::string>());
 
+    inline Dest * dest();
+
     inline bool selectable() const;
     inline void set_selectable(bool value);
 
@@ -34,5 +36,23 @@ private:
     bool selectable_;
 
 };
+
+/* Fonctions inlines */
+
+Dest * DestinationView::dest()
+{
+    return dest_;
+}
+
+bool DestinationView::selectable() const
+{
+    return this->selectable_;
+}
+
+void DestinationView::set_selectable(bool value)
+{
+    this->selectable_ = value;
+    setFlag(QGraphicsItem::ItemIsSelectable, this->selectable_);
+}
 
 #endif // DESTINATIONVIEW_H

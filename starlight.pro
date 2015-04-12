@@ -60,7 +60,9 @@ HEADERS += \
     editor/crystalprop.h \
     editor/lensprop.h \
     editor/nukeprop.h \
-    editor/wallprop.h
+    editor/wallprop.h \
+    editor/sourceprop.h \
+    editor/destprop.h
 
 SOURCES += \
     mapreader.cpp \
@@ -109,7 +111,9 @@ SOURCES += \
     editor/crystalprop.cpp \
     editor/lensprop.cpp \
     editor/nukeprop.cpp \
-    editor/wallprop.cpp
+    editor/wallprop.cpp \
+    editor/sourceprop.cpp \
+    editor/destprop.cpp
 
 RESOURCES += \
     ressources.qrc

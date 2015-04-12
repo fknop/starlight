@@ -25,9 +25,10 @@ public:
      * @param height hauteur du carré représentant la source.
      */
     SourceView(const Source& source, bool selectable = false);
-    Source * source();
 
     void mousePressEvent(QGraphicsSceneMouseEvent *event);
+
+    inline Source * source();
 
     inline bool selectable() const;
     inline void set_selectable(bool value);
@@ -40,6 +41,11 @@ private:
 };
 
 /* Fonctions inlines */
+
+Source * SourceView::source()
+{
+    return source_;
+}
 
 bool SourceView::selectable() const
 {

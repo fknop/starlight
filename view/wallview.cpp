@@ -15,9 +15,3 @@ WallView::WallView(const Wall& wall, bool selectable)  :
 
     setFlag(QGraphicsItem::ItemIsSelectable, this->selectable_);
 }
-
-
-Wall * WallView::wall()
-{
-    return wall_;
-}
