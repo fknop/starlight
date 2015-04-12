@@ -6,12 +6,16 @@
 
 #include <QMenuBar>
 #include <QFormLayout>
+#include <QFileDialog>
 
 #include "view/mapview.h"
 #include "properties.h"
 
 #include "view/sourceview.h"
 #include "view/destinationview.h"
+
+#include "mapreader.h"
+#include "mapwriter.h"
 
 #include "elements.h"
 
@@ -89,7 +93,7 @@ void MainEditor::setupUi()
     load_level_action_ = new QAction("&Load level", menu_bar_);
     load_level_action_->setShortcuts(QKeySequence::Open);
     load_level_action_->setStatusTip("Load a Starlight level");
-    //connect(open_level_action_, SIGNAL(triggered()), this, SLOT(loadLevel()));
+    connect(load_level_action_, SIGNAL(triggered()), this, SLOT(load_level()));
 
     file_menu_->addAction(load_level_action_);
 
@@ -97,14 +101,14 @@ void MainEditor::setupUi()
     save_level_action_ = new QAction("&Save level", menu_bar_);
     save_level_action_->setShortcuts(QKeySequence::Save);
     save_level_action_->setStatusTip("Save a Starlight level");
-    //connect(close_level_action_, SIGNAL(triggered()), this, SLOT(closeLevel()));
+    connect(save_level_action_, SIGNAL(triggered()), this, SLOT(save_level()));
 
     file_menu_->addAction(save_level_action_);
 
 
     quit_action_ = new QAction("&Quit", menu_bar_);
     quit_action_->setShortcuts(QKeySequence::Quit);
-    quit_action_->setStatusTip("Quit the program");
+    quit_action_->setStatusTip("Quit the editor");
     //connect(quit_action_, &QAction::triggered, &QCoreApplication::quit);
 
     file_menu_->addAction(quit_action_);
@@ -125,7 +129,7 @@ void MainEditor::setupUi()
 
     horizontalLayout->addWidget(elements);
 
-    mapview_ = new QWidget(); //new MapView();
+    mapview_ = new QWidget();
     verticalLayout_2 = new QVBoxLayout(mapview_);
     verticalLayout_2->setSpacing(6);
     verticalLayout_2->setContentsMargins(11, 11, 11, 11);
@@ -151,22 +155,49 @@ void MainEditor::setupUi()
     setCentralWidget(centralWidget);
 }
 
+void MainEditor::load_level()
+{
+    QString file_name = QFileDialog::getOpenFileName(
+                this, tr("Load Starlight level"), "levels/", tr("Files .lvl (*.lvl)"));
+
+    if (file_name != nullptr)
+    {
+        level_ = MapReader::level(file_name.toStdString());
+
+        if (level_)
+        {
+            verticalLayout_2->removeWidget(mapview_);
+            mapview_ = new MapView(level_);
+            level_->add_observer(mapview_);
+            mapview_->add_observer(this);
+            verticalLayout_2->addWidget(mapview_);
+        }
+    }
+}
+
+void MainEditor::save_level()
+{
+    QString file_name = QFileDialog::getSaveFileName(
+                this, tr("Save Starlight level"), "levels/", tr("Files .lvl (*.lvl)"));
+
+    if (file_name != nullptr && level_)
+    {
+        MapWriter::write(level_, file_name.toStdString());
+    }
+}
+
 void MainEditor::notify(Observable * sdo, std::string msg="UPDATE_RAYS", const std::vector<std::string> &args)
 {
-    std::cout << msg << std::endl;
     if (msg == "LEVEL_CREATED")
     {
-        std::cout << "level added!" << std::endl;
         create_level();
     }
     else if (msg == "LEVEL_RESET")
     {
-        std::cout << "level reset" << std::endl;
         mapview_->clear();
     }
     else if (msg == "MIRROR_ADDED")
     {
-        std::cout << "[MainEditor - notify] - mirror added!" << std::endl;
         add_mirror();
     }
     else if (msg == "CRYSTAL_ADDED")
@@ -228,10 +259,7 @@ void MainEditor::notify(Observable * sdo, std::string msg="UPDATE_RAYS", const s
             }
         }
 
-        std::cout << "ELEMENT_DELETED" << std::endl;
-
         mapview_->repaint();
-        std::cout << "scene repainted" << std::endl;
     }
     else if (msg == "ELEMENT_CHANGED")
     {

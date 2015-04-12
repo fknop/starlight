@@ -58,7 +58,6 @@ private:
 
 
 
-
 signals:
 
 public slots:
@@ -69,6 +68,8 @@ public slots:
     void add_wall();
 
     void create_level();
+    void load_level();
+    void save_level();
 
 
 };
