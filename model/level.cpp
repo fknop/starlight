@@ -155,9 +155,6 @@ void Level::get_intersections(const Line& line, const Point& start)
     this->nukes_intersections(line, start);
     this->crystals_intersections(line, start);
 
-    // Suppression des intersections du mauvais côté.
-    this->erase_wrongs_intersections(line, start);
-
     // Trie les intersections selon leur distance par rapport
     // à l'origine du rayon
     this->sort_intersections(start);
@@ -165,30 +162,11 @@ void Level::get_intersections(const Line& line, const Point& start)
 
 double Level::get_reflection_angle(double angle, double alpha)
 {   
-//    double p, angle_ray_p;
-//    if (alpha < 0)
-//    {
-//        alpha = (2*M_PI) + alpha;
-//        alpha = std::fmod(alpha, M_PI);
-//    }
-
-//    if (umath::equals(std::fmod(angle, M_PI), alpha))
-//        return std::fmod(angle + M_PI, 2*M_PI);
-
-
-
-//    if (p < 0)
-//    {
-//        p = (2*M_PI) + p;
-//        p = std::fmod(p, M_PI);
-//    }
     double p = std::fmod((M_PI_2 + alpha), (M_PI));
     double angle_ray_p = p - (std::fmod(angle, M_PI));
 
     if (umath::angle_equals_pi(angle, alpha))
         return std::fmod(angle + M_PI, 2*M_PI);
-
-
 
     return std::fmod((angle + M_PI + (2 * angle_ray_p)), (2*M_PI));
 }
@@ -319,18 +297,6 @@ void Level::crystals_intersections(const Line &line,
                     intersections_.push_back(Intersection(new Point(j), &i));
             }
         }
-    }
-}
-
-void Level::erase_wrongs_intersections(const Line& line,
-                                       const Point& start)
-{
-    for (auto i = intersections_.begin(); i != intersections_.end(); )
-    {
-        if (!Geometry::is_on_good_side(line, start, *(*i).point()))
-            i = intersections_.erase(i);
-        else
-            ++i;
     }
 }
 
