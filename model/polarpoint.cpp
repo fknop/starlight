@@ -26,4 +26,5 @@ Point PolarPoint::to_point()
 std::ostream& operator<<(std::ostream& out, const PolarPoint& p)
 {
     out << "Angle : " << p.angle_ << " Distance  : " << p.distance_;
+    return out;
 }
