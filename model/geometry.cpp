@@ -19,12 +19,12 @@ double Geometry::deg_to_rad(double degrees)
 double Geometry::slope_to_rad(const Point& p1, const Point& p2)
 {
     double slope = rad_to_slope(p1, p2);
-    return std::atan(slope);
+    return slope_to_rad(slope);
 }
 
 double Geometry::slope_to_rad(double slope)
 {
-    return std::atan(slope);
+    return -std::atan(slope);
 }
 
 double Geometry::rad_to_slope(const Point& p1, const Point& p2)
@@ -42,25 +42,21 @@ bool Geometry::is_on_good_side(const Line& l, const Point& ref, const Point& p)
     double angle = l.alpha();
 
     // Angle à 90°
-    if (umath::equals(angle, M_PI_2)
-            || umath::equals(angle, -M_PI_2_3))
+    if (umath::angle_equals(angle, M_PI_2))
             return umath::equals(p.x(), ref.x())
                 && p.y() < ref.y();
 
     // Angle à 270°
-    if (umath::equals(angle, M_PI_2_3)
-            || umath::equals(angle, -M_PI_2))
+    if (umath::angle_equals(angle, M_PI_2_3))
             return umath::equals(p.x(), ref.x()) && p.y() > ref.y();
 
     // Angle à 180°
-    if (umath::equals(angle, M_PI)
-            || umath::equals(angle, -M_PI))
-        return umath::equals(p.y(), ref.y())
+    if (umath::angle_equals(angle, M_PI))
+        return umath::equals(p.x(), ref.x())
                 && p.x() < ref.x();
 
     // Angle à 0°
-    if (umath::equals(angle, 0)
-            || umath::equals(std::abs(angle), 2*M_PI))
+    if (umath::angle_equals(angle, 0))
         return umath::equals(p.y(), ref.y())
                 && p.x() > ref.x();
 

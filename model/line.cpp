@@ -31,14 +31,14 @@ Line::Line(const Point& a, const Point& b)
 
 Line::Line(const Point& a, double alpha)
 {
-    if (umath::equals(std::fmod(std::abs(alpha), M_PI), M_PI_2))
+    if (umath::angle_equals_pi(alpha, M_PI_2))
     {
         a_ = 1; // On choisit que a = 1.
         b_ = 0;
         c_ = - a.x();
         // x = -c / a
     }
-    else if (umath::equals(std::fmod(std::abs(alpha), M_PI), 0))
+    else if (umath::angle_equals_pi(alpha, 0))
     {
         a_ = 0;
         b_ = 1; // On choisit que b = 1.
