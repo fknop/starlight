@@ -334,19 +334,20 @@ bool Level::check_collisions(const LineSegment& segment, Mirror * mirror)
 {
     std::vector<Point> points;
     Point p;
+    LineSegment ls;
     bool intersects = false;
     bool is_point;
 
     for (auto &i : this->walls_)
     {
         if (!intersects)
-            intersects = Geometry::intersects(segment, i.to_line_segment(), p, is_point);
+            intersects = Geometry::intersects(segment, i.to_line_segment(), p, ls, is_point);
     }
 
     for (auto &i : this->mirrors_)
     {
         if (!intersects && !(i == *mirror))
-            intersects = Geometry::intersects(segment, i.to_line_segment(), p, is_point);
+            intersects = Geometry::intersects(segment, i.to_line_segment(), p, ls, is_point);
     }
 
     for (auto &i : this->lenses_)

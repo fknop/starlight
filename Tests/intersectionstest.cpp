@@ -15,35 +15,142 @@ TEST_CASE("Intersections droites, segments")
 {
     Line l(Point(0,0), Point(5,5));
     Line vl(Point(4,0), Point(4, 10));
+    Point p;
+    LineSegment result;
+    bool do_intersect;
     bool is_point;
+
 
 
     SECTION("Intersection droite / droite verticale")
     {
-        Point p;
-        bool b = Geometry::intersects(l, vl, p, is_point);
-
-        REQUIRE(b == true);
+        do_intersect = Geometry::intersects(l, vl, p, is_point);
+        REQUIRE(do_intersect == true);
+        REQUIRE(is_point == true);
         REQUIRE(p == Point(4,4));
     }
 
     SECTION("Non-intersection de deux droites verticales")
     {
-        Point p;
         Line vl2(Point(0,0), Point(0,10));
-        bool b = Geometry::intersects(vl, vl2, p, is_point);
-        REQUIRE(b == false);
+        do_intersect = Geometry::intersects(vl, vl2, p, is_point);
+        REQUIRE(do_intersect == false);
+        REQUIRE(is_point == false);
     }
 
     SECTION("Intersection droite / droite")
     {
-       Point p;
        Line l2(Point(5,0), M_PI_4);
-       bool b = Geometry::intersects(l, l2, p, is_point);
-       REQUIRE(b == true);
+       do_intersect = Geometry::intersects(l, l2, p, is_point);
+       REQUIRE(do_intersect == true);
+       REQUIRE(is_point == true);
        REQUIRE(p == Point(2.5, 2.5));
-
     }
+
+    SECTION("Droites parallèles")
+    {
+        Line ll(Point(1,0), -M_PI_4);
+        do_intersect = Geometry::intersects(l, ll, p, is_point);
+        REQUIRE(do_intersect == false);
+        REQUIRE(is_point == false);
+    }
+
+    SECTION("Intersection droite/segment")
+    {
+        LineSegment ls(Point(4,4), Point(8,8));
+        do_intersect = Geometry::intersects(l, ls, p, result, is_point);
+        REQUIRE(do_intersect == true);
+        REQUIRE(is_point == false);
+        REQUIRE(result == ls);
+    }
+
+    SECTION("Intersection droite/segment_2")
+    {
+        LineSegment ls(Point(4,0), Point(3,1));
+        do_intersect = Geometry::intersects(l, ls, p, result, is_point);
+        REQUIRE(do_intersect == false);
+        REQUIRE(is_point == false);
+    }
+
+
+
+}
+
+TEST_CASE("Intersections segments / segments")
+{
+
+    Point p;
+    LineSegment result;
+    bool is_point;
+    bool do_intersect;
+
+    SECTION("Intersection segment/segment")
+    {
+        LineSegment ls1(Point(0,0), Point(4,4));
+        LineSegment ls2(Point(0,0), Point(4,4));
+        do_intersect = Geometry::intersects(ls1, ls2, p, result, is_point);
+        REQUIRE(do_intersect == true);
+        REQUIRE(is_point == false);
+        REQUIRE(result == ls1);
+        REQUIRE(result == ls2);
+    }
+
+    SECTION("Intersection segment/segment_2")
+    {
+        LineSegment ls1(Point(0,0), Point(4,4));
+        LineSegment ls2(Point(1,1), Point(4,4));
+        do_intersect = Geometry::intersects(ls1, ls2, p, result, is_point);
+        REQUIRE(do_intersect == true);
+        REQUIRE(is_point == false);
+        REQUIRE(result == ls2);
+    }
+
+    SECTION("Intersection segment/segment_3")
+    {
+        LineSegment ls1(Point(0,0), Point(4,4));
+        LineSegment ls2(Point(1,1), Point(5,5));
+        do_intersect = Geometry::intersects(ls1, ls2, p, result, is_point);
+        REQUIRE(do_intersect == true);
+        REQUIRE(is_point == false);
+        REQUIRE(result == LineSegment(Point(1,1), Point(4,4)));
+    }
+
+    SECTION("Intersection segment/segment_4")
+    {
+        LineSegment ls1(Point(0,0), Point(4,4));
+        LineSegment ls2(Point(5,5), Point(4,4));
+        do_intersect = Geometry::intersects(ls1, ls2, p, result, is_point);
+        REQUIRE(do_intersect == true);
+        REQUIRE(is_point == true);
+        REQUIRE(p == Point(4,4));
+    }
+
+    SECTION("Intersection segment/segment_5")
+    {
+        LineSegment ls1(Point(1,1), Point(4,4));
+        LineSegment ls2(Point(-5,-5), Point(2,2));
+        do_intersect = Geometry::intersects(ls1, ls2, p, result, is_point);
+        REQUIRE(do_intersect == true);
+        REQUIRE(is_point == false);
+        REQUIRE(result == LineSegment(Point(1,1), Point(2,2)));
+    }
+
+    SECTION("Intersection segment/segment_6")
+    {
+        LineSegment ls1(Point(4,4), Point(8,8));
+        LineSegment ls2(Point(0,0), Point(3,3));
+        do_intersect = Geometry::intersects(ls1, ls2, p, result, is_point);
+        REQUIRE(do_intersect == false);
+    }
+
+    SECTION("Intersection segment/segment_7")
+    {
+        LineSegment ls1(Point(0,5), Point(4,5));
+        LineSegment ls2(Point(0,6), Point(4,6));
+        do_intersect = Geometry::intersects(ls1, ls2, p, result, is_point);
+        REQUIRE(do_intersect == false);
+    }
+
 }
 
 TEST_CASE("Intersections ellipses, droites, segments")
@@ -75,8 +182,20 @@ TEST_CASE("Intersections ellipses, droites, segments")
         REQUIRE(std::round(points.at(1).y()) == 11.0);
     }
 
+    SECTION("Non-intersection ellipse - droite")
+    {
+        Line l(Point(50,0), -M_PI_2);
+        int nb = Geometry::intersects(ellipse, l, points);
+        REQUIRE(nb == 0);
+    }
 
-
+    SECTION("Tangente droite-ellipse")
+    {
+        Line l(Point(40,0), -M_PI_2);
+        int nb = Geometry::intersects(ellipse, l, points);
+        REQUIRE(nb == 1);
+        REQUIRE(points.at(0) == Point(40, 20));
+    }
 
     SECTION("Intersection ellipse, segment")
     {
@@ -131,6 +250,13 @@ TEST_CASE("Intersections rectangle, droite, segment")
         REQUIRE(points.at(0) == Point(20, 0));
         REQUIRE(points.at(1) == Point(20, 5));
 
+    }
+
+    SECTION("Non-intersection rectangle-droite")
+    {
+        Line l(Point(0,10), -M_PI_4);
+        int nb = Geometry::intersects(rectangle, l, points);
+        REQUIRE(nb == 0);
     }
 
     SECTION("Intersection rectangle, segment")

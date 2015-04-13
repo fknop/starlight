@@ -5,6 +5,7 @@
 
 #include "catch.hpp"
 #include "model/point.h"
+#include "model/umath.h"
 
 TEST_CASE("Test créations de points")
 {
@@ -46,6 +47,24 @@ TEST_CASE("Opérateurs")
     SECTION("Opérateur d'infériorité")
     {
         REQUIRE(p1 < p3);
+    }
+
+
+}
+
+TEST_CASE("Distance")
+{
+    Point p1(0,0);
+    Point p2(4,0);
+    Point p3(1,1);
+    SECTION("Test distance_1")
+    {
+        REQUIRE(p1.distance(p2) == 4);
+    }
+
+    SECTION("Test distance_2")
+    {
+        REQUIRE(umath::equals(p1.distance(p3), 1.414));
     }
 
 

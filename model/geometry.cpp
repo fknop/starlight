@@ -183,29 +183,73 @@ bool Geometry::intersects(const Line& line, const LineSegment& ls, Point& point,
     }
 
     else if (do_intersect && is_point && ls.contains(point))
+    {
         return true;
+    }
     else
+    {
+        is_point = false; // Si ls ne contient pas le point, il faut passer is_point à false.
         return false;
+    }
 
 }
 
-bool Geometry::intersects(const LineSegment& ls1, const LineSegment& ls2, Point& point, bool& is_point)
+bool Geometry::intersects(const LineSegment& ls1, const LineSegment& ls2, Point& point, LineSegment& result, bool& is_point)
 {
     if (ls1 == ls2)
     {
         is_point = false;
+        result = ls1;
         return true;
     }
 
     bool do_intersect = intersects(ls1.to_line(), ls2.to_line(), point, is_point);
 
     if (do_intersect && !is_point)
+    {
+        if (ls1.start() == ls2.end())
+        {
+            is_point = true;
+            point = ls1.start();
+        }
+        else if (ls2.start() == ls1.end())
+        {
+            is_point = true;
+            point = ls2.start();
+        }
+        else if (ls1.contains(ls2.end()) && ls1.contains(ls2.start()))
+        {
+            result = ls2;
+        }
+        else if (ls2.contains(ls1.start()) && ls2.contains(ls1.end()))
+        {
+            result = ls1;
+        }
+        else if (ls1.contains(ls2.start()))
+        {
+            result = LineSegment(ls2.start(), ls1.end());
+        }
+        else if (ls1.contains(ls2.end()))
+        {
+            result = LineSegment(ls1.start(), ls2.end());
+        }
+        else
+        {
+            return false;
+        }
+
         return true;
+    }
 
     if (do_intersect && is_point && ls1.contains(point) && ls2.contains(point))
+    {
         return true;
+    }
     else
+    {
+        is_point = false;
         return false;
+    }
 }
 
 int Geometry::intersects(const Ellipse& e, const Line& l,
