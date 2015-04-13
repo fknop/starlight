@@ -13,8 +13,10 @@ Ray::Ray(const Point & p1, const Point & p2) : Ray {p1, p2, Ray::WL_DFT}
 Ray::Ray(const Point & p1, const Point & p2, int wl) : start_ {p1},
 end_ {p2}, wavelength_ {wl}
 {
-    if (wl < WL_MIN || wl > WL_MAX)
-        throw std::string("Longueur d'onde invalide");
+    if (wl < WL_MIN)
+        wl = WL_MIN;
+    else if (wl > WL_MAX)
+        wl = WL_MAX;
 
 
 }

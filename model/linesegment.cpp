@@ -5,8 +5,12 @@
 
 LineSegment::LineSegment(const Point& p1, const Point& p2)
 {
-    if (p1 == p2)
-        throw std::string("Un segment doit contenir deux points différents");
+   if (p1 == p2)
+   {
+       std::cout << p1 << std::endl;
+       std::cout << p2 << std::endl;
+   }
+      // throw std::string("Un segment doit contenir deux points différents");
 
     if (p1.x() < p2.x() ||
             (umath::equals(p1.x(), p2.x()) && p1.y() < p2.y()))

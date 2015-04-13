@@ -58,6 +58,32 @@ TEST_CASE("Tests du bon fonctionnement des éléments du jeu")
         REQUIRE(level->rays().at(0).end() == Point(200,200));
         REQUIRE(level->rays().at(1).end() == Point(15,200));
     }
+
+    SECTION("Test reflection mirroir")
+    {
+        Mirror* mirror = new Mirror(Point(200,200), 50, 100, M_PI_4);
+        level->set_source(s);
+        level->set_dest(d);
+        level->add_mirror(*mirror);
+        Source* s = &const_cast<Source&>(level->source());
+        s->set_on(true);
+        REQUIRE(level->rays().size() == 2);
+        REQUIRE(level->rays().at(0).end() == Point(200,200));
+        REQUIRE(level->rays().at(1).end() == Point(200,0));
+    }
+
+    SECTION("Test reflection mirroir")
+    {
+        Mirror* mirror = new Mirror(Point(200,200), 50, 100, -M_PI_4);
+        level->set_source(s);
+        level->set_dest(d);
+        level->add_mirror(*mirror);
+        Source* s = &const_cast<Source&>(level->source());
+        s->set_on(true);
+        REQUIRE(level->rays().size() == 2);
+        REQUIRE(level->rays().at(0).end() == Point(200,200));
+        REQUIRE(level->rays().at(1).end() == Point(200,400));
+    }
 }
 
 

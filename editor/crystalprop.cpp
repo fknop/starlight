@@ -50,7 +50,9 @@ void CrystalProp::setupUi()
     formLayout->setWidget(3, QFormLayout::LabelRole, mod_label);
 
     mod_dsb = new QDoubleSpinBox();
+    mod_dsb->setMinimum(-999.);
     mod_dsb->setMaximum(999.);
+
 
     formLayout->setWidget(3, QFormLayout::FieldRole, mod_dsb);
 

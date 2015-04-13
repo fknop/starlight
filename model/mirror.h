@@ -49,7 +49,7 @@ class Mirror : public Element, public Observable
      *          du miroir.
      * @param a l'angle d'inclinaison du miroir.
      */
-    Mirror(const Point & p, double len, double x, double a);
+    Mirror(const Point & p, double x, double len, double a);
 
     /**
      * Instancie un miroir en une position donnée, d'une certaine
