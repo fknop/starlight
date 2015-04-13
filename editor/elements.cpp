@@ -100,37 +100,32 @@ void Elements::setupUi()
 
 void Elements::create_level()
 {
-    //delete level_;
     level_ = new Level(level_width_dsb->value(), level_height_dsb->value());
 
-    add_crystal_pb->setEnabled(true);
-    add_mirror_pb->setEnabled(true);
-    add_nuke_pb->setEnabled(true);
-    add_lens_pb->setEnabled(true);
-    add_wall_pb->setEnabled(true);
-
-    level_apply_pb->setEnabled(false);
-    level_width_dsb->setEnabled(false);
-    level_height_dsb->setEnabled(false);
-    level_reset_pb->setEnabled(true);
+    enable_pushbuttons(true);
 
     notify_all("LEVEL_CREATED");
 }
 
 void Elements::reset_level()
 {
-    add_crystal_pb->setEnabled(false);
-    add_mirror_pb->setEnabled(false);
-    add_nuke_pb->setEnabled(false);
-    add_lens_pb->setEnabled(false);
-    add_wall_pb->setEnabled(false);
-
-    level_apply_pb->setEnabled(true);
-    level_width_dsb->setEnabled(true);
-    level_height_dsb->setEnabled(true);
-    level_reset_pb->setEnabled(false);
+    enable_pushbuttons(false);
 
     notify_all("LEVEL_RESET");
+}
+
+void Elements::enable_pushbuttons(bool b)
+{
+    add_crystal_pb->setEnabled(b);
+    add_mirror_pb->setEnabled(b);
+    add_nuke_pb->setEnabled(b);
+    add_lens_pb->setEnabled(b);
+    add_wall_pb->setEnabled(b);
+
+    level_apply_pb->setEnabled(!b);
+    level_width_dsb->setEnabled(!b);
+    level_height_dsb->setEnabled(!b);
+    level_reset_pb->setEnabled(b);
 }
 
 Level * Elements::level()

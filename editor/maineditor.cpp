@@ -173,6 +173,8 @@ void MainEditor::load_level()
 
     elements->set_height(level_->height());
     elements->set_width(level_->width());
+
+    elements->enable_pushbuttons(true);
 }
 
 void MainEditor::save_level()

@@ -23,6 +23,8 @@ public:
     void set_height(int h);
     void set_width(int w);
 
+    void enable_pushbuttons(bool b);
+
 private:
     void setupUi();
     void add_connections();
