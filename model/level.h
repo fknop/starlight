@@ -294,26 +294,25 @@ private:
     double get_reflection_angle(double startAngle, double mirrorAngle);
 
 
-    void dest_intersections(const Line& line,
-                            std::vector<Point>& points);
+    void dest_intersections(const Line& line, const Point &start);
 
     void source_intersections(const Line& line,
-                              std::vector<Point>& points);
+                              const Point& start);
 
     void walls_intersections(const Line& line,
                              const Point &start);
 
     void lenses_intersections(const Line& line,
-                              std::vector<Point>& points);
+                              const Point &start);
 
     void mirrors_intersections(const Line& line,
-                               const Point& p);
+                               const Point& start);
 
     void nukes_intersections(const Line& line,
-                             std::vector<Point>& points);
+                             const Point& start);
 
     void crystals_intersections(const Line& line,
-                                std::vector<Point>& points);
+                                const Point &start);
 
     void erase_wrongs_intersections(const Line& line, const Point &start);
 

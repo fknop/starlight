@@ -143,18 +143,17 @@ Level::State Level::compute_ray(Line& line, const Point& start, int wl)
 void Level::get_intersections(const Line& line, const Point& start)
 {
     this->intersections_.clear();
-    std::vector<Point> points;
 
     // Ajout des intersections au vecteur d'intersections
     if (!(start == source_.pos())) // Pour eviter que le rayon se bloque directement...
-        this->source_intersections(line, points);
+        this->source_intersections(line, start);
 
     this->walls_intersections(line, start);
     this->mirrors_intersections(line, start);
-    this->lenses_intersections(line, points);
-    this->dest_intersections(line, points);
-    this->nukes_intersections(line, points);
-    this->crystals_intersections(line, points);
+    this->lenses_intersections(line, start);
+    this->dest_intersections(line, start);
+    this->nukes_intersections(line, start);
+    this->crystals_intersections(line, start);
 
     // Suppression des intersections du mauvais côté.
     this->erase_wrongs_intersections(line, start);
@@ -195,24 +194,30 @@ double Level::get_reflection_angle(double angle, double alpha)
 }
 
 void Level::dest_intersections(const Line &line,
-                               std::vector<Point>& points)
+                               const Point& start)
 {
-    points.clear();
+    std::vector<Point> points;
     if (Geometry::intersects(this->dest_.to_rectangle(), line, points) > 0)
     {
         for (auto &i : points)
-            intersections_.push_back(Intersection(new Point(i), &this->dest_));
+        {
+            if (Geometry::is_on_good_side(line, start, i))
+                intersections_.push_back(Intersection(new Point(i), &this->dest_));
+        }
     }
 }
 
 void Level::source_intersections(const Line& line,
-                                 std::vector<Point>& points)
+                                 const Point& start)
 {
-    points.clear();
+    std::vector<Point> points;
     if (Geometry::intersects(this->source_.to_rectangle(), line, points) > 0)
     {
         for (auto &i : points)
-            intersections_.push_back(Intersection(new Point(i), &this->source_));
+        {
+            if (Geometry::is_on_good_side(line, start, i))
+                intersections_.push_back(Intersection(new Point(i), &this->source_));
+        }
     }
 }
 
@@ -233,21 +238,26 @@ void Level::walls_intersections(const Line &line,
                 else
                     p = Point(ls.end());
             }
-            intersections_.push_back(Intersection(new Point(p), &i));
+            if (Geometry::is_on_good_side(line, start, p))
+                intersections_.push_back(Intersection(new Point(p), &i));
         }
     }
 }
 
 void Level::lenses_intersections(const Line &line,
-                                 std::vector<Point>& points)
+                                 const Point& start)
 {
+
     for (auto &i : this->lenses_)
     {
-        points.clear();
+        std::vector<Point> points;
         if (Geometry::intersects(i.to_ellipse(), line, points))
         {
             for (auto &j : points)
-                intersections_.push_back(Intersection(new Point(j), &i));
+            {
+                if (Geometry::is_on_good_side(line, start, j))
+                    intersections_.push_back(Intersection(new Point(j), &i));
+            }
         }
     }
 }
@@ -262,7 +272,6 @@ void Level::mirrors_intersections(const Line &line,
     {
         if (Geometry::intersects(line, i.to_line_segment(), p, ls, is_point))
         {
-
             if (!is_point)
             {
                 if (start.distance(ls.start()) < start.distance(ls.end()))
@@ -270,35 +279,45 @@ void Level::mirrors_intersections(const Line &line,
                 else
                     p = Point(ls.end());
             }
-            intersections_.push_back(Intersection(new Point(p), &i));
+            if (Geometry::is_on_good_side(line, start, p))
+                intersections_.push_back(Intersection(new Point(p), &i));
         }
     }
 }
 
 void Level::nukes_intersections(const Line& line,
-                                std::vector<Point>& points)
+                                const Point& start)
 {
+
     for (auto &i : this->nukes_)
     {
-        points.clear();
+        std::vector<Point> points;
         if (Geometry::intersects(i.to_ellipse(), line, points))
         {
             for (auto &j : points)
-                intersections_.push_back(Intersection(new Point(j), &i));
+            {
+                if (Geometry::is_on_good_side(line, start, j))
+                    intersections_.push_back(Intersection(new Point(j), &i));
+            }
         }
+
     }
 }
 
 void Level::crystals_intersections(const Line &line,
-                                   std::vector<Point>& points)
+                                   const Point& start)
 {
+
     for (auto &i : this->crystals_)
     {
-        points.clear();
+        std::vector<Point> points;
         if (Geometry::intersects(i.to_ellipse(), line, points))
         {
             for (auto &j : points)
-                intersections_.push_back(Intersection(new Point(j), &i));
+            {
+                if (Geometry::is_on_good_side(line, start, j))
+                    intersections_.push_back(Intersection(new Point(j), &i));
+            }
         }
     }
 }
