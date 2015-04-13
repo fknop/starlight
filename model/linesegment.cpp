@@ -24,10 +24,14 @@ LineSegment::LineSegment(const Point& p1, const Point& p2)
 
 bool LineSegment::contains(const Point& p) const
 {
-    return ((std::min(this->start_.x(), this->end_.x()) <= p.x()) &&
-            (std::max(this->start_.x(), this->end_.x()) >= p.x()) &&
-            (std::min(this->start_.y(), this->end_.y()) <= p.y()) &&
-            (std::max(this->start_.y(), this->end_.y()) >= p.y()));
+    return ((std::min(start_.x(), end_.x()) < p.x() ||
+             umath::equals(std::min(start_.x(), end_.x()), p.x())) &&
+            (std::max(start_.x(), end_.x()) > p.x() ||
+             umath::equals(std::max(start_.x(), end_.x()), p.x())) &&
+            (std::min(start_.y(), end_.y()) < p.y() ||
+             umath::equals(std::min(start_.y(), end_.y()), p.y())) &&
+            (std::max(start_.y(), end_.y()) > p.y() ||
+             umath::equals(std::max(start_.y(), end_.y()), p.y())));
 }
 
 void LineSegment::translate(double x, double y)
@@ -57,4 +61,9 @@ bool LineSegment::operator==(const LineSegment& ls) const
 {
     return (this->start_ == ls.start_ && this->end_ == ls.end_)
             || (this->start_ == ls.end_ && this->end_ == ls.start_);
+}
+
+Line LineSegment::to_line() const
+{
+    return Line(start_, end_);
 }

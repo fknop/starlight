@@ -39,6 +39,25 @@ namespace umath
      */
     bool equals(double a, double b);
 
+    /**
+     * Retourne vrai si deux angles dans l'intervalle
+     * [0, 2PI] sont égaux.
+     * @param a le premier angle.
+     * @param b le deuxième angle.
+     * @return vrai si les deux angles sont égaux, faux sinon.
+     */
+    bool angle_equals(double a, double b);
+
+    /**
+     * Retourne vrai si deux angles ramenés dans l'intervalle
+     * [0, PI] sont égaux.
+     * @param a le premier angle.
+     * @param b le deuxième angle.
+     * @return vrai si les deux angles sont égaux dans l'intervalle
+     * [0, PI], faux sinon.
+     */
+    bool angle_equals_pi(double a, double b);
+
 } // namespace umath
 
 

@@ -3,7 +3,7 @@
 
 
 Source::Source(const Point & p, double e, double a, int wl) : pos_ {p},
-    alpha_ {a}, edge_ {e}, wavelength_ {wl}
+    alpha_ {a}, edge_ {e}, wavelength_ {wl}, Element(Element::Type::SOURCE)
 {
     if (wl < 360 || wl > 830)
         wavelength_ = 600;

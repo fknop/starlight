@@ -20,12 +20,13 @@ int main(int argc, char **argv)
     game->show();
     game->displayMainMenu();
     return app.exec();
-//    Line l(Point(0,0), Point(5,5));
-//    Line l2(Point(5,0), M_PI_4);
+//    Line l(Point(0.4,4), 0);
+//    LineSegment l2(Point(4.2,0.3), Point(4.2,10.2));
 //    Point p;
+//    LineSegment seg;
 //    bool b;
-//    bool i = Geometry::intersects(l, l2, p, b);
-
+//    bool i = Geometry::intersects(l, l2, p, seg, b);
+//    std::cout << p;
 //    return 0;
 
 

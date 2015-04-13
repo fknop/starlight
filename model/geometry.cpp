@@ -96,6 +96,7 @@ bool Geometry::intersects(const Line& l1, const Line& l2, Point& point, bool& is
 
     if (l1.parallel(l2)) // deux droites V ou H
     {
+
         // x et y ci dessous ne représentent pas
         // les coordonnées x et y
         if (l1.vertical()) // droites verticales
@@ -171,15 +172,16 @@ bool Geometry::intersects(const Line& l1, const Line& l2, Point& point, bool& is
     return true;
 }
 
-bool Geometry::intersects(const Line& line, const LineSegment& ls, Point& point, bool& is_point)
+bool Geometry::intersects(const Line& line, const LineSegment& ls, Point& point, LineSegment &segment, bool& is_point)
 {
-    Point start = ls.start();
-    Point end = ls.end();
-
-    bool do_intersect = intersects(line, Line(start, end), point, is_point);
+    bool do_intersect = intersects(line, ls.to_line(), point, is_point);
 
     if (do_intersect && !is_point)
+    {
+        segment = ls;
         return true;
+    }
+
     else if (do_intersect && is_point && ls.contains(point))
         return true;
     else
@@ -195,10 +197,7 @@ bool Geometry::intersects(const LineSegment& ls1, const LineSegment& ls2, Point&
         return true;
     }
 
-    Line l1(ls1.start(), ls1.end());
-    Line l2(ls2.start(), ls2.end());
-
-    bool do_intersect = intersects(l1, l2, point, is_point);
+    bool do_intersect = intersects(ls1.to_line(), ls2.to_line(), point, is_point);
 
     if (do_intersect && !is_point)
         return true;
@@ -315,7 +314,7 @@ int Geometry::intersects(const Ellipse& e, const Line& l,
 int Geometry::intersects(const Ellipse& e, const LineSegment& ls,
                std::vector<Point>& points)
 {
-    intersects(e, Line(ls.start(), ls.end()), points);
+    intersects(e, ls.to_line(), points);
 
     for (auto i = points.begin(); i != points.end(); )
     {
@@ -354,9 +353,10 @@ int Geometry::intersects(const Rectangle& r, const Line& line,
      * on la push dans le vecteur de points, à moins que
      * l’intersection soit déjà présente */
     Point p;
+    LineSegment ls;
     bool is_point;
     for (auto &i : segments) {
-        if (intersects(line, i, p, is_point) && is_point &&
+        if (intersects(line, i, p, ls, is_point) && is_point &&
                  std::find(points.begin(), points.end(), p) == points.end())
             points.push_back(Point(p));
 
@@ -369,7 +369,7 @@ int Geometry::intersects(const Rectangle& r, const Line& line,
 int Geometry::intersects(const Rectangle& r, const LineSegment& ls,
                std::vector<Point>& points)
 {
-    intersects(r, Line(ls.start(), ls.end()), points);
+    intersects(r, ls.to_line(), points);
 
     /* Enlève chaque point du vecteur qui n’est pas
      * sur le segment. */

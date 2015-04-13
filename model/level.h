@@ -295,34 +295,30 @@ private:
 
 
     void dest_intersections(const Line& line,
-                            std::vector<Intersection>& intersections,
                             std::vector<Point>& points);
 
+    void source_intersections(const Line& line,
+                              std::vector<Point>& points,
+                              const Point &start);
+
     void walls_intersections(const Line& line,
-                             std::vector<Intersection>& intersections,
-                             Point &p);
+                             const Point &start);
 
     void lenses_intersections(const Line& line,
-                              std::vector<Intersection>& intersections,
                               std::vector<Point>& points);
 
     void mirrors_intersections(const Line& line,
-                               std::vector<Intersection>& intersections,
-                               Point& p);
+                               const Point& p);
 
     void nukes_intersections(const Line& line,
-                             std::vector<Intersection>& intersections,
                              std::vector<Point>& points);
 
     void crystals_intersections(const Line& line,
-                                std::vector<Intersection>& intersections,
                                 std::vector<Point>& points);
 
-    void erase_wrongs_intersections(const Line& line,
-                                    std::vector<Intersection>& intersections, const Point &start);
+    void erase_wrongs_intersections(const Line& line, const Point &start);
 
-    void sort_intersections(const Line& line,
-                            std::vector<Intersection> &intersections, const Point &start);
+    void sort_intersections(const Point &start);
 
     bool check_collisions(const LineSegment &segment, Mirror *m);
 };

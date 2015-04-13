@@ -2,13 +2,17 @@
 #define LINESEGMENT_H
 
 #include "point.h"
+#include "line.h"
 
 class LineSegment
 {
-    Point start_;
-    Point end_;
+    Point start_ {0,0};
+    Point end_ {1,1};
 
 public:
+
+    LineSegment() = default;
+
     /**
      * Instancie un segment de droite sur base de 2 points.
      * @param start une extrémité du segment.
@@ -47,6 +51,8 @@ public:
      * @return vrai si le point est sur le segment, faux sinon.
      */
     bool contains(const Point& point) const;
+
+    Line to_line() const;
 
     void translate(double x, double y);
     void rotate(const Point& pivot, double angle);
