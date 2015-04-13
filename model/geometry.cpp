@@ -99,6 +99,7 @@ bool Geometry::intersects(const Line& l1, const Line& l2, Point& point, bool& is
 
         // x et y ci dessous ne représentent pas
         // les coordonnées x et y
+
         if (l1.vertical()) // droites verticales
         {
             x = l1.get_x(0);
@@ -115,7 +116,9 @@ bool Geometry::intersects(const Line& l1, const Line& l2, Point& point, bool& is
             y = -l2.c() / l2.b();
         }
 
-        if (umath::equals(x , y))
+        if (std::abs(x - y) < 0.5) // On avance de 1 en 1
+                                   // une précision d'epsilon
+                                   // n'est pas possible.
         {
             is_point = false;
             return true;
@@ -207,6 +210,7 @@ bool Geometry::intersects(const LineSegment& ls1, const LineSegment& ls2, Point&
 
     if (do_intersect && !is_point)
     {
+        std::cout << "Test";
         if (ls1.start() == ls2.end())
         {
             is_point = true;

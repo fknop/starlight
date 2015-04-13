@@ -315,9 +315,11 @@ void Level::erase_wrongs_intersections(const Line& line,
     }
 }
 
-///////////////////// TO CHECK ///////////////
 void Level::sort_intersections(const Point& start)
 {
+    // Expression lambda servant à trier les intersections
+    // dans l'ordre croissant selon leur distance
+    // par rapport au point de départ.
     std::sort(intersections_.begin(), intersections_.end(),
               [start](const Intersection& a, const Intersection& b) -> bool
     {
@@ -394,17 +396,16 @@ void Level::notify(Observable* obs, std::string msg, const std::vector<std::stri
             double x = (ssx >> x, x);
             double y = (ssy >> y, y);
             segment.translate(x, y);
-            if (check_collisions(segment, mirror))
-                mirror->set_movable(false);
         }
         else if (ask_rotate)
         {
             std::stringstream ss(args.at(0));
             double angle = (ss >> angle, angle);
             segment.rotate(mirror->pivot(), angle);
-            if (check_collisions(segment, mirror))
-                mirror->set_movable(false);
         }
+
+        // Le mirroir est empéché de se déplacer si collision.
+        mirror->set_movable(!check_collisions(segment, mirror));
     }
     else if (recompute)
     {
