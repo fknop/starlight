@@ -298,8 +298,7 @@ private:
                             std::vector<Point>& points);
 
     void source_intersections(const Line& line,
-                              std::vector<Point>& points,
-                              const Point &start);
+                              std::vector<Point>& points);
 
     void walls_intersections(const Line& line,
                              const Point &start);

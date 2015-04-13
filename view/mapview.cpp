@@ -32,6 +32,15 @@ MapView::MapView(Level* level) : level_{level}
     repaint();
 }
 
+MapView::~MapView()
+{
+    clear();
+    delete scene_;
+    scene_ = nullptr;
+    delete sound_;
+    sound_ = nullptr;
+}
+
 ElementView * MapView::selected()
 {
     if (scene_->selectedItems().size() > 0)
@@ -45,6 +54,30 @@ ElementView * MapView::selected()
 
 void MapView::clear()
 {
+    for (auto &i : mirror_views_)
+        delete i;
+    mirror_views_.clear();
+
+    for (auto &i : ray_views_)
+        delete i;
+    ray_views_.clear();
+
+    for (auto &i : lens_views_)
+        delete i;
+    lens_views_.clear();
+
+    for (auto &i : crystal_views_)
+        delete i;
+    crystal_views_.clear();
+
+    for (auto &i : nuke_views_)
+        delete i;
+    nuke_views_.clear();
+
+    for (auto &i : wall_views_)
+        delete i;
+    wall_views_.clear();
+
     scene_->clear();
 }
 
@@ -57,14 +90,6 @@ void MapView::repaint()
     draw_lenses();
     draw_crystals();
     draw_mirrors();
-}
-
-MapView::~MapView()
-{
-    delete scene_;
-    scene_ = nullptr;
-    delete sound_;
-    sound_ = nullptr;
 }
 
 void MapView::draw_walls()

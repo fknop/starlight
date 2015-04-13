@@ -103,7 +103,6 @@ Level::State Level::compute_ray(Line& line, const Point& start, int wl)
         {
             mirror = dynamic_cast<Mirror*> (this->intersections_.at(0).element());
             angle = get_reflection_angle(angle, mirror->angle());
-            std::cout << "Angle réfléchi : " << angle << std::endl;
             state =  State::CONTINUE;
             break;
         }
@@ -147,7 +146,9 @@ void Level::get_intersections(const Line& line, const Point& start)
     std::vector<Point> points;
 
     // Ajout des intersections au vecteur d'intersections
-    this->source_intersections(line, points, start);
+    if (!(start == source_.pos())) // Pour eviter que le rayon se bloque directement...
+        this->source_intersections(line, points);
+
     this->walls_intersections(line, start);
     this->mirrors_intersections(line, start);
     this->lenses_intersections(line, points);
@@ -205,11 +206,10 @@ void Level::dest_intersections(const Line &line,
 }
 
 void Level::source_intersections(const Line& line,
-                                 std::vector<Point>& points,
-                                 const Point& start)
+                                 std::vector<Point>& points)
 {
     points.clear();
-    if (!(start == source_.pos()) && Geometry::intersects(this->source_.to_rectangle(), line, points) > 0)
+    if (Geometry::intersects(this->source_.to_rectangle(), line, points) > 0)
     {
         for (auto &i : points)
             intersections_.push_back(Intersection(new Point(i), &this->source_));
@@ -271,9 +271,6 @@ void Level::mirrors_intersections(const Line &line,
                     p = Point(ls.end());
             }
             intersections_.push_back(Intersection(new Point(p), &i));
-        } else
-        {
-            std::cout << "No intersect" << std::endl;
         }
     }
 }
