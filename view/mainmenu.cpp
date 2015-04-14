@@ -51,7 +51,7 @@ void MainMenu::editor()
 {
     hide();
 
-    MainEditor * editor = new MainEditor();
+    MainEditor * editor = new MainEditor(this);
     editor->show();
 }
 

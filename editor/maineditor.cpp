@@ -18,7 +18,7 @@
 #include "view/sourceview.h"
 
 
-MainEditor::MainEditor(QWidget *parent) : QMainWindow(parent), level_{new Level(750, 580)}
+MainEditor::MainEditor(QWidget *parent) : parent_{parent}, QMainWindow(parent), level_{new Level(750, 580)}
 {
     setupUi();
 
@@ -110,6 +110,14 @@ void MainEditor::setupUi()
     file_menu_->addAction(save_level_action_);
 
 
+    back_menu_action_ = new QAction("&Back to the menu", menu_bar_);
+    back_menu_action_->setShortcuts(QKeySequence::Back);
+    back_menu_action_->setStatusTip("Get back to the menu");
+    connect(back_menu_action_, SIGNAL(triggered()), this, SLOT(back_menu()));
+
+    file_menu_->addAction(back_menu_action_);
+
+
     quit_action_ = new QAction("&Quit", menu_bar_);
     quit_action_->setShortcuts(QKeySequence::Quit);
     quit_action_->setStatusTip("Quit the editor");
@@ -197,6 +205,12 @@ void MainEditor::save_level()
     }
 }
 
+void MainEditor::back_menu()
+{
+    parent_->show();
+    close();
+}
+
 void MainEditor::closeEvent(QCloseEvent * event)
 {
     event->ignore();
@@ -206,7 +220,7 @@ void MainEditor::closeEvent(QCloseEvent * event)
     {
         event->accept();
     }
-};
+}
 
 void MainEditor::notify(Observable * sdo, std::string msg="UPDATE_RAYS", const std::vector<std::string> &args)
 {

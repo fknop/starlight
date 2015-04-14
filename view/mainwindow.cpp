@@ -13,12 +13,12 @@
 #include "model/level.h"
 
 
-MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
+MainWindow::MainWindow(QWidget *parent) : parent_{parent}, QMainWindow(parent)
 {
     setupUi();
 }
 
-void MainWindow::loadLevel()
+void MainWindow::load_level()
 {
     QString file_name = QFileDialog::getOpenFileName(
                 this, tr("Load Starlight level"), "levels/", tr("Files .lvl (*.lvl)"));
@@ -40,7 +40,7 @@ void MainWindow::loadLevel()
     }
 }
 
-void MainWindow::closeLevel()
+void MainWindow::close_level()
 {
     level_->remove_observer(map_view_);
     MapReader::end_level();
@@ -64,7 +64,7 @@ void MainWindow::setupUi()
     open_level_action_ = new QAction("&Open level", menu_bar_);
     open_level_action_->setShortcuts(QKeySequence::Open);
     open_level_action_->setStatusTip("Open a Starlight level");
-    connect(open_level_action_, SIGNAL(triggered()), this, SLOT(loadLevel()));
+    connect(open_level_action_, SIGNAL(triggered()), this, SLOT(load_level()));
 
     file_menu_->addAction(open_level_action_);
 
@@ -72,9 +72,17 @@ void MainWindow::setupUi()
     close_level_action_ = new QAction("&Close level", menu_bar_);
     close_level_action_->setShortcuts(QKeySequence::Close);
     close_level_action_->setStatusTip("Close a Starlight level");
-    connect(close_level_action_, SIGNAL(triggered()), this, SLOT(closeLevel()));
+    connect(close_level_action_, SIGNAL(triggered()), this, SLOT(close_level()));
 
     file_menu_->addAction(close_level_action_);
+
+
+    back_menu_action_ = new QAction("&Back to the menu", menu_bar_);
+    back_menu_action_->setShortcuts(QKeySequence::Back);
+    back_menu_action_->setStatusTip("Get back to the menu");
+    connect(back_menu_action_, SIGNAL(triggered()), this, SLOT(back_menu()));
+
+    file_menu_->addAction(back_menu_action_);
 
 
     quit_action_ = new QAction("&Quit", menu_bar_);
@@ -101,6 +109,12 @@ void MainWindow::setupUi()
 void MainWindow::help()
 {
     QMessageBox::information(this, "Help", STARLIGHT_RULES.c_str());
+}
+
+void MainWindow::back_menu()
+{
+    parent_->show();
+    close();
 }
 
 MainWindow::~MainWindow()

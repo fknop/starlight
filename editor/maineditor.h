@@ -23,10 +23,13 @@ public:
     explicit MainEditor(QWidget *parent = 0);
     void setupUi();
 
+private:
+    QWidget * parent_;
     QMenuBar * menu_bar_;
     QMenu * file_menu_;
     QAction * load_level_action_;
     QAction * save_level_action_;
+    QAction * back_menu_action_;
     QAction * quit_action_;
     QAction * help_action_;
 
@@ -55,9 +58,6 @@ public:
     void notify(Observable* o,
                 std::string msg,
                 const std::vector<std::string>& args = std::vector<std::string>());
-private:
-
-
 
 signals:
 
@@ -71,6 +71,7 @@ public slots:
     void create_level();
     void load_level();
     void save_level();
+    void back_menu();
 
     void delete_selected();
 

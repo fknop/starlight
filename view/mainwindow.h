@@ -14,6 +14,7 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
+    QWidget * parent_;
     QMenuBar * menu_bar_;
     QToolBar * main_tool_bar_;
     QStatusBar * status_bar_;
@@ -24,6 +25,7 @@ public:
     QMenu * file_menu_;
     QAction * open_level_action_;
     QAction * close_level_action_;
+    QAction * back_menu_action_;
     QAction * quit_action_;
     QAction * help_action_;
 
@@ -34,8 +36,9 @@ private:
     MainWindow * ui;
 
 private slots:
-    void loadLevel();
-    void closeLevel();
+    void load_level();
+    void close_level();
+    void back_menu();
     void help();
 };
 
