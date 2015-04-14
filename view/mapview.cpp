@@ -180,7 +180,7 @@ void MapView::draw_rays()
 void MapView::draw_source()
 {
     if (source_view_ != nullptr)
-         scene_->removeItem(source_view_);
+        scene_->removeItem(source_view_);
 
     source_view_ = new SourceView(level_->source(), true);
     scene_->addItem(source_view_);
@@ -247,52 +247,54 @@ void MapView::mousePressEvent(QMouseEvent * event)
 
 void MapView::keyPressEvent(QKeyEvent *event)
 {
-    for (auto &i : mirror_views_)
+    //    for (auto &i : mirror_views_)
+    //    {
+    //        if (i->isSelected())
+    ElementView * i = selected();
+    if (i != nullptr)
     {
-        if (i->isSelected())
+        switch(event->key())
         {
-            switch(event->key())
-            {
-            case Qt::Key_Left:
-                if (event->modifiers() & Qt::ShiftModifier)
-                    i->rotate(-5);
-                else
-                    i->rotate(-1);
-                break;
+        case Qt::Key_Left:
+            if (event->modifiers() & Qt::ShiftModifier)
+                i->rotate(-5);
+            else
+                i->rotate(-1);
+            break;
 
-            case Qt::Key_Right:
-                if (event->modifiers() & Qt::ShiftModifier)
-                    i->rotate(5);
-                else
-                    i->rotate(1);
-                break;
-            case Qt::Key_Z:
-                if (event->modifiers() & Qt::ShiftModifier)
-                    i->translate(0, -5);
-                else
-                    i->translate(0, -1);
-                break;
-            case Qt::Key_S: case Qt::Key_U:
-                if (event->modifiers() & Qt::ShiftModifier)
-                    i->translate(0, 5);
-                else
-                    i->translate(0, 1);
-                break;
-            case Qt::Key_Q: case Qt::Key_A:
-                if (event->modifiers() & Qt::ShiftModifier)
-                    i->translate(-5, 0);
-                else
-                    i->translate(-1, 0);
-                break;
-            case Qt::Key_D: case Qt::Key_I:
-                if (event->modifiers() & Qt::ShiftModifier)
-                    i->translate(5, 0);
-                else
-                    i->translate(1, 0);
-                break;
-            }
+        case Qt::Key_Right:
+            if (event->modifiers() & Qt::ShiftModifier)
+                i->rotate(5);
+            else
+                i->rotate(1);
+            break;
+        case Qt::Key_Z:
+            if (event->modifiers() & Qt::ShiftModifier)
+                i->translate(0, -5);
+            else
+                i->translate(0, -1);
+            break;
+        case Qt::Key_S: case Qt::Key_U:
+            if (event->modifiers() & Qt::ShiftModifier)
+                i->translate(0, 5);
+            else
+                i->translate(0, 1);
+            break;
+        case Qt::Key_Q: case Qt::Key_A:
+            if (event->modifiers() & Qt::ShiftModifier)
+                i->translate(-5, 0);
+            else
+                i->translate(-1, 0);
+            break;
+        case Qt::Key_D: case Qt::Key_I:
+            if (event->modifiers() & Qt::ShiftModifier)
+                i->translate(5, 0);
+            else
+                i->translate(1, 0);
+            break;
         }
     }
+    //    }
 }
 
 void MapView::notify(Observable *sdo, std::string msg, const std::vector<std::string> &args)
