@@ -38,7 +38,6 @@ private:
     QGroupBox *groupBox;
 
     QPushButton *apply_pb;
-    QPushButton *reset_pb;
     QPushButton *delete_pb;
 
     PropertiesInterface * prop_interface_;
@@ -50,7 +49,6 @@ signals:
 
 public slots:
     void apply_changes();
-    void reset_changes();
     void delete_element();
 
 };
