@@ -13,9 +13,7 @@ MirrorView::MirrorView(const Mirror &mirror, bool selectable) :
     myPen.setWidth(3);
     setPen(myPen);
 
-    LineSegment seg = mirror_->to_line_segment();
-    setLine(seg.start().x(), seg.start().y(),
-            seg.end().x(), seg.end().y());
+    set_line();
 
     setFlag(QGraphicsItem::ItemIsSelectable, this->selectable_);
 }
@@ -31,6 +29,11 @@ void MirrorView::rotate(double angle)
 }
 
 void MirrorView::notify(Observable* obs, std::string msg, const std::vector<std::string> &args)
+{
+    set_line();
+}
+
+void MirrorView::set_line()
 {
     LineSegment seg = mirror_->to_line_segment();
     setLine(seg.start().x(), seg.start().y(),
