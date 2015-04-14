@@ -9,6 +9,14 @@
 
 **Une fois effectué -> Barrer la ligne !**
 
+* Bloquer le mapview une fois la partie gagnée ou perdue.
+* Editeur : pouvoir bouger les autres éléments au clavier.
+* Editeur : Modifier dynamiquement les propriétés ? Passage de paramètre dans les notify_all
+* Editeur : Message de confirmation quand on quitte ? Pour éviter de perdre des maps non
+sauvegardée
+* Editeur : Ctrl-X pour delete un objet ? :D
+* Editeur : Simple clic pour le sélectionner (c'est un peu galère)
+* Editeur : Prévenir les erreurs avec des try catch (pour éviter de sauvegarder un objet foireux)
 * ~~Gérer les collisions entre miroirs de même angle.~~
 * ~~Gérer la reflexion du rayon sur un miroir.  A FINIR~~
 * ~~Gérer les divers évènements lors de l'intersection avec un objet.~~
