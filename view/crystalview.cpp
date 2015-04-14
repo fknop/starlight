@@ -10,7 +10,7 @@ CrystalView::CrystalView(const Crystal& crystal, bool selectable) :
 
 void CrystalView::translate(double x, double y)
 {
-
+    //this->crystal_->translate(x, y);
 }
 
 void CrystalView::notify(Observable* obs, std::string msg, const std::vector<std::string> &args)

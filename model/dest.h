@@ -79,6 +79,7 @@ class Dest : public Element, public Observable
     inline void set_edge(double edge);
 
     Rectangle to_rectangle();
+    void translate(double x, double y);
 
     /**
      * Surcharge l'opérateur de flux de sortie pour afficher.

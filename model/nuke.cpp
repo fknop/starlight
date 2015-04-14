@@ -28,3 +28,8 @@ bool Nuke::operator ==(const Nuke& n) const
      rad_ == n.rad_ &&
      lighted_up_ == n.lighted_up_;
 }
+
+void Nuke::translate(double x, double y)
+{
+    this->pos_.set_position(pos_.x() + x, pos_.y() + y);
+}

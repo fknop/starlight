@@ -34,3 +34,8 @@ bool Crystal::operator ==(const Crystal& c) const
      rad_ == c.rad_ &&
      mod_ == c.mod_;
 }
+
+void Crystal::translate(double x, double y)
+{
+    this->center_.set_position(center_.x() + x, center_.y() + y);
+}

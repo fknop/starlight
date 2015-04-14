@@ -25,3 +25,8 @@ std::ostream & operator<<(std::ostream& out, const Dest& d)
         " , lighted up : " << d.light_up_;
     return out;
 }
+
+void Dest::translate(double x, double y)
+{
+    this->pos_.set_position(pos_.x() + x, pos_.y() + y);
+}

@@ -7,8 +7,8 @@
 #include "constants.h"
 
 Level::Level(double w, double h) : width_ {w}, height_ {h},
-    walls_ { {{.0, .0}, {.0, h}}, {{.0, h}, {w, h}},
-    {{w, h}, {w, .0}}, {{w, .0}, {.0, .0}} },
+    walls_ { {{.0, .0}, {.0, h}, false}, {{.0, h}, {w, h}, false},
+    {{w, h}, {w, .0}, false}, {{w, .0}, {.0, .0}, false} },
     check_collisions_{true}, handle_dest_{true}, handle_nukes_{true}
 {
     if (w <= 0 || h <= 0)
