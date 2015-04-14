@@ -45,6 +45,8 @@ public:
 private:
     Mirror* mirror_;
     bool selectable_;
+
+    void set_line();
 };
 
 /* Fonctions inlines */

@@ -6,11 +6,7 @@ LensView::LensView(const Lens& lens, bool selectable) :
 {
     this->lens_ = &(const_cast<Lens&>(lens));
 
-    setRect(this->lens_->position().x(),
-            this->lens_->position().y(),
-            this->lens_->width(),
-            this->lens_->height());
-
+    set_rect();
     setFlag(QGraphicsItem::ItemIsSelectable, this->selectable_);
 }
 
@@ -25,5 +21,13 @@ void LensView::notify(Observable *sdo,
                       std::string msg,
                       const std::vector<std::string>& args)
 {
+    set_rect();
+}
 
+void LensView::set_rect()
+{
+    setRect(this->lens_->position().x(),
+            this->lens_->position().y(),
+            this->lens_->width(),
+            this->lens_->height());
 }

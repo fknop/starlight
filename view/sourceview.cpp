@@ -26,9 +26,6 @@ void SourceView::mousePressEvent(QGraphicsSceneMouseEvent *event)
     sound_->setMedia(QUrl("qrc:/sounds/switch.mp3"));
     sound_->play();
     // http://soundbible.com/761-Switch.html  Uploaded: 07.20.09 | License: Attribution 3.0 | Recorded by Mike Koenig |
-
-
-
 }
 
 void SourceView::translate(double x, double y)

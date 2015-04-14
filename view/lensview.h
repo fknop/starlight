@@ -27,6 +27,8 @@ public:
 private:
     Lens * lens_;
     bool selectable_;
+
+    void set_rect();
 };
 
 /* Fonctions inlines */
