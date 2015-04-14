@@ -391,6 +391,7 @@ const Dest& Level::dest() const
 void Level::set_dest(const Dest& value)
 {
     this->dest_ = value;
+    this->dest_.add_observer(this);
 }
 
 const std::vector<Wall>& Level::walls() const
@@ -426,28 +427,36 @@ void Level::set_rays(const std::vector<Ray>& value)
 void Level::set_walls(const std::vector<Wall>& value)
 {
     this->walls_ = value;
+    for (auto &i : walls_)
+        i.add_observer(this);
 }
 
 void Level::set_crystals(const std::vector<Crystal>& value)
 {
     this->crystals_ = value;
+    for (auto &i : crystals_)
+        i.add_observer(this);
 }
 
 void Level::set_nukes(const std::vector<Nuke>& value)
 {
     this->nukes_ = value;
+    for (auto &i : nukes_)
+        i.add_observer(this);
 }
 
 void Level::set_lenses(const std::vector<Lens>& value)
 {
     this->lenses_ = value;
+    for (auto &i : lenses_)
+        i.add_observer(this);
 }
 
 void Level::set_mirrors(const std::vector<Mirror>& value)
 {
     this->mirrors_ = value;
-    for (auto &mirror : mirrors_)
-        mirror.add_observer(this);
+    for (auto &i : mirrors_)
+        i.add_observer(this);
 }
 
 const std::vector<Nuke> & Level::nukes() const
@@ -474,21 +483,25 @@ void Level::add_mirror(const Mirror& m)
 void Level::add_nuke(const Nuke& n)
 {
     this->nukes_.push_back(n);
+    this->nukes_.back().add_observer(this);
 }
 
 void Level::add_wall(const Wall& w)
 {
     this->walls_.push_back(w);
+    this->walls_.back().add_observer(this);
 }
 
 void Level::add_crystal(const Crystal& c)
 {
     this->crystals_.push_back(c);
+    this->crystals_.back().add_observer(this);
 }
 
 void Level::add_lens(const Lens& l)
 {
     this->lenses_.push_back(l);
+    this->lenses_.back().add_observer(this);
 }
 
 void Level::add_ray(const Ray& r)

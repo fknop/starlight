@@ -75,7 +75,7 @@ void Mirror::translate(double x, double y)
         std::ostringstream ossy;
         ossx << x;
         ossy << y;
-        std::vector<std::string> vec {ossx.str() ,ossy.str()};
+        std::vector<std::string> vec {ossx.str(), ossy.str()};
 
         notify_all("ASK_TRANSLATE", vec);
     }
