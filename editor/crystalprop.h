@@ -14,6 +14,7 @@ class CrystalProp : public PropertiesInterface
     Q_OBJECT
 public:
     CrystalProp(Crystal * crystal, QWidget *parent = 0);
+    ~CrystalProp();
     void setupUi();
 
 private:

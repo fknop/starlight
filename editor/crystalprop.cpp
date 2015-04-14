@@ -9,6 +9,11 @@ CrystalProp::CrystalProp(Crystal *crystal, QWidget *parent) : crystal_{crystal}
     reset();
 }
 
+CrystalProp::~CrystalProp()
+{
+    crystal_->remove_observer(this);
+}
+
 void CrystalProp::setupUi()
 {
     formLayout = new QFormLayout();

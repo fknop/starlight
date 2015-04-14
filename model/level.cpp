@@ -56,6 +56,7 @@ Level::State Level::compute_ray(Line& line, const Point& start, int wl)
     Point* new_line_origin = nullptr;
     State state;
     Element::Type type;
+    double new_wl = wl;
 
     get_intersections(line, start);
 
@@ -67,7 +68,7 @@ Level::State Level::compute_ray(Line& line, const Point& start, int wl)
         case Element::Type::CRYSTAL:
         {
             crystal = dynamic_cast<Crystal*> (this->intersections_.at(0).element());
-            wl += crystal->modifier();
+            new_wl += crystal->modifier();
 
             if (this->intersections_.at(1).element() == crystal)
                 new_line_origin = this->intersections_.at(1).point();
@@ -147,7 +148,7 @@ Level::State Level::compute_ray(Line& line, const Point& start, int wl)
     if (state == State::CONTINUE)
     {
         Line newLine(Point(*new_line_origin), angle);
-        return compute_ray(newLine, *new_line_origin, wl);
+        return compute_ray(newLine, *new_line_origin, new_wl);
     }
     else
     {
