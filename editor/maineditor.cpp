@@ -121,7 +121,7 @@ void MainEditor::setupUi()
     quit_action_ = new QAction("&Quit", menu_bar_);
     quit_action_->setShortcuts(QKeySequence::Quit);
     quit_action_->setStatusTip("Quit the editor");
-    connect(quit_action_, &QAction::triggered, &QCoreApplication::quit);
+    connect(quit_action_, SIGNAL(triggered()), this, SLOT(quit()));
 
     file_menu_->addAction(quit_action_);
 
@@ -209,6 +209,11 @@ void MainEditor::back_menu()
 {
     parent_->show();
     close();
+}
+
+void MainEditor::quit()
+{
+    QWidget::close();
 }
 
 void MainEditor::closeEvent(QCloseEvent * event)

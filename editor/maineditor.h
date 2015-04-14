@@ -72,6 +72,7 @@ public slots:
     void load_level();
     void save_level();
     void back_menu();
+    void quit();
 
     void delete_selected();
 
