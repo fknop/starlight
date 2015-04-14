@@ -25,9 +25,12 @@ public:
                 const std::vector<std::string>& args = std::vector<std::string>());
 
 
+
 private:
     Crystal * crystal_;
     bool selectable_;
+
+    void set_rect();
 };
 
 /* Fonctions inlines */
