@@ -15,3 +15,10 @@ LensView::LensView(const Lens& lens, bool selectable) :
 }
 
 
+
+void LensView::translate(double x, double y)
+{
+
+}
+
+

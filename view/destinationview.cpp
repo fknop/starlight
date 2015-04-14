@@ -22,3 +22,8 @@ void DestinationView::notify(Observable *sdo, std::string msg, const std::vector
         this->setBrush(QBrush(Qt::green));
     }
 }
+
+void DestinationView::translate(double x, double y)
+{
+
+}

@@ -20,12 +20,12 @@ MirrorView::MirrorView(const Mirror &mirror, bool selectable) :
     setFlag(QGraphicsItem::ItemIsSelectable, this->selectable_);
 }
 
-void MirrorView::translate(int x, int y)
+void MirrorView::translate(double x, double y)
 {
     mirror_->translate(x, y);
 }
 
-void MirrorView::rotate(qreal angle)
+void MirrorView::rotate(double angle)
 {
     mirror_->rotate(Geometry::deg_to_rad(angle));
 }

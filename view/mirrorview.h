@@ -33,12 +33,13 @@ public:
 
     inline Mirror* mirror();
 
-    void rotate(qreal angle);
+    void translate(double x = .0, double y = .0);
+    void rotate(double angle);
     void notify(Observable * obs,
                 std::string msg,
                 const std::vector<std::string>& args = std::vector<std::string>());
 
-    void translate(int x = 0, int y = 0);
+
 
     inline bool selectable() const;
     inline void set_selectable(bool value);

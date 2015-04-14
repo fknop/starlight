@@ -27,6 +27,9 @@ public:
     inline bool selectable() const;
     inline void set_selectable(bool value);
 
+    void translate(double x = .0, double y = .0);
+    void rotate(double angle);
+
 private:
     Wall * wall_;
     bool selectable_;
@@ -50,6 +53,7 @@ void WallView::set_selectable(bool value)
     this->selectable_ = value;
     setFlag(QGraphicsItem::ItemIsSelectable, this->selectable_);
 }
+
 
 
 #endif // WALLVIEW_HPP

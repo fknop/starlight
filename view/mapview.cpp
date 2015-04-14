@@ -247,9 +247,10 @@ void MapView::mousePressEvent(QMouseEvent * event)
 
 void MapView::keyPressEvent(QKeyEvent *event)
 {
-    //    for (auto &i : mirror_views_)
-    //    {
-    //        if (i->isSelected())
+//        for (auto &i : mirror_views_)
+//       {
+//           if (i->isSelected())
+
     ElementView * i = selected();
     if (i != nullptr)
     {

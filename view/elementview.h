@@ -34,8 +34,8 @@ public:
      */
     inline const TypeView& type_view() const;
 
-    inline virtual void rotate(int r);
-    inline virtual void translate(int x, int y);
+    virtual void rotate(double r);
+    virtual void translate(double x, double y);
 
 
     TypeView type_;
@@ -48,16 +48,7 @@ const ElementView::TypeView& ElementView::type_view() const
     return this->type_;
 }
 
-void ElementView::rotate(int r)
-{
-    std::cout << "rotate" << std::endl;
-}
 
-
-void ElementView::translate(int x, int y)
-{
-    std::cout << "translate" << std::endl;
-}
 
 
 

@@ -33,6 +33,8 @@ public:
     inline bool selectable() const;
     inline void set_selectable(bool value);
 
+    void translate(double x = .0, double y = .0);
+
 private:
     Source* source_;
     QMediaPlayer * sound_;
