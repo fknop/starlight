@@ -380,16 +380,10 @@ void Level::notify(Observable* obs, std::string msg, const std::vector<std::stri
 {
     bool ask_translate = msg.compare("ASK_TRANSLATE") == 0;
     bool ask_rotate    = msg.compare("ASK_ROTATE") == 0;
-    bool recompute = msg.compare("TRANSLATE_MIRROR") == 0 ||
-                     msg.compare("ROTATE_MIRROR") == 0 ||
-                     msg.compare("SOURCE_ON") == 0 ||
-                     msg.compare("TRANSLATE_WALL") == 0 ||
-                     msg.compare("ROTATE_WALL") == 0 ||
-                     msg.compare("TRANSLATE_LENS") == 0 ||
-                     msg.compare("TRANSLATE_NUKE") == 0 ||
-                     msg.compare("TRANSLATE_CRYSTAL") == 0 ||
-                     msg.compare("TRANSLATE_SOURCE") == 0 ||
-                     msg.compare("TRANSLATE_DEST") == 0;
+    bool recompute = msg.compare("SOURCE_ON") == 0 ||
+                     msg.find("TRANSLATE_") > 0 ||
+                     msg.find("ROTATE_") > 0;
+
 
     if (check_collisions_ && (ask_rotate || ask_translate))
     {

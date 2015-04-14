@@ -300,7 +300,7 @@ void MapView::notify(Observable *sdo, std::string msg, const std::vector<std::st
 {
 
     if (msg.compare("ASK_TRANSLATE") != 0 ||
-            msg.compare("ASK_ROTATE"))
+            msg.compare("ASK_ROTATE") != 0)
         draw_rays();
 
     if (msg.compare("GAME_LOST") == 0)
