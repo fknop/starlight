@@ -8,37 +8,17 @@ SourceView::SourceView(const Source& source, bool selectable) :
     ElementView(ElementView::TypeView::SOURCEVIEW), selectable_{selectable}
 {
     this->source_ = &(const_cast<Source&>(source));
-//    setRect(this->source_->position().x(),
-//            this->source_->position().y(),
-//            this->source_->edge(),
-//            this->source_->edge());
-    setPos(this->source_->pos().x(),
-           this->source_->pos().y());
-    QPixmap p(":/images/lightbulboff.png");
-    setPixmap(p.scaled(this->source_->edge(), this->source_->edge(), Qt::KeepAspectRatio));
-
     sound_ = new QMediaPlayer();
 
+    set_pos();
+    set_pixmap();
     setFlag(QGraphicsItem::ItemIsSelectable, this->selectable_);
 }
 
 void SourceView::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
-    if (!this->source_->on())
-    {
-        QPixmap p(":/images/lightbulbon.png");
-        setPixmap(p.scaled(this->source_->edge(), this->source_->edge(), Qt::KeepAspectRatio));
-//        setBrush(QBrush(Qt::yellow));
-//        setPen(QPen(Qt::yellow));
-    }
-    else
-    {
-        QPixmap p(":/images/lightbulboff.png");
-        setPixmap(p.scaled(this->source_->edge(), this->source_->edge(), Qt::KeepAspectRatio));
-
-//        setBrush(QBrush(Qt::white));
-//        setPen(QPen(Qt::black));
-    }
+    this->source_->set_on(!this->source_->on());
+    set_pixmap();
 
     if (sound_->state() == QMediaPlayer::PlayingState)
         sound_->stop();
@@ -48,7 +28,7 @@ void SourceView::mousePressEvent(QGraphicsSceneMouseEvent *event)
     // http://soundbible.com/761-Switch.html  Uploaded: 07.20.09 | License: Attribution 3.0 | Recorded by Mike Koenig |
 
 
-    this->source_->set_on(!this->source_->on());
+
 }
 
 void SourceView::translate(double x, double y)
@@ -60,6 +40,26 @@ void SourceView::notify(Observable *sdo,
                         std::string msg,
                         const std::vector<std::string>& args)
 {
-
+    set_pos();
+    set_pixmap();
 }
 
+void SourceView::set_pos()
+{
+    setPos(this->source_->pos().x(),
+           this->source_->pos().y());
+}
+
+void SourceView::set_pixmap()
+{
+    if (this->source_->on())
+    {
+        QPixmap p(":/images/lightbulbon.png");
+        setPixmap(p.scaled(this->source_->edge(), this->source_->edge(), Qt::KeepAspectRatio));
+    }
+    else
+    {
+        QPixmap p(":/images/lightbulboff.png");
+        setPixmap(p.scaled(this->source_->edge(), this->source_->edge(), Qt::KeepAspectRatio));
+    }
+}
