@@ -44,6 +44,9 @@ private:
     QMediaPlayer * sound_;
     bool selectable_;
 
+    void set_pos();
+    void set_pixmap();
+
 };
 
 /* Fonctions inlines */
