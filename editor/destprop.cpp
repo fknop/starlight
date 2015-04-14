@@ -3,6 +3,9 @@
 DestProp::DestProp(Dest * dest, QWidget *parent) : dest_{dest}
 {
     setupUi();
+
+    dest_->add_observer(this);
+
     reset();
 }
 

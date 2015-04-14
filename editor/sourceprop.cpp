@@ -3,6 +3,9 @@
 SourceProp::SourceProp(Source *source, QWidget *parent) : source_{source}
 {
     setupUi();
+
+    source_->add_observer(this);
+
     reset();
 }
 

@@ -3,6 +3,9 @@
 NukeProp::NukeProp(Nuke *nuke, QWidget *parent) : nuke_{nuke}
 {
     setupUi();
+
+    nuke_->add_observer(this);
+
     reset();
 }
 

@@ -3,6 +3,9 @@
 CrystalProp::CrystalProp(Crystal *crystal, QWidget *parent) : crystal_{crystal}
 {
     setupUi();
+
+    crystal_->add_observer(this);
+
     reset();
 }
 

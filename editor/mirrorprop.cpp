@@ -3,6 +3,9 @@
 MirrorProp::MirrorProp(Mirror *mirror, QWidget *parent) : mirror_{mirror}
 {
     setupUi();
+
+    mirror_->add_observer(this);
+
     reset();
 }
 
