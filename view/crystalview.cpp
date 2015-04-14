@@ -5,7 +5,7 @@ CrystalView::CrystalView(const Crystal& crystal, bool selectable) :
 {
     this->crystal_ = &(const_cast<Crystal&>(crystal));
 
-    Point p        = this->crystal_->center();
+    const Point& p        = this->crystal_->center();
     double radius  = this->crystal_->radius();
 
     setRect(p.x() - radius, p.y() - radius,
@@ -17,4 +17,12 @@ CrystalView::CrystalView(const Crystal& crystal, bool selectable) :
 void CrystalView::translate(double x, double y)
 {
 
+}
+
+void CrystalView::notify(Observable* obs, std::string msg, const std::vector<std::string> &args)
+{
+    const Point& p        = this->crystal_->center();
+    double radius  = this->crystal_->radius();
+    setRect(p.x() - radius, p.y() - radius,
+            radius + radius, radius + radius);
 }

@@ -25,3 +25,10 @@ void WallView::rotate(double angle)
 {
 
 }
+
+void WallView::notify(Observable* obs, std::string msg, const std::vector<std::string> &args)
+{
+    LineSegment seg = wall_->to_line_segment();
+    setLine(seg.start().x(), seg.start().y(),
+            seg.end().x(), seg.end().y());
+}

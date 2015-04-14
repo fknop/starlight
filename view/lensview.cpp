@@ -21,4 +21,9 @@ void LensView::translate(double x, double y)
 
 }
 
+void LensView::notify(Observable *sdo,
+                      std::string msg,
+                      const std::vector<std::string>& args)
+{
 
+}

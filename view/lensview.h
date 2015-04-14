@@ -6,7 +6,10 @@
 #include "model/lens.h"
 #include "view/elementview.h"
 
-class LensView : public QGraphicsEllipseItem, public ElementView
+#include "obs/observable.h"
+#include "obs/observerinterface.h"
+
+class LensView : public QGraphicsEllipseItem, public ElementView, public ObserverInterface
 {
 public:
     LensView(const Lens & lens, bool selectable = false);
@@ -16,7 +19,10 @@ public:
     inline void set_selectable(bool value);
 
     void translate(double x = .0, double y = .0);
-   // void rotate(double angle);
+
+    void notify(Observable *sdo,
+                std::string msg,
+                const std::vector<std::string>& args = std::vector<std::string>());
 
 private:
     Lens * lens_;
