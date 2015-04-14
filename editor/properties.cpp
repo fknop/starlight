@@ -125,34 +125,45 @@ void Properties::set_element_prop(ElementView * ev)
 
             break;
         }
-        default:
-        {
-            std::cout << "Unknown ElementView" << std::endl;
-        }
         }
 
         groupBox->layout()->addWidget(prop_interface_);
     }
 
-    apply_pb->setEnabled(true);
-    reset_pb->setEnabled(true);
-    delete_pb->setEnabled(true);
+    if (prop_interface_ != nullptr)
+    {
+        apply_pb->setEnabled(true);
+        reset_pb->setEnabled(true);
+        delete_pb->setEnabled(true);
+    }
+    else
+    {
+        apply_pb->setEnabled(false);
+        reset_pb->setEnabled(false);
+        delete_pb->setEnabled(false);
+    }
 }
 
 void Properties::apply_changes()
 {
-    prop_interface_->apply();
-    apply_pb->setEnabled(true);
-    reset_pb->setEnabled(true);
+    if (prop_interface_ != nullptr)
+    {
+        prop_interface_->apply();
+        apply_pb->setEnabled(true);
+        reset_pb->setEnabled(true);
+    }
 
     notify_all("ELEMENT_CHANGED");
 }
 
 void Properties::reset_changes()
 {
-    prop_interface_->reset();
-    apply_pb->setEnabled(true);
-    reset_pb->setEnabled(true);
+    if (prop_interface_ != nullptr)
+    {
+        prop_interface_->reset();
+        apply_pb->setEnabled(true);
+        reset_pb->setEnabled(true);
+    }
 }
 
 void Properties::delete_element()
