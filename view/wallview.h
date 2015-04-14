@@ -8,10 +8,13 @@
 #include "model/wall.h"
 #include "view/elementview.h"
 
+#include "obs/observable.h"
+#include "obs/observerinterface.h"
+
 /**
  * Modélisation visuelle d’un mur (ne reflétant pas la lumière).
  */
-class WallView : public QGraphicsLineItem, public ElementView
+class WallView : public QGraphicsLineItem, public ElementView, public ObserverInterface
 {
 public:
     /**
@@ -29,6 +32,9 @@ public:
 
     void translate(double x = .0, double y = .0);
     void rotate(double angle);
+    void notify(Observable *sdo,
+                std::string msg,
+                const std::vector<std::string>& args = std::vector<std::string>());
 
 private:
     Wall * wall_;

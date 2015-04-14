@@ -56,4 +56,10 @@ void SourceView::translate(double x, double y)
 
 }
 
+void SourceView::notify(Observable *sdo,
+                        std::string msg,
+                        const std::vector<std::string>& args)
+{
+
+}
 

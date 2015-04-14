@@ -9,12 +9,13 @@
 
 #include "model/source.h"
 #include "view/elementview.h"
-
+#include "obs/observable.h"
+#include "obs/observerinterface.h"
 
 /**
  * Modélisation visuelle d’une source.
  */
-class SourceView : public QGraphicsPixmapItem, public ElementView //QGraphicsRectItem
+class SourceView : public QGraphicsPixmapItem, public ElementView, public ObserverInterface
 {
 public:
     /**
@@ -34,6 +35,9 @@ public:
     inline void set_selectable(bool value);
 
     void translate(double x = .0, double y = .0);
+    void notify(Observable *sdo,
+                std::string msg,
+                const std::vector<std::string>& args = std::vector<std::string>());
 
 private:
     Source* source_;

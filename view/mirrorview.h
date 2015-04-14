@@ -39,8 +39,6 @@ public:
                 std::string msg,
                 const std::vector<std::string>& args = std::vector<std::string>());
 
-
-
     inline bool selectable() const;
     inline void set_selectable(bool value);
 
