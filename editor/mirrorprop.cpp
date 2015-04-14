@@ -9,6 +9,11 @@ MirrorProp::MirrorProp(Mirror *mirror, QWidget *parent) : mirror_{mirror}
     reset();
 }
 
+MirrorProp::~MirrorProp()
+{
+    mirror_->remove_observer(this);
+}
+
 void MirrorProp::setupUi()
 {
     formLayout = new QFormLayout();

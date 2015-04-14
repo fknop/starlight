@@ -9,6 +9,11 @@ SourceProp::SourceProp(Source *source, QWidget *parent) : source_{source}
     reset();
 }
 
+SourceProp::~SourceProp()
+{
+    source_->remove_observer(this);
+}
+
 void SourceProp::setupUi()
 {
     formLayout = new QFormLayout();

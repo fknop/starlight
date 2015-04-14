@@ -9,6 +9,11 @@ NukeProp::NukeProp(Nuke *nuke, QWidget *parent) : nuke_{nuke}
     reset();
 }
 
+NukeProp::~NukeProp()
+{
+    nuke_->remove_observer(this);
+}
+
 void NukeProp::setupUi()
 {
     formLayout = new QFormLayout();

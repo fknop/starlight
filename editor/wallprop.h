@@ -15,6 +15,7 @@ class WallProp : public PropertiesInterface
     Q_OBJECT
 public:
     WallProp(Wall * wall, QWidget *parent = 0);
+    ~WallProp();
     void setupUi();
 
 private:

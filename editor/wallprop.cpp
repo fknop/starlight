@@ -9,6 +9,11 @@ WallProp::WallProp(Wall *wall, QWidget *parent) : wall_{wall}
     reset();
 }
 
+WallProp::~WallProp()
+{
+    wall_->remove_observer(this);
+}
+
 void WallProp::setupUi()
 {
     formLayout = new QFormLayout();

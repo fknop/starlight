@@ -9,6 +9,11 @@ DestProp::DestProp(Dest * dest, QWidget *parent) : dest_{dest}
     reset();
 }
 
+DestProp::~DestProp()
+{
+    dest_->remove_observer(this);
+}
+
 void DestProp::setupUi()
 {
     formLayout = new QFormLayout();

@@ -9,6 +9,11 @@ LensProp::LensProp(Lens * lens, QWidget *parent) : lens_{lens}
     reset();
 }
 
+LensProp::~LensProp()
+{
+    lens_->remove_observer(this);
+}
+
 
 void LensProp::setupUi()
 {

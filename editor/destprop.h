@@ -15,6 +15,7 @@ class DestProp : public PropertiesInterface
     Q_OBJECT
 public:
     DestProp(Dest * dest, QWidget *parent = 0);
+    ~DestProp();
     void setupUi();
 
 private:

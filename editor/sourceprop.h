@@ -15,6 +15,7 @@ class SourceProp : public PropertiesInterface
     Q_OBJECT
 public:
     SourceProp(Source * source, QWidget *parent = 0);
+    ~SourceProp();
     void setupUi();
 
 private:

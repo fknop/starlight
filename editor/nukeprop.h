@@ -15,6 +15,7 @@ class NukeProp : public PropertiesInterface
     Q_OBJECT
 public:
     NukeProp(Nuke * nuke, QWidget *parent = 0);
+    ~NukeProp();
     void setupUi();
 
 private:

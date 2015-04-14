@@ -15,6 +15,7 @@ class LensProp : public PropertiesInterface
     Q_OBJECT
 public:
     LensProp(Lens * lens, QWidget *parent = 0);
+    ~LensProp();
     void setupUi();
 
 private:

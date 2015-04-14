@@ -15,6 +15,7 @@ class MirrorProp : public PropertiesInterface
     Q_OBJECT
 public:
     MirrorProp(Mirror * mirror, QWidget *parent = 0);
+    ~MirrorProp();
     void setupUi();
 
 private:
