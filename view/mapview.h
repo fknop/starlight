@@ -21,7 +21,7 @@
 class MapView : public QGraphicsView, public ObserverInterface, public Observable
 {
 public:
-    MapView(Level* level_);
+    MapView(Level* level_, bool selectable = false);
     MapView();
     ~MapView();
     void draw_walls();
@@ -57,6 +57,7 @@ private:
     Level * level_;
     QGraphicsScene * scene_;
     QMediaPlayer * sound_;
+    bool selectable_;
 
     void draw_wall(const Wall & wall);
     void draw_mirror(const Mirror& mirror);
