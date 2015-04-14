@@ -40,6 +40,7 @@ private:
     Dest* dest_;
     bool selectable_;
 
+    void set_rect();
 };
 
 /* Fonctions inlines */

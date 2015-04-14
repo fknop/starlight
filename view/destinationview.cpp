@@ -7,10 +7,7 @@ DestinationView::DestinationView(const Dest& dest, bool selectable)  :
     this->dest_ = &(const_cast<Dest&>(dest));
     this->dest_->add_observer(this);
 
-    setRect(this->dest_->pos().x(),
-            this->dest_->pos().y(),
-            this->dest_->edge(),
-            this->dest_->edge());
+    set_rect();
 
     setFlag(QGraphicsItem::ItemIsSelectable, this->selectable_);
 }
@@ -23,10 +20,7 @@ void DestinationView::notify(Observable *sdo, std::string msg, const std::vector
     }
     else
     {
-        setRect(this->dest_->pos().x(),
-                this->dest_->pos().y(),
-                this->dest_->edge(),
-                this->dest_->edge());
+        set_rect();
     }
 }
 
@@ -35,4 +29,10 @@ void DestinationView::translate(double x, double y)
 
 }
 
-
+void DestinationView::set_rect()
+{
+    setRect(this->dest_->pos().x(),
+            this->dest_->pos().y(),
+            this->dest_->edge(),
+            this->dest_->edge());
+}
