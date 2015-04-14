@@ -5,6 +5,7 @@
 #include <QFormLayout>
 #include <QHBoxLayout>
 #include <QMenuBar>
+#include <QMessageBox>
 #include <QPushButton>
 
 #include "elements.h"
@@ -19,8 +20,6 @@
 MainEditor::MainEditor(QWidget *parent) : QMainWindow(parent), level_{new Level(750, 580)}
 {
     setupUi();
-
-//    mapview_ = nullptr;
 }
 
 void MainEditor::add_crystal()
@@ -191,6 +190,17 @@ void MainEditor::save_level()
         MapWriter::write(level_, file_name.toStdString());
     }
 }
+
+void MainEditor::closeEvent(QCloseEvent * event)
+{
+    event->ignore();
+    if (QMessageBox::Yes == QMessageBox::question(this, "Close Confirmation?",
+                                                  "Are you sure you want to exit?",
+                                                  QMessageBox::Yes|QMessageBox::No))
+    {
+        event->accept();
+    }
+};
 
 void MainEditor::notify(Observable * sdo, std::string msg="UPDATE_RAYS", const std::vector<std::string> &args)
 {
