@@ -40,6 +40,8 @@ private:
     Wall * wall_;
     bool selectable_;
 
+    void set_line();
+
 };
 
 /* Fonctions inlines */
