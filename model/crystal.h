@@ -7,6 +7,8 @@
 #include "ellipse.h"
 #include "point.h"
 
+#include "obs/observable.h"
+#include "obs/observerinterface.h"
 /**
  * Cette classe modélise les cristaux utilisés dans le jeu.
  * </p>
@@ -17,7 +19,7 @@
  * longueur d'onde (en l'augmentant ou en la diminuant d'une
  * certaine valeur) mais pas sa trajectoire.
  */
-class Crystal : public Element
+class Crystal : public Element, public Observable
 {
     Point center_;
     double rad_;

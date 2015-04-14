@@ -29,4 +29,5 @@ std::ostream & operator<<(std::ostream& out, const Dest& d)
 void Dest::translate(double x, double y)
 {
     this->pos_.set_position(pos_.x() + x, pos_.y() + y);
+    notify_all("TRANSLATE_DEST");
 }

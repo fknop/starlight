@@ -31,7 +31,7 @@ void NukeView::notify(Observable* sdo, std::string msg, const std::vector<std::s
 
 void NukeView::translate(double x, double y)
 {
-
+    this->nuke_->translate(x, y);
 }
 
 void NukeView::set_rect()

@@ -10,7 +10,6 @@
 #include "rectangle.h"
 #include "element.h"
 
-
 /**
  * Modélise la source lumineuse utilisée dans le jeu.
  * </p>

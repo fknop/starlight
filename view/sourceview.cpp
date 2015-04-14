@@ -8,6 +8,7 @@ SourceView::SourceView(const Source& source, bool selectable) :
     ElementView(ElementView::TypeView::SOURCEVIEW), selectable_{selectable}
 {
     this->source_ = &(const_cast<Source&>(source));
+    this->source_->add_observer(this);
     sound_ = new QMediaPlayer();
 
     set_pos();
@@ -18,7 +19,7 @@ SourceView::SourceView(const Source& source, bool selectable) :
 void SourceView::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
     this->source_->set_on(!this->source_->on());
-    set_pixmap();
+   // set_pixmap();
 
     if (sound_->state() == QMediaPlayer::PlayingState)
         sound_->stop();
@@ -30,7 +31,7 @@ void SourceView::mousePressEvent(QGraphicsSceneMouseEvent *event)
 
 void SourceView::translate(double x, double y)
 {
-
+    this->source_->translate(x ,y);
 }
 
 void SourceView::notify(Observable *sdo,

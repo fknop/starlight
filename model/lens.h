@@ -7,6 +7,8 @@
 #include "ellipse.h"
 #include "point.h"
 
+#include "obs/observable.h"
+#include "obs/observerinterface.h"
 
 /**
  * Cette classe modélise les lentilles utilisées dans le jeu.
@@ -18,7 +20,7 @@
  * aucune modification. Sinon, la lentille se comporte comme un
  * mur.
  */
-class Lens : public Element
+class Lens : public Element, public Observable
 {
     Point pos_;
 

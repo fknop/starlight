@@ -27,4 +27,5 @@ Rectangle Source::to_rectangle()
 void Source::translate(double x, double y)
 {
     this->pos_.set_position(pos_.x() + x, pos_.y() + y);
+    notify_all("TRANSLATE_SOURCE");
 }

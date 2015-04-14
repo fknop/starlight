@@ -7,7 +7,7 @@
 #include "linesegment.h"
 #include "point.h"
 #include "obs/observable.h"
-#include "obs/observerinterface.h"
+
 
 
 /**

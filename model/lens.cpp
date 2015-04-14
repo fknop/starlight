@@ -63,4 +63,5 @@ bool Lens::operator ==(const Lens& l) const
 void Lens::translate(double x, double y)
 {
     this->pos_.set_position(pos_.x() + x, pos_.y() + y);
+    notify_all("TRANSLATE_LENS");
 }
