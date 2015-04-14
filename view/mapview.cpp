@@ -311,6 +311,8 @@ void MapView::notify(Observable *sdo, std::string msg, const std::vector<std::st
         sound_->play();
         // http://soundbible.com/106-Car-Explosion.html  Uploaded: 05.03.09 | License: Attribution 3.0 | Recorded by Mike Koenig |
 
+        setEnabled(false);
+
         QMessageBox::information(this, "You lose!", "Outch, looks like you exploded the whole map…");
     }
     else if (msg.compare("GAME_WON") == 0)
@@ -321,6 +323,8 @@ void MapView::notify(Observable *sdo, std::string msg, const std::vector<std::st
         sound_->setMedia(QUrl("qrc:/sounds/victory.mp3"));
         sound_->play();
         // http://soundbible.com/1003-Ta-Da.html Uploaded: 09.14.09 | License: Attribution 3.0 | Recorded by Mike Koenig
+
+        setEnabled(false);
 
         QMessageBox::information(this, "WIN!", "Congrats! You made it!");
     }
