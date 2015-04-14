@@ -9,7 +9,7 @@
 
 **Une fois effectué -> Barrer la ligne !**
 
-* Gérer les collisions entre miroirs de même angle.
+* ~~Gérer les collisions entre miroirs de même angle.~~
 * ~~Gérer la reflexion du rayon sur un miroir.  A FINIR~~
 * ~~Gérer les divers évènements lors de l'intersection avec un objet.~~
 * ~~Faire le cast d'un élément en sous-élément~~ !
