@@ -7,15 +7,11 @@ NukeView::NukeView(const Nuke& nuke, bool selectable)  :
     this->nuke_ = &(const_cast<Nuke&>(nuke));
     this->nuke_->add_observer(this);
 
-    Point p       = this->nuke_->position();
-    double radius = this->nuke_->radius();
-
     QBrush brush(Qt::black);
     brush.setStyle(Qt::SolidPattern);
     this->setBrush(brush);
 
-    setRect(p.x() - radius, p.y() - radius,
-            radius + radius, radius + radius);
+    set_rect();
 
     setFlag(QGraphicsItem::ItemIsSelectable, this->selectable_);
 }
@@ -26,6 +22,10 @@ void NukeView::notify(Observable* sdo, std::string msg, const std::vector<std::s
     {
         this->setBrush(QBrush(Qt::red));
     }
+    else
+    {
+        set_rect();
+    }
 
 }
 
@@ -34,5 +34,10 @@ void NukeView::translate(double x, double y)
 
 }
 
-
-
+void NukeView::set_rect()
+{
+    const Point& p       = this->nuke_->position();
+    double radius = this->nuke_->radius();
+    setRect(p.x() - radius, p.y() - radius,
+            radius + radius, radius + radius);
+}
