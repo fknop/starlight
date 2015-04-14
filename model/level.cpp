@@ -8,7 +8,8 @@
 
 Level::Level(double w, double h) : width_ {w}, height_ {h},
     walls_ { {{.0, .0}, {.0, h}}, {{.0, h}, {w, h}},
-{{w, h}, {w, .0}}, {{w, .0}, {.0, .0}} }, check_collisions_{true}
+    {{w, h}, {w, .0}}, {{w, .0}, {.0, .0}} },
+    check_collisions_{true}, handle_dest_{true}, handle_nukes_{true}
 {
     if (w <= 0 || h <= 0)
         throw std::string("La taille et la longueur "
@@ -77,8 +78,15 @@ Level::State Level::compute_ray(Line& line, const Point& start, int wl)
 
         case Element::Type::DEST:
         {
-            this->dest_.set_lighted_up(true);
-            state = State::WIN;
+            if (handle_dest_)
+            {
+                this->dest_.set_lighted_up(true);
+                state = State::WIN;
+            }
+            else
+            {
+                state = State::STOP;
+            }
             break;
         }
 
@@ -109,9 +117,16 @@ Level::State Level::compute_ray(Line& line, const Point& start, int wl)
 
         case Element::Type::NUKE:
         {
-            nuke = dynamic_cast<Nuke*> (this->intersections_.at(0).element());
-            nuke->set_lighted_up(true);
-            state = State::LOSE;
+            if (handle_nukes_)
+            {
+                nuke = dynamic_cast<Nuke*> (this->intersections_.at(0).element());
+                nuke->set_lighted_up(true);
+                state = State::LOSE;
+            }
+            else
+            {
+                state = State::STOP;
+            }
             break;
 
         }

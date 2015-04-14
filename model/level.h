@@ -82,6 +82,9 @@ class Level : public ObserverInterface, public Observable
     std::vector<Nuke> nukes_;
 
     bool check_collisions_;
+    bool handle_dest_;
+    bool handle_nukes_;
+
 
 public:
 
@@ -252,8 +255,13 @@ public:
      */
     inline void add_ray(const Ray& r);
 
+
+    inline bool handle_nukes() const;
+    inline bool handle_dest() const;
     inline bool check_collisions() const;
     inline void set_check_collisions(bool value);
+    inline void set_handle_nukes(bool value);
+    inline void set_handle_dest(bool value);
 
 
     inline void remove_crystal(const Crystal& c);
@@ -496,6 +504,26 @@ bool Level::check_collisions() const
 void Level::set_check_collisions(bool value)
 {
     this->check_collisions_ = value;
+}
+
+bool Level::handle_dest() const
+{
+    return this->handle_dest_;
+}
+
+bool Level::handle_nukes() const
+{
+    return this->handle_nukes_;
+}
+
+void Level::set_handle_dest(bool value)
+{
+    this->handle_dest_ = value;
+}
+
+void Level::set_handle_nukes(bool value)
+{
+    this->handle_nukes_ = value;
 }
 
 #endif // LEVEL_H
