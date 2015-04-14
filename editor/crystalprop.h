@@ -7,7 +7,6 @@
 #include <QLabel>
 
 #include "model/crystal.h"
-
 #include "propertiesinterface.h"
 
 class CrystalProp : public PropertiesInterface
