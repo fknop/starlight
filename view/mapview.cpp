@@ -21,7 +21,7 @@ MapView::MapView()
     setScene(scene_);
 }
 
-MapView::MapView(Level* level) : level_{level}
+MapView::MapView(Level* level, bool selectable) : level_{level}, selectable_{selectable}
 {
     scene_ = new QGraphicsScene(0, 0, this->level_->width(), this->level_->height());
     sound_ = new QMediaPlayer(nullptr);
@@ -182,7 +182,7 @@ void MapView::draw_source()
     if (source_view_ != nullptr)
         scene_->removeItem(source_view_);
 
-    source_view_ = new SourceView(level_->source(), true);
+    source_view_ = new SourceView(level_->source(), selectable_);
     scene_->addItem(source_view_);
 }
 
@@ -191,7 +191,7 @@ void MapView::draw_dest()
     if (dest_view_ != nullptr)
         scene_->removeItem(dest_view_);
 
-    dest_view_ = new DestinationView(level_->dest(), true);
+    dest_view_ = new DestinationView(level_->dest(), selectable_);
     scene_->addItem(dest_view_);
 }
 
@@ -204,11 +204,10 @@ void MapView::draw_ray(const Ray &ray)
 
 void MapView::draw_wall(const Wall& wall)
 {
-    WallView* wv = new WallView(wall, true);
+    WallView* wv = new WallView(wall, selectable_);
     wall_views_.push_back(wv);
     scene_->addItem(wv);
 }
-
 
 void MapView::draw_mirror(const Mirror& mirror)
 {
@@ -217,24 +216,23 @@ void MapView::draw_mirror(const Mirror& mirror)
     scene_->addItem(mv);
 }
 
-
 void MapView::draw_nuke(const Nuke& nuke)
 {
-    NukeView* nv = new NukeView(nuke, true);
+    NukeView* nv = new NukeView(nuke, selectable_);
     nuke_views_.push_back(nv);
     scene_->addItem(nv);
 }
 
 void MapView::draw_lens(const Lens& lens)
 {
-    LensView* lv = new LensView(lens, true);
+    LensView* lv = new LensView(lens, selectable_);
     lens_views_.push_back(lv);
     scene_->addItem(lv);
 }
 
 void MapView::draw_crystal(const Crystal& crystal)
 {
-    CrystalView* cv = new CrystalView(crystal, true);
+    CrystalView* cv = new CrystalView(crystal, selectable_);
     crystal_views_.push_back(cv);
     scene_->addItem(cv);
 }
