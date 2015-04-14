@@ -119,9 +119,8 @@ class Source : public Observable, public Element
      */
     inline void set_wavelength(double wl);
 
-
-
     Rectangle to_rectangle();
+    void translate(double x, double y);
 
     /**
      * Surcharge l'opérateur de flux de sortie pour afficher

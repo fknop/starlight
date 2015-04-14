@@ -23,3 +23,8 @@ Rectangle Source::to_rectangle()
 {
     return Rectangle(this->pos_, this->edge_, this->edge_);
 }
+
+void Source::translate(double x, double y)
+{
+    this->pos_.set_position(pos_.x() + x, pos_.y() + y);
+}

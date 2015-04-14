@@ -76,6 +76,7 @@ class Crystal : public Element
      */
     inline void set_modifier(double mod);
 
+    void translate(double x, double y);
     Ellipse to_ellipse() const;
 
     /**

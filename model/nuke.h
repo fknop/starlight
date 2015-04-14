@@ -71,6 +71,8 @@ class Nuke : public Element, public Observable
      */
     Ellipse to_ellipse();
 
+    void translate(double x, double y);
+
     /**
      * Surcharge l'opérateur de flux de sortie pour afficher un
      * récapitulatif des caractéristiques de la bombe.

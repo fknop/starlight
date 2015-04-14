@@ -59,3 +59,8 @@ bool Lens::operator ==(const Lens& l) const
      wl_min_ == l.wl_min_ &&
      wl_max_ == l.wl_max_;
 }
+
+void Lens::translate(double x, double y)
+{
+    this->pos_.set_position(pos_.x() + x, pos_.y() + y);
+}

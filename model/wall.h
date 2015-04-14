@@ -6,6 +6,8 @@
 #include "element.h"
 #include "linesegment.h"
 #include "point.h"
+#include "obs/observable.h"
+#include "obs/observerinterface.h"
 
 
 /**
@@ -14,10 +16,12 @@
  * Les murs sont des segments de droite qui ne réfléchissent
  * pas la lumière.
  */
-class Wall : public Element
+class Wall : public Element, public Observable
 {
     Point start_;
     Point end_;
+
+    bool movable_;
 
   public:
     /**
@@ -25,7 +29,7 @@ class Wall : public Element
      * @param p1 le début du mur.
      * @param p2 la fin du mur.
      */
-    Wall(const Point& p1, const Point& p2);
+    Wall(const Point& p1, const Point& p2, bool movable = true);
 
     /**
      * Constructeur de copie.
@@ -54,6 +58,9 @@ class Wall : public Element
      * @return le segment correspondant au mur.
      */
     LineSegment to_line_segment();
+
+    void translate(double x, double y);
+    void rotate(double r);
 
     /**
      * Surcharge l'opérateur de flux de sortie pour afficher
