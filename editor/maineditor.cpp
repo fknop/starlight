@@ -7,6 +7,7 @@
 #include <QMenuBar>
 #include <QMessageBox>
 #include <QPushButton>
+#include <QShortcut>
 
 #include "elements.h"
 #include "mapreader.h"
@@ -20,6 +21,9 @@
 MainEditor::MainEditor(QWidget *parent) : QMainWindow(parent), level_{new Level(750, 580)}
 {
     setupUi();
+
+    QShortcut *shortcut = new QShortcut(QKeySequence("Ctrl+X"), this);
+    connect(shortcut, SIGNAL(activated()), this, SLOT(delete_selected()));
 }
 
 void MainEditor::add_crystal()
@@ -76,7 +80,7 @@ void MainEditor::create_level()
     level_->set_dest(dest);
 
     verticalLayout_2->removeWidget(mapview_);
-    mapview_ = new MapView(level_);
+    mapview_ = new MapView(level_, true);
     level_->add_observer(mapview_);
     mapview_->add_observer(this);
     verticalLayout_2->addWidget(mapview_);
@@ -159,25 +163,27 @@ void MainEditor::load_level()
     QString file_name = QFileDialog::getOpenFileName(
                 this, tr("Load Starlight level"), "levels/", tr("Files .lvl (*.lvl)"));
 
+    if (file_name != nullptr)
+    {
+        MapReader::end_level();
+        level_ = MapReader::level(file_name.toStdString());
+        level_->set_check_collisions(false);
+        level_->set_handle_nukes(false);
+        level_->set_handle_dest(false);
 
-    MapReader::end_level();
-    level_ = MapReader::level(file_name.toStdString());
-    level_->set_check_collisions(false);
-    level_->set_handle_nukes(false);
-    level_->set_handle_dest(false);
+        verticalLayout_2->removeWidget(mapview_);
 
-    verticalLayout_2->removeWidget(mapview_);
+        mapview_ = new MapView(level_, true);
+        level_->add_observer(mapview_);
+        mapview_->add_observer(this);
 
-    mapview_ = new MapView(level_);
-    level_->add_observer(mapview_);
-    mapview_->add_observer(this);
+        verticalLayout_2->addWidget(mapview_);
 
-    verticalLayout_2->addWidget(mapview_);
+        elements->set_height(level_->height());
+        elements->set_width(level_->width());
 
-    elements->set_height(level_->height());
-    elements->set_width(level_->width());
-
-    elements->enable_pushbuttons(true);
+        elements->enable_pushbuttons(true);
+    }
 }
 
 void MainEditor::save_level()
@@ -194,7 +200,7 @@ void MainEditor::save_level()
 void MainEditor::closeEvent(QCloseEvent * event)
 {
     event->ignore();
-    if (QMessageBox::Yes == QMessageBox::question(this, "Close Confirmation?",
+    if (QMessageBox::Yes == QMessageBox::question(this, "Close confirmation",
                                                   "Are you sure you want to exit?",
                                                   QMessageBox::Yes|QMessageBox::No))
     {
@@ -238,47 +244,52 @@ void MainEditor::notify(Observable * sdo, std::string msg="UPDATE_RAYS", const s
     }
     else if (msg == "ELEMENT_DELETED")
     {
-        if (mapview_->selected())
-        {
-            switch (mapview_->selected()->type_view())
-            {
-            case ElementView::TypeView::CRYSTALVIEW:
-            {
-                CrystalView * cv = dynamic_cast<CrystalView *> (selected());
-                level_->remove_crystal(*cv->crystal());
-                break;
-            }
-            case ElementView::TypeView::LENSVIEW:
-            {
-                LensView * lv = dynamic_cast<LensView *> (selected());
-                level_->remove_lens(*lv->lens());
-                break;
-            }
-            case ElementView::TypeView::MIRRORVIEW:
-            {
-                MirrorView * mv = dynamic_cast<MirrorView *> (selected());
-                level_->remove_mirror(*mv->mirror());
-                break;
-            }
-            case ElementView::TypeView::NUKEVIEW:
-            {
-                NukeView * nv = dynamic_cast<NukeView *> (selected());
-                level_->remove_nuke(*nv->nuke());
-                break;
-            }
-            case ElementView::TypeView::WALLVIEW:
-            {
-                WallView * wv = dynamic_cast<WallView *> (selected());
-                level_->remove_wall(*wv->wall());
-                break;
-            }
-            }
-        }
-
-        mapview_->repaint();
+        delete_selected();
     }
     else if (msg == "ELEMENT_CHANGED")
     {
         mapview_->repaint();
     }
+}
+
+void MainEditor::delete_selected()
+{
+    if (mapview_->selected())
+    {
+        switch (mapview_->selected()->type_view())
+        {
+        case ElementView::TypeView::CRYSTALVIEW:
+        {
+            CrystalView * cv = dynamic_cast<CrystalView *> (selected());
+            level_->remove_crystal(*cv->crystal());
+            break;
+        }
+        case ElementView::TypeView::LENSVIEW:
+        {
+            LensView * lv = dynamic_cast<LensView *> (selected());
+            level_->remove_lens(*lv->lens());
+            break;
+        }
+        case ElementView::TypeView::MIRRORVIEW:
+        {
+            MirrorView * mv = dynamic_cast<MirrorView *> (selected());
+            level_->remove_mirror(*mv->mirror());
+            break;
+        }
+        case ElementView::TypeView::NUKEVIEW:
+        {
+            NukeView * nv = dynamic_cast<NukeView *> (selected());
+            level_->remove_nuke(*nv->nuke());
+            break;
+        }
+        case ElementView::TypeView::WALLVIEW:
+        {
+            WallView * wv = dynamic_cast<WallView *> (selected());
+            level_->remove_wall(*wv->wall());
+            break;
+        }
+        }
+    }
+
+    mapview_->repaint();
 }

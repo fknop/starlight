@@ -72,6 +72,8 @@ public slots:
     void load_level();
     void save_level();
 
+    void delete_selected();
+
 
 };
 
