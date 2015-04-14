@@ -163,25 +163,27 @@ void MainEditor::load_level()
     QString file_name = QFileDialog::getOpenFileName(
                 this, tr("Load Starlight level"), "levels/", tr("Files .lvl (*.lvl)"));
 
+    if (file_name != nullptr)
+    {
+        MapReader::end_level();
+        level_ = MapReader::level(file_name.toStdString());
+        level_->set_check_collisions(false);
+        level_->set_handle_nukes(false);
+        level_->set_handle_dest(false);
 
-    MapReader::end_level();
-    level_ = MapReader::level(file_name.toStdString());
-    level_->set_check_collisions(false);
-    level_->set_handle_nukes(false);
-    level_->set_handle_dest(false);
+        verticalLayout_2->removeWidget(mapview_);
 
-    verticalLayout_2->removeWidget(mapview_);
+        mapview_ = new MapView(level_, true);
+        level_->add_observer(mapview_);
+        mapview_->add_observer(this);
 
-    mapview_ = new MapView(level_, true);
-    level_->add_observer(mapview_);
-    mapview_->add_observer(this);
+        verticalLayout_2->addWidget(mapview_);
 
-    verticalLayout_2->addWidget(mapview_);
+        elements->set_height(level_->height());
+        elements->set_width(level_->width());
 
-    elements->set_height(level_->height());
-    elements->set_width(level_->width());
-
-    elements->enable_pushbuttons(true);
+        elements->enable_pushbuttons(true);
+    }
 }
 
 void MainEditor::save_level()
