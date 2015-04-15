@@ -24,15 +24,15 @@ void Level::compute_rays()
 
 void Level::compute_ray(Line& line, const Point& start, int wl)
 {
-    double angle = line.alpha();
     Nuke* nuke = nullptr;
     Mirror* mirror = nullptr;
     Lens* lens = nullptr;
     Crystal* crystal = nullptr;
     Point* new_line_origin = nullptr;
-    bool continue_ray;
     Element::Type type;
+    double angle = line.alpha();
     double new_wl = wl;
+    bool continue_ray;
 
     get_intersections(line, start);
 
@@ -336,11 +336,6 @@ void Level::notify(Observable* obs, std::string msg, const std::vector<std::stri
     bool ask_translate = msg.compare("ASK_TRANSLATE") == 0;
     bool ask_rotate    = msg.compare("ASK_ROTATE") == 0;
     bool recompute = !ask_translate && !ask_rotate && msg.compare("LIGHTED_UP") != 0;
-
-//            msg.compare("SOURCE_ON") == 0 ||
-//                     msg.find("TRANSLATE_") == 7 ||
-//                     msg.find("ROTATE_") == 7;
-
 
     if (check_collisions_ && (ask_rotate || ask_translate))
     {
