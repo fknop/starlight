@@ -239,24 +239,85 @@ public:
      */
     inline void add_ray(const Ray& r);
 
+    /**
+     * Retourne vrai si la partie est gagnée.
+     * @return vrai si la partie est gagnée, faux sinon.
+     */
     inline bool won();
+
+    /**
+     * Retourne vrai si la partie est perdue.
+     * @return vrai si la partie est perdue, faux sinon.
+     */
     inline bool lost();
 
+    /**
+     * Retourne vrai si les nukes sont activées.
+     * @return vrai si les nukes sont activées, faux sinon.
+     */
     inline bool handle_nukes() const;
+
+    /**
+     * Retourne vrai si la destination est activée.
+     * @return vrai si la destination est activée, faux sinon.
+     */
     inline bool handle_dest() const;
+
+    /**
+     * Retourne vrai si les collisions entre les miroirs et les
+     * élements de la carte sont gérées.
+     * @return vrai si les collisions sont gérées, faux sinon.
+     */
     inline bool check_collisions() const;
+
+    /**
+     * Modifie la vérification des collisions entre miroirs
+     * et élements de la carte.
+     * @param value vrai si les collisions sont gérées, faux sinon.
+     */
     inline void set_check_collisions(bool value);
+
+    /**
+     * Modifie le comportement des nukes de la carte.
+     * @param value vrai si les nukes sont activées, faux sinon.
+     */
     inline void set_handle_nukes(bool value);
+
+    /**
+     * Modifie le comportement de la destination sur la carte.
+     * @param value vrai si la destination est activée, faux sinon.
+     */
     inline void set_handle_dest(bool value);
 
-
+    /**
+     * Supprime un crystal.
+     * @param c le crystal à supprimer.
+     */
     inline void remove_crystal(const Crystal& c);
+
+    /**
+     * Supprime une lentille.
+     * @param l la lentille à supprimer.
+     */
     inline void remove_lens(const Lens &l);
+
+    /**
+     * Supprime un mirroir.
+     * @param m le mirroir à supprimer.
+     */
     inline void remove_mirror(const Mirror &m);
+
+    /**
+     * Supprime une bombe.
+     * @param n la bombe à supprimer.
+     */
     inline void remove_nuke(const Nuke& n);
+
+    /**
+     * Supprime un mur.
+     * @param w le mur à supprimer.
+     */
     inline void remove_wall(const Wall& w);
-
-
 
     void notify(Observable* o,
                 std::string msg,
@@ -287,32 +348,82 @@ private:
      */
     double get_reflection_angle(double startAngle, double mirrorAngle);
 
+    /**
+     * Place les intersections avec la destination et le rayon dans
+     * le vecteur d'intersections.
+     * @param line la droite du rayon.
+     * @param start le point de départ du rayon.
+     */
+    void dest_intersections(const Line& line, const Point& start);
 
-    void dest_intersections(const Line& line, const Point &start);
-
+    /**
+     * Place les intersections avec la source et le rayon dans
+     * le vecteur d'intersections.
+     * @param line la droite du rayon.
+     * @param start le point de départ du rayon.
+     */
     void source_intersections(const Line& line,
                               const Point& start);
 
+    /**
+     * Place les intersections avec les murs et le rayon dans
+     * le vecteur d'intersections.
+     * @param line la droite du rayon.
+     * @param start le point de départ du rayon.
+     */
     void walls_intersections(const Line& line,
-                             const Point &start);
+                             const Point& start);
 
+    /**
+     * Place les intersections avec les lentilles et le rayon dans
+     * le vecteur d'intersections.
+     * @param line la droite du rayon.
+     * @param start le point de départ du rayon.
+     */
     void lenses_intersections(const Line& line,
-                              const Point &start);
+                              const Point& start);
 
+    /**
+     * Place les intersections avec les mirroirs et le rayon dans
+     * le vecteur d'intersections.
+     * @param line la droite du rayon.
+     * @param start le point de départ du rayon.
+     */
     void mirrors_intersections(const Line& line,
                                const Point& start);
 
+    /**
+     * Place les intersections avec les bombes et le rayon dans
+     * le vecteur d'intersections.
+     * @param line la droite du rayon.
+     * @param start le point de départ du rayon.
+     */
     void nukes_intersections(const Line& line,
                              const Point& start);
 
+    /**
+     * Place les intersections avec les cristaux et le rayon dans
+     * le vecteur d'intersections.
+     * @param line la droite du rayon.
+     * @param start le point de départ du rayon.
+     */
     void crystals_intersections(const Line& line,
-                                const Point &start);
+                                const Point& start);
 
-    void erase_wrongs_intersections(const Line& line, const Point &start);
+    /**
+     * Trie les intersections dans l'ordre croissant selon leur distance.
+     * @param start le point de départ du rayon.
+     */
+    void sort_intersections(const Point& start);
 
-    void sort_intersections(const Point &start);
-
-    bool check_collisions(const LineSegment &segment, Mirror *m);
+    /**
+     * Vérifie l'existence de collisions entre un mirroir et
+     * les éléments du jeu.
+     * @param segment le segment du mirroir.
+     * @param m le mirroir.
+     * @return vrai si il y a une collision, faux sinon.
+     */
+    bool check_collisions(const LineSegment& segment, Mirror* m);
 };
 
 
