@@ -3,9 +3,10 @@
 
 #include <ostream>
 
-#include "element.h"
-#include "ellipse.h"
-#include "point.h"
+#include "model/element.h"
+#include "model/ellipse.h"
+#include "model/point.h"
+
 #include "obs/observable.h"
 
 /**
@@ -71,6 +72,11 @@ class Nuke : public Element, public Observable
      */
     Ellipse to_ellipse();
 
+    /**
+     * Déplace la bombe.
+     * @param x le déplacement sur l'axe des x.
+     * @param y le déplacement sur l'axe des y.
+     */
     void translate(double x, double y);
 
     /**
@@ -82,6 +88,12 @@ class Nuke : public Element, public Observable
     friend std::ostream & operator<<(std::ostream& out,
                                      const Nuke& s);
 
+    /**
+     * Redéfinition de l'opérateur d'égalité.
+     * Retourne vrai si les bombes sont égales, faux sinon.
+     * @param n une autre bombe.
+     * @return vrai si les bombes sont égales, faux sinon.
+     */
     bool operator==(const Nuke& n) const;
 
 };
@@ -111,12 +123,12 @@ void Nuke::set_lighted_up(bool q)
 
 void Nuke::set_pos(Point p)
 {
-    pos_ = p;
+    this->pos_ = p;
 }
 
 void Nuke::set_radius(double r)
 {
-    rad_ = r;
+    this->rad_ = r;
 }
 
 #endif // NUKE_H

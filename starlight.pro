@@ -20,7 +20,6 @@ HEADERS += \
     model/mirror.h \
     model/nuke.h \
     model/point.h \
-    model/polarpoint.h \
     model/ray.h \
     model/rectangle.h \
     model/source.h \
@@ -71,7 +70,6 @@ SOURCES += \
     model/mirror.cpp \
     model/nuke.cpp \
     model/point.cpp \
-    model/polarpoint.cpp \
     model/ray.cpp \
     model/rectangle.cpp \
     model/source.cpp \

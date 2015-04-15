@@ -3,8 +3,9 @@
 
 #include <cstddef>
 #include <cmath>
-#include "point.h"
-#include "umath.h"
+
+#include "model/point.h"
+#include "model/umath.h"
 
 /**
  * Cette classe représente une droite

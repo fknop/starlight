@@ -3,12 +3,11 @@
 
 #include <ostream>
 
-#include "element.h"
-#include "linesegment.h"
-#include "obs/observable.h"
-#include "point.h"
-#include "polarpoint.h"
+#include "model/element.h"
+#include "model/linesegment.h"
+#include "model/point.h"
 
+#include "obs/observable.h"
 
 /**
  * Cette classe modélise les miroirs utilisés dans le jeu.
@@ -210,7 +209,19 @@ class Mirror : public Element, public Observable
      */
     inline bool set_angle(double angle);
 
+    /**
+     * Modifie le comportement du miroir.
+     * @param value vrai si le miroir peut être
+     * déplacé ou tourné, faux sinon.
+     */
     inline void set_movable(bool value);
+
+    /**
+     * Retourne vrai si le miroir peut être déplacé
+     * ou tourné.
+     * @return vrai si le miroir peut être déplacé
+     * ou tourné.
+     */
     inline bool movable() const;
 
     /**
@@ -260,6 +271,12 @@ class Mirror : public Element, public Observable
     friend std::ostream & operator<<(std::ostream& out,
                                      const Mirror& m);
 
+    /**
+     * Redéfinition de l'opérateur d'égalité.
+     * Retourne vrai si les mirroirs sont égaux.
+     * @param m un mirroir.
+     * @return vrai si les mirroirs sont égaux, faux sinon.
+     */
     bool operator==(const Mirror& m) const;
 
 };
@@ -311,40 +328,40 @@ bool Mirror::set_pivot(const Point& p)
 {
     bool r {check_pivot_range(p)};
     if (r)
-        pivot_ = p;
+        this->pivot_ = p;
     return r;
 }
 
 void Mirror::set_xpad(double x)
 {
-    xpad_ = x;
+    this->xpad_ = x;
 }
 
 void Mirror::set_len(double len)
 {
-    length_ = len;
+    this->length_ = len;
 }
 
 void Mirror::set_min(Point min)
 {
-    x_min_ = min.x();
-    y_min_ = min.y();
+    this->x_min_ = min.x();
+    this->y_min_ = min.y();
 }
 
 void Mirror::set_max(Point max)
 {
-    x_max_ = max.x();
-    y_max_ = max.y();
+    this->x_max_ = max.x();
+    this->y_max_ = max.y();
 }
 
 void Mirror::set_alpha_min(double amin)
 {
-    alpha_min_ = amin;
+    this->alpha_min_ = amin;
 }
 
 void Mirror::set_alpha_max(double amax)
 {
-    alpha_max_ = amax;
+    this->alpha_max_ = amax;
 }
 
 bool Mirror::set_angle(double a)

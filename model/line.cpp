@@ -1,8 +1,9 @@
 #include <cmath>
 
-#include "constants.h"
-#include "geometry.h"
-#include "line.h"
+#include "model/line.h"
+#include "model/constants.h"
+#include "model/geometry.h"
+
 
 Line::Line(double a, double b, double c)
 {

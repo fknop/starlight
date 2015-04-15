@@ -3,7 +3,7 @@
 #include <sstream>
 #include <vector>
 
-#include "mirror.h"
+#include "model/mirror.h"
 
 
 Mirror::Mirror(const Point & p, double x, double len, double a)

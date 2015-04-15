@@ -1,8 +1,8 @@
 #ifndef LINESEGMENT_H
 #define LINESEGMENT_H
 
-#include "point.h"
-#include "line.h"
+#include "model/point.h"
+#include "model/line.h"
 
 class LineSegment
 {
@@ -10,6 +10,7 @@ class LineSegment
     Point end_ {1,1};
 
 public:
+
 
     LineSegment() = default;
 
@@ -52,11 +53,35 @@ public:
      */
     bool contains(const Point& point) const;
 
+    /**
+     * Transforme le segment en droite.
+     * @return la droite correspondante au segment.
+     */
     Line to_line() const;
 
+    /**
+     * Déplace le segment.
+     * @param x le déplacement sur l'axe x.
+     * @param y le déplacement sur l'axe y.
+     */
     void translate(double x, double y);
+
+    /**
+     * Effectue une rotation sur le segment selon un point
+     * de pivot situé sur ce dernier.
+     * @param pivot le point de rotation.
+     * @param angle l'angle de rotation.
+     */
     void rotate(const Point& pivot, double angle);
 
+    /**
+     * Redéfinition de l'opérateur d'égalité.
+     * Retourne vrai si les segments sont égaux.
+     * Les segments sont agaux si les extrémités
+     * sont égales peu importe le sens.
+     * @param ls un segment.
+     * @return vrai si les segments sont égaux, faux sinon.
+     */
     bool operator==(const LineSegment& ls) const;
 };
 
