@@ -264,7 +264,6 @@ void MainEditor::notify(Observable * sdo, std::string msg, const std::vector<std
     else if (msg.compare("ELEMENT_DELETED") == 0)
     {
         delete_selected();
-        properties->set_element_prop(selected());
     }
     else if (msg.compare("ELEMENT_CHANGED") == 0)
     {
@@ -274,8 +273,9 @@ void MainEditor::notify(Observable * sdo, std::string msg, const std::vector<std
 
 void MainEditor::delete_selected()
 {
-    if (mapview_->selected())
+    if (mapview_->selected() != nullptr)
     {
+        properties->delete_prop(); // remove le panel properties
         switch (mapview_->selected()->type_view())
         {
         case ElementView::TypeView::CRYSTALVIEW:
@@ -309,7 +309,8 @@ void MainEditor::delete_selected()
             break;
         }
         }
+        mapview_->repaint();
     }
 
-    mapview_->repaint();
+
 }

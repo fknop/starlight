@@ -57,13 +57,18 @@ void Properties::setupUi()
     setLayout(gridLayout);
 }
 
-void Properties::set_element_prop(ElementView * ev)
+void Properties::delete_prop()
 {
     if (prop_interface_ != nullptr)
     {
         delete prop_interface_;
         prop_interface_ = nullptr;
     }
+}
+
+void Properties::set_element_prop(ElementView * ev)
+{
+    delete_prop();
 
     if (ev != nullptr)
     {
@@ -150,4 +155,5 @@ void Properties::apply_changes()
 void Properties::delete_element()
 {
     notify_all("ELEMENT_DELETED");
+    set_element_prop(nullptr);
 }

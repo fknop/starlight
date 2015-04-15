@@ -30,6 +30,7 @@ public:
     Properties(QWidget *parent = 0);
     void setupUi();
     void set_element_prop(ElementView *ev);
+    void delete_prop();
 
 
 
