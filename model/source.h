@@ -3,12 +3,11 @@
 
 #include <iostream>
 
-#include "element.h"
+#include "model/element.h"
+#include "model/point.h"
+#include "model/rectangle.h"
+
 #include "obs/observable.h"
-#include "obs/observerinterface.h"
-#include "point.h"
-#include "rectangle.h"
-#include "element.h"
 
 /**
  * Modélise la source lumineuse utilisée dans le jeu.
@@ -118,7 +117,17 @@ class Source : public Observable, public Element
      */
     inline void set_wavelength(double wl);
 
+    /**
+     * Retourne le rectangle correspondant à la source.
+     * @return le rectangle correspondant à la source.
+     */
     Rectangle to_rectangle();
+
+    /**
+     * Déplace la source.
+     * @param x le déplacement sur l'axe des x.
+     * @param y le déplacement sur l'axe des y.
+     */
     void translate(double x, double y);
 
     /**
@@ -167,22 +176,22 @@ void Source::set_on(bool q)
 
 void Source::set_pos(Point p)
 {
-    pos_ = p;
+    this->pos_ = p;
 }
 
 void Source::set_edge(double edge)
 {
-    edge_ = edge;
+    this->edge_ = edge;
 }
 
 void Source::set_alpha(double a)
 {
-    alpha_ = a;
+    this->alpha_ = a;
 }
 
 void Source::set_wavelength(double wl)
 {
-    wavelength_ = wl;
+    this->wavelength_ = wl;
 }
 
 #endif // SOURCE_H

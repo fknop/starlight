@@ -12,8 +12,8 @@
  * Classe Ellipse
  * La position représente la position du centre de l'ellipse.
  * du rectangle entourant l'ellipse.
- * Le xRadius correspond au rayon sur l'axe des X.
- * Le yRadius correspond au rayon sur l'axe des Y.
+ * Le x_rad_ correspond au rayon sur l'axe des X.
+ * Le y_rad_ correspond au rayon sur l'axe des Y.
  */
 class Ellipse
 {

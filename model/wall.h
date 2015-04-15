@@ -3,12 +3,11 @@
 
 #include <iostream>
 
-#include "element.h"
-#include "linesegment.h"
-#include "point.h"
+#include "model/element.h"
+#include "model/linesegment.h"
+#include "model/point.h"
+
 #include "obs/observable.h"
-
-
 
 /**
  * Cette classe modélise les murs utilisés dans le jeu.
@@ -49,9 +48,17 @@ class Wall : public Element, public Observable
      */
     inline const Point& end() const;
 
-    inline void set_start(Point s);
+    /**
+     * Modifie le point de départ du mur.
+     * @param s le point de départ.
+     */
+    inline void set_start(const Point& s);
 
-    inline void set_end(Point e);
+    /**
+     * Modifie le point de fin du mur.
+     * @param e le point de fin du mur.
+     */
+    inline void set_end(const Point& e);
 
     /**
      * Renvoie le segment correspondant au mur.
@@ -59,7 +66,17 @@ class Wall : public Element, public Observable
      */
     LineSegment to_line_segment();
 
+    /**
+     * Déplace le mur.
+     * @param x le déplacement sur l'axe des x.
+     * @param y le déplacement sur l'axe des y.
+     */
     void translate(double x, double y);
+
+    /**
+     * Tourne le mur par rapport à son centre.
+     * @param r l'angle de rotation.
+     */
     void rotate(double r);
 
     /**
@@ -71,6 +88,12 @@ class Wall : public Element, public Observable
     friend std::ostream& operator<<(std::ostream& out,
                                      const Wall& wall);
 
+    /**
+     * Redéfinition de l'opérateur d'égalité.
+     * Retourne vrai si les murs sont égaux.
+     * @param w un mur.
+     * @return vrai si les murs sont égaux, faux sinon.
+     */
     bool operator==(const Wall& w) const;
 
 };
@@ -87,14 +110,14 @@ const Point& Wall::end() const
     return this->end_;
 }
 
-void Wall::set_start(Point s)
+void Wall::set_start(const Point& s)
 {
-    start_ = s;
+    this->start_ = s;
 }
 
-void Wall::set_end(Point e)
+void Wall::set_end(const Point& e)
 {
-    end_ = e;
+    this->end_ = e;
 }
 
 #endif // WALL_H

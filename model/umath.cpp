@@ -1,7 +1,7 @@
 #include <cmath>
 
-#include "constants.h"
 #include "umath.h"
+#include "model/constants.h"
 
 
 double umath::dgcd(double a, double b)

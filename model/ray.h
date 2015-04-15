@@ -3,8 +3,8 @@
 
 #include <iostream>
 
-#include "element.h"
-#include "point.h"
+#include "model/element.h"
+#include "model/point.h"
 
 
 /**

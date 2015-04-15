@@ -3,19 +3,9 @@
 #include <fstream>
 
 
-MapWriter::MapWriter()
+void MapWriter::write(const Level* level, std::string path)
 {
-
-}
-
-MapWriter::~MapWriter()
-{
-
-}
-
-void MapWriter::write(const Level* level, std::string filename)
-{
-    std::ofstream level_writer(filename);
+    std::ofstream level_writer(path);
 
     level_writer << level->width() << " "
                  << level->height()

@@ -4,6 +4,11 @@
 #include "model/point.h"
 #include "model/line.h"
 
+/**
+ * Modélise un segment de droite
+ * possédant un point de départ et un point
+ * d'arrivée.
+ */
 class LineSegment
 {
     Point start_ {0,0};

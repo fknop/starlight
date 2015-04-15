@@ -3,11 +3,16 @@
 
 #include <vector>
 
-#include "line.h"
-#include "linesegment.h"
-#include "point.h"
+#include "model/line.h"
+#include "model/linesegment.h"
+#include "model/point.h"
 
-
+/**
+ * Classe Rectangle :
+ * représente un rectangle avec
+ * un point supérieur gauche, une longueur
+ * et une hauteur.
+ */
 class Rectangle
 {
 
@@ -17,7 +22,14 @@ private:
     double height_;
 
 public:
-    Rectangle(const Point&, double, double);
+
+    /**
+     * Crée un nouveau rectangle.
+     * @param upper_left le point supérieur gauche du rectangle.
+     * @param width la longueur du rectangle.
+     * @param height la hauteur du rectangle.
+     */
+    Rectangle(const Point& upper_left, double width, double height);
 
     /**
      * Retourne le coin supérieur gauche du rectangle.

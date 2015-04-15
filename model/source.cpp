@@ -1,5 +1,6 @@
-#include "ray.h"
 #include "source.h"
+#include "model/ray.h"
+
 
 
 Source::Source(const Point & p, double e, double a, int wl) : Element(Element::Type::SOURCE),

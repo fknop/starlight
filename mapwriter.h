@@ -8,10 +8,13 @@
 class MapWriter
 {
 public:
-    MapWriter();
-    ~MapWriter();
-
-    static void write(const Level* level, std::string filename);
+    /**
+     * Crée / écrit dans un fichier toutes les
+     * caractéristiques d'un niveau.
+     * @param level le niveau.
+     * @param path le chemin et nom du fichier à écrire.
+     */
+    static void write(const Level* level, std::string path);
 };
 
 #endif // MAPWRITER_H
