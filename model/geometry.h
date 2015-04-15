@@ -74,7 +74,6 @@ namespace Geometry
      * @return vrai si les droites possèdent une intersection.
      */
     bool intersects(const Line& l1, const Line& l2, Point& point, bool& is_point);
-//    bool intersects(const Line& l1, const Line& l2, Point **p);
 
     /**
      * Retourne vrai si la droite possède une intersection
@@ -87,8 +86,6 @@ namespace Geometry
      */
       bool intersects(const Line& line, const LineSegment& ls, Point& point, LineSegment &segment, bool& is_point);
       bool intersects(const LineSegment& ls1, const LineSegment& ls2, Point& point, LineSegment &result, bool& is_point);
-//    bool intersects(const Line& line, const LineSegment& ls, Point **p);
-//    bool intersects(const LineSegment& ls1, const LineSegment& ls2, Point **p);
 
     /**
      * Vérifie si une droite possède une ou des intersections

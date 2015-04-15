@@ -79,7 +79,17 @@ class Dest : public Element, public Observable
      */
     inline void set_edge(double edge);
 
+    /**
+     * Retourne le rectangle correspondant à la destination.
+     * @return le rectangle correspondant à la destination.
+     */
     Rectangle to_rectangle();
+
+    /**
+     * Déplace la destination.
+     * @param x le déplacement sur l'axe x.
+     * @param y le déplacement sur l'axe y.
+     */
     void translate(double x, double y);
 
     /**
@@ -117,12 +127,12 @@ void Dest::set_lighted_up(const bool q)
 
 void Dest::set_pos(Point pos)
 {
-    pos_ = pos;
+    this->pos_ = pos;
 }
 
 void Dest::set_edge(double edge)
 {
-    edge_ = edge;
+    this->edge_ = edge;
 }
 
 #endif // DEST_H

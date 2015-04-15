@@ -3,9 +3,9 @@
 
 #include <ostream>
 
-#include "element.h"
-#include "ellipse.h"
-#include "point.h"
+#include "model/element.h"
+#include "model/ellipse.h"
+#include "model/point.h"
 
 #include "obs/observable.h"
 #include "obs/observerinterface.h"
@@ -90,7 +90,7 @@ class Lens : public Element, public Observable
      * Modifie la position de la lentille.
      * @param pos la nouvelle position de la lentille.
      */
-    inline void set_pos(Point pos);
+    inline void set_pos(const Point& pos);
 
     /**
      * Modifie la largeur de la lentille.
@@ -123,6 +123,11 @@ class Lens : public Element, public Observable
      */
     Ellipse to_ellipse();
 
+    /**
+     * Déplace la lentille.
+     * @param x le déplacement sur l'axe x.
+     * @param y le déplacement sur l'axe y.
+     */
     void translate(double x, double y);
 
     /**
@@ -134,60 +139,66 @@ class Lens : public Element, public Observable
     friend std::ostream& operator<<(std::ostream& out,
                                      const Lens& m);
 
+    /**
+     * Redéfinition de l'opérateur d'égalité, retourne vrai
+     * si les lentilles sont égales.
+     * @param l une lentille.
+     * @return vrai si les lentilles sont égales, faux sinon.
+     */
     bool operator==(const Lens& l) const;
 };
 
 /* Fonctions inlines */
 
 
-const Point & Lens::position() const
+const Point& Lens::position() const
 {
-    return pos_;
+    return this->pos_;
 }
 
 double Lens::width() const
 {
-    return width_;
+    return this->width_;
 }
 
 double Lens::height() const
 {
-    return height_;
+    return this->height_;
 }
 
 int Lens::wl_max() const
 {
-    return wl_max_;
+    return this->wl_max_;
 }
 
 int Lens::wl_min() const
 {
-    return wl_min_;
+    return this->wl_min_;
 }
 
-void Lens::set_pos(Point pos)
+void Lens::set_pos(const Point& pos)
 {
-    pos_ = pos;
+    this->pos_ = pos;
 }
 
 void Lens::set_width(double w)
 {
-    width_ = w;
+    this->width_ = w;
 }
 
 void Lens::set_height(double h)
 {
-    height_ = h;
+    this->height_ = h;
 }
 
 void Lens::set_wl_min(double wl_min)
 {
-    wl_min_ = wl_min;
+    this->wl_min_ = wl_min;
 }
 
 void Lens::set_wl_max(double wl_max)
 {
-    wl_max_ = wl_max;
+    this->wl_max_ = wl_max;
 }
 
 #endif // LENS_H

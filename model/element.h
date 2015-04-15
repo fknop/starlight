@@ -1,8 +1,6 @@
 #ifndef ELEMENT_H
 #define ELEMENT_H
 
-#include "ostream"
-
 /**
  * Cette classe sert de super-classe
  * à tous les éléments avec lequel
@@ -24,6 +22,8 @@ public:
         WALL
     };
 
+    Type type_;
+
     /**
      * Construit un élément avec un type
      * permettant de connaître le type
@@ -39,7 +39,7 @@ public:
     inline const Type& type() const;
 
 
-    Type type_;
+
 };
 
 /* Fonctions inlines */
