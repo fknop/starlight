@@ -13,7 +13,7 @@
 #include "model/level.h"
 
 
-MainWindow::MainWindow(QWidget *parent) : parent_{parent}, QMainWindow(parent)
+MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), parent_{parent}
 {
     setupUi();
 }

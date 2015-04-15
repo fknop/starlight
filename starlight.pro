@@ -4,13 +4,6 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = starlight
 TEMPLATE = app
 
-
-
-
-
-
-FORMS +=
-
 QMAKE_CXXFLAGS += -std=c++0x -Wall -Wextra -pedantic -fpermissive
 
 HEADERS += \

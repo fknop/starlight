@@ -18,7 +18,7 @@
 #include "view/sourceview.h"
 
 
-MainEditor::MainEditor(QWidget *parent) : parent_{parent}, QMainWindow(parent), level_{new Level(750, 580)}
+MainEditor::MainEditor(QWidget *parent) : QMainWindow(parent), parent_{parent}, level_{new Level(750, 580)}
 {
     setupUi();
 
@@ -230,45 +230,34 @@ void MainEditor::closeEvent(QCloseEvent * event)
 void MainEditor::notify(Observable * sdo, std::string msg, const std::vector<std::string> &args)
 {
     if (msg.compare("LEVEL_CREATED") == 0)
-    {
         create_level();
-    }
+
     else if (msg.compare("LEVEL_RESET") == 0)
-    {
         mapview_->clear();
-    }
+
     else if (msg.compare("MIRROR_ADDED") == 0)
-    {
         add_mirror();
-    }
+
     else if (msg.compare("CRYSTAL_ADDED") == 0)
-    {
         add_crystal();
-    }
+
     else if (msg.compare("LENS_ADDED") == 0)
-    {
         add_lens();
-    }
+
     else if (msg.compare("NUKE_ADDED") == 0)
-    {
         add_nuke();
-    }
+
     else if (msg.compare("WALL_ADDED") == 0)
-    {
         add_wall();
-    }
+
     else if (msg.compare("SELECTED") == 0)
-    {
         properties->set_element_prop(selected());
-    }
+
     else if (msg.compare("ELEMENT_DELETED") == 0)
-    {
         delete_selected();
-    }
+
     else if (msg.compare("ELEMENT_CHANGED") == 0)
-    {
         mapview_->repaint();
-    }
 }
 
 void MainEditor::delete_selected()
@@ -308,6 +297,9 @@ void MainEditor::delete_selected()
             level_->remove_wall(*wv->wall());
             break;
         }
+        case ElementView::TypeView::DESTVIEW:
+        case ElementView::TypeView::SOURCEVIEW:
+             QMessageBox::information(this, "Error !", "This element cannot be deleted");
         }
         mapview_->repaint();
     }
