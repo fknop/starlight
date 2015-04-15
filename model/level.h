@@ -10,12 +10,13 @@
 #include "model/line.h"
 #include "model/mirror.h"
 #include "model/nuke.h"
-#include "obs/observable.h"
-#include "obs/observerinterface.h"
 #include "model/point.h"
 #include "model/ray.h"
 #include "model/source.h"
 #include "model/wall.h"
+
+#include "obs/observable.h"
+#include "obs/observerinterface.h"
 
 /**
  * Structure intersection :

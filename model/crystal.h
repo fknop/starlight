@@ -3,9 +3,9 @@
 
 #include <ostream>
 
-#include "element.h"
-#include "ellipse.h"
-#include "point.h"
+#include "model/element.h"
+#include "model/ellipse.h"
+#include "model/point.h"
 
 #include "obs/observable.h"
 #include "obs/observerinterface.h"
@@ -78,7 +78,17 @@ class Crystal : public Element, public Observable
      */
     inline void set_modifier(double mod);
 
+    /**
+     * Déplace le cristal.
+     * @param x le déplacement sur l'axe x.
+     * @param y le déplacement sur l'axe y.
+     */
     void translate(double x, double y);
+
+    /**
+     * Retourne l'ellipse correspondante au cristal.
+     * @return l'ellipse correspondante au cristal.
+     */
     Ellipse to_ellipse() const;
 
     /**
@@ -90,6 +100,12 @@ class Crystal : public Element, public Observable
     friend std::ostream& operator<<(std::ostream&,
                                      const Crystal &);
 
+    /**
+     * Redéfinition de l'opérateur d'égalité, retourne vrai
+     * si les cristaux sont égaux.
+     * @param c un cristal.
+     * @return vrai si les cristaux sont égaux, faux sinon.
+     */
     bool operator==(const Crystal& c) const;
 
 };
@@ -114,17 +130,17 @@ double Crystal::radius() const
 
 void Crystal::set_center(Point c)
 {
-    center_ = c;
+    this->center_ = c;
 }
 
 void Crystal::set_radius(double rad)
 {
-    rad_ = rad;
+    this->rad_ = rad;
 }
 
 void Crystal::set_modifier(double mod)
 {
-    mod_ = mod;
+    this->mod_ = mod;
 }
 
 #endif // CRYSTAL_H
