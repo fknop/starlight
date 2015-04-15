@@ -237,9 +237,9 @@ void MapView::draw_crystal(const Crystal& crystal)
     scene_->addItem(cv);
 }
 
+
 void MapView::mousePressEvent(QMouseEvent * event)
 {
-    selected();
     notify_all("SELECTED");
 }
 
@@ -300,10 +300,10 @@ void MapView::notify(Observable *sdo, std::string msg, const std::vector<std::st
 {
 
     if (msg.compare("ASK_TRANSLATE") != 0 ||
-            msg.compare("ASK_ROTATE") != 0)
+        msg.compare("ASK_ROTATE") != 0)
         draw_rays();
 
-    if (msg.compare("GAME_LOST") == 0)
+    if (level_->lost())
     {
         if (sound_->state() == QMediaPlayer::PlayingState)
             sound_->stop();
@@ -316,7 +316,7 @@ void MapView::notify(Observable *sdo, std::string msg, const std::vector<std::st
 
         QMessageBox::information(this, "You lose!", "Outch, looks like you exploded the whole map…");
     }
-    else if (msg.compare("GAME_WON") == 0)
+    else if (level_->won())
     {
         if (sound_->state() == QMediaPlayer::PlayingState)
             sound_->stop();

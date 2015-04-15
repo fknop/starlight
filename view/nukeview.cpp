@@ -9,7 +9,7 @@ NukeView::NukeView(const Nuke& nuke, bool selectable)  :
 
     QBrush brush(Qt::black);
     brush.setStyle(Qt::SolidPattern);
-    this->setBrush(brush);
+    setBrush(brush);
 
     set_rect();
 
@@ -18,14 +18,11 @@ NukeView::NukeView(const Nuke& nuke, bool selectable)  :
 
 void NukeView::notify(Observable* sdo, std::string msg, const std::vector<std::string> &args)
 {
-    if (msg == "LIGHTED_UP")
-    {
-        this->setBrush(QBrush(Qt::red));
-    }
+    if (msg.compare("LIGHTED_UP") == 0)
+        setBrush(QBrush(Qt::red));
     else
-    {
         set_rect();
-    }
+
 
 }
 
@@ -36,7 +33,7 @@ void NukeView::translate(double x, double y)
 
 void NukeView::set_rect()
 {
-    const Point& p       = this->nuke_->position();
+    const Point& p = this->nuke_->position();
     double radius = this->nuke_->radius();
     setRect(p.x() - radius, p.y() - radius,
             radius + radius, radius + radius);

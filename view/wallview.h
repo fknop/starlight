@@ -25,6 +25,7 @@ public:
      * @param y2 ordonnée de l’autre extrémité du mur.
      */
     WallView(const Wall& wall, bool selectable = false);
+
     inline Wall * wall();
 
     inline bool selectable() const;

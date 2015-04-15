@@ -14,14 +14,10 @@ DestinationView::DestinationView(const Dest& dest, bool selectable)  :
 
 void DestinationView::notify(Observable *sdo, std::string msg, const std::vector<std::string> &args)
 {
-    if (msg == "LIGHTED_UP")
-    {
+    if (msg.compare("LIGHTED_UP") == 0)
         this->setBrush(QBrush(Qt::green));
-    }
     else
-    {
         set_rect();
-    }
 }
 
 void DestinationView::translate(double x, double y)

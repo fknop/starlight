@@ -120,11 +120,12 @@ void Properties::set_element_prop(ElementView * ev)
         }
         }
 
-        groupBox->layout()->addWidget(prop_interface_);
+
     }
 
     if (prop_interface_ != nullptr)
     {
+        groupBox->layout()->addWidget(prop_interface_);
         apply_pb->setEnabled(true);
         delete_pb->setEnabled(true);
     }

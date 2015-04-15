@@ -30,12 +30,6 @@ struct Intersection
         element_ = e;
     }
 
-    ~Intersection()
-    {
-        /* Pas de delete sur l'élément sinon
-         * on le supprime de level
-         */
-    }
 
     Point* point() const
     {
@@ -57,16 +51,6 @@ struct Intersection
  */
 class Level : public ObserverInterface, public Observable
 {
-
-    enum class State
-    {
-        WIN,
-        LOSE,
-        STOP,
-        CONTINUE
-    };
-
-
     const double width_;
     const double height_;
 
@@ -255,6 +239,8 @@ public:
      */
     inline void add_ray(const Ray& r);
 
+    inline bool won();
+    inline bool lost();
 
     inline bool handle_nukes() const;
     inline bool handle_dest() const;
@@ -281,10 +267,10 @@ private:
     /**
      * Permet de calculer la trajectoire d'un rayon.
      * @param line la droite du rayon.
+     * @param start le point de départ du rayon.
      * @param wl la longueur d'onde du rayon.
-     * @return l'état du jeu après avoir créer le rayon.
      */
-    State compute_ray(Line& line, const Point &start, int wl);
+    void compute_ray(Line& line, const Point &start, int wl);
 
     /**
      * Retourne l'intersection la plus proche du rayon avec un objet.
@@ -552,6 +538,22 @@ void Level::set_handle_dest(bool value)
 void Level::set_handle_nukes(bool value)
 {
     this->handle_nukes_ = value;
+}
+
+bool Level::won()
+{
+    return this->dest_.lighted_up();
+}
+
+bool Level::lost()
+{
+    for (auto &i : nukes_)
+    {
+        if (i.lighted_up())
+            return true;
+    }
+
+    return false;
 }
 
 #endif // LEVEL_H

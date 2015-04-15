@@ -13,6 +13,7 @@ class CrystalView : public QGraphicsEllipseItem, public ElementView, public Obse
 {
 public:
     CrystalView(const Crystal & crystal, bool selectable = false);
+
     inline Crystal * crystal();
 
     inline bool selectable() const;

@@ -18,35 +18,11 @@ Level::Level(double w, double h) : width_ {w}, height_ {h},
 
 void Level::compute_rays()
 {
-    if (this->rays_.size() > 0)
-        this->rays_.clear();
-
-    if (source_.on())
-    {
-        Line ray(this->source_.pos(), this->source_.angle());
-        State state = compute_ray(ray, this->source().pos(), this->source_.wavelength());
-
-        switch (state)
-        {
-        case State::WIN:
-            notify_all(std::string("GAME_WON"));
-            break;
-        case State::LOSE:
-            notify_all(std::string("GAME_LOST"));
-            break;
-        case State::CONTINUE:
-        case State::STOP:
-            notify_all(std::string("CONTINUE"));
-            break;
-        }
-    }
-    else
-    {
-        notify_all(std::string("CLEAR_RAYS"));
-    }
+    Line ray(this->source_.pos(), this->source_.angle());
+    compute_ray(ray, this->source().pos(), this->source_.wavelength());
 }
 
-Level::State Level::compute_ray(Line& line, const Point& start, int wl)
+void Level::compute_ray(Line& line, const Point& start, int wl)
 {
     double angle = line.alpha();
     Nuke* nuke = nullptr;
@@ -54,7 +30,7 @@ Level::State Level::compute_ray(Line& line, const Point& start, int wl)
     Lens* lens = nullptr;
     Crystal* crystal = nullptr;
     Point* new_line_origin = nullptr;
-    State state;
+    bool continue_ray;
     Element::Type type;
     double new_wl = wl;
 
@@ -73,38 +49,25 @@ Level::State Level::compute_ray(Line& line, const Point& start, int wl)
             if (this->intersections_.at(1).element() == crystal)
                 new_line_origin = this->intersections_.at(1).point();
 
-            state = State::CONTINUE;
+            continue_ray = true;
             break;
         }
 
         case Element::Type::DEST:
         {
             if (handle_dest_)
-            {
                 this->dest_.set_lighted_up(true);
-                state = State::WIN;
-            }
-            else
-            {
-                state = State::STOP;
-            }
+
+            continue_ray = false;
             break;
         }
 
         case Element::Type::LENS:
         {
             lens = dynamic_cast<Lens*> (this->intersections_.at(0).element());
-            if (wl >= lens->wl_min() && wl <= lens->wl_max())
-            {
-                if (this->intersections_.at(1).element() == lens)
+            continue_ray = (wl >= lens->wl_min() && wl <= lens->wl_max());
+            if (continue_ray && this->intersections_.at(1).element() == lens)
                     new_line_origin = this->intersections_.at(1).point();
-                state = State::CONTINUE;
-            }
-            else
-            {
-                state = State::STOP;
-            }
-
             break;
         }
 
@@ -112,30 +75,24 @@ Level::State Level::compute_ray(Line& line, const Point& start, int wl)
         {
             mirror = dynamic_cast<Mirror*> (this->intersections_.at(0).element());
             angle = get_reflection_angle(angle, mirror->angle());
-            state =  State::CONTINUE;
+            continue_ray = true;
             break;
         }
 
         case Element::Type::NUKE:
         {
+            nuke = dynamic_cast<Nuke*> (this->intersections_.at(0).element());
             if (handle_nukes_)
-            {
-                nuke = dynamic_cast<Nuke*> (this->intersections_.at(0).element());
                 nuke->set_lighted_up(true);
-                state = State::LOSE;
-            }
-            else
-            {
-                state = State::STOP;
-            }
-            break;
 
+            continue_ray = false;
+            break;
         }
 
         case Element::Type::WALL:
         case Element::Type::SOURCE:
         {
-            state = State::STOP;
+            continue_ray = false;
             break;
         }
     }
@@ -145,15 +102,12 @@ Level::State Level::compute_ray(Line& line, const Point& start, int wl)
                           wl));
 
 
-    if (state == State::CONTINUE)
+    if (continue_ray)
     {
         Line newLine(Point(*new_line_origin), angle);
-        return compute_ray(newLine, *new_line_origin, new_wl);
+        compute_ray(newLine, *new_line_origin, new_wl);
     }
-    else
-    {
-        return state;
-    }
+
 }
 
 void Level::get_intersections(const Line& line, const Point& start)
@@ -382,8 +336,8 @@ void Level::notify(Observable* obs, std::string msg, const std::vector<std::stri
     bool ask_translate = msg.compare("ASK_TRANSLATE") == 0;
     bool ask_rotate    = msg.compare("ASK_ROTATE") == 0;
     bool recompute = msg.compare("SOURCE_ON") == 0 ||
-                     msg.find("TRANSLATE_") > 0 ||
-                     msg.find("ROTATE_") > 0;
+                     msg.find("TRANSLATE_") == 7 ||
+                     msg.find("ROTATE_") == 7;
 
 
     if (check_collisions_ && (ask_rotate || ask_translate))
@@ -411,12 +365,13 @@ void Level::notify(Observable* obs, std::string msg, const std::vector<std::stri
     }
     else if (recompute)
     {
+        if (this->rays_.size() > 0)
+            this->rays_.clear();
+
+        if (this->source_.on())
            compute_rays();
+
+        notify_all("RECOMPUTE");
     }
-
-
-
-
-
 }
 

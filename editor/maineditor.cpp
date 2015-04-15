@@ -227,7 +227,7 @@ void MainEditor::closeEvent(QCloseEvent * event)
     }
 }
 
-void MainEditor::notify(Observable * sdo, std::string msg="UPDATE_RAYS", const std::vector<std::string> &args)
+void MainEditor::notify(Observable * sdo, std::string msg, const std::vector<std::string> &args)
 {
     if (msg == "LEVEL_CREATED")
     {
