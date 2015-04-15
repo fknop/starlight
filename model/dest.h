@@ -3,9 +3,10 @@
 
 #include <ostream>
 
-#include "element.h"
-#include "point.h"
-#include "rectangle.h"
+#include "model/element.h"
+#include "model/point.h"
+#include "model/rectangle.h"
+
 #include "obs/observable.h"
 #include "obs/observerinterface.h"
 
