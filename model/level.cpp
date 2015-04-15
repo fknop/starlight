@@ -36,18 +36,18 @@ void Level::compute_ray(Line& line, const Point& start, int wl)
 
     get_intersections(line, start);
 
-    type = this->intersections_.at(0).element()->type();
-    new_line_origin = this->intersections_.at(0).point();
+    type = this->intersections_.at(0).element_->type();
+    new_line_origin = this->intersections_.at(0).point_;
 
     switch (type)
     {
         case Element::Type::CRYSTAL:
         {
-            crystal = dynamic_cast<Crystal*> (this->intersections_.at(0).element());
+            crystal = dynamic_cast<Crystal*> (this->intersections_.at(0).element_);
             new_wl += crystal->modifier();
 
-            if (this->intersections_.at(1).element() == crystal)
-                new_line_origin = this->intersections_.at(1).point();
+            if (this->intersections_.at(1).element_ == crystal)
+                new_line_origin = this->intersections_.at(1).point_;
 
             continue_ray = true;
             break;
@@ -64,16 +64,16 @@ void Level::compute_ray(Line& line, const Point& start, int wl)
 
         case Element::Type::LENS:
         {
-            lens = dynamic_cast<Lens*> (this->intersections_.at(0).element());
+            lens = dynamic_cast<Lens*> (this->intersections_.at(0).element_);
             continue_ray = (wl >= lens->wl_min() && wl <= lens->wl_max());
-            if (continue_ray && this->intersections_.at(1).element() == lens)
-                    new_line_origin = this->intersections_.at(1).point();
+            if (continue_ray && this->intersections_.at(1).element_ == lens)
+                    new_line_origin = this->intersections_.at(1).point_;
             break;
         }
 
         case Element::Type::MIRROR:
         {
-            mirror = dynamic_cast<Mirror*> (this->intersections_.at(0).element());
+            mirror = dynamic_cast<Mirror*> (this->intersections_.at(0).element_);
             angle = get_reflection_angle(angle, mirror->angle());
             continue_ray = true;
             break;
@@ -81,7 +81,7 @@ void Level::compute_ray(Line& line, const Point& start, int wl)
 
         case Element::Type::NUKE:
         {
-            nuke = dynamic_cast<Nuke*> (this->intersections_.at(0).element());
+            nuke = dynamic_cast<Nuke*> (this->intersections_.at(0).element_);
             if (handle_nukes_)
                 nuke->set_lighted_up(true);
 
@@ -98,7 +98,7 @@ void Level::compute_ray(Line& line, const Point& start, int wl)
     }
 
     this->rays_.push_back(Ray(start,
-                          *(this->intersections_.at(0).point()),
+                          *(this->intersections_.at(0).point_),
                           wl));
 
 
@@ -278,8 +278,8 @@ void Level::sort_intersections(const Point& start)
     std::sort(intersections_.begin(), intersections_.end(),
               [start](const Intersection& a, const Intersection& b) -> bool
     {
-        int distance_a = a.point()->distance(start);
-        int distance_b = b.point()->distance(start);
+        int distance_a = a.point_->distance(start);
+        int distance_b = b.point_->distance(start);
         return (distance_a < distance_b);
     });
 }

@@ -1,44 +1,40 @@
 #ifndef LEVEL_H
 #define LEVEL_H
 
+#include <algorithm>
 #include <vector>
 
-#include "crystal.h"
-#include "dest.h"
-#include "lens.h"
-#include "line.h"
-#include "mirror.h"
-#include "nuke.h"
+#include "model/crystal.h"
+#include "model/dest.h"
+#include "model/lens.h"
+#include "model/line.h"
+#include "model/mirror.h"
+#include "model/nuke.h"
 #include "obs/observable.h"
 #include "obs/observerinterface.h"
-#include "point.h"
-#include "ray.h"
-#include "source.h"
-#include "wall.h"
+#include "model/point.h"
+#include "model/ray.h"
+#include "model/source.h"
+#include "model/wall.h"
 
-#include <algorithm>
-
-
+/**
+ * Structure intersection :
+ * Possède un élément et un point d'intersection.
+ */
 struct Intersection
 {
     Point* point_;
     Element* element_;
 
+    /**
+     * Crée une nouvelle intersection.
+     * @param p le point d'intersection.
+     * @param e l'élément de l'intersection.
+     */
     Intersection(Point* p, Element* e)
     {
         point_ = p;
         element_ = e;
-    }
-
-
-    Point* point() const
-    {
-        return this->point_;
-    }
-
-    Element* element() const
-    {
-        return this->element_;
     }
 };
 
