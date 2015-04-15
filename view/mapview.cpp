@@ -299,8 +299,7 @@ void MapView::keyPressEvent(QKeyEvent *event)
 void MapView::notify(Observable *sdo, std::string msg, const std::vector<std::string> &args)
 {
 
-    if (msg.compare("ASK_TRANSLATE") != 0 ||
-        msg.compare("ASK_ROTATE") != 0)
+    if (msg.compare("RECOMPUTE") == 0)
         draw_rays();
 
     if (level_->lost())
