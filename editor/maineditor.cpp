@@ -229,44 +229,44 @@ void MainEditor::closeEvent(QCloseEvent * event)
 
 void MainEditor::notify(Observable * sdo, std::string msg, const std::vector<std::string> &args)
 {
-    if (msg == "LEVEL_CREATED")
+    if (msg.compare("LEVEL_CREATED") == 0)
     {
         create_level();
     }
-    else if (msg == "LEVEL_RESET")
+    else if (msg.compare("LEVEL_RESET") == 0)
     {
         mapview_->clear();
     }
-    else if (msg == "MIRROR_ADDED")
+    else if (msg.compare("MIRROR_ADDED") == 0)
     {
         add_mirror();
     }
-    else if (msg == "CRYSTAL_ADDED")
+    else if (msg.compare("CRYSTAL_ADDED") == 0)
     {
         add_crystal();
     }
-    else if (msg == "LENS_ADDED")
+    else if (msg.compare("LENS_ADDED") == 0)
     {
         add_lens();
     }
-    else if (msg == "NUKE_ADDED")
+    else if (msg.compare("NUKE_ADDED") == 0)
     {
         add_nuke();
     }
-    else if (msg == "WALL_ADDED")
+    else if (msg.compare("WALL_ADDED") == 0)
     {
         add_wall();
     }
-    else if (msg == "SELECTED")
+    else if (msg.compare("SELECTED") == 0)
     {
         properties->set_element_prop(selected());
     }
-    else if (msg == "ELEMENT_DELETED")
+    else if (msg.compare("ELEMENT_DELETED") == 0)
     {
         delete_selected();
         properties->set_element_prop(selected());
     }
-    else if (msg == "ELEMENT_CHANGED")
+    else if (msg.compare("ELEMENT_CHANGED") == 0)
     {
         mapview_->repaint();
     }
