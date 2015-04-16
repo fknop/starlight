@@ -17,7 +17,7 @@ Wall::Wall(const Wall& wall) : Element(Element::Type::WALL)
 {
     this->start_ = wall.start_;
     this->end_ = wall.end_;
-    this->movable_ = movable_;
+    this->movable_ = wall.movable_;
 }
 
 LineSegment Wall::to_line_segment()
@@ -35,16 +35,16 @@ std::ostream& operator<<(std::ostream& out, const Wall& w)
 bool Wall::operator ==(const Wall& w) const
 {
     return
-     start_ == w.start_ &&
-     end_ == w.end_;
+     this->start_ == w.start_ &&
+     this->end_ == w.end_;
 }
 
 void Wall::translate(double x, double y)
 {
     if (movable_)
     {
-        this->start_.set_position(start_.x() + x, start_.y() + y);
-        this->end_.set_position(end_.x() + x, end_.y() + y);
+        start_.set_position(start_.x() + x, start_.y() + y);
+        end_.set_position(end_.x() + x, end_.y() + y);
         notify_all(std::string("TRANSLATE_WALL"));
     }
 }
@@ -57,8 +57,8 @@ void Wall::rotate(double r)
         double center_x = (ls.start().x() + ls.end().x()) / 2;
         double center_y = (ls.start().y() + ls.end().y()) / 2;
         ls.rotate(Point(center_x, center_y), r);
-        this->start_ = ls.start();
-        this->end_ = ls.end();
+        start_ = ls.start();
+        end_ = ls.end();
         notify_all(std::string("ROTATE_WALL"));
     }
 }

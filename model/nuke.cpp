@@ -24,9 +24,9 @@ std::ostream& operator<<(std::ostream& out, const Nuke& s)
 bool Nuke::operator ==(const Nuke& n) const
 {
     return
-     pos_ == n.pos_ &&
-     rad_ == n.rad_ &&
-     lighted_up_ == n.lighted_up_;
+     this->pos_ == n.pos_ &&
+     umath::equals(this->rad_, n.rad_) &&
+     this->lighted_up_ == n.lighted_up_;
 }
 
 void Nuke::translate(double x, double y)

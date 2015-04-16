@@ -38,23 +38,23 @@ Lens::Lens(const Lens& l) : Element(Element::Type::LENS)
 
 Ellipse Lens::to_ellipse()
 {
-    Point center(this->pos_.x() + this->width_ / 2,
-                 this->pos_.y() + this->height_ / 2);
-    return Ellipse(center, this->width_ / 2, this->height_ / 2);
+    Point center(pos_.x() + width_ / 2,
+                 pos_.y() + height_ / 2);
+    return Ellipse(center, width_ / 2, height_ / 2);
 }
 
 bool Lens::operator ==(const Lens& l) const
 {
     return
-     width_ == l.width_ &&
-     height_ == l.height_ &&
-     wl_min_ == l.wl_min_ &&
-     wl_max_ == l.wl_max_;
+     umath::equals(this->width_, l.width_) &&
+     umath::equals(this->height_, l.height_) &&
+     umath::equals(this->wl_min_, l.wl_min_) &&
+     umath::equals(this->wl_max_, l.wl_max_);
 }
 
 void Lens::translate(const double x, const double y)
 {
-    this->pos_.set_position(pos_.x() + x, pos_.y() + y);
+    pos_.set_position(pos_.x() + x, pos_.y() + y);
     notify_all(std::string("TRANSLATE_LENS"));
 }
 

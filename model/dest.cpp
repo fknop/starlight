@@ -17,7 +17,7 @@ Dest::Dest(const Dest& dest) : Element(Element::Type::DEST)
 
 Rectangle Dest::to_rectangle()
 {
-    return Rectangle(this->pos_, this->edge_, this->edge_);
+    return Rectangle(pos_, edge_, edge_);
 }
 
 std::ostream& operator<<(std::ostream& out, const Dest& d)
@@ -29,6 +29,6 @@ std::ostream& operator<<(std::ostream& out, const Dest& d)
 
 void Dest::translate(const double x, const double y)
 {
-    this->pos_.set_position(pos_.x() + x, pos_.y() + y);
+    pos_.set_position(pos_.x() + x, pos_.y() + y);
     notify_all(std::string("TRANSLATE_DEST"));
 }

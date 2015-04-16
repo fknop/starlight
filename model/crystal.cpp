@@ -17,7 +17,7 @@ Crystal::Crystal(const Crystal& crystal) : Element(Element::Type::CRYSTAL)
 
 Ellipse Crystal::to_ellipse() const
 {
-    return Ellipse(this->center_, this->rad_, this->rad_);
+    return Ellipse(center_, rad_, rad_);
 }
 
 std::ostream& operator<<(std::ostream& out, const Crystal& c)
@@ -30,13 +30,13 @@ std::ostream& operator<<(std::ostream& out, const Crystal& c)
 bool Crystal::operator ==(const Crystal& c) const
 {
     return
-     center_ == c.center_ &&
-     rad_ == c.rad_ &&
-     mod_ == c.mod_;
+     this->center_ == c.center_ &&
+     umath::equals(this->rad_, c.rad_ )&&
+     umath::equals(this->mod_, c.mod_);
 }
 
 void Crystal::translate(const double x, const double y)
 {
-    this->center_.set_position(center_.x() + x, center_.y() + y);
+    center_.set_position(center_.x() + x, center_.y() + y);
     notify_all(std::string("TRANSLATE_CRYSTAL"));
 }

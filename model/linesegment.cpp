@@ -35,8 +35,8 @@ bool LineSegment::contains(const Point& p) const
 
 void LineSegment::translate(const double x, const double y)
 {
-    this->start_.set_position(this->start_.x() + x, this->start_.y() + y);
-    this->end_.set_position(this->end_.x() + x, this->end_.y() + y);
+    start_.set_position(start_.x() + x, start_.y() + y);
+    end_.set_position(end_.x() + x, end_.y() + y);
 }
 
 void LineSegment::rotate(const Point& pivot, double angle)
@@ -46,13 +46,17 @@ void LineSegment::rotate(const Point& pivot, double angle)
     double xpad   = start_.distance(pivot);
     double len    = start_.distance(end_);
     double alpha  = -umath::slope_to_rad(start_, end_) + angle;
+
     this->translate(-pivotX, -pivotY);
+
     double new_start_x = 0 - (xpad * std::cos(alpha));
     double new_start_y = 0 + (xpad * std::sin(alpha));
     double new_end_x = 0 + ((len - xpad) * std::cos(alpha));
     double new_end_y = 0 - ((len - xpad) * std::sin(alpha));
+
     start_.set_position(new_start_x, new_start_y);
     end_.set_position(new_end_x, new_end_y);
+
     this->translate(pivotX, pivotY);
 }
 

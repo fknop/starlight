@@ -36,23 +36,23 @@ Mirror::Mirror(const Point& p, double xpad, double len, double alpha, const Poin
 
 bool Mirror::check_angle_range(double a) const
 {
-    return (this->alpha_min_ == 0 && this->alpha_max_ == 0) ||
-            (a >= this->alpha_min_ && a <= this->alpha_max_);
+    return (alpha_min_ == 0 && alpha_max_ == 0) ||
+            (a >= alpha_min_ && a <= alpha_max_);
 }
 
 bool Mirror::check_pivot_range(const Point& p) const
 {
-    if (this->x_min_ == 0 && this->x_max_ == 0 && this->y_min_ == 0 && this->y_max_ == 0)
+    if (x_min_ == 0 && x_max_ == 0 && y_min_ == 0 && y_max_ == 0)
         return true;
     else
-        return p.x() >= this->x_min_ && p.x() <= this->x_max_
-                && p.y() >= this->y_min_ && p.y() <= this->y_max_;
+        return p.x() >= x_min_ && p.x() <= x_max_
+                && p.y() >= y_min_ && p.y() <= y_max_;
 }
 
 void Mirror::rotate(double angle)
 {
 
-    this->movable_ = true;
+    movable_ = true;
     if (observers_.size() > 0)
     {
         std::ostringstream oss;
@@ -62,18 +62,18 @@ void Mirror::rotate(double angle)
     }
 
 
-    if (this->movable_)
+    if (movable_)
     {
-        set_angle(this->alpha_ + angle);
+        set_angle(alpha_ + angle);
         notify_all(std::string("ROTATE_MIRROR"));
     }
 }
 
 void Mirror::translate(const double x, const double y)
 {
-    this->movable_ = true;
-    double new_x = this->pivot_.x() + x;
-    double new_y = this->pivot_.y() + y;
+    movable_ = true;
+    double new_x = pivot_.x() + x;
+    double new_y = pivot_.y() + y;
 
     if (observers_.size() > 0)
     {
@@ -86,7 +86,7 @@ void Mirror::translate(const double x, const double y)
         notify_all(std::string("ASK_TRANSLATE"), vec);
     }
 
-    if (this->movable_)
+    if (movable_)
     {
         set_pivot(Point(new_x, new_y));
         notify_all(std::string("TRANSLATE_MIRROR"));
@@ -119,15 +119,15 @@ std::ostream& operator<<(std::ostream& out, const Mirror& m)
 bool Mirror::operator ==(const Mirror& m) const
 {
     return
-     pivot_     == m.pivot_ &&
-     length_    == m.length_ &&
-     xpad_      == m.xpad_  &&
-     x_min_     == m.x_min_ &&
-     x_max_     == m.x_max_ &&
-     y_min_     == m.y_min_ &&
-     y_max_     == m.y_max_ &&
-     alpha_     == m.alpha_ &&
-     alpha_min_ == m.alpha_min_ &&
-     alpha_max_ == m.alpha_max_;
+     pivot_ == m.pivot_ &&
+     umath::equals(this->length_   , m.length_) &&
+     umath::equals(this->xpad_     , m.xpad_) &&
+     umath::equals(this->x_min_    , m.x_min_) &&
+     umath::equals(this->x_max_    , m.x_max_) &&
+     umath::equals(this->y_min_    , m.y_min_) &&
+     umath::equals(this->y_max_    , m.y_max_) &&
+     umath::equals(this->alpha_    , m.alpha_) &&
+     umath::equals(this->alpha_min_, m.alpha_min_) &&
+     umath::equals(this->alpha_max_, m.alpha_max_);
 }
 
