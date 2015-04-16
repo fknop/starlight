@@ -32,5 +32,5 @@ bool Nuke::operator ==(const Nuke& n) const
 void Nuke::translate(double x, double y)
 {
     this->pos_.set_position(pos_.x() + x, pos_.y() + y);
-    notify_all("TRANSLATE_NUKE");
+    notify_all(std::string("TRANSLATE_NUKE"));
 }

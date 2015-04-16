@@ -1,6 +1,6 @@
 #include "view/wallview.h"
 
-#include "model/geometry.h"
+#include "model/umath.h"
 
 WallView::WallView(const Wall& wall, bool selectable)  :
     ElementView(ElementView::TypeView::WALLVIEW), selectable_{selectable}
@@ -22,7 +22,7 @@ void WallView::translate(double x, double y)
 
 void WallView::rotate(double angle)
 {
-    this->wall_->rotate(Geometry::deg_to_rad(angle));
+    this->wall_->rotate(umath::deg_to_rad(angle));
 }
 
 void WallView::notify(Observable* obs, std::string msg, const std::vector<std::string> &args)

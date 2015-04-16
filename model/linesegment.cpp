@@ -1,5 +1,5 @@
 #include "model/linesegment.h"
-#include "model/geometry.h"
+#include "model/umath.h"
 #include "model/umath.h"
 
 
@@ -50,7 +50,7 @@ void LineSegment::rotate(const Point& pivot, double angle)
     double pivotY = pivot.y();
     double xpad   = start_.distance(pivot);
     double len    = start_.distance(end_);
-    double alpha  = -Geometry::slope_to_rad(start_, end_) + angle;
+    double alpha  = -umath::slope_to_rad(start_, end_) + angle;
     this->translate(-pivotX, -pivotY);
     double new_start_x = 0 - (xpad * std::cos(alpha));
     double new_start_y = 0 + (xpad * std::sin(alpha));

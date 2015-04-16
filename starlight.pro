@@ -12,7 +12,6 @@ HEADERS += \
     model/dest.h \
     model/element.h \
     model/ellipse.h \
-    model/geometry.h \
     model/lens.h \
     model/level.h \
     model/line.h \
@@ -62,7 +61,7 @@ SOURCES += \
     model/dest.cpp \
     model/element.cpp \
     model/ellipse.cpp \
-    model/geometry.cpp \
+    model/umath.cpp \
     model/lens.cpp \
     model/level.cpp \
     model/line.cpp \
@@ -73,7 +72,6 @@ SOURCES += \
     model/ray.cpp \
     model/rectangle.cpp \
     model/source.cpp \
-    model/umath.cpp \
     model/wall.cpp \
     obs/observable.cpp \
     view/button.cpp \

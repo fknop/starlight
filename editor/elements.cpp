@@ -104,14 +104,14 @@ void Elements::create_level()
 
     enable_pushbuttons(true);
 
-    notify_all("LEVEL_CREATED");
+    notify_all(std::string("LEVEL_CREATED"));
 }
 
 void Elements::reset_level()
 {
     enable_pushbuttons(false);
 
-    notify_all("LEVEL_RESET");
+    notify_all(std::string("LEVEL_RESET"));
 }
 
 void Elements::enable_pushbuttons(bool b)
@@ -145,25 +145,25 @@ void Elements::set_width(int w)
 
 void Elements::add_crystal()
 {
-    notify_all("CRYSTAL_ADDED");
+    notify_all(std::string("CRYSTAL_ADDED"));
 }
 
 void Elements::add_lens()
 {
-    notify_all("LENS_ADDED");
+    notify_all(std::string("LENS_ADDED"));
 }
 
 void Elements::add_mirror()
 {
-    notify_all("MIRROR_ADDED");
+    notify_all(std::string("MIRROR_ADDED"));
 }
 
 void Elements::add_nuke()
 {
-    notify_all("NUKE_ADDED");
+    notify_all(std::string("NUKE_ADDED"));
 }
 
 void Elements::add_wall()
 {
-    notify_all("WALL_ADDED");
+    notify_all(std::string("WALL_ADDED"));
 }

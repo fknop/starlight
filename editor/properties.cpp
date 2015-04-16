@@ -149,11 +149,11 @@ void Properties::apply_changes()
         apply_pb->setEnabled(true);
     }
 
-    notify_all("ELEMENT_CHANGED");
+    notify_all(std::string("ELEMENT_CHANGED"));
 }
 
 void Properties::delete_element()
 {
-    notify_all("ELEMENT_DELETED");
+    notify_all(std::string("ELEMENT_DELETED"));
     set_element_prop(nullptr);
 }

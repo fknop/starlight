@@ -2,7 +2,7 @@
 
 #include "model/line.h"
 #include "model/constants.h"
-#include "model/geometry.h"
+#include "model/umath.h"
 
 
 Line::Line(double a, double b, double c)
