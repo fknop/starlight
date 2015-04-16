@@ -2,9 +2,9 @@
 
 
 // réservation des attributs statiques
-const int Ray::WL_MIN;
-const int Ray::WL_MAX;
-const int Ray::WL_DFT;
+constexpr int Ray::WL_MIN;
+constexpr int Ray::WL_MAX;
+constexpr int Ray::WL_DFT;
 
 
 Ray::Ray(const Point & p1, const Point & p2) : Ray {p1, p2, Ray::WL_DFT}

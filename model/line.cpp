@@ -32,7 +32,7 @@ Line::Line(const Point& a, const Point& b)
 
 Line::Line(const Point& a, double alpha)
 {
-    if (umath::angle_equals_pi(alpha, M_PI_2))
+    if (umath::angle_equals_pi(alpha, PI_2))
     {
         a_ = 1; // On choisit que a = 1.
         b_ = 0;

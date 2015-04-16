@@ -40,7 +40,7 @@ TEST_CASE("Intersections droites, segments")
 
     SECTION("Intersection droite / droite")
     {
-       Line l2(Point(5,0), M_PI_4);
+       Line l2(Point(5,0), PI_4);
        do_intersect = Geometry::intersects(l, l2, p, is_point);
        REQUIRE(do_intersect == true);
        REQUIRE(is_point == true);
@@ -49,7 +49,7 @@ TEST_CASE("Intersections droites, segments")
 
     SECTION("Droites parallèles")
     {
-        Line ll(Point(1,0), -M_PI_4);
+        Line ll(Point(1,0), -PI_4);
         do_intersect = Geometry::intersects(l, ll, p, is_point);
         REQUIRE(do_intersect == false);
         REQUIRE(is_point == false);
@@ -160,7 +160,7 @@ TEST_CASE("Intersections ellipses, droites, segments")
 
     SECTION("Intersection ellipse, droite")
     {
-        Line l(Point(20, 0), M_PI_2);
+        Line l(Point(20, 0), PI_2);
         int nb = Geometry::intersects(ellipse, l, points);
         REQUIRE(nb == 2);
         REQUIRE(points.at(0) == Point(20, 30));
@@ -169,7 +169,7 @@ TEST_CASE("Intersections ellipses, droites, segments")
 
     SECTION("Intersection ellipse, droite n°2")
     {
-        Line l(Point(0,0), -M_PI_4);
+        Line l(Point(0,0), -PI_4);
         int nb = Geometry::intersects(ellipse, l, points);
         REQUIRE (nb == 2);
         /*
@@ -184,14 +184,14 @@ TEST_CASE("Intersections ellipses, droites, segments")
 
     SECTION("Non-intersection ellipse - droite")
     {
-        Line l(Point(50,0), -M_PI_2);
+        Line l(Point(50,0), -PI_2);
         int nb = Geometry::intersects(ellipse, l, points);
         REQUIRE(nb == 0);
     }
 
     SECTION("Tangente droite-ellipse")
     {
-        Line l(Point(40,0), -M_PI_2);
+        Line l(Point(40,0), -PI_2);
         int nb = Geometry::intersects(ellipse, l, points);
         REQUIRE(nb == 1);
         REQUIRE(points.at(0) == Point(40, 20));
@@ -216,7 +216,7 @@ TEST_CASE("Intersections rectangle, droite, segment")
 
     SECTION("Intersection rectangle, droite")
     {
-        Line l(Point(0,0), -M_PI_4);
+        Line l(Point(0,0), -PI_4);
         int nb = Geometry::intersects(rec, l, points);
         REQUIRE(nb == 2);
         REQUIRE(points.at(0) == Point(10,10));
@@ -226,7 +226,7 @@ TEST_CASE("Intersections rectangle, droite, segment")
     SECTION("Intersection rectange droite avec un coin en intersection")
     {
         Rectangle r(Point(4,0), 4, 4);
-        Line l(Point(0,0), -M_PI_4);
+        Line l(Point(0,0), -PI_4);
         Geometry::intersects(r, l, points);
         REQUIRE(points.at(0) == Point(4,4));
     }
@@ -235,7 +235,7 @@ TEST_CASE("Intersections rectangle, droite, segment")
     SECTION("Intersection rectangle, droite avec meme point origine")
     {
 
-        Line l(Point(20,0), -M_PI_4);
+        Line l(Point(20,0), -PI_4);
         int nb = Geometry::intersects(rectangle, l, points);
         REQUIRE (nb == 2);
         REQUIRE(points.at(0) == Point(20, 0));
@@ -244,7 +244,7 @@ TEST_CASE("Intersections rectangle, droite, segment")
 
     SECTION("Intersection rectangle, droite verticale")
     {
-        Line l(Point(20, 0), M_PI_2);
+        Line l(Point(20, 0), PI_2);
         int nb = Geometry::intersects(rectangle, l, points);
         REQUIRE(nb == 2);
         REQUIRE(points.at(0) == Point(20, 0));
@@ -254,7 +254,7 @@ TEST_CASE("Intersections rectangle, droite, segment")
 
     SECTION("Non-intersection rectangle-droite")
     {
-        Line l(Point(0,10), -M_PI_4);
+        Line l(Point(0,10), -PI_4);
         int nb = Geometry::intersects(rectangle, l, points);
         REQUIRE(nb == 0);
     }
@@ -272,7 +272,7 @@ TEST_CASE("Vérification si un point est du bon coté selon l'angle de la droite
 {
     SECTION("Droite verticale")
     {
-        Line l(Point(4,4), M_PI_2);
+        Line l(Point(4,4), PI_2);
         Point p(4,5);
         bool b = Geometry::is_on_good_side(l, Point(4,4), p);
         REQUIRE(b == false);
@@ -287,7 +287,7 @@ TEST_CASE("Vérification si un point est du bon coté selon l'angle de la droite
 
     SECTION("Droite non verticale")
     {
-        Line l(Point(10,10), -M_PI_4);
+        Line l(Point(10,10), -PI_4);
         Point p(3,3);
         bool b = Geometry::is_on_good_side(l, Point(10,10), p);
         REQUIRE(b == false);

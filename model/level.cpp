@@ -132,13 +132,13 @@ void Level::get_intersections(const Line& line, const Point& start)
 
 double Level::get_reflection_angle(double angle, double alpha)
 {   
-    double p = std::fmod((M_PI_2 + alpha), (M_PI));
-    double angle_ray_p = p - (std::fmod(angle, M_PI));
+    double p = std::fmod((PI_2 + alpha), (PI));
+    double angle_ray_p = p - (std::fmod(angle, PI));
 
     if (umath::angle_equals_pi(angle, alpha))
-        return std::fmod(angle + M_PI, 2*M_PI);
+        return std::fmod(angle + PI, 2*PI);
 
-    return std::fmod((angle + M_PI + (2 * angle_ray_p)), (2*M_PI));
+    return std::fmod((angle + PI + (2 * angle_ray_p)), (2*PI));
 }
 
 void Level::dest_intersections(const Line &line,

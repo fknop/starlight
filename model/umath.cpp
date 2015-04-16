@@ -32,24 +32,24 @@ bool umath::equals(double a, double b)
 
 bool umath::angle_equals(double a, double b)
 {
-    a = std::fmod(a, 2*M_PI);
-    b = std::fmod(b, 2*M_PI);
+    a = std::fmod(a, 2*PI);
+    b = std::fmod(b, 2*PI);
     if (a < 0)
-        a = (2*M_PI) + a;
+        a = (2*PI) + a;
     if (b < 0)
-        b = (2*M_PI) + b;
+        b = (2*PI) + b;
 
     return umath::equals(a, b);
 }
 
 bool umath::angle_equals_pi(double a, double b)
 {
-    a = std::fmod(a, M_PI);
-    b = std::fmod(b, M_PI);
+    a = std::fmod(a, PI);
+    b = std::fmod(b, PI);
     if (a < 0)
-        a = a + M_PI;
+        a = a + PI;
     if (b < 0)
-        b = b + M_PI;
+        b = b + PI;
 
     return umath::equals(a, b);
 }

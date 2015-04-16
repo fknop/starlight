@@ -3,29 +3,21 @@
 
 #include <string>
 
-#ifndef EPSILON
-    #define EPSILON 0.00001
-#endif
 
 #ifndef INF
     #define INF 1. / 0
 #endif
 
-#ifndef M_PI
-    #define M_PI 3.141592653589793238463
-#endif
 
-#ifndef M_PI_2
-    #define M_PI_2 M_PI / 2
-#endif
+constexpr double EPSILON {0.00001};
 
-#ifndef M_PI_4
-    #define M_PI_4 M_PI / 4
-#endif
+constexpr double PI {3.141592653589793238463};
 
-#ifndef M_PI_2_3
-    #define M_PI_2_3 (3 * M_PI_2)
-#endif
+constexpr double PI_2 {PI / 2};
+
+constexpr double PI_4 {PI / 4};
+
+constexpr double PI_2_3 {3 * PI_2};
 
 const std::string STARLIGHT_RULES = "<p>Starlight is a 2D puzzle where you have "
         "to make the light go from the source to the destination without touching "

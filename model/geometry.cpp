@@ -8,12 +8,12 @@
 
 double Geometry::rad_to_deg(double rad)
 {
-    return (rad * 180.0) / M_PI;
+    return (rad * 180.0) / PI;
 }
 
 double Geometry::deg_to_rad(double degrees)
 {
-    return (degrees * M_PI) / 180;
+    return (degrees * PI) / 180;
 }
 
 double Geometry::slope_to_rad(const Point& p1, const Point& p2)
@@ -42,16 +42,16 @@ bool Geometry::is_on_good_side(const Line& l, const Point& ref, const Point& p)
     double angle = l.alpha();
 
     // Angle à 90°
-    if (umath::angle_equals(angle, M_PI_2))
+    if (umath::angle_equals(angle, PI_2))
             return umath::equals(p.x(), ref.x())
                 && p.y() < ref.y();
 
     // Angle à 270°
-    if (umath::angle_equals(angle, M_PI_2_3))
+    if (umath::angle_equals(angle, PI_2_3))
             return umath::equals(p.x(), ref.x()) && p.y() > ref.y();
 
     // Angle à 180°
-    if (umath::angle_equals(angle, M_PI))
+    if (umath::angle_equals(angle, PI))
         return umath::equals(p.x(), ref.x())
                 && p.x() < ref.x();
 
@@ -61,18 +61,18 @@ bool Geometry::is_on_good_side(const Line& l, const Point& ref, const Point& p)
                 && p.x() > ref.x();
 
     // Premier quadrant
-    if ((angle > 0 && angle < M_PI_2) ||
-            (angle < -M_PI_2_3 && angle > -(2*M_PI)))
+    if ((angle > 0 && angle < PI_2) ||
+            (angle < -PI_2_3 && angle > -(2*PI)))
         return p.x() > ref.x() + EPSILON && p.y() < ref.y() - EPSILON;
 
     // Deuxième quadrant
-    else if ((angle > M_PI_2 && angle < M_PI) ||
-             (angle < -M_PI && angle > -M_PI_2_3))
+    else if ((angle > PI_2 && angle < PI) ||
+             (angle < -PI && angle > -PI_2_3))
         return p.x() < ref.x() - EPSILON && p.y() < ref.y() - EPSILON;
 
     // Troisième quadrant
-    else if ((angle > M_PI && angle < M_PI_2_3) ||
-             (angle < -M_PI_2 && angle > -M_PI))
+    else if ((angle > PI && angle < PI_2_3) ||
+             (angle < -PI_2 && angle > -PI))
         return p.x() < ref.x() - EPSILON && p.y() > ref.y() + EPSILON;
 
     // Quatrième quadrant

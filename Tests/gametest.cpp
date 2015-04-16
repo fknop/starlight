@@ -35,7 +35,7 @@ TEST_CASE("Tests du bon fonctionnement des éléments du jeu")
 
     SECTION("Test reflection mirroir vertical")
     {
-        Mirror* mirror = new Mirror(Point(200,200), 0, 100, M_PI_2);
+        Mirror* mirror = new Mirror(Point(200,200), 0, 100, PI_2);
         level->set_source(s);
         level->set_dest(d);
         level->add_mirror(*mirror);
@@ -61,7 +61,7 @@ TEST_CASE("Tests du bon fonctionnement des éléments du jeu")
 
     SECTION("Test reflection mirroir")
     {
-        Mirror* mirror = new Mirror(Point(200,200), 50, 100, M_PI_4);
+        Mirror* mirror = new Mirror(Point(200,200), 50, 100, PI_4);
         level->set_source(s);
         level->set_dest(d);
         level->add_mirror(*mirror);
@@ -74,7 +74,7 @@ TEST_CASE("Tests du bon fonctionnement des éléments du jeu")
 
     SECTION("Test reflection mirroir")
     {
-        Mirror* mirror = new Mirror(Point(200,200), 50, 100, -M_PI_4);
+        Mirror* mirror = new Mirror(Point(200,200), 50, 100, -PI_4);
         level->set_source(s);
         level->set_dest(d);
         level->add_mirror(*mirror);

@@ -25,21 +25,21 @@ class Ray
      * valeur correspond à la longueur d'onde minimum (en nm) du
      * spectre visible de la lumière.
      */
-    static const int WL_MIN {360};
+    static constexpr int WL_MIN {360};
 
     /**
      * Longueur d'onde maximale autorisée pour un rayon lumineux. Cette
      * valeur correspond à la longueur d'onde maximum (en nm) du
      * spectre visible de la lumière.
      */
-    static const int WL_MAX {830};
+    static constexpr int WL_MAX {830};
 
     /**
      * Longueur d'onde par défaut pour un rayon lumineux. Cette
      * valeur correspond à la longueur d'onde (en nm) de la couleur
      * orangé-rouge du spectre visible de la lumière.
      */
-    static const int WL_DFT {600};
+    static constexpr int WL_DFT {600};
 
     /**
      * Instancie un rayon lumineux de début et de fin donnés, et de
