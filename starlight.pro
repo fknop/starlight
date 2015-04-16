@@ -4,7 +4,7 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = starlight
 TEMPLATE = app
 
-QMAKE_CXXFLAGS += -std=c++0x -Wall -Wextra -pedantic -fpermissive -Wunused-parameter
+QMAKE_CXXFLAGS += -std=c++0x -Wall -Wextra -pedantic -fpermissive -Wno-unused
 
 HEADERS += \
     mapreader.h \
