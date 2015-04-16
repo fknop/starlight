@@ -185,7 +185,7 @@ void MapView::draw_dest()
     scene_->addItem(dest_view_);
 }
 
-void MapView::draw_ray(const Ray &ray)
+void MapView::draw_ray(const Ray& ray)
 {
     RayView* rv = new RayView(ray);
     ray_views_.push_back(rv);
