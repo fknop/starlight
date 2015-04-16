@@ -9,14 +9,14 @@
 
 **Une fois effectué -> Barrer la ligne !**
 
-* Bloquer le mapview une fois la partie gagnée ou perdue.
-* Editeur : pouvoir bouger les autres éléments au clavier.
-* Editeur : Modifier dynamiquement les propriétés ? Passage de paramètre dans les notify_all
-* Editeur : Message de confirmation quand on quitte ? Pour éviter de perdre des maps non
-sauvegardée
-* Editeur : Ctrl-X pour delete un objet ? :D
-* Editeur : Simple clic pour le sélectionner (c'est un peu galère)
-* Editeur : Prévenir les erreurs avec des try catch (pour éviter de sauvegarder un objet foireux)
+* Editeur : Prévenir les erreurs (pour éviter de sauvegarder un objet foireux)
+* ~~Bloquer le mapview une fois la partie gagnée ou perdue.~~
+* ~~Editeur : pouvoir bouger les autres éléments au clavier.~~
+* ~~Editeur : Modifier dynamiquement les propriétés ?~~
+* ~~Editeur : Message de confirmation quand on quitte ? Pour éviter de perdre des maps non
+sauvegardée~~
+* ~~Editeur : Ctrl-X pour delete un objet ? :D~~
+* ~~Editeur : Simple clic pour le sélectionner (c'est un peu galère) -> OSEF~~
 * ~~Gérer les collisions entre miroirs de même angle.~~
 * ~~Gérer la reflexion du rayon sur un miroir.  A FINIR~~
 * ~~Gérer les divers évènements lors de l'intersection avec un objet.~~
@@ -27,8 +27,7 @@ sauvegardée
 * ~~Gérer les vérifications dans les constructeurs. - A FINIR~~
 * ~~Gérer le déplacement des miroirs.~~
 * ~~Gérer la rotations des miroirs.   - A TESTER~~
-* Double constructeur dans Mirror, vraiment nécessaire ? Si retirer premier, gérer x et y qui doivent être entre xmin/ymin et xmax/ymax
-Si pas à retirer, utiliser param par défaut
+
 
 # Rules
 
