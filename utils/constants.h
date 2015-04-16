@@ -3,7 +3,6 @@
 
 #include <string>
 
-
 #ifndef INF
     #define INF 1. / 0
 #endif

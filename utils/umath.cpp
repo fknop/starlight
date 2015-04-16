@@ -306,6 +306,7 @@ bool umath::intersects(const LineSegment& ls1, const LineSegment& ls2, Point& po
     }
 }
 
+// Voir annexe projet pour plus de détails
 int umath::intersects(const Ellipse& e, const Line& l,
                std::vector<Point>& points)
 {
@@ -349,19 +350,6 @@ int umath::intersects(const Ellipse& e, const Line& l,
     }
     else
     {
-        // ax + by + c = 0
-        // y = -ax/b - c/b
-        // lcmy*x² + lcmy*x1² - 2*lcmy*x*x1
-        //  + (slope*x - d + y1)²
-
-        // lcmy*x² + lcmy*x1² - 2*lcmy*x*x1
-        // (lcmx*slope²*x² + lcmx*(d+y1)² - 2*lcmx*slope*x*(d+y1) -lcm = 0
-        // a = lcmy + lcmx*slope*slope
-        // b = -2*lcmy*x1 - 2*lcmx*slope*(d+y1)
-
-//        a = lcmy + (slope*slope*lcmx);
-//        b = -2*lcmy*x1 -2*lcmx*slope*(d+y1);
-//        c = (lcmy*x1*x1) + (lcmx*std::pow((d+y1),2)) - lcm;
         a = lcmy + (slope * slope * lcmx);
         b = -(2 * lcmy * d)
                 - (2 * slope * lcmy * x1)

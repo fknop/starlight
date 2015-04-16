@@ -9,6 +9,7 @@
 class MapWriter
 {
 public:
+
     /**
      * Crée / écrit dans un fichier toutes les
      * caractéristiques d'un niveau.
