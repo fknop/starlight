@@ -8,7 +8,6 @@
     #define INF 1. / 0
 #endif
 
-
 constexpr double EPSILON {0.00001};
 
 constexpr double PI {3.141592653589793238463};
@@ -37,8 +36,6 @@ const std::string STARLIGHT_RULES = "<p>Starlight is a 2D puzzle where you have 
         "</ul>"
         "<p>You can boost your move by pressing the 'Shift' key.</p>"
         "<p style='font-weight: bold;'>Enjoy your game!</p>";
-
-
 
 #endif // CONSTANTS_H
 

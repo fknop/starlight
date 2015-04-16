@@ -19,7 +19,7 @@ class Dest : public Element, public Observable
 {
     Point pos_;
     double edge_;
-    bool light_up_ {false};
+    bool lighted_up_ {false};
 
   public:
     /**
@@ -59,23 +59,23 @@ class Dest : public Element, public Observable
 
     /**
      * Illumine la destination ou non.
-     * @param vrai si la destination doit être illuminée,
+     * @param value vrai si la destination doit être illuminée,
      * faux sinon.
      */
-    inline void set_lighted_up(const bool q);
+    inline void set_lighted_up(const bool value);
 
     /**
      * Modifie la position du coin supérieur gauche du carré.
      * @param pos la nouvelle position du coin supérieur gauche
      * de la destination.
      */
-    inline void set_pos(Point pos);
+    inline void set_pos(const Point& pos);
 
     /**
      * Modifie la longueur du côté du carré représentant la destination.
      * @param edge la nouvelle longueur du côté de la destination.
      */
-    inline void set_edge(double edge);
+    inline void set_edge(const double edge);
 
     /**
      * Retourne le rectangle correspondant à la destination.
@@ -88,7 +88,7 @@ class Dest : public Element, public Observable
      * @param x le déplacement sur l'axe x.
      * @param y le déplacement sur l'axe y.
      */
-    void translate(double x, double y);
+    void translate(const double x, const double y);
 
     /**
      * Surcharge l'opérateur de flux de sortie pour afficher.
@@ -114,21 +114,21 @@ double Dest::edge() const
 
 bool Dest::lighted_up() const
 {
-    return this->light_up_;
+    return this->lighted_up_;
 }
 
-void Dest::set_lighted_up(const bool q)
+void Dest::set_lighted_up(const bool value)
 {
-    this->light_up_ = q;
+    this->lighted_up_ = value;
     notify_all(std::string("LIGHTED_UP"));
 }
 
-void Dest::set_pos(Point pos)
+void Dest::set_pos(const Point& pos)
 {
     this->pos_ = pos;
 }
 
-void Dest::set_edge(double edge)
+void Dest::set_edge(const double edge)
 {
     this->edge_ = edge;
 }
