@@ -8,7 +8,6 @@
 #include "model/point.h"
 
 #include "obs/observable.h"
-#include "obs/observerinterface.h"
 
 /**
  * Cette classe modélise les lentilles utilisées dans le jeu.

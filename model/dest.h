@@ -8,8 +8,6 @@
 #include "model/rectangle.h"
 
 #include "obs/observable.h"
-#include "obs/observerinterface.h"
-
 
 /**
  * Cette classe modélise la destination utilisée dans le jeu.
