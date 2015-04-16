@@ -1,6 +1,7 @@
-#include "mapwriter.h"
 #include <iostream>
 #include <fstream>
+
+#include "mapwriter.h"
 
 
 void MapWriter::write(const Level* level, std::string path)

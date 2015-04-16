@@ -24,7 +24,7 @@ public:
      * @param x2 abscisse de l’autre extrémité du mur.
      * @param y2 ordonnée de l’autre extrémité du mur.
      */
-    WallView(const Wall& wall, bool selectable = false);
+    WallView(const Wall & wall, bool selectable = false);
 
     inline Wall * wall();
 

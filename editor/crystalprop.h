@@ -7,26 +7,27 @@
 #include <QLabel>
 
 #include "model/crystal.h"
-#include "propertiesinterface.h"
+
+#include "editor/propertiesinterface.h"
 
 class CrystalProp : public PropertiesInterface
 {
     Q_OBJECT
 public:
-    CrystalProp(Crystal * crystal, QWidget *parent = 0);
+    CrystalProp(Crystal * crystal, QWidget * parent = 0);
     ~CrystalProp();
     void setupUi();
 
 private:
-    QFormLayout *formLayout;
-    QLabel *x_label;
-    QDoubleSpinBox *x_dsb;
-    QLabel *y_label;
-    QDoubleSpinBox *y_dsb;
-    QLabel *rad_label;
-    QDoubleSpinBox *rad_dsb;
-    QLabel *mod_label;
-    QDoubleSpinBox *mod_dsb;
+    QFormLayout * formLayout;
+    QLabel * x_label;
+    QDoubleSpinBox * x_dsb;
+    QLabel * y_label;
+    QDoubleSpinBox * y_dsb;
+    QLabel * rad_label;
+    QDoubleSpinBox * rad_dsb;
+    QLabel * mod_label;
+    QDoubleSpinBox * mod_dsb;
 
     Crystal * crystal_;
 
