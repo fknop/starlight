@@ -225,7 +225,7 @@ bool umath::intersects(const Line& l1, const Line& l2, Point& point, bool& is_po
     return true;
 }
 
-bool umath::intersects(const Line& line, const LineSegment& ls, Point& point, LineSegment&segment, bool& is_point)
+bool umath::intersects(const Line& line, const LineSegment& ls, Point& point, LineSegment& segment, bool& is_point)
 {
     bool do_intersect = intersects(line, ls.to_line(), point, is_point);
 
