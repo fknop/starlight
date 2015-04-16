@@ -9,12 +9,15 @@
 #include <QLabel>
 #include <QDoubleSpinBox>
 
+#include "editor/elements.h"
+#include "editor/properties.h"
+
 #include "model/level.h"
-#include "view/mapview.h"
 
 #include "obs/observerinterface.h"
-#include "elements.h"
-#include "properties.h"
+
+#include "view/mapview.h"
+
 
 class MainEditor : public QMainWindow, public ObserverInterface
 {
