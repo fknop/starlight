@@ -4,11 +4,14 @@
 #include <QGraphicsEllipseItem>
 
 #include "model/crystal.h"
-#include "view/elementview.h"
-
 #include "obs/observable.h"
 #include "obs/observerinterface.h"
+#include "view/elementview.h"
 
+
+/**
+ * Modélisation visuelle d’un cristal.
+ */
 class CrystalView : public QGraphicsEllipseItem, public ElementView, public ObserverInterface
 {
 public:
@@ -20,12 +23,9 @@ public:
     inline void set_selectable(bool value);
 
     void translate(double x = .0, double y = .0);
-
     void notify(Observable *sdo,
                 std::string msg,
-                const std::vector<std::string>& args = std::vector<std::string>());
-
-
+                const std::vector<std::string> & args = std::vector<std::string>());
 
 private:
     Crystal * crystal_;

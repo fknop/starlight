@@ -4,10 +4,11 @@
 #include <QGraphicsView>
 #include <QGraphicsRectItem>
 
+#include "model/dest.h"
 #include "obs/observable.h"
 #include "obs/observerinterface.h"
-#include "model/dest.h"
 #include "view/elementview.h"
+
 /**
  * Modélisation visuelle de la destination.
  */
@@ -22,9 +23,6 @@ public:
      * @param height hauteur de la destination.
      */
     DestinationView(const Dest& dest, bool selectable = false);
-    void notify(Observable *sdo,
-                std::string msg,
-                const std::vector<std::string>& args = std::vector<std::string>());
 
     inline Dest * dest();
 
@@ -32,9 +30,9 @@ public:
     inline void set_selectable(bool value);
 
     void translate(double x = .0, double y = .0);
-
-
-
+    void notify(Observable *sdo,
+                std::string msg,
+                const std::vector<std::string>& args = std::vector<std::string>());
 
 private:
     Dest* dest_;

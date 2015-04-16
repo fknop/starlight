@@ -3,8 +3,8 @@
 
 /**
  * Cette classe sert de super-classe
- * à tous les éléments avec lequel
- * un rayon peut interragir.
+ * à tous les éléments avec lesquels
+ * un rayon peut interagir.
  * Il s'agit plus d'une classe "TAG"
  * pour retrouver le type d'un élément.
  */
@@ -36,15 +36,12 @@ public:
      * Retourne le type de l'élément.
      * @return le type de l'élément.
      */
-    inline const Type& type() const;
-
-
-
+    inline const Type & type() const;
 };
 
 /* Fonctions inlines */
 
-const Element::Type& Element::type() const
+const Element::Type & Element::type() const
 {
     return this->type_;
 }
