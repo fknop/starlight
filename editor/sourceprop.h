@@ -6,9 +6,9 @@
 #include <QLabel>
 #include <QWidget>
 
-#include "model/source.h"
+#include "editor/propertiesinterface.h"
 
-#include "propertiesinterface.h"
+#include "model/source.h"
 
 class SourceProp : public PropertiesInterface
 {
