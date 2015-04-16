@@ -7,7 +7,6 @@
 #include "model/linesegment.h"
 #include "model/point.h"
 
-
 /**
  * Classe Ellipse
  * La position représente la position du centre de l'ellipse.
@@ -31,7 +30,7 @@ public:
      * @param xRad le rayon sur l'axe des X.
      * @param yRad le rayon sur l'axe des Y.
      */
-    Ellipse(const Point& p, double x, double y);
+    Ellipse(const Point& p, double x_rad, double y_rad);
 
 
     /**

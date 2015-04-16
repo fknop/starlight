@@ -64,26 +64,26 @@ class Crystal : public Element, public Observable
      * Modifie la coordonée du centre du cristal.
      * @param c le nouveau centre du cristal.
      */
-    inline void set_center(Point c);
+    inline void set_center(const Point& c);
 
     /**
      * Modifie le rayon du cristal.
      * @param rad le nouveau rayon du cristal.
      */
-    inline void set_radius(double rad);
+    inline void set_radius(const double rad);
 
     /**
      * Modifie le modificateur de longueur d’onde du cristal.
      * @param mod le modificateur de longueur d’onde du cristal.
      */
-    inline void set_modifier(double mod);
+    inline void set_modifier(const double mod);
 
     /**
      * Déplace le cristal.
      * @param x le déplacement sur l'axe x.
      * @param y le déplacement sur l'axe y.
      */
-    void translate(double x, double y);
+    void translate(const double x, const double y);
 
     /**
      * Retourne l'ellipse correspondante au cristal.
@@ -128,17 +128,17 @@ double Crystal::radius() const
     return this->rad_;
 }
 
-void Crystal::set_center(Point c)
+void Crystal::set_center(const Point& c)
 {
     this->center_ = c;
 }
 
-void Crystal::set_radius(double rad)
+void Crystal::set_radius(const double rad)
 {
     this->rad_ = rad;
 }
 
-void Crystal::set_modifier(double mod)
+void Crystal::set_modifier(const double mod)
 {
     this->mod_ = mod;
 }

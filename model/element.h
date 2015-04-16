@@ -29,19 +29,23 @@ public:
      * permettant de connaître le type
      * de l'élément à tout moment.
      */
-    Element(Element::Type);
-    virtual ~Element();
+    Element(Element::Type type)
+    {
+        this->type_ = type;
+    }
+
+    virtual ~Element() {}
 
     /**
      * Retourne le type de l'élément.
      * @return le type de l'élément.
      */
-    inline const Type & type() const;
+    inline const Type& type() const;
 };
 
 /* Fonctions inlines */
 
-const Element::Type & Element::type() const
+const Element::Type& Element::type() const
 {
     return this->type_;
 }

@@ -55,7 +55,7 @@ class Lens : public Element, public Observable
      * @return la position du coin supérieur gauche du
      * rectangle modélisant la lentille
      */
-    inline const Point & position() const;
+    inline const Point& position() const;
 
     /**
      * Retourne la largeur de la lentille.
@@ -95,25 +95,25 @@ class Lens : public Element, public Observable
      * Modifie la largeur de la lentille.
      * @param w la nouvelle largeur de la lentille.
      */
-    inline void set_width(double w);
+    inline void set_width(const double w);
 
     /**
      * Modifie la hauteur de la lentille.
      * @param h la nouvelle hauteur de la lentille.
      */
-    inline void set_height(double h);
+    inline void set_height(const double h);
 
     /**
      * Modifie la longueur d’onde minimale de la lentille.
      * @param wl_min la nouvelle longueur d’onde minimale.
      */
-    inline void set_wl_min(double wl_min);
+    inline void set_wl_min(const double wl_min);
 
     /**
      * Modifie la longueur d’onde maximale de la lentille.
      * @param wl_max la nouvelle longueur d’onde maximale.
      */
-    inline void set_wl_max(double wl_max);
+    inline void set_wl_max(const double wl_max);
 
     /**
      * Retourne une ellipse correspondante
@@ -127,7 +127,7 @@ class Lens : public Element, public Observable
      * @param x le déplacement sur l'axe x.
      * @param y le déplacement sur l'axe y.
      */
-    void translate(double x, double y);
+    void translate(const double x, const double y);
 
     /**
      * Surcharge l'opérateur de flux de sortie pour afficher
@@ -180,22 +180,22 @@ void Lens::set_pos(const Point& pos)
     this->pos_ = pos;
 }
 
-void Lens::set_width(double w)
+void Lens::set_width(const double w)
 {
     this->width_ = w;
 }
 
-void Lens::set_height(double h)
+void Lens::set_height(const double h)
 {
     this->height_ = h;
 }
 
-void Lens::set_wl_min(double wl_min)
+void Lens::set_wl_min(const double wl_min)
 {
     this->wl_min_ = wl_min;
 }
 
-void Lens::set_wl_max(double wl_max)
+void Lens::set_wl_max(const double wl_max)
 {
     this->wl_max_ = wl_max;
 }
