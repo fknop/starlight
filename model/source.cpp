@@ -3,7 +3,7 @@
 
 
 
-Source::Source(const Point & p, double e, double a, int wl) : Element(Element::Type::SOURCE),
+Source::Source(const Point& p, double e, double a, int wl) : Element(Element::Type::SOURCE),
     pos_ {p}, alpha_ {a}, edge_ {e}, wavelength_{wl}
 {
     if (wl < Ray::WL_MIN || wl > Ray::WL_MAX)

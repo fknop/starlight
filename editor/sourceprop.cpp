@@ -16,79 +16,79 @@ SourceProp::~SourceProp()
 
 void SourceProp::setupUi()
 {
-    formLayout = new QFormLayout();
+    form_layout_ = new QFormLayout();
 
-    x_label = new QLabel();
-    x_label->setText("X");
-    x_label->setMinimumSize(QSize(100, 20));
+    x_label_ = new QLabel();
+    x_label_->setText("X");
+    x_label_->setMinimumSize(QSize(100, 20));
 
-    formLayout->setWidget(0, QFormLayout::LabelRole, x_label);
+    form_layout_->setWidget(0, QFormLayout::LabelRole, x_label_);
 
-    x_dsb = new QDoubleSpinBox();
-    x_dsb->setMaximum(999.);
+    x_dsb_ = new QDoubleSpinBox();
+    x_dsb_->setMaximum(999.);
 
-    formLayout->setWidget(0, QFormLayout::FieldRole, x_dsb);
+    form_layout_->setWidget(0, QFormLayout::FieldRole, x_dsb_);
 
-    y_label = new QLabel();
-    y_label->setText("Y");
-    y_label->setMinimumSize(QSize(100, 20));
+    y_label_ = new QLabel();
+    y_label_->setText("Y");
+    y_label_->setMinimumSize(QSize(100, 20));
 
-    formLayout->setWidget(1, QFormLayout::LabelRole, y_label);
+    form_layout_->setWidget(1, QFormLayout::LabelRole, y_label_);
 
-    y_dsb = new QDoubleSpinBox();
-    y_dsb->setMaximum(999.);
+    y_dsb_ = new QDoubleSpinBox();
+    y_dsb_->setMaximum(999.);
 
-    formLayout->setWidget(1, QFormLayout::FieldRole, y_dsb);
+    form_layout_->setWidget(1, QFormLayout::FieldRole, y_dsb_);
 
-    edge_label = new QLabel();
-    edge_label->setText("Edge");
-    edge_label->setMinimumSize(QSize(100, 20));
+    edge_label_ = new QLabel();
+    edge_label_->setText("Edge");
+    edge_label_->setMinimumSize(QSize(100, 20));
 
-    formLayout->setWidget(2, QFormLayout::LabelRole, edge_label);
+    form_layout_->setWidget(2, QFormLayout::LabelRole, edge_label_);
 
-    edge_dsb = new QDoubleSpinBox();
-    edge_dsb->setMaximum(999.);
+    edge_dsb_ = new QDoubleSpinBox();
+    edge_dsb_->setMaximum(999.);
 
-    formLayout->setWidget(2, QFormLayout::FieldRole, edge_dsb);
+    form_layout_->setWidget(2, QFormLayout::FieldRole, edge_dsb_);
 
-    alpha_label = new QLabel();
-    alpha_label->setText("Alpha");
-    alpha_label->setMinimumSize(QSize(100, 20));
+    alpha_label_ = new QLabel();
+    alpha_label_->setText("Alpha");
+    alpha_label_->setMinimumSize(QSize(100, 20));
 
-    formLayout->setWidget(3, QFormLayout::LabelRole, alpha_label);
+    form_layout_->setWidget(3, QFormLayout::LabelRole, alpha_label_);
 
-    alpha_dsb = new QDoubleSpinBox();
-    alpha_dsb->setMaximum(999.);
+    alpha_dsb_ = new QDoubleSpinBox();
+    alpha_dsb_->setMaximum(999.);
 
-    formLayout->setWidget(3, QFormLayout::FieldRole, alpha_dsb);
+    form_layout_->setWidget(3, QFormLayout::FieldRole, alpha_dsb_);
 
-    wavelength_label = new QLabel();
-    wavelength_label->setText("Wavelength");
-    wavelength_label->setMinimumSize(QSize(100, 20));
+    wavelength_label_ = new QLabel();
+    wavelength_label_->setText("Wavelength");
+    wavelength_label_->setMinimumSize(QSize(100, 20));
 
-    formLayout->setWidget(4, QFormLayout::LabelRole, wavelength_label);
+    form_layout_->setWidget(4, QFormLayout::LabelRole, wavelength_label_);
 
-    wavelength_dsb = new QDoubleSpinBox();
-    wavelength_dsb->setMaximum(999.);
+    wavelength_dsb_ = new QDoubleSpinBox();
+    wavelength_dsb_->setMaximum(999.);
 
-    formLayout->setWidget(4, QFormLayout::FieldRole, wavelength_dsb);
+    form_layout_->setWidget(4, QFormLayout::FieldRole, wavelength_dsb_);
 
-    setLayout(formLayout);
+    setLayout(form_layout_);
 }
 
 void SourceProp::reset()
 {
-    x_dsb->setValue(source_->pos().x());
-    y_dsb->setValue(source_->pos().y());
-    edge_dsb->setValue(source_->edge());
-    alpha_dsb->setValue(source_->angle());
-    wavelength_dsb->setValue(source_->wavelength());
+    x_dsb_->setValue(source_->pos().x());
+    y_dsb_->setValue(source_->pos().y());
+    edge_dsb_->setValue(source_->edge());
+    alpha_dsb_->setValue(source_->angle());
+    wavelength_dsb_->setValue(source_->wavelength());
 }
 
 void SourceProp::apply()
 {
-    source_->set_pos(Point(x_dsb->value(), y_dsb->value()));
-    source_->set_edge(edge_dsb->value());
-    source_->set_alpha(alpha_dsb->value());
-    source_->set_wavelength(wavelength_dsb->value());
+    source_->set_pos(Point(x_dsb_->value(), y_dsb_->value()));
+    source_->set_edge(edge_dsb_->value());
+    source_->set_alpha(alpha_dsb_->value());
+    source_->set_wavelength(wavelength_dsb_->value());
 }

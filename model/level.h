@@ -578,7 +578,7 @@ void Level::set_mirrors(const std::vector<Mirror>& value)
         i.add_observer(this);
 }
 
-const std::vector<Nuke> & Level::nukes() const
+const std::vector<Nuke>& Level::nukes() const
 {
     return this->nukes_;
 }

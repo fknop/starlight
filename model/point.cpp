@@ -23,7 +23,7 @@ bool operator <(const Point& p1, const Point& p2)
     return p1.x_ < p2.x_ || p1.y_ < p2.y_;
 }
 
-std::ostream & operator<<(std::ostream & out, const Point & p)
+std::ostream& operator<<(std::ostream& out, const Point& p)
 {
     out << "( " << p.x_ << " , " << p.y_ << " )";
     return out;

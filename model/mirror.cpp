@@ -6,10 +6,10 @@
 #include "model/mirror.h"
 
 
-Mirror::Mirror(const Point & p, double x, double len, double a)
+Mirror::Mirror(const Point& p, double x, double len, double a)
     : Mirror {p, x, len, a, {.0, .0}, {.0, .0}, .0, .0} {}
 
-Mirror::Mirror(const Point & p, double x, double len, double a, Point pm,
+Mirror::Mirror(const Point& p, double x, double len, double a, Point pm,
                Point pM, double am, double aM)
     : Element(Element::Type::MIRROR),
       pivot_ {p}, length_(len), xpad_(x), x_min_ {pm.x()}, x_max_ {pM.x()},
@@ -34,7 +34,7 @@ bool Mirror::check_angle_range(double a) const
             (a >= this->alpha_min_ && a <= this->alpha_max_);
 }
 
-bool Mirror::check_pivot_range(const Point & p) const
+bool Mirror::check_pivot_range(const Point& p) const
 {
     if (this->x_min_ == 0 && this->x_max_ == 0 && this->y_min_ == 0 && this->y_max_ == 0)
         return true;
@@ -102,7 +102,7 @@ LineSegment Mirror::to_line_segment() const
 
 }
 
-std::ostream & operator<<(std::ostream & out, const Mirror & m)
+std::ostream& operator<<(std::ostream& out, const Mirror& m)
 {
     out << "Mirror --- Pivot : " << m.pivot_ << " , Length : " << m.length_
         << " , x-pad : " << m.xpad_ << ", Angle : " << m.alpha_ <<

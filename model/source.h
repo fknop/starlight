@@ -136,7 +136,7 @@ class Source : public Observable, public Element
      * sous-jacente en console.
      * @return le flux dans lequel la source a été imprimée.
      */
-    friend std::ostream & operator<<(std::ostream& out,
+    friend std::ostream& operator<<(std::ostream& out,
                                      const Source& s);
 };
 

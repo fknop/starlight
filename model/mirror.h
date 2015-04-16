@@ -48,7 +48,7 @@ class Mirror : public Element, public Observable
      *          du miroir.
      * @param a l'angle d'inclinaison du miroir.
      */
-    Mirror(const Point & p, double x, double len, double a);
+    Mirror(const Point& p, double x, double len, double a);
 
     /**
      * Instancie un miroir en une position donnée, d'une certaine
@@ -268,7 +268,7 @@ class Mirror : public Element, public Observable
      * miroir sous-jacent en console.
      * @return le flux dans lequel le miroir a été imprimé
      */
-    friend std::ostream & operator<<(std::ostream& out,
+    friend std::ostream& operator<<(std::ostream& out,
                                      const Mirror& m);
 
     /**
