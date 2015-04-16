@@ -19,15 +19,15 @@ public:
     void setupUi();
 
 private:
-    QFormLayout * formLayout;
-    QLabel * x_label;
-    QDoubleSpinBox * x_dsb;
-    QLabel * y_label;
-    QDoubleSpinBox * y_dsb;
-    QLabel * rad_label;
-    QDoubleSpinBox * rad_dsb;
-    QLabel * mod_label;
-    QDoubleSpinBox * mod_dsb;
+    QFormLayout * form_layout_;
+    QLabel * x_label_;
+    QDoubleSpinBox * x_dsb_;
+    QLabel * y_label_;
+    QDoubleSpinBox * y_dsb_;
+    QLabel * rad_label_;
+    QDoubleSpinBox * rad_dsb_;
+    QLabel * mod_label_;
+    QDoubleSpinBox * mod_dsb_;
 
     Crystal * crystal_;
 
