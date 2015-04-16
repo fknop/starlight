@@ -3,7 +3,7 @@
 
 #include "catch.hpp"
 #include "model/level.h"
-#include "model/constants.h"
+#include "utils/constants.h"
 
 
 TEST_CASE("Tests du bon fonctionnement des éléments du jeu")

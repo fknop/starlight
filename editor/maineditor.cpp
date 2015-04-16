@@ -11,8 +11,8 @@
 #include "editor/properties.h"
 #include "editor/maineditor.h"
 
-#include "mapreader.h"
-#include "mapwriter.h"
+#include "utils/mapreader.h"
+#include "utils/mapwriter.h"
 
 #include "view/destinationview.h"
 #include "view/mapview.h"

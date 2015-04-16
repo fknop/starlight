@@ -5,7 +5,7 @@
 #include <cmath>
 
 #include "model/point.h"
-#include "model/umath.h"
+#include "utils/umath.h"
 
 /**
  * Cette classe représente une droite

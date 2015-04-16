@@ -8,8 +8,8 @@
 #include "model/rectangle.h"
 #include "model/line.h"
 #include "model/linesegment.h"
-#include "model/constants.h"
-#include "model/umath.h"
+#include "utils/constants.h"
+#include "utils/umath.h"
 
 TEST_CASE("Intersections droites, segments")
 {

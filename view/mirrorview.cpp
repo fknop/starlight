@@ -1,6 +1,8 @@
+#include "utils/umath.h"
+#include "utils/umath.h"
+
 #include "view/mirrorview.h"
-#include "model/umath.h"
-#include "model/umath.h"
+
 
 MirrorView::MirrorView(const Mirror & mirror, bool selectable) :
     ElementView(ElementView::TypeView::MIRRORVIEW),

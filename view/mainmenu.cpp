@@ -5,9 +5,10 @@
 #include <QPalette>
 #include <QPixmap>
 
+
 #include "editor/maineditor.h"
 
-#include "model/constants.h"
+#include "utils/constants.h"
 
 #include "view/button.h"
 #include "view/mainmenu.h"
