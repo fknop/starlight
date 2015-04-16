@@ -98,7 +98,7 @@ class Crystal : public Element, public Observable
      * @return le flux dans lequel le cristal a été imprimé.
      */
     friend std::ostream& operator<<(std::ostream&,
-                                     const Crystal &);
+                                     const Crystal&);
 
     /**
      * Redéfinition de l'opérateur d'égalité, retourne vrai

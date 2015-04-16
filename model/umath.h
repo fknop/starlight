@@ -147,7 +147,7 @@ namespace umath
      * @param intersecion le point d'intersection.
      * @return vrai si la droite et le segment possède une intersection.
      */
-      bool intersects(const Line& line, const LineSegment& ls, Point& point, LineSegment &segment, bool& is_point);
+      bool intersects(const Line& line, const LineSegment& ls, Point& point, LineSegment&segment, bool& is_point);
 
       /**
        * Retourne vrai si deux segments possèdent une intersection.
@@ -173,7 +173,7 @@ namespace umath
      * @return le nombre d'intersections entre l'ellipse et la droite.
      */
     int intersects(const Ellipse& ellipse, const Line& line,
-                   std::vector<Point> &points);
+                   std::vector<Point>& points);
 
     /**
      * Vérifie si un segment de droite possède une ou des
@@ -184,7 +184,7 @@ namespace umath
      * @return le nombre d'intersections entre l'ellipse et la droite.
      */
     int intersects(const Ellipse& ellipse, const LineSegment& ls,
-                   std::vector<Point> &points);
+                   std::vector<Point>& points);
 
     /**
      * Vérifie si une droite coupe un rectangle.
@@ -194,7 +194,7 @@ namespace umath
      * @return le nombre d'intersections.
      */
     int intersects(const Rectangle& rec, const Line& line,
-                   std::vector<Point> &points);
+                   std::vector<Point>& points);
 
     /**
      * Vérifie si un segment de droite coupe un rectangle.

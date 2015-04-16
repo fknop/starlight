@@ -149,7 +149,7 @@ double Level::get_reflection_angle(double angle, double alpha)
     return std::fmod((angle + PI + (2 * angle_ray_p)), (2*PI));
 }
 
-void Level::dest_intersections(const Line &line,
+void Level::dest_intersections(const Line&line,
                                const Point& start)
 {
     std::vector<Point> points;
@@ -158,7 +158,7 @@ void Level::dest_intersections(const Line &line,
         for (auto &i : points)
         {
             if (umath::is_on_good_side(line, start, i))
-                intersections_.push_back(Intersection(new Point(i), &this->dest_));
+                intersections_.push_back(Intersection(new Point(i),&this->dest_));
         }
     }
 }
@@ -172,12 +172,12 @@ void Level::source_intersections(const Line& line,
         for (auto &i : points)
         {
             if (umath::is_on_good_side(line, start, i))
-                intersections_.push_back(Intersection(new Point(i), &this->source_));
+                intersections_.push_back(Intersection(new Point(i),&this->source_));
         }
     }
 }
 
-void Level::walls_intersections(const Line &line,
+void Level::walls_intersections(const Line&line,
                                 const Point& start)
 {
     bool is_point;
@@ -195,12 +195,12 @@ void Level::walls_intersections(const Line &line,
                     p = Point(ls.end());
             }
             if (umath::is_on_good_side(line, start, p))
-                intersections_.push_back(Intersection(new Point(p), &i));
+                intersections_.push_back(Intersection(new Point(p),&i));
         }
     }
 }
 
-void Level::lenses_intersections(const Line &line,
+void Level::lenses_intersections(const Line&line,
                                  const Point& start)
 {
 
@@ -212,13 +212,13 @@ void Level::lenses_intersections(const Line &line,
             for (auto &j : points)
             {
                 if (umath::is_on_good_side(line, start, j))
-                    intersections_.push_back(Intersection(new Point(j), &i));
+                    intersections_.push_back(Intersection(new Point(j),&i));
             }
         }
     }
 }
 
-void Level::mirrors_intersections(const Line &line,
+void Level::mirrors_intersections(const Line&line,
                                   const Point& start)
 {
     bool is_point;
@@ -236,7 +236,7 @@ void Level::mirrors_intersections(const Line &line,
                     p = Point(ls.end());
             }
             if (umath::is_on_good_side(line, start, p))
-                intersections_.push_back(Intersection(new Point(p), &i));
+                intersections_.push_back(Intersection(new Point(p),&i));
         }
     }
 }
@@ -253,14 +253,14 @@ void Level::nukes_intersections(const Line& line,
             for (auto &j : points)
             {
                 if (umath::is_on_good_side(line, start, j))
-                    intersections_.push_back(Intersection(new Point(j), &i));
+                    intersections_.push_back(Intersection(new Point(j),&i));
             }
         }
 
     }
 }
 
-void Level::crystals_intersections(const Line &line,
+void Level::crystals_intersections(const Line&line,
                                    const Point& start)
 {
 
@@ -272,7 +272,7 @@ void Level::crystals_intersections(const Line &line,
             for (auto &j : points)
             {
                 if (umath::is_on_good_side(line, start, j))
-                    intersections_.push_back(Intersection(new Point(j), &i));
+                    intersections_.push_back(Intersection(new Point(j),&i));
             }
         }
     }

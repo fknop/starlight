@@ -7,7 +7,7 @@
 Point::Point(double x, double y) : x_ {x}, y_ {y}
 {}
 
-Point::Point(const Point &p)
+Point::Point(const Point&p)
 {
     this->x_ = p.x_;
     this->y_ = p.y_;

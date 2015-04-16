@@ -296,13 +296,13 @@ public:
      * Supprime une lentille.
      * @param l la lentille à supprimer.
      */
-    inline void remove_lens(const Lens &l);
+    inline void remove_lens(const Lens&l);
 
     /**
      * Supprime un mirroir.
      * @param m le mirroir à supprimer.
      */
-    inline void remove_mirror(const Mirror &m);
+    inline void remove_mirror(const Mirror&m);
 
     /**
      * Supprime une bombe.
@@ -328,14 +328,14 @@ private:
      * @param start le point de départ du rayon.
      * @param wl la longueur d'onde du rayon.
      */
-    void compute_ray(Line& line, const Point &start, int wl);
+    void compute_ray(Line& line, const Point&start, int wl);
 
     /**
      * Retourne l'intersection la plus proche du rayon avec un objet.
      * @param line la droite du rayon.
      * @return l'intersection la plus proche.
      */
-    void get_intersections(const Line& line, const Point &start);
+    void get_intersections(const Line& line, const Point&start);
 
     /**
      * Calcule l'angle de reflexion d'un rayon sur un miroir.
