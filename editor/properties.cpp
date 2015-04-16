@@ -19,8 +19,8 @@ Properties::Properties(QWidget * parent) : QWidget(parent)
 
 void Properties::add_connections()
 {
-    connect(apply_pb, SIGNAL(clicked()), this, SLOT(apply_changes()));
-    connect(delete_pb, SIGNAL(clicked()), this, SLOT(delete_element()));
+    connect(apply_pb_, SIGNAL(clicked()), this, SLOT(apply_changes()));
+    connect(delete_pb_, SIGNAL(clicked()), this, SLOT(delete_element()));
 }
 
 void Properties::setupUi()
@@ -28,32 +28,32 @@ void Properties::setupUi()
     std::cout << "setupUi prefs"<< std::endl;
     resize(400, 300);
 
-    gridLayout = new QGridLayout();
+    grid_layout_ = new QGridLayout();
 
-    groupBox = new QGroupBox();
-    groupBox->setTitle(tr("Properties"));
+    group_box_ = new QGroupBox();
+    group_box_->setTitle(tr("Properties"));
     QHBoxLayout * qhl = new QHBoxLayout;
-    groupBox->setLayout(qhl);
+    group_box_->setLayout(qhl);
     QFont font;
     font.setBold(true);
     font.setWeight(75);
-    groupBox->setFont(font);
+    group_box_->setFont(font);
 
-    gridLayout->addWidget(groupBox, 0, 0, 1, 3);
+    grid_layout_->addWidget(group_box_, 0, 0, 1, 3);
 
-    apply_pb = new QPushButton();
-    apply_pb->setText("Apply");
-    apply_pb->setEnabled(false);
+    apply_pb_ = new QPushButton();
+    apply_pb_->setText("Apply");
+    apply_pb_->setEnabled(false);
 
-    gridLayout->addWidget(apply_pb, 1, 0, 1, 1);
+    grid_layout_->addWidget(apply_pb_, 1, 0, 1, 1);
 
-    delete_pb = new QPushButton();
-    delete_pb->setText("Delete");
-    delete_pb->setEnabled(false);
+    delete_pb_ = new QPushButton();
+    delete_pb_->setText("Delete");
+    delete_pb_->setEnabled(false);
 
-    gridLayout->addWidget(delete_pb, 1, 1, 1, 1);
+    grid_layout_->addWidget(delete_pb_, 1, 1, 1, 1);
 
-    setLayout(gridLayout);
+    setLayout(grid_layout_);
 }
 
 void Properties::delete_prop()
@@ -76,49 +76,49 @@ void Properties::set_element_prop(ElementView * ev)
         case ElementView::TypeView::CRYSTALVIEW:
         {
             CrystalView * cv = dynamic_cast<CrystalView *> (ev);
-            prop_interface_ = new CrystalProp(cv->crystal(), groupBox);
+            prop_interface_ = new CrystalProp(cv->crystal(), group_box_);
 
             break;
         }
         case ElementView::TypeView::DESTVIEW:
         {
             DestinationView * dv = dynamic_cast<DestinationView *> (ev);
-            prop_interface_ = new DestProp(dv->dest(), groupBox);
+            prop_interface_ = new DestProp(dv->dest(), group_box_);
 
             break;
         }
         case ElementView::TypeView::LENSVIEW:
         {
             LensView * lv = dynamic_cast<LensView *> (ev);
-            prop_interface_ = new LensProp(lv->lens(), groupBox);
+            prop_interface_ = new LensProp(lv->lens(), group_box_);
 
             break;
         }
         case ElementView::TypeView::MIRRORVIEW:
         {
             MirrorView * mv = dynamic_cast<MirrorView *> (ev);
-            prop_interface_ = new MirrorProp(mv->mirror(), groupBox);
+            prop_interface_ = new MirrorProp(mv->mirror(), group_box_);
 
             break;
         }
         case ElementView::TypeView::NUKEVIEW:
         {
             NukeView * nv = dynamic_cast<NukeView *> (ev);
-            prop_interface_ = new NukeProp(nv->nuke(), groupBox);
+            prop_interface_ = new NukeProp(nv->nuke(), group_box_);
 
             break;
         }
         case ElementView::TypeView::SOURCEVIEW:
         {
             SourceView * sv = dynamic_cast<SourceView *> (ev);
-            prop_interface_ = new SourceProp(sv->source(), groupBox);
+            prop_interface_ = new SourceProp(sv->source(), group_box_);
 
             break;
         }
         case ElementView::TypeView::WALLVIEW:
         {
             WallView * wv = dynamic_cast<WallView *> (ev);
-            prop_interface_ = new WallProp(wv->wall(), groupBox);
+            prop_interface_ = new WallProp(wv->wall(), group_box_);
 
             break;
         }
@@ -127,14 +127,14 @@ void Properties::set_element_prop(ElementView * ev)
 
     if (prop_interface_ != nullptr)
     {
-        groupBox->layout()->addWidget(prop_interface_);
-        apply_pb->setEnabled(true);
-        delete_pb->setEnabled(true);
+        group_box_->layout()->addWidget(prop_interface_);
+        apply_pb_->setEnabled(true);
+        delete_pb_->setEnabled(true);
     }
     else
     {
-        apply_pb->setEnabled(false);
-        delete_pb->setEnabled(false);
+        apply_pb_->setEnabled(false);
+        delete_pb_->setEnabled(false);
     }
 }
 
@@ -143,7 +143,7 @@ void Properties::apply_changes()
     if (prop_interface_ != nullptr)
     {
         prop_interface_->apply();
-        apply_pb->setEnabled(true);
+        apply_pb_->setEnabled(true);
     }
 
     notify_all(std::string("ELEMENT_CHANGED"));

@@ -16,155 +16,155 @@ MirrorProp::~MirrorProp()
 
 void MirrorProp::setupUi()
 {
-    formLayout = new QFormLayout();
+    form_layout_ = new QFormLayout();
 
-    x_label = new QLabel();
-    x_label->setText("X");
-    x_label->setMinimumSize(QSize(100, 20));
+    x_label_ = new QLabel();
+    x_label_->setText("X");
+    x_label_->setMinimumSize(QSize(100, 20));
 
-    formLayout->setWidget(0, QFormLayout::LabelRole, x_label);
+    form_layout_->setWidget(0, QFormLayout::LabelRole, x_label_);
 
-    x_dsb = new QDoubleSpinBox();
-    x_dsb->setMaximum(999.);
+    x_dsb_ = new QDoubleSpinBox();
+    x_dsb_->setMaximum(999.);
 
-    formLayout->setWidget(0, QFormLayout::FieldRole, x_dsb);
+    form_layout_->setWidget(0, QFormLayout::FieldRole, x_dsb_);
 
-    y_label = new QLabel();
-    y_label->setText("Y");
-    y_label->setMinimumSize(QSize(100, 20));
+    y_label_ = new QLabel();
+    y_label_->setText("Y");
+    y_label_->setMinimumSize(QSize(100, 20));
 
-    formLayout->setWidget(1, QFormLayout::LabelRole, y_label);
+    form_layout_->setWidget(1, QFormLayout::LabelRole, y_label_);
 
-    y_dsb = new QDoubleSpinBox();
-    y_dsb->setMaximum(999.);
+    y_dsb_ = new QDoubleSpinBox();
+    y_dsb_->setMaximum(999.);
 
-    formLayout->setWidget(1, QFormLayout::FieldRole, y_dsb);
+    form_layout_->setWidget(1, QFormLayout::FieldRole, y_dsb_);
 
-    length_label = new QLabel();
-    length_label->setText("Length");
-    length_label->setMinimumSize(QSize(100, 20));
+    length_label_ = new QLabel();
+    length_label_->setText("Length");
+    length_label_->setMinimumSize(QSize(100, 20));
 
-    formLayout->setWidget(2, QFormLayout::LabelRole, length_label);
+    form_layout_->setWidget(2, QFormLayout::LabelRole, length_label_);
 
-    length_dsb = new QDoubleSpinBox();
-    length_dsb->setMaximum(999.);
+    length_dsb_ = new QDoubleSpinBox();
+    length_dsb_->setMaximum(999.);
 
-    formLayout->setWidget(2, QFormLayout::FieldRole, length_dsb);
+    form_layout_->setWidget(2, QFormLayout::FieldRole, length_dsb_);
 
-    xpad_label = new QLabel();
-    xpad_label->setText("Xpad");
-    xpad_label->setMinimumSize(QSize(100, 20));
+    xpad_label_ = new QLabel();
+    xpad_label_->setText("Xpad");
+    xpad_label_->setMinimumSize(QSize(100, 20));
 
-    formLayout->setWidget(3, QFormLayout::LabelRole, xpad_label);
+    form_layout_->setWidget(3, QFormLayout::LabelRole, xpad_label_);
 
-    xpad_dsb = new QDoubleSpinBox();
-    xpad_dsb->setMaximum(999.);
+    xpad_dsb_ = new QDoubleSpinBox();
+    xpad_dsb_->setMaximum(999.);
 
-    formLayout->setWidget(3, QFormLayout::FieldRole, xpad_dsb);
+    form_layout_->setWidget(3, QFormLayout::FieldRole, xpad_dsb_);
 
-    alpha_label = new QLabel();
-    alpha_label->setText("Alpha");
-    alpha_label->setMinimumSize(QSize(100, 20));
+    alpha_label_ = new QLabel();
+    alpha_label_->setText("Alpha");
+    alpha_label_->setMinimumSize(QSize(100, 20));
 
-    formLayout->setWidget(4, QFormLayout::LabelRole, alpha_label);
+    form_layout_->setWidget(4, QFormLayout::LabelRole, alpha_label_);
 
-    alpha_dsb = new QDoubleSpinBox();
-    alpha_dsb->setMaximum(999.);
+    alpha_dsb_ = new QDoubleSpinBox();
+    alpha_dsb_->setMaximum(999.);
 
-    formLayout->setWidget(4, QFormLayout::FieldRole, alpha_dsb);
+    form_layout_->setWidget(4, QFormLayout::FieldRole, alpha_dsb_);
 
-    xmin_label = new QLabel();
-    xmin_label->setText("X min");
-    xmin_label->setMinimumSize(QSize(100, 20));
+    xmin_label_ = new QLabel();
+    xmin_label_->setText("X min");
+    xmin_label_->setMinimumSize(QSize(100, 20));
 
-    formLayout->setWidget(5, QFormLayout::LabelRole, xmin_label);
+    form_layout_->setWidget(5, QFormLayout::LabelRole, xmin_label_);
 
-    xmin_dsb = new QDoubleSpinBox();
-    xmin_dsb->setMaximum(999.);
+    xmin_dsb_ = new QDoubleSpinBox();
+    xmin_dsb_->setMaximum(999.);
 
-    formLayout->setWidget(5, QFormLayout::FieldRole, xmin_dsb);
+    form_layout_->setWidget(5, QFormLayout::FieldRole, xmin_dsb_);
 
-    xmax_label = new QLabel();
-    xmax_label->setText("X max");
-    xmax_label->setMinimumSize(QSize(100, 20));
+    xmax_label_ = new QLabel();
+    xmax_label_->setText("X max");
+    xmax_label_->setMinimumSize(QSize(100, 20));
 
-    formLayout->setWidget(6, QFormLayout::LabelRole, xmax_label);
+    form_layout_->setWidget(6, QFormLayout::LabelRole, xmax_label_);
 
-    xmax_dsb = new QDoubleSpinBox();
-    xmax_dsb->setMaximum(999.);
+    xmax_dsb_ = new QDoubleSpinBox();
+    xmax_dsb_->setMaximum(999.);
 
-    formLayout->setWidget(6, QFormLayout::FieldRole, xmax_dsb);
+    form_layout_->setWidget(6, QFormLayout::FieldRole, xmax_dsb_);
 
-    ymin_label = new QLabel();
-    ymin_label->setText("Y min");
-    ymin_label->setMinimumSize(QSize(100, 20));
+    ymin_label_ = new QLabel();
+    ymin_label_->setText("Y min");
+    ymin_label_->setMinimumSize(QSize(100, 20));
 
-    formLayout->setWidget(7, QFormLayout::LabelRole, ymin_label);
+    form_layout_->setWidget(7, QFormLayout::LabelRole, ymin_label_);
 
-    ymin_dsb = new QDoubleSpinBox();
-    ymin_dsb->setMaximum(999.);
+    ymin_dsb_ = new QDoubleSpinBox();
+    ymin_dsb_->setMaximum(999.);
 
-    formLayout->setWidget(7, QFormLayout::FieldRole, ymin_dsb);
+    form_layout_->setWidget(7, QFormLayout::FieldRole, ymin_dsb_);
 
-    ymax_label = new QLabel();
-    ymax_label->setText("Y max");
-    ymax_label->setMinimumSize(QSize(100, 20));
+    ymax_label_ = new QLabel();
+    ymax_label_->setText("Y max");
+    ymax_label_->setMinimumSize(QSize(100, 20));
 
-    formLayout->setWidget(8, QFormLayout::LabelRole, ymax_label);
+    form_layout_->setWidget(8, QFormLayout::LabelRole, ymax_label_);
 
-    ymax_dsb = new QDoubleSpinBox();
-    ymax_dsb->setMaximum(999.);
+    ymax_dsb_ = new QDoubleSpinBox();
+    ymax_dsb_->setMaximum(999.);
 
-    formLayout->setWidget(8, QFormLayout::FieldRole, ymax_dsb);
+    form_layout_->setWidget(8, QFormLayout::FieldRole, ymax_dsb_);
 
-    alphamin_label = new QLabel();
-    alphamin_label->setText("Alpha min");
-    alphamin_label->setMinimumSize(QSize(100, 20));
+    alphamin_label_ = new QLabel();
+    alphamin_label_->setText("Alpha min");
+    alphamin_label_->setMinimumSize(QSize(100, 20));
 
-    formLayout->setWidget(9, QFormLayout::LabelRole, alphamin_label);
+    form_layout_->setWidget(9, QFormLayout::LabelRole, alphamin_label_);
 
-    alphamin_dsb = new QDoubleSpinBox();
-    alphamin_dsb->setMaximum(999.);
+    alphamin_dsb_ = new QDoubleSpinBox();
+    alphamin_dsb_->setMaximum(999.);
 
-    formLayout->setWidget(9, QFormLayout::FieldRole, alphamin_dsb);
+    form_layout_->setWidget(9, QFormLayout::FieldRole, alphamin_dsb_);
 
-    alphamax_label = new QLabel();
-    alphamax_label->setText("Alpha max");
-    alphamax_label->setMinimumSize(QSize(100, 20));
+    alphamax_label_ = new QLabel();
+    alphamax_label_->setText("Alpha max");
+    alphamax_label_->setMinimumSize(QSize(100, 20));
 
-    formLayout->setWidget(10, QFormLayout::LabelRole, alphamax_label);
+    form_layout_->setWidget(10, QFormLayout::LabelRole, alphamax_label_);
 
-    alphamax_dsb = new QDoubleSpinBox();
-    alphamax_dsb->setMaximum(999.);
+    alphamax_dsb_ = new QDoubleSpinBox();
+    alphamax_dsb_->setMaximum(999.);
 
-    formLayout->setWidget(10, QFormLayout::FieldRole, alphamax_dsb);
+    form_layout_->setWidget(10, QFormLayout::FieldRole, alphamax_dsb_);
 
-    setLayout(formLayout);
+    setLayout(form_layout_);
 }
 
 void MirrorProp::reset()
 {
-    x_dsb->setValue(mirror_->pivot().x());
-    y_dsb->setValue(mirror_->pivot().y());
-    length_dsb->setValue(mirror_->length());
-    xpad_dsb->setValue(mirror_->x_pad());
-    alpha_dsb->setValue(mirror_->angle());
-    xmin_dsb->setValue(mirror_->min_pivot().x());
-    xmax_dsb->setValue(mirror_->max_pivot().x());
-    ymin_dsb->setValue(mirror_->min_pivot().y());
-    ymax_dsb->setValue(mirror_->max_pivot().y());
-    alphamin_dsb->setValue(mirror_->min_angle());
-    alphamax_dsb->setValue(mirror_->max_angle());
+    x_dsb_->setValue(mirror_->pivot().x());
+    y_dsb_->setValue(mirror_->pivot().y());
+    length_dsb_->setValue(mirror_->length());
+    xpad_dsb_->setValue(mirror_->x_pad());
+    alpha_dsb_->setValue(mirror_->angle());
+    xmin_dsb_->setValue(mirror_->min_pivot().x());
+    xmax_dsb_->setValue(mirror_->max_pivot().x());
+    ymin_dsb_->setValue(mirror_->min_pivot().y());
+    ymax_dsb_->setValue(mirror_->max_pivot().y());
+    alphamin_dsb_->setValue(mirror_->min_angle());
+    alphamax_dsb_->setValue(mirror_->max_angle());
 }
 
 void MirrorProp::apply()
 {
-    mirror_->set_pivot(Point(x_dsb->value(), y_dsb->value()));
-    mirror_->set_len(length_dsb->value());
-    mirror_->set_xpad(xpad_dsb->value());
-    mirror_->set_angle(alpha_dsb->value());
-    mirror_->set_min(Point(xmin_dsb->value(), ymin_dsb->value()));
-    mirror_->set_max(Point(xmax_dsb->value(), ymax_dsb->value()));
-    mirror_->set_alpha_min(alphamin_dsb->value());
-    mirror_->set_alpha_max(alphamax_dsb->value());
+    mirror_->set_pivot(Point(x_dsb_->value(), y_dsb_->value()));
+    mirror_->set_len(length_dsb_->value());
+    mirror_->set_xpad(xpad_dsb_->value());
+    mirror_->set_angle(alpha_dsb_->value());
+    mirror_->set_min(Point(xmin_dsb_->value(), ymin_dsb_->value()));
+    mirror_->set_max(Point(xmax_dsb_->value(), ymax_dsb_->value()));
+    mirror_->set_alpha_min(alphamin_dsb_->value());
+    mirror_->set_alpha_max(alphamax_dsb_->value());
 }

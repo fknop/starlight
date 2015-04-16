@@ -1,45 +1,42 @@
 #ifndef PREFS_H
 #define PREFS_H
 
-#include <QWidget>
-
+#include <QDialogButtonBox>
 #include <QGridLayout>
 #include <QGroupBox>
-#include <QDialogButtonBox>
 #include <QPushButton>
+#include <QWidget>
+
+#include "editor/propertiesinterface.h"
 
 #include "obs/observable.h"
 
-#include "view/elementview.h"
-
 #include "view/crystalview.h"
 #include "view/destinationview.h"
+#include "view/elementview.h"
 #include "view/lensview.h"
 #include "view/mirrorview.h"
 #include "view/nukeview.h"
 #include "view/sourceview.h"
 #include "view/wallview.h"
 
-#include "propertiesinterface.h"
 
 class Properties : public QWidget, public Observable
 {
     Q_OBJECT
 
 public:
-    Properties(QWidget *parent = 0);
+    Properties(QWidget * parent = 0);
     void setupUi();
-    void set_element_prop(ElementView *ev);
+    void set_element_prop(ElementView * ev);
     void delete_prop();
 
-
-
 private:
-    QGridLayout *gridLayout;
-    QGroupBox *groupBox;
+    QGridLayout * grid_layout_;
+    QGroupBox * group_box_;
 
-    QPushButton *apply_pb;
-    QPushButton *delete_pb;
+    QPushButton * apply_pb_;
+    QPushButton * delete_pb_;
 
     PropertiesInterface * prop_interface_;
 
