@@ -40,7 +40,9 @@ public:
     void draw_dest();
     void repaint();
     void clear();
-    ElementView *selected();
+
+    ElementView * selected();
+
 
     void mousePressEvent(QMouseEvent * event);
     void keyPressEvent(QKeyEvent * event);
@@ -51,6 +53,7 @@ public:
 private:
     DestinationView * dest_view_ = nullptr;
     SourceView * source_view_ = nullptr;
+    MirrorView * selected_mirror_;
     std::vector<RayView *> ray_views_;
     std::vector<MirrorView *> mirror_views_;
     std::vector<LensView *> lens_views_;

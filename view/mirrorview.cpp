@@ -11,9 +11,17 @@ MirrorView::MirrorView(const Mirror & mirror, bool selectable) :
     mirror_ = &(const_cast<Mirror &>(mirror));
     mirror_->add_observer(this);
 
-    QPen myPen(Qt::red);
-    myPen.setWidth(3);
-    setPen(myPen);
+    zone_ = new QGraphicsRectItem(this);
+
+    QPen pen_1(Qt::red);
+    pen_1.setWidth(3);
+    setPen(pen_1);
+
+    QPen pen_2(Qt::blue);
+    pen_2.setWidth(1);
+    pen_2.setStyle(Qt::DashLine);
+    zone_->setPen(pen_2);
+
 
     set_line();
 
@@ -42,4 +50,26 @@ void MirrorView::set_line()
             seg.end().x(), seg.end().y());
 }
 
+void MirrorView::set_zone()
+{
+    const Point& min = mirror_->min_pivot();
+    const Point& max = mirror_->max_pivot();
+
+    double w = max.x() - min.x();
+    double h = max.y() - min.y();
+
+    zone_->setRect(min.x(), min.y(), w, h);
+}
+
+
+void MirrorView::show_zone()
+{
+    set_zone();
+    zone_->show();
+}
+
+void MirrorView::hide_zone()
+{
+    zone_->hide();
+}
 

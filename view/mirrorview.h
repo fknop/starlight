@@ -4,7 +4,7 @@
 #include <QGraphicsLineItem>
 #include <QGraphicsView>
 #include <QGraphicsSceneMouseEvent>
-#include <QKeyEvent>
+#include <QGraphicsRectItem>
 
 #include "model/mirror.h"
 #include "obs/observable.h"
@@ -35,7 +35,8 @@ public:
 
     inline bool selectable() const;
     inline void set_selectable(bool value);
-
+    void show_zone();
+    void hide_zone();
     void translate(double x = .0, double y = .0);
     void rotate(double angle);
     void notify(Observable * obs,
@@ -45,8 +46,10 @@ public:
 private:
     Mirror * mirror_;
     bool selectable_;
+    QGraphicsRectItem * zone_;
 
     void set_line();
+    void set_zone();
 };
 
 /* Fonctions inlines */

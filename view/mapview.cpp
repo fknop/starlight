@@ -9,13 +9,14 @@ MapView::MapView()
 {
     scene_ = new QGraphicsScene(0, 0, 500, 500);
     setScene(scene_);
+    selected_mirror_ = nullptr;
 }
 
 MapView::MapView(Level* level, bool selectable) : level_{level}, selectable_{selectable}
 {
     scene_ = new QGraphicsScene(0, 0, this->level_->width(), this->level_->height());
     sound_ = new QMediaPlayer(nullptr);
-
+    selected_mirror_ = nullptr;
     setScene(scene_);
     setRenderHints(QPainter::Antialiasing);
 
@@ -227,17 +228,29 @@ void MapView::draw_crystal(const Crystal& crystal)
     scene_->addItem(cv);
 }
 
-
 void MapView::mousePressEvent(QMouseEvent * event)
 {
-    if (selected() != nullptr)
+    if (selected_mirror_ != nullptr)
+    {
+        selected_mirror_->hide_zone();
+        selected_mirror_ = nullptr;
+    }
+
+    ElementView * ev_selected = this->selected();
+    if (ev_selected != nullptr)
+    {
+        if (ev_selected->type_view() == MirrorView::TypeView::MIRRORVIEW)
+        {
+            selected_mirror_ = dynamic_cast<MirrorView*> (ev_selected);
+            selected_mirror_->show_zone();
+        }
         notify_all(std::string("SELECTED"));
+    }
 }
 
 void MapView::keyPressEvent(QKeyEvent *event)
 {
     ElementView * i = selected();
-
     if (i != nullptr)
     {
         switch(event->key())
