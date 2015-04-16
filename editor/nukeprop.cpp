@@ -16,53 +16,53 @@ NukeProp::~NukeProp()
 
 void NukeProp::setupUi()
 {
-    formLayout = new QFormLayout();
+    form_layout_ = new QFormLayout();
 
-    x_label = new QLabel();
-    x_label->setText("X");
-    x_label->setMinimumSize(QSize(100, 20));
+    x_label_ = new QLabel();
+    x_label_->setText("X");
+    x_label_->setMinimumSize(QSize(100, 20));
 
-    formLayout->setWidget(0, QFormLayout::LabelRole, x_label);
+    form_layout_->setWidget(0, QFormLayout::LabelRole, x_label_);
 
-    x_dsb = new QDoubleSpinBox();
-    x_dsb->setMaximum(999.);
+    x_dsb_ = new QDoubleSpinBox();
+    x_dsb_->setMaximum(999.);
 
-    formLayout->setWidget(0, QFormLayout::FieldRole, x_dsb);
+    form_layout_->setWidget(0, QFormLayout::FieldRole, x_dsb_);
 
-    y_label = new QLabel();
-    y_label->setText("Y");
-    y_label->setMinimumSize(QSize(100, 20));
+    y_label_ = new QLabel();
+    y_label_->setText("Y");
+    y_label_->setMinimumSize(QSize(100, 20));
 
-    formLayout->setWidget(1, QFormLayout::LabelRole, y_label);
+    form_layout_->setWidget(1, QFormLayout::LabelRole, y_label_);
 
-    y_dsb = new QDoubleSpinBox();
-    y_dsb->setMaximum(999.);
+    y_dsb_ = new QDoubleSpinBox();
+    y_dsb_->setMaximum(999.);
 
-    formLayout->setWidget(1, QFormLayout::FieldRole, y_dsb);
+    form_layout_->setWidget(1, QFormLayout::FieldRole, y_dsb_);
 
-    rad_label = new QLabel();
-    rad_label->setText("Radius");
-    rad_label->setMinimumSize(QSize(100, 20));
+    rad_label_ = new QLabel();
+    rad_label_->setText("Radius");
+    rad_label_->setMinimumSize(QSize(100, 20));
 
-    formLayout->setWidget(2, QFormLayout::LabelRole, rad_label);
+    form_layout_->setWidget(2, QFormLayout::LabelRole, rad_label_);
 
-    rad_dsb = new QDoubleSpinBox();
-    rad_dsb->setMaximum(999.);
+    rad_dsb_ = new QDoubleSpinBox();
+    rad_dsb_->setMaximum(999.);
 
-    formLayout->setWidget(2, QFormLayout::FieldRole, rad_dsb);
+    form_layout_->setWidget(2, QFormLayout::FieldRole, rad_dsb_);
 
-    setLayout(formLayout);
+    setLayout(form_layout_);
 }
 
 void NukeProp::reset()
 {
-    x_dsb->setValue(nuke_->position().x());
-    y_dsb->setValue(nuke_->position().y());
-    rad_dsb->setValue(nuke_->radius());
+    x_dsb_->setValue(nuke_->position().x());
+    y_dsb_->setValue(nuke_->position().y());
+    rad_dsb_->setValue(nuke_->radius());
 }
 
 void NukeProp::apply()
 {
-    nuke_->set_pos(Point(x_dsb->value(), y_dsb->value()));
-    nuke_->set_radius(rad_dsb->value());
+    nuke_->set_pos(Point(x_dsb_->value(), y_dsb_->value()));
+    nuke_->set_radius(rad_dsb_->value());
 }
