@@ -493,174 +493,174 @@ void Level::remove_wall(const Wall& w)
 
 const Source& Level::source() const
 {
-    return this->source_;
+    return source_;
 }
 
 void Level::set_source(const Source& value)
 {
-    this->source_ = value;
-    this->source_.add_observer(this);
+    source_ = value;
+    source_.add_observer(this);
 }
 
 const Dest& Level::dest() const
 {
-    return this->dest_;
+    return dest_;
 }
 
 void Level::set_dest(const Dest& value)
 {
-    this->dest_ = value;
-    this->dest_.add_observer(this);
+    dest_ = value;
+    dest_.add_observer(this);
 }
 
 const std::vector<Wall>& Level::walls() const
 {
-    return this->walls_;
+    return walls_;
 }
 
 const std::vector<Mirror>& Level::mirrors() const
 {
-    return this->mirrors_;
+    return mirrors_;
 }
 
 const std::vector<Crystal>& Level::crystals() const
 {
-    return this->crystals_;
+    return crystals_;
 }
 
 const std::vector<Lens>& Level::lenses() const
 {
-    return this->lenses_;
+    return lenses_;
 }
 
 const std::vector<Ray>& Level::rays() const
 {
-    return this->rays_;
+    return rays_;
 }
 
 void Level::set_rays(const std::vector<Ray>& value)
 {
-    this->rays_ = value;
+    rays_ = value;
 }
 
 void Level::set_walls(const std::vector<Wall>& value)
 {
-    this->walls_ = value;
+    walls_ = value;
     for (auto &i : walls_)
         i.add_observer(this);
 }
 
 void Level::set_crystals(const std::vector<Crystal>& value)
 {
-    this->crystals_ = value;
+    crystals_ = value;
     for (auto &i : crystals_)
         i.add_observer(this);
 }
 
 void Level::set_nukes(const std::vector<Nuke>& value)
 {
-    this->nukes_ = value;
+    nukes_ = value;
     for (auto &i : nukes_)
         i.add_observer(this);
 }
 
 void Level::set_lenses(const std::vector<Lens>& value)
 {
-    this->lenses_ = value;
+    lenses_ = value;
     for (auto &i : lenses_)
         i.add_observer(this);
 }
 
 void Level::set_mirrors(const std::vector<Mirror>& value)
 {
-    this->mirrors_ = value;
+    mirrors_ = value;
     for (auto &i : mirrors_)
         i.add_observer(this);
 }
 
 const std::vector<Nuke> & Level::nukes() const
 {
-    return this->nukes_;
+    return nukes_;
 }
 
 int Level::height() const
 {
-    return this->height_;
+    return height_;
 }
 
 int Level::width() const
 {
-    return this->width_;
+    return width_;
 }
 
 void Level::add_mirror(const Mirror& m)
 {
-    this->mirrors_.push_back(m);
-    this->mirrors_.back().add_observer(this);
+    mirrors_.push_back(m);
+    mirrors_.back().add_observer(this);
 }
 
 void Level::add_nuke(const Nuke& n)
 {
-    this->nukes_.push_back(n);
-    this->nukes_.back().add_observer(this);
+    nukes_.push_back(n);
+    nukes_.back().add_observer(this);
 }
 
 void Level::add_wall(const Wall& w)
 {
-    this->walls_.push_back(w);
-    this->walls_.back().add_observer(this);
+    walls_.push_back(w);
+    walls_.back().add_observer(this);
 }
 
 void Level::add_crystal(const Crystal& c)
 {
-    this->crystals_.push_back(c);
-    this->crystals_.back().add_observer(this);
+    crystals_.push_back(c);
+    crystals_.back().add_observer(this);
 }
 
 void Level::add_lens(const Lens& l)
 {
-    this->lenses_.push_back(l);
-    this->lenses_.back().add_observer(this);
+    lenses_.push_back(l);
+    lenses_.back().add_observer(this);
 }
 
 void Level::add_ray(const Ray& r)
 {
-    this->rays_.push_back(r);
+    rays_.push_back(r);
 }
 
 bool Level::check_collisions() const
 {
-    return this->check_collisions_;
+    return check_collisions_;
 }
 
 void Level::set_check_collisions(bool value)
 {
-    this->check_collisions_ = value;
+    check_collisions_ = value;
 }
 
 bool Level::handle_dest() const
 {
-    return this->handle_dest_;
+    return handle_dest_;
 }
 
 bool Level::handle_nukes() const
 {
-    return this->handle_nukes_;
+    return handle_nukes_;
 }
 
 void Level::set_handle_dest(bool value)
 {
-    this->handle_dest_ = value;
+    handle_dest_ = value;
 }
 
 void Level::set_handle_nukes(bool value)
 {
-    this->handle_nukes_ = value;
+    handle_nukes_ = value;
 }
 
 bool Level::won() const
 {
-    return this->dest_.lighted_up();
+    return dest_.lighted_up();
 }
 
 bool Level::lost() const

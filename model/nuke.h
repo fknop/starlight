@@ -102,33 +102,33 @@ class Nuke : public Element, public Observable
 
 const Point& Nuke::position() const
 {
-    return this->pos_;
+    return pos_;
 }
 
 double Nuke::radius() const
 {
-    return this->rad_;
+    return rad_;
 }
 
 bool Nuke::lighted_up() const
 {
-    return this->lighted_up_;
+    return lighted_up_;
 }
 
 void Nuke::set_lighted_up(bool q)
 {
-    this->lighted_up_ = q;
+    lighted_up_ = q;
     notify_all(std::string("LIGHTED_UP"));
 }
 
 void Nuke::set_pos(Point p)
 {
-    this->pos_ = p;
+    pos_ = p;
 }
 
 void Nuke::set_radius(double r)
 {
-    this->rad_ = r;
+    rad_ = r;
 }
 
 #endif // NUKE_H

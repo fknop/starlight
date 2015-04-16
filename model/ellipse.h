@@ -57,17 +57,17 @@ public:
 
 const Point& Ellipse::center() const
 {
-    return this->center_;
+    return center_;
 }
 
 double Ellipse::x_rad() const
 {
-    return this->x_rad_;
+    return x_rad_;
 }
 
 double Ellipse::y_rad() const
 {
-    return this->y_rad_;
+    return y_rad_;
 }
 
 #endif // ELLIPSE_H

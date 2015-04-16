@@ -144,20 +144,20 @@ class Line
 
 double Line::a() const
 {
-    return this->a_;
+    return a_;
 }
 double Line::b() const
 {
-    return this->b_;
+    return b_;
 }
 double Line::c() const
 {
-    return this->c_;
+    return c_;
 }
 
 double Line::alpha() const
 {
-    return this->alpha_;
+    return alpha_;
 }
 
 double Line::slope() const
@@ -187,7 +187,7 @@ bool Line::horizontal() const
 
 bool Line::parallel(const Line& l) const
 {
-    return (!this->perpendicular(l) &&
+    return (!perpendicular(l) &&
             umath::equals(((a_ * l.b()) - (l.a() * b_)), 0));
 }
 
@@ -198,7 +198,7 @@ bool Line::perpendicular(const Line& l) const
 
 bool Line::operator==(const Line& l) const
 {
-    return this->parallel(l) &&
+    return parallel(l) &&
            umath::equals(c_ / b_, l.c_ / l.b_);
 }
 

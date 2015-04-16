@@ -102,22 +102,22 @@ class Wall : public Element, public Observable
 
 const Point& Wall::start() const
 {
-    return this->start_;
+    return start_;
 }
 
 const Point& Wall::end() const
 {
-    return this->end_;
+    return end_;
 }
 
 void Wall::set_start(const Point& s)
 {
-    this->start_ = s;
+    start_ = s;
 }
 
 void Wall::set_end(const Point& e)
 {
-    this->end_ = e;
+    end_ = e;
 }
 
 #endif // WALL_H

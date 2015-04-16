@@ -152,52 +152,52 @@ class Lens : public Element, public Observable
 
 const Point& Lens::position() const
 {
-    return this->pos_;
+    return pos_;
 }
 
 double Lens::width() const
 {
-    return this->width_;
+    return width_;
 }
 
 double Lens::height() const
 {
-    return this->height_;
+    return height_;
 }
 
 int Lens::wl_max() const
 {
-    return this->wl_max_;
+    return wl_max_;
 }
 
 int Lens::wl_min() const
 {
-    return this->wl_min_;
+    return wl_min_;
 }
 
 void Lens::set_pos(const Point& pos)
 {
-    this->pos_ = pos;
+    pos_ = pos;
 }
 
 void Lens::set_width(const double w)
 {
-    this->width_ = w;
+    width_ = w;
 }
 
 void Lens::set_height(const double h)
 {
-    this->height_ = h;
+    height_ = h;
 }
 
 void Lens::set_wl_min(const double wl_min)
 {
-    this->wl_min_ = wl_min;
+    wl_min_ = wl_min;
 }
 
 void Lens::set_wl_max(const double wl_max)
 {
-    this->wl_max_ = wl_max;
+    wl_max_ = wl_max;
 }
 
 #endif // LENS_H

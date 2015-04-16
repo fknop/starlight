@@ -31,7 +31,7 @@ public:
      */
     Element(Element::Type type)
     {
-        this->type_ = type;
+        type_ = type;
     }
 
     virtual ~Element() {}
@@ -47,7 +47,7 @@ public:
 
 const Element::Type& Element::type() const
 {
-    return this->type_;
+    return type_;
 }
 
 #endif // ELEMENT_H

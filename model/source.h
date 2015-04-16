@@ -145,53 +145,53 @@ class Source : public Observable, public Element
 
 const Point& Source::pos() const
 {
-    return this->pos_;
+    return pos_;
 }
 
 double Source::angle() const
 {
-    return this->alpha_;
+    return alpha_;
 }
 
 int Source::edge() const
 {
-    return this->edge_;
+    return edge_;
 }
 
 int Source::wavelength() const
 {
-    return this->wavelength_;
+    return wavelength_;
 }
 
 bool Source::on() const
 {
-    return this->on_;
+    return on_;
 }
 
 void Source::set_on(bool q)
 {
-    this->on_ = q;
+    on_ = q;
     notify_all(std::string("SOURCE_ON"));
 }
 
 void Source::set_pos(Point p)
 {
-    this->pos_ = p;
+    pos_ = p;
 }
 
 void Source::set_edge(double edge)
 {
-    this->edge_ = edge;
+    edge_ = edge;
 }
 
 void Source::set_alpha(double a)
 {
-    this->alpha_ = a;
+    alpha_ = a;
 }
 
 void Source::set_wavelength(double wl)
 {
-    this->wavelength_ = wl;
+    wavelength_ = wl;
 }
 
 #endif // SOURCE_H

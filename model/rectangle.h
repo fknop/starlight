@@ -55,17 +55,17 @@ public:
 
 const Point& Rectangle::upper_left() const
 {
-    return this->upper_left_;
+    return upper_left_;
 }
 
 double Rectangle::width() const
 {
-    return this->width_;
+    return width_;
 }
 
 double Rectangle::height() const
 {
-    return this->height_;
+    return height_;
 }
 
 #endif // RECTANGLE_H

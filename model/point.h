@@ -116,28 +116,28 @@ class Point
 
 double Point::x() const
 {
-    return this->x_;
+    return x_;
 }
 
 double Point::y() const
 {
-    return this->y_;
+    return y_;
 }
 
 void Point::set_x(double x)
 {
-    this->x_ = x;
+    x_ = x;
 }
 
 void Point::set_y(double y)
 {
-    this->y_ = y;
+    y_ = y;
 }
 
 void Point::set_position(double x, double y)
 {
-    this->x_ = x;
-    this->y_ = y;
+    x_ = x;
+    y_ = y;
 }
 
 #endif // POINT_H

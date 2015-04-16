@@ -399,7 +399,7 @@ bool Mirror::set_angle(const double a)
 {
     bool r {check_angle_range(a)};
     if (r)
-        this->alpha_ = a;
+        alpha_ = a;
     return r;
 }
 

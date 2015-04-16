@@ -119,34 +119,34 @@ class Ray
 
 const Point& Ray::start() const
 {
-    return this->start_;
+    return start_;
 }
 
 const Point& Ray::end() const
 {
-    return this->end_;
+    return end_;
 }
 
 int Ray::wavelength() const
 {
-    return this->wavelength_;
+    return wavelength_;
 }
 
 void Ray::set_start(const Point& p)
 {
-    this->start_ = p;
+    start_ = p;
 }
 
 void Ray::set_end(const Point& p)
 {
-    this->end_ = p;
+    end_ = p;
 }
 
 bool Ray::set_wavelength(int wl)
 {
-    bool r = ((wl >= this->WL_MIN) && (wl <= this->WL_MAX));
+    bool r = ((wl >= WL_MIN) && (wl <= WL_MAX));
     if (r)
-        this->wavelength_ = wl;
+        wavelength_ = wl;
 
     return r;
 }

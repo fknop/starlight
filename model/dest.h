@@ -104,33 +104,33 @@ class Dest : public Element, public Observable
 
 const Point& Dest::pos() const
 {
-    return this->pos_;
+    return pos_;
 }
 
 double Dest::edge() const
 {
-    return this->edge_;
+    return edge_;
 }
 
 bool Dest::lighted_up() const
 {
-    return this->lighted_up_;
+    return lighted_up_;
 }
 
 void Dest::set_lighted_up(const bool value)
 {
-    this->lighted_up_ = value;
+    lighted_up_ = value;
     notify_all(std::string("LIGHTED_UP"));
 }
 
 void Dest::set_pos(const Point& pos)
 {
-    this->pos_ = pos;
+    pos_ = pos;
 }
 
 void Dest::set_edge(const double edge)
 {
-    this->edge_ = edge;
+    edge_ = edge;
 }
 
 #endif // DEST_H

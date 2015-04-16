@@ -115,32 +115,32 @@ class Crystal : public Element, public Observable
 
 const Point& Crystal::center() const
 {
-    return this->center_;
+    return center_;
 }
 
 int Crystal::modifier() const
 {
-    return this->mod_;
+    return mod_;
 }
 
 double Crystal::radius() const
 {
-    return this->rad_;
+    return rad_;
 }
 
 void Crystal::set_center(const Point& c)
 {
-    this->center_ = c;
+    center_ = c;
 }
 
 void Crystal::set_radius(const double rad)
 {
-    this->rad_ = rad;
+    rad_ = rad;
 }
 
 void Crystal::set_modifier(const double mod)
 {
-    this->mod_ = mod;
+    mod_ = mod;
 }
 
 #endif // CRYSTAL_H

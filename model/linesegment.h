@@ -94,22 +94,22 @@ public:
 
 const Point& LineSegment::start() const
 {
-    return this->start_;
+    return start_;
 }
 
 const Point& LineSegment::end() const
 {
-    return this->end_;
+    return end_;
 }
 
 void LineSegment::set_start(const Point& start)
 {
-    this->start_ = start;
+    start_ = start;
 }
 
 void LineSegment::set_end(const Point& end)
 {
-    this->end_ = end;
+    end_ = end;
 }
 
 #endif // LINESEGMENT_H
