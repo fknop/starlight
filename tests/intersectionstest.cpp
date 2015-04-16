@@ -21,7 +21,6 @@ TEST_CASE("Intersections droites, segments")
     bool is_point;
 
 
-
     SECTION("Intersection droite / droite verticale")
     {
         do_intersect = umath::intersects(l, vl, p, is_point);

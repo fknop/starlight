@@ -107,7 +107,7 @@ bool umath::is_on_good_side(const Line& l, const Point& ref, const Point& p)
 
     // Angle à 180°
     if (umath::angle_equals(angle, PI))
-        return umath::equals(p.x(), ref.x())
+        return umath::equals(p.y(), ref.y())
                 && p.x() < ref.x();
 
     // Angle à 0°
@@ -261,7 +261,6 @@ bool umath::intersects(const LineSegment& ls1, const LineSegment& ls2, Point& po
 
     if (do_intersect && !is_point)
     {
-        std::cout << "Test";
         if (ls1.start() == ls2.end())
         {
             is_point = true;

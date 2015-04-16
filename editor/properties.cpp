@@ -25,7 +25,6 @@ void Properties::add_connections()
 
 void Properties::setupUi()
 {
-    std::cout << "setupUi prefs"<< std::endl;
     resize(400, 300);
 
     grid_layout_ = new QGridLayout();

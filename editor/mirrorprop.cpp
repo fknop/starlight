@@ -1,4 +1,5 @@
 #include "mirrorprop.h"
+#include "utils/constants.h"
 
 MirrorProp::MirrorProp(Mirror * mirror, QWidget * parent) : mirror_{mirror}
 {
@@ -69,7 +70,8 @@ void MirrorProp::setupUi()
     form_layout_->setWidget(4, QFormLayout::LabelRole, alpha_label_);
 
     alpha_dsb_ = new QDoubleSpinBox();
-    alpha_dsb_->setMaximum(999.);
+    alpha_dsb_->setDecimals(10);
+    alpha_dsb_->setMaximum(2*PI);
 
     form_layout_->setWidget(4, QFormLayout::FieldRole, alpha_dsb_);
 

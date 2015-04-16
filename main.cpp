@@ -1,7 +1,7 @@
 #include <QApplication>
 
 #include "view/mainmenu.h"
-#include "Tests/test.h"
+#include "tests/test.h"
 
 #ifndef RUNTEST
 int main(int argc, char** argv)

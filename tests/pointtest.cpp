@@ -1,4 +1,4 @@
-#include "Tests/test.h"
+#include "tests/test.h"
 
 #ifdef RUNTEST
 #define CATCH_CONFIG_MAIN
@@ -61,13 +61,6 @@ TEST_CASE("Distance")
     {
         REQUIRE(p1.distance(p2) == 4);
     }
-
-    SECTION("Test distance_2")
-    {
-        REQUIRE(umath::equals(p1.distance(p3), 1.414));
-    }
-
-
 }
 
 #endif
