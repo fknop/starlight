@@ -435,6 +435,8 @@ void Level::remove_crystal(const Crystal& c)
         (*position).remove_observer(this);
         crystals_.erase(position);
     }
+
+    compute_rays(); // On recompute après avoir supprimer un élément.
 }
 
 void Level::remove_lens(const Lens& l)
@@ -446,6 +448,8 @@ void Level::remove_lens(const Lens& l)
         (*position).remove_observer(this);
         lenses_.erase(position);
     }
+
+    compute_rays();
 }
 
 void Level::remove_mirror(const Mirror& m)
@@ -457,6 +461,8 @@ void Level::remove_mirror(const Mirror& m)
         (*position).remove_observer(this);
         mirrors_.erase(position);
     }
+
+    compute_rays();
 }
 
 void Level::remove_nuke(const Nuke& n)
@@ -468,6 +474,8 @@ void Level::remove_nuke(const Nuke& n)
         (*position).remove_observer(this);
         nukes_.erase(position);
     }
+
+    compute_rays();
 }
 
 void Level::remove_wall(const Wall& w)
@@ -479,6 +487,8 @@ void Level::remove_wall(const Wall& w)
         (*position).remove_observer(this);
         walls_.erase(position);
     }
+
+    compute_rays();
 }
 
 const Source& Level::source() const

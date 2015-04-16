@@ -18,8 +18,16 @@ Level::Level(double w, double h) : width_ {w}, height_ {h},
 
 void Level::compute_rays()
 {
-    Line ray(this->source_.pos(), this->source_.angle());
-    compute_ray(ray, this->source().pos(), this->source_.wavelength());
+    if (this->rays_.size() > 0)
+        this->rays_.clear();
+
+    if (source_.on())
+    {
+        Line ray(this->source_.pos(), this->source_.angle());
+        compute_ray(ray, this->source().pos(), this->source_.wavelength());
+    }
+
+    notify_all(std::string("RECOMPUTE"));
 }
 
 void Level::compute_ray(Line& line, const Point& start, int wl)
@@ -362,13 +370,7 @@ void Level::notify(Observable* obs, std::string msg, const std::vector<std::stri
     }
     else if (recompute)
     {
-        if (this->rays_.size() > 0)
-            this->rays_.clear();
-
-        if (this->source_.on())
-           compute_rays();
-
-        notify_all(std::string("RECOMPUTE"));
+        compute_rays();
     }
 }
 
