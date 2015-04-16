@@ -38,5 +38,5 @@ bool Crystal::operator ==(const Crystal& c) const
 void Crystal::translate(double x, double y)
 {
     this->center_.set_position(center_.x() + x, center_.y() + y);
-    notify_all("TRANSLATE_CRYSTAL");
+    notify_all(std::string("TRANSLATE_CRYSTAL"));
 }

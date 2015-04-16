@@ -368,7 +368,7 @@ void Level::notify(Observable* obs, std::string msg, const std::vector<std::stri
         if (this->source_.on())
            compute_rays();
 
-        notify_all("RECOMPUTE");
+        notify_all(std::string("RECOMPUTE"));
     }
 }
 

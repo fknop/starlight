@@ -241,7 +241,7 @@ void MapView::draw_crystal(const Crystal& crystal)
 void MapView::mousePressEvent(QMouseEvent * event)
 {
     if (selected() != nullptr)
-        notify_all("SELECTED");
+        notify_all(std::string("SELECTED"));
 }
 
 void MapView::keyPressEvent(QKeyEvent *event)

@@ -52,7 +52,7 @@ void Mirror::rotate(double angle)
         std::ostringstream oss;
         oss << angle;
         std::vector<std::string> vec {oss.str()};
-        notify_all("ASK_ROTATE", vec);
+        notify_all(std::string("ASK_ROTATE"), vec);
     }
 
 
@@ -77,7 +77,7 @@ void Mirror::translate(double x, double y)
         ossy << y;
         std::vector<std::string> vec {ossx.str(), ossy.str()};
 
-        notify_all("ASK_TRANSLATE", vec);
+        notify_all(std::string("ASK_TRANSLATE"), vec);
     }
 
     if (this->movable_)

@@ -45,7 +45,7 @@ void Wall::translate(double x, double y)
     {
         this->start_.set_position(start_.x() + x, start_.y() + y);
         this->end_.set_position(end_.x() + x, end_.y() + y);
-        notify_all("TRANSLATE_WALL");
+        notify_all(std::string("TRANSLATE_WALL"));
     }
 }
 
@@ -59,6 +59,6 @@ void Wall::rotate(double r)
         ls.rotate(Point(center_x, center_y), r);
         this->start_ = ls.start();
         this->end_ = ls.end();
-        notify_all("ROTATE_WALL");
+        notify_all(std::string("ROTATE_WALL"));
     }
 }
