@@ -1,5 +1,5 @@
 #include "view/mirrorview.h"
-#include "model/geometry.h"
+#include "model/umath.h"
 #include "model/umath.h"
 
 MirrorView::MirrorView(const Mirror &mirror, bool selectable) :
@@ -25,7 +25,7 @@ void MirrorView::translate(double x, double y)
 
 void MirrorView::rotate(double angle)
 {
-    mirror_->rotate(Geometry::deg_to_rad(angle));
+    mirror_->rotate(umath::deg_to_rad(angle));
 }
 
 void MirrorView::notify(Observable* obs, std::string msg, const std::vector<std::string> &args)

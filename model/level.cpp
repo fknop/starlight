@@ -2,7 +2,7 @@
 #include <vector>
 #include <algorithm>
 #include <sstream>
-#include "geometry.h"
+#include "umath.h"
 #include "level.h"
 #include "constants.h"
 
@@ -145,11 +145,11 @@ void Level::dest_intersections(const Line &line,
                                const Point& start)
 {
     std::vector<Point> points;
-    if (Geometry::intersects(this->dest_.to_rectangle(), line, points) > 0)
+    if (umath::intersects(this->dest_.to_rectangle(), line, points) > 0)
     {
         for (auto &i : points)
         {
-            if (Geometry::is_on_good_side(line, start, i))
+            if (umath::is_on_good_side(line, start, i))
                 intersections_.push_back(Intersection(new Point(i), &this->dest_));
         }
     }
@@ -159,11 +159,11 @@ void Level::source_intersections(const Line& line,
                                  const Point& start)
 {
     std::vector<Point> points;
-    if (Geometry::intersects(this->source_.to_rectangle(), line, points) > 0)
+    if (umath::intersects(this->source_.to_rectangle(), line, points) > 0)
     {
         for (auto &i : points)
         {
-            if (Geometry::is_on_good_side(line, start, i))
+            if (umath::is_on_good_side(line, start, i))
                 intersections_.push_back(Intersection(new Point(i), &this->source_));
         }
     }
@@ -177,7 +177,7 @@ void Level::walls_intersections(const Line &line,
     Point p;
     for (auto &i : this->walls_)
     {
-        if (Geometry::intersects(line, i.to_line_segment(), p, ls, is_point))
+        if (umath::intersects(line, i.to_line_segment(), p, ls, is_point))
         {
             if (!is_point)
             {
@@ -186,7 +186,7 @@ void Level::walls_intersections(const Line &line,
                 else
                     p = Point(ls.end());
             }
-            if (Geometry::is_on_good_side(line, start, p))
+            if (umath::is_on_good_side(line, start, p))
                 intersections_.push_back(Intersection(new Point(p), &i));
         }
     }
@@ -199,11 +199,11 @@ void Level::lenses_intersections(const Line &line,
     for (auto &i : this->lenses_)
     {
         std::vector<Point> points;
-        if (Geometry::intersects(i.to_ellipse(), line, points))
+        if (umath::intersects(i.to_ellipse(), line, points))
         {
             for (auto &j : points)
             {
-                if (Geometry::is_on_good_side(line, start, j))
+                if (umath::is_on_good_side(line, start, j))
                     intersections_.push_back(Intersection(new Point(j), &i));
             }
         }
@@ -218,7 +218,7 @@ void Level::mirrors_intersections(const Line &line,
     Point p;
     for (auto &i : this->mirrors_)
     {
-        if (Geometry::intersects(line, i.to_line_segment(), p, ls, is_point))
+        if (umath::intersects(line, i.to_line_segment(), p, ls, is_point))
         {
             if (!is_point)
             {
@@ -227,7 +227,7 @@ void Level::mirrors_intersections(const Line &line,
                 else
                     p = Point(ls.end());
             }
-            if (Geometry::is_on_good_side(line, start, p))
+            if (umath::is_on_good_side(line, start, p))
                 intersections_.push_back(Intersection(new Point(p), &i));
         }
     }
@@ -240,11 +240,11 @@ void Level::nukes_intersections(const Line& line,
     for (auto &i : this->nukes_)
     {
         std::vector<Point> points;
-        if (Geometry::intersects(i.to_ellipse(), line, points))
+        if (umath::intersects(i.to_ellipse(), line, points))
         {
             for (auto &j : points)
             {
-                if (Geometry::is_on_good_side(line, start, j))
+                if (umath::is_on_good_side(line, start, j))
                     intersections_.push_back(Intersection(new Point(j), &i));
             }
         }
@@ -259,11 +259,11 @@ void Level::crystals_intersections(const Line &line,
     for (auto &i : this->crystals_)
     {
         std::vector<Point> points;
-        if (Geometry::intersects(i.to_ellipse(), line, points))
+        if (umath::intersects(i.to_ellipse(), line, points))
         {
             for (auto &j : points)
             {
-                if (Geometry::is_on_good_side(line, start, j))
+                if (umath::is_on_good_side(line, start, j))
                     intersections_.push_back(Intersection(new Point(j), &i));
             }
         }
@@ -295,38 +295,38 @@ bool Level::check_collisions(const LineSegment& segment, Mirror * mirror)
     for (auto &i : this->walls_)
     {
         if (!intersects)
-            intersects = Geometry::intersects(segment, i.to_line_segment(), p, ls, is_point);
+            intersects = umath::intersects(segment, i.to_line_segment(), p, ls, is_point);
     }
 
     for (auto &i : this->mirrors_)
     {
         if (!intersects && !(i == *mirror))
-            intersects = Geometry::intersects(segment, i.to_line_segment(), p, ls, is_point);
+            intersects = umath::intersects(segment, i.to_line_segment(), p, ls, is_point);
     }
 
     for (auto &i : this->lenses_)
     {
         if (!intersects)
-            intersects = (Geometry::intersects(i.to_ellipse(), segment, points) > 0);
+            intersects = (umath::intersects(i.to_ellipse(), segment, points) > 0);
     }
 
     for (auto &i : this->nukes_)
     {
         if (!intersects)
-            intersects = (Geometry::intersects(i.to_ellipse(), segment, points) > 0);
+            intersects = (umath::intersects(i.to_ellipse(), segment, points) > 0);
     }
 
     for (auto &i : this->crystals_)
     {
         if (!intersects)
-            intersects = (Geometry::intersects(i.to_ellipse(), segment, points) > 0);
+            intersects = (umath::intersects(i.to_ellipse(), segment, points) > 0);
     }
 
     if (!intersects)
-        intersects = (Geometry::intersects(this->dest_.to_rectangle(), segment, points) > 0);
+        intersects = (umath::intersects(this->dest_.to_rectangle(), segment, points) > 0);
 
     if (!intersects)
-        intersects = (Geometry::intersects(this->source_.to_rectangle(), segment, points) > 0);
+        intersects = (umath::intersects(this->source_.to_rectangle(), segment, points) > 0);
 
     return intersects;
 }

@@ -1,7 +1,6 @@
 #include <cmath>
 
 #include "point.h"
-#include "polarpoint.h"
 #include "umath.h"
 
 

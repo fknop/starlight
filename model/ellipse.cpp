@@ -1,7 +1,7 @@
 #include <cmath>
 
 #include "ellipse.h"
-#include "geometry.h"
+#include "umath.h"
 #include "umath.h"
 #include "constants.h"
 

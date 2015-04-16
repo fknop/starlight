@@ -9,7 +9,7 @@
 #include "model/line.h"
 #include "model/linesegment.h"
 #include "model/constants.h"
-#include "model/geometry.h"
+#include "model/umath.h"
 
 TEST_CASE("Intersections droites, segments")
 {
@@ -24,7 +24,7 @@ TEST_CASE("Intersections droites, segments")
 
     SECTION("Intersection droite / droite verticale")
     {
-        do_intersect = Geometry::intersects(l, vl, p, is_point);
+        do_intersect = umath::intersects(l, vl, p, is_point);
         REQUIRE(do_intersect == true);
         REQUIRE(is_point == true);
         REQUIRE(p == Point(4,4));
@@ -33,7 +33,7 @@ TEST_CASE("Intersections droites, segments")
     SECTION("Non-intersection de deux droites verticales")
     {
         Line vl2(Point(0,0), Point(0,10));
-        do_intersect = Geometry::intersects(vl, vl2, p, is_point);
+        do_intersect = umath::intersects(vl, vl2, p, is_point);
         REQUIRE(do_intersect == false);
         REQUIRE(is_point == false);
     }
@@ -41,7 +41,7 @@ TEST_CASE("Intersections droites, segments")
     SECTION("Intersection droite / droite")
     {
        Line l2(Point(5,0), PI_4);
-       do_intersect = Geometry::intersects(l, l2, p, is_point);
+       do_intersect = umath::intersects(l, l2, p, is_point);
        REQUIRE(do_intersect == true);
        REQUIRE(is_point == true);
        REQUIRE(p == Point(2.5, 2.5));
@@ -50,7 +50,7 @@ TEST_CASE("Intersections droites, segments")
     SECTION("Droites parallèles")
     {
         Line ll(Point(1,0), -PI_4);
-        do_intersect = Geometry::intersects(l, ll, p, is_point);
+        do_intersect = umath::intersects(l, ll, p, is_point);
         REQUIRE(do_intersect == false);
         REQUIRE(is_point == false);
     }
@@ -58,7 +58,7 @@ TEST_CASE("Intersections droites, segments")
     SECTION("Intersection droite/segment")
     {
         LineSegment ls(Point(4,4), Point(8,8));
-        do_intersect = Geometry::intersects(l, ls, p, result, is_point);
+        do_intersect = umath::intersects(l, ls, p, result, is_point);
         REQUIRE(do_intersect == true);
         REQUIRE(is_point == false);
         REQUIRE(result == ls);
@@ -67,7 +67,7 @@ TEST_CASE("Intersections droites, segments")
     SECTION("Intersection droite/segment_2")
     {
         LineSegment ls(Point(4,0), Point(3,1));
-        do_intersect = Geometry::intersects(l, ls, p, result, is_point);
+        do_intersect = umath::intersects(l, ls, p, result, is_point);
         REQUIRE(do_intersect == false);
         REQUIRE(is_point == false);
     }
@@ -88,7 +88,7 @@ TEST_CASE("Intersections segments / segments")
     {
         LineSegment ls1(Point(0,0), Point(4,4));
         LineSegment ls2(Point(0,0), Point(4,4));
-        do_intersect = Geometry::intersects(ls1, ls2, p, result, is_point);
+        do_intersect = umath::intersects(ls1, ls2, p, result, is_point);
         REQUIRE(do_intersect == true);
         REQUIRE(is_point == false);
         REQUIRE(result == ls1);
@@ -99,7 +99,7 @@ TEST_CASE("Intersections segments / segments")
     {
         LineSegment ls1(Point(0,0), Point(4,4));
         LineSegment ls2(Point(1,1), Point(4,4));
-        do_intersect = Geometry::intersects(ls1, ls2, p, result, is_point);
+        do_intersect = umath::intersects(ls1, ls2, p, result, is_point);
         REQUIRE(do_intersect == true);
         REQUIRE(is_point == false);
         REQUIRE(result == ls2);
@@ -109,7 +109,7 @@ TEST_CASE("Intersections segments / segments")
     {
         LineSegment ls1(Point(0,0), Point(4,4));
         LineSegment ls2(Point(1,1), Point(5,5));
-        do_intersect = Geometry::intersects(ls1, ls2, p, result, is_point);
+        do_intersect = umath::intersects(ls1, ls2, p, result, is_point);
         REQUIRE(do_intersect == true);
         REQUIRE(is_point == false);
         REQUIRE(result == LineSegment(Point(1,1), Point(4,4)));
@@ -119,7 +119,7 @@ TEST_CASE("Intersections segments / segments")
     {
         LineSegment ls1(Point(0,0), Point(4,4));
         LineSegment ls2(Point(5,5), Point(4,4));
-        do_intersect = Geometry::intersects(ls1, ls2, p, result, is_point);
+        do_intersect = umath::intersects(ls1, ls2, p, result, is_point);
         REQUIRE(do_intersect == true);
         REQUIRE(is_point == true);
         REQUIRE(p == Point(4,4));
@@ -129,7 +129,7 @@ TEST_CASE("Intersections segments / segments")
     {
         LineSegment ls1(Point(1,1), Point(4,4));
         LineSegment ls2(Point(-5,-5), Point(2,2));
-        do_intersect = Geometry::intersects(ls1, ls2, p, result, is_point);
+        do_intersect = umath::intersects(ls1, ls2, p, result, is_point);
         REQUIRE(do_intersect == true);
         REQUIRE(is_point == false);
         REQUIRE(result == LineSegment(Point(1,1), Point(2,2)));
@@ -139,7 +139,7 @@ TEST_CASE("Intersections segments / segments")
     {
         LineSegment ls1(Point(4,4), Point(8,8));
         LineSegment ls2(Point(0,0), Point(3,3));
-        do_intersect = Geometry::intersects(ls1, ls2, p, result, is_point);
+        do_intersect = umath::intersects(ls1, ls2, p, result, is_point);
         REQUIRE(do_intersect == false);
     }
 
@@ -147,7 +147,7 @@ TEST_CASE("Intersections segments / segments")
     {
         LineSegment ls1(Point(0,5), Point(4,5));
         LineSegment ls2(Point(0,6), Point(4,6));
-        do_intersect = Geometry::intersects(ls1, ls2, p, result, is_point);
+        do_intersect = umath::intersects(ls1, ls2, p, result, is_point);
         REQUIRE(do_intersect == false);
     }
 
@@ -161,7 +161,7 @@ TEST_CASE("Intersections ellipses, droites, segments")
     SECTION("Intersection ellipse, droite")
     {
         Line l(Point(20, 0), PI_2);
-        int nb = Geometry::intersects(ellipse, l, points);
+        int nb = umath::intersects(ellipse, l, points);
         REQUIRE(nb == 2);
         REQUIRE(points.at(0) == Point(20, 30));
         REQUIRE(points.at(1) == Point(20, 10));
@@ -170,7 +170,7 @@ TEST_CASE("Intersections ellipses, droites, segments")
     SECTION("Intersection ellipse, droite n°2")
     {
         Line l(Point(0,0), -PI_4);
-        int nb = Geometry::intersects(ellipse, l, points);
+        int nb = umath::intersects(ellipse, l, points);
         REQUIRE (nb == 2);
         /*
          * Round pour éviter de préciser une valeur exacte avec
@@ -185,14 +185,14 @@ TEST_CASE("Intersections ellipses, droites, segments")
     SECTION("Non-intersection ellipse - droite")
     {
         Line l(Point(50,0), -PI_2);
-        int nb = Geometry::intersects(ellipse, l, points);
+        int nb = umath::intersects(ellipse, l, points);
         REQUIRE(nb == 0);
     }
 
     SECTION("Tangente droite-ellipse")
     {
         Line l(Point(40,0), -PI_2);
-        int nb = Geometry::intersects(ellipse, l, points);
+        int nb = umath::intersects(ellipse, l, points);
         REQUIRE(nb == 1);
         REQUIRE(points.at(0) == Point(40, 20));
     }
@@ -200,7 +200,7 @@ TEST_CASE("Intersections ellipses, droites, segments")
     SECTION("Intersection ellipse, segment")
     {
         LineSegment l(Point(0,0), Point(20,20));
-        int nb = Geometry::intersects(ellipse, l, points);
+        int nb = umath::intersects(ellipse, l, points);
         REQUIRE(nb == 1);
         REQUIRE(std::round(points.at(0).x()) == 11.0);
         REQUIRE(std::round(points.at(0).y()) == 11.0);
@@ -217,7 +217,7 @@ TEST_CASE("Intersections rectangle, droite, segment")
     SECTION("Intersection rectangle, droite")
     {
         Line l(Point(0,0), -PI_4);
-        int nb = Geometry::intersects(rec, l, points);
+        int nb = umath::intersects(rec, l, points);
         REQUIRE(nb == 2);
         REQUIRE(points.at(0) == Point(10,10));
         REQUIRE(points.at(1) == Point(14,14));
@@ -227,7 +227,7 @@ TEST_CASE("Intersections rectangle, droite, segment")
     {
         Rectangle r(Point(4,0), 4, 4);
         Line l(Point(0,0), -PI_4);
-        Geometry::intersects(r, l, points);
+        umath::intersects(r, l, points);
         REQUIRE(points.at(0) == Point(4,4));
     }
 
@@ -236,7 +236,7 @@ TEST_CASE("Intersections rectangle, droite, segment")
     {
 
         Line l(Point(20,0), -PI_4);
-        int nb = Geometry::intersects(rectangle, l, points);
+        int nb = umath::intersects(rectangle, l, points);
         REQUIRE (nb == 2);
         REQUIRE(points.at(0) == Point(20, 0));
         REQUIRE(points.at(1) == Point(25, 5));
@@ -245,7 +245,7 @@ TEST_CASE("Intersections rectangle, droite, segment")
     SECTION("Intersection rectangle, droite verticale")
     {
         Line l(Point(20, 0), PI_2);
-        int nb = Geometry::intersects(rectangle, l, points);
+        int nb = umath::intersects(rectangle, l, points);
         REQUIRE(nb == 2);
         REQUIRE(points.at(0) == Point(20, 0));
         REQUIRE(points.at(1) == Point(20, 5));
@@ -255,14 +255,14 @@ TEST_CASE("Intersections rectangle, droite, segment")
     SECTION("Non-intersection rectangle-droite")
     {
         Line l(Point(0,10), -PI_4);
-        int nb = Geometry::intersects(rectangle, l, points);
+        int nb = umath::intersects(rectangle, l, points);
         REQUIRE(nb == 0);
     }
 
     SECTION("Intersection rectangle, segment")
     {
         LineSegment ls(Point(0,0), Point(13,13));
-        int nb = Geometry::intersects(rec, ls, points);
+        int nb = umath::intersects(rec, ls, points);
         REQUIRE(nb == 1);
         REQUIRE(points.at(0) == Point(10,10));
     }
@@ -274,14 +274,14 @@ TEST_CASE("Vérification si un point est du bon coté selon l'angle de la droite
     {
         Line l(Point(4,4), PI_2);
         Point p(4,5);
-        bool b = Geometry::is_on_good_side(l, Point(4,4), p);
+        bool b = umath::is_on_good_side(l, Point(4,4), p);
         REQUIRE(b == false);
         Point p2(4,2);
-        b = Geometry::is_on_good_side(l, Point(4,4), p2);
+        b = umath::is_on_good_side(l, Point(4,4), p2);
         REQUIRE(b == true);
         // même point = faux
         Point p3(4,4);
-        b = Geometry::is_on_good_side(l, Point(4,4), p3);
+        b = umath::is_on_good_side(l, Point(4,4), p3);
         REQUIRE(b == false);
     }
 
@@ -289,13 +289,13 @@ TEST_CASE("Vérification si un point est du bon coté selon l'angle de la droite
     {
         Line l(Point(10,10), -PI_4);
         Point p(3,3);
-        bool b = Geometry::is_on_good_side(l, Point(10,10), p);
+        bool b = umath::is_on_good_side(l, Point(10,10), p);
         REQUIRE(b == false);
         Point p2(15,15);
-        b = Geometry::is_on_good_side(l,Point(10,10), p2);
+        b = umath::is_on_good_side(l,Point(10,10), p2);
         REQUIRE(b == true);
         Point p3(10,10);
-        b = Geometry::is_on_good_side(l, Point(10,10),  p3);
+        b = umath::is_on_good_side(l, Point(10,10),  p3);
         REQUIRE(b == false);
     }
 }
