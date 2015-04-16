@@ -12,13 +12,16 @@ Mirror::Mirror(const Point& p, double xpad, double len, double alpha)
 Mirror::Mirror(const Point& p, double xpad, double len, double alpha, const Point& min,
                const Point& max, double alpha_min, double alpha_max)
     : Element(Element::Type::MIRROR),
-      pivot_ {p}, length_(len), xpad_(xpad),
+      pivot_ {p}, length_(len),
       x_min_ {min.x()}, x_max_ {max.x()}, y_min_ {min.y()}, y_max_ {max.y()},
       alpha_ {alpha}, alpha_min_ {alpha_min}, alpha_max_ {alpha_max},
       movable_{true}
 {
-    if (length_ <= 0 || (xpad_ < 0 && xpad_ > length_))
-        throw std::string("La longueur et le décalage doivent etre positifs.");
+
+    if (length_ <= 0)
+        throw std::string("La longueur doit être positive.");
+
+    set_xpad(xpad);
 
     if (!check_pivot_range(p))
         throw std::string("Le pivot n'est pas dans les bornes autorisées.");
@@ -26,6 +29,8 @@ Mirror::Mirror(const Point& p, double xpad, double len, double alpha, const Poin
     if (!check_angle_range(alpha_))
         throw std::string("L'inclinaison du mirroir est invalide. "
                           "Elle n'est pas comprise entre les bornes.");
+
+
 }
 
 
