@@ -2,19 +2,19 @@
 #include "ray.h"
 
 
-Lens::Lens(const Point& p, double w, double h, int wlmin, int wlmax) :
+Lens::Lens(const Point& p, double w, double h, int wl_min, int wl_max) :
     Element(Element::Type::LENS), pos_ {p},
-    width_ {w}, height_ {h}, wl_min_ {wlmin}, wl_max_ {wlmax}
+    width_ {w}, height_ {h}, wl_min_ {wl_min}, wl_max_ {wl_max}
 {
 
 
-    if (wlmin <= Ray::WL_MIN || wlmax >= Ray::WL_MAX)
+    if (wl_min < Ray::WL_MIN || wl_max > Ray::WL_MAX)
         throw std::string("Les bornes de longueurs d'ondes"
                           "ne peuvent pas être plus petites"
                           "que le minimum ou plus grande"
                           "que le maximum");
 
-    if (wlmin > wlmax)
+    if (wl_min > wl_max)
     {
         throw std::string("La longueur d'onde minimale "
                           "ne peut pas être plus grande que "
@@ -43,14 +43,6 @@ Ellipse Lens::to_ellipse()
     return Ellipse(center, this->width_ / 2, this->height_ / 2);
 }
 
-std::ostream & operator<<(std::ostream & out, const Lens & l)
-{
-    out << "Lens -- Position : " << l.pos_ << " , width : " << l.width_
-        << " , height : " << l.height_ << " , Freq. Min. : " << l.wl_min_ <<
-        " , Freq. Max. : " << l.wl_max_;
-    return out;
-}
-
 bool Lens::operator ==(const Lens& l) const
 {
     return
@@ -60,8 +52,17 @@ bool Lens::operator ==(const Lens& l) const
      wl_max_ == l.wl_max_;
 }
 
-void Lens::translate(double x, double y)
+void Lens::translate(const double x, const double y)
 {
     this->pos_.set_position(pos_.x() + x, pos_.y() + y);
     notify_all(std::string("TRANSLATE_LENS"));
+}
+
+
+std::ostream& operator<<(std::ostream& out, const Lens& l)
+{
+    out << "Lens -- Position : " << l.pos_ << " , width : " << l.width_
+        << " , height : " << l.height_ << " , Freq. Min. : " << l.wl_min_ <<
+        " , Freq. Max. : " << l.wl_max_;
+    return out;
 }

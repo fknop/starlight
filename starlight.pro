@@ -59,7 +59,6 @@ SOURCES += \
     mapreader.cpp \
     model/crystal.cpp \
     model/dest.cpp \
-    model/element.cpp \
     model/ellipse.cpp \
     model/umath.cpp \
     model/lens.cpp \
