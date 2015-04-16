@@ -8,7 +8,7 @@
 #include "model/point.h"
 
 #include "obs/observable.h"
-#include "obs/observerinterface.h"
+
 /**
  * Cette classe modélise les cristaux utilisés dans le jeu.
  * </p>
