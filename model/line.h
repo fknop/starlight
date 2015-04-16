@@ -88,7 +88,7 @@ class Line
      * is_horizontal à true.
      * @return x si la droite n'est pas horizontale, INF sinon.
      */
-    inline double get_x(double y) const;
+    inline double get_x(const double y) const;
 
     /**
      * Retourne le y d'un x donné.
@@ -97,7 +97,7 @@ class Line
      * is_vertical à true.
      * @return y si la droite n'est pas verticale, INF sinon.
      */
-    inline double get_y(double x) const;
+    inline double get_y(const double x) const;
 
 
     /**
@@ -165,12 +165,12 @@ double Line::slope() const
     return -a_ / b_;
 }
 
-double Line::get_x(double y) const
+double Line::get_x(const double y) const
 {
     return ((-b_ * y) - c_) / a_;
 }
 
-double Line::get_y(double x) const
+double Line::get_y(const double x) const
 {
     return ((-a_ * x) -c_) / b_;
 }

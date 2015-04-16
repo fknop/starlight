@@ -5,13 +5,6 @@
 
 LineSegment::LineSegment(const Point& p1, const Point& p2)
 {
-   if (p1 == p2)
-   {
-       std::cout << p1 << std::endl;
-       std::cout << p2 << std::endl;
-   }
-      // throw std::string("Un segment doit contenir deux points différents");
-
     if (p1.x() < p2.x() ||
             (umath::equals(p1.x(), p2.x()) && p1.y() < p2.y()))
     {
@@ -28,6 +21,8 @@ LineSegment::LineSegment(const Point& p1, const Point& p2)
 
 bool LineSegment::contains(const Point& p) const
 {
+    // On vérifie que le point se situe dans le rectangle
+    // que constitue le segment.
     return ((std::min(start_.x(), end_.x()) < p.x() ||
              umath::equals(std::min(start_.x(), end_.x()), p.x())) &&
             (std::max(start_.x(), end_.x()) > p.x() ||
@@ -38,7 +33,7 @@ bool LineSegment::contains(const Point& p) const
              umath::equals(std::max(start_.y(), end_.y()), p.y())));
 }
 
-void LineSegment::translate(double x, double y)
+void LineSegment::translate(const double x, const double y)
 {
     this->start_.set_position(this->start_.x() + x, this->start_.y() + y);
     this->end_.set_position(this->end_.x() + x, this->end_.y() + y);

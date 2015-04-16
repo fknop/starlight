@@ -6,17 +6,18 @@
 #include "model/mirror.h"
 
 
-Mirror::Mirror(const Point & p, double x, double len, double a)
-    : Mirror {p, x, len, a, {.0, .0}, {.0, .0}, .0, .0} {}
+Mirror::Mirror(const Point& p, double xpad, double len, double alpha)
+    : Mirror {p, xpad, len, alpha, {.0, .0}, {.0, .0}, .0, .0} {}
 
-Mirror::Mirror(const Point & p, double x, double len, double a, Point pm,
-               Point pM, double am, double aM)
+Mirror::Mirror(const Point& p, double xpad, double len, double alpha, const Point& min,
+               const Point& max, double alpha_min, double alpha_max)
     : Element(Element::Type::MIRROR),
-      pivot_ {p}, length_(len), xpad_(x), x_min_ {pm.x()}, x_max_ {pM.x()},
-      y_min_ {pm.y()}, y_max_ {pM.y()}, alpha_ {a}, alpha_min_ {am},
-      alpha_max_ {aM}, movable_{true}
+      pivot_ {p}, length_(len), xpad_(xpad),
+      x_min_ {min.x()}, x_max_ {max.x()}, y_min_ {min.y()}, y_max_ {max.y()},
+      alpha_ {alpha}, alpha_min_ {alpha_min}, alpha_max_ {alpha_max},
+      movable_{true}
 {
-    if (length_ <= 0 || xpad_ < 0)
+    if (length_ <= 0 || (xpad_ < 0 && xpad_ > length_))
         throw std::string("La longueur et le décalage doivent etre positifs.");
 
     if (!check_pivot_range(p))
@@ -34,7 +35,7 @@ bool Mirror::check_angle_range(double a) const
             (a >= this->alpha_min_ && a <= this->alpha_max_);
 }
 
-bool Mirror::check_pivot_range(const Point & p) const
+bool Mirror::check_pivot_range(const Point& p) const
 {
     if (this->x_min_ == 0 && this->x_max_ == 0 && this->y_min_ == 0 && this->y_max_ == 0)
         return true;
@@ -63,26 +64,26 @@ void Mirror::rotate(double angle)
     }
 }
 
-void Mirror::translate(double x, double y)
+void Mirror::translate(const double x, const double y)
 {
     this->movable_ = true;
-    double newX = this->pivot_.x() + x;
-    double newY = this->pivot_.y() + y;
+    double new_x = this->pivot_.x() + x;
+    double new_y = this->pivot_.y() + y;
 
     if (observers_.size() > 0)
     {
-        std::ostringstream ossx;
-        std::ostringstream ossy;
-        ossx << x;
-        ossy << y;
-        std::vector<std::string> vec {ossx.str(), ossy.str()};
+        std::ostringstream oss_x;
+        std::ostringstream oss_y;
+        oss_x << x;
+        oss_y << y;
+        std::vector<std::string> vec {oss_x.str(), oss_y.str()};
 
         notify_all(std::string("ASK_TRANSLATE"), vec);
     }
 
     if (this->movable_)
     {
-        set_pivot(Point(newX, newY));
+        set_pivot(Point(new_x, new_y));
         notify_all(std::string("TRANSLATE_MIRROR"));
     }
 
@@ -91,15 +92,13 @@ void Mirror::translate(double x, double y)
 
 LineSegment Mirror::to_line_segment() const
 {
-    double pivotX = this->pivot_.x();
-    double pivotY = this->pivot_.y();
-    double gx = pivotX - (this->xpad_ * std::cos(this->alpha_));
-    double gy = pivotY + (xpad_ * sin(this->alpha_));
-    double dx = pivotX + ((this->length_ - xpad_) * std::cos(this->alpha_));
-    double dy = pivotY - ((this->length_ - xpad_) * std::sin(this->alpha_));  
+    double pivot_x = this->pivot_.x();
+    double pivot_y = this->pivot_.y();
+    double gx = pivot_x - (this->xpad_ * std::cos(this->alpha_));
+    double gy = pivot_y + (xpad_ * sin(this->alpha_));
+    double dx = pivot_x + ((this->length_ - xpad_) * std::cos(this->alpha_));
+    double dy = pivot_y - ((this->length_ - xpad_) * std::sin(this->alpha_));
     return LineSegment(Point(gx, gy), Point(dx, dy));
-
-
 }
 
 std::ostream & operator<<(std::ostream & out, const Mirror & m)

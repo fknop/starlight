@@ -69,7 +69,7 @@ public:
      * @param x le déplacement sur l'axe x.
      * @param y le déplacement sur l'axe y.
      */
-    void translate(double x, double y);
+    void translate(const double x, const double y);
 
     /**
      * Effectue une rotation sur le segment selon un point

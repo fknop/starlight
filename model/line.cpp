@@ -37,7 +37,7 @@ Line::Line(const Point& a, double alpha)
         a_ = 1; // On choisit que a = 1.
         b_ = 0;
         c_ = - a.x();
-        // x = -c / a
+        // x = -c / a donc -c
     }
     else if (umath::angle_equals_pi(alpha, 0))
     {
@@ -49,7 +49,7 @@ Line::Line(const Point& a, double alpha)
     else
     {
         a_ = std::tan(alpha);
-        b_ = 1;
+        b_ = 1; // On choisit que b = 1, pente = -a/b donc -a
         c_ = (-a_ * a.x()) - (b_* a.y());
     }
 

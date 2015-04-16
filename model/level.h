@@ -240,13 +240,13 @@ public:
      * Retourne vrai si la partie est gagnée.
      * @return vrai si la partie est gagnée, faux sinon.
      */
-    inline bool won();
+    inline bool won() const;
 
     /**
      * Retourne vrai si la partie est perdue.
      * @return vrai si la partie est perdue, faux sinon.
      */
-    inline bool lost();
+    inline bool lost() const;
 
     /**
      * Retourne vrai si les nukes sont activées.
@@ -328,7 +328,7 @@ private:
      * @param start le point de départ du rayon.
      * @param wl la longueur d'onde du rayon.
      */
-    void compute_ray(Line& line, const Point &start, int wl);
+    void compute_ray(const Line& line, const Point &start, int wl);
 
     /**
      * Retourne l'intersection la plus proche du rayon avec un objet.
@@ -658,12 +658,12 @@ void Level::set_handle_nukes(bool value)
     this->handle_nukes_ = value;
 }
 
-bool Level::won()
+bool Level::won() const
 {
     return this->dest_.lighted_up();
 }
 
-bool Level::lost()
+bool Level::lost() const
 {
     for (auto &i : nukes_)
     {

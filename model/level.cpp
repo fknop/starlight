@@ -30,7 +30,7 @@ void Level::compute_rays()
     notify_all(std::string("RECOMPUTE"));
 }
 
-void Level::compute_ray(Line& line, const Point& start, int wl)
+void Level::compute_ray(const Line& line, const Point& start, int wl)
 {
     Nuke* nuke = nullptr;
     Mirror* mirror = nullptr;
