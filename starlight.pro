@@ -33,8 +33,8 @@ HEADERS += \
     view/nukeview.h \
     view/sourceview.h \
     view/wallview.h \
-    Tests/catch.hpp \
-    Tests/test.h \
+    tests/catch.hpp \
+    tests/test.h \
     view/rayview.h \
     obs/observerinterface.h \
     view/mainwindow.h \
@@ -82,16 +82,16 @@ SOURCES += \
     view/sourceview.cpp \
     view/wallview.cpp \
     main.cpp \
-    Tests/pointtest.cpp \
-    Tests/intersectionstest.cpp \
+    tests/pointtest.cpp \
+    tests/intersectionstest.cpp \
     view/rayview.cpp \
-    Tests/sortpointtest.cpp \
+    tests/sortpointtest.cpp \
     view/mainwindow.cpp \
     editor/maineditor.cpp \
     editor/properties.cpp \
     editor/mirrorprop.cpp \
     editor/elements.cpp \
-    Tests/gametest.cpp \
+    tests/gametest.cpp \
     view/elementview.cpp \
     editor/crystalprop.cpp \
     editor/lensprop.cpp \
