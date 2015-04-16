@@ -1,8 +1,8 @@
 #include <cmath>
 
 #include "model/line.h"
-#include "model/constants.h"
-#include "model/umath.h"
+#include "utils/constants.h"
+#include "utils/umath.h"
 
 
 Line::Line(double a, double b, double c)

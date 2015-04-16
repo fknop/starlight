@@ -6,11 +6,12 @@
 #include <QPixmap>
 
 #include "button.h"
-#include "model/constants.h"
+
 #include "mainmenu.h"
 #include "mainwindow.h"
 
 #include "editor/maineditor.h"
+#include "utils/constants.h"
 
 
 MainMenu::MainMenu(QWidget * parent)

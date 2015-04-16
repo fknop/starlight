@@ -1,9 +1,9 @@
 #include <cmath>
 
-#include "ellipse.h"
-#include "umath.h"
-#include "umath.h"
-#include "constants.h"
+#include "model/ellipse.h"
+
+#include "utils/umath.h"
+#include "utils/constants.h"
 
 
 Ellipse::Ellipse(const Point& p, double x_rad, double y_rad)

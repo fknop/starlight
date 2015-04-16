@@ -7,9 +7,9 @@
 
 #include "mainmenu.h"
 #include "mainwindow.h"
-#include "mapreader.h"
+#include "utils/mapreader.h"
 #include "mapview.h"
-#include "model/constants.h"
+#include "utils/constants.h"
 #include "model/level.h"
 
 

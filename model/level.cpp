@@ -2,9 +2,10 @@
 #include <vector>
 #include <algorithm>
 #include <sstream>
-#include "umath.h"
-#include "level.h"
-#include "constants.h"
+
+#include "model/level.h"
+#include "utils/umath.h"
+#include "utils/constants.h"
 
 Level::Level(double w, double h) : width_ {w}, height_ {h},
     walls_ { {{.0, .0}, {.0, h}, false}, {{.0, h}, {w, h}, false},

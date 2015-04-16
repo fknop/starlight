@@ -7,7 +7,6 @@ TEMPLATE = app
 QMAKE_CXXFLAGS += -std=c++0x -Wall -Wextra -pedantic -fpermissive -Wno-unused
 
 HEADERS += \
-    mapreader.h \
     model/crystal.h \
     model/dest.h \
     model/element.h \
@@ -22,7 +21,6 @@ HEADERS += \
     model/ray.h \
     model/rectangle.h \
     model/source.h \
-    model/umath.h \
     model/wall.h \
     obs/observable.h \
     view/button.h \
@@ -37,14 +35,12 @@ HEADERS += \
     view/wallview.h \
     Tests/catch.hpp \
     Tests/test.h \
-    model/constants.h \
     view/rayview.h \
     obs/observerinterface.h \
     view/mainwindow.h \
     editor/maineditor.h \
     editor/properties.h \
     editor/mirrorprop.h \
-    mapwriter.h \
     editor/elements.h \
     editor/propertiesinterface.h \
     view/elementview.h \
@@ -53,14 +49,16 @@ HEADERS += \
     editor/nukeprop.h \
     editor/wallprop.h \
     editor/sourceprop.h \
-    editor/destprop.h
+    editor/destprop.h \
+    utils/constants.h \
+    utils/mapreader.h \
+    utils/mapwriter.h \
+    utils/umath.h
 
 SOURCES += \
-    mapreader.cpp \
     model/crystal.cpp \
     model/dest.cpp \
     model/ellipse.cpp \
-    model/umath.cpp \
     model/lens.cpp \
     model/level.cpp \
     model/line.cpp \
@@ -92,7 +90,6 @@ SOURCES += \
     editor/maineditor.cpp \
     editor/properties.cpp \
     editor/mirrorprop.cpp \
-    mapwriter.cpp \
     editor/elements.cpp \
     Tests/gametest.cpp \
     view/elementview.cpp \
@@ -101,7 +98,10 @@ SOURCES += \
     editor/nukeprop.cpp \
     editor/wallprop.cpp \
     editor/sourceprop.cpp \
-    editor/destprop.cpp
+    editor/destprop.cpp \
+    utils/mapreader.cpp \
+    utils/mapwriter.cpp \
+    utils/umath.cpp
 
 RESOURCES += \
     ressources.qrc

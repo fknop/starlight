@@ -1,6 +1,6 @@
 #include "model/linesegment.h"
-#include "model/umath.h"
-#include "model/umath.h"
+#include "utils/umath.h"
+
 
 
 LineSegment::LineSegment(const Point& p1, const Point& p2)

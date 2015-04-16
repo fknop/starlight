@@ -5,7 +5,7 @@
 
 #include "catch.hpp"
 #include "model/point.h"
-#include "model/umath.h"
+#include "utils/umath.h"
 
 TEST_CASE("Test créations de points")
 {
