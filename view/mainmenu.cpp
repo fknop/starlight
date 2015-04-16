@@ -5,13 +5,14 @@
 #include <QPalette>
 #include <QPixmap>
 
-#include "button.h"
-
-#include "mainmenu.h"
-#include "mainwindow.h"
 
 #include "editor/maineditor.h"
+
 #include "utils/constants.h"
+
+#include "view/button.h"
+#include "view/mainmenu.h"
+#include "view/mainwindow.h"
 
 
 MainMenu::MainMenu(QWidget * parent)

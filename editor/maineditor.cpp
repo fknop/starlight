@@ -1,5 +1,3 @@
-
-
 #include <QCoreApplication>
 #include <QFileDialog>
 #include <QFormLayout>
@@ -23,7 +21,7 @@
 
 MainEditor::MainEditor(QWidget * parent) : QMainWindow(parent), parent_{parent}, level_{new Level(750, 580)}
 {
-    setupUi();
+    setup_ui();
 
     QShortcut * shortcut = new QShortcut(QKeySequence("Ctrl+X"), this);
     connect(shortcut, SIGNAL(activated()), this, SLOT(delete_selected()));
@@ -71,7 +69,7 @@ ElementView * MainEditor::selected()
 
 void MainEditor::create_level()
 {
-    level_ = elements->level();
+    level_ = elements_->level();
     level_->set_check_collisions(false);
     level_->set_handle_nukes(false);
     level_->set_handle_dest(false);
@@ -91,7 +89,7 @@ void MainEditor::create_level()
     vertical_layout_2_->addWidget(mapview_);
 }
 
-void MainEditor::setupUi()
+void MainEditor::setup_ui()
 {
     showMaximized();
 
@@ -133,18 +131,18 @@ void MainEditor::setupUi()
     setMenuBar(menu_bar_);
 
 
-    centralWidget = new QWidget();
+    central_widget_ = new QWidget();
 
-    horizontalLayout = new QHBoxLayout(centralWidget);
-    horizontalLayout->setSpacing(6);
-    horizontalLayout->setContentsMargins(11, 11, 11, 11);
+    horizontal_layout_ = new QHBoxLayout(central_widget_);
+    horizontal_layout_->setSpacing(6);
+    horizontal_layout_->setContentsMargins(11, 11, 11, 11);
 
-    elements = new Elements();
-    elements->add_observer(this);
-    horizontalLayout->addWidget(elements);
+    elements_ = new Elements();
+    elements_->add_observer(this);
+    horizontal_layout_->addWidget(elements_);
 
 
-    horizontalLayout->addWidget(elements);
+    horizontal_layout_->addWidget(elements_);
 
     mapview_ = new QWidget();
     vertical_layout_2_ = new QVBoxLayout(mapview_);
@@ -156,9 +154,9 @@ void MainEditor::setupUi()
     sp_mapview.setHorizontalStretch(4);
     mapview_->setSizePolicy(sp_mapview);
 
-    horizontalLayout->addWidget(mapview_);
+    horizontal_layout_->addWidget(mapview_);
 
-    properties_ = new Properties(centralWidget);
+    properties_ = new Properties(central_widget_);
     properties_->add_observer(this);
 
 
@@ -166,9 +164,9 @@ void MainEditor::setupUi()
     sp_properties.setHorizontalStretch(1);
     properties_->setSizePolicy(sp_properties);
 
-    horizontalLayout->addWidget(properties_);
+    horizontal_layout_->addWidget(properties_);
 
-    setCentralWidget(centralWidget);
+    setCentralWidget(central_widget_);
 }
 
 void MainEditor::load_level()
@@ -192,10 +190,10 @@ void MainEditor::load_level()
 
         vertical_layout_2_->addWidget(mapview_);
 
-        elements->set_height(level_->height());
-        elements->set_width(level_->width());
+        elements_->set_height(level_->height());
+        elements_->set_width(level_->width());
 
-        elements->enable_pushbuttons(true);
+        elements_->enable_pushbuttons(true);
     }
 }
 

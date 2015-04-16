@@ -30,9 +30,9 @@ public:
     QAction * help_action_;
 
 private:
-    MainWindow * ui;
+    MainWindow * ui_;
 
-    void setupUi();
+    void setup_ui();
 
 private slots:
     void load_level();

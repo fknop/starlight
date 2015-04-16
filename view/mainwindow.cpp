@@ -13,9 +13,9 @@
 #include "model/level.h"
 
 
-MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), parent_{parent}
+MainWindow::MainWindow(QWidget * parent) : QMainWindow(parent), parent_{parent}
 {
-    setupUi();
+    setup_ui();
 }
 
 void MainWindow::load_level()
@@ -52,7 +52,7 @@ void MainWindow::close_level()
     map_view_ = nullptr;
 }
 
-void MainWindow::setupUi()
+void MainWindow::setup_ui()
 {
     setWindowTitle("Starlight");
     showMaximized();
@@ -119,7 +119,7 @@ void MainWindow::back_menu()
 
 MainWindow::~MainWindow()
 {
-    delete ui;
+    delete ui_;
     delete map_view_;
     map_view_ = nullptr;
     delete level_;

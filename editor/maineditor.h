@@ -24,7 +24,6 @@ class MainEditor : public QMainWindow, public ObserverInterface
     Q_OBJECT
 public:
     explicit MainEditor(QWidget * parent = 0);
-    void setupUi();
 
 private:
     QWidget * parent_;
@@ -36,9 +35,9 @@ private:
     QAction * quit_action_;
     QAction * help_action_;
 
-    QWidget * centralWidget;
-    QHBoxLayout * horizontalLayout;
-    Elements * elements;
+    QWidget * central_widget_;
+    QHBoxLayout * horizontal_layout_;
+    Elements * elements_;
     QVBoxLayout * vertical_layout_1_;
 
     MapView * mapview_;
@@ -48,6 +47,8 @@ private:
     Level * level_;
 
     ElementView * selected();
+
+    void setup_ui();
 
     void closeEvent(QCloseEvent * event);
     void notify(Observable * o,
