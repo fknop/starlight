@@ -6,9 +6,10 @@
 #include <QLabel>
 #include <QWidget>
 
+#include "editor/propertiesinterface.h"
+
 #include "model/nuke.h"
 
-#include "propertiesinterface.h"
 
 class NukeProp : public PropertiesInterface
 {
