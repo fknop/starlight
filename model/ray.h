@@ -47,7 +47,7 @@ class Ray
      * @param p1 le début du rayon lumineux.
      * @param p2 la fin du rayon lumineux.
      */
-    Ray(const Point & p1, const Point & p2);
+    Ray(const Point& p1, const Point& p2);
 
     /**
      * Instancie un rayon lumineux de début et de fin donnés, et de
@@ -117,12 +117,12 @@ class Ray
 /* Fonctions inlines */
 
 
-const Point & Ray::start() const
+const Point& Ray::start() const
 {
     return this->start_;
 }
 
-const Point & Ray::end() const
+const Point& Ray::end() const
 {
     return this->end_;
 }
@@ -132,12 +132,12 @@ int Ray::wavelength() const
     return this->wavelength_;
 }
 
-void Ray::set_start(const Point & p)
+void Ray::set_start(const Point& p)
 {
     this->start_ = p;
 }
 
-void Ray::set_end(const Point & p)
+void Ray::set_end(const Point& p)
 {
     this->end_ = p;
 }

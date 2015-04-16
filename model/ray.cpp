@@ -7,10 +7,10 @@ constexpr int Ray::WL_MAX;
 constexpr int Ray::WL_DFT;
 
 
-Ray::Ray(const Point & p1, const Point & p2) : Ray {p1, p2, Ray::WL_DFT}
+Ray::Ray(const Point& p1, const Point& p2) : Ray {p1, p2, Ray::WL_DFT}
 { }
 
-Ray::Ray(const Point & p1, const Point & p2, int wl) : start_ {p1},
+Ray::Ray(const Point& p1, const Point& p2, int wl) : start_ {p1},
 end_ {p2}, wavelength_ {wl}
 {
     if (wl < WL_MIN)
@@ -21,7 +21,7 @@ end_ {p2}, wavelength_ {wl}
 
 }
 
-std::ostream & operator<<(std::ostream & out, const Ray & p)
+std::ostream& operator<<(std::ostream& out, const Ray& p)
 {
     out << p.start_ << " ---------- " << p.end_ << " (" << p.wavelength_ <<
         " nm)";

@@ -101,7 +101,7 @@ LineSegment Mirror::to_line_segment() const
     return LineSegment(Point(gx, gy), Point(dx, dy));
 }
 
-std::ostream & operator<<(std::ostream & out, const Mirror & m)
+std::ostream& operator<<(std::ostream& out, const Mirror& m)
 {
     out << "Mirror --- Pivot : " << m.pivot_ << " , Length : " << m.length_
         << " , x-pad : " << m.xpad_ << ", Angle : " << m.alpha_ <<

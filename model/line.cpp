@@ -55,5 +55,3 @@ Line::Line(const Point& a, double alpha)
 
     alpha_ = alpha;
 }
-
-

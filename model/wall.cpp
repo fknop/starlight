@@ -1,7 +1,7 @@
 #include "wall.h"
 
 
-Wall::Wall(const Point & p1, const Point & p2, bool movable) : Element(Element::Type::WALL),
+Wall::Wall(const Point& p1, const Point& p2, bool movable) : Element(Element::Type::WALL),
     start_ {p1}, end_ {p2}, movable_{movable}
 {
     if (p1 == p2)
@@ -26,7 +26,7 @@ LineSegment Wall::to_line_segment()
 }
 
 
-std::ostream & operator<<(std::ostream & out, const Wall & w)
+std::ostream& operator<<(std::ostream& out, const Wall& w)
 {
     out << "Wall --- Start : "  << w.start_ << ", End : " << w.end_;
     return out;

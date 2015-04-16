@@ -85,7 +85,7 @@ class Nuke : public Element, public Observable
      * sous-jacente en console.
      * @return le flux dans lequel la bombe a été imprimée.
      */
-    friend std::ostream & operator<<(std::ostream& out,
+    friend std::ostream& operator<<(std::ostream& out,
                                      const Nuke& s);
 
     /**

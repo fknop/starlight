@@ -373,4 +373,3 @@ void Level::notify(Observable* obs, std::string msg, const std::vector<std::stri
         compute_rays();
     }
 }
-
