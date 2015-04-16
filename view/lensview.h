@@ -4,8 +4,10 @@
 #include <QGraphicsEllipseItem>
 
 #include "model/lens.h"
+
 #include "obs/observable.h"
 #include "obs/observerinterface.h"
+
 #include "view/elementview.h"
 
 

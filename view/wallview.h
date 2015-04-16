@@ -33,9 +33,9 @@ public:
 
     void translate(double x = .0, double y = .0);
     void rotate(double angle);
-    void notify(Observable *sdo,
+    void notify(Observable * sdo,
                 std::string msg,
-                const std::vector<std::string>& args = std::vector<std::string>());
+                const std::vector<std::string> & args = std::vector<std::string>());
 
 private:
     Wall * wall_;

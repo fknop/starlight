@@ -1,6 +1,6 @@
 #include "elements.h"
 
-Elements::Elements(QWidget *parent) : QWidget(parent)
+Elements::Elements(QWidget * parent) : QWidget(parent)
 {
     setupUi();
     add_connections();

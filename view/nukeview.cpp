@@ -1,10 +1,10 @@
 #include "view/nukeview.h"
 
 
-NukeView::NukeView(const Nuke& nuke, bool selectable)  :
+NukeView::NukeView(const Nuke & nuke, bool selectable)  :
     ElementView(ElementView::TypeView::NUKEVIEW), selectable_{selectable}
 {
-    this->nuke_ = &(const_cast<Nuke&>(nuke));
+    this->nuke_ = &(const_cast<Nuke &>(nuke));
     this->nuke_->add_observer(this);
 
     QBrush brush(Qt::black);
@@ -16,7 +16,7 @@ NukeView::NukeView(const Nuke& nuke, bool selectable)  :
     setFlag(QGraphicsItem::ItemIsSelectable, this->selectable_);
 }
 
-void NukeView::notify(Observable* sdo, std::string msg, const std::vector<std::string> &args)
+void NukeView::notify(Observable * sdo, std::string msg, const std::vector<std::string> & args)
 {
     if (msg.compare("LIGHTED_UP") == 0)
         setBrush(QBrush(Qt::red));

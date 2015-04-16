@@ -1,9 +1,10 @@
 #ifndef MAPWRITER_H
 #define MAPWRITER_H
 
+#include <string>
 
 #include "model/level.h"
-#include <string>
+
 
 class MapWriter
 {
@@ -14,7 +15,7 @@ public:
      * @param level le niveau.
      * @param path le chemin et nom du fichier à écrire.
      */
-    static void write(const Level* level, std::string path);
+    static void write(const Level * level, std::string path);
 };
 
 #endif // MAPWRITER_H

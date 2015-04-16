@@ -1,10 +1,10 @@
 #include "destinationview.h"
 
 
-DestinationView::DestinationView(const Dest& dest, bool selectable)  :
+DestinationView::DestinationView(const Dest & dest, bool selectable)  :
     ElementView(ElementView::TypeView::DESTVIEW), selectable_{selectable}
 {
-    this->dest_ = &(const_cast<Dest&>(dest));
+    this->dest_ = &(const_cast<Dest &>(dest));
     this->dest_->add_observer(this);
 
     set_rect();
@@ -12,7 +12,7 @@ DestinationView::DestinationView(const Dest& dest, bool selectable)  :
     setFlag(QGraphicsItem::ItemIsSelectable, this->selectable_);
 }
 
-void DestinationView::notify(Observable *sdo, std::string msg, const std::vector<std::string> &args)
+void DestinationView::notify(Observable * sdo, std::string msg, const std::vector<std::string> & args)
 {
     if (msg.compare("LIGHTED_UP") == 0)
         this->setBrush(QBrush(Qt::green));

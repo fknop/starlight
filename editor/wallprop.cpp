@@ -1,6 +1,6 @@
 #include "wallprop.h"
 
-WallProp::WallProp(Wall *wall, QWidget *parent) : wall_{wall}
+WallProp::WallProp(Wall * wall, QWidget * parent) : wall_{wall}
 {
     setupUi();
 

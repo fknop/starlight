@@ -1,10 +1,10 @@
 #include "lensview.h"
 
 
-LensView::LensView(const Lens& lens, bool selectable) :
+LensView::LensView(const Lens & lens, bool selectable) :
     ElementView(ElementView::TypeView::LENSVIEW), selectable_{selectable}
 {
-    this->lens_ = &(const_cast<Lens&>(lens));
+    this->lens_ = &(const_cast<Lens &>(lens));
     this->lens_->add_observer(this);
     set_rect();
     setFlag(QGraphicsItem::ItemIsSelectable, this->selectable_);
@@ -15,9 +15,9 @@ void LensView::translate(double x, double y)
     this->lens_->translate(x, y);
 }
 
-void LensView::notify(Observable *sdo,
+void LensView::notify(Observable * sdo,
                       std::string msg,
-                      const std::vector<std::string>& args)
+                      const std::vector<std::string> & args)
 {
     set_rect();
 }

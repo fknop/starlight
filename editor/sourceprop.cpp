@@ -1,6 +1,6 @@
 #include "sourceprop.h"
 
-SourceProp::SourceProp(Source *source, QWidget *parent) : source_{source}
+SourceProp::SourceProp(Source * source, QWidget * parent) : source_{source}
 {
     setupUi();
 

@@ -1,6 +1,6 @@
 #include "lensprop.h"
 
-LensProp::LensProp(Lens * lens, QWidget *parent) : lens_{lens}
+LensProp::LensProp(Lens * lens, QWidget * parent) : lens_{lens}
 {
     setupUi();
 

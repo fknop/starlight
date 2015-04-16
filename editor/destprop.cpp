@@ -1,6 +1,6 @@
 #include "destprop.h"
 
-DestProp::DestProp(Dest * dest, QWidget *parent) : dest_{dest}
+DestProp::DestProp(Dest * dest, QWidget * parent) : dest_{dest}
 {
     setupUi();
 

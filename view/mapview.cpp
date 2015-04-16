@@ -1,19 +1,9 @@
 #include <QGraphicsScene>
-
 #include <QMediaPlayer>
 #include <QMessageBox>
 
-#include <iostream>
-
-#include "view/crystalview.h"
-#include "view/destinationview.h"
-#include "view/lensview.h"
 #include "view/mapview.h"
-#include "view/mirrorview.h"
-#include "view/nukeview.h"
-#include "view/rayview.h"
-#include "view/sourceview.h"
-#include "view/wallview.h"
+
 
 MapView::MapView()
 {
@@ -246,11 +236,8 @@ void MapView::mousePressEvent(QMouseEvent * event)
 
 void MapView::keyPressEvent(QKeyEvent *event)
 {
-//        for (auto &i : mirror_views_)
-//       {
-//           if (i->isSelected())
-
     ElementView * i = selected();
+
     if (i != nullptr)
     {
         switch(event->key())
@@ -294,12 +281,10 @@ void MapView::keyPressEvent(QKeyEvent *event)
             break;
         }
     }
-    //    }
 }
 
-void MapView::notify(Observable *sdo, std::string msg, const std::vector<std::string> &args)
+void MapView::notify(Observable * sdo, std::string msg, const std::vector<std::string> & args)
 {
-
     if (msg.compare("RECOMPUTE") == 0)
         draw_rays();
 

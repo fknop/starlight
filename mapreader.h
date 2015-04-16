@@ -10,22 +10,22 @@ class MapReader
 
 private:
 
-    static Level* l_;
+    static Level * l_;
 
     /*
      * Les méthodes ci-dessous servent
      * à lire le fichier et à ajouter un
      * élement au jeu.
      */
-    static void read_file(std::string);
-    static void read_source(std::string);
-    static void read_wall(std::string);
-    static void read_destination(std::string);
-    static void read_nuke(std::string);
-    static void read_crystal(std::string);
-    static void read_mirror(std::string);
-    static void read_lens(std::string);
-    static void read_size(std::string);
+    static void read_file(std::string line);
+    static void read_source(std::string line);
+    static void read_wall(std::string line);
+    static void read_destination(std::string line);
+    static void read_nuke(std::string line);
+    static void read_crystal(std::string line);
+    static void read_mirror(std::string line);
+    static void read_lens(std::string line);
+    static void read_size(std::string line);
 
 
 public:

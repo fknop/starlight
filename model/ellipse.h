@@ -3,9 +3,9 @@
 
 #include <vector>
 
-#include "line.h"
-#include "linesegment.h"
-#include "point.h"
+#include "model/line.h"
+#include "model/linesegment.h"
+#include "model/point.h"
 
 
 /**

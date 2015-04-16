@@ -1,29 +1,35 @@
 #ifndef MAP_HPP
 #define MAP_HPP
 
+#include <string>
+
 #include <QGraphicsView>
 #include <QMediaPlayer>
-#include <string>
 #include <QMouseEvent>
 
 #include "model/level.h"
-#include "view/rayview.h"
-#include "view/wallview.h"
+
+#include "view/crystalview.h"
+#include "view/destinationview.h"
+#include "view/elementview.h"
 #include "view/lensview.h"
 #include "view/mirrorview.h"
-#include "view/crystalview.h"
 #include "view/nukeview.h"
+#include "view/rayview.h"
 #include "view/sourceview.h"
-#include "view/destinationview.h"
+#include "view/wallview.h"
 
-#include "view/elementview.h"
 
+/**
+ * Modélisation visuelle d’un plateau de jeu.
+ */
 class MapView : public QGraphicsView, public ObserverInterface, public Observable
 {
 public:
-    MapView(Level* level_, bool selectable = false);
+    MapView(Level * level_, bool selectable = false);
     MapView();
     ~MapView();
+
     void draw_walls();
     void draw_mirrors();
     void draw_nukes();
@@ -34,25 +40,23 @@ public:
     void draw_dest();
     void repaint();
     void clear();
-
-    void mousePressEvent(QMouseEvent * event);
     ElementView *selected();
 
-
+    void mousePressEvent(QMouseEvent * event);
     void keyPressEvent(QKeyEvent * event);
-    void notify(Observable *sdo,
+    void notify(Observable * sdo,
                 std::string msg,
-                const std::vector<std::string>& args = std::vector<std::string>());
+                const std::vector<std::string> & args = std::vector<std::string>());
 
 private:
-    std::vector<RayView*> ray_views_;
-    std::vector<MirrorView*> mirror_views_;
-    std::vector<LensView*> lens_views_;
-    std::vector<CrystalView*> crystal_views_;
-    std::vector<NukeView*> nuke_views_;
-    std::vector<WallView*> wall_views_;
-    DestinationView* dest_view_ = nullptr;
-    SourceView* source_view_ = nullptr;
+    DestinationView * dest_view_ = nullptr;
+    SourceView * source_view_ = nullptr;
+    std::vector<RayView *> ray_views_;
+    std::vector<MirrorView *> mirror_views_;
+    std::vector<LensView *> lens_views_;
+    std::vector<CrystalView *> crystal_views_;
+    std::vector<NukeView *> nuke_views_;
+    std::vector<WallView *> wall_views_;
 
     Level * level_;
     QGraphicsScene * scene_;
@@ -60,11 +64,11 @@ private:
     bool selectable_;
 
     void draw_wall(const Wall & wall);
-    void draw_mirror(const Mirror& mirror);
+    void draw_mirror(const Mirror & mirror);
     void draw_nuke(const Nuke & nuke);
     void draw_lens(const Lens & lens);
     void draw_crystal(const Crystal & crystal);
-    void draw_ray(const Ray& ray);
+    void draw_ray(const Ray & ray);
 };
 
 #endif // MAP_HPP

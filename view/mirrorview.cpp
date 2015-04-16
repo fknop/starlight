@@ -2,11 +2,11 @@
 #include "model/umath.h"
 #include "model/umath.h"
 
-MirrorView::MirrorView(const Mirror &mirror, bool selectable) :
+MirrorView::MirrorView(const Mirror & mirror, bool selectable) :
     ElementView(ElementView::TypeView::MIRRORVIEW),
     selectable_{selectable}
 {
-    mirror_ = &(const_cast<Mirror&>(mirror));
+    mirror_ = &(const_cast<Mirror &>(mirror));
     mirror_->add_observer(this);
 
     QPen myPen(Qt::red);
@@ -28,7 +28,7 @@ void MirrorView::rotate(double angle)
     mirror_->rotate(umath::deg_to_rad(angle));
 }
 
-void MirrorView::notify(Observable* obs, std::string msg, const std::vector<std::string> &args)
+void MirrorView::notify(Observable * obs, std::string msg, const std::vector<std::string> & args)
 {
     set_line();
 }

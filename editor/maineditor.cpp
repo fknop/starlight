@@ -1,4 +1,4 @@
-#include "maineditor.h"
+
 
 #include <QCoreApplication>
 #include <QFileDialog>
@@ -9,20 +9,23 @@
 #include <QPushButton>
 #include <QShortcut>
 
-#include "elements.h"
+#include "editor/elements.h"
+#include "editor/properties.h"
+#include "editor/maineditor.h"
+
 #include "mapreader.h"
 #include "mapwriter.h"
-#include "properties.h"
+
 #include "view/destinationview.h"
 #include "view/mapview.h"
 #include "view/sourceview.h"
 
 
-MainEditor::MainEditor(QWidget *parent) : QMainWindow(parent), parent_{parent}, level_{new Level(750, 580)}
+MainEditor::MainEditor(QWidget * parent) : QMainWindow(parent), parent_{parent}, level_{new Level(750, 580)}
 {
     setupUi();
 
-    QShortcut *shortcut = new QShortcut(QKeySequence("Ctrl+X"), this);
+    QShortcut * shortcut = new QShortcut(QKeySequence("Ctrl+X"), this);
     connect(shortcut, SIGNAL(activated()), this, SLOT(delete_selected()));
 }
 
@@ -80,9 +83,11 @@ void MainEditor::create_level()
     level_->set_dest(dest);
 
     verticalLayout_2->removeWidget(mapview_);
+
     mapview_ = new MapView(level_, true);
     level_->add_observer(mapview_);
     mapview_->add_observer(this);
+
     verticalLayout_2->addWidget(mapview_);
 }
 
@@ -227,7 +232,7 @@ void MainEditor::closeEvent(QCloseEvent * event)
     }
 }
 
-void MainEditor::notify(Observable * sdo, std::string msg, const std::vector<std::string> &args)
+void MainEditor::notify(Observable * sdo, std::string msg, const std::vector<std::string> & args)
 {
     if (msg.compare("LEVEL_CREATED") == 0)
         create_level();
@@ -265,6 +270,7 @@ void MainEditor::delete_selected()
     if (mapview_->selected() != nullptr)
     {
         properties->delete_prop(); // remove le panel properties
+
         switch (mapview_->selected()->type_view())
         {
         case ElementView::TypeView::CRYSTALVIEW:

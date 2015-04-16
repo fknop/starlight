@@ -1,15 +1,14 @@
-#include "crystalprop.h"
-#include "destprop.h"
-#include "lensprop.h"
-#include "mirrorprop.h"
-#include "nukeprop.h"
-#include "sourceprop.h"
-#include "wallprop.h"
-#include "properties.h"
+#include "editor/crystalprop.h"
+#include "editor/destprop.h"
+#include "editor/lensprop.h"
+#include "editor/mirrorprop.h"
+#include "editor/nukeprop.h"
+#include "editor/properties.h"
+#include "editor/sourceprop.h"
+#include "editor/wallprop.h"
 
-#include <iostream>
 
-Properties::Properties(QWidget *parent) : QWidget(parent)
+Properties::Properties(QWidget * parent) : QWidget(parent)
 {
     setupUi();
 
@@ -124,8 +123,6 @@ void Properties::set_element_prop(ElementView * ev)
             break;
         }
         }
-
-
     }
 
     if (prop_interface_ != nullptr)

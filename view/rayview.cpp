@@ -1,7 +1,8 @@
-#include "rayview.h"
 #include <QPen>
 
-RayView::RayView(const Ray& ray)
+#include "rayview.h"
+
+RayView::RayView(const Ray & ray)
 {
     set_color(ray.wavelength());
 

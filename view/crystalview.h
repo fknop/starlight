@@ -4,8 +4,10 @@
 #include <QGraphicsEllipseItem>
 
 #include "model/crystal.h"
+
 #include "obs/observable.h"
 #include "obs/observerinterface.h"
+
 #include "view/elementview.h"
 
 

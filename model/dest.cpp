@@ -1,13 +1,13 @@
-#include "dest.h"
+#include "model/dest.h"
 
 
-Dest::Dest(const Point& p, double e) : Element(Element::Type::DEST), pos_ {p}, edge_ {e}
+Dest::Dest(const Point & p, double e) : Element(Element::Type::DEST), pos_ {p}, edge_ {e}
 {
     if (e <= 0)
         throw std::string("La longueur doit être strictement supérieure à 0");
 }
 
-Dest::Dest(const Dest& dest) : Element(Element::Type::DEST)
+Dest::Dest(const Dest & dest) : Element(Element::Type::DEST)
 {
     this->edge_ = dest.edge_;
     this->light_up_ = dest.light_up_;
@@ -19,7 +19,7 @@ Rectangle Dest::to_rectangle()
     return Rectangle(this->pos_, this->edge_, this->edge_);
 }
 
-std::ostream & operator<<(std::ostream& out, const Dest& d)
+std::ostream & operator<<(std::ostream & out, const Dest & d)
 {
     out << "Dest --- Position : " << d.pos_ <<  " , Edge : " << d.edge_ <<
         " , lighted up : " << d.light_up_;

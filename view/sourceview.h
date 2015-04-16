@@ -3,14 +3,15 @@
 
 #include <QGraphicsView>
 #include <QGraphicsPixmapItem>
-//#include <QGraphicsRectItem>
 #include <QGraphicsSceneMouseEvent>
 #include <QMediaPlayer>
 
 #include "model/source.h"
-#include "view/elementview.h"
+
 #include "obs/observable.h"
 #include "obs/observerinterface.h"
+
+#include "view/elementview.h"
 
 /**
  * Modélisation visuelle d’une source.
@@ -25,28 +26,26 @@ public:
      * @param width longueur du carré représentant la source.
      * @param height hauteur du carré représentant la source.
      */
-    SourceView(const Source& source, bool selectable = false);
-
-    void mousePressEvent(QGraphicsSceneMouseEvent *event);
+    SourceView(const Source & source, bool selectable = false);
 
     inline Source * source();
 
     inline bool selectable() const;
     inline void set_selectable(bool value);
 
+    void mousePressEvent(QGraphicsSceneMouseEvent *event);
     void translate(double x = .0, double y = .0);
-    void notify(Observable *sdo,
+    void notify(Observable * sdo,
                 std::string msg,
-                const std::vector<std::string>& args = std::vector<std::string>());
+                const std::vector<std::string> & args = std::vector<std::string>());
 
 private:
-    Source* source_;
+    Source * source_;
     QMediaPlayer * sound_;
     bool selectable_;
 
     void set_pos();
     void set_pixmap();
-
 };
 
 /* Fonctions inlines */
