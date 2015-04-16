@@ -23,7 +23,7 @@ class MainEditor : public QMainWindow, public ObserverInterface
 {
     Q_OBJECT
 public:
-    explicit MainEditor(QWidget *parent = 0);
+    explicit MainEditor(QWidget * parent = 0);
     void setupUi();
 
 private:
@@ -36,29 +36,21 @@ private:
     QAction * quit_action_;
     QAction * help_action_;
 
-    QWidget *centralWidget;
-    QHBoxLayout *horizontalLayout;
-    Elements *elements;
-    QVBoxLayout *verticalLayout_1;
+    QWidget * centralWidget;
+    QHBoxLayout * horizontalLayout;
+    Elements * elements;
+    QVBoxLayout * vertical_layout_1_;
 
-    MapView *mapview_;
-    QVBoxLayout *verticalLayout_2;
-    QPushButton *pushButton_4;
-    QPushButton *pushButton_5;
-    QPushButton *pushButton_6;
-    Properties *properties;
-    QVBoxLayout *verticalLayout_3;
-    QPushButton *pushButton_7;
-    QPushButton *pushButton_8;
-    QPushButton *pushButton_9;
-
+    MapView * mapview_;
+    QVBoxLayout * vertical_layout_2_;
+    Properties * properties_;
 
     Level * level_;
 
     ElementView * selected();
 
     void closeEvent(QCloseEvent * event);
-    void notify(Observable* o,
+    void notify(Observable * o,
                 std::string msg,
                 const std::vector<std::string>& args = std::vector<std::string>());
 
@@ -78,8 +70,6 @@ public slots:
     void quit();
 
     void delete_selected();
-
-
 };
 
 #endif // MAINEDITOR_H

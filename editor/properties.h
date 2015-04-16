@@ -42,7 +42,6 @@ private:
 
     void add_connections();
 
-
 signals:
 
 public slots:

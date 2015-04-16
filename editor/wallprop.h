@@ -6,9 +6,9 @@
 #include <QLabel>
 #include <QWidget>
 
-#include "model/wall.h"
+#include "editor/propertiesinterface.h"
 
-#include "propertiesinterface.h"
+#include "model/wall.h"
 
 class WallProp : public PropertiesInterface
 {

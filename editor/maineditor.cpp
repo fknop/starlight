@@ -82,13 +82,13 @@ void MainEditor::create_level()
     level_->set_source(source);
     level_->set_dest(dest);
 
-    verticalLayout_2->removeWidget(mapview_);
+    vertical_layout_2_->removeWidget(mapview_);
 
     mapview_ = new MapView(level_, true);
     level_->add_observer(mapview_);
     mapview_->add_observer(this);
 
-    verticalLayout_2->addWidget(mapview_);
+    vertical_layout_2_->addWidget(mapview_);
 }
 
 void MainEditor::setupUi()
@@ -147,9 +147,9 @@ void MainEditor::setupUi()
     horizontalLayout->addWidget(elements);
 
     mapview_ = new QWidget();
-    verticalLayout_2 = new QVBoxLayout(mapview_);
-    verticalLayout_2->setSpacing(6);
-    verticalLayout_2->setContentsMargins(11, 11, 11, 11);
+    vertical_layout_2_ = new QVBoxLayout(mapview_);
+    vertical_layout_2_->setSpacing(6);
+    vertical_layout_2_->setContentsMargins(11, 11, 11, 11);
 
 
     QSizePolicy sp_mapview(QSizePolicy::Preferred, QSizePolicy::Preferred);
@@ -158,15 +158,15 @@ void MainEditor::setupUi()
 
     horizontalLayout->addWidget(mapview_);
 
-    properties = new Properties(centralWidget);
-    properties->add_observer(this);
+    properties_ = new Properties(centralWidget);
+    properties_->add_observer(this);
 
 
     QSizePolicy sp_properties(QSizePolicy::Preferred, QSizePolicy::Preferred);
     sp_properties.setHorizontalStretch(1);
-    properties->setSizePolicy(sp_properties);
+    properties_->setSizePolicy(sp_properties);
 
-    horizontalLayout->addWidget(properties);
+    horizontalLayout->addWidget(properties_);
 
     setCentralWidget(centralWidget);
 }
@@ -184,13 +184,13 @@ void MainEditor::load_level()
         level_->set_handle_nukes(false);
         level_->set_handle_dest(false);
 
-        verticalLayout_2->removeWidget(mapview_);
+        vertical_layout_2_->removeWidget(mapview_);
 
         mapview_ = new MapView(level_, true);
         level_->add_observer(mapview_);
         mapview_->add_observer(this);
 
-        verticalLayout_2->addWidget(mapview_);
+        vertical_layout_2_->addWidget(mapview_);
 
         elements->set_height(level_->height());
         elements->set_width(level_->width());
@@ -256,7 +256,7 @@ void MainEditor::notify(Observable * sdo, std::string msg, const std::vector<std
         add_wall();
 
     else if (msg.compare("SELECTED") == 0)
-        properties->set_element_prop(selected());
+        properties_->set_element_prop(selected());
 
     else if (msg.compare("ELEMENT_DELETED") == 0)
         delete_selected();
@@ -269,7 +269,7 @@ void MainEditor::delete_selected()
 {
     if (mapview_->selected() != nullptr)
     {
-        properties->delete_prop(); // remove le panel properties
+        properties_->delete_prop(); // remove le panel properties
 
         switch (mapview_->selected()->type_view())
         {
