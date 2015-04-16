@@ -139,7 +139,7 @@ void Level::get_intersections(const Line& line, const Point& start)
 }
 
 double Level::get_reflection_angle(double angle, double alpha)
-{   
+{
     double p = std::fmod((PI_2 + alpha), (PI));
     double angle_ray_p = p - (std::fmod(angle, PI));
 
@@ -149,7 +149,7 @@ double Level::get_reflection_angle(double angle, double alpha)
     return std::fmod((angle + PI + (2 * angle_ray_p)), (2*PI));
 }
 
-void Level::dest_intersections(const Line &line,
+void Level::dest_intersections(const Line& line,
                                const Point& start)
 {
     std::vector<Point> points;
@@ -177,7 +177,7 @@ void Level::source_intersections(const Line& line,
     }
 }
 
-void Level::walls_intersections(const Line &line,
+void Level::walls_intersections(const Line& line,
                                 const Point& start)
 {
     bool is_point;
@@ -200,7 +200,7 @@ void Level::walls_intersections(const Line &line,
     }
 }
 
-void Level::lenses_intersections(const Line &line,
+void Level::lenses_intersections(const Line& line,
                                  const Point& start)
 {
 
@@ -218,7 +218,7 @@ void Level::lenses_intersections(const Line &line,
     }
 }
 
-void Level::mirrors_intersections(const Line &line,
+void Level::mirrors_intersections(const Line & line,
                                   const Point& start)
 {
     bool is_point;
@@ -260,7 +260,7 @@ void Level::nukes_intersections(const Line& line,
     }
 }
 
-void Level::crystals_intersections(const Line &line,
+void Level::crystals_intersections(const Line& line,
                                    const Point& start)
 {
 

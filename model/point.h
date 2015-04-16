@@ -69,7 +69,7 @@ class Point
      * @param p l'autre point avec lequel on calcule la distance.
      * @return la distance entre les deux points.
      */
-    double distance(const Point &p) const;
+    double distance(const Point& p) const;
 
     /**
      * Redéfinit l'opérateur <.
