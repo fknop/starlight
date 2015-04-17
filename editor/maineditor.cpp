@@ -297,8 +297,12 @@ void MainEditor::delete_selected()
         }
         case ElementView::TypeView::WALLVIEW:
         {
+
             WallView * wv = dynamic_cast<WallView *> (selected());
-            level_->remove_wall(*wv->wall());
+            if (wv->wall()->movable())
+                level_->remove_wall(*wv->wall());
+            else
+                QMessageBox::information(this, "Error !", "This element cannot be deleted");
             break;
         }
         case ElementView::TypeView::DESTVIEW:

@@ -17,7 +17,7 @@ Wall::Wall(const Wall& wall) : Element(Element::Type::WALL)
 
 LineSegment Wall::to_line_segment()
 {
-    return LineSegment(this->start(), this->end());
+    return LineSegment(start_, end_);
 }
 
 

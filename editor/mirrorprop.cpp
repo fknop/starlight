@@ -70,8 +70,10 @@ void MirrorProp::setupUi()
     form_layout_->setWidget(4, QFormLayout::LabelRole, alpha_label_);
 
     alpha_dsb_ = new QDoubleSpinBox();
-    alpha_dsb_->setDecimals(10);
-    alpha_dsb_->setMaximum(2*PI);
+    alpha_dsb_->setDecimals(5);
+    alpha_dsb_->setMaximum(PI*2);
+    alpha_dsb_->setMinimum(-PI*2);
+
 
     form_layout_->setWidget(4, QFormLayout::FieldRole, alpha_dsb_);
 
@@ -150,7 +152,7 @@ void MirrorProp::reset()
     y_dsb_->setValue(mirror_->pivot().y());
     length_dsb_->setValue(mirror_->length());
     xpad_dsb_->setValue(mirror_->x_pad());
-    alpha_dsb_->setValue(mirror_->angle());
+    alpha_dsb_->setValue(std::fmod(mirror_->angle(), PI*2));
     xmin_dsb_->setValue(mirror_->min_pivot().x());
     xmax_dsb_->setValue(mirror_->max_pivot().x());
     ymin_dsb_->setValue(mirror_->min_pivot().y());
@@ -164,7 +166,7 @@ void MirrorProp::apply()
     mirror_->set_pivot(Point(x_dsb_->value(), y_dsb_->value()));
     mirror_->set_len(length_dsb_->value());
     mirror_->set_xpad(xpad_dsb_->value());
-    mirror_->set_angle(alpha_dsb_->value());
+    mirror_->set_angle(std::fmod(alpha_dsb_->value(), PI*2));
     mirror_->set_min(Point(xmin_dsb_->value(), ymin_dsb_->value()));
     mirror_->set_max(Point(xmax_dsb_->value(), ymax_dsb_->value()));
     mirror_->set_alpha_min(alphamin_dsb_->value());

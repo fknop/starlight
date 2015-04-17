@@ -48,6 +48,8 @@ class Wall : public Element, public Observable
      */
     inline const Point& end() const;
 
+    inline bool movable() const;
+
     /**
      * Modifie le point de départ du mur.
      * @param s le point de départ.
@@ -118,6 +120,11 @@ void Wall::set_start(const Point& s)
 void Wall::set_end(const Point& e)
 {
     end_ = e;
+}
+
+bool Wall::movable() const
+{
+    return movable_;
 }
 
 #endif // WALL_H

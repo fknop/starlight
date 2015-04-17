@@ -40,17 +40,17 @@ void LineSegment::rotate(const Point& pivot, double rotation)
     // y' = x * sin(f) + y * cos(f);
 
     translate(-pivot.x(), -pivot.y());
-    double x1 = ((start_.x() * std::cos(rotation)) -
-                 (start_.y() *std::sin(rotation)));
+    double x1 = ((start_.x() * std::cos(-rotation)) -
+                 (start_.y() *std::sin(-rotation)));
 
-    double y1 = (start_.x() * std::sin(rotation)) +
-                (start_.y() * std::cos(rotation));
+    double y1 = (start_.x() * std::sin(-rotation)) +
+                (start_.y() * std::cos(-rotation));
 
-    double x2 = ((end_.x() * std::cos(rotation)) -
-                (end_.y() *std::sin(rotation)));
+    double x2 = ((end_.x() * std::cos(-rotation)) -
+                (end_.y() *std::sin(-rotation)));
 
-    double y2 = (end_.x() * std::sin(rotation)) +
-                (end_.y() * std::cos(rotation));
+    double y2 = (end_.x() * std::sin(-rotation)) +
+                (end_.y() * std::cos(-rotation));
 
     set_positions(Point(x1, y1), Point(x2, y2));
     translate(pivot.x(), pivot.y());

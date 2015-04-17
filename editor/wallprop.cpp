@@ -26,6 +26,8 @@ void WallProp::setupUi()
 
     x1_dsb_ = new QDoubleSpinBox();
     x1_dsb_->setMaximum(999.);
+    x1_dsb_->setMinimum(-999.);
+
 
     form_layout_->setWidget(0, QFormLayout::FieldRole, x1_dsb_);
 
@@ -37,6 +39,7 @@ void WallProp::setupUi()
 
     y1_dsb_ = new QDoubleSpinBox();
     y1_dsb_->setMaximum(999.);
+    y1_dsb_->setMinimum(-999.);
 
     form_layout_->setWidget(1, QFormLayout::FieldRole, y1_dsb_);
 
@@ -48,6 +51,7 @@ void WallProp::setupUi()
 
     x2_dsb_ = new QDoubleSpinBox();
     x2_dsb_->setMaximum(999.);
+    x2_dsb_->setMinimum(-999.);
 
     form_layout_->setWidget(5, QFormLayout::FieldRole, x2_dsb_);
 
@@ -59,6 +63,7 @@ void WallProp::setupUi()
 
     y2_dsb_ = new QDoubleSpinBox();
     y2_dsb_->setMaximum(999.);
+    y2_dsb_->setMinimum(-999.);
 
     form_layout_->setWidget(6, QFormLayout::FieldRole, y2_dsb_);
 

@@ -14,14 +14,5 @@ int main(int argc, char** argv)
     game->displayMainMenu();
 
     return app.exec();
-
-//    LineSegment l(Point(4,4), Point(8,8));
-//    l.rotate(Point(4,4), PI);
-//    std::cout << l.start();
-//    std::cout << l.end();
-//    l.rotate(Point(4,4), PI);
-//    std::cout << l.start();
-//    std::cout << l.end();
-//    return 0;
 }
 #endif
