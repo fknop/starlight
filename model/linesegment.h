@@ -75,9 +75,9 @@ public:
      * Effectue une rotation sur le segment selon un point
      * de pivot situé sur ce dernier.
      * @param pivot le point de rotation.
-     * @param angle l'angle de rotation.
+     * @param rotation l'angle de rotation.
      */
-    void rotate(const Point& pivot, double angle);
+    void rotate(const Point& pivot, double rotation);
 
     /**
      * Redéfinition de l'opérateur d'égalité.
@@ -88,6 +88,8 @@ public:
      * @return vrai si les segments sont égaux, faux sinon.
      */
     bool operator==(const LineSegment& ls) const;
+
+    void set_positions(const Point& p1, const Point& p2);
 };
 
 /* Fonctions inline */

@@ -97,12 +97,23 @@ void Mirror::translate(const double x, const double y)
 
 LineSegment Mirror::to_line_segment() const
 {
-    double pivot_x = this->pivot_.x();
-    double pivot_y = this->pivot_.y();
-    double gx = pivot_x - (this->xpad_ * std::cos(this->alpha_));
-    double gy = pivot_y + (xpad_ * sin(this->alpha_));
-    double dx = pivot_x + ((this->length_ - xpad_) * std::cos(this->alpha_));
-    double dy = pivot_y - ((this->length_ - xpad_) * std::sin(this->alpha_));
+//    double x1 = ((start_.x() * std::cos(rotation)) -
+//                 (start_.y() *std::sin(rotation)));
+
+//    double y1 = (start_.x() * std::sin(rotation)) +
+//                (start_.y() * std::cos(rotation));
+
+//    double x2 = ((end_.x() * std::cos(rotation)) -
+//                (end_.y() *std::sin(rotation)));
+
+//    double y2 = (end_.x() * std::sin(rotation)) +
+//                (end_.y() * std::cos(rotation));
+    double pivot_x = pivot_.x();
+    double pivot_y = pivot_.y();
+    double gx = pivot_x - (xpad_ * std::cos(alpha_));
+    double gy = pivot_y + (xpad_ * sin(alpha_));
+    double dx = pivot_x + ((length_ - xpad_) * std::cos(alpha_));
+    double dy = pivot_y - ((length_ - xpad_) * std::sin(alpha_));
     return LineSegment(Point(gx, gy), Point(dx, dy));
 }
 

@@ -5,18 +5,7 @@
 
 LineSegment::LineSegment(const Point& p1, const Point& p2)
 {
-    if (p1.x() < p2.x() ||
-            (umath::equals(p1.x(), p2.x()) && p1.y() < p2.y()))
-    {
-        this->start_ = p1;
-        this->end_ = p2;
-    }
-    else if (p1.x() > p2.x() ||
-            (umath::equals(p1.x(), p2.x()) && p1.y() > p2.y()))
-    {
-        this->start_ = p2;
-        this->end_ = p1;
-    }
+    set_positions(p1, p2);
 }
 
 bool LineSegment::contains(const Point& p) const
@@ -39,23 +28,32 @@ void LineSegment::translate(const double x, const double y)
     end_.set_position(end_.x() + x, end_.y() + y);
 }
 
-void LineSegment::rotate(const Point& pivot, double angle)
+void LineSegment::rotate(const Point& pivot, double rotation)
 {
-    double xpad   = start_.distance(pivot);
-    double len    = start_.distance(end_);
-    double alpha  = umath::points_to_rad(start_, end_) + angle;
+    // On a un point x et y avec un angle q et une distance r.
+    // x = r * cos(q)
+    // y = r * sin(q)
+    // On ajoute un angle f :
+    // x' = r * cos(q+f) = r * cos(q) * cos(f) - r*sin(q) * sin(f)
+    // y' = r * sin(q+f) = r * sin(q) * cos(f) - r*cos(q) * sin(f)
+    // x' = x * cos(f) - y * sin(f)
+    // y' = x * sin(f) + y * cos(f);
 
-    this->translate(-pivot.x(), -pivot.y());
+    translate(-pivot.x(), -pivot.y());
+    double x1 = ((start_.x() * std::cos(rotation)) -
+                 (start_.y() *std::sin(rotation)));
 
-    double new_start_x = -(xpad * std::cos(alpha));
-    double new_start_y = +(xpad * std::sin(alpha));
-    double new_end_x = +((len - xpad) * std::cos(alpha));
-    double new_end_y = -((len - xpad) * std::sin(alpha));
+    double y1 = (start_.x() * std::sin(rotation)) +
+                (start_.y() * std::cos(rotation));
 
-    start_.set_position(new_start_x, new_start_y);
-    end_.set_position(new_end_x, new_end_y);
+    double x2 = ((end_.x() * std::cos(rotation)) -
+                (end_.y() *std::sin(rotation)));
 
-    this->translate(pivot.x(), pivot.y());
+    double y2 = (end_.x() * std::sin(rotation)) +
+                (end_.y() * std::cos(rotation));
+
+    set_positions(Point(x1, y1), Point(x2, y2));
+    translate(pivot.x(), pivot.y());
 }
 
 bool LineSegment::operator==(const LineSegment& ls) const
@@ -67,4 +65,20 @@ bool LineSegment::operator==(const LineSegment& ls) const
 Line LineSegment::to_line() const
 {
     return Line(start_, end_);
+}
+
+void LineSegment::set_positions(const Point& p1, const Point& p2)
+{
+    if (p1.x() < p2.x() ||
+            (umath::equals(p1.x(), p2.x()) && p1.y() < p2.y()))
+    {
+        start_ = p1;
+        end_ = p2;
+    }
+    else if (p1.x() > p2.x() ||
+            (umath::equals(p1.x(), p2.x()) && p1.y() > p2.y()))
+    {
+        start_ = p2;
+        end_ = p1;
+    }
 }

@@ -6,11 +6,6 @@ Wall::Wall(const Point& p1, const Point& p2, bool movable) : Element(Element::Ty
 {
     if (p1 == p2)
         throw std::string("Les deux extrémités du murs ne peuvent pas êtres égales");
-
-
-    if (p1 < Point(0, 0))
-        throw std::string("le mur ne peut pas être en dehors du jeu");
-
 }
 
 Wall::Wall(const Wall& wall) : Element(Element::Type::WALL)
