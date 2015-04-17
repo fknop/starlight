@@ -1,11 +1,13 @@
-#include <string>
-#include <vector>
 #include <algorithm>
 #include <sstream>
+#include <string>
+#include <vector>
 
 #include "model/level.h"
-#include "utils/umath.h"
+
 #include "utils/constants.h"
+#include "utils/umath.h"
+
 
 Level::Level(double w, double h) : width_ {w}, height_ {h},
     walls_ { {{.0, .0}, {.0, h}, false}, {{.0, h}, {w, h}, false},
@@ -33,11 +35,11 @@ void Level::compute_rays()
 
 void Level::compute_ray(const Line& line, const Point& start, int wl)
 {
-    Nuke* nuke = nullptr;
-    Mirror* mirror = nullptr;
-    Lens* lens = nullptr;
-    Crystal* crystal = nullptr;
-    Point* new_line_origin = nullptr;
+    Nuke * nuke = nullptr;
+    Mirror * mirror = nullptr;
+    Lens * lens = nullptr;
+    Crystal * crystal = nullptr;
+    Point * new_line_origin = nullptr;
     Element::Type type;
     double angle = line.alpha();
     double new_wl = wl;
@@ -52,7 +54,7 @@ void Level::compute_ray(const Line& line, const Point& start, int wl)
     {
         case Element::Type::CRYSTAL:
         {
-            crystal = dynamic_cast<Crystal*> (this->intersections_.at(0).element_);
+            crystal = dynamic_cast<Crystal *> (this->intersections_.at(0).element_);
             new_wl += crystal->modifier();
 
             if (this->intersections_.at(1).element_ == crystal)
@@ -73,8 +75,9 @@ void Level::compute_ray(const Line& line, const Point& start, int wl)
 
         case Element::Type::LENS:
         {
-            lens = dynamic_cast<Lens*> (this->intersections_.at(0).element_);
+            lens = dynamic_cast<Lens *> (this->intersections_.at(0).element_);
             continue_ray = (wl >= lens->wl_min() && wl <= lens->wl_max());
+
             if (continue_ray && this->intersections_.at(1).element_ == lens)
                     new_line_origin = this->intersections_.at(1).point_;
             break;
@@ -82,7 +85,7 @@ void Level::compute_ray(const Line& line, const Point& start, int wl)
 
         case Element::Type::MIRROR:
         {
-            mirror = dynamic_cast<Mirror*> (this->intersections_.at(0).element_);
+            mirror = dynamic_cast<Mirror *> (this->intersections_.at(0).element_);
             angle = get_reflection_angle(angle, mirror->angle());
             continue_ray = true;
             break;
@@ -90,7 +93,7 @@ void Level::compute_ray(const Line& line, const Point& start, int wl)
 
         case Element::Type::NUKE:
         {
-            nuke = dynamic_cast<Nuke*> (this->intersections_.at(0).element_);
+            nuke = dynamic_cast<Nuke *> (this->intersections_.at(0).element_);
             if (handle_nukes_)
                 nuke->set_lighted_up(true);
 
@@ -145,9 +148,9 @@ double Level::get_reflection_angle(double angle, double alpha)
     double angle_ray_p = p - (std::fmod(angle, PI));
 
     if (umath::angle_equals_pi(angle, alpha))
-        return std::fmod(angle + PI, 2*PI);
+        return std::fmod(angle + PI, 2 * PI);
 
-    return std::fmod((angle + PI + (2 * angle_ray_p)), (2*PI));
+    return std::fmod((angle + PI + (2 * angle_ray_p)), (2 * PI));
 }
 
 void Level::dest_intersections(const Line& line,
@@ -184,6 +187,7 @@ void Level::walls_intersections(const Line& line,
     bool is_point;
     LineSegment ls;
     Point p;
+
     for (auto &i : this->walls_)
     {
         if (umath::intersects(line, i.to_line_segment(), p, ls, is_point))
@@ -204,10 +208,10 @@ void Level::walls_intersections(const Line& line,
 void Level::lenses_intersections(const Line& line,
                                  const Point& start)
 {
-
     for (auto &i : this->lenses_)
     {
         std::vector<Point> points;
+
         if (umath::intersects(i.to_ellipse(), line, points))
         {
             for (auto &j : points)
@@ -219,12 +223,13 @@ void Level::lenses_intersections(const Line& line,
     }
 }
 
-void Level::mirrors_intersections(const Line & line,
+void Level::mirrors_intersections(const Line& line,
                                   const Point& start)
 {
     bool is_point;
     LineSegment ls;
     Point p;
+
     for (auto &i : this->mirrors_)
     {
         if (umath::intersects(line, i.to_line_segment(), p, ls, is_point))
@@ -245,10 +250,10 @@ void Level::mirrors_intersections(const Line & line,
 void Level::nukes_intersections(const Line& line,
                                 const Point& start)
 {
-
     for (auto &i : this->nukes_)
     {
         std::vector<Point> points;
+
         if (umath::intersects(i.to_ellipse(), line, points))
         {
             for (auto &j : points)
@@ -264,10 +269,10 @@ void Level::nukes_intersections(const Line& line,
 void Level::crystals_intersections(const Line& line,
                                    const Point& start)
 {
-
     for (auto &i : this->crystals_)
     {
         std::vector<Point> points;
+
         if (umath::intersects(i.to_ellipse(), line, points))
         {
             for (auto &j : points)
@@ -348,7 +353,7 @@ void Level::notify(Observable* obs, std::string msg, const std::vector<std::stri
 
     if (check_collisions_ && (ask_rotate || ask_translate))
     {
-        Mirror *mirror = dynamic_cast<Mirror*> (obs);
+        Mirror * mirror = dynamic_cast<Mirror*> (obs);
         LineSegment segment = mirror->to_line_segment();
 
         if (ask_translate)

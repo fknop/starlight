@@ -87,7 +87,7 @@ d'énumérations et structures.
 \subsubsection{Variables de classe}
 
 Les noms des variables de classes sont en minuscules, les mots sont 
-séparés par des underscores et le nom finit par un underscore.
+séparés par un underscore et le nom est suffixé par un underscore.
 
 \begin{itemize}
 	\item \textbf{variable\_}
@@ -99,12 +99,13 @@ structure.
 
 \subsubsection{Variables locales}
 
-Les noms des variables locales commencent par une minuscule, et par
-la suite d'une majuscule à chaque début de mot.
+Les noms des variables locales respectent les mêmes conventions 
+que les variables de classe, à la seule exception qu’ils ne sont pas
+suffixés par un underscore.
 
 \begin{itemize}
 	\item \textbf{variable}
-	\item \textbf{nomVariable}
+	\item \textbf{nom_variable}
 \end{itemize}
 
 \subsubsection{Constantes}
@@ -125,8 +126,7 @@ séparés par des underscores.
 \subsubsection{Getters}
 
 Le nom d'un getter (accesseur en lecture de variable de classe/structure)
-est égal au nom 
-de la variable de classe sans l'underscore final.
+est égal au nom de la variable de classe sans l'underscore final.
 
 \begin{itemize}
 	\item Variable : \textbf{variable\_} - Getter : \textbf{variable()}
@@ -136,8 +136,7 @@ de la variable de classe sans l'underscore final.
 \subsubsection{Setters}
 
 Le nom d'un setter (accesseur en écriture de variable de classe/structure)
-est égal au nom de la variable sans l'underscore final précédé
-d'un set.
+est égal au nom de la variable sans l'underscore final préfixé de \texttt{set}.
 
 \begin{itemize}
 	\item Variable : \textbf{variable\_} - Setter : \textbf{set\_variable()}
@@ -161,7 +160,7 @@ conventions des constantes énoncées ci-dessus.
 
 \section{Présentation des différentes classes}
 
-Dans cettte section, nous allons décrire les différentes classes
+Dans cette section, nous allons décrire les différentes classes
 composants ce projet.
 L’implémentation du projet est divisée entre la partie modèle et la partie vue.
 Elle est également basée sur le design pattern  Observeur / Observé  comme demandé
@@ -180,10 +179,9 @@ structure générale.
 
 \subsubsection{Line}
 
-
 Cette classe représente une droite, elle possède un point et un
-angle. Gràce à cela on peut trouver n'importe quel point de la 
-droite gràce en ayant la distance entre le point d'origine
+angle. À l’aide de ces informations, on peut trouver n'importe quel point de la 
+droite en ayant la distance entre le point d'origine
 et le point d'arrivée.
 
 Dans les méthodes intersects(...) de la classe Line, un passage
@@ -201,19 +199,17 @@ deux points qui représentent les extrémités du segment.
 
 \subsubsection{Ellipse}
 
-
 Cette classe représente une conique de forme elliptique.
-C'est à dire une ellipse ou un cercle.
+C'est-à-dire une ellipse ou un cercle.
 
 \subsubsection{Rectangle}
 
 Cette classe représente une forme géométrique rectangulaire.
 Elle possède un point supérieur gauche ainsi qu'une longueur et hauteur 
-nous permettant de retrouver facilement les autrex extrémités de la 
+nous permettant de retrouver facilement les autres extrémités de la 
 forme.
 
-Cette classe sert à représenter la classe Dest (la destination) qui est
-le seul objet de forme rectangulaire.
+Cette classe sert à représenter les objets Source et Destination.
 
 \subsubsection{Level}
 
@@ -223,7 +219,6 @@ du rayon lumineux.
 	
 \subsection{Vue}
 
-
 L’interface graphique a été réalisée en `Qt` à la main.
 
 Les classes composant la partie vue de l’application sont :
@@ -232,18 +227,39 @@ Les classes composant la partie vue de l’application sont :
 
 \paragraph{Description}
 
-
 Classe modélisant la destination à atteindre par le rayon émis depuis la source pour gagner la partie.
 
-\paragraph{MapView}
+\subsubsection{MapView}
 
-\paragraph{MirrorView}
+\paragraph{Description}
 
-\paragraph{NukeView}
+Classe représentant le plateau de jeu, où tous les éléments sont disposés et affichés.
 
-\paragraph{SourceView}
+\subsubsection{MirrorView}
 
-\paragraph{WallView}
+\paragraph{Description}
+
+Classe représentant un miroir sur lequel un rayon peut être réfléchi.
+
+\subsubsection{NukeView}
+
+\paragraph{Description}
+
+Classe représentant une bombe, élément explosif du plateau qui fait perdre la partie
+si touché par un rayon lumineux (RayView).
+
+\subsubsection{SourceView}
+
+\paragraph{Description}
+
+Classe représentant une source lumineuse sur le plateau de jeu. Elle dispose de 2 états, allumée ou éteinte.
+Passer d’un état à l’autre change l’image la représentant et produit un son d’interrupteur.
+
+\subsubsection{WallView}
+
+\paragraph{Description}
+
+Classe représentant un mur, élément visuel sur lequel le rayon est stoppé.
 
 \section{Conclusion}
 
@@ -251,7 +267,7 @@ Classe modélisant la destination à atteindre par le rayon émis depuis la sour
 
 \section{Annexes}
 
-\subsection{Démarches mathématique}
+\subsection{Démarches mathématiques}
 
 \subsubsection{Trouver l'intersection entre deux droites}
 

@@ -6,8 +6,6 @@ Lens::Lens(const Point& p, double w, double h, int wl_min, int wl_max) :
     Element(Element::Type::LENS), pos_ {p},
     width_ {w}, height_ {h}, wl_min_ {wl_min}, wl_max_ {wl_max}
 {
-
-
     if (wl_min < Ray::WL_MIN || wl_max > Ray::WL_MAX)
         throw std::string("Les bornes de longueurs d'ondes"
                           "ne peuvent pas être plus petites"
