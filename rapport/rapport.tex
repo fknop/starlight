@@ -51,7 +51,8 @@ supérieure.
 
 Dans cette section, nous présenterons les différentes conventions 
 utilisées lors de ce projet. Nous avons décidé de reprendre certaines
-conventions utilisées par la STL tout en gardant d'autres conventions.
+conventions utilisées par la STL (Librairie Standard)
+tout en utilisant d'autres conventions.
 
 De manière globale, tous les noms de variables, classes, fichiers, etc.
 sont en anglais.
@@ -63,8 +64,8 @@ et possèdent les extensions .h
 pour les headers et .cpp pour les fichiers sources.
 
 \begin{itemize}
-	\item \textbf{nomfichier.h}
-	\item \textbf{nomfichier.cpp}
+	\item \texttt{nomfichier.h}
+	\item \texttt{nomfichier.cpp}
 \end{itemize}
 
 \subsection{Classes}
@@ -74,10 +75,10 @@ Cette convention est également valable pour les noms
 d'énumérations et structures.
 
 \begin{itemize}
-	\item \textbf{Classe}
-	\item \textbf{NomClasse}
-	\item \textbf{NomStruct}
-	\item \textbf{NomEnumeration}
+	\item \texttt{Classe}
+	\item \texttt{NomClasse}
+	\item \texttt{NomStruct}
+	\item \texttt{NomEnumeration}
 \end{itemize}
 
 \newpage
@@ -90,8 +91,8 @@ Les noms des variables de classes sont en minuscules, les mots sont
 séparés par un underscore et le nom est suffixé par un underscore.
 
 \begin{itemize}
-	\item \textbf{variable\_}
-	\item \textbf{nom\_variable\_}
+	\item \texttt{variable\_}
+	\item \texttt{nom\_variable\_}
 \end{itemize}
 
 Cette convention est également valable pour les variables d'une
@@ -104,8 +105,8 @@ que les variables de classe, à la seule exception qu’ils ne sont pas
 suffixés par un underscore.
 
 \begin{itemize}
-	\item \textbf{variable}
-	\item \textbf{nom\_variable}
+	\item \texttt{variable}
+	\item \texttt{nom\_variable}
 \end{itemize}
 
 \subsubsection{Constantes}
@@ -114,8 +115,8 @@ Les noms des constantes sont entièrement en majuscules et les mots sont
 séparés par des underscores.
 
 \begin{itemize}
-	\item \textbf{CONSTANTE}
-	\item \textbf{NOM\_CONSTANTE}
+	\item \texttt{CONSTANTE}
+	\item \texttt{NOM\_CONSTANTE}
 \end{itemize}
 
 \subsection{Méthodes}
@@ -129,8 +130,8 @@ Le nom d'un getter (accesseur en lecture de variable de classe/structure)
 est égal au nom de la variable de classe sans l'underscore final.
 
 \begin{itemize}
-	\item Variable : \textbf{variable\_} - Getter : \textbf{variable()}
-	\item Variable : \textbf{nom\_var\_} - Getter : \textbf{nom\_var()}
+	\item Variable : \texttt{variable\_} - Getter : \texttt{variable()}
+	\item Variable : \texttt{nom\_var\_} - Getter : \texttt{nom\_var()}
 \end{itemize}
 
 \subsubsection{Setters}
@@ -139,8 +140,8 @@ Le nom d'un setter (accesseur en écriture de variable de classe/structure)
 est égal au nom de la variable sans l'underscore final préfixé de \texttt{set}.
 
 \begin{itemize}
-	\item Variable : \textbf{variable\_} - Setter : \textbf{set\_variable()}
-	\item Variable : \textbf{nom\_var\_} - Setter : \textbf{set\_nom\_var()}
+	\item Variable : \texttt{variable\_} - Setter : \texttt{set\_variable()}
+	\item Variable : \texttt{nom\_var\_} - Setter : \texttt{set\_nom\_var()}
 \end{itemize}
 
 \subsubsection{Autres méthodes}
@@ -149,14 +150,28 @@ Les autres méthodes possèdent les mêmes conventions que celles
 énoncées ci-dessus.
 
 \begin{itemize}
-	\item \textbf{methode()}
-	\item \textbf{nom\_methode()}
+	\item \texttt{methode()}
+	\item \texttt{nom\_methode()}
 \end{itemize}
 
 \subsection{Éléments d'une énumération} 
 
-Les éléments d'une énumération suivent les mêmes conventions que les 
-conventions des constantes énoncées ci-dessus.
+Les éléments d'une énumération suivent les mêmes conventions que celles des constantes énoncées ci-dessus.
+
+\section{Présentation générale du projet}
+
+Cette section décrit les objectifs principaux et secondaires effectués lors
+de la réalisation de ce projet.
+Toutes les classes utilisées sont décrites dans la section suivante.
+
+Le projet fini permet de jouer à Starlight en important sa propre
+carte de jeu au format \texttt{.lvl} qu'il est possible de créer
+soi même gràce à l'éditeur de carte. Ce dernier permet d'importer
+une carte existante et de la modifier et d'ensuite la sauvegarder.
+Il est possible de jouer directement dans l'éditeur pour pouvoir
+tester directement son niveau. Les bombes et la destinations ont donc été
+désactivées pour éviter des sons et pop-ups intempestifs.
+
 
 \section{Présentation des différentes classes}
 
