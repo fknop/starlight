@@ -41,6 +41,7 @@ TEST_CASE("Test conversions pente/radians/degrés")
     REQUIRE(umath::deg_to_rad(270) == 3 *PI_2);
     REQUIRE(umath::deg_to_rad(45) == PI_4);
     REQUIRE(umath::equals(umath::points_to_rad(Point(0,0), Point(1,1)), -PI_4));
+    REQUIRE(umath::equals(umath::points_to_slope(Point(0,0), Point(1,1)), 1));
 }
 
 #endif

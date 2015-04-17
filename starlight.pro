@@ -102,7 +102,8 @@ SOURCES += \
     utils/mapreader.cpp \
     utils/mapwriter.cpp \
     utils/umath.cpp \
-    tests/umathtest.cpp
+    tests/umathtest.cpp \
+    tests/linetest.cpp
 
 RESOURCES += \
     ressources.qrc
