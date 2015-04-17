@@ -1,6 +1,6 @@
 #include "model/linesegment.h"
-#include "utils/umath.h"
 
+#include "utils/umath.h"
 
 
 LineSegment::LineSegment(const Point& p1, const Point& p2)
@@ -51,8 +51,8 @@ void LineSegment::rotate(const Point& pivot, double angle)
 
     double new_start_x = 0 - (xpad * std::cos(alpha));
     double new_start_y = 0 + (xpad * std::sin(alpha));
-    double new_end_x = 0 + ((len - xpad) * std::cos(alpha));
-    double new_end_y = 0 - ((len - xpad) * std::sin(alpha));
+    double new_end_x   = 0 + ((len - xpad) * std::cos(alpha));
+    double new_end_y   = 0 - ((len - xpad) * std::sin(alpha));
 
     start_.set_position(new_start_x, new_start_y);
     end_.set_position(new_end_x, new_end_y);

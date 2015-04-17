@@ -1,6 +1,7 @@
 #include <cmath>
 
 #include "model/line.h"
+
 #include "utils/constants.h"
 #include "utils/umath.h"
 
