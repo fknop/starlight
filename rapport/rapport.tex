@@ -164,14 +164,87 @@ Cette section décrit les objectifs principaux et secondaires effectués lors
 de la réalisation de ce projet.
 Toutes les classes utilisées sont décrites dans la section suivante.
 
-Le projet fini permet de jouer à Starlight en important sa propre
-carte de jeu au format \texttt{.lvl} qu'il est possible de créer
-soi même gràce à l'éditeur de carte. Ce dernier permet d'importer
-une carte existante et de la modifier et d'ensuite la sauvegarder.
-Il est possible de jouer directement dans l'éditeur pour pouvoir
-tester directement son niveau. Les bombes et la destinations ont donc été
-désactivées pour éviter des sons et pop-ups intempestifs.
+Le projet fini ouvre sur un menu principal permettant
+de jouer à Starlight, de voir les rêgles du jeu, d'accéder à l'éditeur de 
+carte ou de simplement quitter.
 
+\subsection{Le jeu}
+
+Le projet permet de jouer à Starlight en important sa propre carte de jeu
+au format \texttt{.lvl} qu'il est possible de créer soi-même grâce à l'éditeur
+de carte (cf. Editeur de cartes).
+
+\subsubsection{Le principe du jeu}
+
+Le but du jeu est de déplacer un rayon provenant d'une source lumineuse
+pouvant être allumée ou éteinte
+vers une destination à l'aide de miroirs plans amovibles réfléchissant
+la lumière.
+La lumière possède une longueur d'onde comprise dans le spectre
+de lumière visible.
+
+En addition avec leur déplacement, les miroirs peuvent tourner
+autour d'un point de pivot.
+Ce déplacement et cette rotation se font tout en restant
+dans certaines limites si celles-ci ont été définies à la création du miroir.
+
+Une gestion des collisions a également été implémentée pour
+éviter que les miroirs déplacés ne heurtent les autres éléments de la carte.
+De ce fait, la carte de jeu fournie par Mr. Absil a légèrement été modifiée
+pour éviter que les miroirs ne se trouvent dans les murs à la création du niveau
+et qu'il soit donc impossible de les déplacer par la suite.
+
+La carte peut aussi posséder des cristaux qui modifient la longueur d'onde
+du rayon les traversant, ainsi que des lentilles laissant passer la lumière
+d'une certaine intervalle de longueur d'onde.
+La couleur de la lumière est donc modifiée selon la longueur d'onde 
+du rayon lumineux.
+
+Et pour finir, la carte peut être munie de bombes qui terminent
+instantanément la partie si celles-ci sont touchées. 
+
+\subsection{Editeur de cartes}
+
+L’éditeur de carte a été conçu sur base du modèle et des vues existantes.
+Il reprend tous les éléments disponibles dans un niveau du jeu Starlight.
+
+\subsubsection{Possibilités de l’éditeur}
+
+Au lancement de l’éditeur, il est possible de charger un niveau existant 
+ou d’en créer un nouveau en personnalisant sa taille. Celle-ci ne peut 
+être changée par la suite.
+
+Une fois chargé/créé, il est alors possible d’ajouter de nouveaux éléments 
+dans le niveau (mur, miroir, lentille, cristal, bombe). Comme prévu par l’énoncé,
+une seule source et une seule destination peuvent être incluses. Dès lors, 
+celles-ci sont créées en même temps que le niveau et il n’est pas possible de 
+les supprimer. Il n'est également pas possible de supprimer les murs extérieurs
+au niveau.
+
+Tous les éléments ont la possibilité d’être modifiés à tous niveaux, les setters
+appropriés ayant été ajoutés dans les classes du modèle. Il est au minimum possible de déplacer
+tous les éléments, soit par le panel droit qui offre la possibilité de modifier
+un objet, soit par l’utilisation du clavier (Z pour le monter, S pour descendre, Q pour le translater
+sur la gauche et D pour une translation vers la droite).
+
+Une fois le niveau adapté, il est possible de le sauvegarder au format \texttt{.lvl}. 
+La classe \texttt{MapWriter} a été écrite pour l’occasion, qui permet de sauver 
+dans un fichier un niveau, comme \texttt{MapReader} permet de le lire.
+
+Certaines options ont été désactivées dans l’éditeur pour rendre l’édition plus agréable,
+notamment la gestion des collisions, les bruits et autres événements spéciaux.
+
+\subsubsection{Faiblesses de l’éditeur}
+
+La gestion des erreurs est totalement absente, ce qui signifie que l’utilisateur est 
+responsable des données qu’il entre. Il est tout à fait possible de créer des éléments
+dont les caractéristiques ne permettront pas de jouer une partie (une source en dehors
+des limites par exemple).
+
+La gestion dynamique des déplacements ne se fait que dans un sens, si l’on déplace un objet
+à l’aide du clavier ses propriétés dans le panel de droite seront automatiquement modifiées.
+Cependant, il faudra utiliser le bouton « Appliquer » du panel de droite afin que les changements
+effectués à cet endroit entrent en application.
 
 \section{Présentation des différentes classes}
 
