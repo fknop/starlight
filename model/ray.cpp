@@ -14,9 +14,11 @@ Ray::Ray(const Point& p1, const Point& p2, int wl) : start_ {p1},
 end_ {p2}, wavelength_ {wl}
 {
     if (wl < WL_MIN)
-        wl = WL_MIN;
+        wavelength_ = WL_MIN;
     else if (wl > WL_MAX)
-        wl = WL_MAX;
+        wavelength_ = WL_MAX;
+
+
 
 
 }

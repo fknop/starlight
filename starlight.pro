@@ -101,7 +101,8 @@ SOURCES += \
     editor/destprop.cpp \
     utils/mapreader.cpp \
     utils/mapwriter.cpp \
-    utils/umath.cpp
+    utils/umath.cpp \
+    tests/umathtest.cpp
 
 RESOURCES += \
     ressources.qrc
