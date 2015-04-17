@@ -71,7 +71,7 @@ double umath::deg_to_rad(double degrees)
 double umath::points_to_rad(const Point& p1, const Point& p2)
 {
     double slope = points_to_slope(p1, p2);
-    return -slope_to_rad(slope);
+    return slope_to_rad(slope);
 }
 
 double umath::slope_to_rad(double slope)
@@ -81,7 +81,7 @@ double umath::slope_to_rad(double slope)
 
 double umath::points_to_slope(const Point& p1, const Point& p2)
 {
-    return -((p1.y() - p2.y()) / (p1.x() - p2.x()));
+    return ((p1.y() - p2.y()) / (p1.x() - p2.x()));
 }
 
 double umath::rad_to_slope(double rad)
