@@ -82,7 +82,7 @@ namespace umath
      * @param p2 le deuxième point.
      * @return la pente du segment constitué des deux points donnés.
      */
-    double rad_to_slope(const Point& p1, const Point& p2);
+    double points_to_slope(const Point& p1, const Point& p2);
 
     /**
      * Transforme un angle en radian en une pente.
@@ -98,7 +98,7 @@ namespace umath
      * @param p2 le dexième point.
      * @return l'angle en radians de la pente.
      */
-    double slope_to_rad(const Point& p1, const Point& p2);
+    double points_to_rad(const Point& p1, const Point& p2);
 
     /**
      * Retourne l'angle en radians de la pente donnée.

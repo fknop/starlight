@@ -25,10 +25,7 @@ double umath::dlcm(double a, double b)
 
 double umath::rho(double a, double b, double c)
 {
-    double rho = (b*b) - (4*a*c);
-
-
-    return rho;
+    return (b*b) - (4*a*c);
 }
 
 bool umath::equals(double a, double b)
@@ -71,10 +68,10 @@ double umath::deg_to_rad(double degrees)
     return (degrees * PI) / 180;
 }
 
-double umath::slope_to_rad(const Point& p1, const Point& p2)
+double umath::points_to_rad(const Point& p1, const Point& p2)
 {
-    double slope = rad_to_slope(p1, p2);
-    return slope_to_rad(slope);
+    double slope = points_to_slope(p1, p2);
+    return -slope_to_rad(slope);
 }
 
 double umath::slope_to_rad(double slope)
@@ -82,7 +79,7 @@ double umath::slope_to_rad(double slope)
     return -std::atan(slope);
 }
 
-double umath::rad_to_slope(const Point& p1, const Point& p2)
+double umath::points_to_slope(const Point& p1, const Point& p2)
 {
     return -((p1.y() - p2.y()) / (p1.x() - p2.x()));
 }
