@@ -5,7 +5,10 @@
 #include <cmath>
 
 #include "model/point.h"
+
+#include "utils/constants.h"
 #include "utils/umath.h"
+
 
 /**
  * Cette classe représente une droite
@@ -167,11 +170,17 @@ double Line::slope() const
 
 double Line::get_x(const double y) const
 {
+    if (umath::equals(a_, 0))
+        return INF; // On retourne INF sinon on pourrit retourner NaN si 0/0
+
     return ((-b_ * y) - c_) / a_;
 }
 
 double Line::get_y(const double x) const
 {
+    if (umath::equals(b_, 0))
+        return INF; // On retourne INF sinon on pourrit retourner NaN si 0/0
+
     return ((-a_ * x) -c_) / b_;
 }
 

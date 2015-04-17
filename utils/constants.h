@@ -3,9 +3,8 @@
 
 #include <string>
 
-#ifndef INF
-    #define INF 1. / 0
-#endif
+
+const double INF {1./0.};
 
 constexpr double EPSILON {0.00001};
 

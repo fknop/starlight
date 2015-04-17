@@ -44,4 +44,9 @@ TEST_CASE("Test conversions pente/radians/degrés")
     REQUIRE(umath::equals(umath::points_to_slope(Point(0,0), Point(1,1)), 1));
 }
 
+TEST_CASE("Equals infini")
+{
+    REQUIRE(umath::equals_inf(1.0 / 0.0));
+}
+
 #endif

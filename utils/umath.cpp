@@ -33,6 +33,12 @@ bool umath::equals(double a, double b)
     return std::abs(a - b) < EPSILON;
 }
 
+bool umath::equals_inf(double a)
+{
+    return (a == INF || a == -INF);
+
+}
+
 bool umath::angle_equals(double a, double b)
 {
     a = std::fmod(a, 2*PI);

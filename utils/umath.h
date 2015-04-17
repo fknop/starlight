@@ -50,6 +50,13 @@ namespace umath
     bool equals(double a, double b);
 
     /**
+     * Renvoie vrai si la valeur vaut l'infini.
+     * @param a la valeur.
+     * @return vrai si a est infini, faux sinon.
+     */
+    bool equals_inf(double a);
+
+    /**
      * Retourne vrai si deux angles dans l'intervalle
      * [0, 2PI] sont égaux.
      * @param a le premier angle.

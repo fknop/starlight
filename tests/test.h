@@ -4,7 +4,7 @@
 // Commenter - Décomenter #define RUNTEST
 // Sur QtCreator : possibilité de devoir redémarrer.
 
-#define RUNTEST
+//#define RUNTEST
 
 #endif // TEST
 
