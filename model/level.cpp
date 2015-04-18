@@ -150,6 +150,7 @@ double Level::get_reflection_angle(double angle, double alpha)
     if (umath::angle_equals_pi(angle, alpha))
         return std::fmod(angle + PI, 2 * PI);
 
+
     return std::fmod((angle + PI + (2 * angle_ray_p)), (2 * PI));
 }
 

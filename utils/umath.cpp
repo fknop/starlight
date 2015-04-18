@@ -60,6 +60,12 @@ bool umath::angle_equals_pi(double a, double b)
     if (b < 0)
         b = b + PI;
 
+    // Pour la précision...
+    if (a > 3.14 && a < PI)
+        a = 0;
+    if (b > 3.14 && b < PI)
+        b = 0;
+
     return umath::equals(a, b);
 }
 
@@ -184,45 +190,45 @@ bool umath::intersects(const Line& l1, const Line& l2, Point& point, bool& is_po
         }
     }
 
-//    if (l1.vertical() || l2.vertical() || l1.horizontal() || l2.horizontal())
-//    {
-//        if (l1.horizontal() && l2.vertical())
-//        {
-//            x = l2.get_x(0);
-//            y = l1.get_y(0);
-//        }
-//        else if (l2.horizontal() && l1.vertical())
-//        {
-//            x = l1.get_x(0);
-//            y = l2.get_y(0);
-//        }
-//        else if (l1.vertical())
-//        {
-//            x = l1.get_x(0);
-//            y = l2.get_y(x);
-//        }
-//        else if (l2.vertical())
-//        {
-//            x = l2.get_x(0);
-//            y = l1.get_y(x);
-//        }
-//        else if (l1.horizontal())
-//        {
-//            y = l1.get_y(0);
-//            x = l2.get_x(y);
-//        }
-//        else if (l2.horizontal())
-//        {
-//            y = l2.get_y(0);
-//            x = l1.get_x(y);
-//        }
-//    }
-//    else
-//    {
+    if (l1.vertical() || l2.vertical() || l1.horizontal() || l2.horizontal())
+    {
+        if (l1.horizontal() && l2.vertical())
+        {
+            x = l2.get_x(0);
+            y = l1.get_y(0);
+        }
+        else if (l2.horizontal() && l1.vertical())
+        {
+            x = l1.get_x(0);
+            y = l2.get_y(0);
+        }
+        else if (l1.vertical())
+        {
+            x = l1.get_x(0);
+            y = l2.get_y(x);
+        }
+        else if (l2.vertical())
+        {
+            x = l2.get_x(0);
+            y = l1.get_y(x);
+        }
+        else if (l1.horizontal())
+        {
+            y = l1.get_y(0);
+            x = l2.get_x(y);
+        }
+        else if (l2.horizontal())
+        {
+            y = l2.get_y(0);
+            x = l1.get_x(y);
+        }
+    }
+    else
+    {
         x = ((l1.c() * l2.b()) - (l2.c() * l1.b())) /
                 ((l2.a() * l1.b()) - (l1.a() * l2.b()));
         y = l1.get_y(x);
-//    }
+    }
 
     point = Point(x, y);
     is_point = true;
