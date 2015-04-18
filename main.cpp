@@ -3,7 +3,6 @@
 #include "view/mainmenu.h"
 #include "tests/test.h"
 
-#include "model/linesegment.h"
 #ifndef RUNTEST
 int main(int argc, char** argv)
 {

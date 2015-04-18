@@ -196,8 +196,8 @@ bool Line::horizontal() const
 
 bool Line::parallel(const Line& l) const
 {
-    return (!perpendicular(l) &&
-            umath::equals(((a_ * l.b()) - (l.a() * b_)), 0));
+   // return (!perpendicular(l) &&
+           return umath::equals(((a_ * l.b()) - (l.a() * b_)), 0);
 }
 
 bool Line::perpendicular(const Line& l) const

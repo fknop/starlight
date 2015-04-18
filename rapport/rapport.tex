@@ -395,7 +395,10 @@ $$ \sqrt[2]{(x_1 - x_2)^2 + (y_1 - y_2)^2} $$
 \subsubsection{Line}
 
 La classe \texttt{Line} représente une droite de la forme~: 
-$ D \equiv ax + by + c = 0 $
+$ D \equiv ax + by + c = 0 $ \\
+
+$ D \equiv ax + c = 0    (b = 0) $ représente l'équation d'une droite verticale. \\
+$ D \equiv by + c = 0    (a = 0) $ représente l'équation d'une droite horizontale. \\
 
 Elle possède les trois paramètres $ a $, $ b $ et $ c $ ainsi que l'angle
 que forme la droite pour éviter de devoir reconvertir la pente calculée par $ \frac{-a}{b} $
@@ -606,57 +609,41 @@ $$ y' = x * \sin{f} + y * \cos{f} $$
 
 Il faut ensuite redéplacer le pivot à son point de départ.
 
+\newpage
 \subsubsection{Trouver l'intersection entre deux droites}
 
+Une droite possède une intersection avec une autre droite si :
+\begin{itemize}
+    \item Celles-ci sont parallèles et confondues, alors l'intersection est la droite elle même.
+    \item Celles-ci sont non parallèles, alors l'intersection est un point. \\
+\end{itemize} 
+
+$ D \equiv ax + by + c = 0 $ représente l'équation d'une droite. \\
+$ D \equiv ax + c = 0 $ représente l'équation d'une droite verticale ($b = 0$). \\
+$ D \equiv by + c = 0 (a = 0) $ représente l'équation d'une droite horizontale ($a = 0$). \\
+
+On commence donc dans un premier temps à tester si les deux droites son parallèles.
+Cela se vérifie grâce à l'égalité suivante : \\
+
+Soit deux droites $D_1$ et $D_2$, ces deux droites sont parallèles si : 
+$$ a_1 * b_2 - a_2 * b_1 = 0 $$
+
+En effet, la pente d'une droite vaut $\frac{-a}{b}$ et deux droites sont parallèles
+si leur pentes sont égales. Il suffit donc de modifier l'équation en passant chaque terme du bon côté. \\
+$ a_1 * b_2 = a_2 * b_1 $ puis ensuite : $ \frac{a_1}{b_1} = \frac{a_2}{b_2} $ ce qui équivaut à
+$ \frac{-a_1}{b1} = \frac{-a_2}{b_2} $ \\
+
+Si les deux droites sont parallèles : 
+\begin{itemize}
+    \item Les deux droites sont verticales : si leurs $x$ sont égaux, elles sont confondues.
+    \item Les deux droites sont horizontales : si leurs $y$ sont égaux, elles sont confondues.
+    \item Les droites ne sont ni verticales, ni horizontales, il faut alors tester si les deux
+        ordonnées à l'origine sont égales. Cette dernière vaut $\frac{-c}{b}$. \\
+\end{itemize}
+
+Si les deux droites ne sont pas parallèles :
 
 
-\begin{equation} \label{eq:droite}
-	D \equiv y = ax + b 
-\end{equation}
-\begin{equation} \label{eq:droiteverticale}
-	D \equiv x = k 
-\end{equation}
-
-
-\eqref {eq:droite} 
-représente une droite non verticale.
-\eqref {eq:droiteverticale} 
-représente une droite verticale où k est une valeur
-quelquonque sur l'axe des x.
-
-Dans un premier temps, il faut tester que la pente $a$ est différente 
-pour les deux droites. 
-Si les pentes des deux droites sont identiques, il n'y a pas d'intersection.
-En effet, si les pentes sont égales, cela signifie que les droites sont parallèles.
-Dans le cas de droites confondues, on considère qu'il
-n'y a pas d'intersection, bien qu'en réalité il y en ait une infinité.
-
-Si la pente est différente,
-l'intersection entre deux droites est assez simple, il suffit 
-d'injecter une variable d'une des deux équations dans l'autre.
-Dans le cadre du projet, il faut evidemment faire attention aux 
-droites verticales.
-
-Le cas d'une droite verticale : 
-
-On injecte \eqref{eq:droiteverticale} dans \eqref{eq:droite}.
-
-\begin{equation} \label{eq:interv}
-	D \equiv y = ak + b
-\end{equation}
-
-Avec \eqref{eq:interv} on obtient $y$ du point dont le $x = k$
-pour une droite verticale \eqref{eq:droiteverticale}.
-
-Pour deux droites non verticales on injecte le $y$ d'une équation
-de type \eqref{eq:droite} dans le $y$ d'une autre équation de type \eqref{eq:droite}.
-
-\begin{equation} \label{eq:internv}
-	a remplir
-\end{equation}
-
-$ x = \frac {(y - b)}{ a} $ pour une droite non verticale
-dont le y est celui obtenu plus tôt \eqref{eq:droite}.
 
 \subsubsection{Trouver l'intersection entre une droite et un segment}
 
