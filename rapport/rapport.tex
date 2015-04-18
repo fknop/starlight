@@ -1,6 +1,6 @@
 \documentclass[]{article}
 \usepackage{amssymb,amsmath}
-
+\usepackage{amsthm}
 \usepackage[utf8]{inputenc}
 \usepackage[francais]{babel}
 
@@ -622,16 +622,17 @@ $ D \equiv ax + by + c = 0 $ représente l'équation d'une droite. \\
 $ D \equiv ax + c = 0 $ représente l'équation d'une droite verticale ($b = 0$). \\
 $ D \equiv by + c = 0 (a = 0) $ représente l'équation d'une droite horizontale ($a = 0$). \\
 
-On commence donc dans un premier temps à tester si les deux droites son parallèles.
-Cela se vérifie grâce à l'égalité suivante : \\
+On commence donc dans un premier temps à tester si les deux droites son parallèles. \\
 
 Soit deux droites $D_1$ et $D_2$, ces deux droites sont parallèles si : 
 $$ a_1 * b_2 - a_2 * b_1 = 0 $$
 
-En effet, la pente d'une droite vaut $\frac{-a}{b}$ et deux droites sont parallèles
+\begin{proof}
+La pente d'une droite vaut $\frac{-a}{b}$ et deux droites sont parallèles
 si leur pentes sont égales. Il suffit donc de modifier l'équation en passant chaque terme du bon côté. \\
 $ a_1 * b_2 = a_2 * b_1 $ puis ensuite : $ \frac{a_1}{b_1} = \frac{a_2}{b_2} $ ce qui équivaut à
 $ \frac{-a_1}{b1} = \frac{-a_2}{b_2} $ \\
+\end{proof}
 
 Si les deux droites sont parallèles : 
 \begin{itemize}
@@ -641,9 +642,27 @@ Si les deux droites sont parallèles :
         ordonnées à l'origine sont égales. Cette dernière vaut $\frac{-c}{b}$. \\
 \end{itemize}
 
-Si les deux droites ne sont pas parallèles :
+Si les deux droites ne sont pas parallèles, il faut remplacer une variable de $D_1$ dans $D_2$
+ou inversément pour trouver la deuxième variable. On a choisit de remplacer $y$.
+On a donc l'égalité suivante : 
 
+$$ x = \frac{(c_1 * b_2 - c_2 * b_1)}{(a_2 * b_1 - a_1 * b_2)} $$
 
+\begin{proof}
+$$ D_1 \equiv y = \frac{-a_1 * x}{b_1} - \frac{c_1}{b_1} $$
+$$ D_2 \equiv y = \frac{-a_2 * x}{b_2} - \frac{c_2}{b_2} $$
+On remplace $y$ de $D_1$ dans $D_2$ :
+$$ \frac{-a_1 * x}{b_1} - \frac{c_1}{b_1} = \frac{-a_2 * x}{b_2} - \frac{c_2}{b_2} $$
+Il ne reste plus qu'à simplifier :
+$$ \frac{-a_1 * x}{b_1} + \frac{a_2 * x}{b_2} = \frac{c_1}{b_1} - \frac{c_2}{b_2} $$
+$$ \frac{(-a_1 * x * b_2) + (a_2 * x * b_1)}{(b_1 * b_2)} = \frac{(c_1 * b_2 - c_2 * b_1)}{(b_1 * b_2)} $$
+$$ (a_2 * b_1 * x) - (a_1 * b_2 * x) = (c_1 * b_2 - c_2 * b_1) $$
+$$ x * ((a_2 * b_1) - (a_1 * b_2)) = (c_1 * b_2 - c_2 * b_1) $$
+$$ x = \frac{(c_1 * b_2 - c_2 * b_1)}{(a_2 * b_1 - a_1 * b_2)} $$
+    \begin{center}
+    CQFD !
+    \end{center}
+\end{proof}
 
 \subsubsection{Trouver l'intersection entre une droite et un segment}
 
