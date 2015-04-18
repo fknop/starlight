@@ -311,9 +311,62 @@ effectués à cet endroit entrent en application.
 
 Dans cette section, nous allons décrire les différentes classes
 composants ce projet.
-L’implémentation du projet est divisée entre la partie modèle et la partie vue.
+L’implémentation du projet est divisée entre la partie modèle et la partie vue ainsi 
+qu'une partie classes utilitaires.
 Elle est également basée sur le design pattern  Observeur / Observé  comme demandé
-dans les consignes.
+dans les consignes. 
+
+
+\subsection{Les classe/namespaces utilitaires}
+
+\subsubsection{MapReader}
+
+La classe \texttt{MapReader} est la classe qui lit un fichier \texttt{.lvl} 
+et crée le niveau (cf. \hyperref[Level]{''Level''}).
+
+Cette classe considère que le fichier est sans erreurs. Une instantiation d'objets
+erroné produira donc un arrêt de l'application.
+
+Cette classe est basé sur le \texttt{Singleton Pattern}. On ne peut qu'instancier un niveau
+à la fois.
+
+\subsubsection{MapWriter}
+
+La classe \texttt{MapWriter} est la classe qui va écrire un niveau (cf. \hyperref[Level]{''Level''}) 
+dans un fichier texte. Il s'agit donc du processus inverse de la classe
+\texttt{MapReader}. Cette classe sert à l'éditeur lors de la sauvegarde de la
+carte en cours d'édition.
+
+\subsubsection{Constants}
+
+\texttt{constants.h} est un header reprenant toutes les constantes utilisées
+dans ce projet. 
+
+\begin{itemize}
+    \item \texttt{INF} correspond à l'infini.
+    \item \texttt{EPSILON} correspond à \texttt{0.00001}. EPSILON permet
+        d'éviter les imprécisions entre deux nombres réels (cf. \hyperref[equals]{''umath - méthode equals()''}).
+    \item \texttt{PI} correspond à la valeur de PI \texttt{3.14159...} avec
+        autant de décimales possibles qu'un \texttt{double} peut contenir.
+    \item \texttt{PI\_2} correspond à la valeur de PI divisé par deux.
+    \item \texttt{PI\_4} correspond à la valeur de PI divisé par quatre.
+    \item \texttt{PI\_2\_3} correspond à la valeur de PI\_2 multiplié par trois.
+\end{itemize}
+
+\subsubsection{Le namespace umath}
+
+Le namespace \texttt{umath} possède toutes les méthodes utilitaires mathématiques
+et géométriques servant au projet. Comme par exemple des méthodes permettant de trouver
+les intersections entre droites, segments, ellipses, rectangles.
+
+\label{equals}
+\texttt{umath} reprend des méthodes d'égalités de nombre réels. Deux nombres réels sont égaux
+si la valeur absolue de la soustraction de ceux-ci est plus petit que la valeur de EPSILON (cf. \hyperref[Constants]{''Constants''}).
+
+Une autre méthode d'égalité permet de vérifier si un nombre équivaut à l'infini (INF ou -INF).
+Il y a également des méthodes de conversions entre pentes, radians, degrés, etc.
+
+Les méthodes d'intersections sont décrites plus en détails dans la section Annexe - Démarches mathématiques.
 
 \subsection{Modèle}
 
@@ -322,7 +375,7 @@ Dans cette section, nous allons décrire les différentes classes du modèle
 Un squelette de classes a été fourni par Monsieur Absil.
 Ce squelette contenait les fichiers suivants :
 `point.h, source.h, dest.h, nuke.h, wall.h,
-crystal.h, lens.h, mirror.h, ray.h, level.h`.
+crystal.h, lens.h, mirror.h, ray.h, level.h` ainsi que leurs sources correspondantes.
 Nous avons décidé de modifier ce squelette tout en gardant la 
 structure générale.
 
@@ -341,23 +394,26 @@ $$ \sqrt[2]{(x_1 - x_2)^2 + (y_1 - y_2)^2} $$
 
 \subsubsection{Line}
 
-Cette classe représente une droite, elle possède un point et un
-angle. À l’aide de ces informations, on peut trouver n'importe quel point de la 
-droite en ayant la distance entre le point d'origine
-et le point d'arrivée.
+La classe \texttt{Line} représente une droite de la forme : 
+$ D \equiv ax + by + c = 0 $
 
-Dans les méthodes intersects(...) de la classe Line, un passage
-par pointeur de pointeur est fait car un pointeur est passé par 
-valeur et lors de l'initialisation il ne pointera donc pas la même
-adresse mémoire que le pointeur d'origine.
-Si on passait donc par simple pointeur, notre pointeur copié
-aurait une bonne zone mémoire mais notre pointeur d'origine
-resterait à *nullptr*.
+Elle possède les trois paramètres $ a $, $ b $ et $ c $ ainsi que l'angle
+que forme la droite pour éviter de devoir reconvertir la pente calculé par $ \frac{-a}{b} $
+en angle à chaque fois.
+
+La classe \texttt{Line} possède des méthodes permettant de savoir si celle-ci est 
+verticale ($ b = 0 $) ou horizontale ($ a = 0 $), si elle est perpendiculaire ou parallèle à une autre droite.
+Des méthodes permettant d'obtenir $ x $ selon une valeur de $ y $ donné et inversément sont également
+présentes. Cependant ces méthodes peuvent renvoyer une valeur infini dans le cas où la droite 
+est soit verticale soit horizontale.
+
+Cette classe sert principalement à modéliser un rayon de lumière (cf. \hyperref[Ray]{''Ray''}) pour trouver 
+les intersections entre le rayon et les éléments du jeu.
 
 \subsubsection{LineSegment}
 
-Cette classe représente un segment de droite, elle possède
-deux points qui représentent les extrémités du segment.
+La classe \texttt{LineSegment} représente un segment de droite possédant
+deux points (cf. \hyperref[Point]{''Point''}) qui sont les extrémités du segment.
 
 \subsubsection{Ellipse}
 
@@ -389,11 +445,11 @@ Il s'agit de :
     \item \texttt{Nuke}
 \end{itemize}
 
-La classe Ray (cf. Ray) n'est pas un élément, les éléments concernent 
+La classe Ray (cf. \hyperref[Ray]{''Ray''}) n'est pas un élément, les éléments concernent 
 les objets pouvant intérragir avec un rayon.
 Il s'agit principalement d'une classe \texttt{tag} pouvant
 donner le type de l'élément. Son rôle est de pouvoir retrouver
-le type d'un objet lors d'une intersection (cf. Level).
+le type d'un objet lors d'une intersection (cf. \hyperref[Level]{''Level''}).
 
 Une énumération fortement typée est donc présente. Elle s'apelle
 \texttt{Type} et reprend les noms des éléments cités ci-dessus.
