@@ -243,8 +243,9 @@ Les miroirs peuvent être déplacés et tournés au clavier en utilisant les tou
 		anti-horloger
 	\item \texttt{Flèche directionnelle droite} pour tourner dans le sens
 		horloger
+    \item \texttt{SHIFT} + une des touches citées ci-dessus pour se déplacer / tourner
+        plus vite
 \end{itemize}
-
 
 Des sons ont été ajoutés lorsque la source est allumée ou éteinte, 
 lorsqu'une bombe a été touchée et lorsque la destination
@@ -325,6 +326,19 @@ crystal.h, lens.h, mirror.h, ray.h, level.h`.
 Nous avons décidé de modifier ce squelette tout en gardant la 
 structure générale.
 
+\subsubsection{Point}
+
+La classe \texttt{Point} représente une position dans un espace à deux dimensions. 
+Elle est munie des coordonnées \texttt{x} et \texttt{y} qui sont tous deux des
+nombres réels (\texttt{double}). 
+
+La classe \texttt{Point} fourni par Mr. Absil comprenait des coordonnées entières.
+Nous avons décidé de passer les coordonnées en nombres réels par soucis de précision.
+
+La classe permet également de calculer la distance entre deux points grâce à la formule :
+
+$$ \sqrt[2]{(x_1 - x_2)^2 + (y_1 - y_2)^2} $$
+
 \subsubsection{Line}
 
 Cette classe représente une droite, elle possède un point et un
@@ -358,6 +372,45 @@ nous permettant de retrouver facilement les autres extrémités de la
 forme.
 
 Cette classe sert à représenter les objets Source et Destination.
+
+\subsubsection{Element}
+
+La classe Element est la super-classe de tous les éléments pouvant
+se trouver sur une carte de jeu.
+Il s'agit de :
+
+\begin{itemize}
+    \item \texttt{Source}
+    \item \texttt{Dest}
+    \item \texttt{Wall}
+    \item \texttt{Mirror}
+    \item \texttt{Lens}
+    \item \texttt{Crystal}
+    \item \texttt{Nuke}
+\end{itemize}
+
+La classe Ray (cf. Ray) n'est pas un élément, les éléments concernent 
+les objets pouvant intérragir avec un rayon.
+Il s'agit principalement d'une classe \texttt{tag} pouvant
+donner le type de l'élément. Son rôle est de pouvoir retrouver
+le type d'un objet lors d'une intersection (cf. Level).
+
+Une énumération fortement typée est donc présente. Elle s'apelle
+\texttt{Type} et reprend les noms des éléments cités ci-dessus.
+    
+\subsubsection{Source}
+
+
+
+
+\subsubsection{Dest}
+\subsubsection{Wall}
+\subsubsection{Mirror}
+\subsubsection{Lens}
+\subsubsection{Crystal}
+\subsubsection{Nuke}
+\subsubsection{Ray}
+
 
 \subsubsection{Level}
 
