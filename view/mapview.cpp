@@ -274,19 +274,19 @@ void MapView::keyPressEvent(QKeyEvent *event)
             else
                 i->translate(0, -1);
             break;
-        case Qt::Key_S: case Qt::Key_U:
+        case Qt::Key_S:
             if (event->modifiers() & Qt::ShiftModifier)
                 i->translate(0, 5);
             else
                 i->translate(0, 1);
             break;
-        case Qt::Key_Q: case Qt::Key_A:
+        case Qt::Key_Q:
             if (event->modifiers() & Qt::ShiftModifier)
                 i->translate(-5, 0);
             else
                 i->translate(-1, 0);
             break;
-        case Qt::Key_D: case Qt::Key_I:
+        case Qt::Key_D:
             if (event->modifiers() & Qt::ShiftModifier)
                 i->translate(5, 0);
             else
@@ -308,7 +308,6 @@ void MapView::notify(Observable * sdo, std::string msg, const std::vector<std::s
 
         sound_->setMedia(QUrl("qrc:/sounds/nuke.mp3"));
         sound_->play();
-        // http://soundbible.com/106-Car-Explosion.html  Uploaded: 05.03.09 | License: Attribution 3.0 | Recorded by Mike Koenig |
 
         setEnabled(false);
 
@@ -321,7 +320,6 @@ void MapView::notify(Observable * sdo, std::string msg, const std::vector<std::s
 
         sound_->setMedia(QUrl("qrc:/sounds/victory.mp3"));
         sound_->play();
-        // http://soundbible.com/1003-Ta-Da.html Uploaded: 09.14.09 | License: Attribution 3.0 | Recorded by Mike Koenig
 
         setEnabled(false);
 

@@ -19,14 +19,12 @@ SourceView::SourceView(const Source& source, bool selectable) :
 void SourceView::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
     this->source_->set_on(!this->source_->on());
-   // set_pixmap();
 
     if (sound_->state() == QMediaPlayer::PlayingState)
         sound_->stop();
 
     sound_->setMedia(QUrl("qrc:/sounds/switch.mp3"));
     sound_->play();
-    // http://soundbible.com/761-Switch.html  Uploaded: 07.20.09 | License: Attribution 3.0 | Recorded by Mike Koenig |
 }
 
 void SourceView::translate(double x, double y)
