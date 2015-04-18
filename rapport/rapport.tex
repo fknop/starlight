@@ -173,7 +173,7 @@ carte ou de simplement quitter.
 
 Le projet permet de jouer à Starlight en important sa propre carte de jeu
 au format \texttt{.lvl} qu'il est possible de créer soi-même grâce à l'éditeur
-de carte (cf. Editeur de cartes).
+de carte (cf. \hyperref[Editeur]{''Editeur de cartes''}).
 
 Il est nécessaire de préciser que le jeu part du principe que la carte 
 fournie est sans erreurs. Une carte fournie avec erreur produira donc
@@ -205,7 +205,7 @@ d'une certaine intervalle de longueur d'onde.
 La couleur de la lumière est donc modifiée selon la longueur d'onde 
 du rayon lumineux.
 
-Et pour finir, la carte peut être munie de bombes qui terminent
+Et pour finir, la carte peut être munie de bombes qui terminent et font perdre
 instantanément la partie si celles-ci sont touchées. 
 
 
@@ -249,7 +249,7 @@ Les miroirs peuvent être déplacés et tournés au clavier en utilisant les tou
 
 Des sons ont été ajoutés lorsque la source est allumée ou éteinte, 
 lorsqu'une bombe a été touchée et lorsque la destination
-est atteinte (cf. «~Faiblesses de l'interface~» pour plus d'informations).
+est atteinte.
 
 \paragraph{Faiblesses de l'interface} 
 
@@ -262,7 +262,7 @@ Par exemple lorsque la source est allumée et éteinte très vite.
 Il se peut également que la source n'émette simplement pas de son.
 
 
-\subsection{Éditeur de cartes}
+\subsection{\label{Editeur}Éditeur de cartes}
 
 L’éditeur de carte a été conçu sur base du modèle et des vues existantes.
 Il reprend tous les éléments disponibles dans un niveau du jeu Starlight.
@@ -415,6 +415,18 @@ les intersections entre le rayon et les éléments du jeu.
 La classe \texttt{LineSegment} représente un segment de droite possédant
 deux points (cf. \hyperref[Point]{''Point''}) qui sont les extrémités du segment.
 
+Nous avons fait le choix qu'un segment puisse posséder deux fois le même point.
+Bien que cela n'ait pas vraiment de sens purement mathématique, un segment
+ayant deux fois le même point est tout simplement un point.
+
+Le segment peut être transformé en droite gràce aux deus points
+le constituant et ainsi former l'équation de droite.
+
+Le segment peut également être décalé d'un certain $ x $ et $ y $ ainsi que tourné 
+d'un certain angle\footnote{\hyperref[AnnexeRotation]{''Rotation de segment''}}.
+
+
+
 \subsubsection{Ellipse}
 
 Cette classe représente une conique de forme elliptique.
@@ -548,7 +560,42 @@ Classe représentant un mur, élément visuel sur lequel le rayon est stoppé.
 
 \section{\label{Annexe}Annexes}
 
-\subsection{Démarches mathématiques}
+\subsection{Annexe A : Démarches mathématiques}
+
+\subsubsection{\label{AnnexeRotation}Rotation de segment}
+
+La méthode de rotation de segment utilisée se base sur les formules
+de coordonnées polaires\footnote{\href{http://fr.wikipedia.org/wiki/Coordonn\%C3\%A9es\_polaires}{Wikipedia : Coordonnées polaires}}
+ainsi que les formules trigonométriques d'additions
+\footnote{\href{http://fr.wikipedia.org/wiki/Trigonom\%C3\%A9trie}{Wikipedia : Formules trigonométriques}}.
+
+Pour tourner un segment, il faut un point de pivot. Ce point de pivot
+doit ensuite être déplacé sur l'origine du repère $ (0, 0) $.
+
+Les formules de coordonnées polaires pour $ x $ et $ y $ sont :
+$$ x = r * \cos{q} $$ 
+$$ y = r * \sin{q} $$
+
+$ r $ correspond à la distance entre l'origine et le point et $ q $ correspond 
+à l'angle entre l'axe des abscisses et la droite formée avec l'origine et le point.
+
+Lorsque l'on souhaite tourner un segment et trouver $ x' $ et $ y' $, 
+il suffit d'augmenter ou dimunier l'angle $ q $ par un angle $ f $ comme ceci :
+
+$$ x' = r * \cos{q + f} $$
+$$ y' = r * \sin{q + f} $$
+
+Gràce aux formules trigonométriques d'additions, on peut transformer ce résultat en :
+
+$$ x' = r * \cos{q} * \cos{f} - r * \sin{q} * \sin{f} $$
+$$ y' = r * \sin{q} * \cos{f} - r * \cos{q} * \sin{f} $$
+
+Et pour finir, en remplaçant les deux premières égalités dans cette dernière on obtient : 
+
+$$ x' = x * \cos{f} - y * \sin{f} $$
+$$ y' = x * \sin{f} + y * \cos{f} $$
+
+Il faut ensuite redéplacer le pivot à son point de départ.
 
 \subsubsection{Trouver l'intersection entre deux droites}
 
@@ -690,5 +737,7 @@ Il s'agit du même principe que les intersections droite/segment.
 Il faut vérifier les intersections entre les ellipses et un segment
 transformé en droite et ensuite vérifier si les points d'intersections
 se trouvent sur le segment.
+
+
 
 \end{document}
