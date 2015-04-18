@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['participants_20au_20projet',['Participants au projet',['../d0/d30/md_README.html',1,'']]],
   ['parallel',['parallel',['../db/db6/classLine.html#a3655584ad1c2958e4ab9c3ee9a3e6eed',1,'Line']]],
   ['perpendicular',['perpendicular',['../db/db6/classLine.html#a208642b69677aba26b05bf6f29ebff19',1,'Line']]],
   ['pivot',['pivot',['../de/dfd/classMirror.html#ad68e2946b5267e738663ffdf4b8841f5',1,'Mirror']]],

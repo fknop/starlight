@@ -11,8 +11,7 @@ var indexSectionsWithContent =
   1: "bcdeilmnoprsw",
   2: "abcdeghilmnoprstuvwxy~",
   3: "ow",
-  4: "o",
-  5: "p"
+  4: "o"
 };
 
 var indexSectionNames =
@@ -21,8 +20,7 @@ var indexSectionNames =
   1: "classes",
   2: "functions",
   3: "variables",
-  4: "related",
-  5: "pages"
+  4: "related"
 };
 
 function convertToId(search)
