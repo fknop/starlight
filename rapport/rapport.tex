@@ -620,7 +620,7 @@ Une droite possède une intersection avec une autre droite si :
 
 $ D \equiv ax + by + c = 0 $ représente l'équation d'une droite. \\
 $ D \equiv ax + c = 0 $ représente l'équation d'une droite verticale ($b = 0$). \\
-$ D \equiv by + c = 0 (a = 0) $ représente l'équation d'une droite horizontale ($a = 0$). \\
+$ D \equiv by + c = 0 $ représente l'équation d'une droite horizontale ($a = 0$). \\
 
 On commence donc dans un premier temps à tester si les deux droites son parallèles. \\
 
@@ -658,15 +658,38 @@ $$ \frac{-a_1 * x}{b_1} + \frac{a_2 * x}{b_2} = \frac{c_1}{b_1} - \frac{c_2}{b_2
 $$ \frac{(-a_1 * x * b_2) + (a_2 * x * b_1)}{(b_1 * b_2)} = \frac{(c_1 * b_2 - c_2 * b_1)}{(b_1 * b_2)} $$
 $$ (a_2 * b_1 * x) - (a_1 * b_2 * x) = (c_1 * b_2 - c_2 * b_1) $$
 $$ x * ((a_2 * b_1) - (a_1 * b_2)) = (c_1 * b_2 - c_2 * b_1) $$
-$$ x = \frac{(c_1 * b_2 - c_2 * b_1)}{(a_2 * b_1 - a_1 * b_2)} $$
-    \begin{center}
-    CQFD !
-    \end{center}
+$$ x = \frac{(c_1 * b_2 - c_2 * b_1)}{(a_2 * b_1 - a_1 * b_2)} $$ \\
 \end{proof}
 
-\subsubsection{Trouver l'intersection entre une droite et un segment}
+Maintenant qu'on a la coordonnée $x$, il suffit de la remplacer
+dans une des deux équations $D_1$ ou $D_2$ pour trouver le $y$ 
+correspondant.
 
-\subsubsection{Trouver le(s) intersections entre une ellipse et une droite}
+\subsubsection{Trouver l'intersection entre une droite et un segment de droite}
+
+L'intersection entre une droite et un segment ressemble très fort
+à l'intersection entre deux droites tout simplement car il faudra transformer
+le segment en droite pour trouver une intersection entre ces deux droites
+puis ensuite de vérifier si cette intersection se trouve bien dans le domaine
+$x$ et $y$ du segment.
+
+La différence est que l'intersection peut être un segment entier si la droite
+et le segment sont confondu.
+
+Pour transformer un segment en droite : \\
+Soit $A$ et $B$ les deux extrémités du segments, les paramètres de la droite valent : 
+$ a = A.y - B.y $ \\
+$ b = B.x - A.x $ \\
+$ c = (A.x * B.y) - (A.y * B.x) $ \\
+
+\subsubsection{Trouver l'intersection entre deux segments}
+
+Dans le cas de l'intersection segment/segment, il faut transformer les
+deux segments en droites, s'il y a intersections : vérifier que le point
+d'intersection appartient aux domaines $x$ et $y$ des deux segments. \\
+De plus, si les deux droites sont confondues, l'intersection sera un segment.
+
+\subsubsection{Trouver le(s) intersection(s) entre une ellipse et une droite}
 
 La formule d'une ellipse est : 
 
@@ -674,7 +697,7 @@ $$ E \equiv \frac{(x - x1)^2}{a^2} + \frac{(y - y1)^2}{b^2} = 1 $$
 
 \begin{description}
 \item où $x1$ et $y1$ sont respectivement les coordonnées
-$x$ et $y$ du centre de l'ellipse. \\
+$x$ et $y$ du centre de l'ellipse. 
 \item où $a$ et $b$ sont respectivement les rayons de l'axe
 $x$ et $y$. \\
 \end{description}
@@ -682,7 +705,6 @@ $x$ et $y$. \\
 Pour trouver une intersection entre une ellipse
 et une droite, il faut égaler deux variables 
 identiques :
-
 
 On doit donc remplacer la variable $x$ ou $y$ de la droite dans
 l'équation de l'ellipse.
@@ -747,12 +769,16 @@ C'est le même principe que le cas de la droite verticale sauf
 que pour trouver la deuxième variable finale il faudra
 remplacer la variable trouvée dans l'équation de la droite.
 
-\subsubsection{Trouver le(s) intersections entre une ellipse et un segment}
+\subsubsection{Trouver le(s) intersections entre une ellipse et un segment de droite}
 
 Il s'agit du même principe que les intersections droite/segment.
 Il faut vérifier les intersections entre les ellipses et un segment
 transformé en droite et ensuite vérifier si les points d'intersections
-se trouvent sur le segment.
+se trouvent dans le domaine du segment.
+
+\subsubsection{Trouver le(s) intersection(s) entre un rectangle et une droite}
+
+\subsubsection{Trouver le(s) intersection(s) entre un rectangle et un esgment de droite}
 
 
 
