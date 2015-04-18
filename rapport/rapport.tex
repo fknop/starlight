@@ -476,9 +476,17 @@ du rayon lumineux.
 	
 \subsection{Vue}
 
-L’interface graphique a été réalisée en `Qt` à la main.
+L’interface graphique a été réalisée en `Qt` à la main. Chaque élément visuel dispose d’un pointeur vers son
+équivalent dans le modèle, sur base duquel il est construit. Il observe également cet élément afin de se mettre
+à jour automatiquement.
 
 Les classes composant la partie vue de l’application sont :
+
+\subsubsection{CrystalView}
+
+\paragraph{Description}
+
+Classe modélisant un cristal, élément oval qui modifie la longueur d’onde d’un rayon si celui-ci traverse ledit cristal.
 
 \subsubsection{DestinationView}
 
@@ -486,11 +494,20 @@ Les classes composant la partie vue de l’application sont :
 
 Classe modélisant la destination à atteindre par le rayon émis depuis la source pour gagner la partie.
 
+\subsubsection{LensView}
+
+\paragraph{Description}
+
+Classe modélisant une lentille à travers laquelle un rayon peut passer si sa longueur d’onde est
+comprise entre les valeurs de la lentille. Sinon la lentille se comporte comme un mur et le rayon 
+est stoppé.
+
 \subsubsection{MapView}
 
 \paragraph{Description}
 
 Classe représentant le plateau de jeu, où tous les éléments sont disposés et affichés.
+Elle s’occupe de gérer les raccourcis clavier utilisés pour déplacer/pivoter les miroirs dans le jeu et de déplacer les éléments en général dans l’éditeur de carte.
 
 \subsubsection{MirrorView}
 
@@ -504,6 +521,13 @@ Classe représentant un miroir sur lequel un rayon peut être réfléchi.
 
 Classe représentant une bombe, élément explosif du plateau qui fait perdre la partie
 si touché par un rayon lumineux (RayView).
+
+\subsubsection{RayView}
+
+\paragraph{Description}
+
+Classe modélisant un rayon lumineux, émis depuis la source (SourceView) et destiné à atteindre la destination 
+(DestView) en se reflétant sur des miroirs et en passant à travers des cristaux si nécessaire.
 
 \subsubsection{SourceView}
 
