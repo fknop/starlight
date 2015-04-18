@@ -30,7 +30,7 @@ linkcolor=blue]{hyperref}
 
 
 Ce document vise à présenter le travail d’analyse et de programmation effectué
-lors de la réalisation du projet du laboratoire Langage C++ : Starlight.
+lors de la réalisation du projet du laboratoire Langage C++~:~Starlight.
 
 Ce projet a été réalisé en binôme par Florian Knop, matricule 39310 groupe 2G13,
 et Gatien Bovyn, matricule 39189 groupe 2G11.
@@ -40,7 +40,7 @@ graphique du jeu baptisé Starlight, puzzle à 2 dimensions basé sur la lumièr
 
 Ce projet a été compilé principalement avec g++
 (version 4.8.2 ou supérieure)
-sous la distribution Linux Ubuntu (ou une de ses dérivée).
+sous la distribution Linux Ubuntu (ou une de ses dérivées).
 La version du framework Qt utilisée est la 5.0.2 ou supérieure.
 Ce projet a été fait sous QtCreator, IDE OpenSource en version 2.8.1 ou
 supérieure.
@@ -211,8 +211,8 @@ instantanément la partie si celles-ci sont touchées.
 
 \subsubsection{L'interface}
 
-L'interface graphique du jeu Starlight a été réalisée sous Qt (en version 5.0.2 et supérieures).
-Il s'agit ici d'une interface simple et minimaliste permettant d'effetuer la fonction de base 
+L'interface graphique du jeu Starlight a été réalisée sous Qt (en version 5.0.2 ou supérieure).
+Il s'agit ici d'une interface simple et minimaliste permettant d'effectuer la fonction de base 
 demandée : jouer.
 
 La fenêtre de jeu possède également des menus permettants de :
@@ -222,17 +222,17 @@ La fenêtre de jeu possède également des menus permettants de :
     \item \texttt{Revenir au menu principal}
     \item \texttt{Charger une carte}
     \item \texttt{Quitter la carte}
-    \item \texttt{Voir les règles de jeu}
+    \item \texttt{Voir les règles du jeu}
 \end{itemize}
 
-Les raccourcis clavier permettant d'accéder au fonction citées ci-dessus sont indépendants
+Les raccourcis clavier permettant d'accéder aux fonctions citées ci-dessus sont dépendants
 du système d'exploitation utilisé.
 
-Les miroirs sont sont sélectionnés en utilisant un double clic gauche.
-Si un troisième clic suit, les limites de déplacement du pivot s'affichent
+Les miroirs sont sélectionnés en utilisant un double clic gauche.
+Si un troisième clic s’ensuit, les limites de déplacement du pivot s'affichent
 sous la forme d'un rectangle bleu.
 
-Les miroirs peuvent être déplacés et tournés au clavier en utilisant les touches :
+Les miroirs peuvent être déplacés et tournés au clavier en utilisant les touches~:
 
 \begin{itemize}
 	\item \texttt{Z} pour déplacer vers le haut
@@ -243,26 +243,26 @@ Les miroirs peuvent être déplacés et tournés au clavier en utilisant les tou
 		anti-horloger
 	\item \texttt{Flèche directionnelle droite} pour tourner dans le sens
 		horloger
-    \item \texttt{SHIFT} + une des touches citées ci-dessus pour se déplacer / tourner
+    \item \texttt{Shift} + une des touches citées ci-dessus pour se déplacer / tourner
         plus vite
 \end{itemize}
 
 Des sons ont été ajoutés lorsque la source est allumée ou éteinte, 
 lorsqu'une bombe a été touchée et lorsque la destination
-est atteinte (cf. Faiblesses de l'interface pour plus d'informations).
+est atteinte (cf. «~Faiblesses de l'interface~» pour plus d'informations).
 
 \paragraph{Faiblesses de l'interface} 
 
 L'interface ne permet pas de déplacer les miroirs à la souris, mais seulement au clavier.
-Le rectangle bleu affichant les limites du miroir s'affiche après un 3ème clic plutôt 
+Le rectangle bleu affichant les limites du miroir s'affiche après un 3e clic plutôt 
 que lors de la sélection du miroir.
 
-Les sons ajoutés qui ont été cités ci-dessus ne s'activent toujours.
-Par exemple lorsque la source est allumée et éteinte très vite, 
-mais il se peut également que la source n'émette simplement pas de son.
+Les sons ajoutés qui ont été cités ci-dessus ne s'activent pas toujours.
+Par exemple lorsque la source est allumée et éteinte très vite.
+Il se peut également que la source n'émette simplement pas de son.
 
 
-\subsection{Editeur de cartes}
+\subsection{Éditeur de cartes}
 
 L’éditeur de carte a été conçu sur base du modèle et des vues existantes.
 Il reprend tous les éléments disponibles dans un niveau du jeu Starlight.
@@ -310,32 +310,32 @@ effectués à cet endroit entrent en application.
 \section{Présentation des différentes classes}
 
 Dans cette section, nous allons décrire les différentes classes
-composants ce projet.
+composant ce projet.
 L’implémentation du projet est divisée entre la partie modèle et la partie vue ainsi 
 qu'une partie classes utilitaires.
-Elle est également basée sur le design pattern  Observeur / Observé  comme demandé
+Elle est également basée sur le design pattern «~Observeur~/~Observé~» comme demandé
 dans les consignes. 
 
 
-\subsection{Les classe/namespaces utilitaires}
+\subsection{Les classes/namespaces utilitaires}
 
 \subsubsection{MapReader}
 
 La classe \texttt{MapReader} est la classe qui lit un fichier \texttt{.lvl} 
 et crée le niveau (cf. \hyperref[Level]{''Level''}).
 
-Cette classe considère que le fichier est sans erreurs. Une instantiation d'objets
-erroné produira donc un arrêt de l'application.
+Cette classe considère que le fichier est sans erreur. Une instantiation d'objets
+erronés produira donc un arrêt de l'application.
 
-Cette classe est basé sur le \texttt{Singleton Pattern}. On ne peut qu'instancier un niveau
+Cette classe est basée sur le \texttt{Singleton Pattern}. On ne peut qu’instancier un niveau
 à la fois.
 
 \subsubsection{MapWriter}
 
 La classe \texttt{MapWriter} est la classe qui va écrire un niveau (cf. \hyperref[Level]{''Level''}) 
-dans un fichier texte. Il s'agit donc du processus inverse de la classe
-\texttt{MapReader}. Cette classe sert à l'éditeur lors de la sauvegarde de la
-carte en cours d'édition.
+dans un fichier texte. Il s’agit donc du processus inverse de la classe
+\texttt{MapReader}. Cette classe sert à l’éditeur lors de la sauvegarde de la
+carte en cours d’édition.
 
 \subsubsection{\label{Constants}Constants}
 
@@ -357,23 +357,23 @@ dans ce projet.
 
 Le namespace \texttt{umath} possède toutes les méthodes utilitaires mathématiques
 et géométriques servant au projet. Comme par exemple des méthodes permettant de trouver
-les intersections entre droites, segments, ellipses, rectangles.
+les intersections entre droites, segments, ellipses et rectangles.
 
 \label{equals}
-\texttt{umath} reprend des méthodes d'égalités de nombre réels. Deux nombres réels sont égaux
-si la valeur absolue de la soustraction de ceux-ci est plus petit que la valeur de EPSILON (cf. \hyperref[Constants]{''Constants''}).
+\texttt{umath} reprend des méthodes d'égalité de nombre réels. Deux nombres réels sont égaux
+si la valeur absolue de la soustraction de ceux-ci est plus petite que la valeur de EPSILON (cf. \hyperref[Constants]{''Constants''}).
 
-Une autre méthode d'égalité permet de vérifier si un nombre équivaut à l'infini (INF ou -INF).
+Une autre méthode d’égalité permet de vérifier si un nombre équivaut à l’infini (INF ou -INF).
 Il y a également des méthodes de conversions entre pentes, radians, degrés, etc.
 
-Les méthodes d'intersections sont décrites plus en détails dans la section Annexe - Démarches mathématiques.
+Les méthodes d’intersections sont décrites plus en détails dans la section \hyperref[Annexe]{Annexe - Démarches mathématiques}.
 
 \subsection{Modèle}
 
 Dans cette section, nous allons décrire les différentes classes du modèle 
 (classes métiers).
 Un squelette de classes a été fourni par Monsieur Absil.
-Ce squelette contenait les fichiers suivants :
+Ce squelette contenait les fichiers suivants~:
 `point.h, source.h, dest.h, nuke.h, wall.h,
 crystal.h, lens.h, mirror.h, ray.h, level.h` ainsi que leurs sources correspondantes.
 Nous avons décidé de modifier ce squelette tout en gardant la 
@@ -386,25 +386,25 @@ Elle est munie des coordonnées \texttt{x} et \texttt{y} qui sont tous deux des
 nombres réels (\texttt{double}). 
 
 La classe \texttt{Point} fourni par Mr. Absil comprenait des coordonnées entières.
-Nous avons décidé de passer les coordonnées en nombres réels par soucis de précision.
+Nous avons décidé de passer les coordonnées en nombres réels par souci de précision.
 
-La classe permet également de calculer la distance entre deux points grâce à la formule :
+La classe permet également de calculer la distance entre deux points grâce à la formule~:
 
 $$ \sqrt[2]{(x_1 - x_2)^2 + (y_1 - y_2)^2} $$
 
 \subsubsection{Line}
 
-La classe \texttt{Line} représente une droite de la forme : 
+La classe \texttt{Line} représente une droite de la forme~: 
 $ D \equiv ax + by + c = 0 $
 
 Elle possède les trois paramètres $ a $, $ b $ et $ c $ ainsi que l'angle
-que forme la droite pour éviter de devoir reconvertir la pente calculé par $ \frac{-a}{b} $
+que forme la droite pour éviter de devoir reconvertir la pente calculée par $ \frac{-a}{b} $
 en angle à chaque fois.
 
 La classe \texttt{Line} possède des méthodes permettant de savoir si celle-ci est 
 verticale ($ b = 0 $) ou horizontale ($ a = 0 $), si elle est perpendiculaire ou parallèle à une autre droite.
 Des méthodes permettant d'obtenir $ x $ selon une valeur de $ y $ donné et inversément sont également
-présentes. Cependant ces méthodes peuvent renvoyer une valeur infini dans le cas où la droite 
+présentes. Cependant ces méthodes peuvent renvoyer une valeur infinie dans le cas où la droite 
 est soit verticale soit horizontale.
 
 Cette classe sert principalement à modéliser un rayon de lumière (cf. \hyperref[Ray]{''Ray''}) pour trouver 
@@ -546,7 +546,7 @@ Classe représentant un mur, élément visuel sur lequel le rayon est stoppé.
 
 \section{Bibliographie}
 
-\section{Annexes}
+\section{\label{Annexe}Annexes}
 
 \subsection{Démarches mathématiques}
 
