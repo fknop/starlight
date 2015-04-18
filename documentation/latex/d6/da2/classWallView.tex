@@ -1,0 +1,119 @@
+\hypertarget{classWallView}{\section{Référence de la classe Wall\+View}
+\label{classWallView}\index{Wall\+View@{Wall\+View}}
+}
+
+
+Modélisation visuelle d’un mur (ne reflétant pas la lumière).  
+
+
+
+
+{\ttfamily \#include $<$wallview.\+h$>$}
+
+
+
+Graphe d'héritage de Wall\+View\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dd/dc1/classWallView__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Graphe de collaboration de Wall\+View\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d1/d8b/classWallView__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classWallView_acd55794debfd67a8f2b9088d3fb2e0dc}{Wall\+View} (const \hyperlink{classWall}{Wall} \&wall, bool selectable=false)
+\begin{DoxyCompactList}\small\item\em Construit un segment de droite représentant un mur. \end{DoxyCompactList}\item 
+\hypertarget{classWallView_af93a05e8e527a55158707802c2f16911}{\hyperlink{classWall}{Wall} $\ast$ {\bfseries wall} ()}\label{classWallView_af93a05e8e527a55158707802c2f16911}
+
+\item 
+\hypertarget{classWallView_a674eb428edf9826a41616bc3f8618044}{bool {\bfseries selectable} () const }\label{classWallView_a674eb428edf9826a41616bc3f8618044}
+
+\item 
+\hypertarget{classWallView_ab47e5401e6addcc68d84f702800cc282}{void {\bfseries set\+\_\+selectable} (bool value)}\label{classWallView_ab47e5401e6addcc68d84f702800cc282}
+
+\item 
+\hypertarget{classWallView_ae0a076aeec6ff504c6daacd5900400ec}{void {\bfseries translate} (double x=.\+0, double y=.\+0)}\label{classWallView_ae0a076aeec6ff504c6daacd5900400ec}
+
+\item 
+\hypertarget{classWallView_a76fa8b376ea01d443754251210232f78}{void {\bfseries rotate} (double angle)}\label{classWallView_a76fa8b376ea01d443754251210232f78}
+
+\item 
+void \hyperlink{classWallView_a193f9046366f016fd6361caa7ff1b710}{notify} (\hyperlink{classObservable}{Observable} $\ast$sdo, std\+::string msg, const std\+::vector$<$ std\+::string $>$ \&args=std\+::vector$<$ std\+::string $>$())
+\begin{DoxyCompactList}\small\item\em Notifie le jeu d'un évènement provenant d'un sujet d'observation (\hyperlink{classObservable}{Observable}). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Membres hérités additionnels}
+
+
+\subsection{Description détaillée}
+Modélisation visuelle d’un mur (ne reflétant pas la lumière). 
+
+\subsection{Documentation des constructeurs et destructeur}
+\hypertarget{classWallView_acd55794debfd67a8f2b9088d3fb2e0dc}{\index{Wall\+View@{Wall\+View}!Wall\+View@{Wall\+View}}
+\index{Wall\+View@{Wall\+View}!Wall\+View@{Wall\+View}}
+\subsubsection[{Wall\+View}]{\setlength{\rightskip}{0pt plus 5cm}Wall\+View\+::\+Wall\+View (
+\begin{DoxyParamCaption}
+\item[{const {\bf Wall} \&}]{wall, }
+\item[{bool}]{selectable = {\ttfamily false}}
+\end{DoxyParamCaption}
+)}}\label{classWallView_acd55794debfd67a8f2b9088d3fb2e0dc}
+
+
+Construit un segment de droite représentant un mur. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em x1} & abscisse de la première extrémité du mur. \\
+\hline
+{\em y1} & ordonnée da la première extrémité du mur. \\
+\hline
+{\em x2} & abscisse de l’autre extrémité du mur. \\
+\hline
+{\em y2} & ordonnée de l’autre extrémité du mur. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{classWallView_a193f9046366f016fd6361caa7ff1b710}{\index{Wall\+View@{Wall\+View}!notify@{notify}}
+\index{notify@{notify}!Wall\+View@{Wall\+View}}
+\subsubsection[{notify}]{\setlength{\rightskip}{0pt plus 5cm}void Wall\+View\+::notify (
+\begin{DoxyParamCaption}
+\item[{{\bf Observable} $\ast$}]{sdo, }
+\item[{std\+::string}]{msg, }
+\item[{const std\+::vector$<$ std\+::string $>$ \&}]{args = {\ttfamily std\+:\+:vector$<$~std\+:\+:string~$>$()}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classWallView_a193f9046366f016fd6361caa7ff1b710}
+
+
+Notifie le jeu d'un évènement provenant d'un sujet d'observation (\hyperlink{classObservable}{Observable}). 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em o} & l'observé. \\
+\hline
+{\em msg} & le message de notification. \\
+\hline
+{\em args} & des arguments. \\
+\hline
+\end{DoxyParams}
+
+
+Implémente \hyperlink{classObserverInterface_a1bbd22519c2942d978804714db12c8b2}{Observer\+Interface}.
+
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+view/wallview.\+h\item 
+view/wallview.\+cpp\end{DoxyCompactItemize}

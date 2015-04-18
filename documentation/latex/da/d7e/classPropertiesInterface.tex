@@ -1,0 +1,68 @@
+\hypertarget{classPropertiesInterface}{\section{Référence de la classe Properties\+Interface}
+\label{classPropertiesInterface}\index{Properties\+Interface@{Properties\+Interface}}
+}
+
+
+Graphe d'héritage de Properties\+Interface\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d5/d18/classPropertiesInterface__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Graphe de collaboration de Properties\+Interface\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=247pt]{da/d04/classPropertiesInterface__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classPropertiesInterface_a62f1147d49d284073aa8f65f0b3dae70}{virtual void {\bfseries apply} ()=0}\label{classPropertiesInterface_a62f1147d49d284073aa8f65f0b3dae70}
+
+\item 
+\hypertarget{classPropertiesInterface_a0d80d597bd813f68c2e5d93a986395a2}{virtual void {\bfseries reset} ()=0}\label{classPropertiesInterface_a0d80d597bd813f68c2e5d93a986395a2}
+
+\item 
+virtual void \hyperlink{classPropertiesInterface_a56309b90dd5838cd845c1b32a0ba56d4}{notify} (\hyperlink{classObservable}{Observable} $\ast$sdo, std\+::string msg, const std\+::vector$<$ std\+::string $>$ \&args)
+\begin{DoxyCompactList}\small\item\em Notifie le jeu d'un évènement provenant d'un sujet d'observation (\hyperlink{classObservable}{Observable}). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{classPropertiesInterface_a56309b90dd5838cd845c1b32a0ba56d4}{\index{Properties\+Interface@{Properties\+Interface}!notify@{notify}}
+\index{notify@{notify}!Properties\+Interface@{Properties\+Interface}}
+\subsubsection[{notify}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Properties\+Interface\+::notify (
+\begin{DoxyParamCaption}
+\item[{{\bf Observable} $\ast$}]{sdo, }
+\item[{std\+::string}]{msg, }
+\item[{const std\+::vector$<$ std\+::string $>$ \&}]{args}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{classPropertiesInterface_a56309b90dd5838cd845c1b32a0ba56d4}
+
+
+Notifie le jeu d'un évènement provenant d'un sujet d'observation (\hyperlink{classObservable}{Observable}). 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em o} & l'observé. \\
+\hline
+{\em msg} & le message de notification. \\
+\hline
+{\em args} & des arguments. \\
+\hline
+\end{DoxyParams}
+
+
+Implémente \hyperlink{classObserverInterface_a1bbd22519c2942d978804714db12c8b2}{Observer\+Interface}.
+
+
+
+La documentation de cette classe a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+editor/propertiesinterface.\+h\end{DoxyCompactItemize}

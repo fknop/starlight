@@ -1,0 +1,9 @@
+<map id="Element" name="Element">
+<area shape="rect" id="node2" href="$d6/d4f/classCrystal.html" title="Cette classe modélise les cristaux utilisés dans le jeu. " alt="" coords="5,80,69,107"/>
+<area shape="rect" id="node3" href="$de/d97/classDest.html" title="Cette classe modélise la destination utilisée dans le jeu. " alt="" coords="93,80,144,107"/>
+<area shape="rect" id="node4" href="$d6/d4b/classLens.html" title="Cette classe modélise les lentilles utilisées dans le jeu. " alt="" coords="168,80,219,107"/>
+<area shape="rect" id="node5" href="$de/dfd/classMirror.html" title="Cette classe modélise les miroirs utilisés dans le jeu. " alt="" coords="243,80,297,107"/>
+<area shape="rect" id="node6" href="$d0/ddf/classNuke.html" title="Cette classe modélise les bombes utilisées dans le jeu. " alt="" coords="323,80,376,107"/>
+<area shape="rect" id="node7" href="$d6/d2e/classSource.html" title="Modélise la source lumineuse utilisée dans le jeu. " alt="" coords="401,80,463,107"/>
+<area shape="rect" id="node8" href="$d7/dec/classWall.html" title="Cette classe modélise les murs utilisés dans le jeu. " alt="" coords="488,80,536,107"/>
+</map>

@@ -1,0 +1,118 @@
+\hypertarget{classMapView}{\section{Référence de la classe Map\+View}
+\label{classMapView}\index{Map\+View@{Map\+View}}
+}
+
+
+Modélisation visuelle d’un plateau de jeu.  
+
+
+
+
+{\ttfamily \#include $<$mapview.\+h$>$}
+
+
+
+Graphe d'héritage de Map\+View\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d6/d58/classMapView__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Graphe de collaboration de Map\+View\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d1/d7b/classMapView__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classMapView_af0587bbc403c323417ea227d247c02c6}{{\bfseries Map\+View} (\hyperlink{classLevel}{Level} $\ast$level\+\_\+, bool selectable=false)}\label{classMapView_af0587bbc403c323417ea227d247c02c6}
+
+\item 
+\hypertarget{classMapView_a9243e834166e90fd20bba175fa56a4cc}{void {\bfseries draw\+\_\+walls} ()}\label{classMapView_a9243e834166e90fd20bba175fa56a4cc}
+
+\item 
+\hypertarget{classMapView_abb3bba1e54932fc2b64406995881c4ad}{void {\bfseries draw\+\_\+mirrors} ()}\label{classMapView_abb3bba1e54932fc2b64406995881c4ad}
+
+\item 
+\hypertarget{classMapView_aafe3dc35cb0938ae7e778b3ddbaf0d87}{void {\bfseries draw\+\_\+nukes} ()}\label{classMapView_aafe3dc35cb0938ae7e778b3ddbaf0d87}
+
+\item 
+\hypertarget{classMapView_a636b68282c90dab40dba5984acae2605}{void {\bfseries draw\+\_\+lenses} ()}\label{classMapView_a636b68282c90dab40dba5984acae2605}
+
+\item 
+\hypertarget{classMapView_a69e182926c3faeccd627740329451091}{void {\bfseries draw\+\_\+crystals} ()}\label{classMapView_a69e182926c3faeccd627740329451091}
+
+\item 
+\hypertarget{classMapView_a47460ba6134d7b9b0f696de8f4f6aa8a}{void {\bfseries draw\+\_\+rays} ()}\label{classMapView_a47460ba6134d7b9b0f696de8f4f6aa8a}
+
+\item 
+\hypertarget{classMapView_a7673cc6dc5da8a4312d4588bc3d8b8d0}{void {\bfseries draw\+\_\+source} ()}\label{classMapView_a7673cc6dc5da8a4312d4588bc3d8b8d0}
+
+\item 
+\hypertarget{classMapView_afffa3910baaace753c00ce187fd7115a}{void {\bfseries draw\+\_\+dest} ()}\label{classMapView_afffa3910baaace753c00ce187fd7115a}
+
+\item 
+\hypertarget{classMapView_a7e354e304c2f0135103a8773a8a8e0d4}{void {\bfseries repaint} ()}\label{classMapView_a7e354e304c2f0135103a8773a8a8e0d4}
+
+\item 
+\hypertarget{classMapView_a1c41de9351ee9f91008be7a201a3a99c}{void {\bfseries clear} ()}\label{classMapView_a1c41de9351ee9f91008be7a201a3a99c}
+
+\item 
+\hypertarget{classMapView_ab1af933413ea299a5f6d735561623471}{\hyperlink{classElementView}{Element\+View} $\ast$ {\bfseries selected} ()}\label{classMapView_ab1af933413ea299a5f6d735561623471}
+
+\item 
+\hypertarget{classMapView_aba384cd40d1f62de22ca5b3af9218656}{void {\bfseries mouse\+Press\+Event} (Q\+Mouse\+Event $\ast$event)}\label{classMapView_aba384cd40d1f62de22ca5b3af9218656}
+
+\item 
+\hypertarget{classMapView_aab858f1281826a9b9b992ecd1809127a}{void {\bfseries key\+Press\+Event} (Q\+Key\+Event $\ast$event)}\label{classMapView_aab858f1281826a9b9b992ecd1809127a}
+
+\item 
+void \hyperlink{classMapView_ac350f8c6a05f696934268a3584b53a44}{notify} (\hyperlink{classObservable}{Observable} $\ast$sdo, std\+::string msg, const std\+::vector$<$ std\+::string $>$ \&args=std\+::vector$<$ std\+::string $>$())
+\begin{DoxyCompactList}\small\item\em Notifie le jeu d'un évènement provenant d'un sujet d'observation (\hyperlink{classObservable}{Observable}). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Membres hérités additionnels}
+
+
+\subsection{Description détaillée}
+Modélisation visuelle d’un plateau de jeu. 
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{classMapView_ac350f8c6a05f696934268a3584b53a44}{\index{Map\+View@{Map\+View}!notify@{notify}}
+\index{notify@{notify}!Map\+View@{Map\+View}}
+\subsubsection[{notify}]{\setlength{\rightskip}{0pt plus 5cm}void Map\+View\+::notify (
+\begin{DoxyParamCaption}
+\item[{{\bf Observable} $\ast$}]{sdo, }
+\item[{std\+::string}]{msg, }
+\item[{const std\+::vector$<$ std\+::string $>$ \&}]{args = {\ttfamily std\+:\+:vector$<$~std\+:\+:string~$>$()}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classMapView_ac350f8c6a05f696934268a3584b53a44}
+
+
+Notifie le jeu d'un évènement provenant d'un sujet d'observation (\hyperlink{classObservable}{Observable}). 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em o} & l'observé. \\
+\hline
+{\em msg} & le message de notification. \\
+\hline
+{\em args} & des arguments. \\
+\hline
+\end{DoxyParams}
+
+
+Implémente \hyperlink{classObserverInterface_a1bbd22519c2942d978804714db12c8b2}{Observer\+Interface}.
+
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+view/mapview.\+h\item 
+view/mapview.\+cpp\end{DoxyCompactItemize}

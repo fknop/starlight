@@ -1,0 +1,352 @@
+\hypertarget{classLens}{\section{Référence de la classe Lens}
+\label{classLens}\index{Lens@{Lens}}
+}
+
+
+Cette classe modélise les lentilles utilisées dans le jeu.  
+
+
+
+
+{\ttfamily \#include $<$lens.\+h$>$}
+
+
+
+Graphe d'héritage de Lens\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=217pt]{d4/def/classLens__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Graphe de collaboration de Lens\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=217pt]{d8/df0/classLens__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classLens_a314445802fc5ed95bdd6b715282f6825}{Lens} (const \hyperlink{classPoint}{Point} \&p, double w, double h, int \hyperlink{classLens_aee260137e02f65dd1e3daf3ce21a85c2}{wl\+\_\+min}, int \hyperlink{classLens_a0ffa3d4a046dd6d31ddc549bd91bc25d}{wl\+\_\+max})
+\begin{DoxyCompactList}\small\item\em Instancie une lentille à l'aide de toutes ses caractéristiques. \end{DoxyCompactList}\item 
+\hyperlink{classLens_a3912f09431d56887039ae7feaf1fa169}{Lens} (const \hyperlink{classLens}{Lens} \&lens)
+\begin{DoxyCompactList}\small\item\em Constructeur de copie. \end{DoxyCompactList}\item 
+const \hyperlink{classPoint}{Point} \& \hyperlink{classLens_a162d1b06824dbbac8c221ebfec0e0816}{position} () const 
+\begin{DoxyCompactList}\small\item\em Retourne la position du coin supérieur gauche du rectangle modélisant la lentille. \end{DoxyCompactList}\item 
+double \hyperlink{classLens_afcccf7e103a81ae4fbe5e14c9dc4e0a6}{width} () const 
+\begin{DoxyCompactList}\small\item\em Retourne la largeur de la lentille. \end{DoxyCompactList}\item 
+double \hyperlink{classLens_a827d7ce14d1dfbd66b46e94cb1d6a794}{height} () const 
+\begin{DoxyCompactList}\small\item\em Retourne la hauteur de la lentille. \end{DoxyCompactList}\item 
+int \hyperlink{classLens_a0ffa3d4a046dd6d31ddc549bd91bc25d}{wl\+\_\+max} () const 
+\begin{DoxyCompactList}\small\item\em Retourne la longueur d'onde minimale des rayons autorisés à franchir la lentille. \end{DoxyCompactList}\item 
+int \hyperlink{classLens_aee260137e02f65dd1e3daf3ce21a85c2}{wl\+\_\+min} () const 
+\begin{DoxyCompactList}\small\item\em Retourne la longueur d'onde maximale des rayons autorisés à franchir la lentille. \end{DoxyCompactList}\item 
+void \hyperlink{classLens_a3bf3faa62c56d0282e46c2f0baa3b531}{set\+\_\+pos} (const \hyperlink{classPoint}{Point} \&pos)
+\begin{DoxyCompactList}\small\item\em Modifie la position de la lentille. \end{DoxyCompactList}\item 
+void \hyperlink{classLens_a7667bda90f872998cb19a027d1c4f3db}{set\+\_\+width} (const double w)
+\begin{DoxyCompactList}\small\item\em Modifie la largeur de la lentille. \end{DoxyCompactList}\item 
+void \hyperlink{classLens_a8242b785736433197468c6ef17fb37ee}{set\+\_\+height} (const double h)
+\begin{DoxyCompactList}\small\item\em Modifie la hauteur de la lentille. \end{DoxyCompactList}\item 
+void \hyperlink{classLens_a0fedf88bbe8eb0bdb4a5d20561f1344c}{set\+\_\+wl\+\_\+min} (const double \hyperlink{classLens_aee260137e02f65dd1e3daf3ce21a85c2}{wl\+\_\+min})
+\begin{DoxyCompactList}\small\item\em Modifie la longueur d’onde minimale de la lentille. \end{DoxyCompactList}\item 
+void \hyperlink{classLens_a7c0492c65283b7f51f54aef6c706d311}{set\+\_\+wl\+\_\+max} (const double \hyperlink{classLens_a0ffa3d4a046dd6d31ddc549bd91bc25d}{wl\+\_\+max})
+\begin{DoxyCompactList}\small\item\em Modifie la longueur d’onde maximale de la lentille. \end{DoxyCompactList}\item 
+\hyperlink{classEllipse}{Ellipse} \hyperlink{classLens_a32c53f8267002b2fa510c656f91600b9}{to\+\_\+ellipse} ()
+\begin{DoxyCompactList}\small\item\em Retourne une ellipse correspondante à la lentille. \end{DoxyCompactList}\item 
+void \hyperlink{classLens_acfdbf14808b0c555e21405aacd7d9cb2}{translate} (const double x, const double y)
+\begin{DoxyCompactList}\small\item\em Déplace la lentille. \end{DoxyCompactList}\item 
+bool \hyperlink{classLens_a53256728d15126197e0f66a595822948}{operator==} (const \hyperlink{classLens}{Lens} \&l) const 
+\begin{DoxyCompactList}\small\item\em Redéfinition de l'opérateur d'égalité, retourne vrai si les lentilles sont égales. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Amis}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& \hyperlink{classLens_ad6aeaa87264bd2229fef327ef4c64699}{operator$<$$<$} (std\+::ostream \&out, const \hyperlink{classLens}{Lens} \&m)
+\begin{DoxyCompactList}\small\item\em Surcharge l'opérateur de flux de sortie pour afficher un récapitulatif des caractéristiques de la lentille sous-\/jacente en console. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Membres hérités additionnels}
+
+
+\subsection{Description détaillée}
+Cette classe modélise les lentilles utilisées dans le jeu. 
+
+Une lentille est un objet rectangulaire qui ne laisse passer les rayons lumineux que dans un certain intervalle de longueur d'onde. Si un rayon lumineux se trouve dans l'intervalle de longueur d'onde autorisé, il traverse la lentille sans subir aucune modification. Sinon, la lentille se comporte comme un mur. 
+
+\subsection{Documentation des constructeurs et destructeur}
+\hypertarget{classLens_a314445802fc5ed95bdd6b715282f6825}{\index{Lens@{Lens}!Lens@{Lens}}
+\index{Lens@{Lens}!Lens@{Lens}}
+\subsubsection[{Lens}]{\setlength{\rightskip}{0pt plus 5cm}Lens\+::\+Lens (
+\begin{DoxyParamCaption}
+\item[{const {\bf Point} \&}]{p, }
+\item[{double}]{w, }
+\item[{double}]{h, }
+\item[{int}]{wl\+\_\+min, }
+\item[{int}]{wl\+\_\+max}
+\end{DoxyParamCaption}
+)}}\label{classLens_a314445802fc5ed95bdd6b715282f6825}
+
+
+Instancie une lentille à l'aide de toutes ses caractéristiques. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em p} & la position du coin supérieur gauche du rectangle modélisant la lentille. \\
+\hline
+{\em w} & la largeur de la lentille. \\
+\hline
+{\em h} & la hauteur de la lentille. \\
+\hline
+{\em wlmin} & la longueur d'onde minimale des rayons autorisés à franchir la lentille. \\
+\hline
+{\em wlmax} & la longueur d'onde maximale des rayons autorisés à franchir la lentille. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classLens_a3912f09431d56887039ae7feaf1fa169}{\index{Lens@{Lens}!Lens@{Lens}}
+\index{Lens@{Lens}!Lens@{Lens}}
+\subsubsection[{Lens}]{\setlength{\rightskip}{0pt plus 5cm}Lens\+::\+Lens (
+\begin{DoxyParamCaption}
+\item[{const {\bf Lens} \&}]{lens}
+\end{DoxyParamCaption}
+)}}\label{classLens_a3912f09431d56887039ae7feaf1fa169}
+
+
+Constructeur de copie. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em lens} & la lentille à copier. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{classLens_a827d7ce14d1dfbd66b46e94cb1d6a794}{\index{Lens@{Lens}!height@{height}}
+\index{height@{height}!Lens@{Lens}}
+\subsubsection[{height}]{\setlength{\rightskip}{0pt plus 5cm}double Lens\+::height (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classLens_a827d7ce14d1dfbd66b46e94cb1d6a794}
+
+
+Retourne la hauteur de la lentille. 
+
+\begin{DoxyReturn}{Renvoie}
+la hauteur de la lentille. 
+\end{DoxyReturn}
+\hypertarget{classLens_a53256728d15126197e0f66a595822948}{\index{Lens@{Lens}!operator==@{operator==}}
+\index{operator==@{operator==}!Lens@{Lens}}
+\subsubsection[{operator==}]{\setlength{\rightskip}{0pt plus 5cm}bool Lens\+::operator== (
+\begin{DoxyParamCaption}
+\item[{const {\bf Lens} \&}]{l}
+\end{DoxyParamCaption}
+) const}}\label{classLens_a53256728d15126197e0f66a595822948}
+
+
+Redéfinition de l'opérateur d'égalité, retourne vrai si les lentilles sont égales. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em l} & une lentille. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+vrai si les lentilles sont égales, faux sinon. 
+\end{DoxyReturn}
+\hypertarget{classLens_a162d1b06824dbbac8c221ebfec0e0816}{\index{Lens@{Lens}!position@{position}}
+\index{position@{position}!Lens@{Lens}}
+\subsubsection[{position}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Point} \& Lens\+::position (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classLens_a162d1b06824dbbac8c221ebfec0e0816}
+
+
+Retourne la position du coin supérieur gauche du rectangle modélisant la lentille. 
+
+\begin{DoxyReturn}{Renvoie}
+la position du coin supérieur gauche du rectangle modélisant la lentille 
+\end{DoxyReturn}
+\hypertarget{classLens_a8242b785736433197468c6ef17fb37ee}{\index{Lens@{Lens}!set\+\_\+height@{set\+\_\+height}}
+\index{set\+\_\+height@{set\+\_\+height}!Lens@{Lens}}
+\subsubsection[{set\+\_\+height}]{\setlength{\rightskip}{0pt plus 5cm}void Lens\+::set\+\_\+height (
+\begin{DoxyParamCaption}
+\item[{const double}]{h}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classLens_a8242b785736433197468c6ef17fb37ee}
+
+
+Modifie la hauteur de la lentille. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em h} & la nouvelle hauteur de la lentille. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classLens_a3bf3faa62c56d0282e46c2f0baa3b531}{\index{Lens@{Lens}!set\+\_\+pos@{set\+\_\+pos}}
+\index{set\+\_\+pos@{set\+\_\+pos}!Lens@{Lens}}
+\subsubsection[{set\+\_\+pos}]{\setlength{\rightskip}{0pt plus 5cm}void Lens\+::set\+\_\+pos (
+\begin{DoxyParamCaption}
+\item[{const {\bf Point} \&}]{pos}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classLens_a3bf3faa62c56d0282e46c2f0baa3b531}
+
+
+Modifie la position de la lentille. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em pos} & la nouvelle position de la lentille. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classLens_a7667bda90f872998cb19a027d1c4f3db}{\index{Lens@{Lens}!set\+\_\+width@{set\+\_\+width}}
+\index{set\+\_\+width@{set\+\_\+width}!Lens@{Lens}}
+\subsubsection[{set\+\_\+width}]{\setlength{\rightskip}{0pt plus 5cm}void Lens\+::set\+\_\+width (
+\begin{DoxyParamCaption}
+\item[{const double}]{w}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classLens_a7667bda90f872998cb19a027d1c4f3db}
+
+
+Modifie la largeur de la lentille. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em w} & la nouvelle largeur de la lentille. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classLens_a7c0492c65283b7f51f54aef6c706d311}{\index{Lens@{Lens}!set\+\_\+wl\+\_\+max@{set\+\_\+wl\+\_\+max}}
+\index{set\+\_\+wl\+\_\+max@{set\+\_\+wl\+\_\+max}!Lens@{Lens}}
+\subsubsection[{set\+\_\+wl\+\_\+max}]{\setlength{\rightskip}{0pt plus 5cm}void Lens\+::set\+\_\+wl\+\_\+max (
+\begin{DoxyParamCaption}
+\item[{const double}]{wl\+\_\+max}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classLens_a7c0492c65283b7f51f54aef6c706d311}
+
+
+Modifie la longueur d’onde maximale de la lentille. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em wl\+\_\+max} & la nouvelle longueur d’onde maximale. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classLens_a0fedf88bbe8eb0bdb4a5d20561f1344c}{\index{Lens@{Lens}!set\+\_\+wl\+\_\+min@{set\+\_\+wl\+\_\+min}}
+\index{set\+\_\+wl\+\_\+min@{set\+\_\+wl\+\_\+min}!Lens@{Lens}}
+\subsubsection[{set\+\_\+wl\+\_\+min}]{\setlength{\rightskip}{0pt plus 5cm}void Lens\+::set\+\_\+wl\+\_\+min (
+\begin{DoxyParamCaption}
+\item[{const double}]{wl\+\_\+min}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classLens_a0fedf88bbe8eb0bdb4a5d20561f1344c}
+
+
+Modifie la longueur d’onde minimale de la lentille. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em wl\+\_\+min} & la nouvelle longueur d’onde minimale. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classLens_a32c53f8267002b2fa510c656f91600b9}{\index{Lens@{Lens}!to\+\_\+ellipse@{to\+\_\+ellipse}}
+\index{to\+\_\+ellipse@{to\+\_\+ellipse}!Lens@{Lens}}
+\subsubsection[{to\+\_\+ellipse}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Ellipse} Lens\+::to\+\_\+ellipse (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classLens_a32c53f8267002b2fa510c656f91600b9}
+
+
+Retourne une ellipse correspondante à la lentille. 
+
+\begin{DoxyReturn}{Renvoie}
+l'ellipse correspondante à la lentille. 
+\end{DoxyReturn}
+\hypertarget{classLens_acfdbf14808b0c555e21405aacd7d9cb2}{\index{Lens@{Lens}!translate@{translate}}
+\index{translate@{translate}!Lens@{Lens}}
+\subsubsection[{translate}]{\setlength{\rightskip}{0pt plus 5cm}void Lens\+::translate (
+\begin{DoxyParamCaption}
+\item[{const double}]{x, }
+\item[{const double}]{y}
+\end{DoxyParamCaption}
+)}}\label{classLens_acfdbf14808b0c555e21405aacd7d9cb2}
+
+
+Déplace la lentille. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em x} & le déplacement sur l'axe x. \\
+\hline
+{\em y} & le déplacement sur l'axe y. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classLens_afcccf7e103a81ae4fbe5e14c9dc4e0a6}{\index{Lens@{Lens}!width@{width}}
+\index{width@{width}!Lens@{Lens}}
+\subsubsection[{width}]{\setlength{\rightskip}{0pt plus 5cm}double Lens\+::width (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classLens_afcccf7e103a81ae4fbe5e14c9dc4e0a6}
+
+
+Retourne la largeur de la lentille. 
+
+\begin{DoxyReturn}{Renvoie}
+la largeur de la lentille. 
+\end{DoxyReturn}
+\hypertarget{classLens_a0ffa3d4a046dd6d31ddc549bd91bc25d}{\index{Lens@{Lens}!wl\+\_\+max@{wl\+\_\+max}}
+\index{wl\+\_\+max@{wl\+\_\+max}!Lens@{Lens}}
+\subsubsection[{wl\+\_\+max}]{\setlength{\rightskip}{0pt plus 5cm}int Lens\+::wl\+\_\+max (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classLens_a0ffa3d4a046dd6d31ddc549bd91bc25d}
+
+
+Retourne la longueur d'onde minimale des rayons autorisés à franchir la lentille. 
+
+\begin{DoxyReturn}{Renvoie}
+la longueur d'onde minimale des rayons autorisés à franchir la lentille. 
+\end{DoxyReturn}
+\hypertarget{classLens_aee260137e02f65dd1e3daf3ce21a85c2}{\index{Lens@{Lens}!wl\+\_\+min@{wl\+\_\+min}}
+\index{wl\+\_\+min@{wl\+\_\+min}!Lens@{Lens}}
+\subsubsection[{wl\+\_\+min}]{\setlength{\rightskip}{0pt plus 5cm}int Lens\+::wl\+\_\+min (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classLens_aee260137e02f65dd1e3daf3ce21a85c2}
+
+
+Retourne la longueur d'onde maximale des rayons autorisés à franchir la lentille. 
+
+\begin{DoxyReturn}{Renvoie}
+la longueur d'onde maximale des rayons autorisés à franchir la lentille. 
+\end{DoxyReturn}
+
+
+\subsection{Documentation des fonctions amies et associées}
+\hypertarget{classLens_ad6aeaa87264bd2229fef327ef4c64699}{\index{Lens@{Lens}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Lens@{Lens}}
+\subsubsection[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}std\+::ostream\& operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{std\+::ostream \&}]{out, }
+\item[{const {\bf Lens} \&}]{m}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [friend]}}}\label{classLens_ad6aeaa87264bd2229fef327ef4c64699}
+
+
+Surcharge l'opérateur de flux de sortie pour afficher un récapitulatif des caractéristiques de la lentille sous-\/jacente en console. 
+
+\begin{DoxyReturn}{Renvoie}
+le flux dans lequel la lentille a été imprimée. 
+\end{DoxyReturn}
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+model/lens.\+h\item 
+model/lens.\+cpp\end{DoxyCompactItemize}

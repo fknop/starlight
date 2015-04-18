@@ -1,0 +1,79 @@
+\hypertarget{classLensView}{\section{Référence de la classe Lens\+View}
+\label{classLensView}\index{Lens\+View@{Lens\+View}}
+}
+
+
+Graphe d'héritage de Lens\+View\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d3/d0e/classLensView__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Graphe de collaboration de Lens\+View\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d3/d32/classLensView__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classLensView_a678ca25c84417e53af04258d27e5979a}{{\bfseries Lens\+View} (const \hyperlink{classLens}{Lens} \&lens, bool selectable=false)}\label{classLensView_a678ca25c84417e53af04258d27e5979a}
+
+\item 
+\hypertarget{classLensView_a9af15abae80b9588e61de5a0d929101f}{\hyperlink{classLens}{Lens} $\ast$ {\bfseries lens} ()}\label{classLensView_a9af15abae80b9588e61de5a0d929101f}
+
+\item 
+\hypertarget{classLensView_abcf4b929c4008fe2d0d464e1ec113037}{bool {\bfseries selectable} () const }\label{classLensView_abcf4b929c4008fe2d0d464e1ec113037}
+
+\item 
+\hypertarget{classLensView_a3a35c1e61503da599b1d9c93c176dffd}{void {\bfseries set\+\_\+selectable} (bool value)}\label{classLensView_a3a35c1e61503da599b1d9c93c176dffd}
+
+\item 
+\hypertarget{classLensView_a60a6a9fa6212d8d5997c77f8ee63b38d}{void {\bfseries translate} (double x=.\+0, double y=.\+0)}\label{classLensView_a60a6a9fa6212d8d5997c77f8ee63b38d}
+
+\item 
+void \hyperlink{classLensView_a55574a71ccc10e389b155b4029f74d5a}{notify} (\hyperlink{classObservable}{Observable} $\ast$sdo, std\+::string msg, const std\+::vector$<$ std\+::string $>$ \&args=std\+::vector$<$ std\+::string $>$())
+\begin{DoxyCompactList}\small\item\em Notifie le jeu d'un évènement provenant d'un sujet d'observation (\hyperlink{classObservable}{Observable}). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Membres hérités additionnels}
+
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{classLensView_a55574a71ccc10e389b155b4029f74d5a}{\index{Lens\+View@{Lens\+View}!notify@{notify}}
+\index{notify@{notify}!Lens\+View@{Lens\+View}}
+\subsubsection[{notify}]{\setlength{\rightskip}{0pt plus 5cm}void Lens\+View\+::notify (
+\begin{DoxyParamCaption}
+\item[{{\bf Observable} $\ast$}]{sdo, }
+\item[{std\+::string}]{msg, }
+\item[{const std\+::vector$<$ std\+::string $>$ \&}]{args = {\ttfamily std\+:\+:vector$<$~std\+:\+:string~$>$()}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classLensView_a55574a71ccc10e389b155b4029f74d5a}
+
+
+Notifie le jeu d'un évènement provenant d'un sujet d'observation (\hyperlink{classObservable}{Observable}). 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em o} & l'observé. \\
+\hline
+{\em msg} & le message de notification. \\
+\hline
+{\em args} & des arguments. \\
+\hline
+\end{DoxyParams}
+
+
+Implémente \hyperlink{classObserverInterface_a1bbd22519c2942d978804714db12c8b2}{Observer\+Interface}.
+
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+view/lensview.\+h\item 
+view/lensview.\+cpp\end{DoxyCompactItemize}

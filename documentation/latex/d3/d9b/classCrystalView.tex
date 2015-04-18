@@ -1,0 +1,91 @@
+\hypertarget{classCrystalView}{\section{Référence de la classe Crystal\+View}
+\label{classCrystalView}\index{Crystal\+View@{Crystal\+View}}
+}
+
+
+Modélisation visuelle d’un cristal.  
+
+
+
+
+{\ttfamily \#include $<$crystalview.\+h$>$}
+
+
+
+Graphe d'héritage de Crystal\+View\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d8/d3c/classCrystalView__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Graphe de collaboration de Crystal\+View\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d0/d09/classCrystalView__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classCrystalView_a82ec82a190920476f9ae64aca5691ceb}{{\bfseries Crystal\+View} (const \hyperlink{classCrystal}{Crystal} \&crystal, bool selectable=false)}\label{classCrystalView_a82ec82a190920476f9ae64aca5691ceb}
+
+\item 
+\hypertarget{classCrystalView_a0168a3da89580fb0c5467f88c635ac9f}{\hyperlink{classCrystal}{Crystal} $\ast$ {\bfseries crystal} ()}\label{classCrystalView_a0168a3da89580fb0c5467f88c635ac9f}
+
+\item 
+\hypertarget{classCrystalView_a6fffe79b15c269a44f9c393ed163f205}{bool {\bfseries selectable} () const }\label{classCrystalView_a6fffe79b15c269a44f9c393ed163f205}
+
+\item 
+\hypertarget{classCrystalView_ab2a8ffda8203f9d645fa137ba8542ce4}{void {\bfseries set\+\_\+selectable} (bool value)}\label{classCrystalView_ab2a8ffda8203f9d645fa137ba8542ce4}
+
+\item 
+\hypertarget{classCrystalView_adc16471475cf13a0cd815f587ae0b012}{void {\bfseries translate} (double x=.\+0, double y=.\+0)}\label{classCrystalView_adc16471475cf13a0cd815f587ae0b012}
+
+\item 
+void \hyperlink{classCrystalView_a167f2bc5e7fd6e7daaca9fc39e475806}{notify} (\hyperlink{classObservable}{Observable} $\ast$sdo, std\+::string msg, const std\+::vector$<$ std\+::string $>$ \&args=std\+::vector$<$ std\+::string $>$())
+\begin{DoxyCompactList}\small\item\em Notifie le jeu d'un évènement provenant d'un sujet d'observation (\hyperlink{classObservable}{Observable}). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Membres hérités additionnels}
+
+
+\subsection{Description détaillée}
+Modélisation visuelle d’un cristal. 
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{classCrystalView_a167f2bc5e7fd6e7daaca9fc39e475806}{\index{Crystal\+View@{Crystal\+View}!notify@{notify}}
+\index{notify@{notify}!Crystal\+View@{Crystal\+View}}
+\subsubsection[{notify}]{\setlength{\rightskip}{0pt plus 5cm}void Crystal\+View\+::notify (
+\begin{DoxyParamCaption}
+\item[{{\bf Observable} $\ast$}]{sdo, }
+\item[{std\+::string}]{msg, }
+\item[{const std\+::vector$<$ std\+::string $>$ \&}]{args = {\ttfamily std\+:\+:vector$<$~std\+:\+:string~$>$()}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classCrystalView_a167f2bc5e7fd6e7daaca9fc39e475806}
+
+
+Notifie le jeu d'un évènement provenant d'un sujet d'observation (\hyperlink{classObservable}{Observable}). 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em o} & l'observé. \\
+\hline
+{\em msg} & le message de notification. \\
+\hline
+{\em args} & des arguments. \\
+\hline
+\end{DoxyParams}
+
+
+Implémente \hyperlink{classObserverInterface_a1bbd22519c2942d978804714db12c8b2}{Observer\+Interface}.
+
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+view/crystalview.\+h\item 
+view/crystalview.\+cpp\end{DoxyCompactItemize}

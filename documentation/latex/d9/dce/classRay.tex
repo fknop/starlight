@@ -1,0 +1,247 @@
+\hypertarget{classRay}{\section{Référence de la classe Ray}
+\label{classRay}\index{Ray@{Ray}}
+}
+
+
+Cette classe modélise les rayons lumineux, concept central du jeu.  
+
+
+
+
+{\ttfamily \#include $<$ray.\+h$>$}
+
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classRay_ad9f65a706bdb1ab9a85d2d4d5bcc90ae}{Ray} (const \hyperlink{classPoint}{Point} \&p1, const \hyperlink{classPoint}{Point} \&p2)
+\begin{DoxyCompactList}\small\item\em Instancie un rayon lumineux de début et de fin donnés, et de longueur d'onde 600 nm. \end{DoxyCompactList}\item 
+\hyperlink{classRay_ad9524414a8c37bbc36a245d7296d847e}{Ray} (const \hyperlink{classPoint}{Point} \&p1, const \hyperlink{classPoint}{Point} \&p2, int wl)
+\begin{DoxyCompactList}\small\item\em Instancie un rayon lumineux de début et de fin donnés, et de longueur d'onde spécifiée. \end{DoxyCompactList}\item 
+const \hyperlink{classPoint}{Point} \& \hyperlink{classRay_afb483cd8f050771fa653e01b811d9a2a}{start} () const 
+\begin{DoxyCompactList}\small\item\em Retourne le début du rayon. \end{DoxyCompactList}\item 
+const \hyperlink{classPoint}{Point} \& \hyperlink{classRay_a5667cdc0b8ea0e636c482342b86a2355}{end} () const 
+\begin{DoxyCompactList}\small\item\em Retourne la fin du rayon. \end{DoxyCompactList}\item 
+int \hyperlink{classRay_a8aa2934015c635d89ac51ac2195ae019}{wavelength} () const 
+\begin{DoxyCompactList}\small\item\em Retourne la longueur d'onde du rayon. \end{DoxyCompactList}\item 
+void \hyperlink{classRay_a137b80cf87ab000bcb158980ebe288f6}{set\+\_\+start} (const \hyperlink{classPoint}{Point} \&p)
+\begin{DoxyCompactList}\small\item\em Change la coordonnée du début du rayon. \end{DoxyCompactList}\item 
+void \hyperlink{classRay_a1e8a43e951a1b21cc6e8548590c6da2e}{set\+\_\+end} (const \hyperlink{classPoint}{Point} \&p)
+\begin{DoxyCompactList}\small\item\em Change la coordonnée de la fin du rayon. \end{DoxyCompactList}\item 
+bool \hyperlink{classRay_a1336c12ef2df730a27b8315c323d8414}{set\+\_\+wavelength} (int wl)
+\begin{DoxyCompactList}\small\item\em Change la longueur d'onde du rayon. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Attributs publics statiques}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr int \hyperlink{classRay_afecf2fa5a603689c3e77cbefbe08ffb1}{W\+L\+\_\+\+M\+I\+N} \{360\}
+\begin{DoxyCompactList}\small\item\em Longueur d'onde minimale autorisée pour un rayon lumineux. \end{DoxyCompactList}\item 
+static constexpr int \hyperlink{classRay_a95eddd74f049d2511ffa09242b937b2c}{W\+L\+\_\+\+M\+A\+X} \{830\}
+\begin{DoxyCompactList}\small\item\em Longueur d'onde maximale autorisée pour un rayon lumineux. \end{DoxyCompactList}\item 
+static constexpr int \hyperlink{classRay_aa08b1d2a9423fab3502c460d787b7551}{W\+L\+\_\+\+D\+F\+T} \{600\}
+\begin{DoxyCompactList}\small\item\em Longueur d'onde par défaut pour un rayon lumineux. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Amis}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& \hyperlink{classRay_a922c5f63f21a8ebd85b8544a8e1d3933}{operator$<$$<$} (std\+::ostream \&out, const \hyperlink{classRay}{Ray} \&p)
+\begin{DoxyCompactList}\small\item\em Surcharge l'opérateur de flux de sortie pour afficher un récapitulatif des caractéristiques du rayon sous-\/jacent en console. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+Cette classe modélise les rayons lumineux, concept central du jeu. 
+
+Un rayon lumineux est un segment de droite muni d'une longueur d'onde. 
+
+\subsection{Documentation des constructeurs et destructeur}
+\hypertarget{classRay_ad9f65a706bdb1ab9a85d2d4d5bcc90ae}{\index{Ray@{Ray}!Ray@{Ray}}
+\index{Ray@{Ray}!Ray@{Ray}}
+\subsubsection[{Ray}]{\setlength{\rightskip}{0pt plus 5cm}Ray\+::\+Ray (
+\begin{DoxyParamCaption}
+\item[{const {\bf Point} \&}]{p1, }
+\item[{const {\bf Point} \&}]{p2}
+\end{DoxyParamCaption}
+)}}\label{classRay_ad9f65a706bdb1ab9a85d2d4d5bcc90ae}
+
+
+Instancie un rayon lumineux de début et de fin donnés, et de longueur d'onde 600 nm. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em p1} & le début du rayon lumineux. \\
+\hline
+{\em p2} & la fin du rayon lumineux. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classRay_ad9524414a8c37bbc36a245d7296d847e}{\index{Ray@{Ray}!Ray@{Ray}}
+\index{Ray@{Ray}!Ray@{Ray}}
+\subsubsection[{Ray}]{\setlength{\rightskip}{0pt plus 5cm}Ray\+::\+Ray (
+\begin{DoxyParamCaption}
+\item[{const {\bf Point} \&}]{p1, }
+\item[{const {\bf Point} \&}]{p2, }
+\item[{int}]{wl}
+\end{DoxyParamCaption}
+)}}\label{classRay_ad9524414a8c37bbc36a245d7296d847e}
+
+
+Instancie un rayon lumineux de début et de fin donnés, et de longueur d'onde spécifiée. 
+
+Si la longueur d'onde spécifiée ne rentre pas dans les valeurs autorisées, elle est automatiquement réglée sur W\+L\+\_\+\+D\+F\+T nm. 
+\begin{DoxyParams}{Paramètres}
+{\em p1} & le début du rayon lumineux. \\
+\hline
+{\em p2} & la fin du rayon lumineux. \\
+\hline
+{\em f} & la longueur d'onde du rayon lumineux. \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{Voir également}
+\hyperlink{classRay_afecf2fa5a603689c3e77cbefbe08ffb1}{Ray\+::\+W\+L\+\_\+\+M\+I\+N} 
+
+\hyperlink{classRay_a95eddd74f049d2511ffa09242b937b2c}{Ray\+::\+W\+L\+\_\+\+M\+A\+X} 
+
+\hyperlink{classRay_aa08b1d2a9423fab3502c460d787b7551}{Ray\+::\+W\+L\+\_\+\+D\+F\+T} 
+\end{DoxySeeAlso}
+
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{classRay_a5667cdc0b8ea0e636c482342b86a2355}{\index{Ray@{Ray}!end@{end}}
+\index{end@{end}!Ray@{Ray}}
+\subsubsection[{end}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Point} \& Ray\+::end (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classRay_a5667cdc0b8ea0e636c482342b86a2355}
+
+
+Retourne la fin du rayon. 
+
+\begin{DoxyReturn}{Renvoie}
+la fin du rayon. 
+\end{DoxyReturn}
+\hypertarget{classRay_a1e8a43e951a1b21cc6e8548590c6da2e}{\index{Ray@{Ray}!set\+\_\+end@{set\+\_\+end}}
+\index{set\+\_\+end@{set\+\_\+end}!Ray@{Ray}}
+\subsubsection[{set\+\_\+end}]{\setlength{\rightskip}{0pt plus 5cm}void Ray\+::set\+\_\+end (
+\begin{DoxyParamCaption}
+\item[{const {\bf Point} \&}]{p}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classRay_a1e8a43e951a1b21cc6e8548590c6da2e}
+
+
+Change la coordonnée de la fin du rayon. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em p} & la nouvelle coordonnée de la fin du rayon. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classRay_a137b80cf87ab000bcb158980ebe288f6}{\index{Ray@{Ray}!set\+\_\+start@{set\+\_\+start}}
+\index{set\+\_\+start@{set\+\_\+start}!Ray@{Ray}}
+\subsubsection[{set\+\_\+start}]{\setlength{\rightskip}{0pt plus 5cm}void Ray\+::set\+\_\+start (
+\begin{DoxyParamCaption}
+\item[{const {\bf Point} \&}]{p}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classRay_a137b80cf87ab000bcb158980ebe288f6}
+
+
+Change la coordonnée du début du rayon. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em p} & la nouvelle coordonnée du début du rayon. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classRay_a1336c12ef2df730a27b8315c323d8414}{\index{Ray@{Ray}!set\+\_\+wavelength@{set\+\_\+wavelength}}
+\index{set\+\_\+wavelength@{set\+\_\+wavelength}!Ray@{Ray}}
+\subsubsection[{set\+\_\+wavelength}]{\setlength{\rightskip}{0pt plus 5cm}bool Ray\+::set\+\_\+wavelength (
+\begin{DoxyParamCaption}
+\item[{int}]{wl}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classRay_a1336c12ef2df730a27b8315c323d8414}
+
+
+Change la longueur d'onde du rayon. 
+
+Si la longueur d'onde spécifiée est en dehors des limites autorisées, laisse la longueur d'onde inchangée. 
+
+La longueur d'onde doit être comprise entre 360 et 830 nm. 
+\begin{DoxyParams}{Paramètres}
+{\em f} & la nouvelle longueur d'onde du rayon \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+vrai si la longueur d'onde a bel et bien été changée, retourne faux sinon. 
+\end{DoxyReturn}
+\hypertarget{classRay_afb483cd8f050771fa653e01b811d9a2a}{\index{Ray@{Ray}!start@{start}}
+\index{start@{start}!Ray@{Ray}}
+\subsubsection[{start}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Point} \& Ray\+::start (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classRay_afb483cd8f050771fa653e01b811d9a2a}
+
+
+Retourne le début du rayon. 
+
+\begin{DoxyReturn}{Renvoie}
+le début du rayon. 
+\end{DoxyReturn}
+\hypertarget{classRay_a8aa2934015c635d89ac51ac2195ae019}{\index{Ray@{Ray}!wavelength@{wavelength}}
+\index{wavelength@{wavelength}!Ray@{Ray}}
+\subsubsection[{wavelength}]{\setlength{\rightskip}{0pt plus 5cm}int Ray\+::wavelength (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classRay_a8aa2934015c635d89ac51ac2195ae019}
+
+
+Retourne la longueur d'onde du rayon. 
+
+\begin{DoxyReturn}{Renvoie}
+la longueur d'onde du rayon. 
+\end{DoxyReturn}
+
+
+\subsection{Documentation des fonctions amies et associées}
+\hypertarget{classRay_a922c5f63f21a8ebd85b8544a8e1d3933}{\index{Ray@{Ray}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Ray@{Ray}}
+\subsubsection[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}std\+::ostream\& operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{std\+::ostream \&}]{out, }
+\item[{const {\bf Ray} \&}]{p}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [friend]}}}\label{classRay_a922c5f63f21a8ebd85b8544a8e1d3933}
+
+
+Surcharge l'opérateur de flux de sortie pour afficher un récapitulatif des caractéristiques du rayon sous-\/jacent en console. 
+
+\begin{DoxyReturn}{Renvoie}
+le flux dans lequel le rayon a été imprimé. 
+\end{DoxyReturn}
+
+
+\subsection{Documentation des données membres}
+\hypertarget{classRay_aa08b1d2a9423fab3502c460d787b7551}{\index{Ray@{Ray}!W\+L\+\_\+\+D\+F\+T@{W\+L\+\_\+\+D\+F\+T}}
+\index{W\+L\+\_\+\+D\+F\+T@{W\+L\+\_\+\+D\+F\+T}!Ray@{Ray}}
+\subsubsection[{W\+L\+\_\+\+D\+F\+T}]{\setlength{\rightskip}{0pt plus 5cm}constexpr int Ray\+::\+W\+L\+\_\+\+D\+F\+T \{600\}\hspace{0.3cm}{\ttfamily [static]}}}\label{classRay_aa08b1d2a9423fab3502c460d787b7551}
+
+
+Longueur d'onde par défaut pour un rayon lumineux. 
+
+Cette valeur correspond à la longueur d'onde (en nm) de la couleur orangé-\/rouge du spectre visible de la lumière. \hypertarget{classRay_a95eddd74f049d2511ffa09242b937b2c}{\index{Ray@{Ray}!W\+L\+\_\+\+M\+A\+X@{W\+L\+\_\+\+M\+A\+X}}
+\index{W\+L\+\_\+\+M\+A\+X@{W\+L\+\_\+\+M\+A\+X}!Ray@{Ray}}
+\subsubsection[{W\+L\+\_\+\+M\+A\+X}]{\setlength{\rightskip}{0pt plus 5cm}constexpr int Ray\+::\+W\+L\+\_\+\+M\+A\+X \{830\}\hspace{0.3cm}{\ttfamily [static]}}}\label{classRay_a95eddd74f049d2511ffa09242b937b2c}
+
+
+Longueur d'onde maximale autorisée pour un rayon lumineux. 
+
+Cette valeur correspond à la longueur d'onde maximum (en nm) du spectre visible de la lumière. \hypertarget{classRay_afecf2fa5a603689c3e77cbefbe08ffb1}{\index{Ray@{Ray}!W\+L\+\_\+\+M\+I\+N@{W\+L\+\_\+\+M\+I\+N}}
+\index{W\+L\+\_\+\+M\+I\+N@{W\+L\+\_\+\+M\+I\+N}!Ray@{Ray}}
+\subsubsection[{W\+L\+\_\+\+M\+I\+N}]{\setlength{\rightskip}{0pt plus 5cm}constexpr int Ray\+::\+W\+L\+\_\+\+M\+I\+N \{360\}\hspace{0.3cm}{\ttfamily [static]}}}\label{classRay_afecf2fa5a603689c3e77cbefbe08ffb1}
+
+
+Longueur d'onde minimale autorisée pour un rayon lumineux. 
+
+Cette valeur correspond à la longueur d'onde minimum (en nm) du spectre visible de la lumière. 
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+model/ray.\+h\item 
+model/ray.\+cpp\end{DoxyCompactItemize}

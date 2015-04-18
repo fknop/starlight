@@ -1,0 +1,185 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.7"/>
+<title>Starlight:  Fichier source de model/point.h</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Starlight
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.7 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="../../index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="../../pages.html"><span>Pages&#160;associées</span></a></li>
+      <li><a href="../../annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="../../files.html"><span>Fichiers</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="../../search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="../../files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Amis</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_3f14f6767c31cb4a1d22c13c18cc6fc3.html">model</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">point.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef POINT_H</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define POINT_H</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">class </span>PolarPoint;</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="../../dc/d4f/classPoint.html">   12</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../dc/d4f/classPoint.html">Point</a></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;{</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keywordtype">double</span> x_ {.0};</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keywordtype">double</span> y_ {.0};</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;  <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <a class="code" href="../../dc/d4f/classPoint.html#a257415ad611a16bb73628efcdb87d0fd">Point</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <a class="code" href="../../dc/d4f/classPoint.html#a257415ad611a16bb73628efcdb87d0fd">Point</a>(<span class="keywordtype">double</span> <a class="code" href="../../dc/d4f/classPoint.html#a3eef47b1c4849b3395a8f9c658ca7c4a">x</a>, <span class="keywordtype">double</span> <a class="code" href="../../dc/d4f/classPoint.html#a96e90df6b3c18e64c31abdf196e49ae9">y</a>);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <a class="code" href="../../dc/d4f/classPoint.html#a257415ad611a16bb73628efcdb87d0fd">Point</a>(<span class="keyword">const</span> <a class="code" href="../../dc/d4f/classPoint.html">Point</a>&amp; p);</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">double</span> <a class="code" href="../../dc/d4f/classPoint.html#a3eef47b1c4849b3395a8f9c658ca7c4a">x</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">double</span> <a class="code" href="../../dc/d4f/classPoint.html#a96e90df6b3c18e64c31abdf196e49ae9">y</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="../../dc/d4f/classPoint.html#a3fd167affdb9046f8f84b2b798bd97ff">set_x</a>(<span class="keywordtype">double</span> x_);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="../../dc/d4f/classPoint.html#a9b6f3a4149b55639374c94d88b96e11c">set_y</a>(<span class="keywordtype">double</span> y_);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="../../dc/d4f/classPoint.html#a7fe67e4cd3ead676e59f4b9dba57c4fa">set_position</a>(<span class="keywordtype">double</span> x_, <span class="keywordtype">double</span> y_);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordtype">double</span> <a class="code" href="../../dc/d4f/classPoint.html#a61651e744a578356e2296e7935e858d7">distance</a>(<span class="keyword">const</span> <a class="code" href="../../dc/d4f/classPoint.html">Point</a>&amp; p) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keyword">friend</span> <span class="keywordtype">bool</span> <a class="code" href="../../dc/d4f/classPoint.html#aea03821811d00d0a252f7d845b3cf4a5">operator &lt;</a>(<span class="keyword">const</span> <a class="code" href="../../dc/d4f/classPoint.html">Point</a>&amp; p1, <span class="keyword">const</span> <a class="code" href="../../dc/d4f/classPoint.html">Point</a>&amp; p2);</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keyword">const</span> <a class="code" href="../../dc/d4f/classPoint.html">Point</a>&amp; <a class="code" href="../../dc/d4f/classPoint.html#a1436b60e581a48190621810f2a4d29cb">operator =</a>(<span class="keyword">const</span> <a class="code" href="../../dc/d4f/classPoint.html">Point</a>&amp; p1);</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keyword">friend</span> std::ostream&amp; <a class="code" href="../../dc/d4f/classPoint.html#aa818efa680e0d94ce91173ccb4b7aa08">operator&lt;&lt;</a>(std::ostream&amp; out,</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                                     <span class="keyword">const</span> <a class="code" href="../../dc/d4f/classPoint.html">Point</a>&amp; p);</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="../../dc/d4f/classPoint.html#a2a6b68cd301437368de443687fc2a9f1">operator==</a>(<span class="keyword">const</span> <a class="code" href="../../dc/d4f/classPoint.html">Point</a>&amp; p) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;};</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;<span class="comment">/* Fonctions inlines */</span></div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;</div>
+<div class="line"><a name="l00117"></a><span class="lineno"><a class="line" href="../../dc/d4f/classPoint.html#a3eef47b1c4849b3395a8f9c658ca7c4a">  117</a></span>&#160;<span class="keywordtype">double</span> <a class="code" href="../../dc/d4f/classPoint.html#a3eef47b1c4849b3395a8f9c658ca7c4a">Point::x</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <span class="keywordflow">return</span> x_;</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;}</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;</div>
+<div class="line"><a name="l00122"></a><span class="lineno"><a class="line" href="../../dc/d4f/classPoint.html#a96e90df6b3c18e64c31abdf196e49ae9">  122</a></span>&#160;<span class="keywordtype">double</span> <a class="code" href="../../dc/d4f/classPoint.html#a96e90df6b3c18e64c31abdf196e49ae9">Point::y</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    <span class="keywordflow">return</span> y_;</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;}</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;</div>
+<div class="line"><a name="l00127"></a><span class="lineno"><a class="line" href="../../dc/d4f/classPoint.html#a3fd167affdb9046f8f84b2b798bd97ff">  127</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../dc/d4f/classPoint.html#a3fd167affdb9046f8f84b2b798bd97ff">Point::set_x</a>(<span class="keywordtype">double</span> x)</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;{</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    x_ = <a class="code" href="../../dc/d4f/classPoint.html#a3eef47b1c4849b3395a8f9c658ca7c4a">x</a>;</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;}</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;</div>
+<div class="line"><a name="l00132"></a><span class="lineno"><a class="line" href="../../dc/d4f/classPoint.html#a9b6f3a4149b55639374c94d88b96e11c">  132</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../dc/d4f/classPoint.html#a9b6f3a4149b55639374c94d88b96e11c">Point::set_y</a>(<span class="keywordtype">double</span> y)</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;{</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    y_ = <a class="code" href="../../dc/d4f/classPoint.html#a96e90df6b3c18e64c31abdf196e49ae9">y</a>;</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;}</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;</div>
+<div class="line"><a name="l00137"></a><span class="lineno"><a class="line" href="../../dc/d4f/classPoint.html#a7fe67e4cd3ead676e59f4b9dba57c4fa">  137</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../dc/d4f/classPoint.html#a7fe67e4cd3ead676e59f4b9dba57c4fa">Point::set_position</a>(<span class="keywordtype">double</span> x, <span class="keywordtype">double</span> y)</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;{</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    x_ = <a class="code" href="../../dc/d4f/classPoint.html#a3eef47b1c4849b3395a8f9c658ca7c4a">x</a>;</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    y_ = <a class="code" href="../../dc/d4f/classPoint.html#a96e90df6b3c18e64c31abdf196e49ae9">y</a>;</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;}</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;<span class="preprocessor">#endif // POINT_H</span></div>
+<div class="ttc" id="classPoint_html_a3eef47b1c4849b3395a8f9c658ca7c4a"><div class="ttname"><a href="../../dc/d4f/classPoint.html#a3eef47b1c4849b3395a8f9c658ca7c4a">Point::x</a></div><div class="ttdeci">double x() const </div><div class="ttdoc">Retourne l&#39;abscisse du point. </div><div class="ttdef"><b>Definition:</b> point.h:117</div></div>
+<div class="ttc" id="classPoint_html_a96e90df6b3c18e64c31abdf196e49ae9"><div class="ttname"><a href="../../dc/d4f/classPoint.html#a96e90df6b3c18e64c31abdf196e49ae9">Point::y</a></div><div class="ttdeci">double y() const </div><div class="ttdoc">Retourne l&#39;ordonnée du point. </div><div class="ttdef"><b>Definition:</b> point.h:122</div></div>
+<div class="ttc" id="classPoint_html_a1436b60e581a48190621810f2a4d29cb"><div class="ttname"><a href="../../dc/d4f/classPoint.html#a1436b60e581a48190621810f2a4d29cb">Point::operator=</a></div><div class="ttdeci">const Point &amp; operator=(const Point &amp;p1)</div><div class="ttdoc">Surcharge de l&#39;opérateur d&#39;assignation. </div><div class="ttdef"><b>Definition:</b> point.cpp:37</div></div>
+<div class="ttc" id="classPoint_html"><div class="ttname"><a href="../../dc/d4f/classPoint.html">Point</a></div><div class="ttdoc">Cette classe modélise un simple point de coordonnées réelles utilisés pour modéliser les positions de...</div><div class="ttdef"><b>Definition:</b> point.h:12</div></div>
+<div class="ttc" id="classPoint_html_aea03821811d00d0a252f7d845b3cf4a5"><div class="ttname"><a href="../../dc/d4f/classPoint.html#aea03821811d00d0a252f7d845b3cf4a5">Point::operator&lt;</a></div><div class="ttdeci">friend bool operator&lt;(const Point &amp;p1, const Point &amp;p2)</div><div class="ttdoc">Redéfinit l&#39;opérateur <. </div><div class="ttdef"><b>Definition:</b> point.cpp:21</div></div>
+<div class="ttc" id="classPoint_html_aa818efa680e0d94ce91173ccb4b7aa08"><div class="ttname"><a href="../../dc/d4f/classPoint.html#aa818efa680e0d94ce91173ccb4b7aa08">Point::operator&lt;&lt;</a></div><div class="ttdeci">friend std::ostream &amp; operator&lt;&lt;(std::ostream &amp;out, const Point &amp;p)</div><div class="ttdoc">Surcharge l&#39;opérateur de flux de sortie pour afficher un récapitulatif des caractéristiques du point ...</div><div class="ttdef"><b>Definition:</b> point.cpp:26</div></div>
+<div class="ttc" id="classPoint_html_a257415ad611a16bb73628efcdb87d0fd"><div class="ttname"><a href="../../dc/d4f/classPoint.html#a257415ad611a16bb73628efcdb87d0fd">Point::Point</a></div><div class="ttdeci">Point()=default</div><div class="ttdoc">Instancie le point (0,0) </div></div>
+<div class="ttc" id="classPoint_html_a61651e744a578356e2296e7935e858d7"><div class="ttname"><a href="../../dc/d4f/classPoint.html#a61651e744a578356e2296e7935e858d7">Point::distance</a></div><div class="ttdeci">double distance(const Point &amp;p) const </div><div class="ttdoc">Retourne la distance entre deux points. </div><div class="ttdef"><b>Definition:</b> point.cpp:16</div></div>
+<div class="ttc" id="classPoint_html_a2a6b68cd301437368de443687fc2a9f1"><div class="ttname"><a href="../../dc/d4f/classPoint.html#a2a6b68cd301437368de443687fc2a9f1">Point::operator==</a></div><div class="ttdeci">bool operator==(const Point &amp;p) const </div><div class="ttdoc">Surcharge de l&#39;opérateur d&#39;égalité. </div><div class="ttdef"><b>Definition:</b> point.cpp:32</div></div>
+<div class="ttc" id="classPoint_html_a7fe67e4cd3ead676e59f4b9dba57c4fa"><div class="ttname"><a href="../../dc/d4f/classPoint.html#a7fe67e4cd3ead676e59f4b9dba57c4fa">Point::set_position</a></div><div class="ttdeci">void set_position(double x_, double y_)</div><div class="ttdoc">Déplace le point en la coordonnée donnée. </div><div class="ttdef"><b>Definition:</b> point.h:137</div></div>
+<div class="ttc" id="classPoint_html_a9b6f3a4149b55639374c94d88b96e11c"><div class="ttname"><a href="../../dc/d4f/classPoint.html#a9b6f3a4149b55639374c94d88b96e11c">Point::set_y</a></div><div class="ttdeci">void set_y(double y_)</div><div class="ttdoc">Déplace le point en l&#39;ordonnée donnée. </div><div class="ttdef"><b>Definition:</b> point.h:132</div></div>
+<div class="ttc" id="classPoint_html_a3fd167affdb9046f8f84b2b798bd97ff"><div class="ttname"><a href="../../dc/d4f/classPoint.html#a3fd167affdb9046f8f84b2b798bd97ff">Point::set_x</a></div><div class="ttdeci">void set_x(double x_)</div><div class="ttdoc">Déplace le point en l&#39;abscisse donnée. </div><div class="ttdef"><b>Definition:</b> point.h:127</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré le Samedi 18 Avril 2015 18:54:04 pour Starlight par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.8.7
+</small></address>
+</body>
+</html>

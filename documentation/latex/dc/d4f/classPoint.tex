@@ -1,0 +1,266 @@
+\hypertarget{classPoint}{\section{Référence de la classe Point}
+\label{classPoint}\index{Point@{Point}}
+}
+
+
+Cette classe modélise un simple point de coordonnées réelles utilisés pour modéliser les positions des objets dans le jeu.  
+
+
+
+
+{\ttfamily \#include $<$point.\+h$>$}
+
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classPoint_a257415ad611a16bb73628efcdb87d0fd}{\hyperlink{classPoint_a257415ad611a16bb73628efcdb87d0fd}{Point} ()=default}\label{classPoint_a257415ad611a16bb73628efcdb87d0fd}
+
+\begin{DoxyCompactList}\small\item\em Instancie le point (0,0) \end{DoxyCompactList}\item 
+\hyperlink{classPoint_a78b55e8d5466bb8c2cf60fa55f2562ff}{Point} (double \hyperlink{classPoint_a3eef47b1c4849b3395a8f9c658ca7c4a}{x}, double \hyperlink{classPoint_a96e90df6b3c18e64c31abdf196e49ae9}{y})
+\begin{DoxyCompactList}\small\item\em Instancie le point de coordonnées spécifiées. \end{DoxyCompactList}\item 
+\hyperlink{classPoint_af0c0f20db1616447bc78184ed537ef6e}{Point} (const \hyperlink{classPoint}{Point} \&p)
+\begin{DoxyCompactList}\small\item\em Constructeur de copie. \end{DoxyCompactList}\item 
+double \hyperlink{classPoint_a3eef47b1c4849b3395a8f9c658ca7c4a}{x} () const 
+\begin{DoxyCompactList}\small\item\em Retourne l'abscisse du point. \end{DoxyCompactList}\item 
+double \hyperlink{classPoint_a96e90df6b3c18e64c31abdf196e49ae9}{y} () const 
+\begin{DoxyCompactList}\small\item\em Retourne l'ordonnée du point. \end{DoxyCompactList}\item 
+void \hyperlink{classPoint_a3fd167affdb9046f8f84b2b798bd97ff}{set\+\_\+x} (double x\+\_\+)
+\begin{DoxyCompactList}\small\item\em Déplace le point en l'abscisse donnée. \end{DoxyCompactList}\item 
+void \hyperlink{classPoint_a9b6f3a4149b55639374c94d88b96e11c}{set\+\_\+y} (double y\+\_\+)
+\begin{DoxyCompactList}\small\item\em Déplace le point en l'ordonnée donnée. \end{DoxyCompactList}\item 
+void \hyperlink{classPoint_a7fe67e4cd3ead676e59f4b9dba57c4fa}{set\+\_\+position} (double x\+\_\+, double y\+\_\+)
+\begin{DoxyCompactList}\small\item\em Déplace le point en la coordonnée donnée. \end{DoxyCompactList}\item 
+double \hyperlink{classPoint_a61651e744a578356e2296e7935e858d7}{distance} (const \hyperlink{classPoint}{Point} \&p) const 
+\begin{DoxyCompactList}\small\item\em Retourne la distance entre deux points. \end{DoxyCompactList}\item 
+const \hyperlink{classPoint}{Point} \& \hyperlink{classPoint_a1436b60e581a48190621810f2a4d29cb}{operator=} (const \hyperlink{classPoint}{Point} \&p1)
+\begin{DoxyCompactList}\small\item\em Surcharge de l'opérateur d'assignation. \end{DoxyCompactList}\item 
+bool \hyperlink{classPoint_a2a6b68cd301437368de443687fc2a9f1}{operator==} (const \hyperlink{classPoint}{Point} \&p) const 
+\begin{DoxyCompactList}\small\item\em Surcharge de l'opérateur d'égalité. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Amis}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{classPoint_aea03821811d00d0a252f7d845b3cf4a5}{operator$<$} (const \hyperlink{classPoint}{Point} \&p1, const \hyperlink{classPoint}{Point} \&p2)
+\begin{DoxyCompactList}\small\item\em Redéfinit l'opérateur $<$. \end{DoxyCompactList}\item 
+std\+::ostream \& \hyperlink{classPoint_aa818efa680e0d94ce91173ccb4b7aa08}{operator$<$$<$} (std\+::ostream \&out, const \hyperlink{classPoint}{Point} \&p)
+\begin{DoxyCompactList}\small\item\em Surcharge l'opérateur de flux de sortie pour afficher un récapitulatif des caractéristiques du point sous-\/jacent en console. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+Cette classe modélise un simple point de coordonnées réelles utilisés pour modéliser les positions des objets dans le jeu. 
+
+\subsection{Documentation des constructeurs et destructeur}
+\hypertarget{classPoint_a78b55e8d5466bb8c2cf60fa55f2562ff}{\index{Point@{Point}!Point@{Point}}
+\index{Point@{Point}!Point@{Point}}
+\subsubsection[{Point}]{\setlength{\rightskip}{0pt plus 5cm}Point\+::\+Point (
+\begin{DoxyParamCaption}
+\item[{double}]{x, }
+\item[{double}]{y}
+\end{DoxyParamCaption}
+)}}\label{classPoint_a78b55e8d5466bb8c2cf60fa55f2562ff}
+
+
+Instancie le point de coordonnées spécifiées. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em x} & l'abscisse du point. \\
+\hline
+{\em y} & l'ordonnée du point. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classPoint_af0c0f20db1616447bc78184ed537ef6e}{\index{Point@{Point}!Point@{Point}}
+\index{Point@{Point}!Point@{Point}}
+\subsubsection[{Point}]{\setlength{\rightskip}{0pt plus 5cm}Point\+::\+Point (
+\begin{DoxyParamCaption}
+\item[{const {\bf Point} \&}]{p}
+\end{DoxyParamCaption}
+)}}\label{classPoint_af0c0f20db1616447bc78184ed537ef6e}
+
+
+Constructeur de copie. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em p} & le point à copier. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{classPoint_a61651e744a578356e2296e7935e858d7}{\index{Point@{Point}!distance@{distance}}
+\index{distance@{distance}!Point@{Point}}
+\subsubsection[{distance}]{\setlength{\rightskip}{0pt plus 5cm}double Point\+::distance (
+\begin{DoxyParamCaption}
+\item[{const {\bf Point} \&}]{p}
+\end{DoxyParamCaption}
+) const}}\label{classPoint_a61651e744a578356e2296e7935e858d7}
+
+
+Retourne la distance entre deux points. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em p} & l'autre point avec lequel on calcule la distance. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+la distance entre les deux points. 
+\end{DoxyReturn}
+\hypertarget{classPoint_a1436b60e581a48190621810f2a4d29cb}{\index{Point@{Point}!operator=@{operator=}}
+\index{operator=@{operator=}!Point@{Point}}
+\subsubsection[{operator=}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Point} \& Point\+::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Point} \&}]{p1}
+\end{DoxyParamCaption}
+)}}\label{classPoint_a1436b60e581a48190621810f2a4d29cb}
+
+
+Surcharge de l'opérateur d'assignation. 
+
+Assigne les coordonnées d'un point au point courant. 
+\begin{DoxyParams}{Paramètres}
+{\em p1} & le point que l'on copie. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+l'objet courant. 
+\end{DoxyReturn}
+\hypertarget{classPoint_a2a6b68cd301437368de443687fc2a9f1}{\index{Point@{Point}!operator==@{operator==}}
+\index{operator==@{operator==}!Point@{Point}}
+\subsubsection[{operator==}]{\setlength{\rightskip}{0pt plus 5cm}bool Point\+::operator== (
+\begin{DoxyParamCaption}
+\item[{const {\bf Point} \&}]{p}
+\end{DoxyParamCaption}
+) const}}\label{classPoint_a2a6b68cd301437368de443687fc2a9f1}
+
+
+Surcharge de l'opérateur d'égalité. 
+
+\begin{DoxyReturn}{Renvoie}
+vrai si les coordonnées d'un point sont égales aux coordonnées d'un autre point. 
+\end{DoxyReturn}
+\hypertarget{classPoint_a7fe67e4cd3ead676e59f4b9dba57c4fa}{\index{Point@{Point}!set\+\_\+position@{set\+\_\+position}}
+\index{set\+\_\+position@{set\+\_\+position}!Point@{Point}}
+\subsubsection[{set\+\_\+position}]{\setlength{\rightskip}{0pt plus 5cm}void Point\+::set\+\_\+position (
+\begin{DoxyParamCaption}
+\item[{double}]{x\+\_\+, }
+\item[{double}]{y\+\_\+}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classPoint_a7fe67e4cd3ead676e59f4b9dba57c4fa}
+
+
+Déplace le point en la coordonnée donnée. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em x} & l'abscisse où déplacer le point. \\
+\hline
+{\em y} & l'ordonnée où déplacer le point. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classPoint_a3fd167affdb9046f8f84b2b798bd97ff}{\index{Point@{Point}!set\+\_\+x@{set\+\_\+x}}
+\index{set\+\_\+x@{set\+\_\+x}!Point@{Point}}
+\subsubsection[{set\+\_\+x}]{\setlength{\rightskip}{0pt plus 5cm}void Point\+::set\+\_\+x (
+\begin{DoxyParamCaption}
+\item[{double}]{x\+\_\+}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classPoint_a3fd167affdb9046f8f84b2b798bd97ff}
+
+
+Déplace le point en l'abscisse donnée. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em x} & l'abscisse où déplacer le point. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classPoint_a9b6f3a4149b55639374c94d88b96e11c}{\index{Point@{Point}!set\+\_\+y@{set\+\_\+y}}
+\index{set\+\_\+y@{set\+\_\+y}!Point@{Point}}
+\subsubsection[{set\+\_\+y}]{\setlength{\rightskip}{0pt plus 5cm}void Point\+::set\+\_\+y (
+\begin{DoxyParamCaption}
+\item[{double}]{y\+\_\+}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classPoint_a9b6f3a4149b55639374c94d88b96e11c}
+
+
+Déplace le point en l'ordonnée donnée. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em y} & l'ordonnée où déplacer le point. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classPoint_a3eef47b1c4849b3395a8f9c658ca7c4a}{\index{Point@{Point}!x@{x}}
+\index{x@{x}!Point@{Point}}
+\subsubsection[{x}]{\setlength{\rightskip}{0pt plus 5cm}double Point\+::x (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classPoint_a3eef47b1c4849b3395a8f9c658ca7c4a}
+
+
+Retourne l'abscisse du point. 
+
+\begin{DoxyReturn}{Renvoie}
+l'abscisse du point. 
+\end{DoxyReturn}
+\hypertarget{classPoint_a96e90df6b3c18e64c31abdf196e49ae9}{\index{Point@{Point}!y@{y}}
+\index{y@{y}!Point@{Point}}
+\subsubsection[{y}]{\setlength{\rightskip}{0pt plus 5cm}double Point\+::y (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classPoint_a96e90df6b3c18e64c31abdf196e49ae9}
+
+
+Retourne l'ordonnée du point. 
+
+\begin{DoxyReturn}{Renvoie}
+l'ordonnée du point. 
+\end{DoxyReturn}
+
+
+\subsection{Documentation des fonctions amies et associées}
+\hypertarget{classPoint_aea03821811d00d0a252f7d845b3cf4a5}{\index{Point@{Point}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!Point@{Point}}
+\subsubsection[{operator$<$}]{\setlength{\rightskip}{0pt plus 5cm}bool operator$<$ (
+\begin{DoxyParamCaption}
+\item[{const {\bf Point} \&}]{p1, }
+\item[{const {\bf Point} \&}]{p2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [friend]}}}\label{classPoint_aea03821811d00d0a252f7d845b3cf4a5}
+
+
+Redéfinit l'opérateur $<$. 
+
+Renvoie vrai si une des coordonnées est plus petite que l'une des coordonnées d'un autre point. 
+\begin{DoxyParams}{Paramètres}
+{\em p1} & un premier point. \\
+\hline
+{\em p2} & un deuxième point. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+vrai si l'une des coordonnées de p1 est plus petite que l'une des coordonnées de p2. 
+\end{DoxyReturn}
+\hypertarget{classPoint_aa818efa680e0d94ce91173ccb4b7aa08}{\index{Point@{Point}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Point@{Point}}
+\subsubsection[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}std\+::ostream\& operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{std\+::ostream \&}]{out, }
+\item[{const {\bf Point} \&}]{p}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [friend]}}}\label{classPoint_aa818efa680e0d94ce91173ccb4b7aa08}
+
+
+Surcharge l'opérateur de flux de sortie pour afficher un récapitulatif des caractéristiques du point sous-\/jacent en console. 
+
+\begin{DoxyReturn}{Renvoie}
+le flux dans lequel le point a été imprimé. 
+\end{DoxyReturn}
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+model/point.\+h\item 
+model/point.\+cpp\end{DoxyCompactItemize}

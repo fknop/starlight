@@ -1,0 +1,263 @@
+\hypertarget{classWall}{\section{Référence de la classe Wall}
+\label{classWall}\index{Wall@{Wall}}
+}
+
+
+Cette classe modélise les murs utilisés dans le jeu.  
+
+
+
+
+{\ttfamily \#include $<$wall.\+h$>$}
+
+
+
+Graphe d'héritage de Wall\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=217pt]{de/d28/classWall__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Graphe de collaboration de Wall\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=217pt]{d9/d82/classWall__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classWall_af8bbfd7bd810a0728769c7eed06ef38f}{Wall} (const \hyperlink{classPoint}{Point} \&p1, const \hyperlink{classPoint}{Point} \&p2, bool movable=true)
+\begin{DoxyCompactList}\small\item\em Instancie un mur. \end{DoxyCompactList}\item 
+\hyperlink{classWall_af9843adb784b97d73bdb74a7992bf825}{Wall} (const \hyperlink{classWall}{Wall} \&wall)
+\begin{DoxyCompactList}\small\item\em Constructeur de copie. \end{DoxyCompactList}\item 
+const \hyperlink{classPoint}{Point} \& \hyperlink{classWall_a0e3acb1aa5f837e1dc6b353a473bc9d4}{start} () const 
+\begin{DoxyCompactList}\small\item\em Retourne le début du mur. \end{DoxyCompactList}\item 
+const \hyperlink{classPoint}{Point} \& \hyperlink{classWall_ad8ab4f9a70757c77c70bc153e9a3bf1f}{end} () const 
+\begin{DoxyCompactList}\small\item\em Retourne la fin du mur. \end{DoxyCompactList}\item 
+\hypertarget{classWall_a1f834d6f719d7b5ac4ae2428fef627e4}{bool {\bfseries movable} () const }\label{classWall_a1f834d6f719d7b5ac4ae2428fef627e4}
+
+\item 
+void \hyperlink{classWall_ad11150d7394e06447a697c4e79d47543}{set\+\_\+start} (const \hyperlink{classPoint}{Point} \&s)
+\begin{DoxyCompactList}\small\item\em Modifie le point de départ du mur. \end{DoxyCompactList}\item 
+void \hyperlink{classWall_a603f23dd306b50d9b2724f83beb61d62}{set\+\_\+end} (const \hyperlink{classPoint}{Point} \&e)
+\begin{DoxyCompactList}\small\item\em Modifie le point de fin du mur. \end{DoxyCompactList}\item 
+\hyperlink{classLineSegment}{Line\+Segment} \hyperlink{classWall_acb8c8b99d772ce94bf8ef4b249c32fd2}{to\+\_\+line\+\_\+segment} ()
+\begin{DoxyCompactList}\small\item\em Renvoie le segment correspondant au mur. \end{DoxyCompactList}\item 
+void \hyperlink{classWall_ab9f0416a2272041583bb261345963eed}{translate} (double x, double y)
+\begin{DoxyCompactList}\small\item\em Déplace le mur. \end{DoxyCompactList}\item 
+void \hyperlink{classWall_ab9ae9b0409c9b88c0d4b156c4e5ee5f5}{rotate} (double r)
+\begin{DoxyCompactList}\small\item\em Tourne le mur par rapport à son centre. \end{DoxyCompactList}\item 
+bool \hyperlink{classWall_adae0f86f9cef482e5f937fffdd17711d}{operator==} (const \hyperlink{classWall}{Wall} \&w) const 
+\begin{DoxyCompactList}\small\item\em Redéfinition de l'opérateur d'égalité. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Amis}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& \hyperlink{classWall_a971cae1df191c5ccfd2ef1f6454a6d11}{operator$<$$<$} (std\+::ostream \&out, const \hyperlink{classWall}{Wall} \&wall)
+\begin{DoxyCompactList}\small\item\em Surcharge l'opérateur de flux de sortie pour afficher un récapitulatif des caractéristiques du mur sous-\/jacent en console. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Membres hérités additionnels}
+
+
+\subsection{Description détaillée}
+Cette classe modélise les murs utilisés dans le jeu. 
+
+Les murs sont des segments de droite qui ne réfléchissent pas la lumière. 
+
+\subsection{Documentation des constructeurs et destructeur}
+\hypertarget{classWall_af8bbfd7bd810a0728769c7eed06ef38f}{\index{Wall@{Wall}!Wall@{Wall}}
+\index{Wall@{Wall}!Wall@{Wall}}
+\subsubsection[{Wall}]{\setlength{\rightskip}{0pt plus 5cm}Wall\+::\+Wall (
+\begin{DoxyParamCaption}
+\item[{const {\bf Point} \&}]{p1, }
+\item[{const {\bf Point} \&}]{p2, }
+\item[{bool}]{movable = {\ttfamily true}}
+\end{DoxyParamCaption}
+)}}\label{classWall_af8bbfd7bd810a0728769c7eed06ef38f}
+
+
+Instancie un mur. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em p1} & le début du mur. \\
+\hline
+{\em p2} & la fin du mur. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classWall_af9843adb784b97d73bdb74a7992bf825}{\index{Wall@{Wall}!Wall@{Wall}}
+\index{Wall@{Wall}!Wall@{Wall}}
+\subsubsection[{Wall}]{\setlength{\rightskip}{0pt plus 5cm}Wall\+::\+Wall (
+\begin{DoxyParamCaption}
+\item[{const {\bf Wall} \&}]{wall}
+\end{DoxyParamCaption}
+)}}\label{classWall_af9843adb784b97d73bdb74a7992bf825}
+
+
+Constructeur de copie. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em wall} & le mur à copier. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{classWall_ad8ab4f9a70757c77c70bc153e9a3bf1f}{\index{Wall@{Wall}!end@{end}}
+\index{end@{end}!Wall@{Wall}}
+\subsubsection[{end}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Point} \& Wall\+::end (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classWall_ad8ab4f9a70757c77c70bc153e9a3bf1f}
+
+
+Retourne la fin du mur. 
+
+\begin{DoxyReturn}{Renvoie}
+la fin du mur. 
+\end{DoxyReturn}
+\hypertarget{classWall_adae0f86f9cef482e5f937fffdd17711d}{\index{Wall@{Wall}!operator==@{operator==}}
+\index{operator==@{operator==}!Wall@{Wall}}
+\subsubsection[{operator==}]{\setlength{\rightskip}{0pt plus 5cm}bool Wall\+::operator== (
+\begin{DoxyParamCaption}
+\item[{const {\bf Wall} \&}]{w}
+\end{DoxyParamCaption}
+) const}}\label{classWall_adae0f86f9cef482e5f937fffdd17711d}
+
+
+Redéfinition de l'opérateur d'égalité. 
+
+Retourne vrai si les murs sont égaux. 
+\begin{DoxyParams}{Paramètres}
+{\em w} & un mur. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+vrai si les murs sont égaux, faux sinon. 
+\end{DoxyReturn}
+\hypertarget{classWall_ab9ae9b0409c9b88c0d4b156c4e5ee5f5}{\index{Wall@{Wall}!rotate@{rotate}}
+\index{rotate@{rotate}!Wall@{Wall}}
+\subsubsection[{rotate}]{\setlength{\rightskip}{0pt plus 5cm}void Wall\+::rotate (
+\begin{DoxyParamCaption}
+\item[{double}]{r}
+\end{DoxyParamCaption}
+)}}\label{classWall_ab9ae9b0409c9b88c0d4b156c4e5ee5f5}
+
+
+Tourne le mur par rapport à son centre. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em r} & l'angle de rotation. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classWall_a603f23dd306b50d9b2724f83beb61d62}{\index{Wall@{Wall}!set\+\_\+end@{set\+\_\+end}}
+\index{set\+\_\+end@{set\+\_\+end}!Wall@{Wall}}
+\subsubsection[{set\+\_\+end}]{\setlength{\rightskip}{0pt plus 5cm}void Wall\+::set\+\_\+end (
+\begin{DoxyParamCaption}
+\item[{const {\bf Point} \&}]{e}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classWall_a603f23dd306b50d9b2724f83beb61d62}
+
+
+Modifie le point de fin du mur. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em e} & le point de fin du mur. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classWall_ad11150d7394e06447a697c4e79d47543}{\index{Wall@{Wall}!set\+\_\+start@{set\+\_\+start}}
+\index{set\+\_\+start@{set\+\_\+start}!Wall@{Wall}}
+\subsubsection[{set\+\_\+start}]{\setlength{\rightskip}{0pt plus 5cm}void Wall\+::set\+\_\+start (
+\begin{DoxyParamCaption}
+\item[{const {\bf Point} \&}]{s}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classWall_ad11150d7394e06447a697c4e79d47543}
+
+
+Modifie le point de départ du mur. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em s} & le point de départ. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classWall_a0e3acb1aa5f837e1dc6b353a473bc9d4}{\index{Wall@{Wall}!start@{start}}
+\index{start@{start}!Wall@{Wall}}
+\subsubsection[{start}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Point} \& Wall\+::start (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classWall_a0e3acb1aa5f837e1dc6b353a473bc9d4}
+
+
+Retourne le début du mur. 
+
+\begin{DoxyReturn}{Renvoie}
+le début du mur. 
+\end{DoxyReturn}
+\hypertarget{classWall_acb8c8b99d772ce94bf8ef4b249c32fd2}{\index{Wall@{Wall}!to\+\_\+line\+\_\+segment@{to\+\_\+line\+\_\+segment}}
+\index{to\+\_\+line\+\_\+segment@{to\+\_\+line\+\_\+segment}!Wall@{Wall}}
+\subsubsection[{to\+\_\+line\+\_\+segment}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Line\+Segment} Wall\+::to\+\_\+line\+\_\+segment (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classWall_acb8c8b99d772ce94bf8ef4b249c32fd2}
+
+
+Renvoie le segment correspondant au mur. 
+
+\begin{DoxyReturn}{Renvoie}
+le segment correspondant au mur. 
+\end{DoxyReturn}
+\hypertarget{classWall_ab9f0416a2272041583bb261345963eed}{\index{Wall@{Wall}!translate@{translate}}
+\index{translate@{translate}!Wall@{Wall}}
+\subsubsection[{translate}]{\setlength{\rightskip}{0pt plus 5cm}void Wall\+::translate (
+\begin{DoxyParamCaption}
+\item[{double}]{x, }
+\item[{double}]{y}
+\end{DoxyParamCaption}
+)}}\label{classWall_ab9f0416a2272041583bb261345963eed}
+
+
+Déplace le mur. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em x} & le déplacement sur l'axe des x. \\
+\hline
+{\em y} & le déplacement sur l'axe des y. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Documentation des fonctions amies et associées}
+\hypertarget{classWall_a971cae1df191c5ccfd2ef1f6454a6d11}{\index{Wall@{Wall}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Wall@{Wall}}
+\subsubsection[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}std\+::ostream\& operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{std\+::ostream \&}]{out, }
+\item[{const {\bf Wall} \&}]{wall}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [friend]}}}\label{classWall_a971cae1df191c5ccfd2ef1f6454a6d11}
+
+
+Surcharge l'opérateur de flux de sortie pour afficher un récapitulatif des caractéristiques du mur sous-\/jacent en console. 
+
+\begin{DoxyReturn}{Renvoie}
+le flux dans lequel le mur a été imprimé. 
+\end{DoxyReturn}
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+model/wall.\+h\item 
+model/wall.\+cpp\end{DoxyCompactItemize}

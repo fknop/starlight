@@ -1,0 +1,92 @@
+\hypertarget{classElementView}{\section{Référence de la classe Element\+View}
+\label{classElementView}\index{Element\+View@{Element\+View}}
+}
+
+
+Cette classe sert de super-\/classe à tous les éléments visuels avec lesquels un rayon peut interagir.  
+
+
+
+
+{\ttfamily \#include $<$elementview.\+h$>$}
+
+
+
+Graphe d'héritage de Element\+View\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d8/d16/classElementView__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Graphe de collaboration de Element\+View\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=154pt]{d3/d60/classElementView__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Types publics}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classElementView_ae8b9890c6c8501a7a759896cae9ab7a6}{enum {\bfseries Type\+View} \{ \\*
+{\bfseries C\+R\+Y\+S\+T\+A\+L\+V\+I\+E\+W}, 
+{\bfseries D\+E\+S\+T\+V\+I\+E\+W}, 
+{\bfseries L\+E\+N\+S\+V\+I\+E\+W}, 
+{\bfseries M\+I\+R\+R\+O\+R\+V\+I\+E\+W}, 
+\\*
+{\bfseries N\+U\+K\+E\+V\+I\+E\+W}, 
+{\bfseries S\+O\+U\+R\+C\+E\+V\+I\+E\+W}, 
+{\bfseries W\+A\+L\+L\+V\+I\+E\+W}
+ \}}\label{classElementView_ae8b9890c6c8501a7a759896cae9ab7a6}
+
+\end{DoxyCompactItemize}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classElementView_adb918caf5a5fcc4bd945cd3cd2596f8c}{\hyperlink{classElementView_adb918caf5a5fcc4bd945cd3cd2596f8c}{Element\+View} (Element\+View\+::\+Type\+View)}\label{classElementView_adb918caf5a5fcc4bd945cd3cd2596f8c}
+
+\begin{DoxyCompactList}\small\item\em Construit un élément avec un type permettant de connaître le type de l'élément à tout moment. \end{DoxyCompactList}\item 
+const Type\+View \& \hyperlink{classElementView_a30b7a26b428be68dcc4d8f72a0f9cd0b}{type\+\_\+view} () const 
+\begin{DoxyCompactList}\small\item\em Retourne le type de l'élément. \end{DoxyCompactList}\item 
+\hypertarget{classElementView_a16e2c636f1eee57c3ce5c6df02273e8a}{virtual void {\bfseries rotate} (double r)}\label{classElementView_a16e2c636f1eee57c3ce5c6df02273e8a}
+
+\item 
+\hypertarget{classElementView_a5d2dffc8a3e3ea3381476bdf343fefb6}{virtual void {\bfseries translate} (double x, double y)}\label{classElementView_a5d2dffc8a3e3ea3381476bdf343fefb6}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+Cette classe sert de super-\/classe à tous les éléments visuels avec lesquels un rayon peut interagir. 
+
+Il s'agit plus d'une classe \char`\"{}\+T\+A\+G\char`\"{} pour retrouver le type d'un élément visuel. \begin{DoxySeeAlso}{Voir également}
+\hyperlink{element_8h_source}{model/element.\+h} pour son équivalent modèle. 
+\end{DoxySeeAlso}
+
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{classElementView_a30b7a26b428be68dcc4d8f72a0f9cd0b}{\index{Element\+View@{Element\+View}!type\+\_\+view@{type\+\_\+view}}
+\index{type\+\_\+view@{type\+\_\+view}!Element\+View@{Element\+View}}
+\subsubsection[{type\+\_\+view}]{\setlength{\rightskip}{0pt plus 5cm}const Element\+View\+::\+Type\+View \& Element\+View\+::type\+\_\+view (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classElementView_a30b7a26b428be68dcc4d8f72a0f9cd0b}
+
+
+Retourne le type de l'élément. 
+
+\begin{DoxyReturn}{Renvoie}
+le type de l'élément. 
+\end{DoxyReturn}
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+view/elementview.\+h\item 
+view/elementview.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,119 @@
+\hypertarget{classSourceView}{\section{Référence de la classe Source\+View}
+\label{classSourceView}\index{Source\+View@{Source\+View}}
+}
+
+
+Modélisation visuelle d’une source.  
+
+
+
+
+{\ttfamily \#include $<$sourceview.\+h$>$}
+
+
+
+Graphe d'héritage de Source\+View\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{de/ddc/classSourceView__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Graphe de collaboration de Source\+View\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d2/df3/classSourceView__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classSourceView_a978bb2492cf5379d407ee448f554dda6}{Source\+View} (const \hyperlink{classSource}{Source} \&source, bool selectable=false)
+\begin{DoxyCompactList}\small\item\em Construit un carré représentant une source lumineuse qui peut être allumée ou éteinte. \end{DoxyCompactList}\item 
+\hypertarget{classSourceView_a39b5010fa2f3c764638d0c01eb97f616}{\hyperlink{classSource}{Source} $\ast$ {\bfseries source} ()}\label{classSourceView_a39b5010fa2f3c764638d0c01eb97f616}
+
+\item 
+\hypertarget{classSourceView_ab6c051d55846c3880a8f2672650327aa}{bool {\bfseries selectable} () const }\label{classSourceView_ab6c051d55846c3880a8f2672650327aa}
+
+\item 
+\hypertarget{classSourceView_a64f81b9f42abf51e39b4b16fb8be3dff}{void {\bfseries set\+\_\+selectable} (bool value)}\label{classSourceView_a64f81b9f42abf51e39b4b16fb8be3dff}
+
+\item 
+\hypertarget{classSourceView_a2f37fc1a515963e606a0a45ab66464df}{void {\bfseries mouse\+Press\+Event} (Q\+Graphics\+Scene\+Mouse\+Event $\ast$event)}\label{classSourceView_a2f37fc1a515963e606a0a45ab66464df}
+
+\item 
+\hypertarget{classSourceView_ac7b25fb739c079c2414f6d38d534e12e}{void {\bfseries translate} (double x=.\+0, double y=.\+0)}\label{classSourceView_ac7b25fb739c079c2414f6d38d534e12e}
+
+\item 
+void \hyperlink{classSourceView_af536ad257f0b203ebc4851103cab69b6}{notify} (\hyperlink{classObservable}{Observable} $\ast$sdo, std\+::string msg, const std\+::vector$<$ std\+::string $>$ \&args=std\+::vector$<$ std\+::string $>$())
+\begin{DoxyCompactList}\small\item\em Notifie le jeu d'un évènement provenant d'un sujet d'observation (\hyperlink{classObservable}{Observable}). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Membres hérités additionnels}
+
+
+\subsection{Description détaillée}
+Modélisation visuelle d’une source. 
+
+\subsection{Documentation des constructeurs et destructeur}
+\hypertarget{classSourceView_a978bb2492cf5379d407ee448f554dda6}{\index{Source\+View@{Source\+View}!Source\+View@{Source\+View}}
+\index{Source\+View@{Source\+View}!Source\+View@{Source\+View}}
+\subsubsection[{Source\+View}]{\setlength{\rightskip}{0pt plus 5cm}Source\+View\+::\+Source\+View (
+\begin{DoxyParamCaption}
+\item[{const {\bf Source} \&}]{source, }
+\item[{bool}]{selectable = {\ttfamily false}}
+\end{DoxyParamCaption}
+)}}\label{classSourceView_a978bb2492cf5379d407ee448f554dda6}
+
+
+Construit un carré représentant une source lumineuse qui peut être allumée ou éteinte. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em pos\+X} & abscisse du coin supérieur gauche de la source. \\
+\hline
+{\em pos\+Y} & ordonnée du coin supérieur gauche de la source. \\
+\hline
+{\em width} & longueur du carré représentant la source. \\
+\hline
+{\em height} & hauteur du carré représentant la source. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{classSourceView_af536ad257f0b203ebc4851103cab69b6}{\index{Source\+View@{Source\+View}!notify@{notify}}
+\index{notify@{notify}!Source\+View@{Source\+View}}
+\subsubsection[{notify}]{\setlength{\rightskip}{0pt plus 5cm}void Source\+View\+::notify (
+\begin{DoxyParamCaption}
+\item[{{\bf Observable} $\ast$}]{sdo, }
+\item[{std\+::string}]{msg, }
+\item[{const std\+::vector$<$ std\+::string $>$ \&}]{args = {\ttfamily std\+:\+:vector$<$~std\+:\+:string~$>$()}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classSourceView_af536ad257f0b203ebc4851103cab69b6}
+
+
+Notifie le jeu d'un évènement provenant d'un sujet d'observation (\hyperlink{classObservable}{Observable}). 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em o} & l'observé. \\
+\hline
+{\em msg} & le message de notification. \\
+\hline
+{\em args} & des arguments. \\
+\hline
+\end{DoxyParams}
+
+
+Implémente \hyperlink{classObserverInterface_a1bbd22519c2942d978804714db12c8b2}{Observer\+Interface}.
+
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+view/sourceview.\+h\item 
+view/sourceview.\+cpp\end{DoxyCompactItemize}
