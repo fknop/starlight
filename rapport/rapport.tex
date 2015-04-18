@@ -158,6 +158,7 @@ Les autres méthodes possèdent les mêmes conventions que celles
 
 Les éléments d'une énumération suivent les mêmes conventions que celles des constantes énoncées ci-dessus.
 
+\newpage
 \section{Présentation générale du projet}
 
 Cette section décrit les objectifs principaux et secondaires effectués lors
@@ -173,6 +174,10 @@ carte ou de simplement quitter.
 Le projet permet de jouer à Starlight en important sa propre carte de jeu
 au format \texttt{.lvl} qu'il est possible de créer soi-même grâce à l'éditeur
 de carte (cf. Editeur de cartes).
+
+Il est nécessaire de préciser que le jeu part du principe que la carte 
+fournie est sans erreurs. Une carte fournie avec erreur produira donc
+un arrêt immédiat de l'application.
 
 \subsubsection{Le fonctionnement du jeu}
 
@@ -203,6 +208,26 @@ du rayon lumineux.
 Et pour finir, la carte peut être munie de bombes qui terminent
 instantanément la partie si celles-ci sont touchées. 
 
+
+\subsubsection{L'interface}
+
+L'interface graphique du jeu Starlight a été réalisée sous Qt (en version 5.0.2 et supérieures).
+Il s'agit ici d'une interface simple et minimaliste permettant d'effetuer la fonction de base 
+demandée : jouer.
+
+La fenêtre de jeu possède également des menus permettants de :
+
+\begin{itemize}
+    \item \texttt{Quitter}
+    \item \texttt{Revenir au menu principal}
+    \item \texttt{Charger une carte}
+    \item \texttt{Quitter la carte}
+    \item \texttt{Voir les règles de jeu}
+\end{itemize}
+
+Les raccourcis clavier permettant d'accéder au fonction citées ci-dessus sont indépendants
+du système d'exploitation utilisé.
+
 Les miroirs sont sont sélectionnés en utilisant un double clic gauche.
 Si un troisième clic suit, les limites de déplacement du pivot s'affichent
 sous la forme d'un rectangle bleu.
@@ -219,6 +244,21 @@ Les miroirs peuvent être déplacés et tournés au clavier en utilisant les tou
 	\item \texttt{Flèche directionnelle droite} pour tourner dans le sens
 		horloger
 \end{itemize}
+
+
+Des sons ont été ajoutés lorsque la source est allumée ou éteinte, 
+lorsqu'une bombe a été touchée et lorsque la destination
+est atteinte (cf. Faiblesses de l'interface pour plus d'informations).
+
+\paragraph{Faiblesses de l'interface} 
+
+L'interface ne permet pas de déplacer les miroirs à la souris, mais seulement au clavier.
+Le rectangle bleu affichant les limites du miroir s'affiche après un 3ème clic plutôt 
+que lors de la sélection du miroir.
+
+Les sons ajoutés qui ont été cités ci-dessus ne s'activent toujours.
+Par exemple lorsque la source est allumée et éteinte très vite, 
+mais il se peut également que la source n'émette simplement pas de son.
 
 
 \subsection{Editeur de cartes}
@@ -264,6 +304,8 @@ La gestion dynamique des déplacements ne se fait que dans un sens, si l’on d�
 Cependant, il faudra utiliser le bouton « Appliquer » du panel de droite afin que les changements
 effectués à cet endroit entrent en application.
 
+
+\newpage
 \section{Présentation des différentes classes}
 
 Dans cette section, nous allons décrire les différentes classes
