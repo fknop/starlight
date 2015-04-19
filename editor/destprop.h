@@ -21,12 +21,12 @@ public:
 
 private:
     QFormLayout * form_layout_;
-    QLabel * x_label;
-    QDoubleSpinBox * x_dsb;
-    QLabel * y_label;
-    QDoubleSpinBox * y_dsb;
-    QLabel * edge_label;
-    QDoubleSpinBox * edge_dsb;
+    QLabel * x_label_;
+    QDoubleSpinBox * x_dsb_;
+    QLabel * y_label_;
+    QDoubleSpinBox * y_dsb_;
+    QLabel * edge_label_;
+    QDoubleSpinBox * edge_dsb_;
 
     Dest * dest_;
 

@@ -43,12 +43,11 @@ graphique du jeu baptisé Starlight, puzzle à 2 dimensions basé sur la lumièr
 
 Ce projet a été compilé principalement avec g++
 (version 4.8.2 ou supérieure)
-sous la distribution Linux Ubuntu (ou une de ses dérivées).
+sous la distribution GNU/Linux Ubuntu (ou une de ses dérivées).
 La version du framework Qt utilisée est la 5.0.2 ou supérieure.
 Ce projet a été fait sous QtCreator, IDE OpenSource en version 2.8.1 ou
 supérieure.
 
-\section{Sections}
 
 \section{Conventions de nommage utilisées}
 
@@ -63,8 +62,8 @@ sont en anglais.
 \subsection{Nommage des fichiers}
 
 Les noms de fichiers sont entièrement en minuscules
-et possèdent les extensions .h
-pour les headers et .cpp pour les fichiers sources.
+et possèdent les extensions \texttt{.h}
+pour les headers et \texttt{.cpp} pour les fichiers sources.
 
 \begin{itemize}
 	\item \texttt{nomfichier.h}
@@ -133,8 +132,8 @@ Le nom d'un getter (accesseur en lecture de variable de classe/structure)
 est égal au nom de la variable de classe sans l'underscore final.
 
 \begin{itemize}
-	\item Variable : \texttt{variable\_} - Getter : \texttt{variable()}
-	\item Variable : \texttt{nom\_var\_} - Getter : \texttt{nom\_var()}
+	\item Variable : \texttt{variable\_} ~~-- Getter : \texttt{variable()}
+	\item Variable : \texttt{nom\_var\_} ~~~~-- Getter : \texttt{nom\_var()}
 \end{itemize}
 
 \subsubsection{Setters}
@@ -143,8 +142,7 @@ Le nom d'un setter (accesseur en écriture de variable de classe/structure)
 est égal au nom de la variable sans l'underscore final préfixé de \texttt{set}.
 
 \begin{itemize}
-	\item Variable : \texttt{variable\_} - Setter : \texttt{set\_variable()}
-	\item Variable : \texttt{nom\_var\_} - Setter : \texttt{set\_nom\_var()}
+	\item Variable : \texttt{variable\_} ~~-- Setter : \texttt{set\_nom\_var()}
 \end{itemize}
 
 \subsubsection{Autres méthodes}
@@ -176,7 +174,7 @@ carte ou de simplement quitter.
 
 Le projet permet de jouer à Starlight en important sa propre carte de jeu
 au format \texttt{.lvl} qu'il est possible de créer soi-même grâce à l'éditeur
-de carte (cf. \hyperref[Editeur]{«~Editeur de cartes~»}).
+de carte (cf. \hyperref[Editeur]{«~Éditeur de cartes~»}).
 
 Il est nécessaire de préciser que le jeu part du principe que la carte 
 fournie est sans erreur. Une carte fournie avec erreur produira donc
@@ -209,7 +207,7 @@ La couleur de la lumière est donc modifiée selon la longueur d'onde
 du rayon lumineux.
 
 Et pour finir, la carte peut être munie de bombes qui terminent et font perdre
-instantanément la partie si celles-ci sont touchées. 
+instantanément la partie si celles-ci sont touchées par un rayon lumineux. 
 
 
 \subsubsection{L'interface}
@@ -305,7 +303,7 @@ des limites par exemple).
 
 La gestion dynamique des déplacements ne se fait que dans un sens, si l’on déplace un objet
 à l’aide du clavier ses propriétés dans le panel de droite seront automatiquement modifiées.
-Cependant, il faudra utiliser le bouton « Appliquer » du panel de droite afin que les changements
+Cependant, il faudra utiliser le bouton «~Appliquer~» du panel de droite afin que les changements
 effectués à cet endroit entrent en application.
 
 
@@ -339,7 +337,7 @@ d'interface) car cette classe ne possède que des méthodes \texttt{virtual} pur
 qui sont donc obligées d'être redéfinies dans une classe héritant de celle-ci.
 Cela définit donc parfaitement la notion d'interface.
 
-Cette classe possède une méthode \texttt{notify(...)} qui est apellé à chaque fois
+Cette classe possède une méthode \texttt{notify(...)} qui est appelée à chaque fois
 qu'une classe observée lance une notification (cf. \hyperref[Observable]{«~Observable~»}).
 
 \subsubsection{\label{Observable}Observable}
@@ -361,9 +359,11 @@ notify_all(Observable * obs,
 
 Cette méthode appellera pour chaque observateur la méthode \texttt{notify(...)} de ce dernier.
 Nous avons choisi de créer 3 paramètres pour les notifications, dont une liste d'arguments optionnelle.
+
 Dans un premier temps, la notification envoie un pointeur vers l'observé, cela peut être utile si l'observateur
 ne peut pas savoir qui a envoyé une notification, grâce à ce pointeur, il peut donc agir sur l'objet. De plus, un message
 de notification est envoyé, cela sert à effectuer différentes tâches selon le message envoyé.
+
 Et pour finir, une liste d'arguments est également envoyée. Cette dernière nous a servi principalement pour la gestion
 de collisions où il a fallu envoyer le déplacement voulu en paramètre pour que le niveau puisse vérifier si ce déplacement est
 possible pour ensuite réagir en conséquence.
@@ -426,8 +426,8 @@ Dans cette section, nous allons décrire les différentes classes du modèle
 (classes métiers).
 Un squelette de classes a été fourni par Monsieur Absil.
 Ce squelette contenait les fichiers suivants~:
-`point.h, source.h, dest.h, nuke.h, wall.h,
-crystal.h, lens.h, mirror.h, ray.h, level.h` ainsi que leurs sources correspondantes.
+\texttt{point.h}, \texttt{source.h}, \texttt{dest.h}, \texttt{nuke.h}, \texttt{wall.h},
+\texttt{crystal.h}, \texttt{lens.h}, \texttt{mirror.h}, \texttt{ray.h}, \texttt{level.h} ainsi que leurs sources correspondantes.
 Nous avons décidé de modifier ce squelette tout en gardant la 
 structure générale.
 
@@ -487,7 +487,7 @@ La classe \texttt{Ellipse} représente une forme géométrique de type elliptiqu
 Elle possède un point central ainsi qu'un rayon $x$ et $y$. Si ces deux
 rayons sont égaux, il s'agit alors d'un cercle.
 
-Cette classe sert à représenter les objets \texttt{Lens} (cf. \hyperref[Lens]{«~Lens~»}) et \texttt{Crystal} (cf .\hyperref[Crystal]{«~Crystal~»}).
+Cette classe sert à représenter les objets \texttt{Lens} (cf. \hyperref[Lens]{«~Lens~»}) et \texttt{Crystal} (cf. \hyperref[Crystal]{«~Crystal~»}).
 
 \subsubsection{\label{Rectangle}Rectangle}
 
@@ -500,7 +500,7 @@ Cette classe sert à représenter les objets \texttt{Source} (cf. \hyperref[Sour
 
 \subsubsection{\label{Element}Element}
 
-La classe Element est la super-classe de tous les éléments pouvant
+La classe \texttt{Element} est la super-classe de tous les éléments pouvant
 se trouver sur une carte de jeu.
 Il s'agit de :
 
@@ -524,12 +524,12 @@ Une énumération fortement typée est donc présente. Elle s'appelle
 \texttt{Type} et reprend les noms des éléments cités ci-dessus.
 
 \texttt{Element} hérite de l'interface \texttt{Observable} (cf. \hyperref[OO]{«~Observable/Observer~»}) et chaque
-sous-classe est observé par la vue correspondante.
+sous-classe est observée par la vue correspondante.
     
 \subsubsection{\label{Source}Source}
 
 La classe \texttt{Source} représente la source lumineuse du jeu.
-Elle est de forme rectangulaire et peut donc être transformé
+Elle est de forme rectangulaire et peut donc être transformée
 en \texttt{Rectangle} (cf. \hyperref[Rectangle]{«~Rectangle~»}).
 
 Le rayon lumineux part du coin supérieur gauche de la source et possède
@@ -542,7 +542,7 @@ d'onde de départ.
 
 La classe \texttt{Dest} représente la destination à atteindre par 
 le rayon lumineux. Elle est de forme rectangulaire comme la source
-et peut également être transformé en \texttt{Rectangle} (cf. \hyperref[Rectangle]{«~Rectangle~»}).
+et peut également être transformée en \texttt{Rectangle} (cf. \hyperref[Rectangle]{«~Rectangle~»}).
 
 \paragraph{Dans l'interface} cf. \hyperref[DestinationView]{«~DestinationView~»}
 
@@ -570,7 +570,7 @@ une ellipse possédant un intervalle de longueur d'onde. Le rayon doit
 être dans cet intervalle pour pouvoir traverser la lentille, dans le cas
 contraire, elle agira comme un mur.
 
-Etant de forme elliptique, la lentille peut être transformé en Ellipse (cf. \hyperref[Ellipse]{«~Ellipse~»}).
+Étant de forme elliptique, la lentille peut être transformée en Ellipse (cf. \hyperref[Ellipse]{«~Ellipse~»}).
 
 \paragraph{Dans l'interface} cf. \hyperref[LensView]{«~LensView~»}
 
@@ -581,17 +581,17 @@ La classe \texttt{Crystal} représente un cristal. Un cristal est un cercle
 possédant un modificateur de longueur d'onde. Quand un rayon le traverse, ce dernier
 en ressort avec une longueur d'onde différente. 
 
-Comme un cercle est également une ellipse, celui ci peut également être transformé en Ellipse (cf. \hyperref[Ellipse]{«~Ellipse~»}).
+Comme un cercle est également une ellipse, celui-ci peut également être transformé en Ellipse (cf. \hyperref[Ellipse]{«~Ellipse~»}).
 
 \paragraph{Dans l'interface} cf. \hyperref[CrystalView]{«~CrystalView~»}
 
 \subsubsection{\label{Nuke}Nuke}
 
 La classe \texttt{Nuke} représente une bombe de forme circulaire.
-Quand un rayon croise une bombe. La partie est instantanément terminée et perdue. Cela est accompagnée
+Quand un rayon croise une bombe, la partie est instantanément terminée et perdue. Cela est accompagnée
 d'un message de fin de partie.
 
-Comme un cercle est également une ellipse, celui ci peut également être transformé en Ellipse (cf. \hyperref[Ellipse]{«~Ellipse~»}).
+Comme un cercle est également une ellipse, celui-ci peut également être transformé en Ellipse (cf. \hyperref[Ellipse]{«~Ellipse~»}).
 
 \paragraph{Dans l'interface} cf. \hyperref[NukeView]{«~NukeView~»}
 
@@ -616,7 +616,7 @@ la trajectoire du rayon lumineux.
 
 \paragraph{Explications} : la logique métier \\
 
-La logique métier est composé de méthodes principales : 
+La logique métier est composée de méthodes principales : 
 
 \begin{lstlisting}
 void compute_rays();
@@ -625,10 +625,10 @@ void get_intersections(const Line& line, const Point& start);
 \end{lstlisting}
 
 \texttt{compute\_rays()} crée la première droite composant le rayon par rapport à l'angle de la 
-source et son point de départ, il appelle ensuite compute\_ray(...) qui va chercher
-l'intersection la plus proche en appelant get\_intersections(...). Cette dernière méthode
+source et son point de départ, il appelle ensuite \texttt{compute\_ray(...)} qui va chercher
+l'intersection la plus proche en appelant \texttt{get\_intersections(...)}. Cette dernière méthode
 va remplir un vecteur (\texttt{vector}) d'\texttt{Intersection} qui est une structure créée dans 
-le header \texttt{level.h}. Cette structure reprend le point d'intersection ainsi que l'élément à ce point.
+le header \texttt{level.h}. Cette structure reprend le point d'intersection ainsi que l'élément relié à ce point.
 
 \texttt{get\_intersections(...)} va chercher des intersections avec la droite qu'il reçoit en paramètre
 et tous les objets du jeu. Chaque intersection avec un objet sera alors mise dans le vecteur d'intersection
@@ -641,12 +641,12 @@ La première valeur du vecteur devrait alors correspondre à l'intersection la p
 \texttt{compute\_ray(...)} va dans un premier temps créer le rayon entre le point \texttt{start} et le point d'intersection.
 Par la suite, avec la premiere valeur du vecteur d'intersections, 
 \texttt{compute\_ray(...)} va effectuer ce qu'il faut selon le type de l'élément déterminé 
-grâce à la super-classe \texttt{Element} (cf. \hyperref[Element]{''Element''}).
+grâce à la super-classe \texttt{Element} (cf. \hyperref[Element]{«~Element~»}).
 
 Un booléen sera mis à vrai ou faux selon le cas. À la fin de la méthode, si ce booléen vaut donc vrai, cela veut dire
-que le rayon peut continuer. Un appel récursif à compute\_ray(...) est donc fait avec les nouvelles valeurs. 
+que le rayon peut continuer. Un appel récursif à \texttt{compute\_ray(...)} est donc fait avec les nouvelles valeurs. 
 
-Un algorithme très simplifié se trouve dans \hyperref[AnnexeC]{''l'Annexe C''}.
+Un algorithme très simplifié se trouve dans \hyperref[AnnexeC]{«~l'Annexe C~»}.
 	
 \paragraph{Dans l'interface} cf. \hyperref[MapView]{«~MapView~»}    
 
@@ -657,14 +657,14 @@ Chaque élément visuel dispose d’un pointeur vers son
 équivalent dans le modèle, sur base duquel il est construit. Il observe également cet élément afin de se mettre
 à jour automatiquement.
 
-Chaque élément a également été prévu pour être utilisé dans l’éditeur, et dispose ainsi de booléens pour les rendre 
-sélectionnables quand cela est nécessaire.
+Chaque élément a également été prévu pour être utilisé dans l’éditeur, et dispose ainsi d’un booléen pour le rendre 
+sélectionnable quand cela est nécessaire.
 
-Les classes composant la partie vue de l’application sont :
+Les classes composant la partie vue de l’application sont~:
 
 \subsubsection{ElementView}
 
-Classe servant de super-classe à toutes les éléments présents sur un \texttt{MapView}.
+Classe servant de super-classe à tous les éléments présents sur un \texttt{MapView}.
 Il s'agit de :
 
 \begin{itemize}
@@ -1059,7 +1059,7 @@ se trouvent dans le domaine du segment.
 \subsection{\label{AnnexeC}Annexe C : Algorithme simplifié de la logique métier}
 
 \begin{algorithm}
-\DontPrintSemicolon
+\dontprintsemicolon
 \Begin{
     $droite : Line$
     $droite \longleftarrow Line(source.getPoint(), source.getAngle())$
@@ -1069,7 +1069,7 @@ se trouvent dans le domaine du segment.
 \end{algorithm}
 
 \begin{algorithm}
-\DontPrintSemicolon
+\dontprintsemicolon
 \KwData{$intersections$ : liste d'Intersection // attribut de classe}
 \Begin{
 

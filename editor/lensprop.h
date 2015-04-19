@@ -20,20 +20,20 @@ public:
     void setupUi();
 
 private:
-    QFormLayout * formLayout;
-    QLabel * x_label;
-    QDoubleSpinBox * x_dsb;
-    QLabel * y_label;
-    QDoubleSpinBox * y_dsb;
-    QLabel * width_label;
-    QDoubleSpinBox * width_dsb;
-    QLabel * height_label;
-    QDoubleSpinBox * height_dsb;
+    QFormLayout * form_layout_;
+    QLabel * x_label_;
+    QDoubleSpinBox * x_dsb_;
+    QLabel * y_label_;
+    QDoubleSpinBox * y_dsb_;
+    QLabel * width_label_;
+    QDoubleSpinBox * width_dsb_;
+    QLabel * height_label_;
+    QDoubleSpinBox * height_dsb_;
 
-    QLabel * wl_min_label;
-    QDoubleSpinBox * wl_min_dsb;
-    QLabel * wl_max_label;
-    QDoubleSpinBox * wl_max_dsb;
+    QLabel * wl_min_label_;
+    QDoubleSpinBox * wl_min_dsb_;
+    QLabel * wl_max_label_;
+    QDoubleSpinBox * wl_max_dsb_;
 
     Lens * lens_;
 
