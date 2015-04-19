@@ -2,6 +2,7 @@
 \usepackage{amssymb,amsmath}
 \usepackage{amsthm}
 \usepackage{listings}
+\usepackage[]{algorithm2e}
 \usepackage[utf8]{inputenc}
 \usepackage[francais]{babel}
 
@@ -604,15 +605,29 @@ transformé en \texttt{LineSegment} (cf. \hyperref[LineSegment]{''LineSegment''}
 
 \subsubsection{\label{Level}Level}
 
-Cette classe représente la classe principale du jeu, elle gère toute 
-la logique métier du jeu. Elle permet de calculer la trajectoire
-du rayon lumineux.
+La classe \texttt{Level} est de loin la classe la plus importante du modèle.
+Il s'agit de la classe représentant un niveau, elle gère toute la logique métier
+du jeu. C'est elle qui contient tous les éléments du jeu et qui calcule
+la trajectoire du rayon lumineux.
+
+\begin{algorithm}
+\DontPrintSemicolon
+\Begin{
+    $droite : Line$
+    $droite \longleftarrow Line(source.getPoint(), source.getAngle())$
+    $compute\_ray(droite, source.getWavelength)$
+}
+    \caption {compute\_rays()}
+\end{algorithm}
+
+
 	
 \paragraph{Dans l'interface} cf. \hyperref[MapView]{''MapView''}    
 
 \subsection{Vue}
 
-L’interface graphique a été réalisée en `Qt` à la main. Chaque élément visuel dispose d’un pointeur vers son
+L’interface graphique a été réalisée en `Qt` à la main (sans l'aide de \texttt{QtDesigner}).
+Chaque élément visuel dispose d’un pointeur vers son
 équivalent dans le modèle, sur base duquel il est construit. Il observe également cet élément afin de se mettre
 à jour automatiquement.
 
@@ -716,6 +731,26 @@ Cette classe hérite de \texttt{QGraphicsLineItem} pour pouvoir représenter un 
 
 Classe représentant le plateau de jeu, où tous les éléments sont disposés et affichés.
 Elle s’occupe de gérer les raccourcis clavier utilisés pour déplacer/pivoter les miroirs dans le jeu et de déplacer les éléments en général dans l’éditeur de carte.
+
+\subsection{\label{EditeurClasses}L'éditeur}
+
+\subsubsection{PropertiesInterface}
+
+Les classes héritant de PropertiesInterface :
+
+\begin{itemize}
+    \item \texttt{SourceProp}
+    \item \texttt{DestProp}
+    \item \texttt{WallProp}
+    \item \texttt{MirrorProp}
+    \item \texttt{LensProp}
+    \item \texttt{CrystalProp}
+    \item \texttt{NukeProp}
+\end{itemize}
+
+\subsubsection{Elements}
+\subsubsection{Properties}
+\subsubsection{MainEditor}
 
 \section{Les bugs connus}
 
