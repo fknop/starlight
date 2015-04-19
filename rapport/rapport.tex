@@ -169,7 +169,7 @@ de la réalisation de ce projet.
 Toutes les classes utilisées sont décrites dans la section suivante.
 
 Le projet fini ouvre sur un menu principal permettant
-de jouer à Starlight, de voir les rêgles du jeu, d'accéder à l'éditeur de 
+de jouer à Starlight, de voir les règles du jeu, d'accéder à l'éditeur de 
 carte ou de simplement quitter.
 
 \subsection{Le jeu}
@@ -179,7 +179,7 @@ au format \texttt{.lvl} qu'il est possible de créer soi-même grâce à l'édit
 de carte (cf. \hyperref[Editeur]{''Editeur de cartes''}).
 
 Il est nécessaire de préciser que le jeu part du principe que la carte 
-fournie est sans erreurs. Une carte fournie avec erreur produira donc
+fournie est sans erreur. Une carte fournie avec erreur produira donc
 un arrêt immédiat de l'application.
 
 \subsubsection{Le fonctionnement du jeu}
@@ -204,7 +204,7 @@ et qu'il soit donc impossible de les déplacer par la suite.
 
 La carte peut aussi posséder des cristaux qui modifient la longueur d'onde
 du rayon les traversant, ainsi que des lentilles laissant passer la lumière
-d'une certaine intervalle de longueur d'onde.
+d'une certain intervalle de longueur d'onde.
 La couleur de la lumière est donc modifiée selon la longueur d'onde 
 du rayon lumineux.
 
@@ -218,7 +218,7 @@ L'interface graphique du jeu Starlight a été réalisée sous Qt (en version 5.
 Il s'agit ici d'une interface simple et minimaliste permettant d'effectuer la fonction de base 
 demandée : jouer.
 
-La fenêtre de jeu possède également des menus permettants de :
+La fenêtre de jeu possède également des menus permettant de :
 
 \begin{itemize}
     \item \texttt{Quitter}
@@ -267,7 +267,7 @@ Il se peut également que la source n'émette simplement pas de son.
 \newpage
 \subsection{\label{Editeur}Éditeur de cartes}
 
-L’éditeur de carte a été conçu sur base du modèle et des vues existantes.
+L’éditeur de carte a été conçu sur base du modèle et des vues existants.
 Il reprend tous les éléments disponibles dans un niveau du jeu Starlight.
 
 \subsubsection{Possibilités de l’éditeur}
@@ -333,20 +333,20 @@ Pour plus d'informations sur les classes observées et observatrices, se référ
 
 \subsubsection{ObserverInterface}
 
-La classe \texttt{ObserverInterface} est suffixé par \texttt{Interface} puisqu'il
+La classe \texttt{ObserverInterface} est suffixée par \texttt{Interface} puisqu'il
 s'agit d'une interface (pas au sens C++ car celui-ci ne possède pas la notion
-d'interface) car cette classe ne possède que des méthodes \texttt{virtual} pure
-qui sont donc obligé d'être redéfini dans une classe héritant de celle-ci.
+d'interface) car cette classe ne possède que des méthodes \texttt{virtual} pures
+qui sont donc obligées d'être redéfinies dans une classe héritant de celle-ci.
 Cela définit donc parfaitement la notion d'interface.
 
-Cette classe possède une méthode \texttt{notify(...)} qui est apellé à chaque fois
+Cette classe possède une méthode \texttt{notify(...)} qui est appelé à chaque fois
 qu'une classe observée lance une notification (cf. \hyperref[Observable]{''Observable''}).
 
 \subsubsection{\label{Observable}Observable}
 
 La classe \texttt{Observable} représente l'observé. Celle-ci possède
 une liste (\texttt{vector}) d'observateurs.
-Un observé peut ajouter des observateurs à sa liste ou en supprimer gràces aux méthodes :
+Un observé peut ajouter des observateurs à sa liste ou en supprimer grâces aux méthodes :
 \begin{lstlisting}
     add_observer(ObserverInterface * obs);
     remove_observer(ObserverInterface * obs);
@@ -359,13 +359,13 @@ notify_all(Observable * obs,
             std::vector<std::string>& args = std::vector<string>())
 \end{lstlisting}
 
-Cette méthode apellera pour chaque observateur la méthode \texttt{notify(...)} de ce dernier.
+Cette méthode appellera pour chaque observateur la méthode \texttt{notify(...)} de ce dernier.
 Nous avons choisi de créer 3 paramètres pour les notifications, dont une liste d'arguments optionnelle.
 Dans un premier temps, la notification envoie un pointeur vers l'observé, cela peut être utile si l'observateur
-ne peut pas savoir qui a envoyé une notification, gràce à ce pointeur, il peut donc agir sur l'objet. De plus, un message
+ne peut pas savoir qui a envoyé une notification, grâce à ce pointeur, il peut donc agir sur l'objet. De plus, un message
 de notification est envoyé, cela sert à effectuer différentes tâches selon le message envoyé.
 Et pour finir, une liste d'arguments est également envoyée. Cette dernière nous a servi principalement pour la gestion
-de collisions où il a fallu envoyé le déplacement voulu en paramètre pour que le niveau puisse vérifier si ce déplacement est
+de collisions où il a fallu envoyer le déplacement voulu en paramètre pour que le niveau puisse vérifier si ce déplacement est
 possible pour ensuite réagir en conséquence.
 
 \subsection{Les classes/namespaces utilitaires}
@@ -411,7 +411,7 @@ et géométriques servant au projet. Comme par exemple des méthodes permettant 
 les intersections entre droites, segments, ellipses et rectangles.
 
 \label{equals}
-\texttt{umath} reprend des méthodes d'égalité de nombre réels. Deux nombres réels sont égaux
+\texttt{umath} reprend des méthodes d'égalité de nombres réels. Deux nombres réels sont égaux
 si la valeur absolue de la soustraction de ceux-ci est plus petite que la valeur de EPSILON (cf. \hyperref[Constants]{''Constants''}).
 
 Une autre méthode d’égalité permet de vérifier si un nombre équivaut à l’infini (INF ou -INF).
@@ -449,8 +449,8 @@ $$ \sqrt[2]{(x_1 - x_2)^2 + (y_1 - y_2)^2} $$
 La classe \texttt{Line} représente une droite de la forme~: 
 $ D \equiv ax + by + c = 0 $ \\
 
-$ D \equiv ax + c = 0    (b = 0) $ représente l'équation d'une droite verticale. \\
-$ D \equiv by + c = 0    (a = 0) $ représente l'équation d'une droite horizontale. \\
+$ D \equiv ax + c = 0 $ représente l'équation d'une droite verticale (b = 0). \\
+$ D \equiv by + c = 0 $ représente l'équation d'une droite horizontale (a = 0). \\
 
 Elle possède les trois paramètres $ a $, $ b $ et $ c $ ainsi que l'angle
 que forme la droite pour éviter de devoir reconvertir la pente calculée par $ \frac{-a}{b} $
@@ -460,7 +460,7 @@ La classe \texttt{Line} possède des méthodes permettant de savoir si celle-ci 
 verticale ($ b = 0 $) ou horizontale ($ a = 0 $), si elle est perpendiculaire ou parallèle à une autre droite.
 Des méthodes permettant d'obtenir $ x $ selon une valeur de $ y $ donné et inversément sont également
 présentes. Cependant ces méthodes peuvent renvoyer une valeur infinie dans le cas où la droite 
-est soit verticale soit horizontale.
+est soit verticale, soit horizontale.
 
 Cette classe sert principalement à modéliser un rayon de lumière (cf. \hyperref[Ray]{''Ray''}) pour trouver 
 les intersections\footnote{\hyperref[AnnexeIntersects]{''Annexe A - Démarche mathématique : Intersections''}} entre le rayon et les éléments du jeu.
@@ -523,12 +523,12 @@ Une énumération fortement typée est donc présente. Elle s'appelle
 \texttt{Type} et reprend les noms des éléments cités ci-dessus.
 
 \texttt{Element} hérite de l'interface \texttt{Observable} (cf. \hyperref[OO]{''Observable/Observer''}) et chaque
-sous-classe est observé par la vue correspondante.
+sous-classe est observée par la vue correspondante.
     
 \subsubsection{\label{Source}Source}
 
 La classe \texttt{Source} représente la source lumineuse du jeu.
-Elle est de forme rectangulaire et peut donc être transformé
+Elle est de forme rectangulaire et peut donc être transformée
 en \texttt{Rectangle} (cf. \hyperref[Rectangle]{''Rectangle''}).
 
 Le rayon lumineux part du coin supérieur gauche de la source et possède
@@ -541,7 +541,7 @@ d'onde de départ.
 
 La classe \texttt{Dest} représente la destination à atteindre par 
 le rayon lumineux. Elle est de forme rectangulaire comme la source
-et peut également être transformé en \texttt{Rectangle} (cf. \hyperref[Rectangle]{''Rectangle''}).
+et peut également être transformée en \texttt{Rectangle} (cf. \hyperref[Rectangle]{''Rectangle''}).
 
 \paragraph{Dans l'interface} cf. \hyperref[DestinationView]{''DestinationView''}
 
@@ -564,8 +564,8 @@ segment de droite (cf. \hyperref[LineSegment]{''LineSegment''}).
 \subsubsection{\label{Lens}Lens}
 
 La classe \texttt{Lens} représente une lentille. Une lentille est
-une ellipse possédant une intervalle de longueur d'onde. Le rayon doit
-être dans cette intervalle pour pouvoir traverser la lentille, dans le cas
+une ellipse possédant un intervalle de longueur d'onde. Le rayon doit
+être dans cet intervalle pour pouvoir traverser la lentille, dans le cas
 contraire, elle agira comme un mur.
 
 Etant de forme elliptique, la lentille peut être transformé en Ellipse (cf. \hyperref[Ellipse]{''Ellipse''}).
@@ -599,7 +599,7 @@ La classe \texttt{Ray} représente un rayon. Un rayon est un segment de droite r
 deux objets de la carte. 
 
 Un rayon est dans un premier temps (avant sa création) transformé en \texttt{Line} (cf. \hyperref[Line]{''Line''}) pour
-trouver les intersections\footnote{\hyperref[AnnexeIntersects]{''Annexe A - Démarche mathématique : Intersections''}} entre le rayon et les objets de la cartes. Une fois la bonne intersection trouvée (le point final du rayon), le rayon peut être créé et 
+trouver les intersections\footnote{\hyperref[AnnexeIntersects]{''Annexe A - Démarche mathématique : Intersections''}} entre le rayon et les objets de la carte. Une fois la bonne intersection trouvée (le point final du rayon), le rayon peut être créé et 
 transformé en \texttt{LineSegment} (cf. \hyperref[LineSegment]{''LineSegment''}) à l'affichage.
 
 \paragraph{Dans l'interface} cf. \hyperref[RayView]{''RayView''}
@@ -623,16 +623,16 @@ void get_intersections(const Line& line, const Point& start);
 \end{lstlisting}
 
 \texttt{compute\_rays()} crée la première droite composant le rayon par rapport à l'angle de la 
-source et son point de départ, il apelle ensuite compute\_ray(...) qui va chercher
-l'intersection la plus proche en apellant get\_intersections(...). Cette dernière méthode
-va remplir un vecteur (\texttt{vector}) d'\texttt{Intersection} qui est une structure créé dans 
+source et son point de départ, il appelle ensuite compute\_ray(...) qui va chercher
+l'intersection la plus proche en appelant get\_intersections(...). Cette dernière méthode
+va remplir un vecteur (\texttt{vector}) d'\texttt{Intersection} qui est une structure créée dans 
 le header \texttt{level.h}. Cette structure reprend le point d'intersection ainsi que l'élément à ce point.
 
 \texttt{get\_intersections(...)} va chercher des intersections avec la droite qu'il reçoit en paramètre
 et tous les objets du jeu. Chaque intersection avec un objet sera alors mise dans le vecteur d'intersection
 si cette intersection se trouve du bon côté du point \texttt{start} par rapport à l'angle du rayon.
 
-Toutes les intersections seront ensuite triés dans l'ordre croissant selon la distance entre le point \texttt{start} et
+Toutes les intersections seront ensuite triées dans l'ordre croissant selon la distance entre le point \texttt{start} et
 l'intersection grâce à une expression lambda.
 La première valeur du vecteur devrait alors correspondre à l'intersection la plus proche dans l'axe du rayon.
 
@@ -697,7 +697,7 @@ la classe \texttt{Dest} qu'elle modélise.
 \subsubsection{\label{WallView}WallView}
 
 La classe \texttt{WallView} modélise un mur, élément visuel sur lequel le rayon est stoppé. 
-Les murs sont représententés par des segments de droite noirs.
+Les murs sont représentés par des segments de droite noirs.
 
 Cette classe hérite de \texttt{QGraphicsLineItem} pour pouvoir représenter un segment.
 \texttt{WallView} hérite également de l'interface \texttt{ObserverInterface} (cf. \hyperref[OO]{''Observable/Observer''}) et observe
@@ -784,7 +784,7 @@ umath::is_on_good_side(const Line& l,
                        const Point& ref,
                        const Point& start);
 \end{lstlisting}
-peut avoir des problèmes de précisions, ce qui fait que l'intersections, bien que du bon côté, ne sera pas 
+peut avoir des problèmes de précisions, ce qui fait que l'intersection, bien que du bon côté, ne sera pas 
 pris en compte dans le vecteur d'intersections, ce qui résultera en un vecteur d'intersections vide. Et donc un
 accès au premier élément sur un vecteur vide produira un \texttt{out\_of\_range} quittant l'application.
 
@@ -851,7 +851,7 @@ $ D \equiv ax + by + c = 0 $ représente l'équation d'une droite. \\
 $ D \equiv ax + c = 0 $ représente l'équation d'une droite verticale ($b = 0$). \\
 $ D \equiv by + c = 0 $ représente l'équation d'une droite horizontale ($a = 0$). \\
 
-On commence donc dans un premier temps à tester si les deux droites son parallèles. \\
+On commence donc dans un premier temps à tester si les deux droites sont parallèles. \\
 
 Soit deux droites $D_1$ et $D_2$, ces deux droites sont parallèles si : 
 $$ a_1 * b_2 - a_2 * b_1 = 0 $$
@@ -890,7 +890,7 @@ $$ x * ((a_2 * b_1) - (a_1 * b_2)) = (c_1 * b_2 - c_2 * b_1) $$
 $$ x = \frac{(c_1 * b_2 - c_2 * b_1)}{(a_2 * b_1 - a_1 * b_2)} $$ \\
 \end{proof}
 
-Maintenant qu'on a la coordonnée $x$, il suffit de la remplacer
+Maintenant que nous avons la coordonnée $x$, il suffit de la remplacer
 dans une des deux équations $D_1$ ou $D_2$ pour trouver le $y$ 
 correspondant.
 
@@ -903,10 +903,10 @@ puis ensuite de vérifier si cette intersection se trouve bien dans le domaine
 $x$ et $y$ du segment.
 
 La différence est que l'intersection peut être un segment entier si la droite
-et le segment sont confondu.
+et le segment sont confondus.
 
 Pour transformer un segment en droite : \\
-Soit $A$ et $B$ les deux extrémités du segments, les paramètres de la droite valent : 
+Soit $A$ et $B$ les deux extrémités du segment, les paramètres de la droite valent : 
 $ a = A.y - B.y $ \\
 $ b = B.x - A.x $ \\
 $ c = (A.x * B.y) - (A.y * B.x) $ \\
@@ -914,7 +914,7 @@ $ c = (A.x * B.y) - (A.y * B.x) $ \\
 \subsubsection{Trouver l'intersection entre deux segments}
 
 Dans le cas de l'intersection segment/segment, il faut transformer les
-deux segments en droites, s'il y a intersections : vérifier que le point
+deux segments en droites, s'il y a intersection : vérifier que le point
 d'intersection appartient aux domaines $x$ et $y$ des deux segments. \\
 De plus, si les deux droites sont confondues, l'intersection sera un segment.
 
