@@ -482,7 +482,8 @@ Le rayon lumineux part du coin supérieur gauche de la source et possède
 un angle par rapport à l'axe des abscisses. Il possède aussi une longueur
 d'onde de départ.
 
-\paragraph{Dans l'interface} La source peut être allumée grâce à un double 
+\paragraph{Dans l'interface} cf. \hyperref[SourceView]{''SourceView''}.
+La source peut être allumée grâce à un double 
 clic. Elle possède une image d'ampoule qui est éteinte ou allumée.
 
 \subsubsection{\label{Dest}Dest}
@@ -491,7 +492,9 @@ La classe \texttt{Dest} représente la destination à atteindre par
 le rayon lumineux. Elle est de forme rectangulaire comme la source
 et peut également être transformé en \texttt{Rectangle} (cf. \hyperref[Rectangle]{''Rectangle''}).
 
-\paragraph{Dans l'interface} La destination devient verte une fois atteinte.
+\paragraph{Dans l'interface} cf. \hyperref[DestinationView]{''DestinationView''}
+
+La destination devient verte une fois atteinte.
 De plus, un message de victoire est affiché.
 
 \subsubsection{\label{Wall}Wall}
@@ -500,7 +503,9 @@ La classe \texttt{Wall} représente un mur du jeu qui bloque les rayons
 lumineux. Un mur est un segment de droite et peut donc être transformé 
 en segment de droite (cf. \hyperref[LineSegment]{''LineSegment''}).
 
-\paragraph{Dans l'interface} Les murs sont des lignes de couleurs noires.
+\paragraph{Dans l'interface} cf. \hyperref[WallView]{''WallView''}
+
+Les murs sont des lignes de couleurs noires.
 
 \subsubsection{\label{Mirror}Mirror}
 
@@ -509,10 +514,23 @@ est un segment de droite qui réfléchit la lumière.
 Un miroir peut donc être transformé en 
 segment de droite (cf. \hyperref[LineSegment]{''LineSegment''}).
 
+\paragraph{Dans l'interface} cf. \hyperref[MirrorView]{''MirrorView''}
+
 \subsubsection{\label{Lens}Lens}
+
+\paragraph{Dans l'interface} cf. \hyperref[LensView]{''LensView''}
+
 \subsubsection{\label{Crystal}Crystal}
+
+\paragraph{Dans l'interface} cf. \hyperref[CrystalView]{''CrystalView''}
+
 \subsubsection{\label{Nuke}Nuke}
+
+\paragraph{Dans l'interface} cf. \hyperref[NukeView]{''NukeView''}
+
 \subsubsection{\label{Ray}Ray}
+
+\paragraph{Dans l'interface} cf. \hyperref[RayView]{''RayView''}
 
 
 \subsubsection{\label{Level}Level}
@@ -521,6 +539,8 @@ Cette classe représente la classe principale du jeu, elle gère toute
 la logique métier du jeu. Elle permet de calculer la trajectoire
 du rayon lumineux.
 	
+\paragraph{Dans l'interface} cf. \hyperref[MapView]{''MapView''}    
+
 \subsection{Vue}
 
 L’interface graphique a été réalisée en `Qt` à la main. Chaque élément visuel dispose d’un pointeur vers son
