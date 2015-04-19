@@ -867,17 +867,17 @@ $ r $ correspond à la distance entre l'origine et le point et $ q $ correspond
 à l'angle entre l'axe des abscisses et la droite formée avec l'origine et le point.
 
 Lorsque l'on souhaite tourner un segment et trouver $ x' $ et $ y' $, 
-il suffit d'augmenter ou diminuer l'angle $ q $ par un angle $ f $ comme ceci :
+il suffit d'augmenter ou diminuer l'angle $ q $ par un angle $ f $ comme ceci~:
 
 $$ x' = r * \cos{q + f} $$
 $$ y' = r * \sin{q + f} $$
 
-Grâce aux formules trigonométriques d'additions, on peut transformer ce résultat en :
+Grâce aux formules trigonométriques d'additions, on peut transformer ce résultat en~:
 
 $$ x' = r * \cos{q} * \cos{f} - r * \sin{q} * \sin{f} $$
 $$ y' = r * \sin{q} * \cos{f} - r * \cos{q} * \sin{f} $$
 
-Et pour finir, en remplaçant les deux premières égalités dans cette dernière on obtient : 
+Et pour finir, en remplaçant les deux premières égalités dans cette dernière on obtient~: 
 
 $$ x' = x * \cos{f} - y * \sin{f} $$
 $$ y' = x * \sin{f} + y * \cos{f} $$
@@ -926,9 +926,13 @@ $$ x = \frac{(c_1 * b_2 - c_2 * b_1)}{(a_2 * b_1 - a_1 * b_2)} $$
 \begin{proof}
 $$ D_1 \equiv y = \frac{-a_1 * x}{b_1} - \frac{c_1}{b_1} $$
 $$ D_2 \equiv y = \frac{-a_2 * x}{b_2} - \frac{c_2}{b_2} $$
+
 On remplace $y$ de $D_1$ dans $D_2$ :
+
 $$ \frac{-a_1 * x}{b_1} - \frac{c_1}{b_1} = \frac{-a_2 * x}{b_2} - \frac{c_2}{b_2} $$
+
 Il ne reste plus qu'à simplifier :
+
 $$ \frac{-a_1 * x}{b_1} + \frac{a_2 * x}{b_2} = \frac{c_1}{b_1} - \frac{c_2}{b_2} $$
 $$ \frac{(-a_1 * x * b_2) + (a_2 * x * b_1)}{(b_1 * b_2)} = \frac{(c_1 * b_2 - c_2 * b_1)}{(b_1 * b_2)} $$
 $$ (a_2 * b_1 * x) - (a_1 * b_2 * x) = (c_1 * b_2 - c_2 * b_1) $$
@@ -964,7 +968,7 @@ deux segments en droites, s'il y a intersection : vérifier que le point
 d'intersection appartient aux domaines $x$ et $y$ des deux segments. \\
 De plus, si les deux droites sont confondues, l'intersection sera un segment.
 
-\subsubsection{Trouver le(s) intersection(s) entre une ellipse et une droite}
+\subsubsection{Trouver la ou les intersection(s) entre une ellipse et une droite}
 
 La formule d'une ellipse est : 
 
@@ -1044,16 +1048,16 @@ C'est le même principe que le cas de la droite verticale sauf
 que pour trouver la deuxième variable finale il faudra
 remplacer la variable trouvée dans l'équation de la droite.
 
-\subsubsection{Trouver le(s) intersections entre une ellipse et un segment de droite}
+\subsubsection{Trouver la ou les intersection(s) entre une ellipse et un segment de droite}
 
 Il s'agit du même principe que les intersections droite/segment.
 Il faut vérifier les intersections entre les ellipses et un segment
-transformé en droite et ensuite vérifier si les points d'intersections
+transformé en droite et ensuite vérifier si les points d'intersection
 se trouvent dans le domaine du segment.
 
-\subsubsection{Trouver le(s) intersection(s) entre un rectangle et une droite}
+\subsubsection{Trouver les intersections entre un rectangle et une droite}
 
-\subsubsection{Trouver le(s) intersection(s) entre un rectangle et un esgment de droite}
+\subsubsection{Trouver les intersections entre un rectangle et un segment de droite}
 
 \subsection{\label{AnnexeB}Annexe B : Diagramme des observateurs / observés}
 \subsection{\label{AnnexeC}Annexe C : Algorithme simplifié de la logique métier}
