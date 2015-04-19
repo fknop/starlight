@@ -19,7 +19,7 @@
  * longueur d'onde (en l'augmentant ou en la diminuant d'une
  * certaine valeur) mais pas sa trajectoire.
  */
-class Crystal : public Element, public Observable
+class Crystal : public Element
 {
     Point center_;
     double rad_;

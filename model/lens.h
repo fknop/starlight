@@ -19,7 +19,7 @@
  * aucune modification. Sinon, la lentille se comporte comme un
  * mur.
  */
-class Lens : public Element, public Observable
+class Lens : public Element
 {
     Point pos_;
 

@@ -19,7 +19,7 @@
  * Le rayon lumineux est émis depuis la position, i.e., le coin
  * supérieur gauche, de la source.
  */
-class Source : public Observable, public Element
+class Source : public Element
 {
     bool on_ {false};
     Point pos_;

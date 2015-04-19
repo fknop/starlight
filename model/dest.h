@@ -15,7 +15,7 @@
  * Une destination est un objet carré qui, quand traversé par
  * un rayon lumineux, fait remporter la partie au joueur.
  */
-class Dest : public Element, public Observable
+class Dest : public Element
 {
     Point pos_;
     double edge_;

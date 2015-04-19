@@ -15,7 +15,7 @@
  * Les murs sont des segments de droite qui ne réfléchissent
  * pas la lumière.
  */
-class Wall : public Element, public Observable
+class Wall : public Element
 {
     Point start_;
     Point end_;

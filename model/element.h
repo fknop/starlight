@@ -1,6 +1,8 @@
 #ifndef ELEMENT_H
 #define ELEMENT_H
 
+#include "obs/observable.h"
+
 /**
  * Cette classe sert de super-classe
  * à tous les éléments avec lesquels
@@ -8,7 +10,7 @@
  * Il s'agit plus d'une classe "TAG"
  * pour retrouver le type d'un élément.
  */
-class Element
+class Element : public Observable
 {
 public:
     enum class Type

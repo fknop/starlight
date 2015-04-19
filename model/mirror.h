@@ -20,7 +20,7 @@
  * Les miroirs sont capables d'être déplacés et pivotés dans
  *  une certaine limite.
  */
-class Mirror : public Element, public Observable
+class Mirror : public Element
 {
     Point pivot_;
     double length_;

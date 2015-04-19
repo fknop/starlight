@@ -1,6 +1,7 @@
 \documentclass[]{article}
 \usepackage{amssymb,amsmath}
 \usepackage{amsthm}
+\usepackage{listings}
 \usepackage[utf8]{inputenc}
 \usepackage[francais]{babel}
 
@@ -18,6 +19,7 @@ linkcolor=blue]{hyperref}
 \author{Florian Knop (39310) - Gatien Bovyn (39189)}
 
 \begin{document}
+\lstset{language=C++}  
 \maketitle
 
 \newpage
@@ -313,9 +315,51 @@ Dans cette section, nous allons décrire les différentes classes
 composant ce projet.
 L’implémentation du projet est divisée entre la partie modèle et la partie vue ainsi 
 qu'une partie classes utilitaires.
-Elle est également basée sur le design pattern «~Observeur~/~Observé~» comme demandé
+Elle est également basée sur le design pattern «~Observateur~/~Observé~» comme demandé
 dans les consignes. 
 
+\subsection{\label{OO}Observateur / Observé}
+
+Le design pattern Observateur / Observé a été implémenté à l'aide de deux classes : 
+
+\begin{itemize}
+    \item \texttt{ObserverInterface} qui représente l'observateur.
+    \item \texttt{Observable} qui représente l'observé.
+\end{itemize}
+
+Pour plus d'informations sur les classes observées et observatrices, se référer à
+\hyperref[AnnexeB]{''l'Annexe B} de ce document.
+
+\subsubsection{ObserverInterface}
+
+La classe \texttt{ObserverInterface} est suffixé par \texttt{Interface} puisqu'il
+s'agit d'une interface (pas au sens C++ car celui-ci ne possède pas la notion
+d'interface) car cette classe ne possède que des méthodes \texttt{virtual} pure
+qui sont donc obligé d'être redéfini dans une classe héritant de celle-ci.
+Cela définit donc parfaitement la notion d'interface.
+
+Cette classe possède une méthode \texttt{notify(...)} qui est apellé à chaque fois
+qu'une classe observée lance une notification (cf. \hyperref[Observable]{''Observable''}).
+
+\subsubsection{\label{Observable}Observable}
+
+La classe \texttt{Observable} représente l'observé. Celle-ci possède
+une liste (\texttt{vector}) d'observateurs. Un observé peut lancer des notifications
+via la méthode :
+\begin{lstlisting}
+notify_all(Observable * obs, 
+            std::string& msg, 
+            std::vector<std::string>& args = std::vector<string>())
+\end{lstlisting}
+
+Cette méthode apellera pour chaque observateur la méthode \texttt{notify(...)} de ce dernier.
+Nous avons choisi de créer 3 paramètres pour les notifications, dont une liste d'arguments optionnelle.
+Dans un premier temps, la notification envoie un pointeur vers l'observé, cela peut être utile si l'observateur
+ne peut pas savoir qui a envoyé une notification, gràce à ce pointeur, il peut donc agir sur l'objet. De plus, un message
+de notification est envoyé, cela sert à effectuer différentes tâches selon le message envoyé.
+Et pour finir, une liste d'arguments est également envoyée. Cette dernière nous a servi principalement pour la gestion
+de collisions où il a fallu envoyé le déplacement voulu en paramètre pour que le niveau puisse vérifier si ce déplacement est
+possible pour ensuite réagir en conséquence.
 
 \subsection{Les classes/namespaces utilitaires}
 
@@ -428,8 +472,6 @@ le constituant et ainsi former l'équation de droite.
 Le segment peut également être décalé d'un certain $ x $ et $ y $ ainsi que tourné 
 d'un certain angle\footnote{\hyperref[AnnexeRotation]{''Annexe A - Démarche mathématique : Rotation de segment''}}.
 
-
-
 \subsubsection{\label{Ellipse}Ellipse}
 
 La classe \texttt{Ellipse} représente une forme géométrique de type elliptique.
@@ -471,6 +513,9 @@ le type d'un objet lors d'une intersection (cf. \hyperref[Level]{''Level''}).
 
 Une énumération fortement typée est donc présente. Elle s'appelle
 \texttt{Type} et reprend les noms des éléments cités ci-dessus.
+
+\texttt{Element} hérite de l'interface \texttt{Observable} (cf. \hyperref[OO]{''Observable/Observer''}) et chaque
+sous-classe est observé par la vue correspondante.
     
 \subsubsection{\label{Source}Source}
 
@@ -483,8 +528,6 @@ un angle par rapport à l'axe des abscisses. Il possède aussi une longueur
 d'onde de départ.
 
 \paragraph{Dans l'interface} cf. \hyperref[SourceView]{''SourceView''}.
-La source peut être allumée grâce à un double 
-clic. Elle possède une image d'ampoule qui est éteinte ou allumée.
 
 \subsubsection{\label{Dest}Dest}
 
@@ -494,9 +537,6 @@ et peut également être transformé en \texttt{Rectangle} (cf. \hyperref[Rectan
 
 \paragraph{Dans l'interface} cf. \hyperref[DestinationView]{''DestinationView''}
 
-La destination devient verte une fois atteinte.
-De plus, un message de victoire est affiché.
-
 \subsubsection{\label{Wall}Wall}
 
 La classe \texttt{Wall} représente un mur du jeu qui bloque les rayons
@@ -504,8 +544,6 @@ lumineux. Un mur est un segment de droite et peut donc être transformé
 en segment de droite (cf. \hyperref[LineSegment]{''LineSegment''}).
 
 \paragraph{Dans l'interface} cf. \hyperref[WallView]{''WallView''}
-
-Les murs sont des lignes de couleurs noires.
 
 \subsubsection{\label{Mirror}Mirror}
 
@@ -570,19 +608,36 @@ Il s'agit de :
 \subsubsection{\label{SourceView}SourceView}
 
 Classe représentant une source lumineuse sur le plateau de jeu. Bien que dans les consignes, la source lumineuse soit un carré, nous avons ensuite utilisé des images pour la représenter.
-La source dispose de 2 états, allumée ou éteinte. Passer d’un état à l’autre change l’image la représentant et produit un son d’interrupteur.
+La source dispose de 2 états, allumée ou éteinte qui peut être changé grâce à un double clic.
+Passer d’un état à l’autre change l’image la représentant et produit un son d’interrupteur.
+
+\texttt{SourceView} hérite de l'interface \texttt{ObserverInterface} (cf. \hyperref[OO]{''Observable/Observer''}) et observe
+la classe \texttt{Source} qu'elle modélise.
 
 \subsubsection{\label{DestinationView}DestinationView}
 
-Classe modélisant la destination à atteindre par le rayon émis depuis la source pour gagner la partie.
+La classe \texttt{DestinationView} modélise la destination à atteindre par le rayon émis depuis la source pour gagner la partie.
+La destination devient verte une fois atteinte. De plus, un message de victoire est affiché.
+
+\texttt{DestinationView} hérite de l'interface \texttt{ObserverInterface} (cf. \hyperref[OO]{''Observable/Observer''}) et observe
+la classe \texttt{Dest} qu'elle modélise.
 
 \subsubsection{\label{WallView}WallView}
 
-Classe représentant un mur, élément visuel sur lequel le rayon est stoppé.
+La classe \texttt{WallView} modélise un mur, élément visuel sur lequel le rayon est stoppé. 
+Les murs sont représententés par des segments de droite noirs.
+
+\texttt{WallView} hérite de l'interface \texttt{ObserverInterface} (cf. \hyperref[OO]{''Observable/Observer''}) et observe
+la classe \texttt{Wall} qu'elle modélise.
 
 \subsubsection{\label{MirrorView}MirrorView}
 
-Classe représentant un miroir sur lequel un rayon peut être réfléchi.
+La classe \texttt{MirrorView} modélise un miroir sur lequel un rayon peut être réfléchi.
+Le miroir est représenté par un segment de droite rouge. Ce dernier, une fois sélectionné, affiche
+un rectangle bleu affichant les limites de déplacement du pivot.
+
+\texttt{MirrorView} hérite de l'interface \texttt{ObserverInterface} (cf. \hyperref[OO]{''Observable/Observer''}) et observe
+la classe \texttt{Mirror} qu'elle modélise.
 
 \subsubsection{\label{LensView}LensView}
 
@@ -590,15 +645,24 @@ Classe modélisant une lentille à travers laquelle un rayon peut passer si sa l
 comprise entre les valeurs de la lentille. Sinon la lentille se comporte comme un mur et le rayon 
 est stoppé.
 
+\texttt{LensView} hérite de l'interface \texttt{ObserverInterface} (cf. \hyperref[OO]{''Observable/Observer''}) et observe
+la classe \texttt{Lens} qu'elle modélise.
+
 \subsubsection{\label{CrystalView}CrystalView}
 
 Classe modélisant un cristal, élément oval qui modifie la longueur d’onde d’un rayon si celui-ci traverse ledit cristal.
+
+\texttt{CrystalView} hérite de l'interface \texttt{ObserverInterface} (cf. \hyperref[OO]{''Observable/Observer''}) et observe
+la classe \texttt{Crystal} qu'elle modélise.
 
 \subsubsection{\label{NukeView}NukeView}
 
 Classe représentant une bombe, élément explosif du plateau qui fait perdre la partie
 si touché par un rayon lumineux (\texttt{RayView}). Dès le moment où elle est illuminée, une bombe
 change de couleur (passe du noir au rouge) et produit un son et un message visuel indiquant la fin de partie.
+
+\texttt{NukeView} hérite de l'interface \texttt{ObserverInterface} (cf. \hyperref[OO]{''Observable/Observer''}) et observe
+la classe \texttt{Nuke} qu'elle modélise.
 
 \subsubsection{\label{RayView}RayView}
 
@@ -607,13 +671,22 @@ Classe modélisant un rayon lumineux, émis depuis la source (\texttt{SourceView
 Un \texttt{RayView} a une couleur différente selon sa longueur d’onde comme proposé dans les objectifs secondaires,
 cette couleur reflétant la couleur réelle qu’aurait un rayon lumineux de cette longueur d’onde.
 
-\subsubsection{MapView}
+\subsubsection{\label{MapView}MapView}
 
 Classe représentant le plateau de jeu, où tous les éléments sont disposés et affichés.
 Elle s’occupe de gérer les raccourcis clavier utilisés pour déplacer/pivoter les miroirs dans le jeu et de déplacer les éléments en général dans l’éditeur de carte.
 
 \section{Les bugs connus}
 
+La méthode 
+\begin{lstlisting}
+umath::is_on_good_side(const Line& l, 
+                       const Point& ref,
+                       const Point& start);
+\end{lstlisting}
+peut avoir des problèmes de précisions, ce qui fait que l'intersections, bien que du bon côté, ne sera pas 
+pris en compte dans le vecteur d'intersections, ce qui résultera en un vecteur d'intersections vide. Et donc un
+accès au premier élément sur un vecteur vide produira un \texttt{out\_of\_range} quittant l'application.
 
 
 \section{Conclusion}
@@ -835,6 +908,8 @@ se trouvent dans le domaine du segment.
 \subsubsection{Trouver le(s) intersection(s) entre un rectangle et une droite}
 
 \subsubsection{Trouver le(s) intersection(s) entre un rectangle et un esgment de droite}
+
+\subsection{\label{AnnexeB}Annexe B : Diagramme des observateurs / observés}
 
 
 

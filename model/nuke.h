@@ -15,7 +15,7 @@
  * Une bombe est un objet circulaire qui, si illuminé par
  * un rayon, fait perdre la partie au joueur.
  */
-class Nuke : public Element, public Observable
+class Nuke : public Element
 {
     Point pos_;
     double rad_;
