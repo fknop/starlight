@@ -392,7 +392,7 @@ La classe permet également de calculer la distance entre deux points grâce à 
 
 $$ \sqrt[2]{(x_1 - x_2)^2 + (y_1 - y_2)^2} $$
 
-\subsubsection{Line}
+\subsubsection{\label{Line}Line}
 
 La classe \texttt{Line} représente une droite de la forme~: 
 $ D \equiv ax + by + c = 0 $ \\
@@ -413,7 +413,7 @@ est soit verticale soit horizontale.
 Cette classe sert principalement à modéliser un rayon de lumière (cf. \hyperref[Ray]{''Ray''}) pour trouver 
 les intersections\footnote{\hyperref[AnnexeIntersects]{''Annexe A - Démarche mathématique : Intersections''}} entre le rayon et les éléments du jeu.
 
-\subsubsection{LineSegment}
+\subsubsection{\label{LineSegment}LineSegment}
 
 La classe \texttt{LineSegment} représente un segment de droite possédant
 deux points (cf. \hyperref[Point]{''Point''}) qui sont les extrémités du segment.
@@ -430,7 +430,7 @@ d'un certain angle\footnote{\hyperref[AnnexeRotation]{''Annexe A - Démarche mat
 
 
 
-\subsubsection{Ellipse}
+\subsubsection{\label{Ellipse}Ellipse}
 
 La classe \texttt{Ellipse} représente une forme géométrique de type elliptique.
 Elle possède un point central ainsi qu'un rayon $x$ et $y$. Si ces deux
@@ -485,13 +485,30 @@ d'onde de départ.
 \paragraph{Dans l'interface} La source peut être allumée grâce à un double 
 clic. Elle possède une image d'ampoule qui est éteinte ou allumée.
 
-
-
-
-
 \subsubsection{\label{Dest}Dest}
+
+La classe \texttt{Dest} représente la destination à atteindre par 
+le rayon lumineux. Elle est de forme rectangulaire comme la source
+et peut également être transformé en \texttt{Rectangle} (cf. \hyperref[Rectangle]{''Rectangle''}).
+
+\paragraph{Dans l'interface} La destination devient verte une fois atteinte.
+De plus, un message de victoire est affiché.
+
 \subsubsection{\label{Wall}Wall}
+
+La classe \texttt{Wall} représente un mur du jeu qui bloque les rayons
+lumineux. Un mur est un segment de droite et peut donc être transformé 
+en segment de droite (cf. \hyperref[LineSegment]{''LineSegment''}).
+
+\paragraph{Dans l'interface} Les murs sont des lignes de couleurs noires.
+
 \subsubsection{\label{Mirror}Mirror}
+
+La classe \texttt{Mirror} représente un miroir. Un miroir
+est un segment de droite qui réfléchit la lumière.
+Un miroir peut donc être transformé en 
+segment de droite (cf. \hyperref[LineSegment]{''LineSegment''}).
+
 \subsubsection{\label{Lens}Lens}
 \subsubsection{\label{Crystal}Crystal}
 \subsubsection{\label{Nuke}Nuke}
@@ -515,14 +532,6 @@ sélectionnables quand cela est nécessaire.
 
 Les classes composant la partie vue de l’application sont :
 
-\subsubsection{CrystalView}
-
-Classe modélisant un cristal, élément oval qui modifie la longueur d’onde d’un rayon si celui-ci traverse ledit cristal.
-
-\subsubsection{DestinationView}
-
-Classe modélisant la destination à atteindre par le rayon émis depuis la source pour gagner la partie.
-
 \subsubsection{ElementView}
 
 Classe servant de super-classe à toutes les éléments présents sur un \texttt{MapView}.
@@ -538,42 +547,54 @@ Il s'agit de :
     \item \texttt{NukeView}
 \end{itemize}
 
-\subsubsection{LensView}
+\subsubsection{\label{SourceView}SourceView}
+
+Classe représentant une source lumineuse sur le plateau de jeu. Bien que dans les consignes, la source lumineuse soit un carré, nous avons ensuite utilisé des images pour la représenter.
+La source dispose de 2 états, allumée ou éteinte. Passer d’un état à l’autre change l’image la représentant et produit un son d’interrupteur.
+
+\subsubsection{\label{DestinationView}DestinationView}
+
+Classe modélisant la destination à atteindre par le rayon émis depuis la source pour gagner la partie.
+
+\subsubsection{\label{WallView}WallView}
+
+Classe représentant un mur, élément visuel sur lequel le rayon est stoppé.
+
+\subsubsection{\label{MirrorView}MirrorView}
+
+Classe représentant un miroir sur lequel un rayon peut être réfléchi.
+
+\subsubsection{\label{LensView}LensView}
 
 Classe modélisant une lentille à travers laquelle un rayon peut passer si sa longueur d’onde est
 comprise entre les valeurs de la lentille. Sinon la lentille se comporte comme un mur et le rayon 
 est stoppé.
 
-\subsubsection{MapView}
+\subsubsection{\label{CrystalView}CrystalView}
 
-Classe représentant le plateau de jeu, où tous les éléments sont disposés et affichés.
-Elle s’occupe de gérer les raccourcis clavier utilisés pour déplacer/pivoter les miroirs dans le jeu et de déplacer les éléments en général dans l’éditeur de carte.
+Classe modélisant un cristal, élément oval qui modifie la longueur d’onde d’un rayon si celui-ci traverse ledit cristal.
 
-\subsubsection{MirrorView}
-
-Classe représentant un miroir sur lequel un rayon peut être réfléchi.
-
-\subsubsection{NukeView}
+\subsubsection{\label{NukeView}NukeView}
 
 Classe représentant une bombe, élément explosif du plateau qui fait perdre la partie
 si touché par un rayon lumineux (\texttt{RayView}). Dès le moment où elle est illuminée, une bombe
 change de couleur (passe du noir au rouge) et produit un son et un message visuel indiquant la fin de partie.
 
-\subsubsection{RayView}
+\subsubsection{\label{RayView}RayView}
 
 Classe modélisant un rayon lumineux, émis depuis la source (\texttt{SourceView}) et destiné à atteindre la destination 
 (\texttt{DestView}) en se reflétant sur des miroirs et en passant à travers des cristaux si nécessaire.
 Un \texttt{RayView} a une couleur différente selon sa longueur d’onde comme proposé dans les objectifs secondaires,
 cette couleur reflétant la couleur réelle qu’aurait un rayon lumineux de cette longueur d’onde.
 
-\subsubsection{SourceView}
+\subsubsection{MapView}
 
-Classe représentant une source lumineuse sur le plateau de jeu. Bien que dans les consignes, la source lumineuse soit un carré, nous avons ensuite utilisé des images pour la représenter.
-La source dispose de 2 états, allumée ou éteinte. Passer d’un état à l’autre change l’image la représentant et produit un son d’interrupteur.
+Classe représentant le plateau de jeu, où tous les éléments sont disposés et affichés.
+Elle s’occupe de gérer les raccourcis clavier utilisés pour déplacer/pivoter les miroirs dans le jeu et de déplacer les éléments en général dans l’éditeur de carte.
 
-\subsubsection{WallView}
+\section{Les bugs connus}
 
-Classe représentant un mur, élément visuel sur lequel le rayon est stoppé.
+
 
 \section{Conclusion}
 
@@ -581,9 +602,9 @@ Classe représentant un mur, élément visuel sur lequel le rayon est stoppé.
 
 Les sons utilisés ont été produits par Mike Koenig et sont sous licence Attribution 3.0.\\
 
-Bruit de bombe~:~http://soundbible.com/106-Car-Explosion.html \\
-Bruit de victoire~:~http://soundbible.com/1003-Ta-Da.html \\
-Bruit d’interrupteur~:~http://soundbible.com/761-Switch.html \\
+\href{http://soundbible.com/106-Car-Explosion.html}{Bruit de bombe}   \\
+\href{http://soundbible.com/1003-Ta-Da.html}{Bruit de victoire}       \\
+\href{http://soundbible.com/761-Switch.html}{Bruit d’interrupteur}    \\
 
 \section{\label{Annexe}Annexes}
 
