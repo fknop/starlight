@@ -411,7 +411,7 @@ présentes. Cependant ces méthodes peuvent renvoyer une valeur infinie dans le 
 est soit verticale soit horizontale.
 
 Cette classe sert principalement à modéliser un rayon de lumière (cf. \hyperref[Ray]{''Ray''}) pour trouver 
-les intersections entre le rayon et les éléments du jeu.
+les intersections\footnote{\hyperref[AnnexeIntersects]{''Annexe A - Démarche mathématique : Intersections''}} entre le rayon et les éléments du jeu.
 
 \subsubsection{LineSegment}
 
@@ -426,23 +426,26 @@ Le segment peut être transformé en droite grâce aux deux points
 le constituant et ainsi former l'équation de droite.
 
 Le segment peut également être décalé d'un certain $ x $ et $ y $ ainsi que tourné 
-d'un certain angle\footnote{\hyperref[AnnexeRotation]{''Rotation de segment''}}.
+d'un certain angle\footnote{\hyperref[AnnexeRotation]{''Annexe A - Démarche mathématique : Rotation de segment''}}.
 
 
 
 \subsubsection{Ellipse}
 
-Cette classe représente une conique de forme elliptique.
-C'est-à-dire une ellipse ou un cercle.
+La classe \texttt{Ellipse} représente une forme géométrique de type elliptique.
+Elle possède un point central ainsi qu'un rayon $x$ et $y$. Si ces deux
+rayons sont égaux, il s'agit alors d'un cercle.
 
-\subsubsection{Rectangle}
+Cette classe sert à représenter les objets \texttt{Lens} (cf. \hyperref[Lens]{''Lens''}) et \texttt{Crystal} (cf .\hyperref[Crystal]{''Crystal''}).
 
-Cette classe représente une forme géométrique rectangulaire.
+\subsubsection{\label{Rectangle}Rectangle}
+
+La classe \texttt{Rectangle} représente une forme géométrique rectangulaire.
 Elle possède un point supérieur gauche ainsi qu'une longueur et hauteur 
 nous permettant de retrouver facilement les autres extrémités de la 
 forme.
 
-Cette classe sert à représenter les objets Source et Destination.
+Cette classe sert à représenter les objets \texttt{Source} (cf. \hyperref[Source]{''Source''}) et \texttt{Dest} (cf. \hyperref[Dest]{''Dest''}).
 
 \subsubsection{Element}
 
@@ -460,7 +463,7 @@ Il s'agit de :
     \item \texttt{Nuke}
 \end{itemize}
 
-La classe Ray (cf. \hyperref[Ray]{''Ray''}) n’est pas un élément, les éléments concernent 
+La classe \texttt{Ray} (cf. \hyperref[Ray]{''Ray''}) n’est pas un élément, les éléments concernent 
 les objets pouvant interagir avec un rayon.
 Il s'agit principalement d'une classe \texttt{tag} pouvant
 donner le type de l'élément. Son rôle est de pouvoir retrouver
@@ -469,17 +472,29 @@ le type d'un objet lors d'une intersection (cf. \hyperref[Level]{''Level''}).
 Une énumération fortement typée est donc présente. Elle s'appelle
 \texttt{Type} et reprend les noms des éléments cités ci-dessus.
     
-\subsubsection{Source}
+\subsubsection{\label{Source}Source}
+
+La classe \texttt{Source} représente la source lumineuse du jeu.
+Elle est de forme rectangulaire et peut donc être transformé
+en \texttt{Rectangle} (cf. \hyperref[Rectangle]{''Rectangle''}).
+
+Le rayon lumineux part du coin supérieur gauche de la source et possède
+un angle par rapport à l'axe des abscisses. Il possède aussi une longueur
+d'onde de départ.
+
+\paragraph{Dans l'interface} La source peut être allumée grâce à un double 
+clic. Elle possède une image d'ampoule qui est éteinte ou allumée.
 
 
 
 
-\subsubsection{Dest}
-\subsubsection{Wall}
-\subsubsection{Mirror}
-\subsubsection{Lens}
-\subsubsection{Crystal}
-\subsubsection{Nuke}
+
+\subsubsection{\label{Dest}Dest}
+\subsubsection{\label{Wall}Wall}
+\subsubsection{\label{Mirror}Mirror}
+\subsubsection{\label{Lens}Lens}
+\subsubsection{\label{Crystal}Crystal}
+\subsubsection{\label{Nuke}Nuke}
 \subsubsection{\label{Ray}Ray}
 
 
@@ -610,7 +625,7 @@ $$ y' = x * \sin{f} + y * \cos{f} $$
 Il faut ensuite redéplacer le pivot à son point de départ.
 
 \newpage
-\subsubsection{Trouver l'intersection entre deux droites}
+\subsubsection{\label{AnnexeIntersects}Trouver l'intersection entre deux droites}
 
 Une droite possède une intersection avec une autre droite si :
 \begin{itemize}
