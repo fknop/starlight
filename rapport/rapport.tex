@@ -496,7 +496,7 @@ forme.
 
 Cette classe sert à représenter les objets \texttt{Source} (cf. \hyperref[Source]{''Source''}) et \texttt{Dest} (cf. \hyperref[Dest]{''Dest''}).
 
-\subsubsection{Element}
+\subsubsection{\label{Element}Element}
 
 La classe Element est la super-classe de tous les éléments pouvant
 se trouver sur une carte de jeu.
@@ -610,17 +610,39 @@ Il s'agit de la classe représentant un niveau, elle gère toute la logique mét
 du jeu. C'est elle qui contient tous les éléments du jeu et qui calcule
 la trajectoire du rayon lumineux.
 
-\begin{algorithm}
-\DontPrintSemicolon
-\Begin{
-    $droite : Line$
-    $droite \longleftarrow Line(source.getPoint(), source.getAngle())$
-    $compute\_ray(droite, source.getWavelength)$
-}
-    \caption {compute\_rays()}
-\end{algorithm}
+\paragraph{Explications} : la logique métier \\
 
+La logique métier est composé de méthodes principales : 
 
+\begin{lstlisting}
+void compute_rays();
+void compute_ray(const Line& line, const Point& start, int wl);
+void get_intersections(const Line& line, const Point& start);
+\end{lstlisting}
+
+\texttt{compute\_rays()} crée la première droite composant le rayon par rapport à l'angle de la 
+source et son point de départ, il apelle ensuite compute\_ray(...) qui va chercher
+l'intersection la plus proche en apellant get\_intersections(...). Cette dernière méthode
+va remplir un vecteur (\texttt{vector}) d'\texttt{Intersection} qui est une structure créé dans 
+le header \texttt{level.h}. Cette structure reprend le point d'intersection ainsi que l'élément à ce point.
+
+\texttt{get\_intersections(...)} va chercher des intersections avec la droite qu'il reçoit en paramètre
+et tous les objets du jeu. Chaque intersection avec un objet sera alors mise dans le vecteur d'intersection
+si cette intersection se trouve du bon côté du point \texttt{start} par rapport à l'angle du rayon.
+
+Toutes les intersections seront ensuite triés dans l'ordre croissant selon la distance entre le point \texttt{start} et
+l'intersection grâce à une expression lambda.
+La première valeur du vecteur devrait alors correspondre à l'intersection la plus proche dans l'axe du rayon.
+
+\texttt{compute\_ray(...)} va dans un premier temps créer le rayon entre le point \texttt{start} et le point d'intersection.
+Par la suite, avec la premiere valeur du vecteur d'intersections, 
+\texttt{compute\_ray(...)} va effectuer ce qu'il faut selon le type de l'élément déterminé 
+grâce à la super-classe \texttt{Element} (cf. \hyperref[Element]{''Element''}).
+
+Un booléen sera mis à vrai ou faux selon le cas. À la fin de la méthode, si ce booléen vaut donc vrai, cela veut dire
+que le rayon peut continuer. Un appel récursif à compute\_ray(...) est donc fait avec les nouvelles valeurs. 
+
+Un algorithme très simplifié se trouve dans \hyperref[AnnexeC]{''l'Annexe C''}.
 	
 \paragraph{Dans l'interface} cf. \hyperref[MapView]{''MapView''}    
 
@@ -986,7 +1008,74 @@ se trouvent dans le domaine du segment.
 \subsubsection{Trouver le(s) intersection(s) entre un rectangle et un esgment de droite}
 
 \subsection{\label{AnnexeB}Annexe B : Diagramme des observateurs / observés}
+\subsection{\label{AnnexeC}Annexe C : Algorithme simplifié de la logique métier}
 
+\begin{algorithm}
+\DontPrintSemicolon
+\Begin{
+    $droite : Line$
+    $droite \longleftarrow Line(source.getPoint(), source.getAngle())$
+    $compute\_ray(droite, source.getPoint(), source.getWavelength)$
+}
+    \caption {compute\_rays()}
+\end{algorithm}
+
+\begin{algorithm}
+\DontPrintSemicolon
+\KwData{$intersections$ : liste d'Intersection // attribut de classe}
+\Begin{
+
+$continue : booleen $
+
+$getIntersections(droite, debut)$ // Remplit la liste d'intersections \;
+$type : Type$ \;
+$type \longleftarrow intersections.get(0).getType()$
+
+\Switch{$type$}
+{ 
+    \Case{Miroir} 
+    {
+        $angle \longleftarrow getNewAngle(...)$ \;
+        $continue \longleftarrow vrai$
+    }
+    \Case{Lentille}
+    {  
+        \eIf{longueur d'onde dans l'intervalle}
+        { 
+            $continue \longleftarrow vrai$
+        }{ 
+            $continue \longleftarrow faux$
+        }
+    }
+    \Case{Cristal} 
+    { 
+        $wl \longleftarrow wl + cristal.getWl()$ \;
+        $continue \longleftarrow vrai$
+    }
+    \Case{Mur} 
+    { 
+        $continue \longleftarrow faux$
+    }
+    \Case{Destination} 
+    { 
+        $continue \longleftarrow faux$
+    }
+    \Case{Bombe} 
+    { 
+        $continue \longleftarrow faux$
+    }
+    }
+    \If{$continue = vrai$} 
+    { 
+        $d : Droite$ \;
+        $d \longleftarrow Line(intersections.get(0).getPoint(), angle)$ \;
+        $compute\_ray(d, intersections.get(0).getPoint(), wl)$
+    }
+
+\caption{compute\_ray(droite : Line, debut : Point, wl : entier)}
+}
+
+\end{algorithm}
 
 
 \end{document}
