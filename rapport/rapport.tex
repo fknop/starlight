@@ -344,8 +344,14 @@ qu'une classe observée lance une notification (cf. \hyperref[Observable]{''Obse
 \subsubsection{\label{Observable}Observable}
 
 La classe \texttt{Observable} représente l'observé. Celle-ci possède
-une liste (\texttt{vector}) d'observateurs. Un observé peut lancer des notifications
-via la méthode :
+une liste (\texttt{vector}) d'observateurs.
+Un observé peut ajouter des observateurs à sa liste ou en supprimer gràces aux méthodes :
+\begin{lstlisting}
+    add_observer(ObserverInterface * obs);
+    remove_observer(ObserverInterface * obs);
+\end{lstlisting}
+
+Un observé peut lancer des notifications via la méthode :
 \begin{lstlisting}
 notify_all(Observable * obs, 
             std::string& msg, 
@@ -556,20 +562,45 @@ segment de droite (cf. \hyperref[LineSegment]{''LineSegment''}).
 
 \subsubsection{\label{Lens}Lens}
 
+La classe \texttt{Lens} représente une lentille. Une lentille est
+une ellipse possédant une intervalle de longueur d'onde. Le rayon doit
+être dans cette intervalle pour pouvoir traverser la lentille, dans le cas
+contraire, elle agira comme un mur.
+
+Etant de forme elliptique, la lentille peut être transformé en Ellipse (cf. \hyperref[Ellipse]{''Ellipse''}).
+
 \paragraph{Dans l'interface} cf. \hyperref[LensView]{''LensView''}
 
 \subsubsection{\label{Crystal}Crystal}
+
+La classe \texttt{Crystal} représente un cristal. Un cristal est un cercle
+possédant un modificateur de longueur d'onde. Quand un rayon le traverse, ce dernier
+en ressort avec une longueur d'onde différente. 
+
+Comme un cercle est également une ellipse, celui ci peut également être transformé en Ellipse (cf. \hyperref[Ellipse]{''Ellipse''}).
 
 \paragraph{Dans l'interface} cf. \hyperref[CrystalView]{''CrystalView''}
 
 \subsubsection{\label{Nuke}Nuke}
 
+La classe \texttt{Nuke} représente une bombe de forme circulaire.
+Quand un rayon croise une bombe. La partie est instantanément terminée et perdue. Cela est accompagnée
+d'un message de fin de partie.
+
+Comme un cercle est également une ellipse, celui ci peut également être transformé en Ellipse (cf. \hyperref[Ellipse]{''Ellipse''}).
+
 \paragraph{Dans l'interface} cf. \hyperref[NukeView]{''NukeView''}
 
 \subsubsection{\label{Ray}Ray}
 
-\paragraph{Dans l'interface} cf. \hyperref[RayView]{''RayView''}
+La classe \texttt{Ray} représente un rayon. Un rayon est un segment de droite reliant
+deux objets de la carte. 
 
+Un rayon est dans un premier temps (avant sa création) transformé en \texttt{Line} (cf. \hyperref[Line]{''Line''}) pour
+trouver les intersections\footnote{\hyperref[AnnexeIntersects]{''Annexe A - Démarche mathématique : Intersections''}} entre le rayon et les objets de la cartes. Une fois la bonne intersection trouvée (le point final du rayon), le rayon peut être créé et 
+transformé en \texttt{LineSegment} (cf. \hyperref[LineSegment]{''LineSegment''}) à l'affichage.
+
+\paragraph{Dans l'interface} cf. \hyperref[RayView]{''RayView''}
 
 \subsubsection{\label{Level}Level}
 
@@ -611,7 +642,8 @@ Classe représentant une source lumineuse sur le plateau de jeu. Bien que dans l
 La source dispose de 2 états, allumée ou éteinte qui peut être changé grâce à un double clic.
 Passer d’un état à l’autre change l’image la représentant et produit un son d’interrupteur.
 
-\texttt{SourceView} hérite de l'interface \texttt{ObserverInterface} (cf. \hyperref[OO]{''Observable/Observer''}) et observe
+Cette classe hérite de \texttt{QGraphicsPixmapItem} pour pouvoir représenter une image.
+\texttt{SourceView} hérite également de l'interface \texttt{ObserverInterface} (cf. \hyperref[OO]{''Observable/Observer''}) et observe
 la classe \texttt{Source} qu'elle modélise.
 
 \subsubsection{\label{DestinationView}DestinationView}
@@ -619,7 +651,8 @@ la classe \texttt{Source} qu'elle modélise.
 La classe \texttt{DestinationView} modélise la destination à atteindre par le rayon émis depuis la source pour gagner la partie.
 La destination devient verte une fois atteinte. De plus, un message de victoire est affiché.
 
-\texttt{DestinationView} hérite de l'interface \texttt{ObserverInterface} (cf. \hyperref[OO]{''Observable/Observer''}) et observe
+Cette classe hérite de \texttt{QGraphicsRectItem} pour pouvoir représenter un rectangle.
+\texttt{DestinationView} hérite également de l'interface \texttt{ObserverInterface} (cf. \hyperref[OO]{''Observable/Observer''}) et observe
 la classe \texttt{Dest} qu'elle modélise.
 
 \subsubsection{\label{WallView}WallView}
@@ -627,32 +660,37 @@ la classe \texttt{Dest} qu'elle modélise.
 La classe \texttt{WallView} modélise un mur, élément visuel sur lequel le rayon est stoppé. 
 Les murs sont représententés par des segments de droite noirs.
 
-\texttt{WallView} hérite de l'interface \texttt{ObserverInterface} (cf. \hyperref[OO]{''Observable/Observer''}) et observe
+Cette classe hérite de \texttt{QGraphicsLineItem} pour pouvoir représenter un segment.
+\texttt{WallView} hérite également de l'interface \texttt{ObserverInterface} (cf. \hyperref[OO]{''Observable/Observer''}) et observe
 la classe \texttt{Wall} qu'elle modélise.
 
 \subsubsection{\label{MirrorView}MirrorView}
 
 La classe \texttt{MirrorView} modélise un miroir sur lequel un rayon peut être réfléchi.
 Le miroir est représenté par un segment de droite rouge. Ce dernier, une fois sélectionné, affiche
-un rectangle bleu affichant les limites de déplacement du pivot.
+un rectangle bleu affichant les limites de déplacement du pivot. 
 
-\texttt{MirrorView} hérite de l'interface \texttt{ObserverInterface} (cf. \hyperref[OO]{''Observable/Observer''}) et observe
+Cette classe hérite de \texttt{QGraphicsLineItem} pour pouvoir représenter un segment.
+\texttt{MirrorView} hérite également de l'interface \texttt{ObserverInterface} (cf. \hyperref[OO]{''Observable/Observer''}) et observe
 la classe \texttt{Mirror} qu'elle modélise.
 
 \subsubsection{\label{LensView}LensView}
 
-Classe modélisant une lentille à travers laquelle un rayon peut passer si sa longueur d’onde est
+La classe \texttt{LensView} modélise une lentille à travers laquelle un rayon peut passer si sa longueur d’onde est
 comprise entre les valeurs de la lentille. Sinon la lentille se comporte comme un mur et le rayon 
-est stoppé.
+est stoppé. 
 
-\texttt{LensView} hérite de l'interface \texttt{ObserverInterface} (cf. \hyperref[OO]{''Observable/Observer''}) et observe
+Cette classe hérite de \texttt{QGraphicsEllipseItem} pour pouvoir représenter une ellipse.
+\texttt{LensView} hérite également de l'interface \texttt{ObserverInterface} (cf. \hyperref[OO]{''Observable/Observer''}) et observe
 la classe \texttt{Lens} qu'elle modélise.
 
 \subsubsection{\label{CrystalView}CrystalView}
 
-Classe modélisant un cristal, élément oval qui modifie la longueur d’onde d’un rayon si celui-ci traverse ledit cristal.
+La classe \texttt{CrystalView} modélise un cristal, élément oval qui modifie la longueur d’onde d’un rayon si
+celui-ci traverse ledit cristal.
 
-\texttt{CrystalView} hérite de l'interface \texttt{ObserverInterface} (cf. \hyperref[OO]{''Observable/Observer''}) et observe
+Cette classe hérite de \texttt{QGraphicsEllipseItem} pour pouvoir représenter une ellipse.
+\texttt{CrystalView} hérite également de l'interface \texttt{ObserverInterface} (cf. \hyperref[OO]{''Observable/Observer''}) et observe
 la classe \texttt{Crystal} qu'elle modélise.
 
 \subsubsection{\label{NukeView}NukeView}
@@ -661,7 +699,8 @@ Classe représentant une bombe, élément explosif du plateau qui fait perdre la
 si touché par un rayon lumineux (\texttt{RayView}). Dès le moment où elle est illuminée, une bombe
 change de couleur (passe du noir au rouge) et produit un son et un message visuel indiquant la fin de partie.
 
-\texttt{NukeView} hérite de l'interface \texttt{ObserverInterface} (cf. \hyperref[OO]{''Observable/Observer''}) et observe
+Cette classe hérite de \texttt{QGraphicsEllipseItem} pour pouvoir représenter une ellipse.
+\texttt{NukeView} hérite également de l'interface \texttt{ObserverInterface} (cf. \hyperref[OO]{''Observable/Observer''}) et observe
 la classe \texttt{Nuke} qu'elle modélise.
 
 \subsubsection{\label{RayView}RayView}
@@ -670,6 +709,8 @@ Classe modélisant un rayon lumineux, émis depuis la source (\texttt{SourceView
 (\texttt{DestView}) en se reflétant sur des miroirs et en passant à travers des cristaux si nécessaire.
 Un \texttt{RayView} a une couleur différente selon sa longueur d’onde comme proposé dans les objectifs secondaires,
 cette couleur reflétant la couleur réelle qu’aurait un rayon lumineux de cette longueur d’onde.
+
+Cette classe hérite de \texttt{QGraphicsLineItem} pour pouvoir représenter un segment.
 
 \subsubsection{\label{MapView}MapView}
 
