@@ -175,7 +175,7 @@ carte ou de simplement quitter.
 
 Le projet permet de jouer à Starlight en important sa propre carte de jeu
 au format \texttt{.lvl} qu'il est possible de créer soi-même grâce à l'éditeur
-de carte (cf. \hyperref[Editeur]{''Editeur de cartes''}).
+de carte (cf. \hyperref[Editeur]{«~Editeur de cartes~»}).
 
 Il est nécessaire de préciser que le jeu part du principe que la carte 
 fournie est sans erreurs. Une carte fournie avec erreur produira donc
@@ -328,7 +328,7 @@ Le design pattern Observateur / Observé a été implémenté à l'aide de deux 
 \end{itemize}
 
 Pour plus d'informations sur les classes observées et observatrices, se référer à
-\hyperref[AnnexeB]{''l'Annexe B} de ce document.
+\hyperref[AnnexeB]{«~l'Annexe B} de ce document.
 
 \subsubsection{ObserverInterface}
 
@@ -339,7 +339,7 @@ qui sont donc obligé d'être redéfini dans une classe héritant de celle-ci.
 Cela définit donc parfaitement la notion d'interface.
 
 Cette classe possède une méthode \texttt{notify(...)} qui est apellé à chaque fois
-qu'une classe observée lance une notification (cf. \hyperref[Observable]{''Observable''}).
+qu'une classe observée lance une notification (cf. \hyperref[Observable]{«~Observable~»}).
 
 \subsubsection{\label{Observable}Observable}
 
@@ -372,7 +372,7 @@ possible pour ensuite réagir en conséquence.
 \subsubsection{MapReader}
 
 La classe \texttt{MapReader} est la classe qui lit un fichier \texttt{.lvl} 
-et crée le niveau (cf. \hyperref[Level]{''Level''}).
+et crée le niveau (cf. \hyperref[Level]{«~Level~»}).
 
 Cette classe considère que le fichier est sans erreur. Une instantiation d'objets
 erronés produira donc un arrêt de l'application.
@@ -382,7 +382,7 @@ Cette classe est basée sur le \texttt{Singleton Pattern}. On ne peut qu’insta
 
 \subsubsection{MapWriter}
 
-La classe \texttt{MapWriter} est la classe qui va écrire un niveau (cf. \hyperref[Level]{''Level''}) 
+La classe \texttt{MapWriter} est la classe qui va écrire un niveau (cf. \hyperref[Level]{«~Level~»}) 
 dans un fichier texte. Il s’agit donc du processus inverse de la classe
 \texttt{MapReader}. Cette classe sert à l’éditeur lors de la sauvegarde de la
 carte en cours d’édition.
@@ -395,7 +395,7 @@ dans ce projet.
 \begin{itemize}
     \item \texttt{INF} correspond à l'infini.
     \item \texttt{EPSILON} correspond à \texttt{0.00001}. EPSILON permet
-        d'éviter les imprécisions entre deux nombres réels (cf. \hyperref[equals]{''umath - méthode equals()''}).
+        d'éviter les imprécisions entre deux nombres réels (cf. \hyperref[equals]{«~umath - méthode equals()~»}).
     \item \texttt{PI} correspond à la valeur de PI \texttt{3.14159...} avec
         autant de décimales possibles qu'un \texttt{double} peut contenir.
     \item \texttt{PI\_2} correspond à la valeur de PI divisé par deux.
@@ -411,7 +411,7 @@ les intersections entre droites, segments, ellipses et rectangles.
 
 \label{equals}
 \texttt{umath} reprend des méthodes d'égalité de nombre réels. Deux nombres réels sont égaux
-si la valeur absolue de la soustraction de ceux-ci est plus petite que la valeur de EPSILON (cf. \hyperref[Constants]{''Constants''}).
+si la valeur absolue de la soustraction de ceux-ci est plus petite que la valeur de EPSILON (cf. \hyperref[Constants]{«~Constants~»}).
 
 Une autre méthode d’égalité permet de vérifier si un nombre équivaut à l’infini (INF ou -INF).
 Il y a également des méthodes de conversions entre pentes, radians, degrés, etc.
@@ -460,13 +460,13 @@ Des méthodes permettant d'obtenir $ x $ selon une valeur de $ y $ donné et inv
 présentes. Cependant ces méthodes peuvent renvoyer une valeur infinie dans le cas où la droite 
 est soit verticale soit horizontale.
 
-Cette classe sert principalement à modéliser un rayon de lumière (cf. \hyperref[Ray]{''Ray''}) pour trouver 
-les intersections\footnote{\hyperref[AnnexeIntersects]{''Annexe A - Démarche mathématique : Intersections''}} entre le rayon et les éléments du jeu.
+Cette classe sert principalement à modéliser un rayon de lumière (cf. \hyperref[Ray]{«~Ray~»}) pour trouver 
+les intersections\footnote{\hyperref[AnnexeIntersects]{«~Annexe A - Démarche mathématique : Intersections~»}} entre le rayon et les éléments du jeu.
 
 \subsubsection{\label{LineSegment}LineSegment}
 
 La classe \texttt{LineSegment} représente un segment de droite possédant
-deux points (cf. \hyperref[Point]{''Point''}) qui sont les extrémités du segment.
+deux points (cf. \hyperref[Point]{«~Point~»}) qui sont les extrémités du segment.
 
 Nous avons fait le choix qu'un segment puisse posséder deux fois le même point.
 Bien que cela n'ait pas vraiment de sens purement mathématique, un segment
@@ -476,7 +476,7 @@ Le segment peut être transformé en droite grâce aux deux points
 le constituant et ainsi former l'équation de droite.
 
 Le segment peut également être décalé d'un certain $ x $ et $ y $ ainsi que tourné 
-d'un certain angle\footnote{\hyperref[AnnexeRotation]{''Annexe A - Démarche mathématique : Rotation de segment''}}.
+d'un certain angle\footnote{\hyperref[AnnexeRotation]{«~Annexe A - Démarche mathématique : Rotation de segment~»}}.
 
 \subsubsection{\label{Ellipse}Ellipse}
 
@@ -484,7 +484,7 @@ La classe \texttt{Ellipse} représente une forme géométrique de type elliptiqu
 Elle possède un point central ainsi qu'un rayon $x$ et $y$. Si ces deux
 rayons sont égaux, il s'agit alors d'un cercle.
 
-Cette classe sert à représenter les objets \texttt{Lens} (cf. \hyperref[Lens]{''Lens''}) et \texttt{Crystal} (cf .\hyperref[Crystal]{''Crystal''}).
+Cette classe sert à représenter les objets \texttt{Lens} (cf. \hyperref[Lens]{«~Lens~»}) et \texttt{Crystal} (cf .\hyperref[Crystal]{«~Crystal~»}).
 
 \subsubsection{\label{Rectangle}Rectangle}
 
@@ -493,7 +493,7 @@ Elle possède un point supérieur gauche ainsi qu'une longueur et hauteur
 nous permettant de retrouver facilement les autres extrémités de la 
 forme.
 
-Cette classe sert à représenter les objets \texttt{Source} (cf. \hyperref[Source]{''Source''}) et \texttt{Dest} (cf. \hyperref[Dest]{''Dest''}).
+Cette classe sert à représenter les objets \texttt{Source} (cf. \hyperref[Source]{«~Source~»}) et \texttt{Dest} (cf. \hyperref[Dest]{«~Dest~»}).
 
 \subsubsection{Element}
 
@@ -511,54 +511,54 @@ Il s'agit de :
     \item \texttt{Nuke}
 \end{itemize}
 
-La classe \texttt{Ray} (cf. \hyperref[Ray]{''Ray''}) n’est pas un élément, les éléments concernent 
+La classe \texttt{Ray} (cf. \hyperref[Ray]{«~Ray~»}) n’est pas un élément, les éléments concernent 
 les objets pouvant interagir avec un rayon.
 Il s'agit principalement d'une classe \texttt{tag} pouvant
 donner le type de l'élément. Son rôle est de pouvoir retrouver
-le type d'un objet lors d'une intersection (cf. \hyperref[Level]{''Level''}).
+le type d'un objet lors d'une intersection (cf. \hyperref[Level]{«~Level~»}).
 
 Une énumération fortement typée est donc présente. Elle s'appelle
 \texttt{Type} et reprend les noms des éléments cités ci-dessus.
 
-\texttt{Element} hérite de l'interface \texttt{Observable} (cf. \hyperref[OO]{''Observable/Observer''}) et chaque
+\texttt{Element} hérite de l'interface \texttt{Observable} (cf. \hyperref[OO]{«~Observable/Observer~»}) et chaque
 sous-classe est observé par la vue correspondante.
     
 \subsubsection{\label{Source}Source}
 
 La classe \texttt{Source} représente la source lumineuse du jeu.
 Elle est de forme rectangulaire et peut donc être transformé
-en \texttt{Rectangle} (cf. \hyperref[Rectangle]{''Rectangle''}).
+en \texttt{Rectangle} (cf. \hyperref[Rectangle]{«~Rectangle~»}).
 
 Le rayon lumineux part du coin supérieur gauche de la source et possède
 un angle par rapport à l'axe des abscisses. Il possède aussi une longueur
 d'onde de départ.
 
-\paragraph{Dans l'interface} cf. \hyperref[SourceView]{''SourceView''}.
+\paragraph{Dans l'interface} cf. \hyperref[SourceView]{«~SourceView~»}.
 
 \subsubsection{\label{Dest}Dest}
 
 La classe \texttt{Dest} représente la destination à atteindre par 
 le rayon lumineux. Elle est de forme rectangulaire comme la source
-et peut également être transformé en \texttt{Rectangle} (cf. \hyperref[Rectangle]{''Rectangle''}).
+et peut également être transformé en \texttt{Rectangle} (cf. \hyperref[Rectangle]{«~Rectangle~»}).
 
-\paragraph{Dans l'interface} cf. \hyperref[DestinationView]{''DestinationView''}
+\paragraph{Dans l'interface} cf. \hyperref[DestinationView]{«~DestinationView~»}
 
 \subsubsection{\label{Wall}Wall}
 
 La classe \texttt{Wall} représente un mur du jeu qui bloque les rayons
 lumineux. Un mur est un segment de droite et peut donc être transformé 
-en segment de droite (cf. \hyperref[LineSegment]{''LineSegment''}).
+en segment de droite (cf. \hyperref[LineSegment]{«~LineSegment~»}).
 
-\paragraph{Dans l'interface} cf. \hyperref[WallView]{''WallView''}
+\paragraph{Dans l'interface} cf. \hyperref[WallView]{«~WallView~»}
 
 \subsubsection{\label{Mirror}Mirror}
 
 La classe \texttt{Mirror} représente un miroir. Un miroir
 est un segment de droite qui réfléchit la lumière.
 Un miroir peut donc être transformé en 
-segment de droite (cf. \hyperref[LineSegment]{''LineSegment''}).
+segment de droite (cf. \hyperref[LineSegment]{«~LineSegment~»}).
 
-\paragraph{Dans l'interface} cf. \hyperref[MirrorView]{''MirrorView''}
+\paragraph{Dans l'interface} cf. \hyperref[MirrorView]{«~MirrorView~»}
 
 \subsubsection{\label{Lens}Lens}
 
@@ -567,9 +567,9 @@ une ellipse possédant une intervalle de longueur d'onde. Le rayon doit
 être dans cette intervalle pour pouvoir traverser la lentille, dans le cas
 contraire, elle agira comme un mur.
 
-Etant de forme elliptique, la lentille peut être transformé en Ellipse (cf. \hyperref[Ellipse]{''Ellipse''}).
+Etant de forme elliptique, la lentille peut être transformé en Ellipse (cf. \hyperref[Ellipse]{«~Ellipse~»}).
 
-\paragraph{Dans l'interface} cf. \hyperref[LensView]{''LensView''}
+\paragraph{Dans l'interface} cf. \hyperref[LensView]{«~LensView~»}
 
 \subsubsection{\label{Crystal}Crystal}
 
@@ -577,9 +577,9 @@ La classe \texttt{Crystal} représente un cristal. Un cristal est un cercle
 possédant un modificateur de longueur d'onde. Quand un rayon le traverse, ce dernier
 en ressort avec une longueur d'onde différente. 
 
-Comme un cercle est également une ellipse, celui ci peut également être transformé en Ellipse (cf. \hyperref[Ellipse]{''Ellipse''}).
+Comme un cercle est également une ellipse, celui ci peut également être transformé en Ellipse (cf. \hyperref[Ellipse]{«~Ellipse~»}).
 
-\paragraph{Dans l'interface} cf. \hyperref[CrystalView]{''CrystalView''}
+\paragraph{Dans l'interface} cf. \hyperref[CrystalView]{«~CrystalView~»}
 
 \subsubsection{\label{Nuke}Nuke}
 
@@ -587,20 +587,20 @@ La classe \texttt{Nuke} représente une bombe de forme circulaire.
 Quand un rayon croise une bombe. La partie est instantanément terminée et perdue. Cela est accompagnée
 d'un message de fin de partie.
 
-Comme un cercle est également une ellipse, celui ci peut également être transformé en Ellipse (cf. \hyperref[Ellipse]{''Ellipse''}).
+Comme un cercle est également une ellipse, celui ci peut également être transformé en Ellipse (cf. \hyperref[Ellipse]{«~Ellipse~»}).
 
-\paragraph{Dans l'interface} cf. \hyperref[NukeView]{''NukeView''}
+\paragraph{Dans l'interface} cf. \hyperref[NukeView]{«~NukeView~»}
 
 \subsubsection{\label{Ray}Ray}
 
 La classe \texttt{Ray} représente un rayon. Un rayon est un segment de droite reliant
 deux objets de la carte. 
 
-Un rayon est dans un premier temps (avant sa création) transformé en \texttt{Line} (cf. \hyperref[Line]{''Line''}) pour
-trouver les intersections\footnote{\hyperref[AnnexeIntersects]{''Annexe A - Démarche mathématique : Intersections''}} entre le rayon et les objets de la cartes. Une fois la bonne intersection trouvée (le point final du rayon), le rayon peut être créé et 
-transformé en \texttt{LineSegment} (cf. \hyperref[LineSegment]{''LineSegment''}) à l'affichage.
+Un rayon est dans un premier temps (avant sa création) transformé en \texttt{Line} (cf. \hyperref[Line]{«~Line~»}) pour
+trouver les intersections\footnote{\hyperref[AnnexeIntersects]{«~Annexe A - Démarche mathématique : Intersections~»}} entre le rayon et les objets de la cartes. Une fois la bonne intersection trouvée (le point final du rayon), le rayon peut être créé et 
+transformé en \texttt{LineSegment} (cf. \hyperref[LineSegment]{«~LineSegment~»}) à l'affichage.
 
-\paragraph{Dans l'interface} cf. \hyperref[RayView]{''RayView''}
+\paragraph{Dans l'interface} cf. \hyperref[RayView]{«~RayView~»}
 
 \subsubsection{\label{Level}Level}
 
@@ -608,7 +608,7 @@ Cette classe représente la classe principale du jeu, elle gère toute
 la logique métier du jeu. Elle permet de calculer la trajectoire
 du rayon lumineux.
 	
-\paragraph{Dans l'interface} cf. \hyperref[MapView]{''MapView''}    
+\paragraph{Dans l'interface} cf. \hyperref[MapView]{«~MapView~»}    
 
 \subsection{Vue}
 
@@ -643,7 +643,7 @@ La source dispose de 2 états, allumée ou éteinte qui peut être changé grâc
 Passer d’un état à l’autre change l’image la représentant et produit un son d’interrupteur.
 
 Cette classe hérite de \texttt{QGraphicsPixmapItem} pour pouvoir représenter une image.
-\texttt{SourceView} hérite également de l'interface \texttt{ObserverInterface} (cf. \hyperref[OO]{''Observable/Observer''}) et observe
+\texttt{SourceView} hérite également de l'interface \texttt{ObserverInterface} (cf. \hyperref[OO]{«~Observable/Observer~»}) et observe
 la classe \texttt{Source} qu'elle modélise.
 
 \subsubsection{\label{DestinationView}DestinationView}
@@ -652,7 +652,7 @@ La classe \texttt{DestinationView} modélise la destination à atteindre par le 
 La destination devient verte une fois atteinte. De plus, un message de victoire est affiché.
 
 Cette classe hérite de \texttt{QGraphicsRectItem} pour pouvoir représenter un rectangle.
-\texttt{DestinationView} hérite également de l'interface \texttt{ObserverInterface} (cf. \hyperref[OO]{''Observable/Observer''}) et observe
+\texttt{DestinationView} hérite également de l'interface \texttt{ObserverInterface} (cf. \hyperref[OO]{«~Observable/Observer~»}) et observe
 la classe \texttt{Dest} qu'elle modélise.
 
 \subsubsection{\label{WallView}WallView}
@@ -661,7 +661,7 @@ La classe \texttt{WallView} modélise un mur, élément visuel sur lequel le ray
 Les murs sont représententés par des segments de droite noirs.
 
 Cette classe hérite de \texttt{QGraphicsLineItem} pour pouvoir représenter un segment.
-\texttt{WallView} hérite également de l'interface \texttt{ObserverInterface} (cf. \hyperref[OO]{''Observable/Observer''}) et observe
+\texttt{WallView} hérite également de l'interface \texttt{ObserverInterface} (cf. \hyperref[OO]{«~Observable/Observer~»}) et observe
 la classe \texttt{Wall} qu'elle modélise.
 
 \subsubsection{\label{MirrorView}MirrorView}
@@ -671,7 +671,7 @@ Le miroir est représenté par un segment de droite rouge. Ce dernier, une fois 
 un rectangle bleu affichant les limites de déplacement du pivot. 
 
 Cette classe hérite de \texttt{QGraphicsLineItem} pour pouvoir représenter un segment.
-\texttt{MirrorView} hérite également de l'interface \texttt{ObserverInterface} (cf. \hyperref[OO]{''Observable/Observer''}) et observe
+\texttt{MirrorView} hérite également de l'interface \texttt{ObserverInterface} (cf. \hyperref[OO]{«~Observable/Observer~»}) et observe
 la classe \texttt{Mirror} qu'elle modélise.
 
 \subsubsection{\label{LensView}LensView}
@@ -681,7 +681,7 @@ comprise entre les valeurs de la lentille. Sinon la lentille se comporte comme u
 est stoppé. 
 
 Cette classe hérite de \texttt{QGraphicsEllipseItem} pour pouvoir représenter une ellipse.
-\texttt{LensView} hérite également de l'interface \texttt{ObserverInterface} (cf. \hyperref[OO]{''Observable/Observer''}) et observe
+\texttt{LensView} hérite également de l'interface \texttt{ObserverInterface} (cf. \hyperref[OO]{«~Observable/Observer~»}) et observe
 la classe \texttt{Lens} qu'elle modélise.
 
 \subsubsection{\label{CrystalView}CrystalView}
@@ -690,7 +690,7 @@ La classe \texttt{CrystalView} modélise un cristal, élément oval qui modifie 
 celui-ci traverse ledit cristal.
 
 Cette classe hérite de \texttt{QGraphicsEllipseItem} pour pouvoir représenter une ellipse.
-\texttt{CrystalView} hérite également de l'interface \texttt{ObserverInterface} (cf. \hyperref[OO]{''Observable/Observer''}) et observe
+\texttt{CrystalView} hérite également de l'interface \texttt{ObserverInterface} (cf. \hyperref[OO]{«~Observable/Observer~»}) et observe
 la classe \texttt{Crystal} qu'elle modélise.
 
 \subsubsection{\label{NukeView}NukeView}
@@ -700,7 +700,7 @@ si touché par un rayon lumineux (\texttt{RayView}). Dès le moment où elle est
 change de couleur (passe du noir au rouge) et produit un son et un message visuel indiquant la fin de partie.
 
 Cette classe hérite de \texttt{QGraphicsEllipseItem} pour pouvoir représenter une ellipse.
-\texttt{NukeView} hérite également de l'interface \texttt{ObserverInterface} (cf. \hyperref[OO]{''Observable/Observer''}) et observe
+\texttt{NukeView} hérite également de l'interface \texttt{ObserverInterface} (cf. \hyperref[OO]{«~Observable/Observer~»}) et observe
 la classe \texttt{Nuke} qu'elle modélise.
 
 \subsubsection{\label{RayView}RayView}
@@ -717,6 +717,58 @@ Cette classe hérite de \texttt{QGraphicsLineItem} pour pouvoir représenter un 
 Classe représentant le plateau de jeu, où tous les éléments sont disposés et affichés.
 Elle s’occupe de gérer les raccourcis clavier utilisés pour déplacer/pivoter les miroirs dans le jeu et de déplacer les éléments en général dans l’éditeur de carte.
 
+\subsection{\label{EditeurCarte}L’éditeur de carte}
+
+\subsubsection{\label{MainEditor}MainEditor}
+
+Widget principal de l’éditeur de carte qui contient les classes qui suivent.
+Il est composé de 3 widgets principaux~:~\texttt{Elements} qui représente le panel gauche, une \texttt{MapView} qui représente le niveau à modifier (widget central) et \texttt{Properties}, widget droit qui servira à modifier les caractéristiques des éléments de la carte.
+
+\subsubsection{\label{Elements}Elements}
+
+Widget de gauche de l’éditeur, permet de créer un nouveau niveau de hauteur et largeur définies par l’utilisateur.
+Permet également d’ajouter des éléments à la carte~:~miroir, bombe, cristal et lentille. La source et la destination étant uniques, elles sont directement ajoutées lors de la création d’un niveau.
+
+\subsubsection{\label{Properties}Properties}
+
+Widget de droite de l’éditeur, permet de modifier les caractéristiques des éléments présents dans la carte éditée.
+L’édition est individuelle (il n’est pas possible de déplacer plusieurs éléments en même temps par exemple) mais complète (chaque attribut de l’objet peut être modifié).
+
+\subsubsection{\label{PropertiesInterface}PropertiesInterface}
+
+Super-classe abstraite des classes qui suivent, permet à \texttt{Properties} d’interagir avec n’importe quelle classe \texttt{*Prop} de manière transparente, notamment pour les boutons «~Apply~» et «~Reset~».
+Les classes qui héritent de \texttt{PropertiesInterface} sont spécifiques à chaque élément du modèle (\texttt{Crystal}, \texttt{Dest}, \texttt{Lens}, \texttt{Mirror}, \texttt{Nuke}, \texttt{Source} et \texttt{Wall}).
+Chaque élément héritant de \texttt{PropertiesInterface} hérite également de \texttt{Observer}, ce qui permet de mettre à jour les propriétés dans le panel si l’élément est bougé sur la \texttt{MapView} à l’aide du clavier.
+
+\subsubsection{\label{CrystalProp}CrystalProp}
+
+Classe permettant de modifier la position, le rayon et le modificateur de rayon d’un cristal.
+
+\subsubsection{\label{DestProp}DestProp}
+
+Classe permettant de modifier la position et la longueur de la destination. 
+
+\subsubsection{\label{LensProp}LensProp}
+
+Classe permettant de modifier la position, la hauteur, la largeur, la longueur d’onde minimale et la longueur d’onde maximale autorisées pour qu’un rayon passe à travers de la lentille.
+
+\subsubsection{\label{MirrorProp}MirrorProp}
+
+Classe permettant de modifier la position, la longueur, la distance entre le pivot et l’extrémité gauche du miroir, l’angle d’inclinaison, les positions minimales et maximales que peut prendre le miroir, ainsi que les angles minimum et maximum autorisés pour le miroir.
+
+\subsubsection{\label{NukeProp}NukeProp}
+
+Classe permettant de modifier la position et le rayon d’une bombe.
+
+\subsubsection{\label{SourceProp}SourceProp}
+
+Classe permettant de modifier la position, la largeur du carré représentant la source, l’angle du rayon émis par la source et la longueur d’onde du dit rayon.
+
+\subsubsection{\label{WallProp}WallProp}
+
+Classe permettant de modifier la position des 2 extrémités d’un mur.
+
+
 \section{Les bugs connus}
 
 La méthode 
@@ -725,8 +777,8 @@ umath::is_on_good_side(const Line& l,
                        const Point& ref,
                        const Point& start);
 \end{lstlisting}
-peut avoir des problèmes de précisions, ce qui fait que l'intersections, bien que du bon côté, ne sera pas 
-pris en compte dans le vecteur d'intersections, ce qui résultera en un vecteur d'intersections vide. Et donc un
+peut avoir des problèmes de précision, ce qui fait que l'intersection, bien que du bon côté, ne sera pas 
+prise en compte dans le vecteur d'intersections, ce qui résultera en un vecteur d'intersections vide. Et donc un
 accès au premier élément sur un vecteur vide produira un \texttt{out\_of\_range} quittant l'application.
 
 
@@ -784,7 +836,7 @@ Il faut ensuite redéplacer le pivot à son point de départ.
 
 Une droite possède une intersection avec une autre droite si :
 \begin{itemize}
-    \item Celles-ci sont parallèles et confondues, alors l'intersection est la droite elle même.
+    \item Celles-ci sont parallèles et confondues, alors l'intersection est la droite elle-même.
     \item Celles-ci sont non parallèles, alors l'intersection est un point. \\
 \end{itemize} 
 
@@ -792,14 +844,14 @@ $ D \equiv ax + by + c = 0 $ représente l'équation d'une droite. \\
 $ D \equiv ax + c = 0 $ représente l'équation d'une droite verticale ($b = 0$). \\
 $ D \equiv by + c = 0 $ représente l'équation d'une droite horizontale ($a = 0$). \\
 
-On commence donc dans un premier temps à tester si les deux droites son parallèles. \\
+On commence donc dans un premier temps à tester si les deux droites sont parallèles. \\
 
 Soit deux droites $D_1$ et $D_2$, ces deux droites sont parallèles si : 
 $$ a_1 * b_2 - a_2 * b_1 = 0 $$
 
 \begin{proof}
 La pente d'une droite vaut $\frac{-a}{b}$ et deux droites sont parallèles
-si leur pentes sont égales. Il suffit donc de modifier l'équation en passant chaque terme du bon côté. \\
+si leurs pentes sont égales. Il suffit donc de modifier l'équation en passant chaque terme du bon côté. \\
 $ a_1 * b_2 = a_2 * b_1 $ puis ensuite : $ \frac{a_1}{b_1} = \frac{a_2}{b_2} $ ce qui équivaut à
 $ \frac{-a_1}{b1} = \frac{-a_2}{b_2} $ \\
 \end{proof}
@@ -813,7 +865,7 @@ Si les deux droites sont parallèles :
 \end{itemize}
 
 Si les deux droites ne sont pas parallèles, il faut remplacer une variable de $D_1$ dans $D_2$
-ou inversément pour trouver la deuxième variable. On a choisit de remplacer $y$.
+ou inversément pour trouver la deuxième variable. On a choisi de remplacer $y$.
 On a donc l'égalité suivante : 
 
 $$ x = \frac{(c_1 * b_2 - c_2 * b_1)}{(a_2 * b_1 - a_1 * b_2)} $$
@@ -847,7 +899,7 @@ La différence est que l'intersection peut être un segment entier si la droite
 et le segment sont confondu.
 
 Pour transformer un segment en droite : \\
-Soit $A$ et $B$ les deux extrémités du segments, les paramètres de la droite valent : 
+Soit $A$ et $B$ les deux extrémités du segment, les paramètres de la droite valent : 
 $ a = A.y - B.y $ \\
 $ b = B.x - A.x $ \\
 $ c = (A.x * B.y) - (A.y * B.x) $ \\
@@ -855,7 +907,7 @@ $ c = (A.x * B.y) - (A.y * B.x) $ \\
 \subsubsection{Trouver l'intersection entre deux segments}
 
 Dans le cas de l'intersection segment/segment, il faut transformer les
-deux segments en droites, s'il y a intersections : vérifier que le point
+deux segments en droites, s'il y a intersection : vérifier que le point
 d'intersection appartient aux domaines $x$ et $y$ des deux segments. \\
 De plus, si les deux droites sont confondues, l'intersection sera un segment.
 

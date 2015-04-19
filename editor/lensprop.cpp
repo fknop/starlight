@@ -17,92 +17,92 @@ LensProp::~LensProp()
 
 void LensProp::setupUi()
 {
-    formLayout = new QFormLayout();
+    form_layout_ = new QFormLayout();
 
-    x_label = new QLabel();
-    x_label->setText("X");
-    x_label->setMinimumSize(QSize(100, 20));
+    x_label_ = new QLabel();
+    x_label_->setText("X");
+    x_label_->setMinimumSize(QSize(100, 20));
 
-    formLayout->setWidget(0, QFormLayout::LabelRole, x_label);
+    form_layout_->setWidget(0, QFormLayout::LabelRole, x_label_);
 
-    x_dsb = new QDoubleSpinBox();
-    x_dsb->setMaximum(999.);
+    x_dsb_ = new QDoubleSpinBox();
+    x_dsb_->setMaximum(999.);
 
-    formLayout->setWidget(0, QFormLayout::FieldRole, x_dsb);
+    form_layout_->setWidget(0, QFormLayout::FieldRole, x_dsb_);
 
-    y_label = new QLabel();
-    y_label->setText("Y");
-    y_label->setMinimumSize(QSize(100, 20));
+    y_label_ = new QLabel();
+    y_label_->setText("Y");
+    y_label_->setMinimumSize(QSize(100, 20));
 
-    formLayout->setWidget(1, QFormLayout::LabelRole, y_label);
+    form_layout_->setWidget(1, QFormLayout::LabelRole, y_label_);
 
-    y_dsb = new QDoubleSpinBox();
-    y_dsb->setMaximum(999.);
+    y_dsb_ = new QDoubleSpinBox();
+    y_dsb_->setMaximum(999.);
 
-    formLayout->setWidget(1, QFormLayout::FieldRole, y_dsb);
+    form_layout_->setWidget(1, QFormLayout::FieldRole, y_dsb_);
 
-    width_label = new QLabel();
-    width_label->setText("Width");
-    width_label->setMinimumSize(QSize(100, 20));
+    width_label_ = new QLabel();
+    width_label_->setText("Width");
+    width_label_->setMinimumSize(QSize(100, 20));
 
-    formLayout->setWidget(2, QFormLayout::LabelRole, width_label);
+    form_layout_->setWidget(2, QFormLayout::LabelRole, width_label_);
 
-    width_dsb = new QDoubleSpinBox();
-    width_dsb->setMaximum(999.);
+    width_dsb_ = new QDoubleSpinBox();
+    width_dsb_->setMaximum(999.);
 
-    formLayout->setWidget(2, QFormLayout::FieldRole, width_dsb);
+    form_layout_->setWidget(2, QFormLayout::FieldRole, width_dsb_);
 
-    height_label = new QLabel();
-    height_label->setText("Height");
-    height_label->setMinimumSize(QSize(100, 20));
+    height_label_ = new QLabel();
+    height_label_->setText("Height");
+    height_label_->setMinimumSize(QSize(100, 20));
 
-    formLayout->setWidget(3, QFormLayout::LabelRole, height_label);
+    form_layout_->setWidget(3, QFormLayout::LabelRole, height_label_);
 
-    height_dsb = new QDoubleSpinBox();
-    height_dsb->setMaximum(999.);
+    height_dsb_ = new QDoubleSpinBox();
+    height_dsb_->setMaximum(999.);
 
-    formLayout->setWidget(3, QFormLayout::FieldRole, height_dsb);
+    form_layout_->setWidget(3, QFormLayout::FieldRole, height_dsb_);
 
-    wl_min_label = new QLabel();
-    wl_min_label->setText("Wavelength min");
-    wl_min_label->setMinimumSize(QSize(100, 20));
+    wl_min_label_ = new QLabel();
+    wl_min_label_->setText("Wavelength min");
+    wl_min_label_->setMinimumSize(QSize(100, 20));
 
-    formLayout->setWidget(5, QFormLayout::LabelRole, wl_min_label);
+    form_layout_->setWidget(5, QFormLayout::LabelRole, wl_min_label_);
 
-    wl_min_dsb = new QDoubleSpinBox();
-    wl_min_dsb->setMaximum(999.);
+    wl_min_dsb_ = new QDoubleSpinBox();
+    wl_min_dsb_->setMaximum(999.);
 
-    formLayout->setWidget(5, QFormLayout::FieldRole, wl_min_dsb);
+    form_layout_->setWidget(5, QFormLayout::FieldRole, wl_min_dsb_);
 
-    wl_max_label = new QLabel();
-    wl_max_label->setText("Wavelength max");
-    wl_max_label->setMinimumSize(QSize(100, 20));
+    wl_max_label_ = new QLabel();
+    wl_max_label_->setText("Wavelength max");
+    wl_max_label_->setMinimumSize(QSize(100, 20));
 
-    formLayout->setWidget(6, QFormLayout::LabelRole, wl_max_label);
+    form_layout_->setWidget(6, QFormLayout::LabelRole, wl_max_label_);
 
-    wl_max_dsb = new QDoubleSpinBox();
-    wl_max_dsb->setMaximum(999.);
+    wl_max_dsb_ = new QDoubleSpinBox();
+    wl_max_dsb_->setMaximum(999.);
 
-    formLayout->setWidget(6, QFormLayout::FieldRole, wl_max_dsb);
+    form_layout_->setWidget(6, QFormLayout::FieldRole, wl_max_dsb_);
 
-    setLayout(formLayout);
+    setLayout(form_layout_);
 }
 
 void LensProp::reset()
 {
-    x_dsb->setValue(lens_->position().x());
-    y_dsb->setValue(lens_->position().y());
-    width_dsb->setValue(lens_->width());
-    height_dsb->setValue(lens_->height());
-    wl_min_dsb->setValue(lens_->wl_min());
-    wl_max_dsb->setValue(lens_->wl_max());
+    x_dsb_->setValue(lens_->position().x());
+    y_dsb_->setValue(lens_->position().y());
+    width_dsb_->setValue(lens_->width());
+    height_dsb_->setValue(lens_->height());
+    wl_min_dsb_->setValue(lens_->wl_min());
+    wl_max_dsb_->setValue(lens_->wl_max());
 }
 
 void LensProp::apply()
 {
-    lens_->set_pos(Point(x_dsb->value(), y_dsb->value()));
-    lens_->set_width(width_dsb->value());
-    lens_->set_height(height_dsb->value());
-    lens_->set_wl_min(wl_min_dsb->value());
-    lens_->set_wl_max(wl_max_dsb->value());
+    lens_->set_pos(Point(x_dsb_->value(), y_dsb_->value()));
+    lens_->set_width(width_dsb_->value());
+    lens_->set_height(height_dsb_->value());
+    lens_->set_wl_min(wl_min_dsb_->value());
+    lens_->set_wl_max(wl_max_dsb_->value());
 }

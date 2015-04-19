@@ -33,40 +33,40 @@ void Elements::setupUi()
     groupBox = new QGroupBox();
     groupBox->setTitle("Level");
 
-    QFormLayout * formLayout = new QFormLayout(groupBox);
+    QFormLayout * form_layout_ = new QFormLayout(groupBox);
 
     level_height_label = new QLabel(groupBox);
     level_height_label->setText("Height: ");
 
-    formLayout->setWidget(0, QFormLayout::LabelRole, level_height_label);
+    form_layout_->setWidget(0, QFormLayout::LabelRole, level_height_label);
 
     level_height_dsb = new QDoubleSpinBox(groupBox);
     level_height_dsb->setMinimum(400);
     level_height_dsb->setMaximum(1000);
 
-    formLayout->setWidget(0, QFormLayout::FieldRole, level_height_dsb);
+    form_layout_->setWidget(0, QFormLayout::FieldRole, level_height_dsb);
 
     level_width_label = new QLabel(groupBox);
     level_width_label->setText("Width: ");
 
-    formLayout->setWidget(1, QFormLayout::LabelRole, level_width_label);
+    form_layout_->setWidget(1, QFormLayout::LabelRole, level_width_label);
 
     level_width_dsb = new QDoubleSpinBox(groupBox);
     level_width_dsb->setMinimum(400);
     level_width_dsb->setMaximum(1000);
 
-    formLayout->setWidget(1, QFormLayout::FieldRole, level_width_dsb);
+    form_layout_->setWidget(1, QFormLayout::FieldRole, level_width_dsb);
 
     level_apply_pb = new QPushButton();
     level_apply_pb->setText("Apply");
 
-    formLayout->setWidget(2, QFormLayout::LabelRole, level_apply_pb);
+    form_layout_->setWidget(2, QFormLayout::LabelRole, level_apply_pb);
 
     level_reset_pb = new QPushButton();
     level_reset_pb->setText("Reset");
     level_reset_pb->setEnabled(false);
 
-    formLayout->setWidget(2, QFormLayout::FieldRole, level_reset_pb);
+    form_layout_->setWidget(2, QFormLayout::FieldRole, level_reset_pb);
 
 
     verticalLayout->addWidget(groupBox);

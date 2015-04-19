@@ -16,42 +16,42 @@ DestProp::~DestProp()
 
 void DestProp::setupUi()
 {
-    formLayout = new QFormLayout();
+    form_layout_ = new QFormLayout();
 
     x_label = new QLabel();
     x_label->setText("X");
     x_label->setMinimumSize(QSize(100, 20));
 
-    formLayout->setWidget(0, QFormLayout::LabelRole, x_label);
+    form_layout_->setWidget(0, QFormLayout::LabelRole, x_label);
 
     x_dsb = new QDoubleSpinBox();
     x_dsb->setMaximum(999.);
 
-    formLayout->setWidget(0, QFormLayout::FieldRole, x_dsb);
+    form_layout_->setWidget(0, QFormLayout::FieldRole, x_dsb);
 
     y_label = new QLabel();
     y_label->setText("Y");
     y_label->setMinimumSize(QSize(100, 20));
 
-    formLayout->setWidget(1, QFormLayout::LabelRole, y_label);
+    form_layout_->setWidget(1, QFormLayout::LabelRole, y_label);
 
     y_dsb = new QDoubleSpinBox();
     y_dsb->setMaximum(999.);
 
-    formLayout->setWidget(1, QFormLayout::FieldRole, y_dsb);
+    form_layout_->setWidget(1, QFormLayout::FieldRole, y_dsb);
 
     edge_label = new QLabel();
     edge_label->setText("Edge");
     edge_label->setMinimumSize(QSize(100, 20));
 
-    formLayout->setWidget(2, QFormLayout::LabelRole, edge_label);
+    form_layout_->setWidget(2, QFormLayout::LabelRole, edge_label);
 
     edge_dsb = new QDoubleSpinBox();
     edge_dsb->setMaximum(999.);
 
-    formLayout->setWidget(2, QFormLayout::FieldRole, edge_dsb);
+    form_layout_->setWidget(2, QFormLayout::FieldRole, edge_dsb);
 
-    setLayout(formLayout);
+    setLayout(form_layout_);
 }
 
 void DestProp::reset()
