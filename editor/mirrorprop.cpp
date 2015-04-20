@@ -165,3 +165,18 @@ void MirrorProp::apply()
     mirror_->set_alpha_min(alphamin_dsb_->value());
     mirror_->set_alpha_max(alphamax_dsb_->value());
 }
+
+void MirrorProp::reset()
+{
+    x_dsb_->setValue(mirror_->pivot().x());
+    y_dsb_->setValue(mirror_->pivot().y());
+    length_dsb_->setValue(mirror_->length());
+    xpad_dsb_->setValue(mirror_->x_pad());
+    alpha_dsb_->setValue(std::fmod(mirror_->angle(), PI*2));
+    xmin_dsb_->setValue(mirror_->min_pivot().x());
+    xmax_dsb_->setValue(mirror_->max_pivot().x());
+    ymin_dsb_->setValue(mirror_->min_pivot().y());
+    ymax_dsb_->setValue(mirror_->max_pivot().y());
+    alphamin_dsb_->setValue(mirror_->min_angle());
+    alphamax_dsb_->setValue(mirror_->max_angle());
+}

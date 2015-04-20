@@ -104,3 +104,13 @@ void LensProp::apply()
     lens_->set_wl_min(wl_min_dsb_->value());
     lens_->set_wl_max(wl_max_dsb_->value());
 }
+
+void LensProp::reset()
+{
+    x_dsb_->setValue(lens_->position().x());
+    y_dsb_->setValue(lens_->position().y());
+    width_dsb_->setValue(lens_->width());
+    height_dsb_->setValue(lens_->height());
+    wl_min_dsb_->setValue(lens_->wl_min());
+    wl_max_dsb_->setValue(lens_->wl_max());
+}

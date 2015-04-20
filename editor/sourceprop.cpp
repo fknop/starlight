@@ -91,3 +91,12 @@ void SourceProp::apply()
     source_->set_alpha(alpha_dsb_->value());
     source_->set_wavelength(wavelength_dsb_->value());
 }
+
+void SourceProp::reset()
+{
+    x_dsb_->setValue(source_->pos().x());
+    y_dsb_->setValue(source_->pos().y());
+    edge_dsb_->setValue(source_->edge());
+    alpha_dsb_->setValue(source_->angle());
+    wavelength_dsb_->setValue(source_->wavelength());
+}

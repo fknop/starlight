@@ -83,3 +83,11 @@ void WallProp::apply()
     wall_->set_start(Point(x1_dsb_->value(), y1_dsb_->value()));
     wall_->set_end(Point(x2_dsb_->value(), y2_dsb_->value()));
 }
+
+void WallProp::reset()
+{
+    x1_dsb_->setValue(wall_->start().x());
+    y1_dsb_->setValue(wall_->start().y());
+    x2_dsb_->setValue(wall_->end().x());
+    y2_dsb_->setValue(wall_->end().y());
+}

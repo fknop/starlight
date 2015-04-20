@@ -81,3 +81,11 @@ void CrystalProp::apply()
     crystal_->set_modifier(mod_dsb_->value());
     crystal_->set_radius(rad_dsb_->value());
 }
+
+void CrystalProp::reset()
+{
+    x_dsb_->setValue(crystal_->center().x());
+    y_dsb_->setValue(crystal_->center().y());
+    rad_dsb_->setValue(crystal_->radius());
+    mod_dsb_->setValue(crystal_->modifier());
+}

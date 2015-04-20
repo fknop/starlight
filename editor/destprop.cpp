@@ -67,3 +67,10 @@ void DestProp::apply()
     dest_->set_pos(Point(x_dsb_->value(), y_dsb_->value()));
     dest_->set_edge(edge_dsb_->value());
 }
+
+void DestProp::reset()
+{
+    x_dsb_->setValue(dest_->pos().x());
+    y_dsb_->setValue(dest_->pos().y());
+    edge_dsb_->setValue(dest_->edge());
+}

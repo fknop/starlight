@@ -67,3 +67,10 @@ void NukeProp::apply()
     nuke_->set_pos(Point(x_dsb_->value(), y_dsb_->value()));
     nuke_->set_radius(rad_dsb_->value());
 }
+
+void NukeProp::reset()
+{
+    x_dsb_->setValue(nuke_->position().x());
+    y_dsb_->setValue(nuke_->position().y());
+    rad_dsb_->setValue(nuke_->radius());
+}
