@@ -32,7 +32,8 @@ linkcolor=blue]{hyperref}
 \section{Introduction}
 
 
-Ce document vise à présenter le travail d’analyse et de programmation effectué
+Ce document vise à présenter le travail d’analyse et de programmation
+effectué
 lors de la réalisation du projet du laboratoire Langage C++~:~Starlight.
 
 Ce projet a été réalisé en binôme par Florian Knop, matricule 39310 groupe 2G13,
@@ -47,7 +48,6 @@ sous la distribution GNU/Linux Ubuntu (ou une de ses dérivées).
 La version du framework Qt utilisée est la 5.0.2 ou supérieure.
 Ce projet a été fait sous QtCreator, IDE OpenSource en version 2.8.1 ou
 supérieure.
-
 
 \section{Conventions de nommage utilisées}
 
@@ -103,7 +103,7 @@ structure.
 \subsubsection{Variables locales}
 
 Les noms des variables locales respectent les mêmes conventions 
-que les variables de classe, à la seule exception qu’ils ne sont pas
+que les variables de classe, à la seule exception qu'ils ne sont pas
 suffixés par un underscore.
 
 \begin{itemize}
@@ -268,14 +268,14 @@ Il se peut également que la source n'émette simplement pas de son.
 L’éditeur de carte a été conçu sur base du modèle et des vues existants.
 Il reprend tous les éléments disponibles dans un niveau du jeu Starlight.
 
-\subsubsection{Possibilités de l’éditeur}
+\subsubsection{Possibilités de l'éditeur}
 
-Au lancement de l’éditeur, il est possible de charger un niveau existant 
+Au lancement de l'éditeur, il est possible de charger un niveau existant 
 ou d’en créer un nouveau en personnalisant sa taille. Celle-ci ne peut 
 être changée par la suite.
 
 Une fois chargé/créé, il est alors possible d’ajouter de nouveaux éléments 
-dans le niveau (mur, miroir, lentille, cristal, bombe). Comme prévu par l’énoncé,
+dans le niveau (mur, miroir, lentille, cristal, bombe). Comme prévu par l'énoncé,
 une seule source et une seule destination peuvent être incluses. Dès lors, 
 celles-ci sont créées en même temps que le niveau et il n’est pas possible de 
 les supprimer. Il n'est également pas possible de supprimer les murs extérieurs
@@ -284,35 +284,34 @@ au niveau.
 Tous les éléments ont la possibilité d’être modifiés à tous niveaux, les setters
 appropriés ayant été ajoutés dans les classes du modèle. Il est au minimum possible de déplacer
 tous les éléments, soit par le panel droit qui offre la possibilité de modifier
-un objet, soit par l’utilisation du clavier (Z pour le monter, S pour descendre, Q pour le translater
+un objet, soit par l'utilisation du clavier (Z pour le monter, S pour descendre, Q pour le translater
 sur la gauche et D pour une translation vers la droite).
 
 Une fois le niveau adapté, il est possible de le sauvegarder au format \texttt{.lvl}. 
-La classe \texttt{MapWriter} a été écrite pour l’occasion, qui permet de sauver 
+La classe \texttt{MapWriter} a été écrite pour l'occasion, qui permet de sauver 
 dans un fichier un niveau, comme \texttt{MapReader} permet de le lire.
 
-Certaines options ont été désactivées dans l’éditeur pour rendre l’édition plus agréable,
+Certaines options ont été désactivées dans l'éditeur pour rendre l'édition plus agréable,
 notamment la gestion des collisions, les bruits et autres événements spéciaux.
 
-\subsubsection{Faiblesses de l’éditeur}
+\subsubsection{Faiblesses de l'éditeur}
 
-La gestion des erreurs est totalement absente, ce qui signifie que l’utilisateur est 
-responsable des données qu’il entre. Il est tout à fait possible de créer des éléments
+La gestion des erreurs est totalement absente, ce qui signifie que l'utilisateur est 
+responsable des données qu'il entre. Il est tout à fait possible de créer des éléments
 dont les caractéristiques ne permettront pas de jouer une partie (une source en dehors
 des limites par exemple).
 
-La gestion dynamique des déplacements ne se fait que dans un sens, si l’on déplace un objet
-à l’aide du clavier ses propriétés dans le panel de droite seront automatiquement modifiées.
+La gestion dynamique des déplacements ne se fait que dans un sens, si l'on déplace un objet
+à l'aide du clavier ses propriétés dans le panel de droite seront automatiquement modifiées.
 Cependant, il faudra utiliser le bouton «~Appliquer~» du panel de droite afin que les changements
 effectués à cet endroit entrent en application.
-
 
 \newpage
 \section{Présentation des différentes classes}
 
 Dans cette section, nous allons décrire les différentes classes
 composant ce projet.
-L’implémentation du projet est divisée entre la partie modèle et la partie vue ainsi 
+L'implémentation du projet est divisée entre la partie modèle et la partie vue ainsi 
 qu'une partie classes utilitaires.
 Elle est également basée sur le design pattern «~Observateur~/~Observé~» comme demandé
 dans les consignes. 
@@ -459,7 +458,8 @@ en angle à chaque fois.
 
 La classe \texttt{Line} possède des méthodes permettant de savoir si celle-ci est 
 verticale ($ b = 0 $) ou horizontale ($ a = 0 $), si elle est perpendiculaire ou parallèle à une autre droite.
-Des méthodes permettant d'obtenir $ x $ selon une valeur de $ y $ donné et inversément sont également
+Des méthodes permettant d'obtenir $ x $ selon une valeur de $ y $ donné et
+inversement sont également
 présentes. Cependant ces méthodes peuvent renvoyer une valeur infinie dans le cas où la droite 
 est soit verticale, soit horizontale.
 
@@ -639,7 +639,7 @@ l'intersection grâce à une expression lambda.
 La première valeur du vecteur devrait alors correspondre à l'intersection la plus proche dans l'axe du rayon.
 
 \texttt{compute\_ray(\dots)} va dans un premier temps créer le rayon entre le point \texttt{start} et le point d'intersection.
-Par la suite, avec la premiere valeur du vecteur d'intersections, 
+Par la suite, avec la première valeur du vecteur d'intersections, 
 \texttt{compute\_ray(\dots)} va effectuer ce qu'il faut selon le type de l'élément déterminé 
 grâce à la super-classe \texttt{Element} (cf. \hyperref[Element]{«~Element~»}).
 
@@ -650,15 +650,15 @@ que le rayon peut continuer. Un appel récursif à \texttt{compute\_ray(\dots)} 
 
 \subsection{Vue}
 
-L’interface graphique a été réalisée en `Qt` à la main (sans l'aide de \texttt{QtDesigner}).
+L'interface graphique a été réalisée en Qt à la main (sans l'aide de \texttt{QtDesigner}).
 Chaque élément visuel dispose d’un pointeur vers son
 équivalent dans le modèle, sur base duquel il est construit. Il observe également cet élément afin de se mettre
 à jour automatiquement.
 
-Chaque élément a également été prévu pour être utilisé dans l’éditeur, et dispose ainsi d’un booléen pour le rendre 
+Chaque élément a également été prévu pour être utilisé dans l'éditeur, et dispose ainsi d’un booléen pour le rendre 
 sélectionnable quand cela est nécessaire.
 
-Les classes composant la partie vue de l’application sont~:
+Les classes composant la partie vue de l'application sont~:
 
 \subsubsection{ElementView}
 
@@ -679,7 +679,7 @@ Il s'agit de :
 
 Classe représentant une source lumineuse sur le plateau de jeu. Bien que dans les consignes, la source lumineuse soit un carré, nous avons ensuite utilisé des images pour la représenter.
 La source dispose de 2 états, allumée ou éteinte qui peut être changé grâce à un double clic.
-Passer d’un état à l’autre change l’image la représentant et produit un son d’interrupteur.
+Passer d’un état à l'autre change l'image la représentant et produit un son d’interrupteur.
 
 Cette classe hérite de \texttt{QGraphicsPixmapItem} pour pouvoir représenter une image.
 \texttt{SourceView} hérite également de l'interface \texttt{ObserverInterface} (cf. \hyperref[OO]{«~Observable/Observer~»}) et observe
@@ -725,7 +725,7 @@ la classe \texttt{Lens} qu'elle modélise.
 
 \subsubsection{\label{CrystalView}CrystalView}
 
-La classe \texttt{CrystalView} modélise un cristal, élément oval qui modifie la longueur d’onde d’un rayon si
+La classe \texttt{CrystalView} modélise un cristal, élément ovale qui modifie la longueur d’onde d’un rayon si
 celui-ci traverse ledit cristal.
 
 Cette classe hérite de \texttt{QGraphicsEllipseItem} pour pouvoir représenter une ellipse.
@@ -754,25 +754,28 @@ Cette classe hérite de \texttt{QGraphicsLineItem} pour pouvoir représenter un 
 \subsubsection{\label{MapView}MapView}
 
 Classe représentant le plateau de jeu, où tous les éléments sont disposés et affichés.
-Elle s’occupe de gérer les raccourcis clavier utilisés pour déplacer/pivoter les miroirs dans le jeu et de déplacer les éléments en général dans l’éditeur de carte.
+Elle s’occupe de gérer les raccourcis clavier utilisés pour déplacer/pivoter les
+miroirs dans le jeu et de déplacer les éléments en général dans l'éditeur de carte.
 
 
 \subsection{\label{EditeurClasses}L'éditeur de carte}
 
 \subsubsection{\label{MainEditor}MainEditor}
 
-Widget principal de l’éditeur de carte qui contient les classes qui suivent.
+Widget principal de l'éditeur de carte qui contient les classes qui suivent.
 Il est composé de 3 widgets principaux~:~\texttt{Elements} qui représente le panel gauche, une \texttt{MapView} qui représente le niveau à modifier (widget central) et \texttt{Properties}, widget droit qui servira à modifier les caractéristiques des éléments de la carte.
 
 \subsubsection{\label{Elements}Elements}
 
-Widget de gauche de l’éditeur, permet de créer un nouveau niveau de hauteur et largeur définies par l’utilisateur.
+Widget de gauche de l'éditeur, permet de créer un nouveau niveau de hauteur et
+largeur définies par l'utilisateur.
 Permet également d’ajouter des éléments à la carte~:~miroir, bombe, cristal et lentille. La source et la destination étant uniques, elles sont directement ajoutées lors de la création d’un niveau.
 
 \subsubsection{\label{Properties}Properties}
 
 Widget de droite de l’éditeur, permet de modifier les caractéristiques des éléments présents dans la carte éditée.
-L’édition est individuelle (il n’est pas possible de déplacer plusieurs éléments en même temps par exemple) mais complète (chaque attribut de l’objet peut être modifié).
+L'édition est individuelle (il n’est pas possible de déplacer plusieurs éléments
+en même temps par exemple) mais complète (chaque attribut de l'objet peut être modifié).
 
 \subsubsection{\label{PropertiesInterface}PropertiesInterface}
 
@@ -790,11 +793,14 @@ Les classes héritant de PropertiesInterface :
 
 Super-classe abstraite, permet à \texttt{Properties} d’interagir avec n’importe quelle classe \texttt{*Prop} de manière transparente, notamment pour les boutons «~Apply~» et «~Reset~».
 Les classes qui héritent de \texttt{PropertiesInterface} sont spécifiques à chaque élément du modèle (\texttt{Crystal}, \texttt{Dest}, \texttt{Lens}, \texttt{Mirror}, \texttt{Nuke}, \texttt{Source} et \texttt{Wall}).
-Chaque élément héritant de \texttt{PropertiesInterface} hérite également de \texttt{Observer}, ce qui permet de mettre à jour les propriétés dans le panel si l’élément est bougé sur la \texttt{MapView} à l’aide du clavier.
+Chaque élément héritant de \texttt{PropertiesInterface} hérite également de
+\texttt{Observer}, ce qui permet de mettre à jour les propriétés dans le panel
+si l'élément est bougé sur la \texttt{MapView} à l'aide du clavier.
 
 \subsubsection{\label{CrystalProp}CrystalProp}
 
-Classe permettant de modifier la position, le rayon et le modificateur de rayon d’un cristal.
+Classe permettant de modifier la position, le rayon et le modificateur de rayon
+d'un cristal.
 
 \subsubsection{\label{DestProp}DestProp}
 
@@ -916,7 +922,7 @@ Si les deux droites sont parallèles :
 \end{itemize}
 
 Si les deux droites ne sont pas parallèles, il faut remplacer une variable de $D_1$ dans $D_2$
-ou inversément pour trouver la deuxième variable. On a choisi de remplacer $y$.
+ou inversement pour trouver la deuxième variable. On a choisi de remplacer $y$.
 On a donc l'égalité suivante : 
 
 $$ x = \frac{(c_1 \cdot b_2 - c_2 \cdot b_1)}{(a_2 \cdot b_1 - a_1 \cdot b_2)} $$

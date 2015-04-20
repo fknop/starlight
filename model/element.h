@@ -13,6 +13,7 @@
 class Element : public Observable
 {
 public:
+
     enum class Type
     {
         MIRROR,

@@ -41,13 +41,13 @@ void LineSegment::rotate(const Point& pivot, double rotation)
 
     translate(-pivot.x(), -pivot.y());
     double x1 = ((start_.x() * std::cos(-rotation)) -
-                 (start_.y() *std::sin(-rotation)));
+                 (start_.y() * std::sin(-rotation)));
 
     double y1 = (start_.x() * std::sin(-rotation)) +
                 (start_.y() * std::cos(-rotation));
 
     double x2 = ((end_.x() * std::cos(-rotation)) -
-                (end_.y() *std::sin(-rotation)));
+                (end_.y() * std::sin(-rotation)));
 
     double y2 = (end_.x() * std::sin(-rotation)) +
                 (end_.y() * std::cos(-rotation));

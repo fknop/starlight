@@ -75,7 +75,7 @@ void Mirror::translate(const double x, const double y)
     double new_x = pivot_.x() + x;
     double new_y = pivot_.y() + y;
 
-    if (observers_.size() > 0)
+    if (!observers_.empty())
     {
         std::ostringstream oss_x;
         std::ostringstream oss_y;
@@ -101,10 +101,6 @@ LineSegment Mirror::to_line_segment() const
     LineSegment l(Point(pivot_.x() - xpad_, pivot_.y()),
                   Point(pivot_.x() + length_ - xpad_, pivot_.y()));
                 l.rotate(pivot_, alpha_);
-//    double gx = pivot_.x() - (xpad_ * std::cos(alpha_));
-//    double gy = pivot_.y() + (xpad_ * std::sin(alpha_));
-//    double dx = pivot_.x() + ((length_ - xpad_) * std::cos(alpha_));
-//    double dy = pivot_.y() - ((length_ - xpad_) * std::sin(alpha_));
     return l;
 }
 
