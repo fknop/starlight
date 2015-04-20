@@ -210,6 +210,7 @@ void MainEditor::save_level()
 
 void MainEditor::back_menu()
 {
+    MapReader::end_level();
     parent_->show();
     close();
 }
