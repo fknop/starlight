@@ -858,8 +858,8 @@ Pour tourner un segment, il faut un point de pivot. Ce point de pivot
 doit ensuite être déplacé sur l'origine du repère $ (0, 0) $.
 
 Les formules de coordonnées polaires pour $ x $ et $ y $ sont :
-$$ x = r * \cos{q} $$ 
-$$ y = r * \sin{q} $$
+$$ x = r \cdot \cos{q} $$ 
+$$ y = r \cdot \sin{q} $$
 
 $ r $ correspond à la distance entre l'origine et le point et $ q $ correspond 
 à l'angle entre l'axe des abscisses et la droite formée avec l'origine et le point.
@@ -867,18 +867,18 @@ $ r $ correspond à la distance entre l'origine et le point et $ q $ correspond
 Lorsque l'on souhaite tourner un segment et trouver $ x' $ et $ y' $, 
 il suffit d'augmenter ou diminuer l'angle $ q $ par un angle $ f $ comme ceci~:
 
-$$ x' = r * \cos{q + f} $$
-$$ y' = r * \sin{q + f} $$
+$$ x' = r \cdot \cos{q + f} $$
+$$ y' = r \cdot \sin{q + f} $$
 
 Grâce aux formules trigonométriques d'additions, on peut transformer ce résultat en~:
 
-$$ x' = r * \cos{q} * \cos{f} - r * \sin{q} * \sin{f} $$
-$$ y' = r * \sin{q} * \cos{f} - r * \cos{q} * \sin{f} $$
+$$ x' = r \cdot \cos{q} \cdot \cos{f} - r \cdot \sin{q} \cdot \sin{f} $$
+$$ y' = r \cdot \sin{q} \cdot \cos{f} - r \cdot \cos{q} \cdot \sin{f} $$
 
 Et pour finir, en remplaçant les deux premières égalités dans cette dernière on obtient~: 
 
-$$ x' = x * \cos{f} - y * \sin{f} $$
-$$ y' = x * \sin{f} + y * \cos{f} $$
+$$ x' = x \cdot \cos{f} - y \cdot \sin{f} $$
+$$ y' = x \cdot \sin{f} + y \cdot \cos{f} $$
 
 Il faut ensuite redéplacer le pivot à son point de départ.
 
@@ -898,12 +898,12 @@ $ D \equiv by + c = 0 $ représente l'équation d'une droite horizontale ($a = 0
 On commence donc dans un premier temps à tester si les deux droites sont parallèles. \\
 
 Soit deux droites $D_1$ et $D_2$, ces deux droites sont parallèles si : 
-$$ a_1 * b_2 - a_2 * b_1 = 0 $$
+$$ a_1 \cdot b_2 - a_2 \cdot b_1 = 0 $$
 
 \begin{proof}
 La pente d'une droite vaut $\frac{-a}{b}$ et deux droites sont parallèles
 si leurs pentes sont égales. Il suffit donc de modifier l'équation en passant chaque terme du bon côté. \\
-$ a_1 * b_2 = a_2 * b_1 $ puis ensuite : $ \frac{a_1}{b_1} = \frac{a_2}{b_2} $ ce qui équivaut à
+$ a_1 \cdot b_2 = a_2 \cdot b_1 $ puis ensuite : $ \frac{a_1}{b_1} = \frac{a_2}{b_2} $ ce qui équivaut à
 $ \frac{-a_1}{b1} = \frac{-a_2}{b_2} $ \\
 \end{proof}
 
@@ -919,23 +919,23 @@ Si les deux droites ne sont pas parallèles, il faut remplacer une variable de $
 ou inversément pour trouver la deuxième variable. On a choisi de remplacer $y$.
 On a donc l'égalité suivante : 
 
-$$ x = \frac{(c_1 * b_2 - c_2 * b_1)}{(a_2 * b_1 - a_1 * b_2)} $$
+$$ x = \frac{(c_1 \cdot b_2 - c_2 \cdot b_1)}{(a_2 \cdot b_1 - a_1 \cdot b_2)} $$
 
 \begin{proof}
-$$ D_1 \equiv y = \frac{-a_1 * x}{b_1} - \frac{c_1}{b_1} $$
-$$ D_2 \equiv y = \frac{-a_2 * x}{b_2} - \frac{c_2}{b_2} $$
+$$ D_1 \equiv y = \frac{-a_1 \cdot x}{b_1} - \frac{c_1}{b_1} $$
+$$ D_2 \equiv y = \frac{-a_2 \cdot x}{b_2} - \frac{c_2}{b_2} $$
 
 On remplace $y$ de $D_1$ dans $D_2$ :
 
-$$ \frac{-a_1 * x}{b_1} - \frac{c_1}{b_1} = \frac{-a_2 * x}{b_2} - \frac{c_2}{b_2} $$
+$$ \frac{-a_1 \cdot x}{b_1} - \frac{c_1}{b_1} = \frac{-a_2 \cdot x}{b_2} - \frac{c_2}{b_2} $$
 
 Il ne reste plus qu'à simplifier :
 
-$$ \frac{-a_1 * x}{b_1} + \frac{a_2 * x}{b_2} = \frac{c_1}{b_1} - \frac{c_2}{b_2} $$
-$$ \frac{(-a_1 * x * b_2) + (a_2 * x * b_1)}{(b_1 * b_2)} = \frac{(c_1 * b_2 - c_2 * b_1)}{(b_1 * b_2)} $$
-$$ (a_2 * b_1 * x) - (a_1 * b_2 * x) = (c_1 * b_2 - c_2 * b_1) $$
-$$ x * ((a_2 * b_1) - (a_1 * b_2)) = (c_1 * b_2 - c_2 * b_1) $$
-$$ x = \frac{(c_1 * b_2 - c_2 * b_1)}{(a_2 * b_1 - a_1 * b_2)} $$ \\
+$$ \frac{-a_1 \cdot x}{b_1} + \frac{a_2 \cdot x}{b_2} = \frac{c_1}{b_1} - \frac{c_2}{b_2} $$
+$$ \frac{(-a_1 \cdot x \cdot b_2) + (a_2 \cdot x \cdot b_1)}{(b_1 \cdot b_2)} = \frac{(c_1 \cdot b_2 - c_2 \cdot b_1)}{(b_1 \cdot b_2)} $$
+$$ (a_2 \cdot b_1 \cdot x) - (a_1 \cdot b_2 \cdot x) = (c_1 \cdot b_2 - c_2 \cdot b_1) $$
+$$ x \cdot ((a_2 \cdot b_1) - (a_1 \cdot b_2)) = (c_1 \cdot b_2 - c_2 \cdot b_1) $$
+$$ x = \frac{(c_1 \cdot b_2 - c_2 \cdot b_1)}{(a_2 \cdot b_1 - a_1 \cdot b_2)} $$ \\
 \end{proof}
 
 Maintenant que nous avons la coordonnée $x$, il suffit de la remplacer
@@ -957,7 +957,7 @@ Pour transformer un segment en droite : \\
 Soit $A$ et $B$ les deux extrémités du segment, les paramètres de la droite valent : 
 $ a = A.y - B.y $ \\
 $ b = B.x - A.x $ \\
-$ c = (A.x * B.y) - (A.y * B.x) $ \\
+$ c = (A.x \cdot B.y) - (A.y \cdot B.x) $ \\
 
 \subsubsection{Trouver l'intersection entre deux segments}
 
@@ -970,10 +970,10 @@ De plus, si les deux droites sont confondues, l'intersection sera un segment.
 
 La formule d'une ellipse est : 
 
-$$ E \equiv \frac{(x - x1)^2}{a^2} + \frac{(y - y1)^2}{b^2} = 1 $$
+$$ E \equiv \frac{(x - x_1)^2}{a^2} + \frac{(y - y_1)^2}{b^2} = 1 $$
 
 \begin{description}
-\item où $x1$ et $y1$ sont respectivement les coordonnées
+\item où $x_1$ et $y_1$ sont respectivement les coordonnées
 $x$ et $y$ du centre de l'ellipse. 
 \item où $a$ et $b$ sont respectivement les rayons de l'axe
 $x$ et $y$. \\
@@ -986,35 +986,33 @@ identiques :
 On doit donc remplacer la variable $x$ ou $y$ de la droite dans
 l'équation de l'ellipse.
 
-Le cas de la droite verticale : 
-
-Dans ce cas-là, il n'y a pas de choix, il faut remplacer
+Dans le cas de la droite verticale, il n'y a pas de choix, il faut remplacer
 $x$ dans l'équation de l'ellipse.
 Nous avons également décidé de refactoriser l'équation en 
 prenant le PPCM (Plus Petit Commun Multiple) de $a^2 * b^2$ que
-nous appellerons ici $lcm$ pour Least Commun Multiple.
+nous appellerons ici $lcm$ pour \texttt{Least Commun Multiple}. 
 Ce choix a été fait pour éviter les overflows lorsque 
 de nombres trop grands sont mis au carré et multipliés.
 Bien que dans notre cas, nous avons rarement des nombres
 pouvant fournir de tels résultats.
 
-$$ E \equiv (lcmy \cdot (k - x1)^2) + ((y - y1)^2 \cdot lcmx) = lcm $$  
+$$ E \equiv (lcmy \cdot (k - x_1)^2) + ((y - y_1)^2 \cdot lcmx) = lcm $$  
 où $lcmy$ est le facteur par lequel il faut multiplier
 $b^2$ (rayon $y$ au carré) pour obtenir $lcm$, \\
 où $lcmx$ est le facteur par lequel il faut multiplier
 $a^2$ (rayon $x$ au carré) pour obtenir $lcm$.
 
-$$ E \equiv lcmy \cdot (k-x1)^2 + (y^2 + y1^2 - 2 \cdot y1 \cdot y)
+$$ E \equiv lcmy \cdot (k - x_1)^2 + (y^2 + y_1^2 - 2 \cdot y_1 \cdot y)
 \cdot lcmx = lcm$$
-$$ E \equiv lcmy \cdot (k-x1)^2 + lcmx \cdot y^2 + lcmx \cdot
-y1^2 - 2 \cdot lcmx \cdot y1 \cdot y - lcm = 0 $$
+$$ E \equiv lcmy \cdot (k - x_1)^2 + lcmx \cdot y^2 + lcmx \cdot
+y_1^2 - 2 \cdot lcmx \cdot y_1 \cdot y - lcm = 0 $$
 
 Avec ceci, il reste plus qu'à résoudre l'équation du second degré 
 avec 
 $$ \rho = b^2 - 4ac$$
 où $$ a = lcmx $$
 $$ b = 2 \cdot lcmx \cdot y1 \cdot y $$
-$$ c = (lcmy \cdot (k-x1)^2) + (lcmx \cdot y1^2) - lcm $$
+$$ c = (lcmy \cdot (k-x_1)^2) + (lcmx \cdot y_1^2) - lcm $$
 
 
 
