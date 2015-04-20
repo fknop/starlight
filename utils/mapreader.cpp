@@ -68,7 +68,6 @@ void MapReader::read_size(std::string line)
 
 void MapReader::read_crystal(std::string line)
 {
-
     std::istringstream iss(line);
     iss.ignore();
 
@@ -82,7 +81,6 @@ void MapReader::read_crystal(std::string line)
 
 void MapReader::read_destination(std::string line)
 {
-
     std::istringstream iss(line);
     iss.ignore();
 
@@ -95,7 +93,6 @@ void MapReader::read_destination(std::string line)
 
 void MapReader::read_lens(std::string line)
 {
-
     std::istringstream iss(line);
     iss.ignore();
 
@@ -145,7 +142,6 @@ void MapReader::read_nuke(std::string line)
 
 void MapReader::read_source(std::string line)
 {
-
     std::istringstream iss(line);
     iss.ignore();
 
