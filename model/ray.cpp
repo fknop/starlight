@@ -17,10 +17,6 @@ end_ {p2}, wavelength_ {wl}
         wavelength_ = WL_MIN;
     else if (wl > WL_MAX)
         wavelength_ = WL_MAX;
-
-
-
-
 }
 
 std::ostream& operator<<(std::ostream& out, const Ray& p)
