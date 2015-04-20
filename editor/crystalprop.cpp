@@ -1,5 +1,10 @@
 #include "crystalprop.h"
 
+/**
+ * Modifie le cristal sélectionné dans l’éditeur.
+ * @param crystal le cristal sélectionné.
+ * @param parent le widget parent.
+ */
 CrystalProp::CrystalProp(Crystal * crystal, QWidget * parent) : crystal_{crystal}
 {
     setupUi();
@@ -67,14 +72,9 @@ void CrystalProp::setupUi()
     setLayout(form_layout_);
 }
 
-void CrystalProp::reset()
-{
-    x_dsb_->setValue(crystal_->center().x());
-    y_dsb_->setValue(crystal_->center().y());
-    rad_dsb_->setValue(crystal_->radius());
-    mod_dsb_->setValue(crystal_->modifier());
-}
-
+/**
+ * Applique les changements effectués à l’objet crystal qu’il contient.
+ */
 void CrystalProp::apply()
 {
     crystal_->set_center(Point(x_dsb_->value(), y_dsb_->value()));

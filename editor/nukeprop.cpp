@@ -1,5 +1,10 @@
 #include "nukeprop.h"
 
+/**
+ * Modifie la bombe sélectionnée dans l’éditeur.
+ * @param nuke la bombe sélectionnée.
+ * @param parent le widget parent.
+ */
 NukeProp::NukeProp(Nuke * nuke, QWidget * parent) : nuke_{nuke}
 {
     setupUi();
@@ -54,13 +59,9 @@ void NukeProp::setupUi()
     setLayout(form_layout_);
 }
 
-void NukeProp::reset()
-{
-    x_dsb_->setValue(nuke_->position().x());
-    y_dsb_->setValue(nuke_->position().y());
-    rad_dsb_->setValue(nuke_->radius());
-}
-
+/**
+ * Applique les changements effectués à l’objet nuke qu’il contient.
+ */
 void NukeProp::apply()
 {
     nuke_->set_pos(Point(x_dsb_->value(), y_dsb_->value()));

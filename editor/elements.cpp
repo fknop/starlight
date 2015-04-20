@@ -1,5 +1,9 @@
 #include "elements.h"
 
+/**
+ * Permet de créer un niveau et d’y ajouter des éléments (miroir, lensille, etc.).
+ * @param parent le widget parent, la fenêtre principale de l’éditeur en l’occurrence.
+ */
 Elements::Elements(QWidget * parent) : QWidget(parent)
 {
     setupUi();
@@ -98,6 +102,9 @@ void Elements::setupUi()
     setLayout(verticalLayout);
 }
 
+/**
+ * Crée un nouveau niveau avec les dimensions précisées.
+ */
 void Elements::create_level()
 {
     level_ = new Level(level_width_dsb->value(), level_height_dsb->value());
@@ -107,6 +114,9 @@ void Elements::create_level()
     notify_all(std::string("LEVEL_CREATED"));
 }
 
+/**
+ * Supprime le niveau actuel.
+ */
 void Elements::reset_level()
 {
     enable_pushbuttons(false);
@@ -128,41 +138,68 @@ void Elements::enable_pushbuttons(bool b)
     level_reset_pb->setEnabled(b);
 }
 
+/**
+ * Retourne le niveau.
+ * @return  le niveau.
+ */
 Level * Elements::level()
 {
     return level_;
 }
 
+/**
+ * Modifie la taille du niveau.
+ * @param h la hauteur de la carte du niveau.
+ */
 void Elements::set_height(int h)
 {
     level_height_dsb->setValue(h);
 }
 
+/**
+ * Modifie la largeur du niveau.
+ * @param w la largeur de la carte du niveau.
+ */
 void Elements::set_width(int w)
 {
     level_width_dsb->setValue(w);
 }
 
+/**
+ * Indique à tous les observateurs qu’un cristal a été ajouté.
+ */
 void Elements::add_crystal()
 {
     notify_all(std::string("CRYSTAL_ADDED"));
 }
 
+/**
+ * Indique à tous les observateurs qu’une lentille a été ajoutée.
+ */
 void Elements::add_lens()
 {
     notify_all(std::string("LENS_ADDED"));
 }
 
+/**
+ * Indique à tous les observateurs qu’un miroir a été ajouté.
+ */
 void Elements::add_mirror()
 {
     notify_all(std::string("MIRROR_ADDED"));
 }
 
+/**
+ * Indique à tous les observateurs qu’une bombe a été ajoutée.
+ */
 void Elements::add_nuke()
 {
     notify_all(std::string("NUKE_ADDED"));
 }
 
+/**
+ * Indique à tous les observateurs qu’un mur a été ajouté.
+ */
 void Elements::add_wall()
 {
     notify_all(std::string("WALL_ADDED"));

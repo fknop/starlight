@@ -6,7 +6,6 @@ Nuke::Nuke(const Point& p, double r) : Element(Element::Type::NUKE),
 {
     if (r <= 0)
         throw std::string("Le rayon doit être strictement supérieur à 0");
-
 }
 
 Ellipse Nuke::to_ellipse()

@@ -1,5 +1,10 @@
 #include "lensprop.h"
 
+/**
+ * Modifie la lentille sélectionnée dans l’éditeur.
+ * @param lens la lentille sélectionnée.
+ * @param parent le widget parent.
+ */
 LensProp::LensProp(Lens * lens, QWidget * parent) : lens_{lens}
 {
     setupUi();
@@ -88,16 +93,9 @@ void LensProp::setupUi()
     setLayout(form_layout_);
 }
 
-void LensProp::reset()
-{
-    x_dsb_->setValue(lens_->position().x());
-    y_dsb_->setValue(lens_->position().y());
-    width_dsb_->setValue(lens_->width());
-    height_dsb_->setValue(lens_->height());
-    wl_min_dsb_->setValue(lens_->wl_min());
-    wl_max_dsb_->setValue(lens_->wl_max());
-}
-
+/**
+ * Applique les changements effectués à l’objet lens qu’il contient.
+ */
 void LensProp::apply()
 {
     lens_->set_pos(Point(x_dsb_->value(), y_dsb_->value()));

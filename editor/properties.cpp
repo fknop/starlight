@@ -7,7 +7,11 @@
 #include "editor/sourceprop.h"
 #include "editor/wallprop.h"
 
-
+/**
+ * Contient le widget permettant d’éditer l’élément sélectionné
+ * sur la carte et d’appliquer les changements ou de le supprimer.
+ * @param parent
+ */
 Properties::Properties(QWidget * parent) : QWidget(parent)
 {
     setupUi();
@@ -55,6 +59,9 @@ void Properties::setupUi()
     setLayout(grid_layout_);
 }
 
+/**
+ * Supprime le widget qu’il contient.
+ */
 void Properties::delete_prop()
 {
     if (prop_interface_ != nullptr)
@@ -64,6 +71,10 @@ void Properties::delete_prop()
     }
 }
 
+/**
+ * Crée un widget permettant de modifier l’élément passé en paramètre.
+ * @param ev l’élément sélectionné du niveau.
+ */
 void Properties::set_element_prop(ElementView * ev)
 {
     delete_prop();
@@ -137,6 +148,9 @@ void Properties::set_element_prop(ElementView * ev)
     }
 }
 
+/**
+ * Applique les changements à l’objet sélectionné.
+ */
 void Properties::apply_changes()
 {
     if (prop_interface_ != nullptr)
@@ -148,6 +162,9 @@ void Properties::apply_changes()
     notify_all(std::string("ELEMENT_CHANGED"));
 }
 
+/**
+ * Prévient tous les observateurs qu’un élément a été supprimé.
+ */
 void Properties::delete_element()
 {
     notify_all(std::string("ELEMENT_DELETED"));

@@ -19,6 +19,10 @@
 #include "view/sourceview.h"
 
 
+/**
+ * Fenêtre principale de l’éditeur.
+ * @param parent menu principal de l’application.
+ */
 MainEditor::MainEditor(QWidget * parent) : QMainWindow(parent), parent_{parent}, level_{new Level(750, 580)}
 {
     setup_ui();

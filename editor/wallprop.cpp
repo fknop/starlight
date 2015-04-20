@@ -1,5 +1,10 @@
 #include "wallprop.h"
 
+/**
+ * Modifie le mur sélectionné dans l’éditeur.
+ * @param wall le mur sélectionné.
+ * @param parent le widget parent.
+ */
 WallProp::WallProp(Wall * wall, QWidget * parent) : wall_{wall}
 {
     setupUi();
@@ -70,14 +75,9 @@ void WallProp::setupUi()
     setLayout(form_layout_);
 }
 
-void WallProp::reset()
-{
-    x1_dsb_->setValue(wall_->start().x());
-    y1_dsb_->setValue(wall_->start().y());
-    x2_dsb_->setValue(wall_->end().x());
-    y2_dsb_->setValue(wall_->end().y());
-}
-
+/**
+ * Applique les changements effectués à l’objet wall qu’il contient.
+ */
 void WallProp::apply()
 {
     wall_->set_start(Point(x1_dsb_->value(), y1_dsb_->value()));

@@ -17,7 +17,6 @@ Mirror::Mirror(const Point& p, double xpad, double len, double alpha, const Poin
       alpha_ {alpha}, alpha_min_ {alpha_min}, alpha_max_ {alpha_max},
       movable_{true}
 {
-
     if (length_ <= 0)
         throw std::string("La longueur doit être positive.");
 
@@ -29,8 +28,6 @@ Mirror::Mirror(const Point& p, double xpad, double len, double alpha, const Poin
     if (!check_angle_range(alpha_))
         throw std::string("L'inclinaison du mirroir est invalide. "
                           "Elle n'est pas comprise entre les bornes.");
-
-
 }
 
 
@@ -51,7 +48,6 @@ bool Mirror::check_pivot_range(const Point& p) const
 
 void Mirror::rotate(double angle)
 {
-
     movable_ = true;
     if (observers_.size() > 0)
     {
@@ -92,12 +88,10 @@ void Mirror::translate(const double x, const double y)
         notify_all(std::string("TRANSLATE_MIRROR"));
     }
 
-
 }
 
 LineSegment Mirror::to_line_segment() const
 {
-
     LineSegment l(Point(pivot_.x() - xpad_, pivot_.y()),
                   Point(pivot_.x() + length_ - xpad_, pivot_.y()));
                 l.rotate(pivot_, alpha_);

@@ -1,5 +1,10 @@
 #include "destprop.h"
 
+/**
+ * Modifie la destination sélectionnée dans l’éditeur.
+ * @param dest la destination sélectionnée.
+ * @param parent le widget parent.
+ */
 DestProp::DestProp(Dest * dest, QWidget * parent) : dest_{dest}
 {
     setupUi();
@@ -54,13 +59,9 @@ void DestProp::setupUi()
     setLayout(form_layout_);
 }
 
-void DestProp::reset()
-{
-    x_dsb_->setValue(dest_->pos().x());
-    y_dsb_->setValue(dest_->pos().y());
-    edge_dsb_->setValue(dest_->edge());
-}
-
+/**
+ * Applique les changements effectués à l’objet dest qu’il contient.
+ */
 void DestProp::apply()
 {
     dest_->set_pos(Point(x_dsb_->value(), y_dsb_->value()));
