@@ -82,6 +82,9 @@ void CrystalProp::apply()
     crystal_->set_radius(rad_dsb_->value());
 }
 
+/**
+ * Modifie les spinbox pour qu’elles prennent les valeurs du cristal.
+ */
 void CrystalProp::reset()
 {
     x_dsb_->setValue(crystal_->center().x());

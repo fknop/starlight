@@ -68,6 +68,9 @@ void NukeProp::apply()
     nuke_->set_radius(rad_dsb_->value());
 }
 
+/**
+ * Modifie les spinbox pour qu’elles prennent les valeurs de la bombe.
+ */
 void NukeProp::reset()
 {
     x_dsb_->setValue(nuke_->position().x());

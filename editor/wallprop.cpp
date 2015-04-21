@@ -84,6 +84,9 @@ void WallProp::apply()
     wall_->set_end(Point(x2_dsb_->value(), y2_dsb_->value()));
 }
 
+/**
+ * Modifie les spinbox pour qu’elles prennent les valeurs du mur.
+ */
 void WallProp::reset()
 {
     x1_dsb_->setValue(wall_->start().x());

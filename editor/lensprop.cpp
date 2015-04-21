@@ -105,6 +105,9 @@ void LensProp::apply()
     lens_->set_wl_max(wl_max_dsb_->value());
 }
 
+/**
+ * Modifie les spinbox pour qu’elles prennent les valeurs de la lentille.
+ */
 void LensProp::reset()
 {
     x_dsb_->setValue(lens_->position().x());

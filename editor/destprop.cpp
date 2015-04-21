@@ -68,6 +68,9 @@ void DestProp::apply()
     dest_->set_edge(edge_dsb_->value());
 }
 
+/**
+ * Modifie les spinbox pour qu’elles prennent les valeurs de la destination.
+ */
 void DestProp::reset()
 {
     x_dsb_->setValue(dest_->pos().x());

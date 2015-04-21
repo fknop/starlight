@@ -166,6 +166,9 @@ void MirrorProp::apply()
     mirror_->set_alpha_max(alphamax_dsb_->value());
 }
 
+/**
+ * Modifie les spinbox pour qu’elles prennent les valeurs du miroir.
+ */
 void MirrorProp::reset()
 {
     x_dsb_->setValue(mirror_->pivot().x());

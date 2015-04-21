@@ -92,6 +92,9 @@ void SourceProp::apply()
     source_->set_wavelength(wavelength_dsb_->value());
 }
 
+/**
+ * Modifie les spinbox pour qu’elles prennent les valeurs de la source.
+ */
 void SourceProp::reset()
 {
     x_dsb_->setValue(source_->pos().x());
