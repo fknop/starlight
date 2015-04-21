@@ -318,30 +318,28 @@ bool umath::intersects(const LineSegment& ls1, const LineSegment& ls2, Point& po
     }
 }
 
-// Voir annexe projet pour plus de détails
+// Voir annexe projet pour les détails mathématiques !
 int umath::intersects(const Ellipse& e, const Line& l,
                std::vector<Point>& points)
 {
     double x;
     double y;
-    double slope = l.slope();
-    double d = -l.c() / l.b();
     double x1 = e.center().x();
     double y1 = e.center().y();
     double xR = e.x_rad();
     double yR = e.y_rad();
+    double rho;     // rho = b² - ac
     double a, b, c; // a, b, c dans rho = b² - ac
-    double rho;     // rho
     double lcm = umath::dlcm(xR*xR, yR*yR); // ppcm de a² et b²
     double lcmx = lcm / (yR*yR);
     double lcmy = lcm / (xR*xR);
 
+    // Variables pour faciliter le calcul des droites non verticales
+    double k = l.inde_param();
+    double m = l.slope();
+    double j = k - y1;
 
-    // ax + by + c = 0
-    // lcmy(x - x1)² + lcmx(y - y1)² = lcm
-    // ax + c = 0
-    // x = -c / a
-    // x²*lcmy + x1²*lcmy - 2*lcmy*x*x1 + lcmx*y² + lcmx*y1² - 2*lcmx*y*y1 - lcm = 0
+    // Voir annexe projet pour les détails mathématiques !
     if (l.vertical())
     {
         x = l.get_x(0); // = -c/a
@@ -349,45 +347,11 @@ int umath::intersects(const Ellipse& e, const Line& l,
         b = (-2 * lcmx * y1);
         c = (lcmy * std::pow((x - x1), 2)) + (lcmx * y1 *y1) - (lcm);
     }
-//    else if (l.horizontal())
-//    {
-//        // by + c = 0
-//        // y = -c / b
-//        // lcmy*x² + lcmy*x1² - 2*lcmy*x*x1
-//        //  + lcmx*y² + lcmx*y1² - 2*lcmx*y*y1 - lcm = 0
-//        y = l.get_y(0);
-//        a = lcmy;
-//        b = -2 * lcmy * x1;
-//        c = (lcmy * x1 * x1) + (lcmx * (std::pow((y - y1), 2))) - lcm;
-//    }
     else
     {
-        // lcmy(x-x1)² + lcmx(y-y1)² = lcm
-        // y = -ax/b - c/b
-        double k = -l.c() / l.b();
-        double m = -l.a() / l.b();
-        double j = k - y1;
-
-        // y = mx + k
-        // lcmy(x-x1)² + lcmx(mx + k - y1)² = lcm
-        // lcmy * x² + lcmy * x1² - 2*lcmy*x*x1 + (mx + j)²
-                                             // +(lcmx*m²*x² + lcmx*j² + 2*mx*j  -lcm
-
-//        a = lcmy + (slope * slope * lcmx);
-         a = lcmy + (m * m * lcmx);
-         b = -(2*lcmy*x1) + (2*m*j*lcmx);
-         c = (lcmy*x1*x1) + (lcmx*j*j) - lcm;
-
-
-//        b = -(2 * lcmy * d)
-//                - (2 * slope * lcmy * x1)
-//                - (2 * slope * slope * lcmx * y1);
-
-//        c = (lcmy * d * d)
-//                + (lcmy * slope * slope * x1 * x1)
-//                + (lcmy * 2 * slope * x1 * d)
-//                + (lcmx * slope * slope * y1 * y1)
-//                - (lcm * slope * slope);
+        a = lcmy + (m * m * lcmx);
+        b = -(2*lcmy*x1) + (2*m*j*lcmx);
+        c = (lcmy*x1*x1) + (lcmx*j*j) - lcm;
     }
 
     rho = umath::rho(a, b, c);

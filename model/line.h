@@ -79,9 +79,17 @@ class Line
 
     /**
      * Retourne la pente de la droite.
+     * Retourne INF si la droite est verticale.
      * @return la pente de la droite.
      */
     inline double slope() const;
+
+    /**
+     * Retourne l'ordonnée à l'origine.
+     * Retourne INF si la droite est verticale.
+     * @return l'ordonnée à l'origine.
+     */
+    inline double inde_param() const;
 
 
     /**
@@ -165,7 +173,18 @@ double Line::alpha() const
 
 double Line::slope() const
 {
+    if (vertical())
+        return INF;
+
     return -a_ / b_;
+}
+
+double Line::inde_param() const
+{
+    if (vertical())
+        return INF;
+
+    return -c_ / b_;
 }
 
 double Line::get_x(const double y) const
@@ -178,7 +197,7 @@ double Line::get_x(const double y) const
 
 double Line::get_y(const double x) const
 {
-    if (umath::equals(b_, 0))
+    if (vertical())
         return INF; // On retourne INF sinon on pourrait retourner NaN si 0/0
 
     return ((-a_ * x) -c_) / b_;
