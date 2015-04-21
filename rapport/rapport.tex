@@ -1049,10 +1049,42 @@ vaut $k$ (de l'équation de départ).
 
 Le cas de la droite non verticale : 
 
+Il s'agit exactement du même principe que pour la droite verticale, sauf que nous 
+allons remplacer $y$ de la droite dans l'équation de l'ellipse.
 
-C'est le même principe que le cas de la droite verticale sauf
-que pour trouver la deuxième variable finale il faudra
-remplacer la variable trouvée dans l'équation de la droite.
+Nous avons donc : 
+
+$$ D \equiv y = \frac{-a \cdot x}{b} - \frac{c}{b} $$
+
+ou $ D \equiv y = \frac{-c}{b} $ si la droite est horizontale.
+
+Nous pouvons poser quelques variables pour nous faciliter le calcul. Soit : \\
+$k = -D.c / D.b $, \\
+$m = -D.a / D.b $, \\
+$j = k - y_1$      \\
+
+Nous avons donc :
+
+$$ D \equiv y = m \cdot x + k $$
+
+Il faut maintenant remplacer $y$ dans l'équation de l'ellipse : 
+
+
+$$ lcmy \cdot (x - x_1)^2 + lcmx \cdot (m \cdot k - y1)^2 = lcm $$
+
+Une fois $k - y_1$ remplacé par $j$ et l'équation developpé : 
+
+$$  (lcmy \cdot x^2) + (lcmy \cdot x_1^2) - (2 \cdot lcmy \cdot x \cdot x_1) + (lcmx \cdot m^2 \cdot x^2) + (lcmx \cdot j^2) + (2 \cdot m \cdot x + j) - lcm = 0 $$
+
+De la même manière que pour le premier cas, il faut résoudre l'équation du second degré.
+
+$$ \rho = b^2 - 4ac$$
+
+\begin{description}
+\item où $ a = lcmy + (m^2 \cdot lcmx) $ 
+\item où $ b = -(2 \cdot lcmy \cdot x_1) + (2 \cdot m \cdot j \cdot lcmx) $
+\item où $ c = (lcmy \cdot x_1^2) + (lcmx * j^2) - lcm $
+\end{description}
 
 \subsubsection{Trouver la ou les intersection(s) entre une ellipse et un segment de droite}
 
