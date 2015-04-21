@@ -349,57 +349,73 @@ int umath::intersects(const Ellipse& e, const Line& l,
         b = (-2 * lcmx * y1);
         c = (lcmy * std::pow((x - x1), 2)) + (lcmx * y1 *y1) - (lcm);
     }
-    else if (l.horizontal())
-    {
-        // by + c = 0
-        // y = -c / b
-        // lcmy*x² + lcmy*x1² - 2*lcmy*x*x1
-        //  + lcmx*y² + lcmx*y1² - 2*lcmx*y*y1 - lcm = 0
-        y = l.get_y(0);
-        a = lcmy;
-        b = -2 * lcmy * x1;
-        c = (lcmy * x1 * x1) + (lcmx * (std::pow((y - y1), 2))) - lcm;
-    }
+//    else if (l.horizontal())
+//    {
+//        // by + c = 0
+//        // y = -c / b
+//        // lcmy*x² + lcmy*x1² - 2*lcmy*x*x1
+//        //  + lcmx*y² + lcmx*y1² - 2*lcmx*y*y1 - lcm = 0
+//        y = l.get_y(0);
+//        a = lcmy;
+//        b = -2 * lcmy * x1;
+//        c = (lcmy * x1 * x1) + (lcmx * (std::pow((y - y1), 2))) - lcm;
+//    }
     else
     {
-        a = lcmy + (slope * slope * lcmx);
-        b = -(2 * lcmy * d)
-                - (2 * slope * lcmy * x1)
-                - (2 * slope * slope * lcmx * y1);
+        // lcmy(x-x1)² + lcmx(y-y1)² = lcm
+        // y = -ax/b - c/b
+        double k = -l.c() / l.b();
+        double m = -l.a() / l.b();
+        double j = k - y1;
 
-        c = (lcmy * d * d)
-                + (lcmy * slope * slope * x1 * x1)
-                + (lcmy * 2 * slope * x1 * d)
-                + (lcmx * slope * slope * y1 * y1)
-                - (lcm * slope * slope);
+        // y = mx + k
+        // lcmy(x-x1)² + lcmx(mx + k - y1)² = lcm
+        // lcmy * x² + lcmy * x1² - 2*lcmy*x*x1 + (mx + j)²
+                                             // +(lcmx*m²*x² + lcmx*j² + 2*mx*j  -lcm
+
+//        a = lcmy + (slope * slope * lcmx);
+         a = lcmy + (m * m * lcmx);
+         b = -(2*lcmy*x1) + (2*m*j*lcmx);
+         c = (lcmy*x1*x1) + (lcmx*j*j) - lcm;
+
+
+//        b = -(2 * lcmy * d)
+//                - (2 * slope * lcmy * x1)
+//                - (2 * slope * slope * lcmx * y1);
+
+//        c = (lcmy * d * d)
+//                + (lcmy * slope * slope * x1 * x1)
+//                + (lcmy * 2 * slope * x1 * d)
+//                + (lcmx * slope * slope * y1 * y1)
+//                - (lcm * slope * slope);
     }
 
     rho = umath::rho(a, b, c);
 
     if (rho >= 0)
     {
-        if (l.horizontal())
+        if (l.vertical())
         {
-            x = (-b + std::sqrt(rho)) / (2*a);
+            y = (-b + std::sqrt(rho)) / (2*a);
         }
         else
         {
-            y = (-b + std::sqrt(rho)) / (2*a);
-            x = l.get_x(y);
+            x = (-b + std::sqrt(rho)) / (2*a);
+            y = l.get_y(x);
         }
 
         points.push_back(Point(x, y));
 
         if (rho > 0)
         {
-            if (l.horizontal())
+            if (l.vertical())
             {
-                x = (-b - std::sqrt(rho)) / (2*a);
+                y = (-b - std::sqrt(rho)) / (2*a);
             }
             else
             {
-                y = (-b - std::sqrt(rho)) / (2*a);
-                x = l.get_x(y);
+                x = (-b - std::sqrt(rho)) / (2*a);
+                y = l.get_y(x);
             }
 
             points.push_back(Point(x,y));

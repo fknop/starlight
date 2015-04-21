@@ -1005,6 +1005,8 @@ de nombres trop grands sont mis au carré et multipliés.
 Bien que dans notre cas, nous avons rarement des nombres
 pouvant fournir de tels résultats.
 
+Soit $k = \frac{-c}{a} $ (Valeur de x)
+
 $$ E \equiv (lcmy \cdot (k - x_1)^2) + ((y - y_1)^2 \cdot lcmx) = lcm $$  
 où $lcmy$ est le facteur par lequel il faut multiplier
 $b^2$ (rayon $y$ au carré) pour obtenir $lcm$, \\
@@ -1017,13 +1019,13 @@ $$ E \equiv lcmy \cdot (k - x_1)^2 + lcmx \cdot y^2 + lcmx \cdot
 y_1^2 - 2 \cdot lcmx \cdot y_1 \cdot y - lcm = 0 $$
 
 Avec ceci, il reste plus qu'à résoudre l'équation du second degré 
-avec 
-$$ \rho = b^2 - 4ac$$
-où $$ a = lcmx $$
-$$ b = 2 \cdot lcmx \cdot y1 \cdot y $$
-$$ c = (lcmy \cdot (k-x_1)^2) + (lcmx \cdot y_1^2) - lcm $$
+avec : $$ \rho = b^2 - 4ac$$
 
-
+\begin{description}
+\item où $ a = lcmx $ 
+\item où $ b = 2 \cdot lcmx \cdot y1 \cdot y $
+\item où $ c = (lcmy \cdot (k-x_1)^2) + (lcmx \cdot y_1^2) - lcm $
+\end{description}
 
 Le nombre d'intersections est différent selon la valeur de $\rho$.
 
