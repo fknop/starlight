@@ -36,7 +36,7 @@ ElementView * MapView::selected()
 {
     if (scene_->selectedItems().size() > 0)
     {
-        ElementView *ev = dynamic_cast<ElementView *> (scene_->selectedItems().at(0));
+        ElementView * ev = dynamic_cast<ElementView *> (scene_->selectedItems().at(0));
         return ev;
     }
 
@@ -188,42 +188,42 @@ void MapView::draw_dest()
 
 void MapView::draw_ray(const Ray& ray)
 {
-    RayView* rv = new RayView(ray);
+    RayView * rv = new RayView(ray);
     ray_views_.push_back(rv);
     scene_->addItem(rv);
 }
 
 void MapView::draw_wall(const Wall& wall)
 {
-    WallView* wv = new WallView(wall, selectable_);
+    WallView * wv = new WallView(wall, selectable_);
     wall_views_.push_back(wv);
     scene_->addItem(wv);
 }
 
 void MapView::draw_mirror(const Mirror& mirror)
 {
-    MirrorView* mv = new MirrorView(mirror, true);
+    MirrorView * mv = new MirrorView(mirror, true);
     mirror_views_.push_back(mv);
     scene_->addItem(mv);
 }
 
 void MapView::draw_nuke(const Nuke& nuke)
 {
-    NukeView* nv = new NukeView(nuke, selectable_);
+    NukeView * nv = new NukeView(nuke, selectable_);
     nuke_views_.push_back(nv);
     scene_->addItem(nv);
 }
 
 void MapView::draw_lens(const Lens& lens)
 {
-    LensView* lv = new LensView(lens, selectable_);
+    LensView * lv = new LensView(lens, selectable_);
     lens_views_.push_back(lv);
     scene_->addItem(lv);
 }
 
 void MapView::draw_crystal(const Crystal& crystal)
 {
-    CrystalView* cv = new CrystalView(crystal, selectable_);
+    CrystalView * cv = new CrystalView(crystal, selectable_);
     crystal_views_.push_back(cv);
     scene_->addItem(cv);
 }
@@ -237,11 +237,12 @@ void MapView::mousePressEvent(QMouseEvent * event)
     }
 
     ElementView * ev_selected = this->selected();
+
     if (ev_selected != nullptr)
     {
         if (ev_selected->type_view() == MirrorView::TypeView::MIRRORVIEW)
         {
-            selected_mirror_ = dynamic_cast<MirrorView*> (ev_selected);
+            selected_mirror_ = dynamic_cast<MirrorView *> (ev_selected);
             selected_mirror_->show_zone();
         }
         notify_all(std::string("SELECTED"));
@@ -251,6 +252,7 @@ void MapView::mousePressEvent(QMouseEvent * event)
 void MapView::keyPressEvent(QKeyEvent *event)
 {
     ElementView * i = selected();
+
     if (i != nullptr)
     {
         switch(event->key())
@@ -296,7 +298,7 @@ void MapView::keyPressEvent(QKeyEvent *event)
     }
 }
 
-void MapView::notify(Observable * sdo, std::string msg, const std::vector<std::string> & args)
+void MapView::notify(Observable * sdo, std::string msg, const std::vector<std::string>& args)
 {
     if (msg.compare("RECOMPUTE") == 0)
         draw_rays();
