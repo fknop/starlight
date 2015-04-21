@@ -142,16 +142,17 @@ void Level::get_intersections(const Line& line, const Point& start)
     this->sort_intersections(start);
 }
 
-double Level::get_reflection_angle(double angle, double alpha)
+double Level::get_reflection_angle(double ray_angle, double m_alpha)
 {
-    double p = std::fmod((PI_2 + alpha), (PI));
-    double angle_ray_p = p - (std::fmod(angle, PI));
+//    double p = std::fmod((PI_2 + alpha), (PI));
+//    double angle_ray_p = p - (std::fmod(angle, PI));
 
-    if (umath::angle_equals_pi(angle, alpha))
-        return std::fmod(angle + PI, 2 * PI);
+    if (umath::angle_equals_pi(ray_angle, m_alpha))
+        return std::fmod(ray_angle + PI, 2 * PI);
 
 
-    return std::fmod((angle + PI + (2 * angle_ray_p)), (2 * PI));
+//    return std::fmod((angle + PI + (2 * angle_ray_p)), (2 * PI));
+    return std::fmod(((2*m_alpha) - (ray_angle)), 2*PI);
 }
 
 void Level::dest_intersections(const Line& line,

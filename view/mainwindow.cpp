@@ -42,8 +42,11 @@ void MainWindow::load_level()
 
 void MainWindow::close_level()
 {
-    level_->remove_observer(map_view_);
-    MapReader::end_level();
+    if (level_ != nullptr)
+    {
+        level_->remove_observer(map_view_);
+        MapReader::end_level();
+    }
     centralWidget()->setEnabled(false);
     open_level_action_->setEnabled(true);
     close_level_action_->setEnabled(false);
@@ -113,6 +116,7 @@ void MainWindow::help()
 
 void MainWindow::back_menu()
 {
+    close_level();
     parent_->show();
     close();
 }
