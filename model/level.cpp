@@ -43,12 +43,15 @@ void Level::compute_ray(const Line& line, const Point& start, int wl)
     Element::Type type;
     double angle = line.alpha();
     double new_wl = wl;
-    bool continue_ray;
+    bool continue_ray = false;
 
     get_intersections(line, start);
 
-    type = this->intersections_.at(0).element_->type();
-    new_line_origin = this->intersections_.at(0).point_;
+    if (!intersections_.empty())
+    {
+        type = this->intersections_.at(0).element_->type();
+        new_line_origin = this->intersections_.at(0).point_;
+
 
     switch (type)
     {
@@ -88,6 +91,7 @@ void Level::compute_ray(const Line& line, const Point& start, int wl)
             mirror = dynamic_cast<Mirror *> (this->intersections_.at(0).element_);
             angle = get_reflection_angle(angle, mirror->angle());
             continue_ray = true;
+            std::cout << angle << std::endl;
             break;
         }
 
@@ -109,10 +113,11 @@ void Level::compute_ray(const Line& line, const Point& start, int wl)
         }
     }
 
+
     this->rays_.push_back(Ray(start,
                           *(this->intersections_.at(0).point_),
                           wl));
-
+    }
 
     if (continue_ray)
     {
