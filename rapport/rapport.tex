@@ -838,6 +838,9 @@ peut avoir des problèmes de précision, ce qui fait que l'intersection, bien qu
 prise en compte dans le vecteur d'intersections, ce qui résultera en un vecteur d'intersections vide. Et donc un
 accès au premier élément sur un vecteur vide produira un \texttt{out\_of\_range} quittant l'application.
 
+Pour éviter donc ce crash énoncé ci-dessus, nous avons fait en sorte que le rayon ne continue pas si le vecteur 
+devient vide par erreur.
+
 
 \section{Conclusion}
 
@@ -1040,7 +1043,6 @@ $$ y2 = \frac{(-b - \sqrt{\rho})}{2a} $$
 
 On a donc le(s) $y$ du/des point(s) d'intersection, et le $x$
 vaut $k$ (de l'équation de départ).
-
 
 
 Le cas de la droite non verticale : 
