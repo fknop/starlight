@@ -157,20 +157,14 @@ bool umath::intersects(const Line& l1, const Line& l2, Point& point, bool& is_po
         return true;
     }
 
-    if (l1.parallel(l2)) // deux droites V ou H
+    if (l1.parallel(l2)) // droites parallèles
     {
         // x et y ci dessous ne représentent pas
         // les coordonnées x et y
-
         if (l1.vertical()) // droites verticales
         {
             x = l1.get_x(0);
             y = l2.get_x(0);
-        }
-        else if (l1.horizontal()) // droites horizontales
-        {
-            x = l1.get_y(0);
-            y = l2.get_y(0);
         }
         else // droites parallèles.
         {
@@ -178,18 +172,11 @@ bool umath::intersects(const Line& l1, const Line& l2, Point& point, bool& is_po
             y = -l2.c() / l2.b();
         }
 
-        if (std::abs(x - y) < 0.5) // On avance de 1 en 1
-                                   // une précision d'epsilon
-                                   // n'est pas possible.
-        {
-            is_point = false;
-            return true;
-        }
-        else
-        {
-            is_point = false;
-            return false;
-        }
+        is_point = false;
+        // On avance de 1 en 1
+        // une précision d'epsilon
+        // n'est pas possible.
+        return (std::abs(x - y) < 0.5);
     }
 
     if (l1.vertical() || l2.vertical() || l1.horizontal() || l2.horizontal())
