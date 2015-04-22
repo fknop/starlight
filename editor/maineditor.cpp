@@ -144,7 +144,7 @@ void MainEditor::setup_ui()
 
     horizontal_layout_->addWidget(elements_);
 
-    mapview_ = dynamic_cast<MapView *>(new QWidget());
+    mapview_ = static_cast<MapView *>(new QWidget());
     vertical_layout_2_ = new QVBoxLayout(mapview_);
     vertical_layout_2_->setSpacing(6);
     vertical_layout_2_->setContentsMargins(11, 11, 11, 11);
