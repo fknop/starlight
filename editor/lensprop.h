@@ -11,6 +11,11 @@
 #include "model/lens.h"
 
 
+/**
+ * Modifie la lentille sélectionnée dans l’éditeur.
+ * @param lens la lentille sélectionnée.
+ * @param parent le widget parent.
+ */
 class LensProp : public PropertiesInterface
 {
     Q_OBJECT
@@ -37,7 +42,13 @@ private:
 
     Lens * lens_;
 
+    /**
+     * Applique les changements effectués à l’objet lens qu’il contient.
+     */
     void apply();
+    /**
+     * Modifie les spinbox pour qu’elles prennent les valeurs de la lentille.
+     */
     void reset();
 
 signals:

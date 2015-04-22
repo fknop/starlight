@@ -10,6 +10,12 @@
 
 #include "model/source.h"
 
+
+/**
+ * Modifie la source sélectionnée dans l’éditeur.
+ * @param source la source sélectionnée.
+ * @param parent le widget parent.
+ */
 class SourceProp : public PropertiesInterface
 {
     Q_OBJECT
@@ -33,7 +39,13 @@ private:
 
     Source * source_;
 
+    /**
+     * Applique les changements effectués à l’objet source qu’il contient.
+     */
     void apply();
+    /**
+     * Modifie les spinbox pour qu’elles prennent les valeurs de la source.
+     */
     void reset();
 
 signals:

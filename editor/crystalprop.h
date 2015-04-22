@@ -10,6 +10,11 @@
 
 #include "editor/propertiesinterface.h"
 
+/**
+ * Modifie le cristal sélectionné dans l’éditeur.
+ * @param crystal le cristal sélectionné.
+ * @param parent le widget parent.
+ */
 class CrystalProp : public PropertiesInterface
 {
     Q_OBJECT
@@ -31,7 +36,13 @@ private:
 
     Crystal * crystal_;
 
+    /**
+     * Applique les changements effectués à l’objet crystal qu’il contient.
+     */
     void apply();
+    /**
+     * Modifie les spinbox pour qu’elles prennent les valeurs du cristal.
+     */
     void reset();
 
 signals:

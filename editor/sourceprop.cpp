@@ -1,10 +1,6 @@
 #include "editor/sourceprop.h"
 
-/**
- * Modifie la source sélectionnée dans l’éditeur.
- * @param source la source sélectionnée.
- * @param parent le widget parent.
- */
+
 SourceProp::SourceProp(Source * source, QWidget * parent) : source_{source}
 {
     setupUi();
@@ -81,9 +77,6 @@ void SourceProp::setupUi()
     setLayout(form_layout_);
 }
 
-/**
- * Applique les changements effectués à l’objet source qu’il contient.
- */
 void SourceProp::apply()
 {
     source_->set_pos(Point(x_dsb_->value(), y_dsb_->value()));
@@ -92,9 +85,6 @@ void SourceProp::apply()
     source_->set_wavelength(wavelength_dsb_->value());
 }
 
-/**
- * Modifie les spinbox pour qu’elles prennent les valeurs de la source.
- */
 void SourceProp::reset()
 {
     x_dsb_->setValue(source_->pos().x());

@@ -1,11 +1,7 @@
 #include "editor/mirrorprop.h"
 #include "utils/constants.h"
 
-/**
- * Modifie le miroir sélectionné dans l’éditeur.
- * @param mirror le miroir sélectionné.
- * @param parent le widget parent.
- */
+
 MirrorProp::MirrorProp(Mirror * mirror, QWidget * parent) : mirror_{mirror}
 {
     setupUi();
@@ -151,9 +147,6 @@ void MirrorProp::setupUi()
     setLayout(form_layout_);
 }
 
-/**
- * Applique les changements effectués à l’objet mirror qu’il contient.
- */
 void MirrorProp::apply()
 {
     mirror_->set_pivot(Point(x_dsb_->value(), y_dsb_->value()));
@@ -166,9 +159,6 @@ void MirrorProp::apply()
     mirror_->set_alpha_max(alphamax_dsb_->value());
 }
 
-/**
- * Modifie les spinbox pour qu’elles prennent les valeurs du miroir.
- */
 void MirrorProp::reset()
 {
     x_dsb_->setValue(mirror_->pivot().x());

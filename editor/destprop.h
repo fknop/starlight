@@ -11,6 +11,11 @@
 #include "model/dest.h"
 
 
+/**
+ * Modifie la destination sélectionnée dans l’éditeur.
+ * @param dest la destination sélectionnée.
+ * @param parent le widget parent.
+ */
 class DestProp : public PropertiesInterface
 {
     Q_OBJECT
@@ -30,7 +35,13 @@ private:
 
     Dest * dest_;
 
+    /**
+     * Applique les changements effectués à l’objet dest qu’il contient.
+     */
     void apply();
+    /**
+     * Modifie les spinbox pour qu’elles prennent les valeurs de la destination.
+     */
     void reset();
 signals:
 

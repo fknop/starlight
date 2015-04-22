@@ -1,10 +1,6 @@
 #include "editor/destprop.h"
 
-/**
- * Modifie la destination sélectionnée dans l’éditeur.
- * @param dest la destination sélectionnée.
- * @param parent le widget parent.
- */
+
 DestProp::DestProp(Dest * dest, QWidget * parent) : dest_{dest}
 {
     setupUi();
@@ -59,18 +55,12 @@ void DestProp::setupUi()
     setLayout(form_layout_);
 }
 
-/**
- * Applique les changements effectués à l’objet dest qu’il contient.
- */
 void DestProp::apply()
 {
     dest_->set_pos(Point(x_dsb_->value(), y_dsb_->value()));
     dest_->set_edge(edge_dsb_->value());
 }
 
-/**
- * Modifie les spinbox pour qu’elles prennent les valeurs de la destination.
- */
 void DestProp::reset()
 {
     x_dsb_->setValue(dest_->pos().x());

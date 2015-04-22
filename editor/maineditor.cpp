@@ -19,10 +19,6 @@
 #include "view/sourceview.h"
 
 
-/**
- * Fenêtre principale de l’éditeur.
- * @param parent menu principal de l’application.
- */
 MainEditor::MainEditor(QWidget * parent) : QMainWindow(parent), parent_{parent}, level_{new Level(750, 580)}
 {
     setup_ui();
@@ -302,8 +298,8 @@ void MainEditor::delete_selected()
         }
         case ElementView::TypeView::WALLVIEW:
         {
-
             WallView * wv = dynamic_cast<WallView *> (selected());
+
             if (wv->wall()->movable())
                 level_->remove_wall(*wv->wall());
             else
@@ -316,6 +312,4 @@ void MainEditor::delete_selected()
         }
         mapview_->repaint();
     }
-
-
 }

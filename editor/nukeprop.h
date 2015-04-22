@@ -11,6 +11,11 @@
 #include "model/nuke.h"
 
 
+/**
+ * Modifie la bombe sélectionnée dans l’éditeur.
+ * @param nuke la bombe sélectionnée.
+ * @param parent le widget parent.
+ */
 class NukeProp : public PropertiesInterface
 {
     Q_OBJECT
@@ -30,7 +35,13 @@ private:
 
     Nuke * nuke_;
 
+    /**
+     * Applique les changements effectués à l’objet nuke qu’il contient.
+     */
     void apply();
+    /**
+     * Modifie les spinbox pour qu’elles prennent les valeurs de la bombe.
+     */
     void reset();
 
 signals:

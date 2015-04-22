@@ -10,6 +10,12 @@
 
 #include "model/wall.h"
 
+
+/**
+ * Modifie le mur sélectionné dans l’éditeur.
+ * @param wall le mur sélectionné.
+ * @param parent le widget parent.
+ */
 class WallProp : public PropertiesInterface
 {
     Q_OBJECT
@@ -31,7 +37,13 @@ private:
 
     Wall * wall_;
 
+    /**
+     * Applique les changements effectués à l’objet wall qu’il contient.
+     */
     void apply();
+    /**
+     * Modifie les spinbox pour qu’elles prennent les valeurs du mur.
+     */
     void reset();
 
 signals:

@@ -21,6 +21,11 @@
 #include "view/wallview.h"
 
 
+/**
+ * Contient le widget permettant d’éditer l’élément sélectionné
+ * sur la carte et d’appliquer les changements ou de le supprimer.
+ * @param parent
+ */
 class Properties : public QWidget, public Observable
 {
     Q_OBJECT
@@ -28,7 +33,14 @@ class Properties : public QWidget, public Observable
 public:
     Properties(QWidget * parent = 0);
     void setupUi();
+    /**
+     * Crée un widget permettant de modifier l’élément passé en paramètre.
+     * @param ev l’élément sélectionné du niveau.
+     */
     void set_element_prop(ElementView * ev);
+    /**
+     * Supprime le widget qu’il contient.
+     */
     void delete_prop();
 
 private:
@@ -45,7 +57,13 @@ private:
 signals:
 
 public slots:
+    /**
+     * Applique les changements à l’objet sélectionné.
+     */
     void apply_changes();
+    /**
+     * Prévient tous les observateurs qu’un élément a été supprimé.
+     */
     void delete_element();
 
 };

@@ -19,6 +19,10 @@
 #include "view/mapview.h"
 
 
+/**
+ * Fenêtre principale de l’éditeur.
+ * @param parent menu principal de l’application.
+ */
 class MainEditor : public QMainWindow, public ObserverInterface
 {
     Q_OBJECT
