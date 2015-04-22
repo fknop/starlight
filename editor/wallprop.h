@@ -17,11 +17,7 @@
 class WallProp : public PropertiesInterface
 {
     Q_OBJECT
-public:
-    WallProp(Wall * wall, QWidget * parent = 0);
-    ~WallProp();
 
-private:
     QFormLayout * form_layout_;
     QLabel * x1_label_;
     QDoubleSpinBox * x1_dsb_;
@@ -34,6 +30,11 @@ private:
 
     Wall * wall_;
 
+public:
+    WallProp(Wall * wall, QWidget * parent = 0);
+    ~WallProp();
+
+private:
     void setup_ui();
 
     /**

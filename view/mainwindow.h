@@ -12,11 +12,6 @@ class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
-public:
-    explicit MainWindow(QWidget * parent = 0);
-    ~MainWindow();
-
-private:
     MainWindow * ui_;
     QWidget * parent_;
     QMenuBar * menu_bar_;
@@ -33,6 +28,11 @@ private:
     QAction * quit_action_;
     QAction * help_action_;
 
+public:
+    explicit MainWindow(QWidget * parent = 0);
+    ~MainWindow();
+
+private:
     void setup_ui();
 
 private slots:

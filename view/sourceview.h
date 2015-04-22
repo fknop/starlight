@@ -16,6 +16,10 @@
  */
 class SourceView : public QGraphicsPixmapItem, public ElementView, public ObserverInterface
 {
+    Source * source_;
+    QMediaPlayer * sound_;
+    bool selectable_;
+
 public:
     /**
      * Construit un carré représentant une source lumineuse qui peut être allumée ou éteinte.
@@ -38,10 +42,6 @@ public:
                 const std::vector<std::string>& args = std::vector<std::string>());
 
 private:
-    Source * source_;
-    QMediaPlayer * sound_;
-    bool selectable_;
-
     void set_pos();
     void set_pixmap();
 };

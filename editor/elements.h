@@ -20,18 +20,6 @@
 class Elements : public QWidget, public Observable
 {
     Q_OBJECT
-public:
-    explicit Elements(QWidget * parent = 0);
-    Level * level();
-
-    void set_height(int h);
-    void set_width(int w);
-
-    void enable_pushbuttons(bool b);
-
-private:
-    void setup_ui();
-    void add_connections();
 
     QVBoxLayout * vertical_layout_;
     QGroupBox * group_box_;
@@ -49,6 +37,18 @@ private:
 
     Level * level_;
 
+public:
+    explicit Elements(QWidget * parent = 0);
+    Level * level();
+
+    void set_height(int h);
+    void set_width(int w);
+
+    void enable_pushbuttons(bool b);
+
+private:
+    void setup_ui();
+    void add_connections();
 
 signals:
 

@@ -14,6 +14,9 @@
  */
 class WallView : public QGraphicsLineItem, public ElementView, public ObserverInterface
 {
+    Wall * wall_;
+    bool selectable_;
+
 public:
     /**
      * Construit un segment de droite représentant un mur.
@@ -38,9 +41,6 @@ public:
                 const std::vector<std::string>& args = std::vector<std::string>());
 
 private:
-    Wall * wall_;
-    bool selectable_;
-
     void set_line();
 
 };

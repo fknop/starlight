@@ -17,11 +17,7 @@
 class MirrorProp : public PropertiesInterface
 {
     Q_OBJECT
-public:
-    MirrorProp(Mirror * mirror, QWidget * parent = 0);
-    ~MirrorProp();
 
-private:
     QFormLayout * form_layout_;
     QLabel* x_label_;
     QDoubleSpinBox * x_dsb_;
@@ -48,6 +44,11 @@ private:
 
     Mirror * mirror_;
 
+public:
+    MirrorProp(Mirror * mirror, QWidget * parent = 0);
+    ~MirrorProp();
+
+private:
     void setup_ui();
 
     /**

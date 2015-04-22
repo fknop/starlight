@@ -24,10 +24,7 @@
 class MainEditor : public QMainWindow, public ObserverInterface
 {
     Q_OBJECT
-public:
-    explicit MainEditor(QWidget * parent = 0);
 
-private:
     QWidget * parent_;
     QMenuBar * menu_bar_;
     QMenu * file_menu_;
@@ -48,6 +45,10 @@ private:
 
     Level * level_;
 
+public:
+    explicit MainEditor(QWidget * parent = 0);
+
+private:
     ElementView * selected();
 
     void setup_ui();

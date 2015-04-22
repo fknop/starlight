@@ -24,22 +24,71 @@
  */
 class MapView : public QGraphicsView, public ObserverInterface, public Observable
 {
+    DestinationView * dest_view_ = nullptr;
+    SourceView * source_view_ = nullptr;
+    MirrorView * selected_mirror_;
+    std::vector<RayView *> ray_views_;
+    std::vector<MirrorView *> mirror_views_;
+    std::vector<LensView *> lens_views_;
+    std::vector<CrystalView *> crystal_views_;
+    std::vector<NukeView *> nuke_views_;
+    std::vector<WallView *> wall_views_;
+
+    Level * level_;
+    QGraphicsScene * scene_;
+    QMediaPlayer * sound_;
+    bool selectable_;
+
 public:
     MapView(Level * level_, bool selectable = false);
     MapView();
     ~MapView();
 
+    /**
+     * Dessine les murs du niveau.
+     */
     void draw_walls();
+    /**
+     * Dessine les miroirs du niveau.
+     */
     void draw_mirrors();
+    /**
+     * Dessine les bombes du niveau.
+     */
     void draw_nukes();
+    /**
+     * Dessine les lentilles du niveau.
+     */
     void draw_lenses();
+    /**
+     * Dessine les cristaux du niveau.
+     */
     void draw_crystals();
+    /**
+     * Dessine les rayons du niveau.
+     */
     void draw_rays();
+    /**
+     * Dessine la source du niveau.
+     */
     void draw_source();
+    /**
+     * Dessine la destination du niveau.
+     */
     void draw_dest();
+    /**
+     * Efface tout et redessine le niveau.
+     */
     void repaint();
+    /**
+     * Efface tous les éléments visuels du niveau.
+     */
     void clear();
 
+    /**
+     * @Retourne l’élément sélectionné dans le niveau ou nullptr si aucun objet n’est sélectionné.
+     * @return l’élément sélectionné dans le niveau ou nullptr si aucun objet n’est sélectionné.
+     */
     ElementView * selected();
 
 
@@ -56,21 +105,6 @@ public:
                 const std::vector<std::string>& args = std::vector<std::string>());
 
 private:
-    DestinationView * dest_view_ = nullptr;
-    SourceView * source_view_ = nullptr;
-    MirrorView * selected_mirror_;
-    std::vector<RayView *> ray_views_;
-    std::vector<MirrorView *> mirror_views_;
-    std::vector<LensView *> lens_views_;
-    std::vector<CrystalView *> crystal_views_;
-    std::vector<NukeView *> nuke_views_;
-    std::vector<WallView *> wall_views_;
-
-    Level * level_;
-    QGraphicsScene * scene_;
-    QMediaPlayer * sound_;
-    bool selectable_;
-
     void draw_wall(const Wall & wall);
     void draw_mirror(const Mirror & mirror);
     void draw_nuke(const Nuke & nuke);
