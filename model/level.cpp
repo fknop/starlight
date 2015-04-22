@@ -47,11 +47,8 @@ void Level::compute_ray(const Line& line, const Point& start, int wl)
 
     get_intersections(line, start);
 
-    if (!intersections_.empty())
-    {
-        type = this->intersections_.at(0).element_->type();
-        new_line_origin = this->intersections_.at(0).point_;
-
+    type = this->intersections_.at(0).element_->type();
+    new_line_origin = this->intersections_.at(0).point_;
 
     switch (type)
     {
@@ -112,18 +109,15 @@ void Level::compute_ray(const Line& line, const Point& start, int wl)
         }
     }
 
-
     this->rays_.push_back(Ray(start,
                           *(this->intersections_.at(0).point_),
                           wl));
-    }
 
     if (continue_ray)
     {
         Line newLine(Point(*new_line_origin), angle);
         compute_ray(newLine, *new_line_origin, new_wl);
     }
-
 }
 
 void Level::get_intersections(const Line& line, const Point& start)
