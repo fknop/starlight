@@ -2,13 +2,14 @@
 #define MirrorView_HPP
 
 #include <QGraphicsLineItem>
-#include <QGraphicsView>
-#include <QGraphicsSceneMouseEvent>
 #include <QGraphicsRectItem>
+#include <QGraphicsSceneMouseEvent>
+#include <QGraphicsView>
 
 #include "model/mirror.h"
-#include "obs/observable.h"
+
 #include "obs/observerinterface.h"
+
 #include "view/elementview.h"
 
 /**

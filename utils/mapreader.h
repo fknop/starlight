@@ -12,7 +12,6 @@ class MapReader
 {
 
 private:
-
     static Level * l_;
 
     /*

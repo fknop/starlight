@@ -1,8 +1,9 @@
 #ifndef ELEMENTVIEW_H
 #define ELEMENTVIEW_H
 
-#include <QGraphicsItem>
 #include <QFrame>
+#include <QGraphicsItem>
+
 
 /**
  * Cette classe sert de super-classe

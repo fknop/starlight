@@ -1,14 +1,12 @@
 #ifndef WALLVIEW_HPP
 #define WALLVIEW_HPP
 
-#include <QGraphicsView>
 #include <QGraphicsLineItem>
 #include <QGraphicsSceneMouseEvent>
+#include <QGraphicsView>
 
 #include "model/wall.h"
 #include "view/elementview.h"
-
-#include "obs/observable.h"
 #include "obs/observerinterface.h"
 
 /**

@@ -2,7 +2,6 @@
 #define MAP_HPP
 
 #include <string>
-
 #include <QGraphicsView>
 #include <QMediaPlayer>
 #include <QMouseEvent>
