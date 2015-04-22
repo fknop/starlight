@@ -17,6 +17,8 @@ public:
 
     void displayMainMenu();
 
+    static const std::string STARLIGHT_RULES;
+
 private:
     QGraphicsScene * scene_;
     MainWindow * main_window_;

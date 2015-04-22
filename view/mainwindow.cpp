@@ -113,7 +113,7 @@ void MainWindow::setup_ui()
 
 void MainWindow::help()
 {
-    QMessageBox::information(this, "Help", STARLIGHT_RULES.c_str());
+    QMessageBox::information(this, "Help", MainMenu::STARLIGHT_RULES.c_str());
 }
 
 void MainWindow::back_menu()
