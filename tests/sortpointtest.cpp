@@ -5,7 +5,7 @@
 #include <algorithm>
 #include <vector>
 #include "model/point.h"
-#include "catch.hpp"
+#include "tests/catch.hpp"
 
 TEST_CASE("Sort des points selon la distance avec une lambda")
 {

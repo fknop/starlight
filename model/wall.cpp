@@ -1,4 +1,4 @@
-#include "wall.h"
+#include "model/wall.h"
 
 
 Wall::Wall(const Point& p1, const Point& p2, bool movable) : Element(Element::Type::WALL),

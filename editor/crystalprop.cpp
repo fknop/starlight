@@ -1,4 +1,4 @@
-#include "crystalprop.h"
+#include "editor/crystalprop.h"
 
 /**
  * Modifie le cristal sélectionné dans l’éditeur.

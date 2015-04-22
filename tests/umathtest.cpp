@@ -1,9 +1,8 @@
-#include "test.h"
+#include "tests/test.h"
 #ifdef RUNTEST
 
-#include "catch.hpp"
-
 #include "model/point.h"
+#include "tests/catch.hpp"
 #include "utils/constants.h"
 #include "utils/umath.h"
 

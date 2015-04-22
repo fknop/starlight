@@ -1,8 +1,7 @@
-#include "model/source.h"
-#include "sourceview.h"
-
 #include <QGraphicsPixmapItem>
 
+#include "model/source.h"
+#include "view/sourceview.h"
 
 SourceView::SourceView(const Source& source, bool selectable) :
     ElementView(ElementView::TypeView::SOURCEVIEW), selectable_{selectable}

@@ -1,4 +1,4 @@
-#include "mirrorprop.h"
+#include "editor/mirrorprop.h"
 #include "utils/constants.h"
 
 /**

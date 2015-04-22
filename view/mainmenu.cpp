@@ -4,7 +4,6 @@
 #include <QPalette>
 #include <QPixmap>
 
-
 #include "editor/maineditor.h"
 
 #include "utils/constants.h"

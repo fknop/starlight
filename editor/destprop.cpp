@@ -1,4 +1,4 @@
-#include "destprop.h"
+#include "editor/destprop.h"
 
 /**
  * Modifie la destination sélectionnée dans l’éditeur.

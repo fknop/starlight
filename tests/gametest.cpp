@@ -1,10 +1,9 @@
-#include "test.h"
+#include "tests/test.h"
 #ifdef RUNTEST
 
-#include "catch.hpp"
 #include "model/level.h"
+#include "tests/catch.hpp"
 #include "utils/constants.h"
-
 
 TEST_CASE("Tests du bon fonctionnement des éléments du jeu")
 {

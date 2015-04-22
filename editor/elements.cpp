@@ -1,4 +1,4 @@
-#include "elements.h"
+#include "editor/elements.h"
 
 /**
  * Permet de créer un niveau et d’y ajouter des éléments (miroir, lensille, etc.).

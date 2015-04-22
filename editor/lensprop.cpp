@@ -1,4 +1,4 @@
-#include "lensprop.h"
+#include "editor/lensprop.h"
 
 /**
  * Modifie la lentille sélectionnée dans l’éditeur.

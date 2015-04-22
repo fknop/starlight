@@ -1,5 +1,5 @@
-#include "lens.h"
-#include "ray.h"
+#include "model/lens.h"
+#include "model/ray.h"
 
 
 Lens::Lens(const Point& p, double w, double h, int wl_min, int wl_max) :

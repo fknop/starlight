@@ -3,8 +3,8 @@
 #ifdef RUNTEST
 #define CATCH_CONFIG_MAIN
 
-#include "catch.hpp"
 #include "model/point.h"
+#include "tests/catch.hpp"
 #include "utils/umath.h"
 
 TEST_CASE("Test créations de points")

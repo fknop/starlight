@@ -1,6 +1,6 @@
 #include <cmath>
 
-#include "point.h"
+#include "model/point.h"
 #include "utils/umath.h"
 
 

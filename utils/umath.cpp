@@ -1,14 +1,15 @@
-#include <cmath>
 #include <algorithm>
+#include <cmath>
 
+#include "model/ellipse.h"
 #include "model/line.h"
 #include "model/linesegment.h"
 #include "model/point.h"
-#include "model/ellipse.h"
 #include "model/rectangle.h"
 
-#include "utils/umath.h"
 #include "utils/constants.h"
+#include "utils/umath.h"
+
 
 double umath::dgcd(double a, double b)
 {

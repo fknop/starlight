@@ -1,16 +1,18 @@
+#include <QCoreApplication>
 #include <QFileDialog>
-
+#include <QMessageBox>
 #include <QtWidgets/QAction>
 #include <QtWidgets/QMenuBar>
-#include <QCoreApplication>
-#include <QMessageBox>
 
-#include "mainmenu.h"
-#include "mainwindow.h"
-#include "utils/mapreader.h"
-#include "mapview.h"
-#include "utils/constants.h"
 #include "model/level.h"
+
+#include "utils/constants.h"
+#include "utils/mapreader.h"
+
+#include "view/mainmenu.h"
+#include "view/mainwindow.h"
+#include "view/mapview.h"
+
 
 
 MainWindow::MainWindow(QWidget * parent) : QMainWindow(parent), parent_{parent}
