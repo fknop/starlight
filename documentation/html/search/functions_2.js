@@ -7,6 +7,8 @@ var searchData=
   ['check_5fpivot_5frange',['check_pivot_range',['../de/dfd/classMirror.html#a06a94bd486bbd4e5ed9856c0d7fb5383',1,'Mirror']]],
   ['compute_5frays',['compute_rays',['../d2/d9d/classLevel.html#a731133a250f6ee38179716b3c7492636',1,'Level']]],
   ['contains',['contains',['../d1/d48/classLineSegment.html#a372c33eaea8eabc2e0a3e4f909f986dd',1,'LineSegment']]],
+  ['create_5flevel',['create_level',['../d3/d48/classElements.html#ad4bfaa4ea43fffd8653224165b5bbc29',1,'Elements']]],
   ['crystal',['Crystal',['../d6/d4f/classCrystal.html#a21597991198db73fdfe051ae1a4fec68',1,'Crystal::Crystal(const Point &amp;p, double r, int m)'],['../d6/d4f/classCrystal.html#abcff7d0100d1f2baa0b6d993618f6a3d',1,'Crystal::Crystal(const Crystal &amp;crystal)']]],
+  ['crystalprop',['CrystalProp',['../d5/d35/classCrystalProp.html#a47068eadccacdada66efdec58235ce94',1,'CrystalProp']]],
   ['crystals',['crystals',['../d2/d9d/classLevel.html#a5371b5d3d021f9b9cbb3ba4701746ae2',1,'Level']]]
 ];

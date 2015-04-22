@@ -19,13 +19,15 @@ class WallView : public QGraphicsLineItem, public ElementView, public ObserverIn
 public:
     /**
      * Construit un segment de droite représentant un mur.
-     * @param x1 abscisse de la première extrémité du mur.
-     * @param y1 ordonnée da la première extrémité du mur.
-     * @param x2 abscisse de l’autre extrémité du mur.
-     * @param y2 ordonnée de l’autre extrémité du mur.
+     * @param wall le mur à construire.
+     * @param selectable le mur est-il sélectionnable ?
      */
     WallView(const Wall & wall, bool selectable = false);
 
+    /**
+     * Retourne le mur représenté.
+     * @return le mur représenté.
+     */
     inline Wall * wall();
 
     inline bool selectable() const;

@@ -89,6 +89,11 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
 <div class="title">Référence de la classe Properties</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Contient le widget permettant d’éditer l’élément sélectionné sur la carte et d’appliquer les changements ou de le supprimer.  
+ <a href="../../d0/deb/classProperties.html#details">Plus de détails...</a></p>
+
+<p><code>#include &lt;<a class="el" href="../../d8/dbb/properties_8h_source.html">properties.h</a>&gt;</code></p>
 <div class="dynheader">
 Graphe d'héritage de Properties:</div>
 <div class="dyncontent">
@@ -107,10 +112,12 @@ Graphe de collaboration de Properties:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-slots"></a>
 Connecteurs publics</h2></td></tr>
 <tr class="memitem:aa8e9e5c83983a60486d963d2e5b97bf9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa8e9e5c83983a60486d963d2e5b97bf9"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>apply_changes</b> ()</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/deb/classProperties.html#aa8e9e5c83983a60486d963d2e5b97bf9">apply_changes</a> ()</td></tr>
+<tr class="memdesc:aa8e9e5c83983a60486d963d2e5b97bf9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applique les changements à l’objet sélectionné. <br /></td></tr>
 <tr class="separator:aa8e9e5c83983a60486d963d2e5b97bf9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acb83b3e38f6bbe0cd57d0cf123460253"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acb83b3e38f6bbe0cd57d0cf123460253"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>delete_element</b> ()</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/deb/classProperties.html#acb83b3e38f6bbe0cd57d0cf123460253">delete_element</a> ()</td></tr>
+<tr class="memdesc:acb83b3e38f6bbe0cd57d0cf123460253"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prévient tous les observateurs qu’un élément a été supprimé. <br /></td></tr>
 <tr class="separator:acb83b3e38f6bbe0cd57d0cf123460253"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -121,11 +128,12 @@ Fonctions membres publiques</h2></td></tr>
 <tr class="memitem:a357903294eec6fb6a410c3d54b228f74"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a357903294eec6fb6a410c3d54b228f74"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setupUi</b> ()</td></tr>
 <tr class="separator:a357903294eec6fb6a410c3d54b228f74"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a035f6ed307968ff3e06e53342c0b3843"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a035f6ed307968ff3e06e53342c0b3843"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>set_element_prop</b> (<a class="el" href="../../d2/d81/classElementView.html">ElementView</a> *ev)</td></tr>
+<tr class="memitem:a035f6ed307968ff3e06e53342c0b3843"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/deb/classProperties.html#a035f6ed307968ff3e06e53342c0b3843">set_element_prop</a> (<a class="el" href="../../d2/d81/classElementView.html">ElementView</a> *ev)</td></tr>
+<tr class="memdesc:a035f6ed307968ff3e06e53342c0b3843"><td class="mdescLeft">&#160;</td><td class="mdescRight">Crée un widget permettant de modifier l’élément passé en paramètre.  <a href="#a035f6ed307968ff3e06e53342c0b3843">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a035f6ed307968ff3e06e53342c0b3843"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:affc1d43c4a1894c71f7970b9fb58a9db"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="affc1d43c4a1894c71f7970b9fb58a9db"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>delete_prop</b> ()</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/deb/classProperties.html#affc1d43c4a1894c71f7970b9fb58a9db">delete_prop</a> ()</td></tr>
+<tr class="memdesc:affc1d43c4a1894c71f7970b9fb58a9db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Supprime le widget qu’il contient. <br /></td></tr>
 <tr class="separator:affc1d43c4a1894c71f7970b9fb58a9db"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classObservable"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classObservable')"><img src="../../closed.png" alt="-"/>&#160;Fonctions membres publiques hérités de <a class="el" href="../../d9/db4/classObservable.html">Observable</a></td></tr>
 <tr class="memitem:a058acb5a674eba2b96648c66a27440d8 inherit pub_methods_classObservable"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a058acb5a674eba2b96648c66a27440d8"></a>
@@ -156,6 +164,39 @@ std::set&lt; <a class="el" href="../../dd/d62/classObserverInterface.html">Obser
 <tr class="memdesc:aadd5f7cdec9b55bfb230771dfb77a7f3 inherit pro_attribs_classObservable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Les observateurs enregistrés. <br /></td></tr>
 <tr class="separator:aadd5f7cdec9b55bfb230771dfb77a7f3 inherit pro_attribs_classObservable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Contient le widget permettant d’éditer l’élément sélectionné sur la carte et d’appliquer les changements ou de le supprimer. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parent</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+</div><h2 class="groupheader">Documentation des fonctions membres</h2>
+<a class="anchor" id="a035f6ed307968ff3e06e53342c0b3843"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Properties::set_element_prop </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d2/d81/classElementView.html">ElementView</a> *&#160;</td>
+          <td class="paramname"><em>ev</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Crée un widget permettant de modifier l’élément passé en paramètre. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ev</td><td>l’élément sélectionné du niveau. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>La documentation de cette classe a été générée à partir des fichiers suivants :<ul>
 <li>editor/<a class="el" href="../../d8/dbb/properties_8h_source.html">properties.h</a></li>
 <li>editor/properties.cpp</li>
@@ -163,7 +204,7 @@ std::set&lt; <a class="el" href="../../dd/d62/classObserverInterface.html">Obser
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Généré le Samedi 18 Avril 2015 19:08:45 pour Starlight par &#160;<a href="http://www.doxygen.org/index.html">
+Généré le Mercredi 22 Avril 2015 19:57:04 pour Starlight par &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.7
 </small></address>

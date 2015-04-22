@@ -29,6 +29,8 @@ double \hyperlink{classLine_afe0a0abb45c0adccaedfaded8645600f}{alpha} () const
 \begin{DoxyCompactList}\small\item\em Retourne l'angle produit par la pente de la droite. \end{DoxyCompactList}\item 
 double \hyperlink{classLine_a582597e85fc78ba06ccdddf6c270ed71}{slope} () const 
 \begin{DoxyCompactList}\small\item\em Retourne la pente de la droite. \end{DoxyCompactList}\item 
+double \hyperlink{classLine_a786bca726aa14177ebedbfeddc4bb8e5}{inde\+\_\+param} () const 
+\begin{DoxyCompactList}\small\item\em Retourne l'ordonnée à l'origine. \end{DoxyCompactList}\item 
 double \hyperlink{classLine_a53605544b400dda2164802a374f25b92}{get\+\_\+x} (const double y) const 
 \begin{DoxyCompactList}\small\item\em Retourne le x d'un y donné. \end{DoxyCompactList}\item 
 double \hyperlink{classLine_abe48fc1d77385ea5a80dc0a314127cff}{get\+\_\+y} (const double x) const 
@@ -212,6 +214,20 @@ Retourne vrai si la droite est horizontale.
 \begin{DoxyReturn}{Renvoie}
 vrai si la droite est horizontale, faux sinon. 
 \end{DoxyReturn}
+\hypertarget{classLine_a786bca726aa14177ebedbfeddc4bb8e5}{\index{Line@{Line}!inde\+\_\+param@{inde\+\_\+param}}
+\index{inde\+\_\+param@{inde\+\_\+param}!Line@{Line}}
+\subsubsection[{inde\+\_\+param}]{\setlength{\rightskip}{0pt plus 5cm}double Line\+::inde\+\_\+param (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classLine_a786bca726aa14177ebedbfeddc4bb8e5}
+
+
+Retourne l'ordonnée à l'origine. 
+
+Retourne I\+N\+F si la droite est verticale. \begin{DoxyReturn}{Renvoie}
+l'ordonnée à l'origine. 
+\end{DoxyReturn}
 \hypertarget{classLine_a80ee8a6411242e1c29d57c4f5adf4bfb}{\index{Line@{Line}!operator==@{operator==}}
 \index{operator==@{operator==}!Line@{Line}}
 \subsubsection[{operator==}]{\setlength{\rightskip}{0pt plus 5cm}bool Line\+::operator== (
@@ -265,7 +281,7 @@ vrai si une droite est perpendiculaire à la droite, faux sinon.
 
 Retourne la pente de la droite. 
 
-\begin{DoxyReturn}{Renvoie}
+Retourne I\+N\+F si la droite est verticale. \begin{DoxyReturn}{Renvoie}
 la pente de la droite. 
 \end{DoxyReturn}
 \hypertarget{classLine_a8774606646298fb27a6e158af5e84590}{\index{Line@{Line}!vertical@{vertical}}

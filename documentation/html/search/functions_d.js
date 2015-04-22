@@ -10,5 +10,6 @@ var searchData=
   ['remove_5fnuke',['remove_nuke',['../d2/d9d/classLevel.html#ab88f940133cdc4c052ef48b36269e069',1,'Level']]],
   ['remove_5fobserver',['remove_observer',['../d9/db4/classObservable.html#a79bdffc61fbea9b16d00d5bc6a2289ad',1,'Observable']]],
   ['remove_5fwall',['remove_wall',['../d2/d9d/classLevel.html#a0ee86d08a44f0dfca782e7203f830fd1',1,'Level']]],
+  ['reset_5flevel',['reset_level',['../d3/d48/classElements.html#a938cdaf6c97d1c9e5db80280b6379176',1,'Elements']]],
   ['rotate',['rotate',['../d1/d48/classLineSegment.html#adf66b05ee5a1b034d8172848f9425943',1,'LineSegment::rotate()'],['../de/dfd/classMirror.html#acd55e5dae638546039a72fc3191c192c',1,'Mirror::rotate()'],['../d7/dec/classWall.html#ab9ae9b0409c9b88c0d4b156c4e5ee5f5',1,'Wall::rotate()']]]
 ];
