@@ -18,7 +18,7 @@ public:
      * @param level le niveau.
      * @param path le chemin et nom du fichier à écrire.
      */
-    static void write(const Level * level, std::string path);
+    static void write(const Level * level, const std::string& path);
 };
 
 #endif // MAPWRITER_H

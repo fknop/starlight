@@ -1,8 +1,9 @@
 #ifndef MAINMENU_H
 #define MAINMENU_H
 
-#include <QGraphicsView>
 #include <QGraphicsScene>
+#include <QGraphicsView>
+
 
 class MainWindow;
 

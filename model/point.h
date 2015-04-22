@@ -3,8 +3,6 @@
 
 #include <iostream>
 
-class PolarPoint;
-
 /**
  * Cette classe modélise un simple point de coordonnées réelles
  * utilisés pour modéliser les positions des objets dans le jeu.

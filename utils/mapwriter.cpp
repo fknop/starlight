@@ -4,7 +4,7 @@
 #include "utils/mapwriter.h"
 
 
-void MapWriter::write(const Level* level, std::string path)
+void MapWriter::write(const Level* level, const std::string& path)
 {
     std::ofstream level_writer(path);
 

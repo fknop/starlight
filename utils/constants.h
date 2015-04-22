@@ -1,9 +1,6 @@
 #ifndef CONSTANTS_H
 #define CONSTANTS_H
 
-#include <string>
-
-
 const double INF {1./0.};
 
 constexpr double EPSILON {0.00001};

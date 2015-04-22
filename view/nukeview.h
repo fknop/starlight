@@ -1,11 +1,10 @@
 #ifndef NUKESVIEW_H
 #define NUKESVIEW_H
 
-#include <QGraphicsView>
 #include <QGraphicsEllipseItem>
+#include <QGraphicsView>
 
 #include "model/nuke.h"
-#include "obs/observable.h"
 #include "obs/observerinterface.h"
 #include "view/elementview.h"
 

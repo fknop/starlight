@@ -2,8 +2,8 @@
 #define __OBSERVABLE__H__
 
 #include <set>
-#include <vector>
 #include <string>
+#include <vector>
 
 class ObserverInterface;
 

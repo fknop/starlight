@@ -9,7 +9,6 @@
 #include <QPushButton>
 #include <QWidget>
 
-
 #include "model/level.h"
 
 #include "obs/observable.h"

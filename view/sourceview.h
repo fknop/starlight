@@ -1,16 +1,14 @@
 #ifndef SOURCEVIEW_H
 #define SOURCEVIEW_H
 
-#include <QGraphicsView>
+
 #include <QGraphicsPixmapItem>
 #include <QGraphicsSceneMouseEvent>
+#include <QGraphicsView>
 #include <QMediaPlayer>
 
 #include "model/source.h"
-
-#include "obs/observable.h"
 #include "obs/observerinterface.h"
-
 #include "view/elementview.h"
 
 /**

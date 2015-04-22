@@ -1,9 +1,8 @@
-
 #ifndef __OBSERVER__H__
 #define __OBSERVER__H__
 
-#include <vector>
 #include <string>
+#include <vector>
 
 class Observable;
 
