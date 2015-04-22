@@ -7,7 +7,6 @@
 #include "model/linesegment.h"
 #include "model/point.h"
 
-#include "obs/observable.h"
 
 /**
  * Cette classe modélise les murs utilisés dans le jeu.

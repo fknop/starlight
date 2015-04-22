@@ -7,8 +7,6 @@
 #include "model/ellipse.h"
 #include "model/point.h"
 
-#include "obs/observable.h"
-
 /**
  * Cette classe modélise les lentilles utilisées dans le jeu.
  * </p>

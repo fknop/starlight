@@ -7,7 +7,6 @@
 #include "model/point.h"
 #include "model/rectangle.h"
 
-#include "obs/observable.h"
 
 /**
  * Modélise la source lumineuse utilisée dans le jeu.

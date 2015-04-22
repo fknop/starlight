@@ -7,8 +7,6 @@
 #include "model/linesegment.h"
 #include "model/point.h"
 
-#include "obs/observable.h"
-
 /**
  * Cette classe modélise les miroirs utilisés dans le jeu.
  * </p>

@@ -7,7 +7,6 @@
 #include "model/point.h"
 #include "model/rectangle.h"
 
-#include "obs/observable.h"
 
 /**
  * Cette classe modélise la destination utilisée dans le jeu.

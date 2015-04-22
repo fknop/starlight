@@ -7,8 +7,6 @@
 #include "model/ellipse.h"
 #include "model/point.h"
 
-#include "obs/observable.h"
-
 /**
  * Cette classe modélise les cristaux utilisés dans le jeu.
  * </p>
