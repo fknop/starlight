@@ -76,6 +76,14 @@ namespace umath
     bool angle_equals_pi(double a, double b);
 
     /**
+     * Transforme alpha en angle dans l'intervalle [0,2PI]
+     * et le transforme en positif si négatif, puis le retourne.
+     * @param alpha l'angle à transformer.
+     * @return l'angle un angle positif dans l'intervalle [0,2PI].
+     */
+    double to_positive_angle(double alpha);
+
+    /**
      * Retourne l'angle en degrés d'un angle
      * donné en radians.
      * @param rad l'angle en radians.
@@ -123,14 +131,14 @@ namespace umath
     double deg_to_rad(double degrees);
 
     /**
-     * Retourne vrai si un point p se trouve du bon côté du point
-     * ref selon l'angle de la droite l.
+     * Retourne vrai si un point p se trouve sur la trajectoire de la droite l
+     * selon l'angle de la droite à partir du point start.
      * @param l la droite.
      * @param start le point de référence sur la droite.
      * @param p le point à vérifier.
      * @return vrai si le point p se trouve du bon côté du point ref, faux sinon.
      */
-    bool is_on_good_side(const Line& l, const Point& start, const Point& p);
+    bool is_on_trajectory(const Line& l, const Point& start, const Point& p);
 
     /**
      * Retourne vrai si la droite possède une intersection
@@ -143,7 +151,8 @@ namespace umath
      * @param is_point vrai si l'intersection est un point, faux sinon.
      * @return vrai si les droites possèdent une intersection.
      */
-    bool intersects(const Line& l1, const Line& l2, Point& point, bool& is_point);
+    bool intersects(const Line& l1, const Line& l2,
+                    Point& point, bool& is_point);
 
     /**
      * Retourne vrai si la droite possède une intersection
@@ -154,62 +163,64 @@ namespace umath
      * @param intersecion le point d'intersection.
      * @return vrai si la droite et le segment possède une intersection.
      */
-      bool intersects(const Line& line, const LineSegment& ls, Point& point, LineSegment& segment, bool& is_point);
+    bool intersects(const Line& line, const LineSegment& ls,
+                    Point& point, LineSegment& segment, bool& is_point);
 
-      /**
-       * Retourne vrai si deux segments possèdent une intersection.
-       * Si l'intersection est un point, is_point est mi à vrai et
-       * point vaut la valeur du point d'intersection, sinon
-       * is_point est faux, result vaut le segment d'intersection entre
-       * les deux segments et point possède une valeur indéterminée.
-       * @param ls1 le premier segment.
-       * @param ls2 le deuxième segment.
-       * @param point le point d'intersection.
-       * @param result le segment d'intersection
-       * @param is_point vrai si l'intersection est un point, faux sinon.
-       * @return vrai si les deux segments possèdent une intersection, faux sinon.
-       */
-      bool intersects(const LineSegment& ls1, const LineSegment& ls2, Point& point, LineSegment& segment, bool& is_point);
+   /**
+    * Retourne vrai si deux segments possèdent une intersection.
+    * Si l'intersection est un point, is_point est mi à vrai et
+    * point vaut la valeur du point d'intersection, sinon
+    * is_point est faux, result vaut le segment d'intersection entre
+    * les deux segments et point possède une valeur indéterminée.
+    * @param ls1 le premier segment.
+    * @param ls2 le deuxième segment.
+    * @param point le point d'intersection.
+    * @param result le segment d'intersection
+    * @param is_point vrai si l'intersection est un point, faux sinon.
+    * @return vrai si les deux segments possèdent une intersection, faux sinon.
+    */
+    bool intersects(const LineSegment& ls1, const LineSegment& ls2,
+                    Point& point, LineSegment& segment, bool& is_point);
 
-    /**
-     * Vérifie si une droite possède une ou des intersections
-     * avec l'ellipse.
-     * @param ellipse l'ellipse
-     * @param l la droite.
-     * @param points un vecteur de points d'intersections.
-     * @return le nombre d'intersections entre l'ellipse et la droite.
-     */
+   /**
+    * Vérifie si une droite possède une ou des intersections
+    * avec l'ellipse.
+    * @param ellipse l'ellipse
+    * @param l la droite.
+    * @param points un vecteur de points d'intersections.
+    * @return le nombre d'intersections entre l'ellipse et la droite.
+    */
     int intersects(const Ellipse& ellipse, const Line& line,
                    std::vector<Point>& points);
 
-    /**
-     * Vérifie si un segment de droite possède une ou des
-     * intersections avec l'ellipse.
-     * @param ellipse l'ellipse.
-     * @param l le segment de droite.
-     * @param points un vecteur de points d'intersections.
-     * @return le nombre d'intersections entre l'ellipse et la droite.
-     */
+   /**
+    * Vérifie si un segment de droite possède une ou des
+    * intersections avec l'ellipse.
+    * @param ellipse l'ellipse.
+    * @param l le segment de droite.
+    * @param points un vecteur de points d'intersections.
+    * @return le nombre d'intersections entre l'ellipse et la droite.
+    */
     int intersects(const Ellipse& ellipse, const LineSegment& ls,
                    std::vector<Point>& points);
 
-    /**
-     * Vérifie si une droite coupe un rectangle.
-     * @param rec le rectangle.
-     * @param line la droite.
-     * @param points le vecteur de points d'intersections trouvés.
-     * @return le nombre d'intersections.
-     */
+   /**
+    * Vérifie si une droite coupe un rectangle.
+    * @param rec le rectangle.
+    * @param line la droite.
+    * @param points le vecteur de points d'intersections trouvés.
+    * @return le nombre d'intersections.
+    */
     int intersects(const Rectangle& rec, const Line& line,
                    std::vector<Point>& points);
 
-    /**
-     * Vérifie si un segment de droite coupe un rectangle.
-     * @param rec le rectangle.
-     * @param ls le segment de droite.
-     * @param points le vecteur de points d'intersections trouvés.
-     * @return le nombre d'intersections.
-     */
+   /**
+    * Vérifie si un segment de droite coupe un rectangle.
+    * @param rec le rectangle.
+    * @param ls le segment de droite.
+    * @param points le vecteur de points d'intersections trouvés.
+    * @return le nombre d'intersections.
+    */
     int intersects(const Rectangle& rec, const LineSegment& ls,
                    std::vector<Point>& points);
 

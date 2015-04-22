@@ -36,17 +36,12 @@ bool umath::equals(double a, double b)
 bool umath::equals_inf(double a)
 {
     return (a == INF || a == -INF);
-
 }
 
 bool umath::angle_equals(double a, double b)
 {
-    a = std::fmod(a, 2*PI);
-    b = std::fmod(b, 2*PI);
-    if (a < 0)
-        a = (2*PI) + a;
-    if (b < 0)
-        b = (2*PI) + b;
+    a = to_positive_angle(a);
+    b = to_positive_angle(b);
 
     return umath::equals(a, b);
 }
@@ -60,15 +55,17 @@ bool umath::angle_equals_pi(double a, double b)
     if (b < 0)
         b = b + PI;
 
-    // Pour la précision...
-    if (a > 3.14 && a < PI)
-        a = 0;
-    if (b > 3.14 && b < PI)
-        b = 0;
-
     return umath::equals(a, b);
 }
 
+double umath::to_positive_angle(double alpha)
+{
+    alpha = std::fmod(alpha, 2*PI);
+    if (alpha < 0)
+        alpha = (2*PI) + alpha;
+
+    return alpha;
+}
 
 double umath::rad_to_deg(double rad)
 {
@@ -101,7 +98,7 @@ double umath::rad_to_slope(double rad)
     return -tan(rad);
 }
 
-bool umath::is_on_good_side(const Line& l, const Point& start, const Point& p)
+bool umath::is_on_trajectory(const Line& l, const Point& start, const Point& p)
 {
     if (p == start)
         return false;
@@ -284,9 +281,10 @@ int umath::intersects(const Ellipse& e, const Line& l,
         c = (lcmy*x1*x1) + (lcmx*j*j) - lcm;
     }
 
+    // Calcul de rho
     rho = umath::rho(a, b, c);
 
-    if (rho >= 0)
+    if (rho >= 0) // Une ou deux interesctions
     {
         if (l.vertical())
         {
@@ -300,7 +298,7 @@ int umath::intersects(const Ellipse& e, const Line& l,
 
         points.push_back(Point(x, y));
 
-        if (rho > 0)
+        if (rho > 0) // Deux intersections
         {
             if (l.vertical())
             {
@@ -316,7 +314,7 @@ int umath::intersects(const Ellipse& e, const Line& l,
         }
     }
 
-    return points.size();
+    return points.size(); // Retour du nombre d'intersections
 }
 
 int umath::intersects(const Ellipse& e, const LineSegment& ls,
@@ -338,7 +336,7 @@ int umath::intersects(const Ellipse& e, const LineSegment& ls,
 int umath::intersects(const Rectangle& r, const Line& line,
                std::vector<Point>& points)
 {
-    /* On crée les 3 coins manquants du rectangle */
+    // Création des 3 coins manquants du rectangle
     Point bottomLeft(r.upper_left().x(),
                      r.upper_left().y() + r.height());
 
@@ -348,7 +346,7 @@ int umath::intersects(const Rectangle& r, const Line& line,
     Point bottomRight(r.upper_left().x() + r.width(),
                       r.upper_left().y() + r.height());
 
-    /* On push les 4 côtés du rectangle dans un vecteur */
+    // Push des 4 côtés du rectangle dans un vecteur
     std::vector<LineSegment> segments
     {
             LineSegment(r.upper_left(), upperRight),
@@ -357,9 +355,9 @@ int umath::intersects(const Rectangle& r, const Line& line,
             LineSegment(upperRight, bottomRight)
     };
 
-    /* Pour chaque côté, s’il existe une intersection
-     * on la push dans le vecteur de points, à moins que
-     * l’intersection soit déjà présente */
+    // Pour chaque côté, s’il existe une intersection
+    // on la push dans le vecteur de points, à moins que
+    // l’intersection soit déjà présente
     Point p;
     LineSegment ls;
     bool is_point;
@@ -367,8 +365,6 @@ int umath::intersects(const Rectangle& r, const Line& line,
         if (intersects(line, i, p, ls, is_point) && is_point &&
                  std::find(points.begin(), points.end(), p) == points.end())
             points.push_back(Point(p));
-
-
     }
 
     return points.size();
@@ -379,9 +375,8 @@ int umath::intersects(const Rectangle& r, const LineSegment& ls,
 {
     intersects(r, ls.to_line(), points);
 
-    /* Enlève chaque point du vecteur qui n’est pas
-     * sur le segment. */
-
+    // Enlève chaque point du vecteur qui n’est pas
+    // sur le segment
     for (auto i = points.begin(); i != points.end(); )
     {
         if (ls.contains(*i))
