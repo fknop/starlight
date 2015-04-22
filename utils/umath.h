@@ -126,11 +126,11 @@ namespace umath
      * Retourne vrai si un point p se trouve du bon côté du point
      * ref selon l'angle de la droite l.
      * @param l la droite.
-     * @param ref le point de référence sur la droite.
+     * @param start le point de référence sur la droite.
      * @param p le point à vérifier.
      * @return vrai si le point p se trouve du bon côté du point ref, faux sinon.
      */
-    bool is_on_good_side(const Line& l, const Point& ref, const Point& p);
+    bool is_on_good_side(const Line& l, const Point& start, const Point& p);
 
     /**
      * Retourne vrai si la droite possède une intersection

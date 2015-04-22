@@ -112,7 +112,7 @@ bool umath::is_on_good_side(const Line& l, const Point& start, const Point& p)
     double x = start.x() + (distance * std::cos(-alpha));
     double y = start.y() + (distance * std::sin(-alpha));
 
-    return std::abs(x - p.x()) < 1 && std::abs(y - p.y()) < 1;
+    return std::abs(x - p.x()) < 0.5 && std::abs(y - p.y()) < 0.5;
 }
 
 bool umath::intersects(const Line& l1, const Line& l2, Point& point, bool& is_point)
