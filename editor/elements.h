@@ -17,7 +17,6 @@
 
 /**
  * Permet de créer un niveau et d’y ajouter des éléments (miroir, lensille, etc.).
- * @param parent le widget parent, la fenêtre principale de l’éditeur en l’occurrence.
  */
 class Elements : public QWidget, public Observable
 {
