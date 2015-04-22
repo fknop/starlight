@@ -1,8 +1,9 @@
 #ifndef LINESEGMENT_H
 #define LINESEGMENT_H
 
-#include "model/point.h"
 #include "model/line.h"
+#include "model/point.h"
+
 
 /**
  * Modélise un segment de droite
