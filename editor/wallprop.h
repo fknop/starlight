@@ -40,11 +40,11 @@ private:
     /**
      * Applique les changements effectués à l’objet wall qu’il contient.
      */
-    void apply();
+    void apply() override;
     /**
      * Modifie les spinbox pour qu’elles prennent les valeurs du mur.
      */
-    void reset();
+    void reset() override;
 
 signals:
 

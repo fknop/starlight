@@ -37,11 +37,11 @@ private:
     /**
      * Applique les changements effectués à l’objet dest qu’il contient.
      */
-    void apply();
+    void apply() override;
     /**
      * Modifie les spinbox pour qu’elles prennent les valeurs de la destination.
      */
-    void reset();
+    void reset() override;
 signals:
 
 public slots:

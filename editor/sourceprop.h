@@ -42,11 +42,11 @@ private:
     /**
      * Applique les changements effectués à l’objet source qu’il contient.
      */
-    void apply();
+    void apply() override;
     /**
      * Modifie les spinbox pour qu’elles prennent les valeurs de la source.
      */
-    void reset();
+    void reset() override;
 
 signals:
 

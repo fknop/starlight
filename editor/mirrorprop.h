@@ -54,11 +54,11 @@ private:
     /**
      * Applique les changements effectués à l’objet mirror qu’il contient.
      */
-    void apply();
+    void apply() override;
     /**
      * Modifie les spinbox pour qu’elles prennent les valeurs du miroir.
      */
-    void reset();
+    void reset() override;
 
 signals:
 

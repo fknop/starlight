@@ -38,11 +38,11 @@ private:
     /**
      * Applique les changements effectués à l’objet nuke qu’il contient.
      */
-    void apply();
+    void apply() override;
     /**
      * Modifie les spinbox pour qu’elles prennent les valeurs de la bombe.
      */
-    void reset();
+    void reset() override;
 
 signals:
 

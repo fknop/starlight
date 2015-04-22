@@ -45,11 +45,11 @@ private:
     /**
      * Applique les changements effectués à l’objet lens qu’il contient.
      */
-    void apply();
+    void apply() override;
     /**
      * Modifie les spinbox pour qu’elles prennent les valeurs de la lentille.
      */
-    void reset();
+    void reset() override;
 
 signals:
 

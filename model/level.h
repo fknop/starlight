@@ -330,7 +330,7 @@ public:
      */
     void notify(Observable * o,
                 const std::string& msg,
-                const std::vector<std::string>& args = std::vector<std::string>());
+                const std::vector<std::string>& args = std::vector<std::string>()) override;
 
 private:
 

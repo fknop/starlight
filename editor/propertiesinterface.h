@@ -18,7 +18,7 @@ public:
     virtual void reset() = 0;
 
     virtual void notify(Observable * o, const std::string& msg,
-                        const std::vector<std::string>& args)
+                        const std::vector<std::string>& args) override
     {
         reset();
     }

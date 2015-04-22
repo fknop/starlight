@@ -41,11 +41,11 @@ private:
     /**
      * Applique les changements effectués à l’objet crystal qu’il contient.
      */
-    void apply();
+    void apply() override;
     /**
      * Modifie les spinbox pour qu’elles prennent les valeurs du cristal.
      */
-    void reset();
+    void reset() override;
 
 signals:
 
