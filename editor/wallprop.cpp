@@ -1,4 +1,4 @@
-#include "wallprop.h"
+#include "editor/wallprop.h"
 
 /**
  * Modifie le mur sélectionné dans l’éditeur.
