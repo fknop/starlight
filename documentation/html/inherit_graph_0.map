@@ -27,7 +27,7 @@
 <area shape="rect" id="node24" href="$dd/d8c/classLensProp.html" title="Modifie la lentille sélectionnée dans l’éditeur. " alt="" coords="513,461,591,488"/>
 <area shape="rect" id="node25" href="$d0/d2f/classMirrorProp.html" title="Panel permettant de modifier un miroir. " alt="" coords="511,512,593,539"/>
 <area shape="rect" id="node26" href="$df/d5e/classNukeProp.html" title="Panel permettant de modifier une bombe. " alt="" coords="512,563,592,589"/>
-<area shape="rect" id="node27" href="$d4/d36/classSourceProp.html" title="Modifie la source sélectionnée dans l’éditeur. " alt="" coords="507,613,597,640"/>
+<area shape="rect" id="node27" href="$d4/d36/classSourceProp.html" title="Panel permettant de modifier la source. " alt="" coords="507,613,597,640"/>
 <area shape="rect" id="node28" href="$dd/dd1/classWallProp.html" title="Panel permettant de modifier un mur. " alt="" coords="515,664,589,691"/>
 <area shape="rect" id="node32" href="$d2/d81/classElementView.html" title="Cette classe sert de super&#45;classe à tous les éléments visuels avec lesquels un rayon peut interagir..." alt="" coords="151,701,249,728"/>
 <area shape="rect" id="node35" href="$da/d1c/classRayView.html" title="Modélisation visuelle d’un rayon de lumière. " alt="" coords="355,955,429,981"/>
