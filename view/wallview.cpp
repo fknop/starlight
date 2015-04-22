@@ -15,12 +15,12 @@ WallView::WallView(const Wall& wall, bool selectable)  :
     setFlag(QGraphicsItem::ItemIsSelectable, this->selectable_);
 }
 
-void WallView::translate(double x, double y)
+void WallView::translate(const double x, const double y)
 {
     this->wall_->translate(x, y);
 }
 
-void WallView::rotate(double angle)
+void WallView::rotate(const double angle)
 {
     this->wall_->rotate(umath::deg_to_rad(angle));
 }

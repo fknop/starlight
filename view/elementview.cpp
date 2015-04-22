@@ -7,6 +7,6 @@ ElementView::ElementView(ElementView::TypeView type)
 
 ElementView::~ElementView(){}
 
-void ElementView::translate(double x, double y) {}
+void ElementView::translate(const double x, const double y) {}
 
-void ElementView::rotate(double angle) {}
+void ElementView::rotate(const double angle) {}

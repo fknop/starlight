@@ -91,8 +91,8 @@ public:
     ElementView * selected();
 
 
-    void mousePressEvent(QMouseEvent * event);
-    void keyPressEvent(QKeyEvent * event);
+    void mousePressEvent(QMouseEvent * event) override;
+    void keyPressEvent(QKeyEvent * event) override;
     /**
      * Notifie le jeu d'un évènement provenant d'un sujet d'observation (Observable).
      * @param o l'observé.
@@ -101,7 +101,7 @@ public:
      */
     void notify(Observable * o,
                 const std::string& msg,
-                const std::vector<std::string>& args = std::vector<std::string>());
+                const std::vector<std::string>& args = std::vector<std::string>()) override;
 
 private:
     void draw_wall(const Wall & wall);

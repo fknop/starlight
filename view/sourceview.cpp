@@ -26,7 +26,7 @@ void SourceView::mousePressEvent(QGraphicsSceneMouseEvent *event)
     sound_->play();
 }
 
-void SourceView::translate(double x, double y)
+void SourceView::translate(const double x, const double y)
 {
     this->source_->translate(x ,y);
 }

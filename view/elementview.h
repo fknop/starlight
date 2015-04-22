@@ -45,13 +45,13 @@ public:
      * Effectue une rotation d’un objet à l’aide d’un angle en radians.
      * @param r angle en radian dont il faut faire pivoter l’objet.
      */
-    virtual void rotate(double r);
+    virtual void rotate(const double r);
     /**
      * Effectue une translation de l’objet sur l’axe des abscisses et des ordonnées.
      * @param x la translation sur l’axe des abscisses.
      * @param y la translation sur l’axe des ordonnées.
      */
-    virtual void translate(double x, double y);
+    virtual void translate(const double x, const double y);
 
 private:
     TypeView type_;

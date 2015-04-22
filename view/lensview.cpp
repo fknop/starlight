@@ -17,7 +17,7 @@ LensView::LensView(const Lens & lens, bool selectable) :
     setFlag(QGraphicsItem::ItemIsSelectable, this->selectable_);
 }
 
-void LensView::translate(double x, double y)
+void LensView::translate(const double x, const double y)
 {
     this->lens_->translate(x, y);
 }

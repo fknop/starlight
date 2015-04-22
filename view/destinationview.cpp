@@ -21,7 +21,7 @@ void DestinationView::notify(Observable * o, const std::string& msg,
         set_rect();
 }
 
-void DestinationView::translate(double x, double y)
+void DestinationView::translate(const double x, const double y)
 {
     this->dest_->translate(x, y);
 }

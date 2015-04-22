@@ -33,7 +33,7 @@ void NukeView::notify(Observable * o, const std::string& msg,
 
 }
 
-void NukeView::translate(double x, double y)
+void NukeView::translate(const double x, const double y)
 {
     this->nuke_->translate(x, y);
 }

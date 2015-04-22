@@ -12,6 +12,8 @@ class Button : public QObject, public QGraphicsRectItem
 
     Q_OBJECT
 
+    QGraphicsTextItem * name_;
+
 public:
     /**
      * Instancie un nouveau Button.
@@ -29,9 +31,6 @@ signals:
      * Simule un clic.
      */
     void clicked();
-
-private:
-    QGraphicsTextItem * name_;
 };
 
 #endif // BUTTON_H

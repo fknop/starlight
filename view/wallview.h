@@ -34,11 +34,11 @@ public:
     inline bool selectable() const;
     inline void set_selectable(bool value);
 
-    void translate(double x = .0, double y = .0);
-    void rotate(double angle);
+    void translate(const double x = .0, const double y = .0) override;
+    void rotate(const double angle) override;
     void notify(Observable * o,
                 const std::string& msg,
-                const std::vector<std::string>& args = std::vector<std::string>());
+                const std::vector<std::string>& args = std::vector<std::string>()) override;
 
 private:
     void set_line();
