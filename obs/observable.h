@@ -7,7 +7,7 @@
 
 class ObserverInterface;
 
-/*!
+/**
  * Classe représentant un élément observable
  * pouvant notifié des observateurs.
  */

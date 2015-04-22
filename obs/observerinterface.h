@@ -7,7 +7,13 @@
 
 class Observable;
 
-
+/**
+ * Interface représentant un observateur.
+ * Toutes classes héritant de cette interface
+ * doit redéfinir la méthode notify.
+ * Un observateur reçoit des notifications d'une classe
+ * héritant d'Observable.
+ */
 class ObserverInterface
 {
 public:
