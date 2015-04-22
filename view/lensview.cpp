@@ -22,9 +22,9 @@ void LensView::translate(double x, double y)
     this->lens_->translate(x, y);
 }
 
-void LensView::notify(Observable * sdo,
-                      std::string msg,
-                      const std::vector<std::string> & args)
+void LensView::notify(Observable * o,
+                      const std::string& msg,
+                      const std::vector<std::string>& args)
 {
     set_rect();
 }

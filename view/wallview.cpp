@@ -25,7 +25,9 @@ void WallView::rotate(double angle)
     this->wall_->rotate(umath::deg_to_rad(angle));
 }
 
-void WallView::notify(Observable * obs, std::string msg, const std::vector<std::string>& args)
+void WallView::notify(Observable * o,
+                      const std::string& msg,
+                      const std::vector<std::string>& args)
 {
     if (msg.compare("ROTATE_WALL") == 0 || msg.compare("TRANSLATE_WALL") == 0)
         set_line();

@@ -12,7 +12,8 @@ DestinationView::DestinationView(const Dest & dest, bool selectable)  :
     setFlag(QGraphicsItem::ItemIsSelectable, this->selectable_);
 }
 
-void DestinationView::notify(Observable * sdo, std::string msg, const std::vector<std::string> & args)
+void DestinationView::notify(Observable * o, const std::string& msg,
+                             const std::vector<std::string> & args)
 {
     if (msg.compare("LIGHTED_UP") == 0)
         this->setBrush(QBrush(Qt::green));

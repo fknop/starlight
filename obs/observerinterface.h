@@ -23,7 +23,7 @@ public:
      * @param msg le message de notification.
      * @param args des arguments.
      */
-    virtual void notify(Observable * sdo, std::string msg="UPDATE_RAYS",
+    virtual void notify(Observable * o, const std::string& msg,
                         const std::vector<std::string>& args
                             = std::vector<std::string>()) = 0;
     virtual ~ObserverInterface() = default;

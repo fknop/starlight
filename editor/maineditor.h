@@ -54,7 +54,7 @@ private:
 
     void closeEvent(QCloseEvent * event);
     void notify(Observable * o,
-                std::string msg,
+                const std::string& msg,
                 const std::vector<std::string>& args = std::vector<std::string>());
 
 signals:

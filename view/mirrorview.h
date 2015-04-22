@@ -7,9 +7,7 @@
 #include <QGraphicsView>
 
 #include "model/mirror.h"
-
 #include "obs/observerinterface.h"
-
 #include "view/elementview.h"
 
 /**
@@ -40,9 +38,9 @@ public:
     void hide_zone();
     void translate(double x = .0, double y = .0);
     void rotate(double angle);
-    void notify(Observable * obs,
-                std::string msg,
-                const std::vector<std::string> & args = std::vector<std::string>());
+    void notify(Observable * o,
+                const std::string& msg,
+                const std::vector<std::string>& args = std::vector<std::string>());
 
 private:
     Mirror * mirror_;

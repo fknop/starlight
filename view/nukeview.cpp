@@ -18,7 +18,8 @@ NukeView::NukeView(const Nuke & nuke, bool selectable)  :
     setFlag(QGraphicsItem::ItemIsSelectable, this->selectable_);
 }
 
-void NukeView::notify(Observable * sdo, std::string msg, const std::vector<std::string> & args)
+void NukeView::notify(Observable * o, const std::string& msg,
+                      const std::vector<std::string>& args)
 {
     if (msg.compare("LIGHTED_UP") == 0)
     {

@@ -17,7 +17,7 @@ public:
     virtual void apply() = 0;
     virtual void reset() = 0;
 
-    virtual void notify(Observable * sdo, std::string msg,
+    virtual void notify(Observable * o, const std::string& msg,
                         const std::vector<std::string>& args)
     {
         reset();

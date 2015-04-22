@@ -31,8 +31,8 @@ void SourceView::translate(double x, double y)
     this->source_->translate(x ,y);
 }
 
-void SourceView::notify(Observable *sdo,
-                        std::string msg,
+void SourceView::notify(Observable * o,
+                        const std::string& msg,
                         const std::vector<std::string>& args)
 {
     set_pos();

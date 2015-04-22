@@ -328,8 +328,8 @@ public:
      * @param msg le message de notification.
      * @param args des arguments.
      */
-    void notify(Observable* o,
-                std::string msg,
+    void notify(Observable * o,
+                const std::string& msg,
                 const std::vector<std::string>& args = std::vector<std::string>());
 
 private:

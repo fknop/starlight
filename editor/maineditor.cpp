@@ -231,7 +231,7 @@ void MainEditor::closeEvent(QCloseEvent * event)
     }
 }
 
-void MainEditor::notify(Observable * sdo, std::string msg, const std::vector<std::string> & args)
+void MainEditor::notify(Observable * o, const std::string& msg, const std::vector<std::string>& args)
 {
     if (msg.compare("LEVEL_CREATED") == 0)
         create_level();

@@ -4,10 +4,7 @@
 #include <QGraphicsEllipseItem>
 
 #include "model/lens.h"
-
-#include "obs/observable.h"
 #include "obs/observerinterface.h"
-
 #include "view/elementview.h"
 
 /**
@@ -24,8 +21,8 @@ public:
     inline void set_selectable(bool value);
 
     void translate(double x = .0, double y = .0);
-    void notify(Observable *sdo,
-                std::string msg,
+    void notify(Observable * o,
+                const std::string& msg,
                 const std::vector<std::string>& args = std::vector<std::string>());
 
 private:

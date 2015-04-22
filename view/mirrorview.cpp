@@ -38,7 +38,8 @@ void MirrorView::rotate(double angle)
     mirror_->rotate(umath::deg_to_rad(angle));
 }
 
-void MirrorView::notify(Observable * obs, std::string msg, const std::vector<std::string> & args)
+void MirrorView::notify(Observable * o, const std::string& msg,
+                        const std::vector<std::string>& args)
 {
     set_line();
 }

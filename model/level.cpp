@@ -340,7 +340,7 @@ bool Level::check_collisions(const LineSegment& segment, Mirror * mirror)
     return intersects;
 }
 
-void Level::notify(Observable* obs, std::string msg, const std::vector<std::string>& args)
+void Level::notify(Observable * o, const std::string& msg, const std::vector<std::string>& args)
 {
     bool ask_translate = msg.compare("ASK_TRANSLATE") == 0;
     bool ask_rotate    = msg.compare("ASK_ROTATE") == 0;
@@ -348,7 +348,7 @@ void Level::notify(Observable* obs, std::string msg, const std::vector<std::stri
 
     if (check_collisions_ && (ask_rotate || ask_translate))
     {
-        Mirror * mirror = dynamic_cast<Mirror*> (obs);
+        Mirror * mirror = dynamic_cast<Mirror*> (o);
         LineSegment segment = mirror->to_line_segment();
 
         if (ask_translate)

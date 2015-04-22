@@ -298,7 +298,8 @@ void MapView::keyPressEvent(QKeyEvent *event)
     }
 }
 
-void MapView::notify(Observable * sdo, std::string msg, const std::vector<std::string>& args)
+void MapView::notify(Observable * o, const std::string& msg,
+                     const std::vector<std::string>& args)
 {
     if (msg.compare("RECOMPUTE") == 0)
         draw_rays();
