@@ -1,4 +1,4 @@
-#include "sourceprop.h"
+#include "editor/sourceprop.h"
 
 /**
  * Modifie la source sélectionnée dans l’éditeur.

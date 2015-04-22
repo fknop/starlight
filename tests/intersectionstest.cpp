@@ -1,15 +1,16 @@
-#include "test.h"
+#include "tests/test.h"
 #ifdef RUNTEST
 
 #include <cmath>
 
-#include "catch.hpp"
+
 #include "model/ellipse.h"
 #include "model/rectangle.h"
 #include "model/line.h"
 #include "model/linesegment.h"
 #include "utils/constants.h"
 #include "utils/umath.h"
+#include "tests/catch.hpp"
 
 TEST_CASE("Intersections droites, segments")
 {

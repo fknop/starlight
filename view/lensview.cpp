@@ -1,5 +1,6 @@
 #include <QPen>
-#include "lensview.h"
+
+#include "view/lensview.h"
 
 
 LensView::LensView(const Lens & lens, bool selectable) :

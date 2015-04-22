@@ -1,5 +1,6 @@
 #include <QPen>
-#include "crystalview.h"
+
+#include "view/crystalview.h"
 
 CrystalView::CrystalView(const Crystal & crystal, bool selectable) :
     ElementView(ElementView::TypeView::CRYSTALVIEW), selectable_{selectable}

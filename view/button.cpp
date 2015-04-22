@@ -2,7 +2,7 @@
 #include <QFont>
 #include <QGraphicsTextItem>
 
-#include "button.h"
+#include "view/button.h"
 
 
 Button::Button(QString name, QGraphicsItem *parent)

@@ -1,4 +1,4 @@
-#include "destinationview.h"
+#include "view/destinationview.h"
 
 
 DestinationView::DestinationView(const Dest & dest, bool selectable)  :

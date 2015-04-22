@@ -1,4 +1,4 @@
-#include "nukeprop.h"
+#include "editor/nukeprop.h"
 
 /**
  * Modifie la bombe sélectionnée dans l’éditeur.

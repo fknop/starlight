@@ -1,5 +1,5 @@
-#include "observable.h"
-#include "observerinterface.h"
+#include "obs/observable.h"
+#include "obs/observerinterface.h"
 
 void Observable::add_observer(ObserverInterface * obs)
 {

@@ -1,6 +1,6 @@
 #include <QPen>
 
-#include "rayview.h"
+#include "view/rayview.h"
 
 RayView::RayView(const Ray & ray)
 {
