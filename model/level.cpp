@@ -346,6 +346,8 @@ void Level::notify(Observable * o, const std::string& msg, const std::vector<std
     bool ask_rotate    = msg.compare("ASK_ROTATE") == 0;
     bool recompute = !ask_translate && !ask_rotate && msg.compare("LIGHTED_UP") != 0;
 
+            //!ask_translate && !ask_rotate && msg.compare("LIGHTED_UP") != 0;
+
     if (check_collisions_ && (ask_rotate || ask_translate))
     {
         Mirror * mirror = dynamic_cast<Mirror*> (o);

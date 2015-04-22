@@ -100,10 +100,10 @@ void MapReader::read_lens(std::string line)
     double y       = (iss >> y, y);
     double width   = (iss >> width, width);
     double height  = (iss >> height, height);
-    int wlmin      = (iss >> wlmin, wlmin);
-    int wlmax      = (iss >> wlmax, wlmax);
+    int wl_min      = (iss >> wl_min, wl_min);
+    int wl_max      = (iss >> wl_max, wl_max);
 
-    l_->add_lens(Lens(Point(x, y), width, height, wlmin, wlmax));
+    l_->add_lens(Lens(Point(x, y), width, height, wl_min, wl_max));
 }
 
 void MapReader::read_mirror(std::string line)
@@ -113,19 +113,19 @@ void MapReader::read_mirror(std::string line)
 
     double x        = (iss >> x, x);
     double y        = (iss >> y, y);
-    double xPad     = (iss >> xPad, xPad);
+    double x_pad     = (iss >> x_pad, x_pad);
     double length   = (iss >> length, length);
     double alpha    = (iss >> alpha, alpha);
-    double xMin     = (iss >> xMin, xMin);
-    double yMin     = (iss >> yMin, yMin);
-    double xMax     = (iss >> xMax, xMax);
-    double yMax     = (iss >> yMax, yMax);
-    double alphaMin = (iss >> alphaMin, alphaMin);
-    double alphaMax = (iss >> alphaMax, alphaMax);
+    double x_min     = (iss >> x_min, x_min);
+    double y_min     = (iss >> y_min, y_min);
+    double x_max     = (iss >> x_max, x_max);
+    double y_max     = (iss >> y_max, y_max);
+    double alpha_min = (iss >> alpha_min, alpha_min);
+    double alpha_max = (iss >> alpha_max, alpha_max);
 
-    l_->add_mirror(Mirror(Point(x, y), xPad, length, alpha,
-                  Point(xMin, yMin), Point(xMax, yMax),
-                  alphaMin, alphaMax));
+    l_->add_mirror(Mirror(Point(x, y), x_pad, length, alpha,
+                  Point(x_min, y_min), Point(x_max, y_max),
+                  alpha_min, alpha_max));
 }
 
 void MapReader::read_nuke(std::string line)
