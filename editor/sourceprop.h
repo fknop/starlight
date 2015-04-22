@@ -17,11 +17,7 @@
 class SourceProp : public PropertiesInterface
 {
     Q_OBJECT
-public:
-    SourceProp(Source * source, QWidget * parent = 0);
-    ~SourceProp();
 
-private:
     QFormLayout * form_layout_;
     QLabel * x_label_;
     QDoubleSpinBox * x_dsb_;
@@ -36,6 +32,11 @@ private:
 
     Source * source_;
 
+public:
+    SourceProp(Source * source, QWidget * parent = 0);
+    ~SourceProp();
+
+private:
     void setup_ui();
 
     /**

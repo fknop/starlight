@@ -11,6 +11,10 @@
 class RayView : public QGraphicsLineItem
 {
 public:
+    /**
+     * Instancie une représentation visuelle d’un rayon passé en paramètre.
+     * @param ray le rayon à afficher.
+     */
    RayView(const Ray & ray);
 
    /**
@@ -19,10 +23,6 @@ public:
     * @param wl wavelength of a the ray.
     */
    void set_color(double wl);
-
-   inline bool selectable() const;
-   inline void set_selectable(bool value);
-
 
 private:
 

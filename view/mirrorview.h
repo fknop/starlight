@@ -16,6 +16,10 @@
  */
 class MirrorView : public QGraphicsLineItem, public ObserverInterface, public ElementView
 {
+    Mirror * mirror_;
+    bool selectable_;
+    QGraphicsRectItem * zone_;
+
 public:
     /**
      * Construit un miroir capable de refléter la lumière du rayon émis depuis la source.
@@ -44,10 +48,6 @@ public:
                 const std::vector<std::string> & args = std::vector<std::string>());
 
 private:
-    Mirror * mirror_;
-    bool selectable_;
-    QGraphicsRectItem * zone_;
-
     void set_line();
     void set_zone();
 };

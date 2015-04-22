@@ -15,12 +15,32 @@
  */
 class LensView : public QGraphicsEllipseItem, public ElementView, public ObserverInterface
 {
+    Lens * lens_;
+    bool selectable_;
+
 public:
+    /**
+     * Instancie une représentation visuelle d’une lentille passée en paramètre.
+     * @param lens la lentille à afficher.
+     * @param selectable la lentille est-elle sélectionnable sur la carte ?
+     */
     LensView(const Lens & lens, bool selectable = false);
 
+    /**
+     * Retourne la lentille affichée.
+     * @return la lentille affichée.
+     */
     inline Lens * lens();
 
+    /**
+     * Retourne vrai si la lentille est sélectionnable, faux sinon.
+     * @return vrai si la lentille est sélectionnable, faux sinon.
+     */
     inline bool selectable() const;
+    /**
+     * Modifie le fait que la lentille soit sélectionnable.
+     * @param value vrai si la lentille est sélectionnable, faux sinon.
+     */
     inline void set_selectable(bool value);
 
     void translate(double x = .0, double y = .0);
@@ -29,9 +49,6 @@ public:
                 const std::vector<std::string>& args = std::vector<std::string>());
 
 private:
-    Lens * lens_;
-
-    bool selectable_;
     void set_rect();
 };
 

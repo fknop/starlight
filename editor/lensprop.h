@@ -17,11 +17,7 @@
 class LensProp : public PropertiesInterface
 {
     Q_OBJECT
-public:
-    LensProp(Lens * lens, QWidget * parent = 0);
-    ~LensProp();
 
-private:
     QFormLayout * form_layout_;
     QLabel * x_label_;
     QDoubleSpinBox * x_dsb_;
@@ -39,6 +35,11 @@ private:
 
     Lens * lens_;
 
+public:
+    LensProp(Lens * lens, QWidget * parent = 0);
+    ~LensProp();
+
+private:
     void setup_ui();
 
     /**

@@ -29,6 +29,14 @@ class Properties : public QWidget, public Observable
 {
     Q_OBJECT
 
+    QGridLayout * grid_layout_;
+    QGroupBox * group_box_;
+
+    QPushButton * apply_pb_;
+    QPushButton * delete_pb_;
+
+    PropertiesInterface * prop_interface_;
+
 public:
     Properties(QWidget * parent = 0);
 
@@ -43,14 +51,6 @@ public:
     void delete_prop();
 
 private:
-    QGridLayout * grid_layout_;
-    QGroupBox * group_box_;
-
-    QPushButton * apply_pb_;
-    QPushButton * delete_pb_;
-
-    PropertiesInterface * prop_interface_;
-
     void setup_ui();
     void add_connections();
 

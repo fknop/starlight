@@ -17,11 +17,7 @@
 class NukeProp : public PropertiesInterface
 {
     Q_OBJECT
-public:
-    NukeProp(Nuke * nuke, QWidget * parent = 0);
-    ~NukeProp();
 
-private:
     QFormLayout * form_layout_;
     QLabel * x_label_;
     QDoubleSpinBox * x_dsb_;
@@ -32,6 +28,11 @@ private:
 
     Nuke * nuke_;
 
+public:
+    NukeProp(Nuke * nuke, QWidget * parent = 0);
+    ~NukeProp();
+
+private:
     void setup_ui();
 
     /**

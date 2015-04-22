@@ -14,6 +14,9 @@
  */
 class NukeView : public QGraphicsEllipseItem, public ObserverInterface, public ElementView
 {
+    Nuke * nuke_;
+    bool selectable_;
+
 public:
     NukeView(const Nuke & nuke, bool selectable = false);
 
@@ -27,9 +30,6 @@ public:
 
 
 private:
-    Nuke * nuke_;
-    bool selectable_;
-
     void set_rect();
 };
 
