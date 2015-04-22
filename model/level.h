@@ -48,24 +48,6 @@ struct Intersection
  */
 class Level : public ObserverInterface, public Observable
 {
-    const double width_;
-    const double height_;
-
-    Source source_ {{.0, .0}, -1, 5, 600};
-    Dest dest_ {{.0, .0}, 5};
-
-    std::vector<Intersection> intersections_;
-    std::vector<Wall> walls_;
-    std::vector<Mirror> mirrors_;
-    std::vector<Crystal> crystals_;
-    std::vector<Lens> lenses_;
-    std::vector<Ray> rays_;
-    std::vector<Nuke> nukes_;
-
-    bool check_collisions_;
-    bool handle_dest_;
-    bool handle_nukes_;
-
 
 public:
 
@@ -321,6 +303,24 @@ public:
                 const std::vector<std::string>& args = std::vector<std::string>());
 
 private:
+
+    const double width_;
+    const double height_;
+
+    Source source_ {{.0, .0}, -1, 5, 600};
+    Dest dest_ {{.0, .0}, 5};
+
+    std::vector<Intersection> intersections_;
+    std::vector<Wall> walls_;
+    std::vector<Mirror> mirrors_;
+    std::vector<Crystal> crystals_;
+    std::vector<Lens> lenses_;
+    std::vector<Ray> rays_;
+    std::vector<Nuke> nukes_;
+
+    bool check_collisions_;
+    bool handle_dest_;
+    bool handle_nukes_;
 
     /**
      * Permet de calculer la trajectoire d'un rayon.

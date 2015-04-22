@@ -25,8 +25,6 @@ public:
         WALL
     };
 
-    Type type_;
-
     /**
      * Construit un élément avec un type
      * permettant de connaître le type
@@ -44,6 +42,9 @@ public:
      * @return le type de l'élément.
      */
     inline const Type& type() const;
+
+private:
+    Type type_;
 };
 
 /* Fonctions inlines */
