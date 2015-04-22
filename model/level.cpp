@@ -91,7 +91,6 @@ void Level::compute_ray(const Line& line, const Point& start, int wl)
             mirror = dynamic_cast<Mirror *> (this->intersections_.at(0).element_);
             angle = get_reflection_angle(angle, mirror->angle());
             continue_ray = true;
-            std::cout << angle << std::endl;
             break;
         }
 

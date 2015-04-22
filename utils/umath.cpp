@@ -101,63 +101,32 @@ double umath::rad_to_slope(double rad)
     return -tan(rad);
 }
 
-bool umath::is_on_good_side(const Line& l, const Point& ref, const Point& p)
+bool umath::is_on_good_side(const Line& l, const Point& start, const Point& p)
 {
-    double angle = l.alpha();
+    if (p == start)
+        return false;
 
-    std::cout << "p : " << p << std::endl;
-    std::cout << "ref : " << ref << std::endl;
+    double alpha = l.alpha();
+    double distance = p.distance(start);
 
-    // Angle à 90°
-       if (umath::angle_equals(angle, PI_2))
-               return umath::equals(p.x(), ref.x())
-                   && p.y() < ref.y();
+    double x = start.x() + (distance * std::cos(-alpha));
+    double y = start.y() + (distance * std::sin(-alpha));
 
-       // Angle à 270°
-       if (umath::angle_equals(angle, PI_2_3))
-               return umath::equals(p.x(), ref.x()) && p.y() > ref.y();
-
-       // Angle à 180°
-       if (umath::angle_equals(angle, PI))
-           return umath::equals(p.y(), ref.y())
-                   && p.x() < ref.x();
-
-       // Angle à 0°
-       if (umath::angle_equals(angle, 0))
-           return umath::equals(p.y(), ref.y())
-                   && p.x() > ref.x();
-
-       // Premier quadrant
-       if ((angle > 0 && angle < PI_2) ||
-               (angle < -PI_2_3 && angle > -(2*PI)))
-           return p.x() > ref.x() + EPSILON && p.y() < ref.y() - EPSILON;
-
-       // Deuxième quadrant
-       else if ((angle > PI_2 && angle < PI) ||
-                (angle < -PI && angle > -PI_2_3))
-           return p.x() < ref.x() - EPSILON && p.y() < ref.y() - EPSILON;
-
-       // Troisième quadrant
-       else if ((angle > PI && angle < PI_2_3) ||
-                (angle < -PI_2 && angle > -PI))
-           return p.x() < ref.x() - EPSILON && p.y() > ref.y() + EPSILON;
-
-       // Quatrième quadrant
-       else
-           return p.x() > ref.x() + EPSILON && p.y() > ref.y() + EPSILON;
+    return std::abs(x - p.x()) < 1 && std::abs(y - p.y()) < 1;
 }
 
 bool umath::intersects(const Line& l1, const Line& l2, Point& point, bool& is_point)
 {
     double x, y;
 
-    if (l1 == l2)
+    if (l1 == l2)  // Droites confondues.
     {
         is_point = false;
         return true;
     }
 
-    if (l1.parallel(l2)) // droites parallèles
+    // On ajoute ceci pour la précision.
+    if (l1.parallel(l2)) // Droites parallèles
     {
         // x et y ci dessous ne représentent pas
         // les coordonnées x et y

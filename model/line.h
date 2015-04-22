@@ -225,8 +225,10 @@ bool Line::perpendicular(const Line& l) const
 
 bool Line::operator==(const Line& l) const
 {
-    return parallel(l) &&
-           umath::equals(c_ / b_, l.c_ / l.b_);
+    return (parallel(l) && !vertical() &&
+           umath::equals(-c_ / b_, l.c_ / l.b_)) ||
+           (parallel(l) && vertical() &&
+           umath::equals(-c_ / a_, l.c_ / l.a_));
 }
 
 
