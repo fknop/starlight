@@ -24,15 +24,22 @@
  */
 struct Intersection
 {
-    Point* point_;
-    Element* element_;
+    /**
+     * La position d'intersection.
+     */
+    Point * point_;
+
+    /**
+     * L'élément d'intersection.
+     */
+    Element * element_;
 
     /**
      * Crée une nouvelle intersection.
      * @param p le point d'intersection.
      * @param e l'élément de l'intersection.
      */
-    Intersection(Point* p, Element* e)
+    Intersection(Point * p, Element * e)
     {
         point_ = p;
         element_ = e;

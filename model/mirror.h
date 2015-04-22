@@ -193,7 +193,7 @@ class Mirror : public Element
 
     /**
      * Modifie l’angle d’inclinaison maximum du miroir.
-     * @paramamax le nouvel angle d’inclinaison maximal.
+     * @param max le nouvel angle d’inclinaison maximal.
      */
     inline void set_alpha_max(const double max);
 
@@ -233,16 +233,15 @@ class Mirror : public Element
     /**
      * Retoune vrai si le miroir peut être déplacé en la
      * position donnée, retourne faux sinon.
+     * @param pivot le pivot.
      * @return vrai si le miroir peut être déplacé en
      * la position donnée, retourne faux sinon.
-     * @see Mirror::getPivot()
      */
     bool check_pivot_range(const Point& pivot) const;
 
     /**
      * Modifie l'inclinaison de l'angle
      * @param angle l'angle de rotation.
-     * @param l'inclinaison à ajouter.
      */
     void rotate(double angle);
 

@@ -37,9 +37,9 @@ class Lens : public Element
      *          rectangle modélisant la lentille.
      * @param w la largeur de la lentille.
      * @param h la hauteur de la lentille.
-     * @param wlmin la longueur d'onde minimale des rayons
+     * @param wl_min la longueur d'onde minimale des rayons
      *              autorisés à franchir la lentille.
-     * @param wlmax la longueur d'onde maximale des rayons
+     * @param wl_max la longueur d'onde maximale des rayons
      *              autorisés à franchir la lentille.
      */
     Lens(const Point& p, double w, double h, int wl_min, int wl_max);
