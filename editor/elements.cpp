@@ -2,7 +2,7 @@
 
 Elements::Elements(QWidget * parent) : QWidget(parent)
 {
-    setupUi();
+    setup_ui();
     add_connections();
 
     add_crystal_pb_->setEnabled(false);
@@ -24,7 +24,7 @@ void Elements::add_connections()
     connect(level_reset_pb_, SIGNAL(clicked()), this, SLOT(reset_level()));
 }
 
-void Elements::setupUi()
+void Elements::setup_ui()
 {
     vertical_layout_ = new QVBoxLayout();
     vertical_layout_->setSpacing(6);

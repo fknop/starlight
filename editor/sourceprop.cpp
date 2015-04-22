@@ -3,7 +3,7 @@
 
 SourceProp::SourceProp(Source * source, QWidget * parent) : source_{source}
 {
-    setupUi();
+    setup_ui();
 
     source_->add_observer(this);
 
@@ -15,7 +15,7 @@ SourceProp::~SourceProp()
     source_->remove_observer(this);
 }
 
-void SourceProp::setupUi()
+void SourceProp::setup_ui()
 {
     form_layout_ = new QFormLayout();
 

@@ -22,7 +22,6 @@ class DestProp : public PropertiesInterface
 public:
     DestProp(Dest * dest, QWidget * parent = 0);
     ~DestProp();
-    void setupUi();
 
 private:
     QFormLayout * form_layout_;
@@ -34,6 +33,8 @@ private:
     QDoubleSpinBox * edge_dsb_;
 
     Dest * dest_;
+
+    void setup_ui();
 
     /**
      * Applique les changements effectués à l’objet dest qu’il contient.

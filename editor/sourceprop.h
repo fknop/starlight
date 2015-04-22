@@ -22,7 +22,6 @@ class SourceProp : public PropertiesInterface
 public:
     SourceProp(Source * source, QWidget * parent = 0);
     ~SourceProp();
-    void setupUi();
 
 private:
     QFormLayout * form_layout_;
@@ -38,6 +37,8 @@ private:
     QDoubleSpinBox * wavelength_dsb_;
 
     Source * source_;
+
+    void setup_ui();
 
     /**
      * Applique les changements effectués à l’objet source qu’il contient.

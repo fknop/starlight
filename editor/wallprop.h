@@ -22,7 +22,6 @@ class WallProp : public PropertiesInterface
 public:
     WallProp(Wall * wall, QWidget * parent = 0);
     ~WallProp();
-    void setupUi();
 
 private:
     QFormLayout * form_layout_;
@@ -36,6 +35,8 @@ private:
     QDoubleSpinBox * y2_dsb_;
 
     Wall * wall_;
+
+    void setup_ui();
 
     /**
      * Applique les changements effectués à l’objet wall qu’il contient.

@@ -10,7 +10,7 @@
 
 Properties::Properties(QWidget * parent) : QWidget(parent)
 {
-    setupUi();
+    setup_ui();
 
     prop_interface_ = nullptr;
 
@@ -23,7 +23,7 @@ void Properties::add_connections()
     connect(delete_pb_, SIGNAL(clicked()), this, SLOT(delete_element()));
 }
 
-void Properties::setupUi()
+void Properties::setup_ui()
 {
     resize(400, 300);
 

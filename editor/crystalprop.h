@@ -21,7 +21,6 @@ class CrystalProp : public PropertiesInterface
 public:
     CrystalProp(Crystal * crystal, QWidget * parent = 0);
     ~CrystalProp();
-    void setupUi();
 
 private:
     QFormLayout * form_layout_;
@@ -35,6 +34,8 @@ private:
     QDoubleSpinBox * mod_dsb_;
 
     Crystal * crystal_;
+
+    void setup_ui();
 
     /**
      * Applique les changements effectués à l’objet crystal qu’il contient.

@@ -14,6 +14,8 @@ public:
     explicit MainWindow(QWidget * parent = 0);
     ~MainWindow();
 
+private:
+    MainWindow * ui_;
     QWidget * parent_;
     QMenuBar * menu_bar_;
     QToolBar * main_tool_bar_;
@@ -28,9 +30,6 @@ public:
     QAction * back_menu_action_;
     QAction * quit_action_;
     QAction * help_action_;
-
-private:
-    MainWindow * ui_;
 
     void setup_ui();
 

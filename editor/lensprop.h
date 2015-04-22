@@ -22,7 +22,6 @@ class LensProp : public PropertiesInterface
 public:
     LensProp(Lens * lens, QWidget * parent = 0);
     ~LensProp();
-    void setupUi();
 
 private:
     QFormLayout * form_layout_;
@@ -41,6 +40,8 @@ private:
     QDoubleSpinBox * wl_max_dsb_;
 
     Lens * lens_;
+
+    void setup_ui();
 
     /**
      * Applique les changements effectués à l’objet lens qu’il contient.

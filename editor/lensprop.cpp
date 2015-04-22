@@ -3,7 +3,7 @@
 
 LensProp::LensProp(Lens * lens, QWidget * parent) : lens_{lens}
 {
-    setupUi();
+    setup_ui();
 
     lens_->add_observer(this);
 
@@ -16,7 +16,7 @@ LensProp::~LensProp()
 }
 
 
-void LensProp::setupUi()
+void LensProp::setup_ui()
 {
     form_layout_ = new QFormLayout();
 

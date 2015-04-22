@@ -22,7 +22,6 @@ class NukeProp : public PropertiesInterface
 public:
     NukeProp(Nuke * nuke, QWidget * parent = 0);
     ~NukeProp();
-    void setupUi();
 
 private:
     QFormLayout * form_layout_;
@@ -34,6 +33,8 @@ private:
     QDoubleSpinBox * rad_dsb_;
 
     Nuke * nuke_;
+
+    void setup_ui();
 
     /**
      * Applique les changements effectués à l’objet nuke qu’il contient.

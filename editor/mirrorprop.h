@@ -22,7 +22,6 @@ class MirrorProp : public PropertiesInterface
 public:
     MirrorProp(Mirror * mirror, QWidget * parent = 0);
     ~MirrorProp();
-    void setupUi();
 
 private:
     QFormLayout * form_layout_;
@@ -50,6 +49,8 @@ private:
     QDoubleSpinBox * alphamax_dsb_;
 
     Mirror * mirror_;
+
+    void setup_ui();
 
     /**
      * Applique les changements effectués à l’objet mirror qu’il contient.

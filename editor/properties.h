@@ -32,7 +32,7 @@ class Properties : public QWidget, public Observable
 
 public:
     Properties(QWidget * parent = 0);
-    void setupUi();
+
     /**
      * Crée un widget permettant de modifier l’élément passé en paramètre.
      * @param ev l’élément sélectionné du niveau.
@@ -52,6 +52,7 @@ private:
 
     PropertiesInterface * prop_interface_;
 
+    void setup_ui();
     void add_connections();
 
 signals:

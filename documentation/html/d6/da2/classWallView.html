@@ -110,11 +110,11 @@ Graphe de collaboration de WallView:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Fonctions membres publiques</h2></td></tr>
-<tr class="memitem:acd55794debfd67a8f2b9088d3fb2e0dc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/da2/classWallView.html#acd55794debfd67a8f2b9088d3fb2e0dc">WallView</a> (const <a class="el" href="../../d7/dec/classWall.html">Wall</a> &amp;wall, bool selectable=false)</td></tr>
+<tr class="memitem:acd55794debfd67a8f2b9088d3fb2e0dc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/da2/classWallView.html#acd55794debfd67a8f2b9088d3fb2e0dc">WallView</a> (const <a class="el" href="../../d7/dec/classWall.html">Wall</a> &amp;<a class="el" href="../../d6/da2/classWallView.html#af93a05e8e527a55158707802c2f16911">wall</a>, bool selectable=false)</td></tr>
 <tr class="memdesc:acd55794debfd67a8f2b9088d3fb2e0dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construit un segment de droite représentant un mur.  <a href="#acd55794debfd67a8f2b9088d3fb2e0dc">Plus de détails...</a><br /></td></tr>
 <tr class="separator:acd55794debfd67a8f2b9088d3fb2e0dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af93a05e8e527a55158707802c2f16911"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af93a05e8e527a55158707802c2f16911"></a>
-<a class="el" href="../../d7/dec/classWall.html">Wall</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>wall</b> ()</td></tr>
+<tr class="memitem:af93a05e8e527a55158707802c2f16911"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/dec/classWall.html">Wall</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/da2/classWallView.html#af93a05e8e527a55158707802c2f16911">wall</a> ()</td></tr>
+<tr class="memdesc:af93a05e8e527a55158707802c2f16911"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne le mur représenté.  <a href="#af93a05e8e527a55158707802c2f16911">Plus de détails...</a><br /></td></tr>
 <tr class="separator:af93a05e8e527a55158707802c2f16911"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a674eb428edf9826a41616bc3f8618044"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a674eb428edf9826a41616bc3f8618044"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>selectable</b> () const </td></tr>
@@ -186,10 +186,8 @@ Membres hérités additionnels</h2></td></tr>
 <p>Construit un segment de droite représentant un mur. </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
-    <tr><td class="paramname">x1</td><td>abscisse de la première extrémité du mur. </td></tr>
-    <tr><td class="paramname">y1</td><td>ordonnée da la première extrémité du mur. </td></tr>
-    <tr><td class="paramname">x2</td><td>abscisse de l’autre extrémité du mur. </td></tr>
-    <tr><td class="paramname">y2</td><td>ordonnée de l’autre extrémité du mur. </td></tr>
+    <tr><td class="paramname">wall</td><td>le mur à construire. </td></tr>
+    <tr><td class="paramname">selectable</td><td>le mur est-il sélectionnable ? </td></tr>
   </table>
   </dd>
 </dl>
@@ -249,6 +247,32 @@ Membres hérités additionnels</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="af93a05e8e527a55158707802c2f16911"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d7/dec/classWall.html">Wall</a> * WallView::wall </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Retourne le mur représenté. </p>
+<dl class="section return"><dt>Renvoie</dt><dd>le mur représenté. </dd></dl>
+
+</div>
+</div>
 <hr/>La documentation de cette classe a été générée à partir des fichiers suivants :<ul>
 <li>view/<a class="el" href="../../de/d1a/wallview_8h_source.html">wallview.h</a></li>
 <li>view/wallview.cpp</li>
@@ -256,7 +280,7 @@ Membres hérités additionnels</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Généré le Mercredi 22 Avril 2015 19:57:04 pour Starlight par &#160;<a href="http://www.doxygen.org/index.html">
+Généré le Mercredi 22 Avril 2015 21:30:15 pour Starlight par &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.7
 </small></address>

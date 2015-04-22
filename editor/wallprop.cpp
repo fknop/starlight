@@ -3,7 +3,7 @@
 
 WallProp::WallProp(Wall * wall, QWidget * parent) : wall_{wall}
 {
-    setupUi();
+    setup_ui();
 
     wall_->add_observer(this);
 
@@ -15,7 +15,7 @@ WallProp::~WallProp()
     wall_->remove_observer(this);
 }
 
-void WallProp::setupUi()
+void WallProp::setup_ui()
 {
     form_layout_ = new QFormLayout();
 

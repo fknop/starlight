@@ -32,7 +32,7 @@ public:
     void enable_pushbuttons(bool b);
 
 private:
-    void setupUi();
+    void setup_ui();
     void add_connections();
 
     QVBoxLayout * vertical_layout_;

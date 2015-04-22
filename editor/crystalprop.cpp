@@ -7,7 +7,7 @@
  */
 CrystalProp::CrystalProp(Crystal * crystal, QWidget * parent) : crystal_{crystal}
 {
-    setupUi();
+    setup_ui();
 
     crystal_->add_observer(this);
 
@@ -19,7 +19,7 @@ CrystalProp::~CrystalProp()
     crystal_->remove_observer(this);
 }
 
-void CrystalProp::setupUi()
+void CrystalProp::setup_ui()
 {
     form_layout_ = new QFormLayout();
 
