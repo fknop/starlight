@@ -102,52 +102,53 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
 <div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="../../d6/da2/classWallView.html">   17</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d6/da2/classWallView.html">WallView</a> : <span class="keyword">public</span> QGraphicsLineItem, <span class="keyword">public</span> <a class="code" href="../../d2/d81/classElementView.html">ElementView</a>, <span class="keyword">public</span> <a class="code" href="../../dd/d62/classObserverInterface.html">ObserverInterface</a></div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;{</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <a class="code" href="../../d6/da2/classWallView.html#acd55794debfd67a8f2b9088d3fb2e0dc">WallView</a>(<span class="keyword">const</span> <a class="code" href="../../d7/dec/classWall.html">Wall</a> &amp; wall, <span class="keywordtype">bool</span> selectable = <span class="keyword">false</span>);</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keyword">inline</span> <a class="code" href="../../d7/dec/classWall.html">Wall</a> * wall();</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">bool</span> selectable() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">void</span> set_selectable(<span class="keywordtype">bool</span> value);</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordtype">void</span> translate(<span class="keywordtype">double</span> x = .0, <span class="keywordtype">double</span> y = .0);</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">void</span> rotate(<span class="keywordtype">double</span> angle);</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="../../d6/da2/classWallView.html#a193f9046366f016fd6361caa7ff1b710">notify</a>(<a class="code" href="../../d9/db4/classObservable.html">Observable</a> * sdo,</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;                std::string msg,</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;                <span class="keyword">const</span> std::vector&lt;std::string&gt; &amp; args = std::vector&lt;std::string&gt;());</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <a class="code" href="../../d7/dec/classWall.html">Wall</a> * wall_;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">bool</span> selectable_;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">void</span> set_line();</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <a class="code" href="../../d6/da2/classWallView.html#acd55794debfd67a8f2b9088d3fb2e0dc">WallView</a>(<span class="keyword">const</span> <a class="code" href="../../d7/dec/classWall.html">Wall</a> &amp; <a class="code" href="../../d6/da2/classWallView.html#af93a05e8e527a55158707802c2f16911">wall</a>, <span class="keywordtype">bool</span> selectable = <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">inline</span> <a class="code" href="../../d7/dec/classWall.html">Wall</a> * <a class="code" href="../../d6/da2/classWallView.html#af93a05e8e527a55158707802c2f16911">wall</a>();</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">bool</span> selectable() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">void</span> set_selectable(<span class="keywordtype">bool</span> value);</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">void</span> translate(<span class="keywordtype">double</span> x = .0, <span class="keywordtype">double</span> y = .0);</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordtype">void</span> rotate(<span class="keywordtype">double</span> angle);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="../../d6/da2/classWallView.html#a193f9046366f016fd6361caa7ff1b710">notify</a>(<a class="code" href="../../d9/db4/classObservable.html">Observable</a> * sdo,</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;                std::string msg,</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                <span class="keyword">const</span> std::vector&lt;std::string&gt; &amp; args = std::vector&lt;std::string&gt;());</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <a class="code" href="../../d7/dec/classWall.html">Wall</a> * wall_;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">bool</span> selectable_;</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;};</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">void</span> set_line();</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="comment">/* Fonctions inlines */</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;};</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<a class="code" href="../../d7/dec/classWall.html">Wall</a> * WallView::wall()</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;{</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordflow">return</span> wall_;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;}</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="keywordtype">bool</span> WallView::selectable()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordflow">return</span> this-&gt;selectable_;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;}</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="keywordtype">void</span> WallView::set_selectable(<span class="keywordtype">bool</span> value)</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;{</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    this-&gt;selectable_ = value;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    setFlag(QGraphicsItem::ItemIsSelectable, this-&gt;selectable_);</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;}</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="comment">/* Fonctions inlines */</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="../../d6/da2/classWallView.html#af93a05e8e527a55158707802c2f16911">   52</a></span>&#160;<a class="code" href="../../d7/dec/classWall.html">Wall</a> * <a class="code" href="../../d6/da2/classWallView.html#af93a05e8e527a55158707802c2f16911">WallView::wall</a>()</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;{</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordflow">return</span> wall_;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;}</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="keywordtype">bool</span> WallView::selectable()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordflow">return</span> this-&gt;selectable_;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;}</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="keywordtype">void</span> WallView::set_selectable(<span class="keywordtype">bool</span> value)</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;{</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    this-&gt;selectable_ = value;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    setFlag(QGraphicsItem::ItemIsSelectable, this-&gt;selectable_);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;}</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="preprocessor">#endif // WALLVIEW_HPP</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="preprocessor">#endif // WALLVIEW_HPP</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
 <div class="ttc" id="classObserverInterface_html"><div class="ttname"><a href="../../dd/d62/classObserverInterface.html">ObserverInterface</a></div><div class="ttdef"><b>Definition:</b> observerinterface.h:11</div></div>
 <div class="ttc" id="classElementView_html"><div class="ttname"><a href="../../d2/d81/classElementView.html">ElementView</a></div><div class="ttdoc">Cette classe sert de super-classe à tous les éléments visuels avec lesquels un rayon peut interagir...</div><div class="ttdef"><b>Definition:</b> elementview.h:15</div></div>
 <div class="ttc" id="classWallView_html"><div class="ttname"><a href="../../d6/da2/classWallView.html">WallView</a></div><div class="ttdoc">Modélisation visuelle d’un mur (ne reflétant pas la lumière). </div><div class="ttdef"><b>Definition:</b> wallview.h:17</div></div>
+<div class="ttc" id="classWallView_html_af93a05e8e527a55158707802c2f16911"><div class="ttname"><a href="../../d6/da2/classWallView.html#af93a05e8e527a55158707802c2f16911">WallView::wall</a></div><div class="ttdeci">Wall * wall()</div><div class="ttdoc">Retourne le mur représenté. </div><div class="ttdef"><b>Definition:</b> wallview.h:52</div></div>
 <div class="ttc" id="classWallView_html_a193f9046366f016fd6361caa7ff1b710"><div class="ttname"><a href="../../d6/da2/classWallView.html#a193f9046366f016fd6361caa7ff1b710">WallView::notify</a></div><div class="ttdeci">void notify(Observable *sdo, std::string msg, const std::vector&lt; std::string &gt; &amp;args=std::vector&lt; std::string &gt;())</div><div class="ttdoc">Notifie le jeu d&#39;un évènement provenant d&#39;un sujet d&#39;observation (Observable). </div><div class="ttdef"><b>Definition:</b> wallview.cpp:28</div></div>
 <div class="ttc" id="classWall_html"><div class="ttname"><a href="../../d7/dec/classWall.html">Wall</a></div><div class="ttdoc">Cette classe modélise les murs utilisés dans le jeu. </div><div class="ttdef"><b>Definition:</b> wall.h:18</div></div>
 <div class="ttc" id="classObservable_html"><div class="ttname"><a href="../../d9/db4/classObservable.html">Observable</a></div><div class="ttdef"><b>Definition:</b> observable.h:14</div></div>
@@ -155,7 +156,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Généré le Mercredi 22 Avril 2015 19:57:02 pour Starlight par &#160;<a href="http://www.doxygen.org/index.html">
+Généré le Mercredi 22 Avril 2015 21:25:20 pour Starlight par &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.7
 </small></address>

@@ -84,11 +84,17 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
   <div class="summary">
 <a href="#pub-slots">Connecteurs publics</a> &#124;
 <a href="#pub-methods">Fonctions membres publiques</a> &#124;
+<a href="#pub-static-attribs">Attributs publics statiques</a> &#124;
 <a href="../../d2/d14/classMainMenu-members.html">Liste de tous les membres</a>  </div>
   <div class="headertitle">
 <div class="title">Référence de la classe MainMenu</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Représente le menu principal.  
+ <a href="../../d9/d0a/classMainMenu.html#details">Plus de détails...</a></p>
+
+<p><code>#include &lt;<a class="el" href="../../d6/dc6/mainmenu_8h_source.html">mainmenu.h</a>&gt;</code></p>
 <div class="dynheader">
 Graphe d'héritage de MainMenu:</div>
 <div class="dyncontent">
@@ -120,7 +126,54 @@ Fonctions membres publiques</h2></td></tr>
 <tr class="memitem:a4b83847fe6109626f6dd4404c8afe4b2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4b83847fe6109626f6dd4404c8afe4b2"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>displayMainMenu</b> ()</td></tr>
 <tr class="separator:a4b83847fe6109626f6dd4404c8afe4b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
+Attributs publics statiques</h2></td></tr>
+<tr class="memitem:a48a2d4c53fc90f45d2cf63446d811b24"><td class="memItemLeft" align="right" valign="top">static const std::string&#160;</td><td class="memItemRight" valign="bottom"><b>STARLIGHT_RULES</b></td></tr>
+<tr class="separator:a48a2d4c53fc90f45d2cf63446d811b24"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Représente le menu principal. </p>
+</div><h2 class="groupheader">Documentation des données membres</h2>
+<a class="anchor" id="a48a2d4c53fc90f45d2cf63446d811b24"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::string MainMenu::STARLIGHT_RULES</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>Valeur initiale :</b><div class="fragment"><div class="line">=</div>
+<div class="line">    <span class="stringliteral">&quot;&lt;p&gt;Starlight is a 2D puzzle where you have &quot;</span></div>
+<div class="line">    <span class="stringliteral">&quot;to make the light go from the source to the destination without touching &quot;</span></div>
+<div class="line">    <span class="stringliteral">&quot;a nuke or… BOOM!, you lose.&lt;/p&gt;&quot;</span></div>
+<div class="line">    <span class="stringliteral">&quot;&lt;p&gt;Mirrors can be moved and rotated with your keyboard.&quot;</span></div>
+<div class="line">    <span class="stringliteral">&quot;&lt;p&gt;Movements are achieved with the following keys:&lt;/p&gt;&quot;</span></div>
+<div class="line">    <span class="stringliteral">&quot;&lt;ul&gt;&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;&lt;li&gt;Z: Move the mirror up.&lt;/li&gt;&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;&lt;li&gt;S: Move the mirror down.&lt;/li&gt;&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;&lt;li&gt;Q: Move the mirror left.&lt;/li&gt;&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;&lt;li&gt;D: Move the mirror right.&lt;/li&gt;&quot;</span></div>
+<div class="line">    <span class="stringliteral">&quot;&lt;/ul&gt;&quot;</span></div>
+<div class="line">    <span class="stringliteral">&quot;&lt;p&gt;while mirror rotations are done through:&quot;</span></div>
+<div class="line">    <span class="stringliteral">&quot;&lt;ul&gt;&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;&lt;li&gt;left arrow key: +1 in counterclockwise direction&lt;/li&gt;&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;&lt;li&gt;right arrow key: -1 in counterclockwise direction&lt;/li&gt;&quot;</span></div>
+<div class="line">    <span class="stringliteral">&quot;&lt;/ul&gt;&quot;</span></div>
+<div class="line">    <span class="stringliteral">&quot;&lt;p&gt;You can boost your move by pressing the &#39;Shift&#39; key.&lt;/p&gt;&quot;</span></div>
+<div class="line">    <span class="stringliteral">&quot;&lt;p style=&#39;font-weight: bold;&#39;&gt;Enjoy your game!&lt;/p&gt;&quot;</span></div>
+</div><!-- fragment -->
+</div>
+</div>
 <hr/>La documentation de cette classe a été générée à partir des fichiers suivants :<ul>
 <li>view/<a class="el" href="../../d6/dc6/mainmenu_8h_source.html">mainmenu.h</a></li>
 <li>view/mainmenu.cpp</li>
@@ -128,7 +181,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>displayMainMenu</b> (
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Généré le Mercredi 22 Avril 2015 19:57:03 pour Starlight par &#160;<a href="http://www.doxygen.org/index.html">
+Généré le Mercredi 22 Avril 2015 21:25:21 pour Starlight par &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.7
 </small></address>

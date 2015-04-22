@@ -12,9 +12,7 @@
 
 
 /**
- * Modifie la destination sélectionnée dans l’éditeur.
- * @param dest la destination sélectionnée.
- * @param parent le widget parent.
+ * Panel permettant de modifier la destination.
  */
 class DestProp : public PropertiesInterface
 {

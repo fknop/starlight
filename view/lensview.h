@@ -10,7 +10,9 @@
 
 #include "view/elementview.h"
 
-
+/**
+ * Modélisation visuelle de la lentille.
+ */
 class LensView : public QGraphicsEllipseItem, public ElementView, public ObserverInterface
 {
 public:

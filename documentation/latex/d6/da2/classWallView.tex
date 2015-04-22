@@ -31,11 +31,10 @@ Graphe de collaboration de Wall\+View\+:\nopagebreak
 \subsection*{Fonctions membres publiques}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{classWallView_acd55794debfd67a8f2b9088d3fb2e0dc}{Wall\+View} (const \hyperlink{classWall}{Wall} \&wall, bool selectable=false)
+\hyperlink{classWallView_acd55794debfd67a8f2b9088d3fb2e0dc}{Wall\+View} (const \hyperlink{classWall}{Wall} \&\hyperlink{classWallView_af93a05e8e527a55158707802c2f16911}{wall}, bool selectable=false)
 \begin{DoxyCompactList}\small\item\em Construit un segment de droite représentant un mur. \end{DoxyCompactList}\item 
-\hypertarget{classWallView_af93a05e8e527a55158707802c2f16911}{\hyperlink{classWall}{Wall} $\ast$ {\bfseries wall} ()}\label{classWallView_af93a05e8e527a55158707802c2f16911}
-
-\item 
+\hyperlink{classWall}{Wall} $\ast$ \hyperlink{classWallView_af93a05e8e527a55158707802c2f16911}{wall} ()
+\begin{DoxyCompactList}\small\item\em Retourne le mur représenté. \end{DoxyCompactList}\item 
 \hypertarget{classWallView_a674eb428edf9826a41616bc3f8618044}{bool {\bfseries selectable} () const }\label{classWallView_a674eb428edf9826a41616bc3f8618044}
 
 \item 
@@ -71,13 +70,9 @@ Construit un segment de droite représentant un mur.
 
 
 \begin{DoxyParams}{Paramètres}
-{\em x1} & abscisse de la première extrémité du mur. \\
+{\em wall} & le mur à construire. \\
 \hline
-{\em y1} & ordonnée da la première extrémité du mur. \\
-\hline
-{\em x2} & abscisse de l’autre extrémité du mur. \\
-\hline
-{\em y2} & ordonnée de l’autre extrémité du mur. \\
+{\em selectable} & le mur est-\/il sélectionnable ? \\
 \hline
 \end{DoxyParams}
 
@@ -109,6 +104,20 @@ Notifie le jeu d'un évènement provenant d'un sujet d'observation (\hyperlink{c
 
 Implémente \hyperlink{classObserverInterface_a1bbd22519c2942d978804714db12c8b2}{Observer\+Interface}.
 
+\hypertarget{classWallView_af93a05e8e527a55158707802c2f16911}{\index{Wall\+View@{Wall\+View}!wall@{wall}}
+\index{wall@{wall}!Wall\+View@{Wall\+View}}
+\subsubsection[{wall}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Wall} $\ast$ Wall\+View\+::wall (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classWallView_af93a05e8e527a55158707802c2f16911}
+
+
+Retourne le mur représenté. 
+
+\begin{DoxyReturn}{Renvoie}
+le mur représenté. 
+\end{DoxyReturn}
 
 
 La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}

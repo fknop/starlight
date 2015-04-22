@@ -5,7 +5,9 @@
 
 #include "view/mapview.h"
 
-
+/**
+ * Représente la fenêtre principale.
+ */
 class MainWindow : public QMainWindow
 {
     Q_OBJECT

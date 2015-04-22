@@ -12,9 +12,7 @@
 
 
 /**
- * Modifie le mur sélectionné dans l’éditeur.
- * @param wall le mur sélectionné.
- * @param parent le widget parent.
+ * Panel permettant de modifier un mur.
  */
 class WallProp : public PropertiesInterface
 {

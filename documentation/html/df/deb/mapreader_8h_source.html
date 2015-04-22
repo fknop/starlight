@@ -93,44 +93,45 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;model/level.h&quot;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
-<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="../../dd/d23/classMapReader.html">    8</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../dd/d23/classMapReader.html">MapReader</a></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;{</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keyword">static</span> <a class="code" href="../../d2/d9d/classLevel.html">Level</a> * l_;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="comment">/*</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">     * Les méthodes ci-dessous servent</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">     * à lire le fichier et à ajouter un</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">     * élement au jeu.</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> read_file(std::string line);</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> read_source(std::string line);</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> read_wall(std::string line);</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> read_destination(std::string line);</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> read_nuke(std::string line);</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> read_crystal(std::string line);</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> read_mirror(std::string line);</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> read_lens(std::string line);</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> read_size(std::string line);</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keyword">static</span> <a class="code" href="../../d2/d9d/classLevel.html">Level</a>* <a class="code" href="../../dd/d23/classMapReader.html#ac46cce595afc102320f6e73bb0748761">level</a>(std::string path);</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="../../dd/d23/classMapReader.html#afd2685d46bd9a935bf2c80a0c651898e">end_level</a>();</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;};</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor">#endif // MAPREADER_H</span></div>
-<div class="ttc" id="classMapReader_html"><div class="ttname"><a href="../../dd/d23/classMapReader.html">MapReader</a></div><div class="ttdef"><b>Definition:</b> mapreader.h:8</div></div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="../../dd/d23/classMapReader.html">   11</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../dd/d23/classMapReader.html">MapReader</a></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;{</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keyword">static</span> <a class="code" href="../../d2/d9d/classLevel.html">Level</a> * l_;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="comment">/*</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">     * Les méthodes ci-dessous servent</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">     * à lire le fichier et à ajouter un</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">     * élement au jeu.</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> read_file(std::string line);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> read_source(std::string line);</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> read_wall(std::string line);</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> read_destination(std::string line);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> read_nuke(std::string line);</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> read_crystal(std::string line);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> read_mirror(std::string line);</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> read_lens(std::string line);</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> read_size(std::string line);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keyword">static</span> <a class="code" href="../../d2/d9d/classLevel.html">Level</a>* <a class="code" href="../../dd/d23/classMapReader.html#ac46cce595afc102320f6e73bb0748761">level</a>(std::string path);</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="../../dd/d23/classMapReader.html#afd2685d46bd9a935bf2c80a0c651898e">end_level</a>();</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;};</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="preprocessor">#endif // MAPREADER_H</span></div>
+<div class="ttc" id="classMapReader_html"><div class="ttname"><a href="../../dd/d23/classMapReader.html">MapReader</a></div><div class="ttdoc">Classe permettant de lire un fichier .lvl et d&#39;instancier un niveau. </div><div class="ttdef"><b>Definition:</b> mapreader.h:11</div></div>
 <div class="ttc" id="classLevel_html"><div class="ttname"><a href="../../d2/d9d/classLevel.html">Level</a></div><div class="ttdoc">Modélise une carte telle qu&#39;utilisée dans le jeu. </div><div class="ttdef"><b>Definition:</b> level.h:49</div></div>
 <div class="ttc" id="classMapReader_html_ac46cce595afc102320f6e73bb0748761"><div class="ttname"><a href="../../dd/d23/classMapReader.html#ac46cce595afc102320f6e73bb0748761">MapReader::level</a></div><div class="ttdeci">static Level * level(std::string path)</div><div class="ttdoc">Retourne le niveau correspondant au fichier. </div><div class="ttdef"><b>Definition:</b> mapreader.cpp:170</div></div>
 <div class="ttc" id="classMapReader_html_afd2685d46bd9a935bf2c80a0c651898e"><div class="ttname"><a href="../../dd/d23/classMapReader.html#afd2685d46bd9a935bf2c80a0c651898e">MapReader::end_level</a></div><div class="ttdeci">static void end_level()</div><div class="ttdoc">Supprime le niveau correspondant au fichier lu précédemment. </div><div class="ttdef"><b>Definition:</b> mapreader.cpp:178</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Généré le Mercredi 22 Avril 2015 19:57:02 pour Starlight par &#160;<a href="http://www.doxygen.org/index.html">
+Généré le Mercredi 22 Avril 2015 21:25:20 pour Starlight par &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.7
 </small></address>

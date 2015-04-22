@@ -1,13 +1,14 @@
 <map id="Observable" name="Observable">
-<area shape="rect" id="node2" href="$d6/d4f/classCrystal.html" title="Cette classe modélise les cristaux utilisés dans le jeu. " alt="" coords="5,80,69,107"/>
-<area shape="rect" id="node3" href="$de/d97/classDest.html" title="Cette classe modélise la destination utilisée dans le jeu. " alt="" coords="93,80,144,107"/>
-<area shape="rect" id="node4" href="$d3/d48/classElements.html" title="Elements" alt="" coords="168,80,244,107"/>
-<area shape="rect" id="node5" href="$d6/d4b/classLens.html" title="Cette classe modélise les lentilles utilisées dans le jeu. " alt="" coords="269,80,320,107"/>
-<area shape="rect" id="node6" href="$d2/d9d/classLevel.html" title="Modélise une carte telle qu&#39;utilisée dans le jeu. " alt="" coords="344,80,397,107"/>
-<area shape="rect" id="node7" href="$de/d8c/classMapView.html" title="Modélisation visuelle d’un plateau de jeu. " alt="" coords="422,80,497,107"/>
-<area shape="rect" id="node8" href="$de/dfd/classMirror.html" title="Cette classe modélise les miroirs utilisés dans le jeu. " alt="" coords="522,80,576,107"/>
-<area shape="rect" id="node9" href="$d0/ddf/classNuke.html" title="Cette classe modélise les bombes utilisées dans le jeu. " alt="" coords="601,80,655,107"/>
-<area shape="rect" id="node10" href="$d0/deb/classProperties.html" title="Properties" alt="" coords="679,80,760,107"/>
-<area shape="rect" id="node11" href="$d6/d2e/classSource.html" title="Modélise la source lumineuse utilisée dans le jeu. " alt="" coords="785,80,847,107"/>
-<area shape="rect" id="node12" href="$d7/dec/classWall.html" title="Cette classe modélise les murs utilisés dans le jeu. " alt="" coords="872,80,920,107"/>
+<area shape="rect" id="node2" href="$d5/d3c/classElement.html" title="Cette classe sert de super&#45;classe à tous les éléments avec lesquels un rayon peut interagir..." alt="" coords="235,80,305,107"/>
+<area shape="rect" id="node10" href="$d3/d48/classElements.html" title="Permet de créer un niveau et d’y ajouter des éléments (miroir, lensille, etc.). " alt="" coords="331,80,407,107"/>
+<area shape="rect" id="node11" href="$d2/d9d/classLevel.html" title="Modélise une carte telle qu&#39;utilisée dans le jeu. " alt="" coords="432,80,485,107"/>
+<area shape="rect" id="node12" href="$de/d8c/classMapView.html" title="Modélisation visuelle d’un plateau de jeu. " alt="" coords="510,80,585,107"/>
+<area shape="rect" id="node13" href="$d0/deb/classProperties.html" title="Contient le widget permettant d’éditer l’élément sélectionné sur la carte et d’appliquer les chang..." alt="" coords="610,80,691,107"/>
+<area shape="rect" id="node3" href="$d6/d4f/classCrystal.html" title="Cette classe modélise les cristaux utilisés dans le jeu. " alt="" coords="5,155,69,181"/>
+<area shape="rect" id="node4" href="$de/d97/classDest.html" title="Cette classe modélise la destination utilisée dans le jeu. " alt="" coords="93,155,144,181"/>
+<area shape="rect" id="node5" href="$d6/d4b/classLens.html" title="Cette classe modélise les lentilles utilisées dans le jeu. " alt="" coords="168,155,219,181"/>
+<area shape="rect" id="node6" href="$de/dfd/classMirror.html" title="Cette classe modélise les miroirs utilisés dans le jeu. " alt="" coords="243,155,297,181"/>
+<area shape="rect" id="node7" href="$d0/ddf/classNuke.html" title="Cette classe modélise les bombes utilisées dans le jeu. " alt="" coords="323,155,376,181"/>
+<area shape="rect" id="node8" href="$d6/d2e/classSource.html" title="Modélise la source lumineuse utilisée dans le jeu. " alt="" coords="401,155,463,181"/>
+<area shape="rect" id="node9" href="$d7/dec/classWall.html" title="Cette classe modélise les murs utilisés dans le jeu. " alt="" coords="488,155,536,181"/>
 </map>

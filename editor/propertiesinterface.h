@@ -5,6 +5,9 @@
 
 #include "obs/observerinterface.h"
 
+/**
+ * Interface représentant les propriétés d'un objet au travers d'un panel.
+ */
 class PropertiesInterface : public QWidget, public ObserverInterface
 {
     Q_OBJECT

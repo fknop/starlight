@@ -5,6 +5,9 @@
 
 #include "model/level.h"
 
+/**
+ * Classe permettant de lire un fichier .lvl et d'instancier un niveau.
+ */
 class MapReader
 {
 
@@ -29,6 +32,7 @@ private:
 
 
 public:
+
     /**
      * Retourne le niveau correspondant au fichier.
      * @param path le chemin et nom du fichier.
