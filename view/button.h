@@ -13,17 +13,25 @@ class Button : public QObject, public QGraphicsRectItem
     Q_OBJECT
 
 public:
-    Button(QString name, QGraphicsItem * parent = NULL);
+    /**
+     * Instancie un nouveau Button.
+     * @param name le nom du bouton.
+     * @param parent le parent.
+     */
+    Button(const QString& name, QGraphicsItem * parent = nullptr);
 
-    void mousePressEvent(QGraphicsSceneMouseEvent * event);
-    void hoverEnterEvent(QGraphicsSceneHoverEvent * event);
-    void hoverLeaveEvent(QGraphicsSceneHoverEvent * event);
+    void mousePressEvent(QGraphicsSceneMouseEvent * event) override;
+    void hoverEnterEvent(QGraphicsSceneHoverEvent * event) override;
+    void hoverLeaveEvent(QGraphicsSceneHoverEvent * event) override;
 
 signals:
+    /**
+     * Simule un clic.
+     */
     void clicked();
 
 private:
-    QGraphicsTextItem * name;
+    QGraphicsTextItem * name_;
 };
 
 #endif // BUTTON_H

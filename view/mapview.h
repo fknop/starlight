@@ -86,7 +86,6 @@ public:
     void clear();
 
     /**
-     * @Retourne l’élément sélectionné dans le niveau ou nullptr si aucun objet n’est sélectionné.
      * @return l’élément sélectionné dans le niveau ou nullptr si aucun objet n’est sélectionné.
      */
     ElementView * selected();

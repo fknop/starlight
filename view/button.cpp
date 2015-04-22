@@ -5,7 +5,7 @@
 #include "view/button.h"
 
 
-Button::Button(QString name, QGraphicsItem *parent)
+Button::Button(const QString& name, QGraphicsItem *parent)
 {
     setRect(0,0, 200, 50);
     QBrush brush;
@@ -13,10 +13,10 @@ Button::Button(QString name, QGraphicsItem *parent)
     brush.setColor(Qt::yellow);
     setBrush(brush);
 
-    this->name = new QGraphicsTextItem(name, this);
-    int x = rect().width() / 2 - this->name->boundingRect().width() /2;
-    int y = rect().height() / 2 - this->name->boundingRect().height() /2;
-    this->name->setPos(x, y);
+    name_ = new QGraphicsTextItem(name, this);
+    int x = rect().width() / 2 - this->name_->boundingRect().width() /2;
+    int y = rect().height() / 2 - this->name_->boundingRect().height() /2;
+    name_->setPos(x, y);
     setAcceptHoverEvents(true);
 }
 
