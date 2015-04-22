@@ -1,3 +1,5 @@
+#include <QPen>
+
 #include "view/nukeview.h"
 
 
@@ -7,9 +9,9 @@ NukeView::NukeView(const Nuke & nuke, bool selectable)  :
     this->nuke_ = &(const_cast<Nuke &>(nuke));
     this->nuke_->add_observer(this);
 
-    QBrush brush(Qt::black);
-    brush.setStyle(Qt::SolidPattern);
-    setBrush(brush);
+    QPen pen(Qt::red);
+    pen.setWidth(3);
+    setPen(pen);
 
     set_rect();
 
@@ -19,7 +21,11 @@ NukeView::NukeView(const Nuke & nuke, bool selectable)  :
 void NukeView::notify(Observable * sdo, std::string msg, const std::vector<std::string> & args)
 {
     if (msg.compare("LIGHTED_UP") == 0)
-        setBrush(QBrush(Qt::red));
+    {
+        QBrush brush(Qt::red);
+        brush.setStyle(Qt::SolidPattern);
+        setBrush(brush);
+    }
     else
         set_rect();
 

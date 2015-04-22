@@ -1,3 +1,4 @@
+#include <QPen>
 #include "crystalview.h"
 
 CrystalView::CrystalView(const Crystal & crystal, bool selectable) :
@@ -5,6 +6,11 @@ CrystalView::CrystalView(const Crystal & crystal, bool selectable) :
 {
     this->crystal_ = &(const_cast<Crystal &>(crystal));
     this->crystal_->add_observer(this);
+
+    QPen pen(Qt::blue);
+    pen.setWidth(3);
+    setPen(pen);
+
     set_rect();
     setFlag(QGraphicsItem::ItemIsSelectable, this->selectable_);
 }

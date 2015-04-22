@@ -1,3 +1,4 @@
+#include <QPen>
 #include "lensview.h"
 
 
@@ -6,6 +7,11 @@ LensView::LensView(const Lens & lens, bool selectable) :
 {
     this->lens_ = &(const_cast<Lens &>(lens));
     this->lens_->add_observer(this);
+
+    QPen pen(Qt::green);
+    pen.setWidth(3);
+    setPen(pen);
+
     set_rect();
     setFlag(QGraphicsItem::ItemIsSelectable, this->selectable_);
 }

@@ -9,7 +9,7 @@ WallView::WallView(const Wall& wall, bool selectable)  :
     this->wall_->add_observer(this);
 
     QPen myPen(Qt::black);
-    myPen.setWidth(2);
+    myPen.setWidth(3);
     setPen(myPen);
     set_line();
     setFlag(QGraphicsItem::ItemIsSelectable, this->selectable_);
