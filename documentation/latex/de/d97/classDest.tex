@@ -1,0 +1,252 @@
+\hypertarget{classDest}{\section{Référence de la classe Dest}
+\label{classDest}\index{Dest@{Dest}}
+}
+
+
+Cette classe modélise la destination utilisée dans le jeu.  
+
+
+
+
+{\ttfamily \#include $<$dest.\+h$>$}
+
+
+
+Graphe d'héritage de Dest\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=146pt]{d9/d5c/classDest__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Graphe de collaboration de Dest\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=146pt]{d4/d77/classDest__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classDest_ac4b55b2569af4d98a6b265becf8922a7}{Dest} (const \hyperlink{classPoint}{Point} \&p, double e)
+\begin{DoxyCompactList}\small\item\em Intancie une destination de position et rayon donné. \end{DoxyCompactList}\item 
+\hyperlink{classDest_ad5bc62f6c24692e9ca8116c0b43d8dbb}{Dest} (const \hyperlink{classDest}{Dest} \&dest)
+\begin{DoxyCompactList}\small\item\em Constructeur de copie. \end{DoxyCompactList}\item 
+const \hyperlink{classPoint}{Point} \& \hyperlink{classDest_a40eed96fe590c1ecc354239dfed73b5e}{pos} () const 
+\begin{DoxyCompactList}\small\item\em Retourne la position du coin supérieur gauche du carré. \end{DoxyCompactList}\item 
+double \hyperlink{classDest_a3a8acfcc4637300fe240c299881c5c61}{edge} () const 
+\begin{DoxyCompactList}\small\item\em Retourne la longueur du côté du carré représentant la destination. \end{DoxyCompactList}\item 
+bool \hyperlink{classDest_af549b51a5ddf4cbdab7e95e0e07ee5d4}{lighted\+\_\+up} () const 
+\begin{DoxyCompactList}\small\item\em Retourne vrai si la destination est illuminée, faux sinon. \end{DoxyCompactList}\item 
+void \hyperlink{classDest_a52ab303c379e3f541692effccf183329}{set\+\_\+lighted\+\_\+up} (const bool value)
+\begin{DoxyCompactList}\small\item\em Illumine la destination ou non. \end{DoxyCompactList}\item 
+void \hyperlink{classDest_acdf685e262d90814429717f3270e215f}{set\+\_\+pos} (const \hyperlink{classPoint}{Point} \&\hyperlink{classDest_a40eed96fe590c1ecc354239dfed73b5e}{pos})
+\begin{DoxyCompactList}\small\item\em Modifie la position du coin supérieur gauche du carré. \end{DoxyCompactList}\item 
+void \hyperlink{classDest_af6c4c76da5373925c8b605faabb187f9}{set\+\_\+edge} (const double \hyperlink{classDest_a3a8acfcc4637300fe240c299881c5c61}{edge})
+\begin{DoxyCompactList}\small\item\em Modifie la longueur du côté du carré représentant la destination. \end{DoxyCompactList}\item 
+\hyperlink{classRectangle}{Rectangle} \hyperlink{classDest_a5af0475a453bf4ae292907b0f65ecd76}{to\+\_\+rectangle} ()
+\begin{DoxyCompactList}\small\item\em Retourne le rectangle correspondant à la destination. \end{DoxyCompactList}\item 
+void \hyperlink{classDest_a5a45df42c8960e3bcf510338acc04c99}{translate} (const double x, const double y)
+\begin{DoxyCompactList}\small\item\em Déplace la destination. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Amis}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& \hyperlink{classDest_a256a3d2bff5f10395424d5dc911a2b4e}{operator$<$$<$} (std\+::ostream \&out, const \hyperlink{classDest}{Dest} \&s)
+\begin{DoxyCompactList}\small\item\em Surcharge l'opérateur de flux de sortie pour afficher. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Membres hérités additionnels}
+
+
+\subsection{Description détaillée}
+Cette classe modélise la destination utilisée dans le jeu. 
+
+Une destination est un objet carré qui, quand traversé par un rayon lumineux, fait remporter la partie au joueur. 
+
+\subsection{Documentation des constructeurs et destructeur}
+\hypertarget{classDest_ac4b55b2569af4d98a6b265becf8922a7}{\index{Dest@{Dest}!Dest@{Dest}}
+\index{Dest@{Dest}!Dest@{Dest}}
+\subsubsection[{Dest}]{\setlength{\rightskip}{0pt plus 5cm}Dest\+::\+Dest (
+\begin{DoxyParamCaption}
+\item[{const {\bf Point} \&}]{p, }
+\item[{double}]{e}
+\end{DoxyParamCaption}
+)}}\label{classDest_ac4b55b2569af4d98a6b265becf8922a7}
+
+
+Intancie une destination de position et rayon donné. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em p} & le coin supérieur gauche du carré modélisant la destination. \\
+\hline
+{\em e} & la longueur du côté du carré. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classDest_ad5bc62f6c24692e9ca8116c0b43d8dbb}{\index{Dest@{Dest}!Dest@{Dest}}
+\index{Dest@{Dest}!Dest@{Dest}}
+\subsubsection[{Dest}]{\setlength{\rightskip}{0pt plus 5cm}Dest\+::\+Dest (
+\begin{DoxyParamCaption}
+\item[{const {\bf Dest} \&}]{dest}
+\end{DoxyParamCaption}
+)}}\label{classDest_ad5bc62f6c24692e9ca8116c0b43d8dbb}
+
+
+Constructeur de copie. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em dest} & la destination à copier. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{classDest_a3a8acfcc4637300fe240c299881c5c61}{\index{Dest@{Dest}!edge@{edge}}
+\index{edge@{edge}!Dest@{Dest}}
+\subsubsection[{edge}]{\setlength{\rightskip}{0pt plus 5cm}double Dest\+::edge (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classDest_a3a8acfcc4637300fe240c299881c5c61}
+
+
+Retourne la longueur du côté du carré représentant la destination. 
+
+\begin{DoxyReturn}{Renvoie}
+la longueur du côté du carré représentant la destination. 
+\end{DoxyReturn}
+\hypertarget{classDest_af549b51a5ddf4cbdab7e95e0e07ee5d4}{\index{Dest@{Dest}!lighted\+\_\+up@{lighted\+\_\+up}}
+\index{lighted\+\_\+up@{lighted\+\_\+up}!Dest@{Dest}}
+\subsubsection[{lighted\+\_\+up}]{\setlength{\rightskip}{0pt plus 5cm}bool Dest\+::lighted\+\_\+up (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classDest_af549b51a5ddf4cbdab7e95e0e07ee5d4}
+
+
+Retourne vrai si la destination est illuminée, faux sinon. 
+
+\begin{DoxyReturn}{Renvoie}
+vrai si la destination est illuminée, faux sinon. 
+\end{DoxyReturn}
+\hypertarget{classDest_a40eed96fe590c1ecc354239dfed73b5e}{\index{Dest@{Dest}!pos@{pos}}
+\index{pos@{pos}!Dest@{Dest}}
+\subsubsection[{pos}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Point} \& Dest\+::pos (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classDest_a40eed96fe590c1ecc354239dfed73b5e}
+
+
+Retourne la position du coin supérieur gauche du carré. 
+
+modélisant la destination. \begin{DoxyReturn}{Renvoie}
+la position de la destination. 
+\end{DoxyReturn}
+\hypertarget{classDest_af6c4c76da5373925c8b605faabb187f9}{\index{Dest@{Dest}!set\+\_\+edge@{set\+\_\+edge}}
+\index{set\+\_\+edge@{set\+\_\+edge}!Dest@{Dest}}
+\subsubsection[{set\+\_\+edge}]{\setlength{\rightskip}{0pt plus 5cm}void Dest\+::set\+\_\+edge (
+\begin{DoxyParamCaption}
+\item[{const double}]{edge}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classDest_af6c4c76da5373925c8b605faabb187f9}
+
+
+Modifie la longueur du côté du carré représentant la destination. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em edge} & la nouvelle longueur du côté de la destination. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classDest_a52ab303c379e3f541692effccf183329}{\index{Dest@{Dest}!set\+\_\+lighted\+\_\+up@{set\+\_\+lighted\+\_\+up}}
+\index{set\+\_\+lighted\+\_\+up@{set\+\_\+lighted\+\_\+up}!Dest@{Dest}}
+\subsubsection[{set\+\_\+lighted\+\_\+up}]{\setlength{\rightskip}{0pt plus 5cm}void Dest\+::set\+\_\+lighted\+\_\+up (
+\begin{DoxyParamCaption}
+\item[{const bool}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classDest_a52ab303c379e3f541692effccf183329}
+
+
+Illumine la destination ou non. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em value} & vrai si la destination doit être illuminée, faux sinon. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classDest_acdf685e262d90814429717f3270e215f}{\index{Dest@{Dest}!set\+\_\+pos@{set\+\_\+pos}}
+\index{set\+\_\+pos@{set\+\_\+pos}!Dest@{Dest}}
+\subsubsection[{set\+\_\+pos}]{\setlength{\rightskip}{0pt plus 5cm}void Dest\+::set\+\_\+pos (
+\begin{DoxyParamCaption}
+\item[{const {\bf Point} \&}]{pos}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classDest_acdf685e262d90814429717f3270e215f}
+
+
+Modifie la position du coin supérieur gauche du carré. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em pos} & la nouvelle position du coin supérieur gauche de la destination. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classDest_a5af0475a453bf4ae292907b0f65ecd76}{\index{Dest@{Dest}!to\+\_\+rectangle@{to\+\_\+rectangle}}
+\index{to\+\_\+rectangle@{to\+\_\+rectangle}!Dest@{Dest}}
+\subsubsection[{to\+\_\+rectangle}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Rectangle} Dest\+::to\+\_\+rectangle (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classDest_a5af0475a453bf4ae292907b0f65ecd76}
+
+
+Retourne le rectangle correspondant à la destination. 
+
+\begin{DoxyReturn}{Renvoie}
+le rectangle correspondant à la destination. 
+\end{DoxyReturn}
+\hypertarget{classDest_a5a45df42c8960e3bcf510338acc04c99}{\index{Dest@{Dest}!translate@{translate}}
+\index{translate@{translate}!Dest@{Dest}}
+\subsubsection[{translate}]{\setlength{\rightskip}{0pt plus 5cm}void Dest\+::translate (
+\begin{DoxyParamCaption}
+\item[{const double}]{x, }
+\item[{const double}]{y}
+\end{DoxyParamCaption}
+)}}\label{classDest_a5a45df42c8960e3bcf510338acc04c99}
+
+
+Déplace la destination. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em x} & le déplacement sur l'axe x. \\
+\hline
+{\em y} & le déplacement sur l'axe y. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Documentation des fonctions amies et associées}
+\hypertarget{classDest_a256a3d2bff5f10395424d5dc911a2b4e}{\index{Dest@{Dest}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Dest@{Dest}}
+\subsubsection[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}std\+::ostream\& operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{std\+::ostream \&}]{out, }
+\item[{const {\bf Dest} \&}]{s}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [friend]}}}\label{classDest_a256a3d2bff5f10395424d5dc911a2b4e}
+
+
+Surcharge l'opérateur de flux de sortie pour afficher. 
+
+un récapitulatif des caractéristiques de la destination sous-\/jacente en console. \begin{DoxyReturn}{Renvoie}
+le flux dans lequel la destination a été imprimée. 
+\end{DoxyReturn}
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+model/dest.\+h\item 
+model/dest.\+cpp\end{DoxyCompactItemize}

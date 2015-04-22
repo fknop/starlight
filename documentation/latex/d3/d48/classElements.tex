@@ -1,0 +1,178 @@
+\hypertarget{classElements}{\section{Référence de la classe Elements}
+\label{classElements}\index{Elements@{Elements}}
+}
+
+
+Permet de créer un niveau et d’y ajouter des éléments (miroir, lensille, etc.).  
+
+
+
+
+{\ttfamily \#include $<$elements.\+h$>$}
+
+
+
+Graphe d'héritage de Elements\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=219pt]{da/d2c/classElements__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Graphe de collaboration de Elements\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=219pt]{d3/d60/classElements__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Connecteurs publics}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classElements_a964576c05a5b9ec733a663474f8fd978}{add\+\_\+crystal} ()
+\begin{DoxyCompactList}\small\item\em Ajoute un cristal au niveau. \end{DoxyCompactList}\item 
+void \hyperlink{classElements_a8093eca3330566813da371aecc96530c}{add\+\_\+lens} ()
+\begin{DoxyCompactList}\small\item\em Ajoute une lentille au niveau. \end{DoxyCompactList}\item 
+void \hyperlink{classElements_a8d7a4e7ff0c84f105f0f0116425293a7}{add\+\_\+mirror} ()
+\begin{DoxyCompactList}\small\item\em Ajoute un miroir au niveau. \end{DoxyCompactList}\item 
+void \hyperlink{classElements_aa0884faf781bb26d6ca4dd8751b0eb32}{add\+\_\+nuke} ()
+\begin{DoxyCompactList}\small\item\em Ajoute une bombe au niveau. \end{DoxyCompactList}\item 
+void \hyperlink{classElements_ad4b05e8a07d9f6867035243c5e3f7572}{add\+\_\+wall} ()
+\begin{DoxyCompactList}\small\item\em Ajoute un mur au niveau. \end{DoxyCompactList}\item 
+\hypertarget{classElements_ad4bfaa4ea43fffd8653224165b5bbc29}{void \hyperlink{classElements_ad4bfaa4ea43fffd8653224165b5bbc29}{create\+\_\+level} ()}\label{classElements_ad4bfaa4ea43fffd8653224165b5bbc29}
+
+\begin{DoxyCompactList}\small\item\em Crée un nouveau niveau avec les dimensions précisées. \end{DoxyCompactList}\item 
+\hypertarget{classElements_a938cdaf6c97d1c9e5db80280b6379176}{void \hyperlink{classElements_a938cdaf6c97d1c9e5db80280b6379176}{reset\+\_\+level} ()}\label{classElements_a938cdaf6c97d1c9e5db80280b6379176}
+
+\begin{DoxyCompactList}\small\item\em Supprime le niveau actuel. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classElements_a2b73500c747cc879fe708d35aba45532}{{\bfseries Elements} (Q\+Widget $\ast$parent=0)}\label{classElements_a2b73500c747cc879fe708d35aba45532}
+
+\item 
+\hyperlink{classLevel}{Level} $\ast$ \hyperlink{classElements_add91eac75df596342176acac4eb8b1a1}{level} ()
+\begin{DoxyCompactList}\small\item\em Retourne le niveau. \end{DoxyCompactList}\item 
+void \hyperlink{classElements_a077b89b923b450bda172001121825e03}{set\+\_\+height} (int h)
+\begin{DoxyCompactList}\small\item\em Modifie la taille du niveau. \end{DoxyCompactList}\item 
+void \hyperlink{classElements_af6c7af0c40d3840296224453352fc534}{set\+\_\+width} (int w)
+\begin{DoxyCompactList}\small\item\em Modifie la largeur du niveau. \end{DoxyCompactList}\item 
+\hypertarget{classElements_ac8411c290c41dcb1777cb649155d3c04}{void {\bfseries enable\+\_\+pushbuttons} (bool b)}\label{classElements_ac8411c290c41dcb1777cb649155d3c04}
+
+\end{DoxyCompactItemize}
+\subsection*{Membres hérités additionnels}
+
+
+\subsection{Description détaillée}
+Permet de créer un niveau et d’y ajouter des éléments (miroir, lensille, etc.). 
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{classElements_a964576c05a5b9ec733a663474f8fd978}{\index{Elements@{Elements}!add\+\_\+crystal@{add\+\_\+crystal}}
+\index{add\+\_\+crystal@{add\+\_\+crystal}!Elements@{Elements}}
+\subsubsection[{add\+\_\+crystal}]{\setlength{\rightskip}{0pt plus 5cm}void Elements\+::add\+\_\+crystal (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}}\label{classElements_a964576c05a5b9ec733a663474f8fd978}
+
+
+Ajoute un cristal au niveau. 
+
+Indique à tous les observateurs qu’un cristal a été ajouté. \hypertarget{classElements_a8093eca3330566813da371aecc96530c}{\index{Elements@{Elements}!add\+\_\+lens@{add\+\_\+lens}}
+\index{add\+\_\+lens@{add\+\_\+lens}!Elements@{Elements}}
+\subsubsection[{add\+\_\+lens}]{\setlength{\rightskip}{0pt plus 5cm}void Elements\+::add\+\_\+lens (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}}\label{classElements_a8093eca3330566813da371aecc96530c}
+
+
+Ajoute une lentille au niveau. 
+
+Indique à tous les observateurs qu’une lentille a été ajoutée. \hypertarget{classElements_a8d7a4e7ff0c84f105f0f0116425293a7}{\index{Elements@{Elements}!add\+\_\+mirror@{add\+\_\+mirror}}
+\index{add\+\_\+mirror@{add\+\_\+mirror}!Elements@{Elements}}
+\subsubsection[{add\+\_\+mirror}]{\setlength{\rightskip}{0pt plus 5cm}void Elements\+::add\+\_\+mirror (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}}\label{classElements_a8d7a4e7ff0c84f105f0f0116425293a7}
+
+
+Ajoute un miroir au niveau. 
+
+Indique à tous les observateurs qu’un miroir a été ajouté. \hypertarget{classElements_aa0884faf781bb26d6ca4dd8751b0eb32}{\index{Elements@{Elements}!add\+\_\+nuke@{add\+\_\+nuke}}
+\index{add\+\_\+nuke@{add\+\_\+nuke}!Elements@{Elements}}
+\subsubsection[{add\+\_\+nuke}]{\setlength{\rightskip}{0pt plus 5cm}void Elements\+::add\+\_\+nuke (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}}\label{classElements_aa0884faf781bb26d6ca4dd8751b0eb32}
+
+
+Ajoute une bombe au niveau. 
+
+Indique à tous les observateurs qu’une bombe a été ajoutée. \hypertarget{classElements_ad4b05e8a07d9f6867035243c5e3f7572}{\index{Elements@{Elements}!add\+\_\+wall@{add\+\_\+wall}}
+\index{add\+\_\+wall@{add\+\_\+wall}!Elements@{Elements}}
+\subsubsection[{add\+\_\+wall}]{\setlength{\rightskip}{0pt plus 5cm}void Elements\+::add\+\_\+wall (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}}\label{classElements_ad4b05e8a07d9f6867035243c5e3f7572}
+
+
+Ajoute un mur au niveau. 
+
+Indique à tous les observateurs qu’un mur a été ajouté. \hypertarget{classElements_add91eac75df596342176acac4eb8b1a1}{\index{Elements@{Elements}!level@{level}}
+\index{level@{level}!Elements@{Elements}}
+\subsubsection[{level}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Level} $\ast$ Elements\+::level (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classElements_add91eac75df596342176acac4eb8b1a1}
+
+
+Retourne le niveau. 
+
+\begin{DoxyReturn}{Renvoie}
+le niveau. 
+\end{DoxyReturn}
+\hypertarget{classElements_a077b89b923b450bda172001121825e03}{\index{Elements@{Elements}!set\+\_\+height@{set\+\_\+height}}
+\index{set\+\_\+height@{set\+\_\+height}!Elements@{Elements}}
+\subsubsection[{set\+\_\+height}]{\setlength{\rightskip}{0pt plus 5cm}void Elements\+::set\+\_\+height (
+\begin{DoxyParamCaption}
+\item[{int}]{h}
+\end{DoxyParamCaption}
+)}}\label{classElements_a077b89b923b450bda172001121825e03}
+
+
+Modifie la taille du niveau. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em h} & la hauteur de la carte du niveau. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classElements_af6c7af0c40d3840296224453352fc534}{\index{Elements@{Elements}!set\+\_\+width@{set\+\_\+width}}
+\index{set\+\_\+width@{set\+\_\+width}!Elements@{Elements}}
+\subsubsection[{set\+\_\+width}]{\setlength{\rightskip}{0pt plus 5cm}void Elements\+::set\+\_\+width (
+\begin{DoxyParamCaption}
+\item[{int}]{w}
+\end{DoxyParamCaption}
+)}}\label{classElements_af6c7af0c40d3840296224453352fc534}
+
+
+Modifie la largeur du niveau. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em w} & la largeur de la carte du niveau. \\
+\hline
+\end{DoxyParams}
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+editor/elements.\+h\item 
+editor/elements.\+cpp\end{DoxyCompactItemize}

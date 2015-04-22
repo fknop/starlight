@@ -1,0 +1,65 @@
+\hypertarget{classObserverInterface}{\section{Référence de la classe Observer\+Interface}
+\label{classObserverInterface}\index{Observer\+Interface@{Observer\+Interface}}
+}
+
+
+Interface représentant un observateur.  
+
+
+
+
+{\ttfamily \#include $<$observerinterface.\+h$>$}
+
+
+
+Graphe d'héritage de Observer\+Interface\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d7/d5b/classObserverInterface__inherit__graph}
+\end{center}
+\end{figure}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{classObserverInterface_a3083639e706557f950f62af8ab283150}{notify} (\hyperlink{classObservable}{Observable} $\ast$o, const std\+::string \&msg, const std\+::vector$<$ std\+::string $>$ \&args=std\+::vector$<$ std\+::string $>$())=0
+\begin{DoxyCompactList}\small\item\em Notifie le jeu d'un évènement provenant d'un sujet d'observation (\hyperlink{classObservable}{Observable}). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+Interface représentant un observateur. 
+
+Toutes classes héritant de cette interface doit redéfinir la méthode notify. Un observateur reçoit des notifications d'une classe héritant d'\hyperlink{classObservable}{Observable}. 
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{classObserverInterface_a3083639e706557f950f62af8ab283150}{\index{Observer\+Interface@{Observer\+Interface}!notify@{notify}}
+\index{notify@{notify}!Observer\+Interface@{Observer\+Interface}}
+\subsubsection[{notify}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Observer\+Interface\+::notify (
+\begin{DoxyParamCaption}
+\item[{{\bf Observable} $\ast$}]{o, }
+\item[{const std\+::string \&}]{msg, }
+\item[{const std\+::vector$<$ std\+::string $>$ \&}]{args = {\ttfamily std\+:\+:vector$<$~std\+:\+:string~$>$()}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classObserverInterface_a3083639e706557f950f62af8ab283150}
+
+
+Notifie le jeu d'un évènement provenant d'un sujet d'observation (\hyperlink{classObservable}{Observable}). 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em o} & l'observé. \\
+\hline
+{\em msg} & le message de notification. \\
+\hline
+{\em args} & des arguments. \\
+\hline
+\end{DoxyParams}
+
+
+Implémenté dans \hyperlink{classLevel_a02cd551cc86ee390aa3559f9f2479a26}{Level}, \hyperlink{classMapView_af57740f402cad958653bdba417f87fe0}{Map\+View}, \hyperlink{classCrystalView_a6dbe86bec06d3b63182804f4f5860054}{Crystal\+View}, \hyperlink{classDestinationView_ad200371afdce766b4208e45d83d1ba25}{Destination\+View}, \hyperlink{classMirrorView_a20d9601e53e0b6f30a845e8ba50c96c2}{Mirror\+View}, \hyperlink{classLensView_a09506e0da9265c47140ded3e6eb35a7f}{Lens\+View}, \hyperlink{classSourceView_a615ac7a3f10992488cccf60fd89044b0}{Source\+View}, \hyperlink{classWallView_a68050e9027589cc7d1ab592e1cd8003c}{Wall\+View}, \hyperlink{classNukeView_af45ef374496a0ef5b3d595ab1e5fba20}{Nuke\+View}, et \hyperlink{classPropertiesInterface_a317a8df57b8387be63632a31eddb241d}{Properties\+Interface}.
+
+
+
+La documentation de cette classe a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+obs/observerinterface.\+h\end{DoxyCompactItemize}

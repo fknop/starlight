@@ -1,0 +1,223 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.7"/>
+<title>Starlight:  Fichier source de model/lens.h</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Starlight
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.7 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="../../index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="../../annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="../../files.html"><span>Fichiers</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="../../search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="../../files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Énumérations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Amis</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_3f14f6767c31cb4a1d22c13c18cc6fc3.html">model</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">lens.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef LENS_H</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define LENS_H</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;ostream&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;model/element.h&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;model/ellipse.h&quot;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;model/point.h&quot;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="../../d6/d4b/classLens.html">   20</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d6/d4b/classLens.html">Lens</a> : <span class="keyword">public</span> <a class="code" href="../../d5/d3c/classElement.html">Element</a></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;{</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <a class="code" href="../../dc/d4f/classPoint.html">Point</a> pos_;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordtype">double</span> width_;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordtype">double</span> height_;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordtype">int</span> wl_min_;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordtype">int</span> wl_max_;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <a class="code" href="../../d6/d4b/classLens.html#a314445802fc5ed95bdd6b715282f6825">Lens</a>(<span class="keyword">const</span> <a class="code" href="../../dc/d4f/classPoint.html">Point</a>&amp; p, <span class="keywordtype">double</span> w, <span class="keywordtype">double</span> h, <span class="keywordtype">int</span> <a class="code" href="../../d6/d4b/classLens.html#aee260137e02f65dd1e3daf3ce21a85c2">wl_min</a>, <span class="keywordtype">int</span> <a class="code" href="../../d6/d4b/classLens.html#a0ffa3d4a046dd6d31ddc549bd91bc25d">wl_max</a>);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <a class="code" href="../../d6/d4b/classLens.html#a314445802fc5ed95bdd6b715282f6825">Lens</a>(<span class="keyword">const</span> <a class="code" href="../../d6/d4b/classLens.html">Lens</a>&amp; lens);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keyword">inline</span> <span class="keyword">const</span> <a class="code" href="../../dc/d4f/classPoint.html">Point</a>&amp; <a class="code" href="../../d6/d4b/classLens.html#a162d1b06824dbbac8c221ebfec0e0816">position</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">double</span> <a class="code" href="../../d6/d4b/classLens.html#afcccf7e103a81ae4fbe5e14c9dc4e0a6">width</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">double</span> <a class="code" href="../../d6/d4b/classLens.html#a827d7ce14d1dfbd66b46e94cb1d6a794">height</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">int</span> <a class="code" href="../../d6/d4b/classLens.html#a0ffa3d4a046dd6d31ddc549bd91bc25d">wl_max</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">int</span> <a class="code" href="../../d6/d4b/classLens.html#aee260137e02f65dd1e3daf3ce21a85c2">wl_min</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="../../d6/d4b/classLens.html#a3bf3faa62c56d0282e46c2f0baa3b531">set_pos</a>(<span class="keyword">const</span> <a class="code" href="../../dc/d4f/classPoint.html">Point</a>&amp; pos);</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="../../d6/d4b/classLens.html#a7667bda90f872998cb19a027d1c4f3db">set_width</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> w);</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="../../d6/d4b/classLens.html#a8242b785736433197468c6ef17fb37ee">set_height</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> h);</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="../../d6/d4b/classLens.html#a0fedf88bbe8eb0bdb4a5d20561f1344c">set_wl_min</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> wl_min);</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="../../d6/d4b/classLens.html#a7c0492c65283b7f51f54aef6c706d311">set_wl_max</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> wl_max);</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <a class="code" href="../../db/dc7/classEllipse.html">Ellipse</a> <a class="code" href="../../d6/d4b/classLens.html#a32c53f8267002b2fa510c656f91600b9">to_ellipse</a>();</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="../../d6/d4b/classLens.html#acfdbf14808b0c555e21405aacd7d9cb2">translate</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> x, <span class="keyword">const</span> <span class="keywordtype">double</span> y);</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    <span class="keyword">friend</span> std::ostream&amp; <a class="code" href="../../d6/d4b/classLens.html#ad6aeaa87264bd2229fef327ef4c64699">operator&lt;&lt;</a>(std::ostream&amp; out,</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;                                     <span class="keyword">const</span> <a class="code" href="../../d6/d4b/classLens.html">Lens</a>&amp; m);</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="../../d6/d4b/classLens.html#a53256728d15126197e0f66a595822948">operator==</a>(<span class="keyword">const</span> <a class="code" href="../../d6/d4b/classLens.html">Lens</a>&amp; l) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;};</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;<span class="comment">/* Fonctions inlines */</span></div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;</div>
+<div class="line"><a name="l00151"></a><span class="lineno"><a class="line" href="../../d6/d4b/classLens.html#a162d1b06824dbbac8c221ebfec0e0816">  151</a></span>&#160;<span class="keyword">const</span> <a class="code" href="../../dc/d4f/classPoint.html">Point</a>&amp; <a class="code" href="../../d6/d4b/classLens.html#a162d1b06824dbbac8c221ebfec0e0816">Lens::position</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    <span class="keywordflow">return</span> pos_;</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;}</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;</div>
+<div class="line"><a name="l00156"></a><span class="lineno"><a class="line" href="../../d6/d4b/classLens.html#afcccf7e103a81ae4fbe5e14c9dc4e0a6">  156</a></span>&#160;<span class="keywordtype">double</span> <a class="code" href="../../d6/d4b/classLens.html#afcccf7e103a81ae4fbe5e14c9dc4e0a6">Lens::width</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    <span class="keywordflow">return</span> width_;</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;}</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;</div>
+<div class="line"><a name="l00161"></a><span class="lineno"><a class="line" href="../../d6/d4b/classLens.html#a827d7ce14d1dfbd66b46e94cb1d6a794">  161</a></span>&#160;<span class="keywordtype">double</span> <a class="code" href="../../d6/d4b/classLens.html#a827d7ce14d1dfbd66b46e94cb1d6a794">Lens::height</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    <span class="keywordflow">return</span> height_;</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;}</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;</div>
+<div class="line"><a name="l00166"></a><span class="lineno"><a class="line" href="../../d6/d4b/classLens.html#a0ffa3d4a046dd6d31ddc549bd91bc25d">  166</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="../../d6/d4b/classLens.html#a0ffa3d4a046dd6d31ddc549bd91bc25d">Lens::wl_max</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    <span class="keywordflow">return</span> wl_max_;</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;}</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;</div>
+<div class="line"><a name="l00171"></a><span class="lineno"><a class="line" href="../../d6/d4b/classLens.html#aee260137e02f65dd1e3daf3ce21a85c2">  171</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="../../d6/d4b/classLens.html#aee260137e02f65dd1e3daf3ce21a85c2">Lens::wl_min</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    <span class="keywordflow">return</span> wl_min_;</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;}</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;</div>
+<div class="line"><a name="l00176"></a><span class="lineno"><a class="line" href="../../d6/d4b/classLens.html#a3bf3faa62c56d0282e46c2f0baa3b531">  176</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d6/d4b/classLens.html#a3bf3faa62c56d0282e46c2f0baa3b531">Lens::set_pos</a>(<span class="keyword">const</span> <a class="code" href="../../dc/d4f/classPoint.html">Point</a>&amp; pos)</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;{</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    pos_ = pos;</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;}</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;</div>
+<div class="line"><a name="l00181"></a><span class="lineno"><a class="line" href="../../d6/d4b/classLens.html#a7667bda90f872998cb19a027d1c4f3db">  181</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d6/d4b/classLens.html#a7667bda90f872998cb19a027d1c4f3db">Lens::set_width</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> w)</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;{</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;    width_ = w;</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;}</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;</div>
+<div class="line"><a name="l00186"></a><span class="lineno"><a class="line" href="../../d6/d4b/classLens.html#a8242b785736433197468c6ef17fb37ee">  186</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d6/d4b/classLens.html#a8242b785736433197468c6ef17fb37ee">Lens::set_height</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> h)</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;{</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;    height_ = h;</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;}</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;</div>
+<div class="line"><a name="l00191"></a><span class="lineno"><a class="line" href="../../d6/d4b/classLens.html#a0fedf88bbe8eb0bdb4a5d20561f1344c">  191</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d6/d4b/classLens.html#a0fedf88bbe8eb0bdb4a5d20561f1344c">Lens::set_wl_min</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> wl_min)</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;{</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;    wl_min_ = <a class="code" href="../../d6/d4b/classLens.html#aee260137e02f65dd1e3daf3ce21a85c2">wl_min</a>;</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;}</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;</div>
+<div class="line"><a name="l00196"></a><span class="lineno"><a class="line" href="../../d6/d4b/classLens.html#a7c0492c65283b7f51f54aef6c706d311">  196</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d6/d4b/classLens.html#a7c0492c65283b7f51f54aef6c706d311">Lens::set_wl_max</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> wl_max)</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;{</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;    wl_max_ = <a class="code" href="../../d6/d4b/classLens.html#a0ffa3d4a046dd6d31ddc549bd91bc25d">wl_max</a>;</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;}</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;<span class="preprocessor">#endif // LENS_H</span></div>
+<div class="ttc" id="classEllipse_html"><div class="ttname"><a href="../../db/dc7/classEllipse.html">Ellipse</a></div><div class="ttdoc">Classe Ellipse La position représente la position du centre de l&#39;ellipse. </div><div class="ttdef"><b>Definition:</b> ellipse.h:17</div></div>
+<div class="ttc" id="classLens_html_a314445802fc5ed95bdd6b715282f6825"><div class="ttname"><a href="../../d6/d4b/classLens.html#a314445802fc5ed95bdd6b715282f6825">Lens::Lens</a></div><div class="ttdeci">Lens(const Point &amp;p, double w, double h, int wl_min, int wl_max)</div><div class="ttdoc">Instancie une lentille à l&#39;aide de toutes ses caractéristiques. </div><div class="ttdef"><b>Definition:</b> lens.cpp:5</div></div>
+<div class="ttc" id="classLens_html_a32c53f8267002b2fa510c656f91600b9"><div class="ttname"><a href="../../d6/d4b/classLens.html#a32c53f8267002b2fa510c656f91600b9">Lens::to_ellipse</a></div><div class="ttdeci">Ellipse to_ellipse()</div><div class="ttdoc">Retourne une ellipse correspondante à la lentille. </div><div class="ttdef"><b>Definition:</b> lens.cpp:37</div></div>
+<div class="ttc" id="classLens_html_a7c0492c65283b7f51f54aef6c706d311"><div class="ttname"><a href="../../d6/d4b/classLens.html#a7c0492c65283b7f51f54aef6c706d311">Lens::set_wl_max</a></div><div class="ttdeci">void set_wl_max(const double wl_max)</div><div class="ttdoc">Modifie la longueur d’onde maximale de la lentille. </div><div class="ttdef"><b>Definition:</b> lens.h:196</div></div>
+<div class="ttc" id="classLens_html"><div class="ttname"><a href="../../d6/d4b/classLens.html">Lens</a></div><div class="ttdoc">Cette classe modélise les lentilles utilisées dans le jeu. </div><div class="ttdef"><b>Definition:</b> lens.h:20</div></div>
+<div class="ttc" id="classLens_html_a827d7ce14d1dfbd66b46e94cb1d6a794"><div class="ttname"><a href="../../d6/d4b/classLens.html#a827d7ce14d1dfbd66b46e94cb1d6a794">Lens::height</a></div><div class="ttdeci">double height() const </div><div class="ttdoc">Retourne la hauteur de la lentille. </div><div class="ttdef"><b>Definition:</b> lens.h:161</div></div>
+<div class="ttc" id="classLens_html_a7667bda90f872998cb19a027d1c4f3db"><div class="ttname"><a href="../../d6/d4b/classLens.html#a7667bda90f872998cb19a027d1c4f3db">Lens::set_width</a></div><div class="ttdeci">void set_width(const double w)</div><div class="ttdoc">Modifie la largeur de la lentille. </div><div class="ttdef"><b>Definition:</b> lens.h:181</div></div>
+<div class="ttc" id="classPoint_html"><div class="ttname"><a href="../../dc/d4f/classPoint.html">Point</a></div><div class="ttdoc">Cette classe modélise un simple point de coordonnées réelles utilisés pour modéliser les positions de...</div><div class="ttdef"><b>Definition:</b> point.h:10</div></div>
+<div class="ttc" id="classLens_html_a3bf3faa62c56d0282e46c2f0baa3b531"><div class="ttname"><a href="../../d6/d4b/classLens.html#a3bf3faa62c56d0282e46c2f0baa3b531">Lens::set_pos</a></div><div class="ttdeci">void set_pos(const Point &amp;pos)</div><div class="ttdoc">Modifie la position de la lentille. </div><div class="ttdef"><b>Definition:</b> lens.h:176</div></div>
+<div class="ttc" id="classLens_html_a0fedf88bbe8eb0bdb4a5d20561f1344c"><div class="ttname"><a href="../../d6/d4b/classLens.html#a0fedf88bbe8eb0bdb4a5d20561f1344c">Lens::set_wl_min</a></div><div class="ttdeci">void set_wl_min(const double wl_min)</div><div class="ttdoc">Modifie la longueur d’onde minimale de la lentille. </div><div class="ttdef"><b>Definition:</b> lens.h:191</div></div>
+<div class="ttc" id="classLens_html_a8242b785736433197468c6ef17fb37ee"><div class="ttname"><a href="../../d6/d4b/classLens.html#a8242b785736433197468c6ef17fb37ee">Lens::set_height</a></div><div class="ttdeci">void set_height(const double h)</div><div class="ttdoc">Modifie la hauteur de la lentille. </div><div class="ttdef"><b>Definition:</b> lens.h:186</div></div>
+<div class="ttc" id="classLens_html_a53256728d15126197e0f66a595822948"><div class="ttname"><a href="../../d6/d4b/classLens.html#a53256728d15126197e0f66a595822948">Lens::operator==</a></div><div class="ttdeci">bool operator==(const Lens &amp;l) const </div><div class="ttdoc">Redéfinition de l&#39;opérateur d&#39;égalité, retourne vrai si les lentilles sont égales. </div><div class="ttdef"><b>Definition:</b> lens.cpp:44</div></div>
+<div class="ttc" id="classElement_html"><div class="ttname"><a href="../../d5/d3c/classElement.html">Element</a></div><div class="ttdoc">Cette classe sert de super-classe à tous les éléments avec lesquels un rayon peut interagir...</div><div class="ttdef"><b>Definition:</b> element.h:13</div></div>
+<div class="ttc" id="classLens_html_a162d1b06824dbbac8c221ebfec0e0816"><div class="ttname"><a href="../../d6/d4b/classLens.html#a162d1b06824dbbac8c221ebfec0e0816">Lens::position</a></div><div class="ttdeci">const Point &amp; position() const </div><div class="ttdoc">Retourne la position du coin supérieur gauche du rectangle modélisant la lentille. </div><div class="ttdef"><b>Definition:</b> lens.h:151</div></div>
+<div class="ttc" id="classLens_html_a0ffa3d4a046dd6d31ddc549bd91bc25d"><div class="ttname"><a href="../../d6/d4b/classLens.html#a0ffa3d4a046dd6d31ddc549bd91bc25d">Lens::wl_max</a></div><div class="ttdeci">int wl_max() const </div><div class="ttdoc">Retourne la longueur d&#39;onde minimale des rayons autorisés à franchir la lentille. ...</div><div class="ttdef"><b>Definition:</b> lens.h:166</div></div>
+<div class="ttc" id="classLens_html_acfdbf14808b0c555e21405aacd7d9cb2"><div class="ttname"><a href="../../d6/d4b/classLens.html#acfdbf14808b0c555e21405aacd7d9cb2">Lens::translate</a></div><div class="ttdeci">void translate(const double x, const double y)</div><div class="ttdoc">Déplace la lentille. </div><div class="ttdef"><b>Definition:</b> lens.cpp:53</div></div>
+<div class="ttc" id="classLens_html_afcccf7e103a81ae4fbe5e14c9dc4e0a6"><div class="ttname"><a href="../../d6/d4b/classLens.html#afcccf7e103a81ae4fbe5e14c9dc4e0a6">Lens::width</a></div><div class="ttdeci">double width() const </div><div class="ttdoc">Retourne la largeur de la lentille. </div><div class="ttdef"><b>Definition:</b> lens.h:156</div></div>
+<div class="ttc" id="classLens_html_ad6aeaa87264bd2229fef327ef4c64699"><div class="ttname"><a href="../../d6/d4b/classLens.html#ad6aeaa87264bd2229fef327ef4c64699">Lens::operator&lt;&lt;</a></div><div class="ttdeci">friend std::ostream &amp; operator&lt;&lt;(std::ostream &amp;out, const Lens &amp;m)</div><div class="ttdoc">Surcharge l&#39;opérateur de flux de sortie pour afficher un récapitulatif des caractéristiques de la len...</div><div class="ttdef"><b>Definition:</b> lens.cpp:60</div></div>
+<div class="ttc" id="classLens_html_aee260137e02f65dd1e3daf3ce21a85c2"><div class="ttname"><a href="../../d6/d4b/classLens.html#aee260137e02f65dd1e3daf3ce21a85c2">Lens::wl_min</a></div><div class="ttdeci">int wl_min() const </div><div class="ttdoc">Retourne la longueur d&#39;onde maximale des rayons autorisés à franchir la lentille. ...</div><div class="ttdef"><b>Definition:</b> lens.h:171</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré le Mercredi 22 Avril 2015 23:29:18 pour Starlight par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.8.7
+</small></address>
+</body>
+</html>

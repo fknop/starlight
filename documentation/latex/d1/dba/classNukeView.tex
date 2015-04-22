@@ -1,0 +1,111 @@
+\hypertarget{classNukeView}{\section{Référence de la classe Nuke\+View}
+\label{classNukeView}\index{Nuke\+View@{Nuke\+View}}
+}
+
+
+Modélisation visuelle d’une bombe.  
+
+
+
+
+{\ttfamily \#include $<$nukeview.\+h$>$}
+
+
+
+Graphe d'héritage de Nuke\+View\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/d21/classNukeView__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Graphe de collaboration de Nuke\+View\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{db/d47/classNukeView__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classNukeView_a9bb87e648efa96308058a68748e53a41}{{\bfseries Nuke\+View} (const \hyperlink{classNuke}{Nuke} \&nuke, bool selectable=false)}\label{classNukeView_a9bb87e648efa96308058a68748e53a41}
+
+\item 
+\hypertarget{classNukeView_a8bf8e524e5627138ed6c028cb4b87d2b}{\hyperlink{classNuke}{Nuke} $\ast$ {\bfseries nuke} ()}\label{classNukeView_a8bf8e524e5627138ed6c028cb4b87d2b}
+
+\item 
+\hypertarget{classNukeView_a70589619df5713cadcc47f399fae6e00}{bool {\bfseries selectable} () const }\label{classNukeView_a70589619df5713cadcc47f399fae6e00}
+
+\item 
+\hypertarget{classNukeView_ab3761858ebbe1f6dcde7813c4118bfd0}{void {\bfseries set\+\_\+selectable} (bool value)}\label{classNukeView_ab3761858ebbe1f6dcde7813c4118bfd0}
+
+\item 
+void \hyperlink{classNukeView_ab5743729fc4659e2cd670d42800c9856}{translate} (const double x=.\+0, const double y=.\+0) override
+\begin{DoxyCompactList}\small\item\em Effectue une translation de l’objet sur l’axe des abscisses et des ordonnées. \end{DoxyCompactList}\item 
+void \hyperlink{classNukeView_af45ef374496a0ef5b3d595ab1e5fba20}{notify} (\hyperlink{classObservable}{Observable} $\ast$o, const std\+::string \&msg, const std\+::vector$<$ std\+::string $>$ \&args) override
+\begin{DoxyCompactList}\small\item\em Notifie le jeu d'un évènement provenant d'un sujet d'observation (\hyperlink{classObservable}{Observable}). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Membres hérités additionnels}
+
+
+\subsection{Description détaillée}
+Modélisation visuelle d’une bombe. 
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{classNukeView_af45ef374496a0ef5b3d595ab1e5fba20}{\index{Nuke\+View@{Nuke\+View}!notify@{notify}}
+\index{notify@{notify}!Nuke\+View@{Nuke\+View}}
+\subsubsection[{notify}]{\setlength{\rightskip}{0pt plus 5cm}void Nuke\+View\+::notify (
+\begin{DoxyParamCaption}
+\item[{{\bf Observable} $\ast$}]{o, }
+\item[{const std\+::string \&}]{msg, }
+\item[{const std\+::vector$<$ std\+::string $>$ \&}]{args}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}}\label{classNukeView_af45ef374496a0ef5b3d595ab1e5fba20}
+
+
+Notifie le jeu d'un évènement provenant d'un sujet d'observation (\hyperlink{classObservable}{Observable}). 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em o} & l'observé. \\
+\hline
+{\em msg} & le message de notification. \\
+\hline
+{\em args} & des arguments. \\
+\hline
+\end{DoxyParams}
+
+
+Implémente \hyperlink{classObserverInterface_a3083639e706557f950f62af8ab283150}{Observer\+Interface}.
+
+\hypertarget{classNukeView_ab5743729fc4659e2cd670d42800c9856}{\index{Nuke\+View@{Nuke\+View}!translate@{translate}}
+\index{translate@{translate}!Nuke\+View@{Nuke\+View}}
+\subsubsection[{translate}]{\setlength{\rightskip}{0pt plus 5cm}void Nuke\+View\+::translate (
+\begin{DoxyParamCaption}
+\item[{const double}]{x = {\ttfamily .0}, }
+\item[{const double}]{y = {\ttfamily .0}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}}\label{classNukeView_ab5743729fc4659e2cd670d42800c9856}
+
+
+Effectue une translation de l’objet sur l’axe des abscisses et des ordonnées. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em x} & la translation sur l’axe des abscisses. \\
+\hline
+{\em y} & la translation sur l’axe des ordonnées. \\
+\hline
+\end{DoxyParams}
+
+
+Réimplémentée à partir de \hyperlink{classElementView_a69a525cb674a36e33be6a8b7a6e4b83c}{Element\+View}.
+
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+view/nukeview.\+h\item 
+view/nukeview.\+cpp\end{DoxyCompactItemize}

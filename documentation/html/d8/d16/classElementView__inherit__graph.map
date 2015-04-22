@@ -1,0 +1,9 @@
+<map id="ElementView" name="ElementView">
+<area shape="rect" id="node3" href="$d3/d9b/classCrystalView.html" title="Modélisation visuelle d’un cristal. " alt="" coords="5,155,99,181"/>
+<area shape="rect" id="node4" href="$d7/d7d/classDestinationView.html" title="Modélisation visuelle de la destination. " alt="" coords="123,155,239,181"/>
+<area shape="rect" id="node5" href="$d6/da9/classLensView.html" title="Modélisation visuelle de la lentille. " alt="" coords="265,155,343,181"/>
+<area shape="rect" id="node6" href="$d6/d74/classMirrorView.html" title="Modélisation visuelle d’un miroir. " alt="" coords="367,155,451,181"/>
+<area shape="rect" id="node7" href="$d1/dba/classNukeView.html" title="Modélisation visuelle d’une bombe. " alt="" coords="476,155,557,181"/>
+<area shape="rect" id="node8" href="$d9/df7/classSourceView.html" title="Modélisation visuelle d’une source. " alt="" coords="583,155,675,181"/>
+<area shape="rect" id="node9" href="$d6/da2/classWallView.html" title="Modélisation visuelle d’un mur (ne reflétant pas la lumière). " alt="" coords="700,155,776,181"/>
+</map>
