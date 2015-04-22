@@ -16,12 +16,32 @@
  */
 class CrystalView : public QGraphicsEllipseItem, public ElementView, public ObserverInterface
 {
+    Crystal * crystal_;
+    bool selectable_;
+
 public:
+    /**
+     * Instancie une représentation visuelle d’un cristal passé en paramètre.
+     * @param crystal le cristal à afficher.
+     * @param selectable le cristal est-il sélectionnable sur la carte ?
+     */
     CrystalView(const Crystal & crystal, bool selectable = false);
 
+    /**
+     * Retourne le cristal affiché.
+     * @return le cristal affiché.
+     */
     inline Crystal * crystal();
 
+    /**
+     * Retourne vrai si le cristal est sélectionnable, faux sinon.
+     * @return vrai si le cristal est sélectionnable, faux sinon.
+     */
     inline bool selectable() const;
+    /**
+     * Modifie le fait que le cristal soit sélectionnable.
+     * @param value vrai si le cristal est sélectionnable, faux sinon.
+     */
     inline void set_selectable(bool value);
 
     void translate(double x = .0, double y = .0);
@@ -30,9 +50,6 @@ public:
                 const std::vector<std::string> & args = std::vector<std::string>());
 
 private:
-    Crystal * crystal_;
-    bool selectable_;
-
     void set_rect();
 };
 

@@ -16,19 +16,32 @@
  */
 class DestinationView : public QGraphicsRectItem, public ObserverInterface, public ElementView
 {
+    Dest * dest_;
+    bool selectable_;
+
 public:
     /**
      * Construit une destination carrée.
-     * @param posX abscisse du point supérieur gauche.
-     * @param posY ordonnée du point supérieur gauche.
-     * @param width longueur de la destination.
-     * @param height hauteur de la destination.
+     * @param dest la destination à représenter.
+     * @param selectable la destination est-elle sélectionnable ?
      */
     DestinationView(const Dest& dest, bool selectable = false);
 
+    /**
+     * Retourne la destination représentée.
+     * @return la destination représentée.
+     */
     inline Dest * dest();
 
+    /**
+     * Retourne vrai si la destination est sélectionnable, faux sinon.
+     * @return vrai si la destination est sélectionnable, faux sinon.
+     */
     inline bool selectable() const;
+    /**
+     * Modifie le fait que la destination soit sélectionnable.
+     * @param value vrai si la destination est sélectionnable, faux sinon.
+     */
     inline void set_selectable(bool value);
 
     void translate(double x = .0, double y = .0);
@@ -37,10 +50,8 @@ public:
                 const std::vector<std::string>& args = std::vector<std::string>());
 
 private:
-    Dest* dest_;
-    bool selectable_;
-
     void set_rect();
+
 };
 
 /* Fonctions inlines */
