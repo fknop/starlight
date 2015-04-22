@@ -132,16 +132,19 @@ bool umath::intersects(const Line& l1, const Line& l2, Point& point, bool& is_po
         // les coordonnées x et y
         if (l1.vertical()) // droites verticales
         {
+            // On compare les x.
             x = l1.get_x(0);
             y = l2.get_x(0);
         }
         else // droites parallèles.
         {
+            // On compare les ordonnées à l'origine.
             x = l1.inde_param();
             y = l2.inde_param();
         }
 
         is_point = false;
+
         // On avance de 1 en 1
         // une précision d'epsilon
         // n'est pas possible.
