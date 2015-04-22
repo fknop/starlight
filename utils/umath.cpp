@@ -137,8 +137,8 @@ bool umath::intersects(const Line& l1, const Line& l2, Point& point, bool& is_po
         }
         else // droites parallèles.
         {
-            x = -l1.c() / l1.b();
-            y = -l2.c() / l2.b();
+            x = l1.inde_param();
+            y = l2.inde_param();
         }
 
         is_point = false;
@@ -148,6 +148,7 @@ bool umath::intersects(const Line& l1, const Line& l2, Point& point, bool& is_po
         return (std::abs(x - y) < 0.5);
     }
 
+    // Voir annexe rapport projet pour plus de détails.
     x = ((l1.c() * l2.b()) - (l2.c() * l1.b())) /
             ((l2.a() * l1.b()) - (l1.a() * l2.b()));
 
