@@ -175,7 +175,6 @@ bool umath::intersects(const Line& line, const LineSegment& ls, Point& point, Li
         segment = ls;
         return true;
     }
-
     else if (do_intersect && is_point && ls.contains(point))
     {
         return true;
@@ -201,6 +200,7 @@ bool umath::intersects(const LineSegment& ls1, const LineSegment& ls2, Point& po
 
     if (do_intersect && !is_point)
     {
+        // Les extrémités se touchent
         if (ls1.start() == ls2.end())
         {
             is_point = true;
@@ -211,6 +211,7 @@ bool umath::intersects(const LineSegment& ls1, const LineSegment& ls2, Point& po
             is_point = true;
             point = ls2.start();
         }
+        // Un segment se trouve dans un autre segment (mais plus petit ou taille égale)
         else if (ls1.contains(ls2.end()) && ls1.contains(ls2.start()))
         {
             segment = ls2;
@@ -219,6 +220,7 @@ bool umath::intersects(const LineSegment& ls1, const LineSegment& ls2, Point& po
         {
             segment = ls1;
         }
+        // Une partie de segment se trouve dans l'autre segment.
         else if (ls1.contains(ls2.start()))
         {
             segment = LineSegment(ls2.start(), ls1.end());
