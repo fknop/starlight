@@ -46,6 +46,12 @@ public:
 
     void mousePressEvent(QMouseEvent * event);
     void keyPressEvent(QKeyEvent * event);
+    /**
+     * Notifie le jeu d'un évènement provenant d'un sujet d'observation (Observable).
+     * @param o l'observé.
+     * @param msg le message de notification.
+     * @param args des arguments.
+     */
     void notify(Observable * sdo,
                 std::string msg,
                 const std::vector<std::string> & args = std::vector<std::string>());

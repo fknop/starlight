@@ -14,6 +14,10 @@ class Element : public Observable
 {
 public:
 
+    /**
+     * Énumération fortement typée représentant le type
+     * d'un élément.
+     */
     enum class Type
     {
         MIRROR,

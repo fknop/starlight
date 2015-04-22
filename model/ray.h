@@ -57,7 +57,7 @@ class Ray
      * autorisées, elle est automatiquement réglée sur WL_DFT nm.
      * @param p1 le début du rayon lumineux.
      * @param p2 la fin du rayon lumineux.
-     * @param f la longueur d'onde du rayon lumineux.
+     * @param wl la longueur d'onde du rayon lumineux.
      * @see Ray::WL_MIN
      * @see Ray::WL_MAX
      * @see Ray::WL_DFT
@@ -99,7 +99,7 @@ class Ray
      * spécifiée est en dehors des limites autorisées, laisse la
      * longueur d'onde inchangée.
      * </p> La longueur d'onde doit être comprise entre 360 et 830 nm.
-     * @param f la nouvelle longueur d'onde du rayon
+     * @param wl la nouvelle longueur d'onde du rayon
      * @return vrai si la longueur d'onde a bel et bien été changée,
      * retourne faux sinon.
      */

@@ -27,6 +27,7 @@ class Wall : public Element
      * Instancie un mur.
      * @param p1 le début du mur.
      * @param p2 la fin du mur.
+     * @param movable vrai si le mur est déplaçable, faux sinon.
      */
     Wall(const Point& p1, const Point& p2, bool movable = true);
 
@@ -48,6 +49,10 @@ class Wall : public Element
      */
     inline const Point& end() const;
 
+    /**
+     * Retourne vrai si le mur est déplaçable.
+     * @return vrai si le mur est déplaçable.
+     */
     inline bool movable() const;
 
     /**

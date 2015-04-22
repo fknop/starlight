@@ -44,9 +44,9 @@ class Mirror : public Element
      * peut se déplacer et pivoter librement.
      * @param p la position (et le point de pivot) du miroir.
      * @param len la longueur du miroir.
-     * @param x le décalage du pivot par rapport au bord gauche
+     * @param xpad le décalage du pivot par rapport au bord gauche
      *          du miroir.
-     * @param a l'angle d'inclinaison du miroir.
+     * @param alpha l'angle d'inclinaison du miroir.
      */
     Mirror(const Point& p, double xpad, double len, double alpha);
 
@@ -67,13 +67,13 @@ class Mirror : public Element
      * pivote dans le sens anti-horloger.
      * @param p la position (et le point de pivot) du miroir.
      * @param len la longueur du miroir.
-     * @param x le décalage du pivot par rapport au bord gauche
+     * @param xpad le décalage du pivot par rapport au bord gauche
      *          du miroir.
-     * @param a l'angle d'inclinaison du miroir.
+     * @param alpha l'angle d'inclinaison du miroir.
      * @param min l'abscisse et l'ordonnée minimum du miroir.
      * @param max l'abscisse et l'ordonnée maximum du miroir.
-     * @param amin l'angle d'inclinaison minimum du miroir.
-     * @param amax l'angle d'inclinaison maximum du miroir.
+     * @param alpha_min l'angle d'inclinaison minimum du miroir.
+     * @param alpha_max l'angle d'inclinaison maximum du miroir.
      */
     Mirror(const Point& p, double xpad, double len, double alpha,
            const Point& min, const Point& max, double alpha_min, double alpha_max);
@@ -175,27 +175,25 @@ class Mirror : public Element
 
     /**
      * Modifie la position minimale du miroir.
-     * @param x abscisse minimale du miroir.
-     * @param y ordonnée minimale du miroir.
+     * @param min le point minimum.
      */
     inline void set_min(const Point& min);
 
     /**
      * Modifie la position maximale du miroir.
-     * @param x abscisse maximale du miroir.
-     * @param y ordonnée maximale du miroir.
+     * @param max le point maximum.
      */
     inline void set_max(const Point& max);
 
     /**
      * Modifie l’angle d’inclinaison minimum du miroir.
-     * @param amin le nouvel angle d’inclinaison minimal.
+     * @param min le nouvel angle d’inclinaison minimal.
      */
     inline void set_alpha_min(const double min);
 
     /**
      * Modifie l’angle d’inclinaison maximum du miroir.
-     * @param amax le nouvel angle d’inclinaison maximal.
+     * @paramamax le nouvel angle d’inclinaison maximal.
      */
     inline void set_alpha_max(const double max);
 
@@ -205,7 +203,6 @@ class Mirror : public Element
      * correctement, retourne faux sinon.
      * @return vrai si la rotation a été effectuée
      * correctement, retourne faux sinon.
-     * @see Mirror::getAngle()
      */
     inline bool set_angle(const double angle);
 
@@ -244,6 +241,7 @@ class Mirror : public Element
 
     /**
      * Modifie l'inclinaison de l'angle
+     * @param angle l'angle de rotation.
      * @param l'inclinaison à ajouter.
      */
     void rotate(double angle);

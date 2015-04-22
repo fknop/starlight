@@ -52,8 +52,7 @@ public:
 
     /**
      * Vérifie si un point est sur un segment.
-     * @param p le point à vérifier.
-     * @param ls le segment sur lequel vérifier.
+     * @param point le point à vérifier.
      * @return vrai si le point est sur le segment, faux sinon.
      */
     bool contains(const Point& point) const;
@@ -89,6 +88,11 @@ public:
      */
     bool operator==(const LineSegment& ls) const;
 
+    /**
+     * Modifie les positions start et end du segment.
+     * @param p1 le premier point.
+     * @param p2 le deuxième point.
+     */
     void set_positions(const Point& p1, const Point& p2);
 };
 

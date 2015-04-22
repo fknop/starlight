@@ -49,20 +49,20 @@ class Point
      * Déplace le point en l'abscisse donnée.
      * @param x l'abscisse où déplacer le point.
      */
-    inline void set_x(double x_);
+    inline void set_x(double x);
 
     /**
      * Déplace le point en l'ordonnée donnée.
      * @param y l'ordonnée où déplacer le point.
      */
-    inline void set_y(double y_);
+    inline void set_y(double y);
 
     /**
      * Déplace le point en la coordonnée donnée.
      * @param x l'abscisse où déplacer le point.
      * @param y l'ordonnée où déplacer le point.
      */
-    inline void set_position(double x_, double y_);
+    inline void set_position(double x, double y);
 
     /**
      * Retourne la distance entre deux points.
