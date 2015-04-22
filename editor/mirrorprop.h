@@ -59,11 +59,6 @@ private:
      * Modifie les spinbox pour qu’elles prennent les valeurs du miroir.
      */
     void reset() override;
-
-signals:
-
-public slots:
-
 };
 
 #endif // MIRRORPREFS_H

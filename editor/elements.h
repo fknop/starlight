@@ -50,8 +50,6 @@ private:
     void setup_ui();
     void add_connections();
 
-signals:
-
 public slots:
     /**
      * Ajoute un cristal au niveau.
@@ -81,7 +79,6 @@ public slots:
      * Supprime le niveau actuel.
      */
     void reset_level();
-
 };
 
 #endif // ELEMENTS_H

@@ -54,8 +54,6 @@ private:
     void setup_ui();
     void add_connections();
 
-signals:
-
 public slots:
     /**
      * Applique les changements à l’objet sélectionné.
@@ -65,7 +63,6 @@ public slots:
      * Prévient tous les observateurs qu’un élément a été supprimé.
      */
     void delete_element();
-
 };
 
 #endif // PREFS_H

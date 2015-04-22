@@ -43,11 +43,6 @@ private:
      * Modifie les spinbox pour qu’elles prennent les valeurs de la bombe.
      */
     void reset() override;
-
-signals:
-
-public slots:
-
 };
 
 #endif // NUKEPROP_H

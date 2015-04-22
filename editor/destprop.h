@@ -42,10 +42,6 @@ private:
      * Modifie les spinbox pour qu’elles prennent les valeurs de la destination.
      */
     void reset() override;
-signals:
-
-public slots:
-
 };
 
 #endif // DESTPROP_H

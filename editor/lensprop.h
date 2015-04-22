@@ -50,11 +50,6 @@ private:
      * Modifie les spinbox pour qu’elles prennent les valeurs de la lentille.
      */
     void reset() override;
-
-signals:
-
-public slots:
-
 };
 
 #endif // LENSPROP_H

@@ -47,11 +47,6 @@ private:
      * Modifie les spinbox pour qu’elles prennent les valeurs de la source.
      */
     void reset() override;
-
-signals:
-
-public slots:
-
 };
 
 #endif // SOURCEPROP_H

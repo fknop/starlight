@@ -45,11 +45,6 @@ private:
      * Modifie les spinbox pour qu’elles prennent les valeurs du mur.
      */
     void reset() override;
-
-signals:
-
-public slots:
-
 };
 
 #endif // WALLPROP_H

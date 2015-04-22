@@ -46,11 +46,6 @@ private:
      * Modifie les spinbox pour qu’elles prennent les valeurs du cristal.
      */
     void reset() override;
-
-signals:
-
-public slots:
-
 };
 
 #endif // CRYSTALPROP_H
