@@ -298,6 +298,12 @@ public:
      */
     inline void remove_wall(const Wall& w);
 
+    /**
+     * Notification d'un évènement provenant d'un sujet d'observation (Observable).
+     * @param o l'observé.
+     * @param msg le message de notification.
+     * @param args des arguments.
+     */
     void notify(Observable* o,
                 std::string msg,
                 const std::vector<std::string>& args = std::vector<std::string>());

@@ -27,8 +27,8 @@ public:
     /**
      * Crée une nouvelle ellipse.
      * @param p le coin supérieur gauche du rectangle entourant l'ellipse.
-     * @param xRad le rayon sur l'axe des X.
-     * @param yRad le rayon sur l'axe des Y.
+     * @param x_rad le rayon sur l'axe des X.
+     * @param y_rad le rayon sur l'axe des Y.
      */
     Ellipse(const Point& p, double x_rad, double y_rad);
 
