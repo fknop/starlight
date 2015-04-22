@@ -1,13 +1,12 @@
 #ifndef MAINEDITOR_H
 #define MAINEDITOR_H
 
-#include <QMainWindow>
-
+#include <QDoubleSpinBox>
 #include <QHBoxLayout>
 #include <QPushButton>
 #include <QGroupBox>
 #include <QLabel>
-#include <QDoubleSpinBox>
+#include <QMainWindow>
 
 #include "editor/elements.h"
 #include "editor/properties.h"

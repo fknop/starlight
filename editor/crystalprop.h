@@ -1,14 +1,17 @@
 #ifndef CRYSTALPROP_H
 #define CRYSTALPROP_H
 
-#include <QWidget>
+
 #include <QDoubleSpinBox>
 #include <QFormLayout>
 #include <QLabel>
+#include <QWidget>
+
+#include "editor/propertiesinterface.h"
 
 #include "model/crystal.h"
 
-#include "editor/propertiesinterface.h"
+
 
 /**
  * Panel permettant de modifier un cristal.
