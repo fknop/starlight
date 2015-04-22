@@ -13,8 +13,6 @@
 
 /**
  * Modifie la lentille sélectionnée dans l’éditeur.
- * @param lens la lentille sélectionnée.
- * @param parent le widget parent.
  */
 class LensProp : public PropertiesInterface
 {

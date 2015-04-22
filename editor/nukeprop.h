@@ -12,9 +12,7 @@
 
 
 /**
- * Modifie la bombe sélectionnée dans l’éditeur.
- * @param nuke la bombe sélectionnée.
- * @param parent le widget parent.
+ * Panel permettant de modifier une bombe.
  */
 class NukeProp : public PropertiesInterface
 {

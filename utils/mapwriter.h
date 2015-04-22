@@ -5,7 +5,9 @@
 
 #include "model/level.h"
 
-
+/**
+ * Classe permettant d'écrire un niveau dans un fichier .lvl.
+ */
 class MapWriter
 {
 public:

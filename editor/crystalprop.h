@@ -11,9 +11,7 @@
 #include "editor/propertiesinterface.h"
 
 /**
- * Modifie le cristal sélectionné dans l’éditeur.
- * @param crystal le cristal sélectionné.
- * @param parent le widget parent.
+ * Panel permettant de modifier un cristal.
  */
 class CrystalProp : public PropertiesInterface
 {

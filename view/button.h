@@ -4,7 +4,9 @@
 #include <QGraphicsRectItem>
 #include <QGraphicsSceneMouseEvent>
 
-
+/**
+ * Classe représentant un bouton du menu principal.
+ */
 class Button : public QObject, public QGraphicsRectItem
 {
 

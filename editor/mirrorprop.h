@@ -12,9 +12,7 @@
 
 
 /**
- * Modifie le miroir sélectionné dans l’éditeur.
- * @param mirror le miroir sélectionné.
- * @param parent le widget parent.
+ * Panel permettant de modifier un miroir.
  */
 class MirrorProp : public PropertiesInterface
 {

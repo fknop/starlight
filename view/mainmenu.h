@@ -6,6 +6,9 @@
 
 class MainWindow;
 
+/**
+ * Représente le menu principal.
+ */
 class MainMenu : public QGraphicsView
 {
 

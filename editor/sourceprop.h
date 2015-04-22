@@ -12,9 +12,7 @@
 
 
 /**
- * Modifie la source sélectionnée dans l’éditeur.
- * @param source la source sélectionnée.
- * @param parent le widget parent.
+ * Panel permettant de modifier la source.
  */
 class SourceProp : public PropertiesInterface
 {

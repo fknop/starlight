@@ -24,7 +24,6 @@
 /**
  * Contient le widget permettant d’éditer l’élément sélectionné
  * sur la carte et d’appliquer les changements ou de le supprimer.
- * @param parent
  */
 class Properties : public QWidget, public Observable
 {
