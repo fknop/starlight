@@ -40,6 +40,11 @@ class MapView : public QGraphicsView, public ObserverInterface, public Observabl
     bool selectable_;
 
 public:
+    /**
+     * Constructeur de la représentation visuelle d’un niveau / d’une carte.
+     * @param level_ le niveau à représenter.
+     * @param selectable les éléments du niveau sont-ils sélectionnables ?
+     */
     MapView(Level * level_, bool selectable = false);
     /**
      * @brief MapView
@@ -89,12 +94,20 @@ public:
     void clear();
 
     /**
+     * Retourne l’élément sélectionné dans le niveau ou nullptr si aucun objet n’est sélectionné.
      * @return l’élément sélectionné dans le niveau ou nullptr si aucun objet n’est sélectionné.
      */
     ElementView * selected();
 
-
+    /**
+     * Gère les clics de souris sur les miroirs.
+     * @param event un événement venant d’une souris.
+     */
     void mousePressEvent(QMouseEvent * event) override;
+    /**
+     * Permet de déplacer et tourner les miroirs à l’aide du clavier.
+     * @param event un événement venant d’une touche clavier.
+     */
     void keyPressEvent(QKeyEvent * event) override;
     /**
      * Notifie le jeu d'un évènement provenant d'un sujet d'observation (Observable).

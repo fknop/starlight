@@ -22,8 +22,20 @@ public:
      */
     Button(const QString& name, QGraphicsItem * parent = nullptr);
 
+    /**
+     * Réagit comme un QPushButton s’il est cliqué.
+     * @param event un événement souris.
+     */
     void mousePressEvent(QGraphicsSceneMouseEvent * event) override;
+    /**
+     * Change la couleur du bouton lorsque la souris survole le bouton.
+     * @param event un événement souris.
+     */
     void hoverEnterEvent(QGraphicsSceneHoverEvent * event) override;
+    /**
+     * Change la couleur du bouton lorsque la souris arrete de survoler le bouton.
+     * @param event un événement souris.
+     */
     void hoverLeaveEvent(QGraphicsSceneHoverEvent * event) override;
 
 private:

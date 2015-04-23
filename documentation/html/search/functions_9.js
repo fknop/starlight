@@ -1,13 +1,14 @@
 var searchData=
 [
-  ['mainmenu',['MainMenu',['../d9/d0a/classMainMenu.html#a891bed1e0edb5492671c332cb89b7a9a',1,'MainMenu']]],
-  ['max_5fangle',['max_angle',['../de/dfd/classMirror.html#ab06cd44bc9fa2fbd942c2e021439dc1c',1,'Mirror']]],
-  ['max_5fpivot',['max_pivot',['../de/dfd/classMirror.html#a5c7aee32ae68bcc817b996859139e909',1,'Mirror']]],
-  ['min_5fangle',['min_angle',['../de/dfd/classMirror.html#a84dc065cb7ca7b928b83df2169021673',1,'Mirror']]],
-  ['min_5fpivot',['min_pivot',['../de/dfd/classMirror.html#ac57f542afd7fe0fd02f5b028f22821d9',1,'Mirror']]],
-  ['mirror',['Mirror',['../de/dfd/classMirror.html#a3f32fd1e7fb4f1a3dbad8aba00d1267b',1,'Mirror::Mirror(const Point &amp;p, double xpad, double len, double alpha)'],['../de/dfd/classMirror.html#a675db929cb6f6555163dbc2a089fe026',1,'Mirror::Mirror(const Point &amp;p, double xpad, double len, double alpha, const Point &amp;min, const Point &amp;max, double alpha_min, double alpha_max)'],['../d6/d74/classMirrorView.html#a61c25961d7e140d5a8ff38aeb5ce8da2',1,'MirrorView::mirror()']]],
-  ['mirrors',['mirrors',['../d2/d9d/classLevel.html#aa135dbdea931709337ffcb2fd1ac6b68',1,'Level']]],
-  ['mirrorview',['MirrorView',['../d6/d74/classMirrorView.html#a04dab41c29196186c918e60a1b2487b2',1,'MirrorView']]],
-  ['modifier',['modifier',['../d6/d4f/classCrystal.html#a227a44060d81139b167f1f8ed2b2e2a9',1,'Crystal']]],
-  ['movable',['movable',['../de/dfd/classMirror.html#adb9bc206e3a5334909a70529ebdf6d09',1,'Mirror::movable()'],['../d7/dec/classWall.html#a1f834d6f719d7b5ac4ae2428fef627e4',1,'Wall::movable()']]]
+  ['length',['length',['../de/dfd/classMirror.html#a9fae8ef086cb8598d689f29c68379106',1,'Mirror']]],
+  ['lens',['lens',['../d6/da9/classLensView.html#a9af15abae80b9588e61de5a0d929101f',1,'LensView::lens()'],['../d6/d4b/classLens.html#a314445802fc5ed95bdd6b715282f6825',1,'Lens::Lens(const Point &amp;p, double w, double h, int wl_min, int wl_max)'],['../d6/d4b/classLens.html#a3912f09431d56887039ae7feaf1fa169',1,'Lens::Lens(const Lens &amp;lens)']]],
+  ['lenses',['lenses',['../d2/d9d/classLevel.html#aca6b1af0d4c00c50922bcc1af73f102b',1,'Level']]],
+  ['lensprop',['LensProp',['../dd/d8c/classLensProp.html#a2a9f54d768d72f8ad69e1572259d2a85',1,'LensProp']]],
+  ['lensview',['LensView',['../d6/da9/classLensView.html#a678ca25c84417e53af04258d27e5979a',1,'LensView']]],
+  ['level',['level',['../d3/d48/classElements.html#add91eac75df596342176acac4eb8b1a1',1,'Elements::level()'],['../dd/d23/classMapReader.html#ac46cce595afc102320f6e73bb0748761',1,'MapReader::level()'],['../d2/d9d/classLevel.html#a36092f5c2dc5d1cace19cbdea946b1a4',1,'Level::Level()']]],
+  ['lighted_5fup',['lighted_up',['../de/d97/classDest.html#af549b51a5ddf4cbdab7e95e0e07ee5d4',1,'Dest::lighted_up()'],['../d0/ddf/classNuke.html#a27bece8a254df670b90755f42a8d9bb4',1,'Nuke::lighted_up()']]],
+  ['line',['Line',['../db/db6/classLine.html#aba5e77c92e5e6932e90d0c083e6509e5',1,'Line::Line(double a, double b, double c)'],['../db/db6/classLine.html#a0ec34f80a43014768ec228bfa87fd15f',1,'Line::Line(const Point &amp;a, const Point &amp;b)'],['../db/db6/classLine.html#a30f99e975efe2a498c2d8ad7c9d1cdf2',1,'Line::Line(const Point &amp;p, double alpha)']]],
+  ['linesegment',['LineSegment',['../d1/d48/classLineSegment.html#a3873183b7bae15250c6d616247cd099b',1,'LineSegment']]],
+  ['load_5flevel',['load_level',['../d3/db4/classMainEditor.html#a84fe185f03ff8984471380206607e2a1',1,'MainEditor']]],
+  ['lost',['lost',['../d2/d9d/classLevel.html#ae6ba86e3567237e12f02f0cd86fc9eeb',1,'Level']]]
 ];

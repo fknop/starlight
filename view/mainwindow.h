@@ -29,6 +29,10 @@ class MainWindow : public QMainWindow
     QAction * help_action_;
 
 public:
+    /**
+     * Constructeur de la fenetre de jeu.
+     * @param parent le widget parent.
+     */
     explicit MainWindow(QWidget * parent = 0);
     ~MainWindow();
 

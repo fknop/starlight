@@ -47,6 +47,10 @@ public:
      */
     inline void set_selectable(bool value);
 
+    /**
+     * Permet d’allumer ou éteindre la source lorsqu’on clique dessus.
+     * @param event un événement venant d’une souris.
+     */
     void mousePressEvent(QGraphicsSceneMouseEvent * event) override;
 
     void translate(const double x = .0, const double y = .0) override;

@@ -131,34 +131,34 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <a class="code" href="../../d2/d9d/classLevel.html">Level</a> * level_;</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="../../d3/db4/classMainEditor.html">MainEditor</a>(QWidget * parent = 0);</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <a class="code" href="../../d2/d81/classElementView.html">ElementView</a> * selected();</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordtype">void</span> setup_ui();</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordtype">void</span> closeEvent(QCloseEvent * event) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">void</span> notify(<a class="code" href="../../d9/db4/classObservable.html">Observable</a> * o,</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                <span class="keyword">const</span> std::string&amp; msg,</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                <span class="keyword">const</span> std::vector&lt;std::string&gt;&amp; args = std::vector&lt;std::string&gt;()) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="keyword">public</span> slots:</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="../../d3/db4/classMainEditor.html#a11c01691ed4e4385c40ded07b2a4044e">add_crystal</a>();</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="../../d3/db4/classMainEditor.html#a9cc5457b86afb73a672f12d8915082c7">add_lens</a>();</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="../../d3/db4/classMainEditor.html#a3ea0d26648a2a91f4c51fd78d06c4bd7">add_mirror</a>();</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="../../d3/db4/classMainEditor.html#ac1563d2cb8788295cea11a3d4f668f1e">add_nuke</a>();</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="../../d3/db4/classMainEditor.html#a2212ba27b33fa70c0b45e3d58d784c1e">add_wall</a>();</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="../../d3/db4/classMainEditor.html#a53ba9857e08e47f075487fff2c07f88e">create_level</a>();</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="../../d3/db4/classMainEditor.html#a84fe185f03ff8984471380206607e2a1">load_level</a>();</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="../../d3/db4/classMainEditor.html#a21dcf035be9044cd0e4677761f778505">save_level</a>();</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="../../d3/db4/classMainEditor.html#a41d9558029b00e6af70b67b2ef6b2abd">back_menu</a>();</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="../../d3/db4/classMainEditor.html#a2ad5e523c18fb96ce38616145b1b050e">quit</a>();</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="../../d3/db4/classMainEditor.html#a171515374a86a6bb81af0f34a4857cb3">delete_selected</a>();</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;};</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="preprocessor">#endif // MAINEDITOR_H</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="../../d3/db4/classMainEditor.html#a58a308ba8043e53ea5525e87540b0a71">MainEditor</a>(QWidget * parent = 0);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <a class="code" href="../../d2/d81/classElementView.html">ElementView</a> * selected();</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordtype">void</span> setup_ui();</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordtype">void</span> closeEvent(QCloseEvent * event) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordtype">void</span> notify(<a class="code" href="../../d9/db4/classObservable.html">Observable</a> * o,</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                <span class="keyword">const</span> std::string&amp; msg,</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                <span class="keyword">const</span> std::vector&lt;std::string&gt;&amp; args = std::vector&lt;std::string&gt;()) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="keyword">public</span> slots:</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="../../d3/db4/classMainEditor.html#a11c01691ed4e4385c40ded07b2a4044e">add_crystal</a>();</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="../../d3/db4/classMainEditor.html#a9cc5457b86afb73a672f12d8915082c7">add_lens</a>();</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="../../d3/db4/classMainEditor.html#a3ea0d26648a2a91f4c51fd78d06c4bd7">add_mirror</a>();</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="../../d3/db4/classMainEditor.html#ac1563d2cb8788295cea11a3d4f668f1e">add_nuke</a>();</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="../../d3/db4/classMainEditor.html#a2212ba27b33fa70c0b45e3d58d784c1e">add_wall</a>();</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="../../d3/db4/classMainEditor.html#a53ba9857e08e47f075487fff2c07f88e">create_level</a>();</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="../../d3/db4/classMainEditor.html#a84fe185f03ff8984471380206607e2a1">load_level</a>();</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="../../d3/db4/classMainEditor.html#a21dcf035be9044cd0e4677761f778505">save_level</a>();</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="../../d3/db4/classMainEditor.html#a41d9558029b00e6af70b67b2ef6b2abd">back_menu</a>();</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="../../d3/db4/classMainEditor.html#a2ad5e523c18fb96ce38616145b1b050e">quit</a>();</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="../../d3/db4/classMainEditor.html#a171515374a86a6bb81af0f34a4857cb3">delete_selected</a>();</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;};</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;<span class="preprocessor">#endif // MAINEDITOR_H</span></div>
 <div class="ttc" id="classObserverInterface_html"><div class="ttname"><a href="../../dd/d62/classObserverInterface.html">ObserverInterface</a></div><div class="ttdoc">Interface représentant un observateur. </div><div class="ttdef"><b>Definition:</b> observerinterface.h:16</div></div>
 <div class="ttc" id="classElementView_html"><div class="ttname"><a href="../../d2/d81/classElementView.html">ElementView</a></div><div class="ttdoc">Cette classe sert de super-classe à tous les éléments visuels avec lesquels un rayon peut interagir...</div><div class="ttdef"><b>Definition:</b> elementview.h:16</div></div>
 <div class="ttc" id="classMainEditor_html_a2212ba27b33fa70c0b45e3d58d784c1e"><div class="ttname"><a href="../../d3/db4/classMainEditor.html#a2212ba27b33fa70c0b45e3d58d784c1e">MainEditor::add_wall</a></div><div class="ttdeci">void add_wall()</div><div class="ttdoc">Ajoute un mur au niveau. </div><div class="ttdef"><b>Definition:</b> maineditor.cpp:58</div></div>
@@ -177,11 +177,12 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
 <div class="ttc" id="classMainEditor_html_a84fe185f03ff8984471380206607e2a1"><div class="ttname"><a href="../../d3/db4/classMainEditor.html#a84fe185f03ff8984471380206607e2a1">MainEditor::load_level</a></div><div class="ttdeci">void load_level()</div><div class="ttdoc">Charge un niveau existant depuis un fichier. </div><div class="ttdef"><b>Definition:</b> maineditor.cpp:172</div></div>
 <div class="ttc" id="classMainEditor_html"><div class="ttname"><a href="../../d3/db4/classMainEditor.html">MainEditor</a></div><div class="ttdoc">Fenêtre principale de l’éditeur. </div><div class="ttdef"><b>Definition:</b> maineditor.h:24</div></div>
 <div class="ttc" id="classObservable_html"><div class="ttname"><a href="../../d9/db4/classObservable.html">Observable</a></div><div class="ttdoc">Classe représentant un élément observable pouvant notifié des observateurs. </div><div class="ttdef"><b>Definition:</b> observable.h:14</div></div>
+<div class="ttc" id="classMainEditor_html_a58a308ba8043e53ea5525e87540b0a71"><div class="ttname"><a href="../../d3/db4/classMainEditor.html#a58a308ba8043e53ea5525e87540b0a71">MainEditor::MainEditor</a></div><div class="ttdeci">MainEditor(QWidget *parent=0)</div><div class="ttdoc">Constructeur par défaut de l’éditeur de carte. </div><div class="ttdef"><b>Definition:</b> maineditor.cpp:22</div></div>
 <div class="ttc" id="classMainEditor_html_a41d9558029b00e6af70b67b2ef6b2abd"><div class="ttname"><a href="../../d3/db4/classMainEditor.html#a41d9558029b00e6af70b67b2ef6b2abd">MainEditor::back_menu</a></div><div class="ttdeci">void back_menu()</div><div class="ttdoc">Retourne au menu principal. </div><div class="ttdef"><b>Definition:</b> maineditor.cpp:211</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Généré le Jeudi 23 Avril 2015 20:50:51 pour Starlight par &#160;<a href="http://www.doxygen.org/index.html">
+Généré le Jeudi 23 Avril 2015 21:29:04 pour Starlight par &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.7
 </small></address>
