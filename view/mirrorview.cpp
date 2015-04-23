@@ -1,4 +1,4 @@
-#include "utils/umath.h"
+#include "utils/uview.h"
 
 #include "view/mirrorview.h"
 
@@ -20,7 +20,7 @@ MirrorView::MirrorView(const Mirror & mirror, bool selectable) :
     pen_2.setStyle(Qt::DashLine);
     zone_->setPen(pen_2);
 
-    set_line();
+    uview::display_line(this, mirror_->to_line_segment());
 
     setFlag(QGraphicsItem::ItemIsSelectable, this->selectable_);
 }
@@ -38,14 +38,7 @@ void MirrorView::rotate(double angle)
 void MirrorView::notify(Observable * o, const std::string& msg,
                         const std::vector<std::string>& args)
 {
-    set_line();
-}
-
-void MirrorView::set_line()
-{
-    LineSegment seg = mirror_->to_line_segment();
-    setLine(seg.start().x(), seg.start().y(),
-            seg.end().x(), seg.end().y());
+    uview::display_line(this, mirror_->to_line_segment());
 }
 
 void MirrorView::set_zone()
@@ -56,7 +49,7 @@ void MirrorView::set_zone()
     double w = max.x() - min.x();
     double h = max.y() - min.y();
 
-    zone_->setRect(min.x(), min.y(), w, h);
+    uview::display_rectangle(zone_, Rectangle(Point(min.x(), min.y()), w, h));
 }
 
 

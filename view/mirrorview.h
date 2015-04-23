@@ -44,14 +44,17 @@ public:
      * @param value vrai si le miroir est sélectionnable, faux sinon.
      */
     inline void set_selectable(bool value);
+
     /**
      * Montre la zone dans laquelle peut etre déplacé le miroir.
      */
     void show_zone();
+
     /**
      * Cache la zone dans laquelle peut etre déplacé le miroir.
      */
     void hide_zone();
+
     void translate(const double x = .0, const double y = .0) override;
     void rotate(const double angle) override;
     void notify(Observable * o,
@@ -59,7 +62,6 @@ public:
                 const std::vector<std::string>& args = std::vector<std::string>()) override;
 
 private:
-    void set_line();
     void set_zone();
 };
 

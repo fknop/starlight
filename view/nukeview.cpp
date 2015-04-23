@@ -1,5 +1,7 @@
 #include <QPen>
 
+#include "utils/uview.h"
+
 #include "view/nukeview.h"
 
 
@@ -13,7 +15,7 @@ NukeView::NukeView(const Nuke & nuke, bool selectable)  :
     pen.setWidth(3);
     setPen(pen);
 
-    set_rect();
+    uview::display_ellipse(this, nuke_->to_ellipse());
 
     setFlag(QGraphicsItem::ItemIsSelectable, this->selectable_);
 }
@@ -29,7 +31,7 @@ void NukeView::notify(Observable * o, const std::string& msg,
     }
     else
     {
-        set_rect();
+        uview::display_ellipse(this, nuke_->to_ellipse());
     }
 }
 
@@ -38,10 +40,4 @@ void NukeView::translate(const double x, const double y)
     this->nuke_->translate(x, y);
 }
 
-void NukeView::set_rect()
-{
-    const Point& p = this->nuke_->position();
-    double radius = this->nuke_->radius();
-    setRect(p.x() - radius, p.y() - radius,
-            radius + radius, radius + radius);
-}
+

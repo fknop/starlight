@@ -2,10 +2,9 @@
 
 #include "view/rayview.h"
 
-RayView::RayView(const Ray & ray)
+RayView::RayView(const Ray& ray)
 {
     set_color(ray.wavelength());
-
     setLine(ray.start().x(), ray.start().y(),
             ray.end().x(), ray.end().y());
 }

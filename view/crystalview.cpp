@@ -1,5 +1,7 @@
 #include <QPen>
 
+#include "utils/uview.h"
+
 #include "view/crystalview.h"
 
 CrystalView::CrystalView(const Crystal & crystal, bool selectable) :
@@ -12,7 +14,7 @@ CrystalView::CrystalView(const Crystal & crystal, bool selectable) :
     pen.setWidth(3);
     setPen(pen);
 
-    set_rect();
+    uview::display_ellipse(this, crystal_->to_ellipse());
     setFlag(QGraphicsItem::ItemIsSelectable, selectable_);
 }
 
@@ -24,13 +26,6 @@ void CrystalView::translate(const double x, const double y)
 void CrystalView::notify(Observable * o, const std::string& msg,
                          const std::vector<std::string>& args)
 {
-    set_rect();
+    uview::display_ellipse(this, crystal_->to_ellipse());
 }
 
-void CrystalView::set_rect()
-{
-    const Point& p = crystal_->center();
-    double radius = crystal_->radius();
-    setRect(p.x() - radius, p.y() - radius,
-            radius + radius, radius + radius);
-}

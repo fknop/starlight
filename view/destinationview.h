@@ -51,9 +51,6 @@ public:
                 const std::string& msg,
                 const std::vector<std::string>& args = std::vector<std::string>()) override;
 
-private:
-    void set_rect();
-
 };
 
 /* Fonctions inlines */

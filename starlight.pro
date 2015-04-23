@@ -53,7 +53,8 @@ HEADERS += \
     utils/constants.h \
     utils/mapreader.h \
     utils/mapwriter.h \
-    utils/umath.h
+    utils/umath.h \
+    utils/uview.h
 
 SOURCES += \
     model/crystal.cpp \
@@ -103,7 +104,8 @@ SOURCES += \
     utils/mapwriter.cpp \
     utils/umath.cpp \
     tests/umathtest.cpp \
-    tests/linetest.cpp
+    tests/linetest.cpp \
+    utils/uview.cpp
 
 RESOURCES += \
     ressources.qrc

@@ -15,7 +15,7 @@ public:
      * Instancie une représentation visuelle d’un rayon passé en paramètre.
      * @param ray le rayon à afficher.
      */
-   RayView(const Ray & ray);
+   RayView(const Ray& ray);
 
    /**
     * Modifie la couleur du rayon sur base de la longueur d'onde.
