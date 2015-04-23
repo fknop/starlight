@@ -36,6 +36,12 @@ class LensProp : public PropertiesInterface
     Lens * lens_;
 
 public:
+
+    /**
+     * Instancie un panel de propriétés pour une lentille.
+     * @param lens la lentille.
+     * @param parent le parent.
+     */
     LensProp(Lens * lens, QWidget * parent = 0);
     ~LensProp();
 

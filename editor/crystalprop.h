@@ -20,6 +20,12 @@ class CrystalProp : public PropertiesInterface
 {
     Q_OBJECT
 public:
+
+    /**
+     * Instancie un panel de propriétés pour un cristal.
+     * @param crystal le cristal.
+     * @param parent le parent.
+     */
     CrystalProp(Crystal * crystal, QWidget * parent = 0);
     ~CrystalProp();
 

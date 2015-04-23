@@ -38,12 +38,35 @@ class Elements : public QWidget, public Observable
     Level * level_;
 
 public:
+
+    /**
+     * Instancie un panel permettant de créer des éléments.
+     * @param parent le parent.
+     */
     explicit Elements(QWidget * parent = 0);
+
+    /**
+     * Retourne le niveau instancié par le panel.
+     * @return le niveau.
+     */
     Level * level();
 
+    /**
+     * Modifie la valeur du SpinBox pour la hauteur.
+     * @param h la hauteur.
+     */
     void set_height(int h);
+
+    /**
+     * Modifie la valeur du SpinBox pour la longueur.
+     * @param w la longueur.
+     */
     void set_width(int w);
 
+    /**
+     * Active les boutons du panel.
+     * @param b vrai si les boutons sont activés, faux sinon.
+     */
     void enable_pushbuttons(bool b);
 
 private:
@@ -51,32 +74,39 @@ private:
     void add_connections();
 
 public slots:
+
     /**
-     * Ajoute un cristal au niveau.
+     * Notifie les observateurs de l'ajout d'un cristal.
      */
     void add_crystal();
+
     /**
-     * Ajoute une lentille au niveau.
+     * Notifie les observateurs de l'ajout d'une lentille.
      */
     void add_lens();
+
     /**
-     * Ajoute un miroir au niveau.
+     * Notifie les observateurs de l'ajout d'un miroir.
      */
     void add_mirror();
+
     /**
-     * Ajoute une bombe au niveau.
+     * Notifie les observateurs de l'ajout d'une bombe.
      */
     void add_nuke();
+
     /**
-     * Ajoute un mur au niveau.
+     * Notifie les observateurs de l'ajout d'un mur.
      */
     void add_wall();
+
     /**
-     * Crée un nouveau niveau avec les dimensions précisées.
+     * Notifie les observateurs de la création d'un niveau.
      */
     void create_level();
+
     /**
-     * Supprime le niveau actuel.
+     * Notifie les observateurs de la supression d'un niveau.
      */
     void reset_level();
 };
