@@ -1,4 +1,4 @@
 <map id="SourceView" name="SourceView">
-<area shape="rect" id="node3" href="$d2/d81/classElementView.html" title="Cette classe sert de super&#45;classe à tous les éléments visuels avec lesquels un rayon peut interagir..." alt="" coords="184,80,283,107"/>
-<area shape="rect" id="node5" href="$dd/d62/classObserverInterface.html" title="Interface représentant un observateur. " alt="" coords="307,80,433,107"/>
+<area shape="rect" id="node3" href="$d2/d81/classElementView.html" title="Cette classe sert de super&#45;classe à tous les éléments visuels avec lesquels un rayon peut interagir..." alt="" coords="185,131,311,267"/>
+<area shape="rect" id="node5" href="$dd/d62/classObserverInterface.html" title="Interface représentant un observateur. " alt="" coords="336,153,489,245"/>
 </map>

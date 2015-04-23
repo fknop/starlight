@@ -1,10 +1,10 @@
 <map id="Element" name="Element">
-<area shape="rect" id="node3" href="$d6/d4f/classCrystal.html" title="Cette classe modélise les cristaux utilisés dans le jeu. " alt="" coords="5,155,69,181"/>
-<area shape="rect" id="node4" href="$de/d97/classDest.html" title="Cette classe modélise la destination utilisée dans le jeu. " alt="" coords="93,155,144,181"/>
-<area shape="rect" id="node5" href="$d6/d4b/classLens.html" title="Cette classe modélise les lentilles utilisées dans le jeu. " alt="" coords="168,155,219,181"/>
-<area shape="rect" id="node6" href="$de/dfd/classMirror.html" title="Cette classe modélise les miroirs utilisés dans le jeu. " alt="" coords="243,155,297,181"/>
-<area shape="rect" id="node7" href="$d0/ddf/classNuke.html" title="Cette classe modélise les bombes utilisées dans le jeu. " alt="" coords="323,155,376,181"/>
-<area shape="rect" id="node8" href="$d6/d2e/classSource.html" title="Modélise la source lumineuse utilisée dans le jeu. " alt="" coords="401,155,463,181"/>
-<area shape="rect" id="node9" href="$d7/dec/classWall.html" title="Cette classe modélise les murs utilisés dans le jeu. " alt="" coords="488,155,536,181"/>
-<area shape="rect" id="node2" href="$d9/db4/classObservable.html" title="Classe représentant un élément observable pouvant notifié des observateurs. " alt="" coords="227,5,315,32"/>
+<area shape="rect" id="node3" href="$d6/d4f/classCrystal.html" title="Cette classe modélise les cristaux utilisés dans le jeu. " alt="" coords="5,373,117,597"/>
+<area shape="rect" id="node4" href="$de/d97/classDest.html" title="Cette classe modélise la destination utilisée dans le jeu. " alt="" coords="142,381,268,590"/>
+<area shape="rect" id="node5" href="$d6/d4b/classLens.html" title="Cette classe modélise les lentilles utilisées dans le jeu. " alt="" coords="293,344,404,627"/>
+<area shape="rect" id="node6" href="$de/dfd/classMirror.html" title="Cette classe modélise les miroirs utilisés dans le jeu. " alt="" coords="429,373,539,597"/>
+<area shape="rect" id="node7" href="$d0/ddf/classNuke.html" title="Cette classe modélise les bombes utilisées dans le jeu. " alt="" coords="563,381,689,590"/>
+<area shape="rect" id="node8" href="$d6/d2e/classSource.html" title="Modélise la source lumineuse utilisée dans le jeu. " alt="" coords="715,359,848,612"/>
+<area shape="rect" id="node9" href="$d7/dec/classWall.html" title="Cette classe modélise les murs utilisés dans le jeu. " alt="" coords="873,373,1009,597"/>
+<area shape="rect" id="node2" href="$d9/db4/classObservable.html" title="Classe représentant un élément observable pouvant notifié des observateurs. " alt="" coords="413,5,555,141"/>
 </map>

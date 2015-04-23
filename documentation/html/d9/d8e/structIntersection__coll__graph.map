@@ -1,5 +1,5 @@
 <map id="Intersection" name="Intersection">
-<area shape="rect" id="node2" href="$d5/d3c/classElement.html" title="Cette classe sert de super&#45;classe à tous les éléments avec lesquels un rayon peut interagir..." alt="" coords="14,83,84,109"/>
-<area shape="rect" id="node3" href="$d9/db4/classObservable.html" title="Classe représentant un élément observable pouvant notifié des observateurs. " alt="" coords="5,5,93,32"/>
-<area shape="rect" id="node4" href="$dc/d4f/classPoint.html" title="Cette classe modélise un simple point de coordonnées réelles utilisés pour modéliser les positions de..." alt="" coords="111,83,163,109"/>
+<area shape="rect" id="node2" href="$d5/d3c/classElement.html" title="Cette classe sert de super&#45;classe à tous les éléments avec lesquels un rayon peut interagir..." alt="" coords="27,251,125,357"/>
+<area shape="rect" id="node3" href="$d9/db4/classObservable.html" title="Classe représentant un élément observable pouvant notifié des observateurs. " alt="" coords="5,5,147,141"/>
+<area shape="rect" id="node4" href="$dc/d4f/classPoint.html" title="Cette classe modélise un simple point de coordonnées réelles utilisés pour modéliser les positions de..." alt="" coords="149,192,260,416"/>
 </map>

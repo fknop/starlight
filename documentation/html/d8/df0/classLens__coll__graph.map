@@ -1,4 +1,4 @@
 <map id="Lens" name="Lens">
-<area shape="rect" id="node2" href="$d5/d3c/classElement.html" title="Cette classe sert de super&#45;classe à tous les éléments avec lesquels un rayon peut interagir..." alt="" coords="14,80,84,107"/>
-<area shape="rect" id="node3" href="$d9/db4/classObservable.html" title="Classe représentant un élément observable pouvant notifié des observateurs. " alt="" coords="5,5,93,32"/>
+<area shape="rect" id="node2" href="$d5/d3c/classElement.html" title="Cette classe sert de super&#45;classe à tous les éléments avec lesquels un rayon peut interagir..." alt="" coords="27,189,125,296"/>
+<area shape="rect" id="node3" href="$d9/db4/classObservable.html" title="Classe représentant un élément observable pouvant notifié des observateurs. " alt="" coords="5,5,147,141"/>
 </map>
