@@ -127,10 +127,8 @@ void MapView::draw_rays()
     if (!ray_views_.empty())
     {
         for (auto &i : ray_views_)
-        {
             scene_->removeItem(i);
-            delete i;
-        }
+
         ray_views_.clear();
     }
 
@@ -219,7 +217,7 @@ void MapView::mousePressEvent(QMouseEvent * event)
     }
 }
 
-void MapView::keyPressEvent(QKeyEvent *event)
+void MapView::keyPressEvent(QKeyEvent * event)
 {
     ElementView * i = this->selected();
 
