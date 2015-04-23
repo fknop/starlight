@@ -34,6 +34,7 @@ public:
      * @return vrai si la lentille est sélectionnable, faux sinon.
      */
     inline bool selectable() const;
+
     /**
      * Modifie le fait que la lentille soit sélectionnable.
      * @param value vrai si la lentille est sélectionnable, faux sinon.
@@ -58,12 +59,12 @@ Lens * LensView::lens()
 
 bool LensView::selectable() const
 {
-    return this->selectable_;
+    return selectable_;
 }
 
 void LensView::set_selectable(bool value)
 {
-    this->selectable_ = value;
+    selectable_ = value;
     setFlag(QGraphicsItem::ItemIsSelectable, this->selectable_);
 }
 

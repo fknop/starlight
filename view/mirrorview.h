@@ -21,12 +21,9 @@ class MirrorView : public QGraphicsLineItem, public ObserverInterface, public El
 
 public:
     /**
-     * Construit un miroir capable de refléter la lumière du rayon émis depuis la source.
-     * @param pivotX abscisse du pivot du miroir.
-     * @param pivotY ordonnée du pivot du miroir.
-     * @param xpad distance entre le pivot et l’extrémité gauche du miroir.
-     * @param len longueur totale du miroir.
-     * @param angle angle d’inclinaison du miroir.
+     * Instancie une vue représentant un miroir.
+     * @param mirror le miroir.
+     * @param selectable vrai si le miroir est sélectionnable, faux sinon.
      */
     MirrorView(const Mirror & mirror, bool selectable = false);
 
@@ -36,7 +33,16 @@ public:
      */
     inline Mirror* mirror();
 
+    /**
+     * Retourne vrai si le miroir est sélectionnable.
+     * @return vrai si le miroir est sélectionnable, faux sinon.
+     */
     inline bool selectable() const;
+
+    /**
+     * Rend le miroir sélectionnable ou non.
+     * @param value vrai si le miroir est sélectionnable, faux sinon.
+     */
     inline void set_selectable(bool value);
     void show_zone();
     void hide_zone();

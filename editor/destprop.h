@@ -18,6 +18,12 @@ class DestProp : public PropertiesInterface
 {
     Q_OBJECT
 public:
+
+    /**
+     * Instancie un panel de propriétés pour la destination.
+     * @param dest la destination.
+     * @param parent le parent.
+     */
     DestProp(Dest * dest, QWidget * parent = 0);
     ~DestProp();
 

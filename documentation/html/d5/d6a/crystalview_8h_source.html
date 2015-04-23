@@ -110,51 +110,52 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keyword">inline</span> <a class="code" href="../../d6/d4f/classCrystal.html">Crystal</a> * <a class="code" href="../../d3/d9b/classCrystalView.html#a0168a3da89580fb0c5467f88c635ac9f">crystal</a>();</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code" href="../../d3/d9b/classCrystalView.html#a6fffe79b15c269a44f9c393ed163f205">selectable</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="../../d3/d9b/classCrystalView.html#ab2a8ffda8203f9d645fa137ba8542ce4">set_selectable</a>(<span class="keywordtype">bool</span> value);</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="../../d3/d9b/classCrystalView.html#a68f3f631351dce437a2c3ff86385e064">translate</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> x = .0, <span class="keyword">const</span> <span class="keywordtype">double</span> y = .0) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="../../d3/d9b/classCrystalView.html#a6dbe86bec06d3b63182804f4f5860054">notify</a>(<a class="code" href="../../d9/db4/classObservable.html">Observable</a> * o,</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                <span class="keyword">const</span> std::string&amp; msg,</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                <span class="keyword">const</span> std::vector&lt;std::string&gt;&amp; args = std::vector&lt;std::string&gt;()) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordtype">void</span> set_rect();</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;};</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment">/* Fonctions inlines */</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
-<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="../../d3/d9b/classCrystalView.html#a0168a3da89580fb0c5467f88c635ac9f">   58</a></span>&#160;<a class="code" href="../../d6/d4f/classCrystal.html">Crystal</a> * <a class="code" href="../../d3/d9b/classCrystalView.html#a0168a3da89580fb0c5467f88c635ac9f">CrystalView::crystal</a>()</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;{</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordflow">return</span> crystal_;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;}</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
-<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="../../d3/d9b/classCrystalView.html#a6fffe79b15c269a44f9c393ed163f205">   63</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="../../d3/d9b/classCrystalView.html#a6fffe79b15c269a44f9c393ed163f205">CrystalView::selectable</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordflow">return</span> this-&gt;selectable_;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;}</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
-<div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="../../d3/d9b/classCrystalView.html#ab2a8ffda8203f9d645fa137ba8542ce4">   68</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d3/d9b/classCrystalView.html#ab2a8ffda8203f9d645fa137ba8542ce4">CrystalView::set_selectable</a>(<span class="keywordtype">bool</span> value)</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;{</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    this-&gt;selectable_ = value;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    setFlag(QGraphicsItem::ItemIsSelectable, this-&gt;selectable_);</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;}</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="preprocessor">#endif // CRYSTALVIEW_H</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="../../d3/d9b/classCrystalView.html#ab2a8ffda8203f9d645fa137ba8542ce4">set_selectable</a>(<span class="keywordtype">bool</span> value);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="../../d3/d9b/classCrystalView.html#a68f3f631351dce437a2c3ff86385e064">translate</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> x = .0, <span class="keyword">const</span> <span class="keywordtype">double</span> y = .0) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="../../d3/d9b/classCrystalView.html#a6dbe86bec06d3b63182804f4f5860054">notify</a>(<a class="code" href="../../d9/db4/classObservable.html">Observable</a> * o,</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                <span class="keyword">const</span> std::string&amp; msg,</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                <span class="keyword">const</span> std::vector&lt;std::string&gt;&amp; args = std::vector&lt;std::string&gt;()) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordtype">void</span> set_rect();</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;};</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="comment">/* Fonctions inlines */</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
+<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="../../d3/d9b/classCrystalView.html#a0168a3da89580fb0c5467f88c635ac9f">   59</a></span>&#160;<a class="code" href="../../d6/d4f/classCrystal.html">Crystal</a> * <a class="code" href="../../d3/d9b/classCrystalView.html#a0168a3da89580fb0c5467f88c635ac9f">CrystalView::crystal</a>()</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;{</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordflow">return</span> crystal_;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;}</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
+<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="../../d3/d9b/classCrystalView.html#a6fffe79b15c269a44f9c393ed163f205">   64</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="../../d3/d9b/classCrystalView.html#a6fffe79b15c269a44f9c393ed163f205">CrystalView::selectable</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordflow">return</span> selectable_;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;}</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
+<div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="../../d3/d9b/classCrystalView.html#ab2a8ffda8203f9d645fa137ba8542ce4">   69</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d3/d9b/classCrystalView.html#ab2a8ffda8203f9d645fa137ba8542ce4">CrystalView::set_selectable</a>(<span class="keywordtype">bool</span> value)</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;{</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    selectable_ = value;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    setFlag(QGraphicsItem::ItemIsSelectable, this-&gt;selectable_);</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;}</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="preprocessor">#endif // CRYSTALVIEW_H</span></div>
 <div class="ttc" id="classObserverInterface_html"><div class="ttname"><a href="../../dd/d62/classObserverInterface.html">ObserverInterface</a></div><div class="ttdoc">Interface représentant un observateur. </div><div class="ttdef"><b>Definition:</b> observerinterface.h:16</div></div>
 <div class="ttc" id="classElementView_html"><div class="ttname"><a href="../../d2/d81/classElementView.html">ElementView</a></div><div class="ttdoc">Cette classe sert de super-classe à tous les éléments visuels avec lesquels un rayon peut interagir...</div><div class="ttdef"><b>Definition:</b> elementview.h:16</div></div>
 <div class="ttc" id="classCrystalView_html_a82ec82a190920476f9ae64aca5691ceb"><div class="ttname"><a href="../../d3/d9b/classCrystalView.html#a82ec82a190920476f9ae64aca5691ceb">CrystalView::CrystalView</a></div><div class="ttdeci">CrystalView(const Crystal &amp;crystal, bool selectable=false)</div><div class="ttdoc">Instancie une représentation visuelle d’un cristal passé en paramètre. </div><div class="ttdef"><b>Definition:</b> crystalview.cpp:5</div></div>
-<div class="ttc" id="classCrystalView_html_a6fffe79b15c269a44f9c393ed163f205"><div class="ttname"><a href="../../d3/d9b/classCrystalView.html#a6fffe79b15c269a44f9c393ed163f205">CrystalView::selectable</a></div><div class="ttdeci">bool selectable() const </div><div class="ttdoc">Retourne vrai si le cristal est sélectionnable, faux sinon. </div><div class="ttdef"><b>Definition:</b> crystalview.h:63</div></div>
-<div class="ttc" id="classCrystalView_html_ab2a8ffda8203f9d645fa137ba8542ce4"><div class="ttname"><a href="../../d3/d9b/classCrystalView.html#ab2a8ffda8203f9d645fa137ba8542ce4">CrystalView::set_selectable</a></div><div class="ttdeci">void set_selectable(bool value)</div><div class="ttdoc">Modifie le fait que le cristal soit sélectionnable. </div><div class="ttdef"><b>Definition:</b> crystalview.h:68</div></div>
+<div class="ttc" id="classCrystalView_html_a6fffe79b15c269a44f9c393ed163f205"><div class="ttname"><a href="../../d3/d9b/classCrystalView.html#a6fffe79b15c269a44f9c393ed163f205">CrystalView::selectable</a></div><div class="ttdeci">bool selectable() const </div><div class="ttdoc">Retourne vrai si le cristal est sélectionnable, faux sinon. </div><div class="ttdef"><b>Definition:</b> crystalview.h:64</div></div>
+<div class="ttc" id="classCrystalView_html_ab2a8ffda8203f9d645fa137ba8542ce4"><div class="ttname"><a href="../../d3/d9b/classCrystalView.html#ab2a8ffda8203f9d645fa137ba8542ce4">CrystalView::set_selectable</a></div><div class="ttdeci">void set_selectable(bool value)</div><div class="ttdoc">Modifie le fait que le cristal soit sélectionnable. </div><div class="ttdef"><b>Definition:</b> crystalview.h:69</div></div>
 <div class="ttc" id="classCrystalView_html_a68f3f631351dce437a2c3ff86385e064"><div class="ttname"><a href="../../d3/d9b/classCrystalView.html#a68f3f631351dce437a2c3ff86385e064">CrystalView::translate</a></div><div class="ttdeci">void translate(const double x=.0, const double y=.0) override</div><div class="ttdoc">Effectue une translation de l’objet sur l’axe des abscisses et des ordonnées. </div><div class="ttdef"><b>Definition:</b> crystalview.cpp:19</div></div>
 <div class="ttc" id="classCrystal_html"><div class="ttname"><a href="../../d6/d4f/classCrystal.html">Crystal</a></div><div class="ttdoc">Cette classe modélise les cristaux utilisés dans le jeu. </div><div class="ttdef"><b>Definition:</b> crystal.h:20</div></div>
 <div class="ttc" id="classCrystalView_html_a6dbe86bec06d3b63182804f4f5860054"><div class="ttname"><a href="../../d3/d9b/classCrystalView.html#a6dbe86bec06d3b63182804f4f5860054">CrystalView::notify</a></div><div class="ttdeci">void notify(Observable *o, const std::string &amp;msg, const std::vector&lt; std::string &gt; &amp;args=std::vector&lt; std::string &gt;()) override</div><div class="ttdoc">Notifie le jeu d&#39;un évènement provenant d&#39;un sujet d&#39;observation (Observable). </div><div class="ttdef"><b>Definition:</b> crystalview.cpp:24</div></div>
-<div class="ttc" id="classCrystalView_html_a0168a3da89580fb0c5467f88c635ac9f"><div class="ttname"><a href="../../d3/d9b/classCrystalView.html#a0168a3da89580fb0c5467f88c635ac9f">CrystalView::crystal</a></div><div class="ttdeci">Crystal * crystal()</div><div class="ttdoc">Retourne le cristal affiché. </div><div class="ttdef"><b>Definition:</b> crystalview.h:58</div></div>
+<div class="ttc" id="classCrystalView_html_a0168a3da89580fb0c5467f88c635ac9f"><div class="ttname"><a href="../../d3/d9b/classCrystalView.html#a0168a3da89580fb0c5467f88c635ac9f">CrystalView::crystal</a></div><div class="ttdeci">Crystal * crystal()</div><div class="ttdoc">Retourne le cristal affiché. </div><div class="ttdef"><b>Definition:</b> crystalview.h:59</div></div>
 <div class="ttc" id="classObservable_html"><div class="ttname"><a href="../../d9/db4/classObservable.html">Observable</a></div><div class="ttdoc">Classe représentant un élément observable pouvant notifié des observateurs. </div><div class="ttdef"><b>Definition:</b> observable.h:14</div></div>
 <div class="ttc" id="classCrystalView_html"><div class="ttname"><a href="../../d3/d9b/classCrystalView.html">CrystalView</a></div><div class="ttdoc">Modélisation visuelle d’un cristal. </div><div class="ttdef"><b>Definition:</b> crystalview.h:17</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Généré le Jeudi 23 Avril 2015 10:28:42 pour Starlight par &#160;<a href="http://www.doxygen.org/index.html">
+Généré le Jeudi 23 Avril 2015 11:31:08 pour Starlight par &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.7
 </small></address>

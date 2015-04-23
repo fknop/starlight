@@ -31,17 +31,14 @@ Graphe de collaboration de Source\+View\+:\nopagebreak
 \subsection*{Fonctions membres publiques}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{classSourceView_a978bb2492cf5379d407ee448f554dda6}{Source\+View} (const \hyperlink{classSource}{Source} \&source, bool selectable=false)
-\begin{DoxyCompactList}\small\item\em Construit un carré représentant une source lumineuse qui peut être allumée ou éteinte. \end{DoxyCompactList}\item 
-\hypertarget{classSourceView_a39b5010fa2f3c764638d0c01eb97f616}{\hyperlink{classSource}{Source} $\ast$ {\bfseries source} ()}\label{classSourceView_a39b5010fa2f3c764638d0c01eb97f616}
-
-\item 
-\hypertarget{classSourceView_ab6c051d55846c3880a8f2672650327aa}{bool {\bfseries selectable} () const }\label{classSourceView_ab6c051d55846c3880a8f2672650327aa}
-
-\item 
-\hypertarget{classSourceView_a64f81b9f42abf51e39b4b16fb8be3dff}{void {\bfseries set\+\_\+selectable} (bool value)}\label{classSourceView_a64f81b9f42abf51e39b4b16fb8be3dff}
-
-\item 
+\hyperlink{classSourceView_a978bb2492cf5379d407ee448f554dda6}{Source\+View} (const \hyperlink{classSource}{Source} \&\hyperlink{classSourceView_a39b5010fa2f3c764638d0c01eb97f616}{source}, bool \hyperlink{classSourceView_ab6c051d55846c3880a8f2672650327aa}{selectable}=false)
+\begin{DoxyCompactList}\small\item\em Construit la vue représentant la source. \end{DoxyCompactList}\item 
+\hyperlink{classSource}{Source} $\ast$ \hyperlink{classSourceView_a39b5010fa2f3c764638d0c01eb97f616}{source} ()
+\begin{DoxyCompactList}\small\item\em Retourne la source. \end{DoxyCompactList}\item 
+bool \hyperlink{classSourceView_ab6c051d55846c3880a8f2672650327aa}{selectable} () const 
+\begin{DoxyCompactList}\small\item\em Retourne vrai si la source est sélectionnable, faux sinon. \end{DoxyCompactList}\item 
+void \hyperlink{classSourceView_a64f81b9f42abf51e39b4b16fb8be3dff}{set\+\_\+selectable} (bool value)
+\begin{DoxyCompactList}\small\item\em Rend la source sélectionnable ou non. \end{DoxyCompactList}\item 
 \hypertarget{classSourceView_a04947a9f3d8c575b61c03d869be66408}{void {\bfseries mouse\+Press\+Event} (Q\+Graphics\+Scene\+Mouse\+Event $\ast$event) override}\label{classSourceView_a04947a9f3d8c575b61c03d869be66408}
 
 \item 
@@ -66,17 +63,13 @@ Modélisation visuelle d’une source.
 )}}\label{classSourceView_a978bb2492cf5379d407ee448f554dda6}
 
 
-Construit un carré représentant une source lumineuse qui peut être allumée ou éteinte. 
+Construit la vue représentant la source. 
 
 
 \begin{DoxyParams}{Paramètres}
-{\em pos\+X} & abscisse du coin supérieur gauche de la source. \\
+{\em source} & la source. \\
 \hline
-{\em pos\+Y} & ordonnée du coin supérieur gauche de la source. \\
-\hline
-{\em width} & longueur du carré représentant la source. \\
-\hline
-{\em height} & hauteur du carré représentant la source. \\
+{\em selectable} & vrai si la source est selectionnable, faux sinon. \\
 \hline
 \end{DoxyParams}
 
@@ -108,6 +101,50 @@ Notifie le jeu d'un évènement provenant d'un sujet d'observation (\hyperlink{c
 
 Implémente \hyperlink{classObserverInterface_a3083639e706557f950f62af8ab283150}{Observer\+Interface}.
 
+\hypertarget{classSourceView_ab6c051d55846c3880a8f2672650327aa}{\index{Source\+View@{Source\+View}!selectable@{selectable}}
+\index{selectable@{selectable}!Source\+View@{Source\+View}}
+\subsubsection[{selectable}]{\setlength{\rightskip}{0pt plus 5cm}bool Source\+View\+::selectable (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classSourceView_ab6c051d55846c3880a8f2672650327aa}
+
+
+Retourne vrai si la source est sélectionnable, faux sinon. 
+
+\begin{DoxyReturn}{Renvoie}
+vrai si la source est sélectionnable, faux sinon. 
+\end{DoxyReturn}
+\hypertarget{classSourceView_a64f81b9f42abf51e39b4b16fb8be3dff}{\index{Source\+View@{Source\+View}!set\+\_\+selectable@{set\+\_\+selectable}}
+\index{set\+\_\+selectable@{set\+\_\+selectable}!Source\+View@{Source\+View}}
+\subsubsection[{set\+\_\+selectable}]{\setlength{\rightskip}{0pt plus 5cm}void Source\+View\+::set\+\_\+selectable (
+\begin{DoxyParamCaption}
+\item[{bool}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classSourceView_a64f81b9f42abf51e39b4b16fb8be3dff}
+
+
+Rend la source sélectionnable ou non. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em value} & vrai si la source est sélectionnable, faux sinon. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classSourceView_a39b5010fa2f3c764638d0c01eb97f616}{\index{Source\+View@{Source\+View}!source@{source}}
+\index{source@{source}!Source\+View@{Source\+View}}
+\subsubsection[{source}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Source} $\ast$ Source\+View\+::source (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classSourceView_a39b5010fa2f3c764638d0c01eb97f616}
+
+
+Retourne la source. 
+
+\begin{DoxyReturn}{Renvoie}
+la source. 
+\end{DoxyReturn}
 \hypertarget{classSourceView_a96144eb5f08c6dc6b378fa604bb626a2}{\index{Source\+View@{Source\+View}!translate@{translate}}
 \index{translate@{translate}!Source\+View@{Source\+View}}
 \subsubsection[{translate}]{\setlength{\rightskip}{0pt plus 5cm}void Source\+View\+::translate (

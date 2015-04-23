@@ -21,22 +21,36 @@ class SourceView : public QGraphicsPixmapItem, public ElementView, public Observ
     bool selectable_;
 
 public:
-    /**
-     * Construit un carré représentant une source lumineuse qui peut être allumée ou éteinte.
-     * @param posX abscisse du coin supérieur gauche de la source.
-     * @param posY ordonnée du coin supérieur gauche de la source.
-     * @param width longueur du carré représentant la source.
-     * @param height hauteur du carré représentant la source.
-     */
-    SourceView(const Source & source, bool selectable = false);
 
+    /**
+     * Construit la vue représentant la source.
+     * @param source la source.
+     * @param selectable vrai si la source est selectionnable, faux sinon.
+     */
+    SourceView(const Source& source, bool selectable = false);
+
+    /**
+     * Retourne la source.
+     * @return la source.
+     */
     inline Source * source();
 
+    /**
+     * Retourne vrai si la source est sélectionnable, faux sinon.
+     * @return vrai si la source est sélectionnable, faux sinon.
+     */
     inline bool selectable() const;
+
+    /**
+     * Rend la source sélectionnable ou non.
+     * @param value vrai si la source est sélectionnable, faux sinon.
+     */
     inline void set_selectable(bool value);
 
     void mousePressEvent(QGraphicsSceneMouseEvent *event) override;
+
     void translate(const double x = .0, const double y = .0) override;
+
     void notify(Observable * o,
                 const std::string& msg,
                 const std::vector<std::string>& args = std::vector<std::string>()) override;

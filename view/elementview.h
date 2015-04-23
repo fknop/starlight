@@ -16,6 +16,11 @@
 class ElementView : public QFrame
 {
 public:
+
+    /**
+     * Enumération fortement typée reprenant le type
+     * de la vue.
+     */
     enum class TypeView
     {
         CRYSTALVIEW,
@@ -61,7 +66,7 @@ private:
 
 const ElementView::TypeView& ElementView::type_view() const
 {
-    return this->type_;
+    return type_;
 }
 
 

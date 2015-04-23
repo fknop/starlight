@@ -49,7 +49,9 @@ La version du framework Qt utilisée est la 5.0.2 ou supérieure.
 Ce projet a été fait sous QtCreator, IDE OpenSource en version 2.8.1 ou
 supérieure.
 
-\section{Conventions de nommage utilisées}
+\section{Conventions}
+
+\subsection{Conventions de nommage utilisées}
 
 Dans cette section, nous présenterons les différentes conventions 
 utilisées lors de ce projet. Nous avons décidé de reprendre certaines
@@ -59,7 +61,7 @@ tout en utilisant d'autres conventions.
 De manière globale, tous les noms de variables, classes, fichiers, etc.
 sont en anglais.
 
-\subsection{Nommage des fichiers}
+\subsubsection{Fichiers}
 
 Les noms de fichiers sont entièrement en minuscules
 et possèdent les extensions \texttt{.h}
@@ -70,7 +72,7 @@ pour les headers et \texttt{.cpp} pour les fichiers sources.
 	\item \texttt{nomfichier.cpp}
 \end{itemize}
 
-\subsection{Classes}
+\subsubsection{Classes}
 
 Les noms des classes commencent par une majuscule à chaque mot.
 Cette convention est également valable pour les noms 
@@ -85,9 +87,9 @@ d'énumérations et structures.
 
 \newpage
 
-\subsection{Variables}
+\subsubsection{Variables}
 
-\subsubsection{Variables de classe}
+\paragraph{Variables de classe}
 
 Les noms des variables de classes sont en minuscules, les mots sont 
 séparés par un underscore et le nom est suffixé par un underscore.
@@ -100,7 +102,7 @@ séparés par un underscore et le nom est suffixé par un underscore.
 Cette convention est également valable pour les variables d'une
 structure.
 
-\subsubsection{Variables locales}
+\paragraph{Variables locales}
 
 Les noms des variables locales respectent les mêmes conventions 
 que les variables de classe, à la seule exception qu'ils ne sont pas
@@ -111,7 +113,7 @@ suffixés par un underscore.
 	\item \texttt{nom\_variable}
 \end{itemize}
 
-\subsubsection{Constantes}
+\paragraph{Constantes}
 
 Les noms des constantes sont entièrement en majuscules et les mots sont
 séparés par des underscores.
@@ -121,12 +123,12 @@ séparés par des underscores.
 	\item \texttt{NOM\_CONSTANTE}
 \end{itemize}
 
-\subsection{Méthodes}
+\subsubsection{Méthodes}
 
 D'une manière générale, les noms de méthodes sont en minuscules et
 séparés par des underscores.
 
-\subsubsection{Getters}
+\paragraph{Getters}
 
 Le nom d'un getter (accesseur en lecture de variable de classe/structure)
 est égal au nom de la variable de classe sans l'underscore final.
@@ -136,7 +138,7 @@ est égal au nom de la variable de classe sans l'underscore final.
 	\item Variable : \texttt{nom\_var\_} ~~~~-- Getter : \texttt{nom\_var()}
 \end{itemize}
 
-\subsubsection{Setters}
+\paragraph{Setters}
 
 Le nom d'un setter (accesseur en écriture de variable de classe/structure)
 est égal au nom de la variable sans l'underscore final préfixé de \texttt{set}.
@@ -145,7 +147,7 @@ est égal au nom de la variable sans l'underscore final préfixé de \texttt{set
 	\item Variable : \texttt{variable\_} ~~-- Setter : \texttt{set\_nom\_var()}
 \end{itemize}
 
-\subsubsection{Autres méthodes}
+\paragraph{Autres méthodes}
 
 Les autres méthodes possèdent les mêmes conventions que celles
 énoncées ci-dessus.
@@ -155,9 +157,11 @@ Les autres méthodes possèdent les mêmes conventions que celles
 	\item \texttt{nom\_methode()}
 \end{itemize}
 
-\subsection{Éléments d'une énumération} 
+\subsubsection{Éléments d'une énumération} 
 
 Les éléments d'une énumération suivent les mêmes conventions que celles des constantes énoncées ci-dessus.
+
+\subsection{Autres conventions}
 
 \newpage
 \section{Présentation générale du projet}
@@ -1139,10 +1143,12 @@ dans le domaine $x$ et $y$ du segment.
 \newpage 
 \subsection{\label{AnnexeB}Annexe B : Diagramme des observateurs / observés}
 
-\begin{figure}
-	\caption{Image réalisée avec \href{http://www.visual-paradigm.com/}{Visual
-	Paradigm}}
+\begin{figure}[hb]
 \centering
 \includegraphics[scale=0.4]{Obs.jpg}
+\caption{Image réalisée avec \href{http://www.visual-paradigm.com/}{Visual
+	Paradigm}}
 \end{figure}
+
+
 \end{document}

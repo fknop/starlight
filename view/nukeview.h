@@ -17,11 +17,30 @@ class NukeView : public QGraphicsEllipseItem, public ObserverInterface, public E
     bool selectable_;
 
 public:
+
+    /**
+     * Instancie une vue représentant une bombe.
+     * @param nuke la bombe.
+     * @param selectable vrai si la bombe est sélectionnable, faux sinon.
+     */
     NukeView(const Nuke & nuke, bool selectable = false);
 
+    /**
+     * Renvoie la bombe représentée.
+     * @return la bombe représentée.
+     */
     inline Nuke * nuke();
 
+    /**
+     * Retourne vrai si la bombe est sélectionnable, faux sinon.
+     * @return vrai si la bombe est sélectionnable, faux sinon.
+     */
     inline bool selectable() const;
+
+    /**
+     * Rend la bombe sélectionnable ou non.
+     * @param value vrai si la bombe est sélectionnable, faux sinon.
+     */
     inline void set_selectable(bool value);
 
     void translate(const double x = .0, const double y = .0) override;
@@ -43,12 +62,12 @@ Nuke * NukeView::nuke()
 
 bool NukeView::selectable() const
 {
-    return this->selectable_;
+    return selectable_;
 }
 
 void NukeView::set_selectable(bool value)
 {
-    this->selectable_ = value;
+    selectable_ = value;
     setFlag(QGraphicsItem::ItemIsSelectable, this->selectable_);
 }
 

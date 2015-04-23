@@ -106,51 +106,52 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">inline</span> <a class="code" href="../../d6/d4b/classLens.html">Lens</a> * <a class="code" href="../../d6/da9/classLensView.html#a9af15abae80b9588e61de5a0d929101f">lens</a>();</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code" href="../../d6/da9/classLensView.html#abcf4b929c4008fe2d0d464e1ec113037">selectable</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="../../d6/da9/classLensView.html#a3a35c1e61503da599b1d9c93c176dffd">set_selectable</a>(<span class="keywordtype">bool</span> value);</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="../../d6/da9/classLensView.html#a9475ad917b91f93c23742f403ff152fc">translate</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> x = .0, <span class="keyword">const</span> <span class="keywordtype">double</span> y = .0) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="../../d6/da9/classLensView.html#a09506e0da9265c47140ded3e6eb35a7f">notify</a>(<a class="code" href="../../d9/db4/classObservable.html">Observable</a> * o,</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                <span class="keyword">const</span> std::string&amp; msg,</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                <span class="keyword">const</span> std::vector&lt;std::string&gt;&amp; args = std::vector&lt;std::string&gt;()) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">void</span> set_rect();</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;};</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="comment">/* Fonctions inlines */</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
-<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="../../d6/da9/classLensView.html#a9af15abae80b9588e61de5a0d929101f">   54</a></span>&#160;<a class="code" href="../../d6/d4b/classLens.html">Lens</a> * <a class="code" href="../../d6/da9/classLensView.html#a9af15abae80b9588e61de5a0d929101f">LensView::lens</a>()</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;{</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordflow">return</span> lens_;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;}</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
-<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="../../d6/da9/classLensView.html#abcf4b929c4008fe2d0d464e1ec113037">   59</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="../../d6/da9/classLensView.html#abcf4b929c4008fe2d0d464e1ec113037">LensView::selectable</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordflow">return</span> this-&gt;selectable_;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;}</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
-<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="../../d6/da9/classLensView.html#a3a35c1e61503da599b1d9c93c176dffd">   64</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d6/da9/classLensView.html#a3a35c1e61503da599b1d9c93c176dffd">LensView::set_selectable</a>(<span class="keywordtype">bool</span> value)</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;{</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    this-&gt;selectable_ = value;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    setFlag(QGraphicsItem::ItemIsSelectable, this-&gt;selectable_);</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;}</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="preprocessor">#endif // LENSVIEW_H</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="../../d6/da9/classLensView.html#a3a35c1e61503da599b1d9c93c176dffd">set_selectable</a>(<span class="keywordtype">bool</span> value);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="../../d6/da9/classLensView.html#a9475ad917b91f93c23742f403ff152fc">translate</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> x = .0, <span class="keyword">const</span> <span class="keywordtype">double</span> y = .0) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="../../d6/da9/classLensView.html#a09506e0da9265c47140ded3e6eb35a7f">notify</a>(<a class="code" href="../../d9/db4/classObservable.html">Observable</a> * o,</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                <span class="keyword">const</span> std::string&amp; msg,</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                <span class="keyword">const</span> std::vector&lt;std::string&gt;&amp; args = std::vector&lt;std::string&gt;()) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">void</span> set_rect();</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;};</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment">/* Fonctions inlines */</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="../../d6/da9/classLensView.html#a9af15abae80b9588e61de5a0d929101f">   55</a></span>&#160;<a class="code" href="../../d6/d4b/classLens.html">Lens</a> * <a class="code" href="../../d6/da9/classLensView.html#a9af15abae80b9588e61de5a0d929101f">LensView::lens</a>()</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;{</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordflow">return</span> lens_;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;}</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="../../d6/da9/classLensView.html#abcf4b929c4008fe2d0d464e1ec113037">   60</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="../../d6/da9/classLensView.html#abcf4b929c4008fe2d0d464e1ec113037">LensView::selectable</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordflow">return</span> selectable_;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;}</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
+<div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="../../d6/da9/classLensView.html#a3a35c1e61503da599b1d9c93c176dffd">   65</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d6/da9/classLensView.html#a3a35c1e61503da599b1d9c93c176dffd">LensView::set_selectable</a>(<span class="keywordtype">bool</span> value)</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;{</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    selectable_ = value;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    setFlag(QGraphicsItem::ItemIsSelectable, this-&gt;selectable_);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;}</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="preprocessor">#endif // LENSVIEW_H</span></div>
 <div class="ttc" id="classObserverInterface_html"><div class="ttname"><a href="../../dd/d62/classObserverInterface.html">ObserverInterface</a></div><div class="ttdoc">Interface représentant un observateur. </div><div class="ttdef"><b>Definition:</b> observerinterface.h:16</div></div>
 <div class="ttc" id="classLens_html"><div class="ttname"><a href="../../d6/d4b/classLens.html">Lens</a></div><div class="ttdoc">Cette classe modélise les lentilles utilisées dans le jeu. </div><div class="ttdef"><b>Definition:</b> lens.h:20</div></div>
 <div class="ttc" id="classElementView_html"><div class="ttname"><a href="../../d2/d81/classElementView.html">ElementView</a></div><div class="ttdoc">Cette classe sert de super-classe à tous les éléments visuels avec lesquels un rayon peut interagir...</div><div class="ttdef"><b>Definition:</b> elementview.h:16</div></div>
-<div class="ttc" id="classLensView_html_a9af15abae80b9588e61de5a0d929101f"><div class="ttname"><a href="../../d6/da9/classLensView.html#a9af15abae80b9588e61de5a0d929101f">LensView::lens</a></div><div class="ttdeci">Lens * lens()</div><div class="ttdoc">Retourne la lentille affichée. </div><div class="ttdef"><b>Definition:</b> lensview.h:54</div></div>
-<div class="ttc" id="classLensView_html_a3a35c1e61503da599b1d9c93c176dffd"><div class="ttname"><a href="../../d6/da9/classLensView.html#a3a35c1e61503da599b1d9c93c176dffd">LensView::set_selectable</a></div><div class="ttdeci">void set_selectable(bool value)</div><div class="ttdoc">Modifie le fait que la lentille soit sélectionnable. </div><div class="ttdef"><b>Definition:</b> lensview.h:64</div></div>
+<div class="ttc" id="classLensView_html_a9af15abae80b9588e61de5a0d929101f"><div class="ttname"><a href="../../d6/da9/classLensView.html#a9af15abae80b9588e61de5a0d929101f">LensView::lens</a></div><div class="ttdeci">Lens * lens()</div><div class="ttdoc">Retourne la lentille affichée. </div><div class="ttdef"><b>Definition:</b> lensview.h:55</div></div>
+<div class="ttc" id="classLensView_html_a3a35c1e61503da599b1d9c93c176dffd"><div class="ttname"><a href="../../d6/da9/classLensView.html#a3a35c1e61503da599b1d9c93c176dffd">LensView::set_selectable</a></div><div class="ttdeci">void set_selectable(bool value)</div><div class="ttdoc">Modifie le fait que la lentille soit sélectionnable. </div><div class="ttdef"><b>Definition:</b> lensview.h:65</div></div>
 <div class="ttc" id="classLensView_html_a09506e0da9265c47140ded3e6eb35a7f"><div class="ttname"><a href="../../d6/da9/classLensView.html#a09506e0da9265c47140ded3e6eb35a7f">LensView::notify</a></div><div class="ttdeci">void notify(Observable *o, const std::string &amp;msg, const std::vector&lt; std::string &gt; &amp;args=std::vector&lt; std::string &gt;()) override</div><div class="ttdoc">Notifie le jeu d&#39;un évènement provenant d&#39;un sujet d&#39;observation (Observable). </div><div class="ttdef"><b>Definition:</b> lensview.cpp:25</div></div>
 <div class="ttc" id="classLensView_html_a678ca25c84417e53af04258d27e5979a"><div class="ttname"><a href="../../d6/da9/classLensView.html#a678ca25c84417e53af04258d27e5979a">LensView::LensView</a></div><div class="ttdeci">LensView(const Lens &amp;lens, bool selectable=false)</div><div class="ttdoc">Instancie une représentation visuelle d’une lentille passée en paramètre. </div><div class="ttdef"><b>Definition:</b> lensview.cpp:6</div></div>
 <div class="ttc" id="classLensView_html"><div class="ttname"><a href="../../d6/da9/classLensView.html">LensView</a></div><div class="ttdoc">Modélisation visuelle de la lentille. </div><div class="ttdef"><b>Definition:</b> lensview.h:13</div></div>
 <div class="ttc" id="classLensView_html_a9475ad917b91f93c23742f403ff152fc"><div class="ttname"><a href="../../d6/da9/classLensView.html#a9475ad917b91f93c23742f403ff152fc">LensView::translate</a></div><div class="ttdeci">void translate(const double x=.0, const double y=.0) override</div><div class="ttdoc">Effectue une translation de l’objet sur l’axe des abscisses et des ordonnées. </div><div class="ttdef"><b>Definition:</b> lensview.cpp:20</div></div>
-<div class="ttc" id="classLensView_html_abcf4b929c4008fe2d0d464e1ec113037"><div class="ttname"><a href="../../d6/da9/classLensView.html#abcf4b929c4008fe2d0d464e1ec113037">LensView::selectable</a></div><div class="ttdeci">bool selectable() const </div><div class="ttdoc">Retourne vrai si la lentille est sélectionnable, faux sinon. </div><div class="ttdef"><b>Definition:</b> lensview.h:59</div></div>
+<div class="ttc" id="classLensView_html_abcf4b929c4008fe2d0d464e1ec113037"><div class="ttname"><a href="../../d6/da9/classLensView.html#abcf4b929c4008fe2d0d464e1ec113037">LensView::selectable</a></div><div class="ttdeci">bool selectable() const </div><div class="ttdoc">Retourne vrai si la lentille est sélectionnable, faux sinon. </div><div class="ttdef"><b>Definition:</b> lensview.h:60</div></div>
 <div class="ttc" id="classObservable_html"><div class="ttname"><a href="../../d9/db4/classObservable.html">Observable</a></div><div class="ttdoc">Classe représentant un élément observable pouvant notifié des observateurs. </div><div class="ttdef"><b>Definition:</b> observable.h:14</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Généré le Jeudi 23 Avril 2015 10:28:42 pour Starlight par &#160;<a href="http://www.doxygen.org/index.html">
+Généré le Jeudi 23 Avril 2015 11:31:08 pour Starlight par &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.7
 </small></address>
