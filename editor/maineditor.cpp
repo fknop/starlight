@@ -6,6 +6,7 @@
 #include <QMessageBox>
 #include <QPushButton>
 #include <QShortcut>
+#include <sstream>
 
 #include "editor/elements.h"
 #include "editor/properties.h"
@@ -67,9 +68,9 @@ ElementView * MainEditor::selected()
     return mapview_->selected();
 }
 
-void MainEditor::create_level()
+void MainEditor::create_level(int width, int height)
 {
-    level_ = elements_->level();
+    level_ = new Level(width, height);
     level_->set_check_collisions(false);
     level_->set_handle_nukes(false);
     level_->set_handle_dest(false);
@@ -234,7 +235,13 @@ void MainEditor::closeEvent(QCloseEvent * event)
 void MainEditor::notify(Observable * o, const std::string& msg, const std::vector<std::string>& args)
 {
     if (msg.compare("LEVEL_CREATED") == 0)
-        create_level();
+    {
+        std::stringstream ssw(args.at(0));
+        std::stringstream ssh(args.at(1));
+        double w = (ssw >> w, w);
+        double h = (ssh >> h, h);
+        create_level(w , h);
+    }
 
     else if (msg.compare("LEVEL_RESET") == 0)
         mapview_->clear();

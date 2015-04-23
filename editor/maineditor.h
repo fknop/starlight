@@ -65,7 +65,7 @@ public slots:
     void add_nuke();
     void add_wall();
 
-    void create_level();
+    void create_level(int width, int height);
     void load_level();
     void save_level();
     void back_menu();

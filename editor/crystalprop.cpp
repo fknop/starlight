@@ -8,9 +8,7 @@
 CrystalProp::CrystalProp(Crystal * crystal, QWidget * parent) : crystal_{crystal}
 {
     setup_ui();
-
     crystal_->add_observer(this);
-
     reset();
 }
 
@@ -72,9 +70,6 @@ void CrystalProp::setup_ui()
     setLayout(form_layout_);
 }
 
-/**
- * Applique les changements effectués à l’objet crystal qu’il contient.
- */
 void CrystalProp::apply()
 {
     crystal_->set_center(Point(x_dsb_->value(), y_dsb_->value()));
@@ -82,9 +77,6 @@ void CrystalProp::apply()
     crystal_->set_radius(rad_dsb_->value());
 }
 
-/**
- * Modifie les spinbox pour qu’elles prennent les valeurs du cristal.
- */
 void CrystalProp::reset()
 {
     x_dsb_->setValue(crystal_->center().x());
