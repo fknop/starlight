@@ -37,12 +37,10 @@ void Properties::setup_ui()
     font.setWeight(75);
     group_box_->setFont(font);
 
-    apply_pb_ = new QPushButton();
-    apply_pb_->setText("Apply");
+    apply_pb_ = new QPushButton("Apply");
     apply_pb_->setEnabled(false);
 
-    delete_pb_ = new QPushButton();
-    delete_pb_->setText("Delete");
+    delete_pb_ = new QPushButton("Delete");
     delete_pb_->setEnabled(false);
 
     grid_layout_->addWidget(group_box_, 0, 0, 1, 3);
