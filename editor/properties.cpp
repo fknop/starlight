@@ -10,10 +10,8 @@
 
 Properties::Properties(QWidget * parent) : QWidget(parent)
 {
-    setup_ui();
-
     prop_interface_ = nullptr;
-
+    setup_ui();
     add_connections();
 }
 
@@ -25,31 +23,30 @@ void Properties::add_connections()
 
 void Properties::setup_ui()
 {
-    resize(400, 300);
+    this->resize(400, 300);
 
     grid_layout_ = new QGridLayout();
-
     group_box_ = new QGroupBox();
     group_box_->setTitle(tr("Properties"));
+
     QHBoxLayout * qhl = new QHBoxLayout;
     group_box_->setLayout(qhl);
+
     QFont font;
     font.setBold(true);
     font.setWeight(75);
     group_box_->setFont(font);
 
-    grid_layout_->addWidget(group_box_, 0, 0, 1, 3);
-
     apply_pb_ = new QPushButton();
     apply_pb_->setText("Apply");
     apply_pb_->setEnabled(false);
-
-    grid_layout_->addWidget(apply_pb_, 1, 0, 1, 1);
 
     delete_pb_ = new QPushButton();
     delete_pb_->setText("Delete");
     delete_pb_->setEnabled(false);
 
+    grid_layout_->addWidget(group_box_, 0, 0, 1, 3);
+    grid_layout_->addWidget(apply_pb_, 1, 0, 1, 1);
     grid_layout_->addWidget(delete_pb_, 1, 1, 1, 1);
 
     setLayout(grid_layout_);

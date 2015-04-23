@@ -23,9 +23,6 @@
 MainEditor::MainEditor(QWidget * parent) : QMainWindow(parent), parent_{parent}, level_{new Level(750, 580)}
 {
     setup_ui();
-
-    QShortcut * shortcut = new QShortcut(QKeySequence("Ctrl+X"), this);
-    connect(shortcut, SIGNAL(activated()), this, SLOT(delete_selected()));
 }
 
 void MainEditor::add_crystal()
@@ -95,42 +92,30 @@ void MainEditor::setup_ui()
     showMaximized();
 
     menu_bar_ = new QMenuBar(this);
-
     file_menu_ = menu_bar_->addMenu("&File");
 
     load_level_action_ = new QAction("&Load level", menu_bar_);
     load_level_action_->setShortcuts(QKeySequence::Open);
     load_level_action_->setStatusTip("Load a Starlight level");
-    connect(load_level_action_, SIGNAL(triggered()), this, SLOT(load_level()));
-
-    file_menu_->addAction(load_level_action_);
-
 
     save_level_action_ = new QAction("&Save level", menu_bar_);
     save_level_action_->setShortcuts(QKeySequence::Save);
     save_level_action_->setStatusTip("Save a Starlight level");
-    connect(save_level_action_, SIGNAL(triggered()), this, SLOT(save_level()));
-
-    file_menu_->addAction(save_level_action_);
-
 
     back_menu_action_ = new QAction("&Back to the menu", menu_bar_);
     back_menu_action_->setShortcuts(QKeySequence::Back);
     back_menu_action_->setStatusTip("Get back to the menu");
-    connect(back_menu_action_, SIGNAL(triggered()), this, SLOT(back_menu()));
-
-    file_menu_->addAction(back_menu_action_);
-
 
     quit_action_ = new QAction("&Quit", menu_bar_);
     quit_action_->setShortcuts(QKeySequence::Quit);
     quit_action_->setStatusTip("Quit the editor");
-    connect(quit_action_, SIGNAL(triggered()), this, SLOT(quit()));
 
+    file_menu_->addAction(load_level_action_);
+    file_menu_->addAction(save_level_action_);
+    file_menu_->addAction(back_menu_action_);
     file_menu_->addAction(quit_action_);
 
     setMenuBar(menu_bar_);
-
 
     central_widget_ = new QWidget();
 
@@ -140,34 +125,36 @@ void MainEditor::setup_ui()
 
     elements_ = new Elements();
     elements_->add_observer(this);
-    horizontal_layout_->addWidget(elements_);
 
-
-    horizontal_layout_->addWidget(elements_);
+    properties_ = new Properties(central_widget_);
+    properties_->add_observer(this);
 
     mapview_ = static_cast<MapView *>(new QWidget());
     vertical_layout_2_ = new QVBoxLayout(mapview_);
     vertical_layout_2_->setSpacing(6);
     vertical_layout_2_->setContentsMargins(11, 11, 11, 11);
 
-
     QSizePolicy sp_mapview(QSizePolicy::Preferred, QSizePolicy::Preferred);
     sp_mapview.setHorizontalStretch(4);
     mapview_->setSizePolicy(sp_mapview);
-
-    horizontal_layout_->addWidget(mapview_);
-
-    properties_ = new Properties(central_widget_);
-    properties_->add_observer(this);
-
 
     QSizePolicy sp_properties(QSizePolicy::Preferred, QSizePolicy::Preferred);
     sp_properties.setHorizontalStretch(1);
     properties_->setSizePolicy(sp_properties);
 
+    horizontal_layout_->addWidget(elements_);
+    horizontal_layout_->addWidget(mapview_);
     horizontal_layout_->addWidget(properties_);
 
     setCentralWidget(central_widget_);
+
+    QShortcut * shortcut = new QShortcut(QKeySequence("Ctrl+X"), this);
+
+    connect(save_level_action_, SIGNAL(triggered()), this, SLOT(save_level()));
+    connect(back_menu_action_, SIGNAL(triggered()), this, SLOT(back_menu()));
+    connect(quit_action_, SIGNAL(triggered()), this, SLOT(quit()));
+    connect(load_level_action_, SIGNAL(triggered()), this, SLOT(load_level()));
+    connect(shortcut, SIGNAL(activated()), this, SLOT(delete_selected()));
 }
 
 void MainEditor::load_level()
