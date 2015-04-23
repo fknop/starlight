@@ -1,5 +1,4 @@
 #include "utils/umath.h"
-#include "utils/umath.h"
 
 #include "view/mirrorview.h"
 
