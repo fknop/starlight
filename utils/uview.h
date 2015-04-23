@@ -11,7 +11,7 @@
 
 namespace uview
 {
-/**
+    /**
      * Affiche l'ellipse sur un objet graphique.
      * @param item l'objet graphique représentant une ellipse.
      * @param ellipse l'ellipse.
