@@ -54,7 +54,7 @@ void Level::compute_ray(const Line& line, const Point& start, int wl)
     {
         case Element::Type::CRYSTAL:
         {
-            crystal = dynamic_cast<Crystal *> (this->intersections_.at(0).element_);
+            crystal = static_cast<Crystal *> (this->intersections_.at(0).element_);
             new_wl += crystal->modifier();
 
             if (this->intersections_.at(1).element_ == crystal)
@@ -75,7 +75,7 @@ void Level::compute_ray(const Line& line, const Point& start, int wl)
 
         case Element::Type::LENS:
         {
-            lens = dynamic_cast<Lens *> (this->intersections_.at(0).element_);
+            lens = static_cast<Lens *> (this->intersections_.at(0).element_);
             continue_ray = (wl >= lens->wl_min() && wl <= lens->wl_max());
 
             if (continue_ray && this->intersections_.at(1).element_ == lens)
@@ -85,7 +85,7 @@ void Level::compute_ray(const Line& line, const Point& start, int wl)
 
         case Element::Type::MIRROR:
         {
-            mirror = dynamic_cast<Mirror *> (this->intersections_.at(0).element_);
+            mirror = static_cast<Mirror *> (this->intersections_.at(0).element_);
             angle = get_reflection_angle(angle, mirror->angle());
             continue_ray = true;
             break;
@@ -93,7 +93,7 @@ void Level::compute_ray(const Line& line, const Point& start, int wl)
 
         case Element::Type::NUKE:
         {
-            nuke = dynamic_cast<Nuke *> (this->intersections_.at(0).element_);
+            nuke = static_cast<Nuke *> (this->intersections_.at(0).element_);
             if (handle_nukes_)
                 nuke->set_lighted_up(true);
 
@@ -350,7 +350,7 @@ void Level::notify(Observable * o, const std::string& msg, const std::vector<std
 
     if (check_collisions_ && (ask_rotate || ask_translate))
     {
-        Mirror * mirror = dynamic_cast<Mirror*> (o);
+        Mirror * mirror = static_cast<Mirror*> (o);
         LineSegment segment = mirror->to_line_segment();
 
         if (ask_translate)

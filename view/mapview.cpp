@@ -242,7 +242,7 @@ void MapView::mousePressEvent(QMouseEvent * event)
     {
         if (ev_selected->type_view() == MirrorView::TypeView::MIRRORVIEW)
         {
-            selected_mirror_ = dynamic_cast<MirrorView *> (ev_selected);
+            selected_mirror_ = static_cast<MirrorView *> (ev_selected);
             selected_mirror_->show_zone();
         }
         notify_all(std::string("SELECTED"));

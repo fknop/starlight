@@ -274,31 +274,31 @@ void MainEditor::delete_selected()
         {
         case ElementView::TypeView::CRYSTALVIEW:
         {
-            CrystalView * cv = dynamic_cast<CrystalView *> (selected());
+            CrystalView * cv = static_cast<CrystalView *> (selected());
             level_->remove_crystal(*cv->crystal());
             break;
         }
         case ElementView::TypeView::LENSVIEW:
         {
-            LensView * lv = dynamic_cast<LensView *> (selected());
+            LensView * lv = static_cast<LensView *> (selected());
             level_->remove_lens(*lv->lens());
             break;
         }
         case ElementView::TypeView::MIRRORVIEW:
         {
-            MirrorView * mv = dynamic_cast<MirrorView *> (selected());
+            MirrorView * mv = static_cast<MirrorView *> (selected());
             level_->remove_mirror(*mv->mirror());
             break;
         }
         case ElementView::TypeView::NUKEVIEW:
         {
-            NukeView * nv = dynamic_cast<NukeView *> (selected());
+            NukeView * nv = static_cast<NukeView *> (selected());
             level_->remove_nuke(*nv->nuke());
             break;
         }
         case ElementView::TypeView::WALLVIEW:
         {
-            WallView * wv = dynamic_cast<WallView *> (selected());
+            WallView * wv = static_cast<WallView *> (selected());
 
             if (wv->wall()->movable())
                 level_->remove_wall(*wv->wall());
