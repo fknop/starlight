@@ -46,10 +46,7 @@ public:
      * @param selectable les éléments du niveau sont-ils sélectionnables ?
      */
     MapView(Level * level_, bool selectable = false);
-    /**
-     * @brief MapView
-     */
-//    MapView();
+
     ~MapView();
 
     /**

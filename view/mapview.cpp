@@ -4,14 +4,6 @@
 
 #include "view/mapview.h"
 
-
-//MapView::MapView()
-//{
-//    scene_ = new QGraphicsScene(0, 0, 500, 500);
-//    setScene(scene_);
-//    selected_mirror_ = nullptr;
-//}
-
 MapView::MapView(Level* level, bool selectable) : level_{level}, selectable_{selectable}
 {
     scene_ = new QGraphicsScene(0, 0, this->level_->width(), this->level_->height());
@@ -229,48 +221,38 @@ void MapView::mousePressEvent(QMouseEvent * event)
 
 void MapView::keyPressEvent(QKeyEvent *event)
 {
-    ElementView * i = selected();
+    ElementView * i = this->selected();
 
     if (i != nullptr)
     {
+        int n = 1;
+        if (event->modifiers() & Qt::ShiftModifier)
+            n *= 5;
+
         switch(event->key())
         {
         case Qt::Key_Left:
-            if (event->modifiers() & Qt::ShiftModifier)
-                i->rotate(-5);
-            else
-                i->rotate(-1);
+            i->rotate(-n);
             break;
 
         case Qt::Key_Right:
-            if (event->modifiers() & Qt::ShiftModifier)
-                i->rotate(5);
-            else
-                i->rotate(1);
+            i->rotate(n);
             break;
+
         case Qt::Key_Z:
-            if (event->modifiers() & Qt::ShiftModifier)
-                i->translate(0, -5);
-            else
-                i->translate(0, -1);
+            i->translate(0, -n);
             break;
+
         case Qt::Key_S:
-            if (event->modifiers() & Qt::ShiftModifier)
-                i->translate(0, 5);
-            else
-                i->translate(0, 1);
+            i->translate(0, n);
             break;
+
         case Qt::Key_Q:
-            if (event->modifiers() & Qt::ShiftModifier)
-                i->translate(-5, 0);
-            else
-                i->translate(-1, 0);
+            i->translate(-n, 0);
             break;
+
         case Qt::Key_D:
-            if (event->modifiers() & Qt::ShiftModifier)
-                i->translate(5, 0);
-            else
-                i->translate(1, 0);
+            i->translate(n, 0);
             break;
         }
     }
