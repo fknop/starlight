@@ -45,7 +45,7 @@ var searchData=
   ['set_5fxpad',['set_xpad',['../de/dfd/classMirror.html#a5abdb9ac393b5c4e78399567bd44fc1f',1,'Mirror']]],
   ['set_5fy',['set_y',['../dc/d4f/classPoint.html#a44bf07535f5dd99991a274833462379b',1,'Point']]],
   ['slope',['slope',['../db/db6/classLine.html#a582597e85fc78ba06ccdddf6c270ed71',1,'Line']]],
-  ['source',['source',['../d2/d9d/classLevel.html#a4f7eb7f4859a1bcc436e51f9e31c64b7',1,'Level::source()'],['../d9/df7/classSourceView.html#a39b5010fa2f3c764638d0c01eb97f616',1,'SourceView::source()'],['../d6/d2e/classSource.html#a25946b40bbfdcd0edb76b76f1ed6ba1c',1,'Source::Source()']]],
+  ['source',['Source',['../d6/d2e/classSource.html#a25946b40bbfdcd0edb76b76f1ed6ba1c',1,'Source::Source()'],['../d2/d9d/classLevel.html#a4f7eb7f4859a1bcc436e51f9e31c64b7',1,'Level::source()'],['../d9/df7/classSourceView.html#a39b5010fa2f3c764638d0c01eb97f616',1,'SourceView::source()']]],
   ['sourceview',['SourceView',['../d9/df7/classSourceView.html#a978bb2492cf5379d407ee448f554dda6',1,'SourceView']]],
   ['start',['start',['../d1/d48/classLineSegment.html#af9a830ffa92f1b2e8c6138e023efbf1e',1,'LineSegment::start()'],['../d9/dce/classRay.html#afb483cd8f050771fa653e01b811d9a2a',1,'Ray::start()'],['../d7/dec/classWall.html#a0e3acb1aa5f837e1dc6b353a473bc9d4',1,'Wall::start()']]]
 ];

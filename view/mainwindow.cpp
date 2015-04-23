@@ -1,6 +1,8 @@
 #include <QCoreApplication>
+#include <QFile>
 #include <QFileDialog>
 #include <QMessageBox>
+#include <QTextStream>
 #include <QtWidgets/QAction>
 #include <QtWidgets/QMenuBar>
 
@@ -17,6 +19,8 @@
 
 MainWindow::MainWindow(QWidget * parent) : QMainWindow(parent), parent_{parent}
 {
+    level_ = nullptr;
+    map_view_ = nullptr;
     setup_ui();
 }
 
@@ -44,11 +48,12 @@ void MainWindow::load_level()
 
 void MainWindow::close_level()
 {
-    if (level_ != nullptr)
+    if (level_ != nullptr && map_view_ != nullptr)
     {
         level_->remove_observer(map_view_);
         MapReader::end_level();
     }
+
     centralWidget()->setEnabled(false);
     open_level_action_->setEnabled(true);
     close_level_action_->setEnabled(false);
@@ -113,7 +118,13 @@ void MainWindow::setup_ui()
 
 void MainWindow::help()
 {
-    QMessageBox::information(this, "Help", MainMenu::STARLIGHT_RULES.c_str());
+    QFile file("ressources/rules.html");
+    if (file.open(QFile::ReadOnly | QFile::Text))
+    {
+        QTextStream in(&file);
+        QMessageBox::information(this, "Help", in.readAll());
+        file.close();
+    }
 }
 
 void MainWindow::back_menu()

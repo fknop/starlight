@@ -27,6 +27,7 @@ public:
     void hoverLeaveEvent(QGraphicsSceneHoverEvent * event) override;
 
 signals:
+
     /**
      * Simule un clic.
      */

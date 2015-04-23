@@ -12,20 +12,22 @@ Représente le menu principal.
 
 
 
-Graphe d'héritage de Main\+Menu\+:\nopagebreak
+Graphe d'héritage de Main\+Menu\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=200pt]{db/d55/classMainMenu__inherit__graph}
+\includegraphics[width=186pt]{db/d55/classMainMenu__inherit__graph}
 \end{center}
 \end{figure}
 
 
-Graphe de collaboration de Main\+Menu\+:\nopagebreak
+Graphe de collaboration de Main\+Menu\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=200pt]{d8/d60/classMainMenu__coll__graph}
+\includegraphics[width=186pt]{d8/d60/classMainMenu__coll__graph}
 \end{center}
 \end{figure}
 \subsection*{Connecteurs publics}
@@ -43,52 +45,33 @@ Graphe de collaboration de Main\+Menu\+:\nopagebreak
 \subsection*{Fonctions membres publiques}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{classMainMenu_a15507d68640fd9651dae4a6e3cf9b870}{{\bfseries Main\+Menu} (Q\+Widget $\ast$parent=N\+U\+L\+L)}\label{classMainMenu_a15507d68640fd9651dae4a6e3cf9b870}
+\hyperlink{classMainMenu_a891bed1e0edb5492671c332cb89b7a9a}{Main\+Menu} (Q\+Widget $\ast$parent=nullptr)
+\begin{DoxyCompactList}\small\item\em Instancie le menu principal. \end{DoxyCompactList}\item 
+\hypertarget{classMainMenu_a4b83847fe6109626f6dd4404c8afe4b2}{void \hyperlink{classMainMenu_a4b83847fe6109626f6dd4404c8afe4b2}{display\+Main\+Menu} ()}\label{classMainMenu_a4b83847fe6109626f6dd4404c8afe4b2}
 
-\item 
-\hypertarget{classMainMenu_a4b83847fe6109626f6dd4404c8afe4b2}{void {\bfseries display\+Main\+Menu} ()}\label{classMainMenu_a4b83847fe6109626f6dd4404c8afe4b2}
-
-\end{DoxyCompactItemize}
-\subsection*{Attributs publics statiques}
-\begin{DoxyCompactItemize}
-\item 
-static const std\+::string {\bfseries S\+T\+A\+R\+L\+I\+G\+H\+T\+\_\+\+R\+U\+L\+E\+S}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Affiche le menu principal. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Description détaillée}
 Représente le menu principal. 
 
-\subsection{Documentation des données membres}
-\hypertarget{classMainMenu_a48a2d4c53fc90f45d2cf63446d811b24}{\index{Main\+Menu@{Main\+Menu}!S\+T\+A\+R\+L\+I\+G\+H\+T\+\_\+\+R\+U\+L\+E\+S@{S\+T\+A\+R\+L\+I\+G\+H\+T\+\_\+\+R\+U\+L\+E\+S}}
-\index{S\+T\+A\+R\+L\+I\+G\+H\+T\+\_\+\+R\+U\+L\+E\+S@{S\+T\+A\+R\+L\+I\+G\+H\+T\+\_\+\+R\+U\+L\+E\+S}!Main\+Menu@{Main\+Menu}}
-\subsubsection[{S\+T\+A\+R\+L\+I\+G\+H\+T\+\_\+\+R\+U\+L\+E\+S}]{\setlength{\rightskip}{0pt plus 5cm}const std\+::string Main\+Menu\+::\+S\+T\+A\+R\+L\+I\+G\+H\+T\+\_\+\+R\+U\+L\+E\+S\hspace{0.3cm}{\ttfamily [static]}}}\label{classMainMenu_a48a2d4c53fc90f45d2cf63446d811b24}
-{\bfseries Valeur initiale \+:}
-\begin{DoxyCode}
-=
-    \textcolor{stringliteral}{"<p>Starlight is a 2D puzzle where you have "}
-    \textcolor{stringliteral}{"to make the light go from the source to the destination without touching "}
-    \textcolor{stringliteral}{"a nuke or… BOOM!, you lose.</p>"}
-    \textcolor{stringliteral}{"<p>Walls are represented by black lines. Rays change of color when they cross a crystal,"}
-    \textcolor{stringliteral}{"crystals are blue circles, nukes are red circles, lenses are green ellipses and "}
-    \textcolor{stringliteral}{"mirrors are red lines. The source is the light bulb and the destination is shown as "}
-    \textcolor{stringliteral}{"a square.</p>"}
-    \textcolor{stringliteral}{"<p>Mirrors can be moved and rotated with your keyboard."}
-    \textcolor{stringliteral}{"<p>Movements are achieved with the following keys:</p>"}
-    \textcolor{stringliteral}{"<ul>"}
-        \textcolor{stringliteral}{"<li>Z: Move the mirror up.</li>"}
-        \textcolor{stringliteral}{"<li>S: Move the mirror down.</li>"}
-        \textcolor{stringliteral}{"<li>Q: Move the mirror left.</li>"}
-        \textcolor{stringliteral}{"<li>D: Move the mirror right.</li>"}
-    \textcolor{stringliteral}{"</ul>"}
-    \textcolor{stringliteral}{"<p>while mirror rotations are done through:"}
-    \textcolor{stringliteral}{"<ul>"}
-        \textcolor{stringliteral}{"<li>left arrow key: +1 in counterclockwise direction</li>"}
-        \textcolor{stringliteral}{"<li>right arrow key: -1 in counterclockwise direction</li>"}
-    \textcolor{stringliteral}{"</ul>"}
-    \textcolor{stringliteral}{"<p>You can boost your move by pressing the 'Shift' key.</p>"}
-    \textcolor{stringliteral}{"<p style='font-weight: bold;'>Enjoy your game!</p>"}
-\end{DoxyCode}
+\subsection{Documentation des constructeurs et destructeur}
+\hypertarget{classMainMenu_a891bed1e0edb5492671c332cb89b7a9a}{\index{Main\+Menu@{Main\+Menu}!Main\+Menu@{Main\+Menu}}
+\index{Main\+Menu@{Main\+Menu}!Main\+Menu@{Main\+Menu}}
+\subsubsection[{Main\+Menu}]{\setlength{\rightskip}{0pt plus 5cm}Main\+Menu\+::\+Main\+Menu (
+\begin{DoxyParamCaption}
+\item[{Q\+Widget $\ast$}]{parent = {\ttfamily nullptr}}
+\end{DoxyParamCaption}
+)}}\label{classMainMenu_a891bed1e0edb5492671c332cb89b7a9a}
+
+
+Instancie le menu principal. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em parent} & le parent. \\
+\hline
+\end{DoxyParams}
 
 
 La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}

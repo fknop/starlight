@@ -1,7 +1,7 @@
 var searchData=
 [
   ['maineditor',['MainEditor',['../d3/db4/classMainEditor.html',1,'']]],
-  ['mainmenu',['MainMenu',['../d9/d0a/classMainMenu.html',1,'']]],
+  ['mainmenu',['MainMenu',['../d9/d0a/classMainMenu.html',1,'MainMenu'],['../d9/d0a/classMainMenu.html#a891bed1e0edb5492671c332cb89b7a9a',1,'MainMenu::MainMenu()']]],
   ['mainwindow',['MainWindow',['../d6/d1a/classMainWindow.html',1,'']]],
   ['mapreader',['MapReader',['../dd/d23/classMapReader.html',1,'']]],
   ['mapview',['MapView',['../de/d8c/classMapView.html',1,'']]],
