@@ -22,7 +22,7 @@ MirrorView::MirrorView(const Mirror & mirror, bool selectable) :
 
     uview::display_line(this, mirror_->to_line_segment());
 
-    setFlag(QGraphicsItem::ItemIsSelectable, this->selectable_);
+    setFlag(QGraphicsItem::ItemIsSelectable, selectable_);
 }
 
 void MirrorView::translate(double x, double y)

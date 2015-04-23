@@ -74,13 +74,13 @@ Mirror * MirrorView::mirror()
 
 bool MirrorView::selectable() const
 {
-    return this->selectable_;
+    return selectable_;
 }
 
 void MirrorView::set_selectable(bool value)
 {
-    this->selectable_ = value;
-    setFlag(QGraphicsItem::ItemIsSelectable, this->selectable_);
+    selectable_ = value;
+    setFlag(QGraphicsItem::ItemIsSelectable, selectable_);
 }
 
 #endif // MirrorView_HPP

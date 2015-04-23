@@ -62,13 +62,13 @@ Dest * DestinationView::dest()
 
 bool DestinationView::selectable() const
 {
-    return this->selectable_;
+    return selectable_;
 }
 
 void DestinationView::set_selectable(bool value)
 {
-    this->selectable_ = value;
-    setFlag(QGraphicsItem::ItemIsSelectable, this->selectable_);
+    selectable_ = value;
+    setFlag(QGraphicsItem::ItemIsSelectable, selectable_);
 }
 
 #endif // DESTINATIONVIEW_H

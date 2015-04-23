@@ -8,8 +8,8 @@
 NukeView::NukeView(const Nuke & nuke, bool selectable)  :
     ElementView(ElementView::TypeView::NUKEVIEW), selectable_{selectable}
 {
-    this->nuke_ = &(const_cast<Nuke &>(nuke));
-    this->nuke_->add_observer(this);
+    nuke_ = &(const_cast<Nuke &>(nuke));
+    nuke_->add_observer(this);
 
     QPen pen(Qt::red);
     pen.setWidth(3);
@@ -17,7 +17,7 @@ NukeView::NukeView(const Nuke & nuke, bool selectable)  :
 
     uview::display_ellipse(this, nuke_->to_ellipse());
 
-    setFlag(QGraphicsItem::ItemIsSelectable, this->selectable_);
+    setFlag(QGraphicsItem::ItemIsSelectable, selectable_);
 }
 
 void NukeView::notify(Observable * o, const std::string& msg,
@@ -37,7 +37,7 @@ void NukeView::notify(Observable * o, const std::string& msg,
 
 void NukeView::translate(const double x, const double y)
 {
-    this->nuke_->translate(x, y);
+    nuke_->translate(x, y);
 }
 
 

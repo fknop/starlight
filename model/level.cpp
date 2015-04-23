@@ -21,13 +21,13 @@ Level::Level(double w, double h) : width_ {w}, height_ {h},
 
 void Level::compute_rays()
 {
-    if (this->rays_.size() > 0)
-        this->rays_.clear();
+    if (!rays_.empty())
+        rays_.clear();
 
     if (source_.on())
     {
-        Line ray(this->source_.pos(), this->source_.angle());
-        compute_ray(ray, this->source().pos(), this->source_.wavelength());
+        Line ray(source_.pos(), source_.angle());
+        compute_ray(ray, source_.pos(), source_.wavelength());
     }
 
     notify_all(std::string("RECOMPUTE"));
@@ -47,18 +47,18 @@ void Level::compute_ray(const Line& line, const Point& start, int wl)
 
     get_intersections(line, start);
 
-    type = this->intersections_.at(0).element_->type();
-    new_line_origin = this->intersections_.at(0).point_;
+    type = intersections_.at(0).element_->type();
+    new_line_origin = intersections_.at(0).point_;
 
     switch (type)
     {
         case Element::Type::CRYSTAL:
         {
-            crystal = static_cast<Crystal *> (this->intersections_.at(0).element_);
+            crystal = static_cast<Crystal *> (intersections_.at(0).element_);
             new_wl += crystal->modifier();
 
-            if (this->intersections_.at(1).element_ == crystal)
-                new_line_origin = this->intersections_.at(1).point_;
+            if (intersections_.at(1).element_ == crystal)
+                new_line_origin = intersections_.at(1).point_;
 
             continue_ray = true;
             break;
@@ -67,7 +67,7 @@ void Level::compute_ray(const Line& line, const Point& start, int wl)
         case Element::Type::DEST:
         {
             if (handle_dest_)
-                this->dest_.set_lighted_up(true);
+                dest_.set_lighted_up(true);
 
             continue_ray = false;
             break;
@@ -75,17 +75,17 @@ void Level::compute_ray(const Line& line, const Point& start, int wl)
 
         case Element::Type::LENS:
         {
-            lens = static_cast<Lens *> (this->intersections_.at(0).element_);
+            lens = static_cast<Lens *> (intersections_.at(0).element_);
             continue_ray = (wl >= lens->wl_min() && wl <= lens->wl_max());
 
-            if (continue_ray && this->intersections_.at(1).element_ == lens)
-                    new_line_origin = this->intersections_.at(1).point_;
+            if (continue_ray && intersections_.at(1).element_ == lens)
+                    new_line_origin = intersections_.at(1).point_;
             break;
         }
 
         case Element::Type::MIRROR:
         {
-            mirror = static_cast<Mirror *> (this->intersections_.at(0).element_);
+            mirror = static_cast<Mirror *> (intersections_.at(0).element_);
             angle = get_reflection_angle(angle, mirror->angle());
             continue_ray = true;
             break;
@@ -93,7 +93,7 @@ void Level::compute_ray(const Line& line, const Point& start, int wl)
 
         case Element::Type::NUKE:
         {
-            nuke = static_cast<Nuke *> (this->intersections_.at(0).element_);
+            nuke = static_cast<Nuke *> (intersections_.at(0).element_);
             if (handle_nukes_)
                 nuke->set_lighted_up(true);
 
@@ -109,9 +109,9 @@ void Level::compute_ray(const Line& line, const Point& start, int wl)
         }
     }
 
-    this->rays_.push_back(Ray(start,
-                          *(this->intersections_.at(0).point_),
-                          wl));
+    rays_.push_back(Ray(start,
+                       *(intersections_.at(0).point_),
+                        wl));
 
     if (continue_ray)
     {
@@ -122,7 +122,7 @@ void Level::compute_ray(const Line& line, const Point& start, int wl)
 
 void Level::get_intersections(const Line& line, const Point& start)
 {
-    this->intersections_.clear();
+    intersections_.clear();
 
     // Ajout des intersections au vecteur d'intersections
     if (!(start == source_.pos())) // Pour eviter que le rayon se bloque directement...
@@ -152,7 +152,7 @@ void Level::dest_intersections(const Line& line,
                                const Point& start)
 {
     std::vector<Point> points;
-    if (umath::intersects(this->dest_.to_rectangle(), line, points) > 0)
+    if (umath::intersects(dest_.to_rectangle(), line, points) > 0)
     {
         for (auto &i : points)
         {
@@ -166,12 +166,12 @@ void Level::source_intersections(const Line& line,
                                  const Point& start)
 {
     std::vector<Point> points;
-    if (umath::intersects(this->source_.to_rectangle(), line, points) > 0)
+    if (umath::intersects(source_.to_rectangle(), line, points) > 0)
     {
         for (auto &i : points)
         {
             if (umath::is_on_trajectory(line, start, i))
-                intersections_.push_back(Intersection(new Point(i), &this->source_));
+                intersections_.push_back(Intersection(new Point(i), &source_));
         }
     }
 }
@@ -183,7 +183,7 @@ void Level::walls_intersections(const Line& line,
     LineSegment ls;
     Point p;
 
-    for (auto &i : this->walls_)
+    for (auto &i : walls_)
     {
         if (umath::intersects(line, i.to_line_segment(), p, ls, is_point))
         {
@@ -203,7 +203,7 @@ void Level::walls_intersections(const Line& line,
 void Level::lenses_intersections(const Line& line,
                                  const Point& start)
 {
-    for (auto &i : this->lenses_)
+    for (auto &i : lenses_)
     {
         std::vector<Point> points;
 
@@ -225,7 +225,7 @@ void Level::mirrors_intersections(const Line& line,
     LineSegment ls;
     Point p;
 
-    for (auto &i : this->mirrors_)
+    for (auto &i : mirrors_)
     {
         if (umath::intersects(line, i.to_line_segment(), p, ls, is_point))
         {
@@ -245,7 +245,7 @@ void Level::mirrors_intersections(const Line& line,
 void Level::nukes_intersections(const Line& line,
                                 const Point& start)
 {
-    for (auto &i : this->nukes_)
+    for (auto &i : nukes_)
     {
         std::vector<Point> points;
 
@@ -264,7 +264,7 @@ void Level::nukes_intersections(const Line& line,
 void Level::crystals_intersections(const Line& line,
                                    const Point& start)
 {
-    for (auto &i : this->crystals_)
+    for (auto &i : crystals_)
     {
         std::vector<Point> points;
 
@@ -301,41 +301,41 @@ bool Level::check_collisions(const LineSegment& segment, Mirror * mirror)
     bool intersects = false;
     bool is_point;
 
-    for (auto &i : this->walls_)
+    for (auto &i : walls_)
     {
         if (!intersects)
             intersects = umath::intersects(segment, i.to_line_segment(), p, ls, is_point);
     }
 
-    for (auto &i : this->mirrors_)
+    for (auto &i : mirrors_)
     {
         if (!intersects && !(i == *mirror))
             intersects = umath::intersects(segment, i.to_line_segment(), p, ls, is_point);
     }
 
-    for (auto &i : this->lenses_)
+    for (auto &i : lenses_)
     {
         if (!intersects)
             intersects = (umath::intersects(i.to_ellipse(), segment, points) > 0);
     }
 
-    for (auto &i : this->nukes_)
+    for (auto &i : nukes_)
     {
         if (!intersects)
             intersects = (umath::intersects(i.to_ellipse(), segment, points) > 0);
     }
 
-    for (auto &i : this->crystals_)
+    for (auto &i : crystals_)
     {
         if (!intersects)
             intersects = (umath::intersects(i.to_ellipse(), segment, points) > 0);
     }
 
     if (!intersects)
-        intersects = (umath::intersects(this->dest_.to_rectangle(), segment, points) > 0);
+        intersects = (umath::intersects(dest_.to_rectangle(), segment, points) > 0);
 
     if (!intersects)
-        intersects = (umath::intersects(this->source_.to_rectangle(), segment, points) > 0);
+        intersects = (umath::intersects(source_.to_rectangle(), segment, points) > 0);
 
     return intersects;
 }

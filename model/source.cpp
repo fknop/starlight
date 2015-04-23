@@ -7,7 +7,7 @@ Source::Source(const Point& p, double e, double a, int wl) : Element(Element::Ty
     pos_ {p}, alpha_ {a}, edge_ {e}, wavelength_{wl}
 {
     if (wl < Ray::WL_MIN || wl > Ray::WL_MAX)
-        this->wavelength_ = Ray::WL_DFT;
+        wavelength_ = Ray::WL_DFT;
 }
 
 std::ostream& operator<<(std::ostream& out, const Source& s)
@@ -22,11 +22,11 @@ std::ostream& operator<<(std::ostream& out, const Source& s)
 
 Rectangle Source::to_rectangle()
 {
-    return Rectangle(this->pos_, this->edge_, this->edge_);
+    return Rectangle(pos_, edge_, edge_);
 }
 
 void Source::translate(double x, double y)
 {
-    this->pos_.set_position(pos_.x() + x, pos_.y() + y);
+    pos_.set_position(pos_.x() + x, pos_.y() + y);
     notify_all(std::string("TRANSLATE_SOURCE"));
 }

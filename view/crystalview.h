@@ -66,7 +66,7 @@ bool CrystalView::selectable() const
 void CrystalView::set_selectable(bool value)
 {
     selectable_ = value;
-    setFlag(QGraphicsItem::ItemIsSelectable, this->selectable_);
+    setFlag(QGraphicsItem::ItemIsSelectable, selectable_);
 }
 
 #endif // CRYSTALVIEW_H

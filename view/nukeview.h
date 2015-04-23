@@ -65,7 +65,7 @@ bool NukeView::selectable() const
 void NukeView::set_selectable(bool value)
 {
     selectable_ = value;
-    setFlag(QGraphicsItem::ItemIsSelectable, this->selectable_);
+    setFlag(QGraphicsItem::ItemIsSelectable, selectable_);
 }
 
 #endif // NUKESVIEW_H

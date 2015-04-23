@@ -6,7 +6,7 @@
 
 MapView::MapView(Level* level, bool selectable) : level_{level}, selectable_{selectable}
 {
-    scene_ = new QGraphicsScene(0, 0, this->level_->width(), this->level_->height());
+    scene_ = new QGraphicsScene(0, 0, level_->width(), level_->height());
     sound_ = new QMediaPlayer(nullptr);
     selected_mirror_ = nullptr;
     setScene(scene_);

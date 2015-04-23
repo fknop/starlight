@@ -10,7 +10,7 @@ DestinationView::DestinationView(const Dest & dest, bool selectable)  :
     dest_->add_observer(this);
 
     uview::display_rectangle(this, dest_->to_rectangle());
-    setFlag(QGraphicsItem::ItemIsSelectable, this->selectable_);
+    setFlag(QGraphicsItem::ItemIsSelectable, selectable_);
 }
 
 void DestinationView::notify(Observable * o, const std::string& msg,

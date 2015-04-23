@@ -10,7 +10,7 @@ Nuke::Nuke(const Point& p, double r) : Element(Element::Type::NUKE),
 
 Ellipse Nuke::to_ellipse()
 {
-    return Ellipse(this->pos_, this->rad_, this->rad_);
+    return Ellipse(pos_, rad_, rad_);
 }
 
 std::ostream& operator<<(std::ostream& out, const Nuke& s)
@@ -30,6 +30,6 @@ bool Nuke::operator ==(const Nuke& n) const
 
 void Nuke::translate(double x, double y)
 {
-    this->pos_.set_position(pos_.x() + x, pos_.y() + y);
+    pos_.set_position(pos_.x() + x, pos_.y() + y);
     notify_all(std::string("TRANSLATE_NUKE"));
 }

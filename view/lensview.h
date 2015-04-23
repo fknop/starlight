@@ -62,7 +62,7 @@ bool LensView::selectable() const
 void LensView::set_selectable(bool value)
 {
     selectable_ = value;
-    setFlag(QGraphicsItem::ItemIsSelectable, this->selectable_);
+    setFlag(QGraphicsItem::ItemIsSelectable, selectable_);
 }
 
 #endif // LENSVIEW_H

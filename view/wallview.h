@@ -66,7 +66,7 @@ bool WallView::selectable() const
 void WallView::set_selectable(bool value)
 {
     selectable_ = value;
-    setFlag(QGraphicsItem::ItemIsSelectable, this->selectable_);
+    setFlag(QGraphicsItem::ItemIsSelectable, selectable_);
 }
 
 
