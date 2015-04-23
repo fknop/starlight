@@ -27,36 +27,31 @@ MainEditor::MainEditor(QWidget * parent) : QMainWindow(parent), parent_{parent},
 
 void MainEditor::add_crystal()
 {
-    Crystal crystal(Point(50, 50), 29, 40);
-    level_->add_crystal(crystal);
+    level_->add_crystal(Crystal(Point(50, 50), 29, 40));
     mapview_->draw_crystals();
 }
 
 void MainEditor::add_lens()
 {
-    Lens lens(Point(50, 50), 58, 116, 500, 600);
-    level_->add_lens(lens);
+    level_->add_lens(Lens(Point(50, 50), 58, 116, 500, 600));
     mapview_->draw_lenses();
 }
 
 void MainEditor::add_mirror()
 {
-    Mirror mirror(Point(50, 50), 58, 100, 1.57);
-    level_->add_mirror(mirror);
+    level_->add_mirror(Mirror(Point(50, 50), 58, 100, 1.57));
     mapview_->draw_mirrors();
 }
 
 void MainEditor::add_nuke()
 {
-    Nuke nuke(Point(50, 50), 29);
-    level_->add_nuke(nuke);
+    level_->add_nuke(Nuke(Point(50, 50), 29));
     mapview_->draw_nukes();
 }
 
 void MainEditor::add_wall()
 {
-    Wall wall(Point(20, 20), Point(60, 60));
-    level_->add_wall(wall);
+    level_->add_wall(Wall(Point(20, 20), Point(60, 60)));
     mapview_->draw_walls();
 }
 
@@ -180,7 +175,6 @@ void MainEditor::load_level()
 
         elements_->set_height(level_->height());
         elements_->set_width(level_->width());
-
         elements_->enable_pushbuttons(true);
     }
 }
@@ -249,7 +243,7 @@ void MainEditor::notify(Observable * o, const std::string& msg, const std::vecto
         add_wall();
 
     else if (msg.compare("SELECTED") == 0)
-        properties_->set_element_prop(selected());
+        properties_->set_element_prop(this->selected());
 
     else if (msg.compare("ELEMENT_DELETED") == 0)
         delete_selected();
@@ -260,50 +254,50 @@ void MainEditor::notify(Observable * o, const std::string& msg, const std::vecto
 
 void MainEditor::delete_selected()
 {
-    if (mapview_->selected() != nullptr)
+    ElementView * ev_selected = this->selected();
+    if (ev_selected != nullptr)
     {
         properties_->delete_prop(); // remove le panel properties
 
-        switch (mapview_->selected()->type_view())
+        switch (ev_selected->type_view())
         {
         case ElementView::TypeView::CRYSTALVIEW:
         {
-            CrystalView * cv = static_cast<CrystalView *> (selected());
-            level_->remove_crystal(*cv->crystal());
+            level_->remove_crystal(*(static_cast<CrystalView *>(ev_selected)->crystal()));
             break;
         }
         case ElementView::TypeView::LENSVIEW:
         {
-            LensView * lv = static_cast<LensView *> (selected());
+            LensView * lv = static_cast<LensView *> (ev_selected);
             level_->remove_lens(*lv->lens());
             break;
         }
         case ElementView::TypeView::MIRRORVIEW:
         {
-            MirrorView * mv = static_cast<MirrorView *> (selected());
-            level_->remove_mirror(*mv->mirror());
+            level_->remove_mirror(*(static_cast<MirrorView *>(ev_selected)->mirror()));
             break;
         }
         case ElementView::TypeView::NUKEVIEW:
         {
-            NukeView * nv = static_cast<NukeView *> (selected());
-            level_->remove_nuke(*nv->nuke());
+            level_->remove_nuke(*(static_cast<NukeView *>(ev_selected)->nuke()));
             break;
         }
         case ElementView::TypeView::WALLVIEW:
         {
-            WallView * wv = static_cast<WallView *> (selected());
+            WallView * wv = static_cast<WallView *> (ev_selected);
 
             if (wv->wall()->movable())
                 level_->remove_wall(*wv->wall());
             else
                 QMessageBox::information(this, "Error !", "This element cannot be deleted");
+
             break;
         }
         case ElementView::TypeView::DESTVIEW:
         case ElementView::TypeView::SOURCEVIEW:
              QMessageBox::information(this, "Error !", "This element cannot be deleted");
         }
+
         mapview_->repaint();
     }
 }
