@@ -274,14 +274,14 @@ TEST_CASE("Vérification si un point est du bon coté selon l'angle de la droite
     {
         Line l(Point(4,4), PI_2);
         Point p(4,5);
-        bool b = umath::is_on_good_side(l, Point(4,4), p);
+        bool b = umath::is_on_trajectory(l, Point(4,4), p);
         REQUIRE(b == false);
         Point p2(4,2);
-        b = umath::is_on_good_side(l, Point(4,4), p2);
+        b = umath::is_on_trajectory(l, Point(4,4), p2);
         REQUIRE(b == true);
         // même point = faux
         Point p3(4,4);
-        b = umath::is_on_good_side(l, Point(4,4), p3);
+        b = umath::is_on_trajectory(l, Point(4,4), p3);
         REQUIRE(b == false);
     }
 
@@ -289,13 +289,13 @@ TEST_CASE("Vérification si un point est du bon coté selon l'angle de la droite
     {
         Line l(Point(10,10), -PI_4);
         Point p(3,3);
-        bool b = umath::is_on_good_side(l, Point(10,10), p);
+        bool b = umath::is_on_trajectory(l, Point(10,10), p);
         REQUIRE(b == false);
         Point p2(15,15);
-        b = umath::is_on_good_side(l,Point(10,10), p2);
+        b = umath::is_on_trajectory(l,Point(10,10), p2);
         REQUIRE(b == true);
         Point p3(10,10);
-        b = umath::is_on_good_side(l, Point(10,10),  p3);
+        b = umath::is_on_trajectory(l, Point(10,10),  p3);
         REQUIRE(b == false);
     }
 }

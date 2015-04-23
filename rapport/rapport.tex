@@ -163,7 +163,14 @@ Les éléments d'une énumération suivent les mêmes conventions que celles des
 
 \subsection{Autres conventions}
 
-Les méthodes qui override une méthode d'une super-classe possèdent le mot-clé override.
+\begin{itemize}
+\item Les méthodes qui override une méthode d'une super-classe possèdent le mot-clé override.
+\item Les pointeurs prennent une notation comme ceci : \texttt{NomClasse * nom\_obj}.
+\item Les références prennent une notation comme ceci : \texttt{NomClasse\& nom\_obj}.
+\item Les getters et setters sont déclarés \texttt{inline}.
+\end{itemize}
+
+Tout non respect des conventions dans notre projet est bien sur non intentionel.
 
 \newpage
 \section{Présentation générale du projet}
@@ -425,6 +432,12 @@ Il y a également des méthodes de conversions entre pentes, radians, degrés, e
 
 Les méthodes d’intersections sont décrites plus en détails dans la section \hyperref[Annexe]{Annexe - Démarches mathématiques}.
 
+\subsubsection{Le namespace uview}
+
+Le namespace \texttt{uview} possède des méthodes utilitaires permettant d'afficher des 
+figures mathématiques dans un \texttt{QGraphicsItem} du même type.
+
+\newpage
 \subsection{Modèle}
 
 Dans cette section, nous allons décrire les différentes classes du modèle 
@@ -449,7 +462,6 @@ La classe permet également de calculer la distance entre deux points grâce à 
 
 $$ \sqrt[2]{(x_1 - x_2)^2 + (y_1 - y_2)^2} $$
 
-\newpage
 \subsubsection{\label{Line}Line}
 
 La classe \texttt{Line} représente une droite de la forme~: 
@@ -580,7 +592,6 @@ contraire, elle agira comme un mur.
 
 \paragraph{Dans l'interface} cf. \hyperref[LensView]{«~LensView~»}
 
-\newpage
 \subsubsection{\label{Crystal}Crystal}
 
 La classe \texttt{Crystal} représente un cristal. Un cristal est un cercle
@@ -612,7 +623,7 @@ transformé en \texttt{LineSegment} (cf. \hyperref[LineSegment]{«~LineSegment~�
 
 \paragraph{Dans l'interface} cf. \hyperref[RayView]{«~RayView~»}
 
-\newpage
+
 \subsubsection{\label{Level}Level}
 
 La classe \texttt{Level} est de loin la classe la plus importante du modèle.
@@ -639,7 +650,6 @@ le header \texttt{level.h}. Cette structure reprend le point d'intersection ains
 \texttt{get\_intersections(\dots)} va chercher des intersections avec la droite qu'il reçoit en paramètre
 et tous les objets du jeu. Chaque intersection avec un objet sera alors mise dans le vecteur d'intersection
 si cette intersection se trouve du bon côté du point \texttt{start} par rapport à l'angle du rayon.
-
 Toutes les intersections seront ensuite triées dans l'ordre croissant selon la distance entre le point \texttt{start} et
 l'intersection grâce à une expression lambda.
 La première valeur du vecteur devrait alors correspondre à l'intersection la plus proche dans l'axe du rayon.
@@ -654,6 +664,7 @@ que le rayon peut continuer. Un appel récursif à \texttt{compute\_ray(\dots)} 
 
 \paragraph{Dans l'interface} cf. \hyperref[MapView]{«~MapView~»}    
 
+\newpage
 \subsection{Vue}
 
 L'interface graphique a été réalisée en Qt à la main (sans l'aide de \texttt{QtDesigner}).
@@ -763,7 +774,7 @@ Classe représentant le plateau de jeu, où tous les éléments sont disposés e
 Elle s’occupe de gérer les raccourcis clavier utilisés pour déplacer/pivoter les
 miroirs dans le jeu et de déplacer les éléments en général dans l'éditeur de carte.
 
-
+\newpage
 \subsection{\label{EditeurClasses}L'éditeur de carte}
 
 \subsubsection{\label{MainEditor}MainEditor}
@@ -842,12 +853,23 @@ l’angle du rayon émis par la source et la longueur d’onde du dit rayon. Tou
 
 Widget composé de plusieurs spinbox permettant de modifier la position des 2 extrémités d’un mur. Tous les spinbox vont de 0 à 999.
 
+\newpage
 \section{Les tests}
 
-Les tests unitaires du projet ont été fait grâce au framework Catch. Le projet possède environs 180 tests unitaires (assertions).
+Les tests unitaires du projet ont été fait grâce au framework Catch. Le projet possède 187 tests unitaires (assertions).
+Ces tests sont présents dans le dossier \texttt{tests}.
+
+Pour lancer les tests ou l'application principale, il faut aller dans le header \texttt{test.h} et :
+\begin{itemize}
+\item décommenter la ligne \texttt{\#define RUNTEST} si l'on veut lancer les tests.
+\item commenter la ligne \texttt{\#define RUNTEST} si l'on veut lancer l'application.
+\end{itemize}
 
 \section{Les bugs connus}
 
+\begin{enumerate}
+\item Bien que le problème soit normalement réglé, nous mettons tout de même ce bug ci-dessous dans le cas où ce dernier
+serait toujours présent.
 La méthode 
 \begin{lstlisting}
 umath::is_on_good_side(const Line& l, 
@@ -858,15 +880,17 @@ peut avoir des problèmes de précision, ce qui fait que l'intersection, bien qu
 prise en compte dans le vecteur d'intersections, ce qui résultera en un vecteur d'intersections vide. Et donc un
 accès au premier élément sur un vecteur vide produira un \texttt{out\_of\_range} quittant l'application.
 
-Pour éviter donc ce crash énoncé ci-dessus, nous avons fait en sorte que le rayon ne continue pas si le vecteur 
-devient vide par erreur.
 
+\item L'éditeur est dépourvu de vérification, si l'utilisateur enregistre un niveau incorrecte, celui-ci ne pourra pas être chargé. 
+Il devra être modifié à la main pour supprimer les incohérences.
+\end{enumerate}
 
+\newpage
 \section{Conclusion}
 
 Le jeu est fonctionnel, il est possible de charger une partie et d’y jouer. Il est possible d’atteindre le but du jeu, qui est d’amener le rayon émis depuis la source jusqu’à la destination. 
 
-Le modèle est prévu pour gérer les intersections avec les différents objets du niveau et de réfléchir le rayon s’il arrive sur le miroir. 
+Le modèle est prévu pour gérer les intersections avec les différents objets du niveau et de réfléchir le rayon s’il arrive sur un miroir. 
 
 Il est également prévu que les cristaux changent la longueur d’onde d’un rayon qui les traverse et qu’une lentille se comporte comme un mur si la longueur d’onde du rayon n’est pas comprise entre les bornes limites de la lentille.
 
@@ -891,6 +915,7 @@ Les sons utilisés ont été produits par Mike Koenig et sont sous licence Attri
 \href{http://soundbible.com/1003-Ta-Da.html}{Bruit de victoire}       \\
 \href{http://soundbible.com/761-Switch.html}{Bruit d’interrupteur}    \\
 
+\newpage
 \section{\label{Annexe}Annexes}
 
 \subsection{Annexe A : Démarches mathématiques}

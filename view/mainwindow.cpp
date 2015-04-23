@@ -104,10 +104,6 @@ void MainWindow::setup_ui()
 
     setMenuBar(menu_bar_);
 
-//    QWidget * central_widget = new QWidget(this);
-//    setCentralWidget(central_widget);
-//    centralWidget()->setEnabled(false);
-
     open_level_action_->setEnabled(true);
     close_level_action_->setEnabled(false);
 }
