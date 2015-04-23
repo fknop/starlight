@@ -1,8 +1,10 @@
+#include <QFile>
 #include <QFileDialog>
 #include <QIcon>
 #include <QMessageBox>
 #include <QPalette>
 #include <QPixmap>
+#include <QTextStream>
 
 #include "editor/maineditor.h"
 
