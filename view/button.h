@@ -26,6 +26,10 @@ public:
     void hoverEnterEvent(QGraphicsSceneHoverEvent * event) override;
     void hoverLeaveEvent(QGraphicsSceneHoverEvent * event) override;
 
+private:
+    void set_yellow_brush();
+    void set_green_brush();
+
 signals:
 
     /**

@@ -27,48 +27,25 @@ MapView::~MapView()
 {
     clear();
     delete scene_;
-    scene_ = nullptr;
     delete sound_;
-    sound_ = nullptr;
 }
 
 ElementView * MapView::selected()
 {
-    if (scene_->selectedItems().size() > 0)
-    {
-        ElementView * ev = dynamic_cast<ElementView *> (scene_->selectedItems().at(0));
-        return ev;
-    }
-
-    return nullptr;
+    if (!scene_->selectedItems().empty())
+        return dynamic_cast<ElementView *> (scene_->selectedItems().at(0));
+    else
+        return nullptr;
 }
 
 void MapView::clear()
 {
-    for (auto &i : mirror_views_)
-        delete i;
     mirror_views_.clear();
-
-    for (auto &i : ray_views_)
-        delete i;
     ray_views_.clear();
-
-    for (auto &i : lens_views_)
-        delete i;
     lens_views_.clear();
-
-    for (auto &i : crystal_views_)
-        delete i;
     crystal_views_.clear();
-
-    for (auto &i : nuke_views_)
-        delete i;
     nuke_views_.clear();
-
-    for (auto &i : wall_views_)
-        delete i;
     wall_views_.clear();
-
     scene_->clear();
 }
 
@@ -85,7 +62,7 @@ void MapView::repaint()
 
 void MapView::draw_walls()
 {
-    if (wall_views_.size() > 0)
+    if (!wall_views_.empty())
     {
         for (auto &i : wall_views_)
             scene_->removeItem(i);
@@ -99,7 +76,7 @@ void MapView::draw_walls()
 
 void MapView::draw_mirrors()
 {
-    if (mirror_views_.size() > 0)
+    if (!mirror_views_.empty())
     {
         for (auto &i : mirror_views_)
             scene_->removeItem(i);
@@ -113,20 +90,21 @@ void MapView::draw_mirrors()
 
 void MapView::draw_nukes()
 {
-    if (nuke_views_.size() > 0)
+    if (!nuke_views_.empty())
     {
         for (auto &i : nuke_views_)
             scene_->removeItem(i);
 
         nuke_views_.clear();
     }
+
     for (auto &i : level_->nukes())
         draw_nuke(i);
 }
 
 void MapView::draw_lenses()
 {
-    if (lens_views_.size() > 0)
+    if (!lens_views_.empty())
     {
         for (auto &i : lens_views_)
             scene_->removeItem(i);
@@ -140,7 +118,7 @@ void MapView::draw_lenses()
 
 void MapView::draw_crystals()
 {
-    if (crystal_views_.size() > 0)
+    if (!crystal_views_.empty())
     {
         for (auto &i : crystal_views_)
             scene_->removeItem(i);
@@ -154,7 +132,7 @@ void MapView::draw_crystals()
 
 void MapView::draw_rays()
 {
-    if (ray_views_.size() > 0)
+    if (!ray_views_.empty())
     {
         for (auto &i : ray_views_)
         {
@@ -304,28 +282,21 @@ void MapView::notify(Observable * o, const std::string& msg,
     if (msg.compare("RECOMPUTE") == 0)
         draw_rays();
 
+    if (sound_->state() == QMediaPlayer::PlayingState)
+        sound_->stop();
+
     if (level_->lost())
     {
-        if (sound_->state() == QMediaPlayer::PlayingState)
-            sound_->stop();
-
         sound_->setMedia(QUrl("qrc:/sounds/nuke.mp3"));
         sound_->play();
-
         setEnabled(false);
-
         QMessageBox::information(this, "You lose!", "Outch, looks like you exploded the whole map…");
     }
     else if (level_->won())
     {
-        if (sound_->state() == QMediaPlayer::PlayingState)
-            sound_->stop();
-
         sound_->setMedia(QUrl("qrc:/sounds/victory.mp3"));
         sound_->play();
-
         setEnabled(false);
-
         QMessageBox::information(this, "WIN!", "Congrats! You made it!");
     }
 }

@@ -31,7 +31,6 @@ public:
 
 private:
     QGraphicsScene * scene_;
-    MainWindow * main_window_;
 
 public slots:
     void start();

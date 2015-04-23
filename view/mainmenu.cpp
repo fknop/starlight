@@ -23,7 +23,7 @@ MainMenu::MainMenu(QWidget * parent)
 
     this->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     this->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    setFixedSize(400,500); // a changer
+    setFixedSize(400,500);
 
     scene_ = new QGraphicsScene();
     scene_->setSceneRect(0,0, 400, 500);
@@ -39,8 +39,8 @@ void MainMenu::start()
 {
     hide();
 
-    main_window_ = new MainWindow(this);
-    main_window_->show();
+    MainWindow * main_window = new MainWindow(this);
+    main_window->show();
 }
 
 void MainMenu::help()

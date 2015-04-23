@@ -78,14 +78,12 @@ void MainWindow::setup_ui()
 
     file_menu_->addAction(open_level_action_);
 
-
     close_level_action_ = new QAction("&Close level", menu_bar_);
     close_level_action_->setShortcuts(QKeySequence::Close);
     close_level_action_->setStatusTip("Close a Starlight level");
     connect(close_level_action_, SIGNAL(triggered()), this, SLOT(close_level()));
 
     file_menu_->addAction(close_level_action_);
-
 
     back_menu_action_ = new QAction("&Back to the menu", menu_bar_);
     back_menu_action_->setShortcuts(QKeySequence::Back);
@@ -94,7 +92,6 @@ void MainWindow::setup_ui()
 
     file_menu_->addAction(back_menu_action_);
 
-
     quit_action_ = new QAction("&Quit", menu_bar_);
     quit_action_->setShortcuts(QKeySequence::Quit);
     quit_action_->setStatusTip("Quit the program");
@@ -102,16 +99,15 @@ void MainWindow::setup_ui()
 
     file_menu_->addAction(quit_action_);
 
-
     help_action_ = menu_bar_->addAction("&Help");
     connect(help_action_, SIGNAL(triggered()), this, SLOT(help()));
 
     setMenuBar(menu_bar_);
 
-    QWidget * central_widget = new QWidget(this);
-    setCentralWidget(central_widget);
+//    QWidget * central_widget = new QWidget(this);
+//    setCentralWidget(central_widget);
 
-    centralWidget()->setEnabled(false);
+//    centralWidget()->setEnabled(false);
     open_level_action_->setEnabled(true);
     close_level_action_->setEnabled(false);
 }
@@ -138,8 +134,6 @@ MainWindow::~MainWindow()
 {
     delete ui_;
     delete map_view_;
-    map_view_ = nullptr;
     delete level_;
-    level_ = nullptr;
 }
 
