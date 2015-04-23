@@ -854,6 +854,22 @@ devient vide par erreur.
 
 \section{Conclusion}
 
+Le jeu est fonctionnel, il est possible de charger une partie et d’y jouer. Il est possible d’atteindre le but du jeu, qui est d’amener le rayon émis depuis la source jusqu’à la destination. 
+
+Le modèle est prévu pour gérer les intersections avec les différents objets du niveau et de réfléchir le rayon s’il arrive sur le miroir. 
+
+Il est également prévu que les cristaux changent la longueur d’onde d’un rayon qui les traverse et qu’une lentille se comporte comme un mur si la longueur d’onde du rayon n’est pas comprise entre les bornes limites de la lentille.
+
+Le fichier \texttt{.lvl} est considéré sans erreur, si ce n’est pas le cas le programme est susceptible de s’arrêter. 
+
+Certains points bonus ont été réalisés~:~
+\begin{itemize}
+    \item Changer la couleur du rayon en fonction de sa longueur d’onde~:~le rayon prend la couleur réelle correspondant à la longueur d’onde.
+    \item Changer l’apparence des rayons lumineux et des éléments de la carte~:~la source est représentée par une image de lampe à incandescence classique, qui s’éclaire si la source est allumée. Les autres éléments ont une couleur spécifique permettant de les distinguer. Ces informations sont disponibles dans l’aide du jeu, accessible depuis le menu ou durant une partie.
+    \item Ajouter des effets sonores~:~des sons sont prévus lorsque la source s’allume, une bombe est touchée ou la destination est atteinte.
+    \item Fournir un éditeur de carte «~intuitif~»~:~le placement des éléments s’effectue au clavier ou par le menu prévu à cet effet dans l’éditeur.
+\end{itemize}
+
 \section{Bibliographie}
 
 Les sons utilisés ont été produits par Mike Koenig et sont sous licence Attribution 3.0.\\
