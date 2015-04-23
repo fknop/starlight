@@ -1,0 +1,175 @@
+\hypertarget{classDestinationView}{\section{Référence de la classe Destination\+View}
+\label{classDestinationView}\index{Destination\+View@{Destination\+View}}
+}
+
+
+Modélisation visuelle de la destination.  
+
+
+
+
+{\ttfamily \#include $<$destinationview.\+h$>$}
+
+
+
+Graphe d'héritage de Destination\+View\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d6/d79/classDestinationView__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Graphe de collaboration de Destination\+View\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d0/d46/classDestinationView__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classDestinationView_ade423541028697f01a4892830471881d}{Destination\+View} (const \hyperlink{classDest}{Dest} \&\hyperlink{classDestinationView_ae8afc4d5eceb09a0d8ff478b20f1fa1d}{dest}, bool \hyperlink{classDestinationView_a2193a64a9d58d0faa80fa5c0541af638}{selectable}=false)
+\begin{DoxyCompactList}\small\item\em Construit une destination carrée. \end{DoxyCompactList}\item 
+\hyperlink{classDest}{Dest} $\ast$ \hyperlink{classDestinationView_ae8afc4d5eceb09a0d8ff478b20f1fa1d}{dest} ()
+\begin{DoxyCompactList}\small\item\em Retourne la destination représentée. \end{DoxyCompactList}\item 
+bool \hyperlink{classDestinationView_a2193a64a9d58d0faa80fa5c0541af638}{selectable} () const 
+\begin{DoxyCompactList}\small\item\em Retourne vrai si la destination est sélectionnable, faux sinon. \end{DoxyCompactList}\item 
+void \hyperlink{classDestinationView_a8e3dd1c269161b43a4b903092550ba5d}{set\+\_\+selectable} (bool value)
+\begin{DoxyCompactList}\small\item\em Modifie le fait que la destination soit sélectionnable. \end{DoxyCompactList}\item 
+void \hyperlink{classDestinationView_afd76d91b06a337ff123ad34af4fb25dd}{translate} (const double x=.\+0, const double y=.\+0) override
+\begin{DoxyCompactList}\small\item\em Effectue une translation de l’objet sur l’axe des abscisses et des ordonnées. \end{DoxyCompactList}\item 
+void \hyperlink{classDestinationView_ad200371afdce766b4208e45d83d1ba25}{notify} (\hyperlink{classObservable}{Observable} $\ast$o, const std\+::string \&msg, const std\+::vector$<$ std\+::string $>$ \&args=std\+::vector$<$ std\+::string $>$()) override
+\begin{DoxyCompactList}\small\item\em Notifie le jeu d'un évènement provenant d'un sujet d'observation (\hyperlink{classObservable}{Observable}). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Membres hérités additionnels}
+
+
+\subsection{Description détaillée}
+Modélisation visuelle de la destination. 
+
+\subsection{Documentation des constructeurs et destructeur}
+\hypertarget{classDestinationView_ade423541028697f01a4892830471881d}{\index{Destination\+View@{Destination\+View}!Destination\+View@{Destination\+View}}
+\index{Destination\+View@{Destination\+View}!Destination\+View@{Destination\+View}}
+\subsubsection[{Destination\+View}]{\setlength{\rightskip}{0pt plus 5cm}Destination\+View\+::\+Destination\+View (
+\begin{DoxyParamCaption}
+\item[{const {\bf Dest} \&}]{dest, }
+\item[{bool}]{selectable = {\ttfamily false}}
+\end{DoxyParamCaption}
+)}}\label{classDestinationView_ade423541028697f01a4892830471881d}
+
+
+Construit une destination carrée. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em dest} & la destination à représenter. \\
+\hline
+{\em selectable} & la destination est-\/elle sélectionnable ? \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{classDestinationView_ae8afc4d5eceb09a0d8ff478b20f1fa1d}{\index{Destination\+View@{Destination\+View}!dest@{dest}}
+\index{dest@{dest}!Destination\+View@{Destination\+View}}
+\subsubsection[{dest}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Dest} $\ast$ Destination\+View\+::dest (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classDestinationView_ae8afc4d5eceb09a0d8ff478b20f1fa1d}
+
+
+Retourne la destination représentée. 
+
+\begin{DoxyReturn}{Renvoie}
+la destination représentée. 
+\end{DoxyReturn}
+\hypertarget{classDestinationView_ad200371afdce766b4208e45d83d1ba25}{\index{Destination\+View@{Destination\+View}!notify@{notify}}
+\index{notify@{notify}!Destination\+View@{Destination\+View}}
+\subsubsection[{notify}]{\setlength{\rightskip}{0pt plus 5cm}void Destination\+View\+::notify (
+\begin{DoxyParamCaption}
+\item[{{\bf Observable} $\ast$}]{o, }
+\item[{const std\+::string \&}]{msg, }
+\item[{const std\+::vector$<$ std\+::string $>$ \&}]{args = {\ttfamily std\+:\+:vector$<$~std\+:\+:string~$>$()}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}}\label{classDestinationView_ad200371afdce766b4208e45d83d1ba25}
+
+
+Notifie le jeu d'un évènement provenant d'un sujet d'observation (\hyperlink{classObservable}{Observable}). 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em o} & l'observé. \\
+\hline
+{\em msg} & le message de notification. \\
+\hline
+{\em args} & des arguments. \\
+\hline
+\end{DoxyParams}
+
+
+Implémente \hyperlink{classObserverInterface_a3083639e706557f950f62af8ab283150}{Observer\+Interface}.
+
+\hypertarget{classDestinationView_a2193a64a9d58d0faa80fa5c0541af638}{\index{Destination\+View@{Destination\+View}!selectable@{selectable}}
+\index{selectable@{selectable}!Destination\+View@{Destination\+View}}
+\subsubsection[{selectable}]{\setlength{\rightskip}{0pt plus 5cm}bool Destination\+View\+::selectable (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classDestinationView_a2193a64a9d58d0faa80fa5c0541af638}
+
+
+Retourne vrai si la destination est sélectionnable, faux sinon. 
+
+\begin{DoxyReturn}{Renvoie}
+vrai si la destination est sélectionnable, faux sinon. 
+\end{DoxyReturn}
+\hypertarget{classDestinationView_a8e3dd1c269161b43a4b903092550ba5d}{\index{Destination\+View@{Destination\+View}!set\+\_\+selectable@{set\+\_\+selectable}}
+\index{set\+\_\+selectable@{set\+\_\+selectable}!Destination\+View@{Destination\+View}}
+\subsubsection[{set\+\_\+selectable}]{\setlength{\rightskip}{0pt plus 5cm}void Destination\+View\+::set\+\_\+selectable (
+\begin{DoxyParamCaption}
+\item[{bool}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classDestinationView_a8e3dd1c269161b43a4b903092550ba5d}
+
+
+Modifie le fait que la destination soit sélectionnable. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em value} & vrai si la destination est sélectionnable, faux sinon. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classDestinationView_afd76d91b06a337ff123ad34af4fb25dd}{\index{Destination\+View@{Destination\+View}!translate@{translate}}
+\index{translate@{translate}!Destination\+View@{Destination\+View}}
+\subsubsection[{translate}]{\setlength{\rightskip}{0pt plus 5cm}void Destination\+View\+::translate (
+\begin{DoxyParamCaption}
+\item[{const double}]{x = {\ttfamily .0}, }
+\item[{const double}]{y = {\ttfamily .0}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}}\label{classDestinationView_afd76d91b06a337ff123ad34af4fb25dd}
+
+
+Effectue une translation de l’objet sur l’axe des abscisses et des ordonnées. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em x} & la translation sur l’axe des abscisses. \\
+\hline
+{\em y} & la translation sur l’axe des ordonnées. \\
+\hline
+\end{DoxyParams}
+
+
+Réimplémentée à partir de \hyperlink{classElementView_a69a525cb674a36e33be6a8b7a6e4b83c}{Element\+View}.
+
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+view/destinationview.\+h\item 
+view/destinationview.\+cpp\end{DoxyCompactItemize}

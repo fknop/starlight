@@ -120,61 +120,55 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    QPushButton * add_lens_pb_;</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    QPushButton * add_wall_pb_;</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <a class="code" href="../../d2/d9d/classLevel.html">Level</a> * level_;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="../../d3/d48/classElements.html#a2b73500c747cc879fe708d35aba45532">Elements</a>(QWidget * parent = 0);</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <a class="code" href="../../d2/d9d/classLevel.html">Level</a> * <a class="code" href="../../d3/d48/classElements.html#add91eac75df596342176acac4eb8b1a1">level</a>();</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="../../d3/d48/classElements.html#a077b89b923b450bda172001121825e03">set_height</a>(<span class="keywordtype">int</span> h);</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="../../d3/d48/classElements.html#af6c7af0c40d3840296224453352fc534">set_width</a>(<span class="keywordtype">int</span> w);</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="../../d3/d48/classElements.html#ac8411c290c41dcb1777cb649155d3c04">enable_pushbuttons</a>(<span class="keywordtype">bool</span> b);</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordtype">void</span> setup_ui();</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordtype">void</span> add_connections();</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="keyword">public</span> slots:</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="../../d3/d48/classElements.html#a964576c05a5b9ec733a663474f8fd978">add_crystal</a>();</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="../../d3/d48/classElements.html#a8093eca3330566813da371aecc96530c">add_lens</a>();</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="../../d3/d48/classElements.html#a8d7a4e7ff0c84f105f0f0116425293a7">add_mirror</a>();</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="../../d3/d48/classElements.html#aa0884faf781bb26d6ca4dd8751b0eb32">add_nuke</a>();</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="../../d3/d48/classElements.html#ad4b05e8a07d9f6867035243c5e3f7572">add_wall</a>();</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="../../d3/d48/classElements.html#ad4bfaa4ea43fffd8653224165b5bbc29">create_level</a>();</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="../../d3/d48/classElements.html#a938cdaf6c97d1c9e5db80280b6379176">reset_level</a>();</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;};</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;<span class="preprocessor">#endif // ELEMENTS_H</span></div>
-<div class="ttc" id="classElements_html_ad4b05e8a07d9f6867035243c5e3f7572"><div class="ttname"><a href="../../d3/d48/classElements.html#ad4b05e8a07d9f6867035243c5e3f7572">Elements::add_wall</a></div><div class="ttdeci">void add_wall()</div><div class="ttdoc">Notifie les observateurs de l&#39;ajout d&#39;un mur. </div><div class="ttdef"><b>Definition:</b> elements.cpp:166</div></div>
-<div class="ttc" id="classElements_html_a8093eca3330566813da371aecc96530c"><div class="ttname"><a href="../../d3/d48/classElements.html#a8093eca3330566813da371aecc96530c">Elements::add_lens</a></div><div class="ttdeci">void add_lens()</div><div class="ttdoc">Notifie les observateurs de l&#39;ajout d&#39;une lentille. </div><div class="ttdef"><b>Definition:</b> elements.cpp:151</div></div>
-<div class="ttc" id="classElements_html_add91eac75df596342176acac4eb8b1a1"><div class="ttname"><a href="../../d3/d48/classElements.html#add91eac75df596342176acac4eb8b1a1">Elements::level</a></div><div class="ttdeci">Level * level()</div><div class="ttdoc">Retourne le niveau instancié par le panel. </div><div class="ttdef"><b>Definition:</b> elements.cpp:131</div></div>
-<div class="ttc" id="classElements_html_af6c7af0c40d3840296224453352fc534"><div class="ttname"><a href="../../d3/d48/classElements.html#af6c7af0c40d3840296224453352fc534">Elements::set_width</a></div><div class="ttdeci">void set_width(int w)</div><div class="ttdoc">Modifie la valeur du SpinBox pour la longueur. </div><div class="ttdef"><b>Definition:</b> elements.cpp:141</div></div>
-<div class="ttc" id="classElements_html_a8d7a4e7ff0c84f105f0f0116425293a7"><div class="ttname"><a href="../../d3/d48/classElements.html#a8d7a4e7ff0c84f105f0f0116425293a7">Elements::add_mirror</a></div><div class="ttdeci">void add_mirror()</div><div class="ttdoc">Notifie les observateurs de l&#39;ajout d&#39;un miroir. </div><div class="ttdef"><b>Definition:</b> elements.cpp:156</div></div>
-<div class="ttc" id="classElements_html_ad4bfaa4ea43fffd8653224165b5bbc29"><div class="ttname"><a href="../../d3/d48/classElements.html#ad4bfaa4ea43fffd8653224165b5bbc29">Elements::create_level</a></div><div class="ttdeci">void create_level()</div><div class="ttdoc">Notifie les observateurs de la création d&#39;un niveau. </div><div class="ttdef"><b>Definition:</b> elements.cpp:101</div></div>
-<div class="ttc" id="classElements_html_a2b73500c747cc879fe708d35aba45532"><div class="ttname"><a href="../../d3/d48/classElements.html#a2b73500c747cc879fe708d35aba45532">Elements::Elements</a></div><div class="ttdeci">Elements(QWidget *parent=0)</div><div class="ttdoc">Instancie un panel permettant de créer des éléments. </div><div class="ttdef"><b>Definition:</b> elements.cpp:3</div></div>
-<div class="ttc" id="classLevel_html"><div class="ttname"><a href="../../d2/d9d/classLevel.html">Level</a></div><div class="ttdoc">Modélise une carte telle qu&#39;utilisée dans le jeu. </div><div class="ttdef"><b>Definition:</b> level.h:56</div></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="../../d3/d48/classElements.html#a2b73500c747cc879fe708d35aba45532">Elements</a>(QWidget * parent = 0);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="../../d3/d48/classElements.html#a077b89b923b450bda172001121825e03">set_height</a>(<span class="keywordtype">int</span> h);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="../../d3/d48/classElements.html#af6c7af0c40d3840296224453352fc534">set_width</a>(<span class="keywordtype">int</span> w);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="../../d3/d48/classElements.html#ac8411c290c41dcb1777cb649155d3c04">enable_pushbuttons</a>(<span class="keywordtype">bool</span> b);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordtype">void</span> setup_ui();</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">void</span> add_connections();</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="keyword">public</span> slots:</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="../../d3/d48/classElements.html#a964576c05a5b9ec733a663474f8fd978">add_crystal</a>();</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="../../d3/d48/classElements.html#a8093eca3330566813da371aecc96530c">add_lens</a>();</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="../../d3/d48/classElements.html#a8d7a4e7ff0c84f105f0f0116425293a7">add_mirror</a>();</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="../../d3/d48/classElements.html#aa0884faf781bb26d6ca4dd8751b0eb32">add_nuke</a>();</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="../../d3/d48/classElements.html#ad4b05e8a07d9f6867035243c5e3f7572">add_wall</a>();</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="../../d3/d48/classElements.html#ad4bfaa4ea43fffd8653224165b5bbc29">create_level</a>();</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="../../d3/d48/classElements.html#a938cdaf6c97d1c9e5db80280b6379176">reset_level</a>();</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;};</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="preprocessor">#endif // ELEMENTS_H</span></div>
+<div class="ttc" id="classElements_html_ad4b05e8a07d9f6867035243c5e3f7572"><div class="ttname"><a href="../../d3/d48/classElements.html#ad4b05e8a07d9f6867035243c5e3f7572">Elements::add_wall</a></div><div class="ttdeci">void add_wall()</div><div class="ttdoc">Notifie les observateurs de l&#39;ajout d&#39;un mur. </div><div class="ttdef"><b>Definition:</b> elements.cpp:136</div></div>
+<div class="ttc" id="classElements_html_a8093eca3330566813da371aecc96530c"><div class="ttname"><a href="../../d3/d48/classElements.html#a8093eca3330566813da371aecc96530c">Elements::add_lens</a></div><div class="ttdeci">void add_lens()</div><div class="ttdoc">Notifie les observateurs de l&#39;ajout d&#39;une lentille. </div><div class="ttdef"><b>Definition:</b> elements.cpp:121</div></div>
+<div class="ttc" id="classElements_html_af6c7af0c40d3840296224453352fc534"><div class="ttname"><a href="../../d3/d48/classElements.html#af6c7af0c40d3840296224453352fc534">Elements::set_width</a></div><div class="ttdeci">void set_width(int w)</div><div class="ttdoc">Modifie la valeur du SpinBox pour la longueur. </div><div class="ttdef"><b>Definition:</b> elements.cpp:111</div></div>
+<div class="ttc" id="classElements_html_a8d7a4e7ff0c84f105f0f0116425293a7"><div class="ttname"><a href="../../d3/d48/classElements.html#a8d7a4e7ff0c84f105f0f0116425293a7">Elements::add_mirror</a></div><div class="ttdeci">void add_mirror()</div><div class="ttdoc">Notifie les observateurs de l&#39;ajout d&#39;un miroir. </div><div class="ttdef"><b>Definition:</b> elements.cpp:126</div></div>
+<div class="ttc" id="classElements_html_ad4bfaa4ea43fffd8653224165b5bbc29"><div class="ttname"><a href="../../d3/d48/classElements.html#ad4bfaa4ea43fffd8653224165b5bbc29">Elements::create_level</a></div><div class="ttdeci">void create_level()</div><div class="ttdoc">Notifie les observateurs de la création d&#39;un niveau. </div><div class="ttdef"><b>Definition:</b> elements.cpp:75</div></div>
+<div class="ttc" id="classElements_html_a2b73500c747cc879fe708d35aba45532"><div class="ttname"><a href="../../d3/d48/classElements.html#a2b73500c747cc879fe708d35aba45532">Elements::Elements</a></div><div class="ttdeci">Elements(QWidget *parent=0)</div><div class="ttdoc">Instancie un panel permettant de créer des éléments. </div><div class="ttdef"><b>Definition:</b> elements.cpp:6</div></div>
 <div class="ttc" id="classElements_html"><div class="ttname"><a href="../../d3/d48/classElements.html">Elements</a></div><div class="ttdoc">Permet de créer un niveau et d’y ajouter des éléments (miroir, lensille, etc.). </div><div class="ttdef"><b>Definition:</b> elements.h:20</div></div>
-<div class="ttc" id="classElements_html_a964576c05a5b9ec733a663474f8fd978"><div class="ttname"><a href="../../d3/d48/classElements.html#a964576c05a5b9ec733a663474f8fd978">Elements::add_crystal</a></div><div class="ttdeci">void add_crystal()</div><div class="ttdoc">Notifie les observateurs de l&#39;ajout d&#39;un cristal. </div><div class="ttdef"><b>Definition:</b> elements.cpp:146</div></div>
-<div class="ttc" id="classElements_html_a077b89b923b450bda172001121825e03"><div class="ttname"><a href="../../d3/d48/classElements.html#a077b89b923b450bda172001121825e03">Elements::set_height</a></div><div class="ttdeci">void set_height(int h)</div><div class="ttdoc">Modifie la valeur du SpinBox pour la hauteur. </div><div class="ttdef"><b>Definition:</b> elements.cpp:136</div></div>
+<div class="ttc" id="classElements_html_a964576c05a5b9ec733a663474f8fd978"><div class="ttname"><a href="../../d3/d48/classElements.html#a964576c05a5b9ec733a663474f8fd978">Elements::add_crystal</a></div><div class="ttdeci">void add_crystal()</div><div class="ttdoc">Notifie les observateurs de l&#39;ajout d&#39;un cristal. </div><div class="ttdef"><b>Definition:</b> elements.cpp:116</div></div>
+<div class="ttc" id="classElements_html_a077b89b923b450bda172001121825e03"><div class="ttname"><a href="../../d3/d48/classElements.html#a077b89b923b450bda172001121825e03">Elements::set_height</a></div><div class="ttdeci">void set_height(int h)</div><div class="ttdoc">Modifie la valeur du SpinBox pour la hauteur. </div><div class="ttdef"><b>Definition:</b> elements.cpp:106</div></div>
 <div class="ttc" id="classObservable_html"><div class="ttname"><a href="../../d9/db4/classObservable.html">Observable</a></div><div class="ttdoc">Classe représentant un élément observable pouvant notifié des observateurs. </div><div class="ttdef"><b>Definition:</b> observable.h:14</div></div>
-<div class="ttc" id="classElements_html_a938cdaf6c97d1c9e5db80280b6379176"><div class="ttname"><a href="../../d3/d48/classElements.html#a938cdaf6c97d1c9e5db80280b6379176">Elements::reset_level</a></div><div class="ttdeci">void reset_level()</div><div class="ttdoc">Notifie les observateurs de la supression d&#39;un niveau. </div><div class="ttdef"><b>Definition:</b> elements.cpp:110</div></div>
-<div class="ttc" id="classElements_html_ac8411c290c41dcb1777cb649155d3c04"><div class="ttname"><a href="../../d3/d48/classElements.html#ac8411c290c41dcb1777cb649155d3c04">Elements::enable_pushbuttons</a></div><div class="ttdeci">void enable_pushbuttons(bool b)</div><div class="ttdoc">Active les boutons du panel. </div><div class="ttdef"><b>Definition:</b> elements.cpp:117</div></div>
-<div class="ttc" id="classElements_html_aa0884faf781bb26d6ca4dd8751b0eb32"><div class="ttname"><a href="../../d3/d48/classElements.html#aa0884faf781bb26d6ca4dd8751b0eb32">Elements::add_nuke</a></div><div class="ttdeci">void add_nuke()</div><div class="ttdoc">Notifie les observateurs de l&#39;ajout d&#39;une bombe. </div><div class="ttdef"><b>Definition:</b> elements.cpp:161</div></div>
+<div class="ttc" id="classElements_html_a938cdaf6c97d1c9e5db80280b6379176"><div class="ttname"><a href="../../d3/d48/classElements.html#a938cdaf6c97d1c9e5db80280b6379176">Elements::reset_level</a></div><div class="ttdeci">void reset_level()</div><div class="ttdoc">Notifie les observateurs de la supression d&#39;un niveau. </div><div class="ttdef"><b>Definition:</b> elements.cpp:86</div></div>
+<div class="ttc" id="classElements_html_ac8411c290c41dcb1777cb649155d3c04"><div class="ttname"><a href="../../d3/d48/classElements.html#ac8411c290c41dcb1777cb649155d3c04">Elements::enable_pushbuttons</a></div><div class="ttdeci">void enable_pushbuttons(bool b)</div><div class="ttdoc">Active les boutons du panel. </div><div class="ttdef"><b>Definition:</b> elements.cpp:92</div></div>
+<div class="ttc" id="classElements_html_aa0884faf781bb26d6ca4dd8751b0eb32"><div class="ttname"><a href="../../d3/d48/classElements.html#aa0884faf781bb26d6ca4dd8751b0eb32">Elements::add_nuke</a></div><div class="ttdeci">void add_nuke()</div><div class="ttdoc">Notifie les observateurs de l&#39;ajout d&#39;une bombe. </div><div class="ttdef"><b>Definition:</b> elements.cpp:131</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Généré le Jeudi 23 Avril 2015 21:29:04 pour Starlight par &#160;<a href="http://www.doxygen.org/index.html">
+Généré le Jeudi 23 Avril 2015 22:17:08 pour Starlight par &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.7
 </small></address>

@@ -1,0 +1,569 @@
+\hypertarget{classMirror}{\section{Référence de la classe Mirror}
+\label{classMirror}\index{Mirror@{Mirror}}
+}
+
+
+Cette classe modélise les miroirs utilisés dans le jeu.  
+
+
+
+
+{\ttfamily \#include $<$mirror.\+h$>$}
+
+
+
+Graphe d'héritage de Mirror\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=186pt]{d8/d7d/classMirror__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Graphe de collaboration de Mirror\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=186pt]{dc/d9b/classMirror__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classMirror_a3f32fd1e7fb4f1a3dbad8aba00d1267b}{Mirror} (const \hyperlink{classPoint}{Point} \&p, double xpad, double len, double alpha)
+\begin{DoxyCompactList}\small\item\em Instancie un miroir en une position donnée, d'une certaine longueur et orienté d'un certain angle. \end{DoxyCompactList}\item 
+\hyperlink{classMirror_a675db929cb6f6555163dbc2a089fe026}{Mirror} (const \hyperlink{classPoint}{Point} \&p, double xpad, double len, double alpha, const \hyperlink{classPoint}{Point} \&min, const \hyperlink{classPoint}{Point} \&max, double alpha\+\_\+min, double alpha\+\_\+max)
+\begin{DoxyCompactList}\small\item\em Instancie un miroir en une position donnée, d'une certaine longueur et orienté d'un certain angle. \end{DoxyCompactList}\item 
+const \hyperlink{classPoint}{Point} \& \hyperlink{classMirror_ad68e2946b5267e738663ffdf4b8841f5}{pivot} () const 
+\begin{DoxyCompactList}\small\item\em Retourne la position (et le pivot) du miroir. \end{DoxyCompactList}\item 
+double \hyperlink{classMirror_a9fae8ef086cb8598d689f29c68379106}{length} () const 
+\begin{DoxyCompactList}\small\item\em Retourne la longueur du miroir. \end{DoxyCompactList}\item 
+double \hyperlink{classMirror_aa3ec313ce158d894e084065c2eaa8cb8}{x\+\_\+pad} () const 
+\begin{DoxyCompactList}\small\item\em Retourne le décalage du pivot par rapport au bord gauche du miroir. \end{DoxyCompactList}\item 
+double \hyperlink{classMirror_a70b7d41a7df7213da8f8c4ac4c873739}{angle} () const 
+\begin{DoxyCompactList}\small\item\em Retourne l'inclinaison du miroir. \end{DoxyCompactList}\item 
+double \hyperlink{classMirror_a84dc065cb7ca7b928b83df2169021673}{min\+\_\+angle} () const 
+\begin{DoxyCompactList}\small\item\em Retourne l'inclinaison minimum du miroir. \end{DoxyCompactList}\item 
+double \hyperlink{classMirror_ab06cd44bc9fa2fbd942c2e021439dc1c}{max\+\_\+angle} () const 
+\begin{DoxyCompactList}\small\item\em Retourne l'inclinaison maximum du miroir. \end{DoxyCompactList}\item 
+\hyperlink{classPoint}{Point} \hyperlink{classMirror_ac57f542afd7fe0fd02f5b028f22821d9}{min\+\_\+pivot} () const 
+\begin{DoxyCompactList}\small\item\em Retourne la position minimum du miroir. \end{DoxyCompactList}\item 
+\hyperlink{classPoint}{Point} \hyperlink{classMirror_a5c7aee32ae68bcc817b996859139e909}{max\+\_\+pivot} () const 
+\begin{DoxyCompactList}\small\item\em Retourne la position maximum du miroir. \end{DoxyCompactList}\item 
+bool \hyperlink{classMirror_a86285a234fb321578939d3f7597bfe6d}{set\+\_\+pivot} (const \hyperlink{classPoint}{Point} \&\hyperlink{classMirror_ad68e2946b5267e738663ffdf4b8841f5}{pivot})
+\begin{DoxyCompactList}\small\item\em Déplace le miroir en la position donnée, si c'est autorisé. \end{DoxyCompactList}\item 
+void \hyperlink{classMirror_a5abdb9ac393b5c4e78399567bd44fc1f}{set\+\_\+xpad} (const double x)
+\begin{DoxyCompactList}\small\item\em Modifie le décalage du pivot par rapport au bord gauche du miroir. \end{DoxyCompactList}\item 
+void \hyperlink{classMirror_a07555306d244772a41b160e905e14af4}{set\+\_\+len} (const double len)
+\begin{DoxyCompactList}\small\item\em Modifie la longueur du miroir. \end{DoxyCompactList}\item 
+void \hyperlink{classMirror_a6abbc2665d17f8959191ec5b867f4d65}{set\+\_\+min} (const \hyperlink{classPoint}{Point} \&min)
+\begin{DoxyCompactList}\small\item\em Modifie la position minimale du miroir. \end{DoxyCompactList}\item 
+void \hyperlink{classMirror_a667e427c4d466d0a40715f5584977b53}{set\+\_\+max} (const \hyperlink{classPoint}{Point} \&max)
+\begin{DoxyCompactList}\small\item\em Modifie la position maximale du miroir. \end{DoxyCompactList}\item 
+void \hyperlink{classMirror_aa00abc76e86867b93f114e7cef6e07c0}{set\+\_\+alpha\+\_\+min} (const double min)
+\begin{DoxyCompactList}\small\item\em Modifie l’angle d’inclinaison minimum du miroir. \end{DoxyCompactList}\item 
+void \hyperlink{classMirror_a2ca09d04d47d75a7e67398563b94b6e3}{set\+\_\+alpha\+\_\+max} (const double max)
+\begin{DoxyCompactList}\small\item\em Modifie l’angle d’inclinaison maximum du miroir. \end{DoxyCompactList}\item 
+bool \hyperlink{classMirror_a86f8901b0db8666b98251b32ca946b5e}{set\+\_\+angle} (const double \hyperlink{classMirror_a70b7d41a7df7213da8f8c4ac4c873739}{angle})
+\begin{DoxyCompactList}\small\item\em Pivote le miroir sur un angle donné, si c'est autorisé. \end{DoxyCompactList}\item 
+void \hyperlink{classMirror_ae092fb48cbf523d50fa97c6b7fe149da}{set\+\_\+movable} (const bool value)
+\begin{DoxyCompactList}\small\item\em Modifie le comportement du miroir. \end{DoxyCompactList}\item 
+bool \hyperlink{classMirror_adb9bc206e3a5334909a70529ebdf6d09}{movable} () const 
+\begin{DoxyCompactList}\small\item\em Retourne vrai si le miroir peut être déplacé ou tourné. \end{DoxyCompactList}\item 
+bool \hyperlink{classMirror_a0d963145ff485dfb375d75f7f3e5bed5}{check\+\_\+angle\+\_\+range} (double \hyperlink{classMirror_a70b7d41a7df7213da8f8c4ac4c873739}{angle}) const 
+\begin{DoxyCompactList}\small\item\em Retoune vrai si le miroir peut être pivoté sur l'angle donné, retourne faux sinon. \end{DoxyCompactList}\item 
+bool \hyperlink{classMirror_a06a94bd486bbd4e5ed9856c0d7fb5383}{check\+\_\+pivot\+\_\+range} (const \hyperlink{classPoint}{Point} \&\hyperlink{classMirror_ad68e2946b5267e738663ffdf4b8841f5}{pivot}) const 
+\begin{DoxyCompactList}\small\item\em Retoune vrai si le miroir peut être déplacé en la position donnée, retourne faux sinon. \end{DoxyCompactList}\item 
+void \hyperlink{classMirror_acd55e5dae638546039a72fc3191c192c}{rotate} (double \hyperlink{classMirror_a70b7d41a7df7213da8f8c4ac4c873739}{angle})
+\begin{DoxyCompactList}\small\item\em Modifie l'inclinaison de l'angle. \end{DoxyCompactList}\item 
+void \hyperlink{classMirror_a6d2968b4e4baed86fa28c353feeb1a6b}{translate} (const double x, const double y)
+\begin{DoxyCompactList}\small\item\em Déplace le pivot par rapport à une ordonnée et une abscisse. \end{DoxyCompactList}\item 
+\hyperlink{classLineSegment}{Line\+Segment} \hyperlink{classMirror_a12183555b25eb6768af659a11054beec}{to\+\_\+line\+\_\+segment} () const 
+\begin{DoxyCompactList}\small\item\em Renvoie le segment correspondant au miroir. \end{DoxyCompactList}\item 
+bool \hyperlink{classMirror_a3a649dee176eabb38fb3ef4b86a94130}{operator==} (const \hyperlink{classMirror}{Mirror} \&m) const 
+\begin{DoxyCompactList}\small\item\em Redéfinition de l'opérateur d'égalité. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Amis}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& \hyperlink{classMirror_a18a9b61e5b925d085bd1560fcf289b0c}{operator$<$$<$} (std\+::ostream \&out, const \hyperlink{classMirror}{Mirror} \&m)
+\begin{DoxyCompactList}\small\item\em Surcharge l'opérateur de flux de sortie pour afficher un récapitulatif des caractéristiques du miroir sous-\/jacent en console. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Membres hérités additionnels}
+
+
+\subsection{Description détaillée}
+Cette classe modélise les miroirs utilisés dans le jeu. 
+
+Un miroir est un segment de droite dont la propriété est de réfléchir la lumière d'un seul côté uniquement. Si un rayon lumineux touche un miroir du côté non réfléchissant, le miroir se comporte comme un mur. 
+
+Les miroirs sont capables d'être déplacés et pivotés dans une certaine limite. 
+
+\subsection{Documentation des constructeurs et destructeur}
+\hypertarget{classMirror_a3f32fd1e7fb4f1a3dbad8aba00d1267b}{\index{Mirror@{Mirror}!Mirror@{Mirror}}
+\index{Mirror@{Mirror}!Mirror@{Mirror}}
+\subsubsection[{Mirror}]{\setlength{\rightskip}{0pt plus 5cm}Mirror\+::\+Mirror (
+\begin{DoxyParamCaption}
+\item[{const {\bf Point} \&}]{p, }
+\item[{double}]{xpad, }
+\item[{double}]{len, }
+\item[{double}]{alpha}
+\end{DoxyParamCaption}
+)}}\label{classMirror_a3f32fd1e7fb4f1a3dbad8aba00d1267b}
+
+
+Instancie un miroir en une position donnée, d'une certaine longueur et orienté d'un certain angle. 
+
+Comme dans ce constructeur les limites de déplacement et de rotation du miroir ne sont pas définies, ce miroir peut se déplacer et pivoter librement. 
+\begin{DoxyParams}{Paramètres}
+{\em p} & la position (et le point de pivot) du miroir. \\
+\hline
+{\em len} & la longueur du miroir. \\
+\hline
+{\em xpad} & le décalage du pivot par rapport au bord gauche du miroir. \\
+\hline
+{\em alpha} & l'angle d'inclinaison du miroir. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classMirror_a675db929cb6f6555163dbc2a089fe026}{\index{Mirror@{Mirror}!Mirror@{Mirror}}
+\index{Mirror@{Mirror}!Mirror@{Mirror}}
+\subsubsection[{Mirror}]{\setlength{\rightskip}{0pt plus 5cm}Mirror\+::\+Mirror (
+\begin{DoxyParamCaption}
+\item[{const {\bf Point} \&}]{p, }
+\item[{double}]{xpad, }
+\item[{double}]{len, }
+\item[{double}]{alpha, }
+\item[{const {\bf Point} \&}]{min, }
+\item[{const {\bf Point} \&}]{max, }
+\item[{double}]{alpha\+\_\+min, }
+\item[{double}]{alpha\+\_\+max}
+\end{DoxyParamCaption}
+)}}\label{classMirror_a675db929cb6f6555163dbc2a089fe026}
+
+
+Instancie un miroir en une position donnée, d'une certaine longueur et orienté d'un certain angle. 
+
+Ce constructeur permet également aux miroirs de pivoter dans une certaine limite. 
+
+Si l'intervalle de limite de déplacement (e.\+g., sur les abscisses) \mbox{[}a,b\mbox{]} est tel que a = b, le miroir ne peut être déplacé sur l'axe considéré. 
+
+Si l'intervalle de limite d'inclinaison \mbox{[}a,b\mbox{]} est tel que a $<$ b, le miroir pivote dans le sens horloger, si a = b le miroir ne peut pas pivoter, si a $>$ b, le miroir pivote dans le sens anti-\/horloger. 
+\begin{DoxyParams}{Paramètres}
+{\em p} & la position (et le point de pivot) du miroir. \\
+\hline
+{\em len} & la longueur du miroir. \\
+\hline
+{\em xpad} & le décalage du pivot par rapport au bord gauche du miroir. \\
+\hline
+{\em alpha} & l'angle d'inclinaison du miroir. \\
+\hline
+{\em min} & l'abscisse et l'ordonnée minimum du miroir. \\
+\hline
+{\em max} & l'abscisse et l'ordonnée maximum du miroir. \\
+\hline
+{\em alpha\+\_\+min} & l'angle d'inclinaison minimum du miroir. \\
+\hline
+{\em alpha\+\_\+max} & l'angle d'inclinaison maximum du miroir. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{classMirror_a70b7d41a7df7213da8f8c4ac4c873739}{\index{Mirror@{Mirror}!angle@{angle}}
+\index{angle@{angle}!Mirror@{Mirror}}
+\subsubsection[{angle}]{\setlength{\rightskip}{0pt plus 5cm}double Mirror\+::angle (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classMirror_a70b7d41a7df7213da8f8c4ac4c873739}
+
+
+Retourne l'inclinaison du miroir. 
+
+\begin{DoxyReturn}{Renvoie}
+l'inclinaison du miroir. 
+\end{DoxyReturn}
+\hypertarget{classMirror_a0d963145ff485dfb375d75f7f3e5bed5}{\index{Mirror@{Mirror}!check\+\_\+angle\+\_\+range@{check\+\_\+angle\+\_\+range}}
+\index{check\+\_\+angle\+\_\+range@{check\+\_\+angle\+\_\+range}!Mirror@{Mirror}}
+\subsubsection[{check\+\_\+angle\+\_\+range}]{\setlength{\rightskip}{0pt plus 5cm}bool Mirror\+::check\+\_\+angle\+\_\+range (
+\begin{DoxyParamCaption}
+\item[{double}]{angle}
+\end{DoxyParamCaption}
+) const}}\label{classMirror_a0d963145ff485dfb375d75f7f3e5bed5}
+
+
+Retoune vrai si le miroir peut être pivoté sur l'angle donné, retourne faux sinon. 
+
+\begin{DoxyReturn}{Renvoie}
+vrai si le miroir peut être pivoté sur l'angle donné, retourne faux sinon. 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{Voir également}
+Mirror\+::get\+Angle() 
+\end{DoxySeeAlso}
+\hypertarget{classMirror_a06a94bd486bbd4e5ed9856c0d7fb5383}{\index{Mirror@{Mirror}!check\+\_\+pivot\+\_\+range@{check\+\_\+pivot\+\_\+range}}
+\index{check\+\_\+pivot\+\_\+range@{check\+\_\+pivot\+\_\+range}!Mirror@{Mirror}}
+\subsubsection[{check\+\_\+pivot\+\_\+range}]{\setlength{\rightskip}{0pt plus 5cm}bool Mirror\+::check\+\_\+pivot\+\_\+range (
+\begin{DoxyParamCaption}
+\item[{const {\bf Point} \&}]{pivot}
+\end{DoxyParamCaption}
+) const}}\label{classMirror_a06a94bd486bbd4e5ed9856c0d7fb5383}
+
+
+Retoune vrai si le miroir peut être déplacé en la position donnée, retourne faux sinon. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em pivot} & le pivot. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+vrai si le miroir peut être déplacé en la position donnée, retourne faux sinon. 
+\end{DoxyReturn}
+\hypertarget{classMirror_a9fae8ef086cb8598d689f29c68379106}{\index{Mirror@{Mirror}!length@{length}}
+\index{length@{length}!Mirror@{Mirror}}
+\subsubsection[{length}]{\setlength{\rightskip}{0pt plus 5cm}double Mirror\+::length (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classMirror_a9fae8ef086cb8598d689f29c68379106}
+
+
+Retourne la longueur du miroir. 
+
+\begin{DoxyReturn}{Renvoie}
+la longueur du miroir 
+\end{DoxyReturn}
+\hypertarget{classMirror_ab06cd44bc9fa2fbd942c2e021439dc1c}{\index{Mirror@{Mirror}!max\+\_\+angle@{max\+\_\+angle}}
+\index{max\+\_\+angle@{max\+\_\+angle}!Mirror@{Mirror}}
+\subsubsection[{max\+\_\+angle}]{\setlength{\rightskip}{0pt plus 5cm}double Mirror\+::max\+\_\+angle (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classMirror_ab06cd44bc9fa2fbd942c2e021439dc1c}
+
+
+Retourne l'inclinaison maximum du miroir. 
+
+Si l'intervalle de limite d'inclinaison \mbox{[}a,b\mbox{]} est tel que a $<$ b, le miroir pivote dans le sens horloger, si a = b le miroir ne peut pas pivoter, si a $>$ b, le miroir pivote dans le sens anti-\/horloger. Si a = b = 0, le miroir peut être pialpha\+Max\+\_\+voté librement. \begin{DoxyReturn}{Renvoie}
+l'inclinaison minimum du miroir. 
+\end{DoxyReturn}
+\hypertarget{classMirror_a5c7aee32ae68bcc817b996859139e909}{\index{Mirror@{Mirror}!max\+\_\+pivot@{max\+\_\+pivot}}
+\index{max\+\_\+pivot@{max\+\_\+pivot}!Mirror@{Mirror}}
+\subsubsection[{max\+\_\+pivot}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Point} Mirror\+::max\+\_\+pivot (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classMirror_a5c7aee32ae68bcc817b996859139e909}
+
+
+Retourne la position maximum du miroir. 
+
+Si l'intervalle de limite de déplacement (e.\+g., sur les abscisses) \mbox{[}a,b\mbox{]} est tel que a = b, le miroir ne peut être déplacé sur l'axe considéré. Si a = b = 0, le miroir peut être déplacé librement. \begin{DoxyReturn}{Renvoie}
+la position maximum du miroir. 
+\end{DoxyReturn}
+\hypertarget{classMirror_a84dc065cb7ca7b928b83df2169021673}{\index{Mirror@{Mirror}!min\+\_\+angle@{min\+\_\+angle}}
+\index{min\+\_\+angle@{min\+\_\+angle}!Mirror@{Mirror}}
+\subsubsection[{min\+\_\+angle}]{\setlength{\rightskip}{0pt plus 5cm}double Mirror\+::min\+\_\+angle (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classMirror_a84dc065cb7ca7b928b83df2169021673}
+
+
+Retourne l'inclinaison minimum du miroir. 
+
+Si l'intervalle de limite d'inclinaison \mbox{[}a,b\mbox{]} est tel que a $<$ b, le miroir pivote dans le sens horloger, si a = b le miroir ne peut pas pivoter, si a $>$ b, le miroir pivote dans le sens anti-\/horloger. Si a = b = 0, le miroir peut être pivoté librement. \begin{DoxyReturn}{Renvoie}
+l'inclinaison minimum du miroir. 
+\end{DoxyReturn}
+\hypertarget{classMirror_ac57f542afd7fe0fd02f5b028f22821d9}{\index{Mirror@{Mirror}!min\+\_\+pivot@{min\+\_\+pivot}}
+\index{min\+\_\+pivot@{min\+\_\+pivot}!Mirror@{Mirror}}
+\subsubsection[{min\+\_\+pivot}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Point} Mirror\+::min\+\_\+pivot (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classMirror_ac57f542afd7fe0fd02f5b028f22821d9}
+
+
+Retourne la position minimum du miroir. 
+
+Si l'intervalle de limite de déplacement (e.\+g., sur les abscisses) \mbox{[}a,b\mbox{]} est tel que a = b, le miroir ne peut être déplacé sur l'axe considéré. Si a = b = 0, le miroir peut être déplacé librement. \begin{DoxyReturn}{Renvoie}
+la position minimum du miroir. 
+\end{DoxyReturn}
+\hypertarget{classMirror_adb9bc206e3a5334909a70529ebdf6d09}{\index{Mirror@{Mirror}!movable@{movable}}
+\index{movable@{movable}!Mirror@{Mirror}}
+\subsubsection[{movable}]{\setlength{\rightskip}{0pt plus 5cm}bool Mirror\+::movable (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classMirror_adb9bc206e3a5334909a70529ebdf6d09}
+
+
+Retourne vrai si le miroir peut être déplacé ou tourné. 
+
+\begin{DoxyReturn}{Renvoie}
+vrai si le miroir peut être déplacé ou tourné. 
+\end{DoxyReturn}
+\hypertarget{classMirror_a3a649dee176eabb38fb3ef4b86a94130}{\index{Mirror@{Mirror}!operator==@{operator==}}
+\index{operator==@{operator==}!Mirror@{Mirror}}
+\subsubsection[{operator==}]{\setlength{\rightskip}{0pt plus 5cm}bool Mirror\+::operator== (
+\begin{DoxyParamCaption}
+\item[{const {\bf Mirror} \&}]{m}
+\end{DoxyParamCaption}
+) const}}\label{classMirror_a3a649dee176eabb38fb3ef4b86a94130}
+
+
+Redéfinition de l'opérateur d'égalité. 
+
+Retourne vrai si les mirroirs sont égaux. 
+\begin{DoxyParams}{Paramètres}
+{\em m} & un mirroir. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+vrai si les mirroirs sont égaux, faux sinon. 
+\end{DoxyReturn}
+\hypertarget{classMirror_ad68e2946b5267e738663ffdf4b8841f5}{\index{Mirror@{Mirror}!pivot@{pivot}}
+\index{pivot@{pivot}!Mirror@{Mirror}}
+\subsubsection[{pivot}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Point} \& Mirror\+::pivot (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classMirror_ad68e2946b5267e738663ffdf4b8841f5}
+
+
+Retourne la position (et le pivot) du miroir. 
+
+\begin{DoxyReturn}{Renvoie}
+la position (et le pivot) du miroir. 
+\end{DoxyReturn}
+\hypertarget{classMirror_acd55e5dae638546039a72fc3191c192c}{\index{Mirror@{Mirror}!rotate@{rotate}}
+\index{rotate@{rotate}!Mirror@{Mirror}}
+\subsubsection[{rotate}]{\setlength{\rightskip}{0pt plus 5cm}void Mirror\+::rotate (
+\begin{DoxyParamCaption}
+\item[{double}]{angle}
+\end{DoxyParamCaption}
+)}}\label{classMirror_acd55e5dae638546039a72fc3191c192c}
+
+
+Modifie l'inclinaison de l'angle. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em angle} & l'angle de rotation. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classMirror_a2ca09d04d47d75a7e67398563b94b6e3}{\index{Mirror@{Mirror}!set\+\_\+alpha\+\_\+max@{set\+\_\+alpha\+\_\+max}}
+\index{set\+\_\+alpha\+\_\+max@{set\+\_\+alpha\+\_\+max}!Mirror@{Mirror}}
+\subsubsection[{set\+\_\+alpha\+\_\+max}]{\setlength{\rightskip}{0pt plus 5cm}void Mirror\+::set\+\_\+alpha\+\_\+max (
+\begin{DoxyParamCaption}
+\item[{const double}]{max}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classMirror_a2ca09d04d47d75a7e67398563b94b6e3}
+
+
+Modifie l’angle d’inclinaison maximum du miroir. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em max} & le nouvel angle d’inclinaison maximal. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classMirror_aa00abc76e86867b93f114e7cef6e07c0}{\index{Mirror@{Mirror}!set\+\_\+alpha\+\_\+min@{set\+\_\+alpha\+\_\+min}}
+\index{set\+\_\+alpha\+\_\+min@{set\+\_\+alpha\+\_\+min}!Mirror@{Mirror}}
+\subsubsection[{set\+\_\+alpha\+\_\+min}]{\setlength{\rightskip}{0pt plus 5cm}void Mirror\+::set\+\_\+alpha\+\_\+min (
+\begin{DoxyParamCaption}
+\item[{const double}]{min}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classMirror_aa00abc76e86867b93f114e7cef6e07c0}
+
+
+Modifie l’angle d’inclinaison minimum du miroir. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em min} & le nouvel angle d’inclinaison minimal. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classMirror_a86f8901b0db8666b98251b32ca946b5e}{\index{Mirror@{Mirror}!set\+\_\+angle@{set\+\_\+angle}}
+\index{set\+\_\+angle@{set\+\_\+angle}!Mirror@{Mirror}}
+\subsubsection[{set\+\_\+angle}]{\setlength{\rightskip}{0pt plus 5cm}bool Mirror\+::set\+\_\+angle (
+\begin{DoxyParamCaption}
+\item[{const double}]{angle}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classMirror_a86f8901b0db8666b98251b32ca946b5e}
+
+
+Pivote le miroir sur un angle donné, si c'est autorisé. 
+
+Retourne vrai si la rotation a été effectuée correctement, retourne faux sinon. \begin{DoxyReturn}{Renvoie}
+vrai si la rotation a été effectuée correctement, retourne faux sinon. 
+\end{DoxyReturn}
+\hypertarget{classMirror_a07555306d244772a41b160e905e14af4}{\index{Mirror@{Mirror}!set\+\_\+len@{set\+\_\+len}}
+\index{set\+\_\+len@{set\+\_\+len}!Mirror@{Mirror}}
+\subsubsection[{set\+\_\+len}]{\setlength{\rightskip}{0pt plus 5cm}void Mirror\+::set\+\_\+len (
+\begin{DoxyParamCaption}
+\item[{const double}]{len}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classMirror_a07555306d244772a41b160e905e14af4}
+
+
+Modifie la longueur du miroir. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em len} & la nouvelle longueur du miroir. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classMirror_a667e427c4d466d0a40715f5584977b53}{\index{Mirror@{Mirror}!set\+\_\+max@{set\+\_\+max}}
+\index{set\+\_\+max@{set\+\_\+max}!Mirror@{Mirror}}
+\subsubsection[{set\+\_\+max}]{\setlength{\rightskip}{0pt plus 5cm}void Mirror\+::set\+\_\+max (
+\begin{DoxyParamCaption}
+\item[{const {\bf Point} \&}]{max}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classMirror_a667e427c4d466d0a40715f5584977b53}
+
+
+Modifie la position maximale du miroir. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em max} & le point maximum. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classMirror_a6abbc2665d17f8959191ec5b867f4d65}{\index{Mirror@{Mirror}!set\+\_\+min@{set\+\_\+min}}
+\index{set\+\_\+min@{set\+\_\+min}!Mirror@{Mirror}}
+\subsubsection[{set\+\_\+min}]{\setlength{\rightskip}{0pt plus 5cm}void Mirror\+::set\+\_\+min (
+\begin{DoxyParamCaption}
+\item[{const {\bf Point} \&}]{min}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classMirror_a6abbc2665d17f8959191ec5b867f4d65}
+
+
+Modifie la position minimale du miroir. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em min} & le point minimum. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classMirror_ae092fb48cbf523d50fa97c6b7fe149da}{\index{Mirror@{Mirror}!set\+\_\+movable@{set\+\_\+movable}}
+\index{set\+\_\+movable@{set\+\_\+movable}!Mirror@{Mirror}}
+\subsubsection[{set\+\_\+movable}]{\setlength{\rightskip}{0pt plus 5cm}void Mirror\+::set\+\_\+movable (
+\begin{DoxyParamCaption}
+\item[{const bool}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classMirror_ae092fb48cbf523d50fa97c6b7fe149da}
+
+
+Modifie le comportement du miroir. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em value} & vrai si le miroir peut être déplacé ou tourné, faux sinon. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classMirror_a86285a234fb321578939d3f7597bfe6d}{\index{Mirror@{Mirror}!set\+\_\+pivot@{set\+\_\+pivot}}
+\index{set\+\_\+pivot@{set\+\_\+pivot}!Mirror@{Mirror}}
+\subsubsection[{set\+\_\+pivot}]{\setlength{\rightskip}{0pt plus 5cm}bool Mirror\+::set\+\_\+pivot (
+\begin{DoxyParamCaption}
+\item[{const {\bf Point} \&}]{pivot}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classMirror_a86285a234fb321578939d3f7597bfe6d}
+
+
+Déplace le miroir en la position donnée, si c'est autorisé. 
+
+Retourne vrai si le déplacement a été effectué correctement, retourne faux sinon. \begin{DoxyReturn}{Renvoie}
+vrai si le déplacement a été effectué correctement, retourne faux sinon. 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{Voir également}
+Mirror\+::get\+Pivot() 
+\end{DoxySeeAlso}
+\hypertarget{classMirror_a5abdb9ac393b5c4e78399567bd44fc1f}{\index{Mirror@{Mirror}!set\+\_\+xpad@{set\+\_\+xpad}}
+\index{set\+\_\+xpad@{set\+\_\+xpad}!Mirror@{Mirror}}
+\subsubsection[{set\+\_\+xpad}]{\setlength{\rightskip}{0pt plus 5cm}void Mirror\+::set\+\_\+xpad (
+\begin{DoxyParamCaption}
+\item[{const double}]{x}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classMirror_a5abdb9ac393b5c4e78399567bd44fc1f}
+
+
+Modifie le décalage du pivot par rapport au bord gauche du miroir. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em x} & le nouveau décalage. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classMirror_a12183555b25eb6768af659a11054beec}{\index{Mirror@{Mirror}!to\+\_\+line\+\_\+segment@{to\+\_\+line\+\_\+segment}}
+\index{to\+\_\+line\+\_\+segment@{to\+\_\+line\+\_\+segment}!Mirror@{Mirror}}
+\subsubsection[{to\+\_\+line\+\_\+segment}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Line\+Segment} Mirror\+::to\+\_\+line\+\_\+segment (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classMirror_a12183555b25eb6768af659a11054beec}
+
+
+Renvoie le segment correspondant au miroir. 
+
+\begin{DoxyReturn}{Renvoie}
+le segment correspondant au miroir. 
+\end{DoxyReturn}
+\hypertarget{classMirror_a6d2968b4e4baed86fa28c353feeb1a6b}{\index{Mirror@{Mirror}!translate@{translate}}
+\index{translate@{translate}!Mirror@{Mirror}}
+\subsubsection[{translate}]{\setlength{\rightskip}{0pt plus 5cm}void Mirror\+::translate (
+\begin{DoxyParamCaption}
+\item[{const double}]{x, }
+\item[{const double}]{y}
+\end{DoxyParamCaption}
+)}}\label{classMirror_a6d2968b4e4baed86fa28c353feeb1a6b}
+
+
+Déplace le pivot par rapport à une ordonnée et une abscisse. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em x} & l'abscisse. \\
+\hline
+{\em y} & l'ordonnée. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classMirror_aa3ec313ce158d894e084065c2eaa8cb8}{\index{Mirror@{Mirror}!x\+\_\+pad@{x\+\_\+pad}}
+\index{x\+\_\+pad@{x\+\_\+pad}!Mirror@{Mirror}}
+\subsubsection[{x\+\_\+pad}]{\setlength{\rightskip}{0pt plus 5cm}double Mirror\+::x\+\_\+pad (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classMirror_aa3ec313ce158d894e084065c2eaa8cb8}
+
+
+Retourne le décalage du pivot par rapport au bord gauche du miroir. 
+
+\begin{DoxyReturn}{Renvoie}
+le décalage du pivot par rapport au bord gauche du miroir. 
+\end{DoxyReturn}
+
+
+\subsection{Documentation des fonctions amies et associées}
+\hypertarget{classMirror_a18a9b61e5b925d085bd1560fcf289b0c}{\index{Mirror@{Mirror}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Mirror@{Mirror}}
+\subsubsection[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}std\+::ostream\& operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{std\+::ostream \&}]{out, }
+\item[{const {\bf Mirror} \&}]{m}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [friend]}}}\label{classMirror_a18a9b61e5b925d085bd1560fcf289b0c}
+
+
+Surcharge l'opérateur de flux de sortie pour afficher un récapitulatif des caractéristiques du miroir sous-\/jacent en console. 
+
+\begin{DoxyReturn}{Renvoie}
+le flux dans lequel le miroir a été imprimé 
+\end{DoxyReturn}
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+model/mirror.\+h\item 
+model/mirror.\+cpp\end{DoxyCompactItemize}

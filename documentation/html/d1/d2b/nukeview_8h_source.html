@@ -116,45 +116,42 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                <span class="keyword">const</span> std::string&amp; msg,</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                <span class="keyword">const</span> std::vector&lt;std::string&gt;&amp; args) <span class="keyword">override</span>;</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordtype">void</span> set_rect();</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;};</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment">/* Fonctions inlines */</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
-<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="../../d1/dba/classNukeView.html#a8bf8e524e5627138ed6c028cb4b87d2b">   58</a></span>&#160;<a class="code" href="../../d0/ddf/classNuke.html">Nuke</a> * <a class="code" href="../../d1/dba/classNukeView.html#a8bf8e524e5627138ed6c028cb4b87d2b">NukeView::nuke</a>()</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;{</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordflow">return</span> nuke_;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;}</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
-<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="../../d1/dba/classNukeView.html#a70589619df5713cadcc47f399fae6e00">   63</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="../../d1/dba/classNukeView.html#a70589619df5713cadcc47f399fae6e00">NukeView::selectable</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordflow">return</span> selectable_;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;}</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
-<div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="../../d1/dba/classNukeView.html#ab3761858ebbe1f6dcde7813c4118bfd0">   68</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d1/dba/classNukeView.html#ab3761858ebbe1f6dcde7813c4118bfd0">NukeView::set_selectable</a>(<span class="keywordtype">bool</span> value)</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;{</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    selectable_ = value;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    setFlag(QGraphicsItem::ItemIsSelectable, this-&gt;selectable_);</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;}</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="preprocessor">#endif // NUKESVIEW_H</span></div>
-<div class="ttc" id="classNukeView_html_ab5743729fc4659e2cd670d42800c9856"><div class="ttname"><a href="../../d1/dba/classNukeView.html#ab5743729fc4659e2cd670d42800c9856">NukeView::translate</a></div><div class="ttdeci">void translate(const double x=.0, const double y=.0) override</div><div class="ttdoc">Effectue une translation de l’objet sur l’axe des abscisses et des ordonnées. </div><div class="ttdef"><b>Definition:</b> nukeview.cpp:36</div></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;};</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment">/* Fonctions inlines */</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="../../d1/dba/classNukeView.html#a8bf8e524e5627138ed6c028cb4b87d2b">   55</a></span>&#160;<a class="code" href="../../d0/ddf/classNuke.html">Nuke</a> * <a class="code" href="../../d1/dba/classNukeView.html#a8bf8e524e5627138ed6c028cb4b87d2b">NukeView::nuke</a>()</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;{</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordflow">return</span> nuke_;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;}</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="../../d1/dba/classNukeView.html#a70589619df5713cadcc47f399fae6e00">   60</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="../../d1/dba/classNukeView.html#a70589619df5713cadcc47f399fae6e00">NukeView::selectable</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordflow">return</span> selectable_;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;}</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
+<div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="../../d1/dba/classNukeView.html#ab3761858ebbe1f6dcde7813c4118bfd0">   65</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d1/dba/classNukeView.html#ab3761858ebbe1f6dcde7813c4118bfd0">NukeView::set_selectable</a>(<span class="keywordtype">bool</span> value)</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;{</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    selectable_ = value;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    setFlag(QGraphicsItem::ItemIsSelectable, this-&gt;selectable_);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;}</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="preprocessor">#endif // NUKESVIEW_H</span></div>
+<div class="ttc" id="classNukeView_html_ab5743729fc4659e2cd670d42800c9856"><div class="ttname"><a href="../../d1/dba/classNukeView.html#ab5743729fc4659e2cd670d42800c9856">NukeView::translate</a></div><div class="ttdeci">void translate(const double x=.0, const double y=.0) override</div><div class="ttdoc">Effectue une translation de l’objet sur l’axe des abscisses et des ordonnées. </div><div class="ttdef"><b>Definition:</b> nukeview.cpp:38</div></div>
 <div class="ttc" id="classObserverInterface_html"><div class="ttname"><a href="../../dd/d62/classObserverInterface.html">ObserverInterface</a></div><div class="ttdoc">Interface représentant un observateur. </div><div class="ttdef"><b>Definition:</b> observerinterface.h:16</div></div>
-<div class="ttc" id="classNukeView_html_ab3761858ebbe1f6dcde7813c4118bfd0"><div class="ttname"><a href="../../d1/dba/classNukeView.html#ab3761858ebbe1f6dcde7813c4118bfd0">NukeView::set_selectable</a></div><div class="ttdeci">void set_selectable(bool value)</div><div class="ttdoc">Rend la bombe sélectionnable ou non. </div><div class="ttdef"><b>Definition:</b> nukeview.h:68</div></div>
+<div class="ttc" id="classNukeView_html_ab3761858ebbe1f6dcde7813c4118bfd0"><div class="ttname"><a href="../../d1/dba/classNukeView.html#ab3761858ebbe1f6dcde7813c4118bfd0">NukeView::set_selectable</a></div><div class="ttdeci">void set_selectable(bool value)</div><div class="ttdoc">Rend la bombe sélectionnable ou non. </div><div class="ttdef"><b>Definition:</b> nukeview.h:65</div></div>
 <div class="ttc" id="classElementView_html"><div class="ttname"><a href="../../d2/d81/classElementView.html">ElementView</a></div><div class="ttdoc">Cette classe sert de super-classe à tous les éléments visuels avec lesquels un rayon peut interagir...</div><div class="ttdef"><b>Definition:</b> elementview.h:16</div></div>
-<div class="ttc" id="classNukeView_html_a9bb87e648efa96308058a68748e53a41"><div class="ttname"><a href="../../d1/dba/classNukeView.html#a9bb87e648efa96308058a68748e53a41">NukeView::NukeView</a></div><div class="ttdeci">NukeView(const Nuke &amp;nuke, bool selectable=false)</div><div class="ttdoc">Instancie une vue représentant une bombe. </div><div class="ttdef"><b>Definition:</b> nukeview.cpp:6</div></div>
-<div class="ttc" id="classNukeView_html_a8bf8e524e5627138ed6c028cb4b87d2b"><div class="ttname"><a href="../../d1/dba/classNukeView.html#a8bf8e524e5627138ed6c028cb4b87d2b">NukeView::nuke</a></div><div class="ttdeci">Nuke * nuke()</div><div class="ttdoc">Renvoie la bombe représentée. </div><div class="ttdef"><b>Definition:</b> nukeview.h:58</div></div>
-<div class="ttc" id="classNukeView_html_af45ef374496a0ef5b3d595ab1e5fba20"><div class="ttname"><a href="../../d1/dba/classNukeView.html#af45ef374496a0ef5b3d595ab1e5fba20">NukeView::notify</a></div><div class="ttdeci">void notify(Observable *o, const std::string &amp;msg, const std::vector&lt; std::string &gt; &amp;args) override</div><div class="ttdoc">Notifie le jeu d&#39;un évènement provenant d&#39;un sujet d&#39;observation (Observable). </div><div class="ttdef"><b>Definition:</b> nukeview.cpp:21</div></div>
+<div class="ttc" id="classNukeView_html_a9bb87e648efa96308058a68748e53a41"><div class="ttname"><a href="../../d1/dba/classNukeView.html#a9bb87e648efa96308058a68748e53a41">NukeView::NukeView</a></div><div class="ttdeci">NukeView(const Nuke &amp;nuke, bool selectable=false)</div><div class="ttdoc">Instancie une vue représentant une bombe. </div><div class="ttdef"><b>Definition:</b> nukeview.cpp:8</div></div>
+<div class="ttc" id="classNukeView_html_a8bf8e524e5627138ed6c028cb4b87d2b"><div class="ttname"><a href="../../d1/dba/classNukeView.html#a8bf8e524e5627138ed6c028cb4b87d2b">NukeView::nuke</a></div><div class="ttdeci">Nuke * nuke()</div><div class="ttdoc">Renvoie la bombe représentée. </div><div class="ttdef"><b>Definition:</b> nukeview.h:55</div></div>
+<div class="ttc" id="classNukeView_html_af45ef374496a0ef5b3d595ab1e5fba20"><div class="ttname"><a href="../../d1/dba/classNukeView.html#af45ef374496a0ef5b3d595ab1e5fba20">NukeView::notify</a></div><div class="ttdeci">void notify(Observable *o, const std::string &amp;msg, const std::vector&lt; std::string &gt; &amp;args) override</div><div class="ttdoc">Notifie le jeu d&#39;un évènement provenant d&#39;un sujet d&#39;observation (Observable). </div><div class="ttdef"><b>Definition:</b> nukeview.cpp:23</div></div>
 <div class="ttc" id="classNuke_html"><div class="ttname"><a href="../../d0/ddf/classNuke.html">Nuke</a></div><div class="ttdoc">Cette classe modélise les bombes utilisées dans le jeu. </div><div class="ttdef"><b>Definition:</b> nuke.h:16</div></div>
-<div class="ttc" id="classNukeView_html_a70589619df5713cadcc47f399fae6e00"><div class="ttname"><a href="../../d1/dba/classNukeView.html#a70589619df5713cadcc47f399fae6e00">NukeView::selectable</a></div><div class="ttdeci">bool selectable() const </div><div class="ttdoc">Retourne vrai si la bombe est sélectionnable, faux sinon. </div><div class="ttdef"><b>Definition:</b> nukeview.h:63</div></div>
+<div class="ttc" id="classNukeView_html_a70589619df5713cadcc47f399fae6e00"><div class="ttname"><a href="../../d1/dba/classNukeView.html#a70589619df5713cadcc47f399fae6e00">NukeView::selectable</a></div><div class="ttdeci">bool selectable() const </div><div class="ttdoc">Retourne vrai si la bombe est sélectionnable, faux sinon. </div><div class="ttdef"><b>Definition:</b> nukeview.h:60</div></div>
 <div class="ttc" id="classObservable_html"><div class="ttname"><a href="../../d9/db4/classObservable.html">Observable</a></div><div class="ttdoc">Classe représentant un élément observable pouvant notifié des observateurs. </div><div class="ttdef"><b>Definition:</b> observable.h:14</div></div>
 <div class="ttc" id="classNukeView_html"><div class="ttname"><a href="../../d1/dba/classNukeView.html">NukeView</a></div><div class="ttdoc">Modélisation visuelle d’une bombe. </div><div class="ttdef"><b>Definition:</b> nukeview.h:14</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Généré le Jeudi 23 Avril 2015 21:29:05 pour Starlight par &#160;<a href="http://www.doxygen.org/index.html">
+Généré le Jeudi 23 Avril 2015 22:17:08 pour Starlight par &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.7
 </small></address>

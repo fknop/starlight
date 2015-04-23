@@ -1,0 +1,323 @@
+\hypertarget{classSource}{\section{Référence de la classe Source}
+\label{classSource}\index{Source@{Source}}
+}
+
+
+Modélise la source lumineuse utilisée dans le jeu.  
+
+
+
+
+{\ttfamily \#include $<$source.\+h$>$}
+
+
+
+Graphe d'héritage de Source\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=186pt]{da/d95/classSource__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Graphe de collaboration de Source\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=186pt]{d1/d35/classSource__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classSource_a25946b40bbfdcd0edb76b76f1ed6ba1c}{Source} (const \hyperlink{classPoint}{Point} \&p, double e, double a, int wl)
+\begin{DoxyCompactList}\small\item\em Instancie une nouvelle source de position, de côté et de longueur d'onde donnés. \end{DoxyCompactList}\item 
+const \hyperlink{classPoint}{Point} \& \hyperlink{classSource_a76bacb281440bb9e6454a2aea0130aa1}{pos} () const 
+\begin{DoxyCompactList}\small\item\em Retourne la coordonnée du coin supérieur gauche du carré modélisant la source. \end{DoxyCompactList}\item 
+double \hyperlink{classSource_ab31305003e1300e56d0175e72daac9fa}{angle} () const 
+\begin{DoxyCompactList}\small\item\em Retourne l'angle du rayon émis. \end{DoxyCompactList}\item 
+int \hyperlink{classSource_a1b9bee6ad0a5d80e99ec9dd4d6ef1cae}{edge} () const 
+\begin{DoxyCompactList}\small\item\em Retourne la longueur du côté du carré. \end{DoxyCompactList}\item 
+int \hyperlink{classSource_a6f8e7736f57e83a6abc682d166e1dc9c}{wavelength} () const 
+\begin{DoxyCompactList}\small\item\em Retourne la longueur d'onde du rayon émis. \end{DoxyCompactList}\item 
+bool \hyperlink{classSource_a99bdb664ff91a622ca25306d394baed8}{on} () const 
+\begin{DoxyCompactList}\small\item\em Retourne vrai si la source émet un rayon lumineux, faux sinon. \end{DoxyCompactList}\item 
+void \hyperlink{classSource_a32feea9470d5175de1509a228eb10f56}{set\+\_\+on} (bool q)
+\begin{DoxyCompactList}\small\item\em Allume ou éteint la source. \end{DoxyCompactList}\item 
+void \hyperlink{classSource_a23ddbdb1c598e1b5b436b587ef034602}{set\+\_\+pos} (\hyperlink{classPoint}{Point} p)
+\begin{DoxyCompactList}\small\item\em Modifie la coordonnée du coin supérieur gauche du carré représenant la source. \end{DoxyCompactList}\item 
+void \hyperlink{classSource_a735c759b95b222a9a8e78a190125c70b}{set\+\_\+edge} (double \hyperlink{classSource_a1b9bee6ad0a5d80e99ec9dd4d6ef1cae}{edge})
+\begin{DoxyCompactList}\small\item\em Modifie la longueur du côté du carré représentant la source. \end{DoxyCompactList}\item 
+void \hyperlink{classSource_a67095cf21061988628339761d1496c18}{set\+\_\+alpha} (double \hyperlink{classSource_ab31305003e1300e56d0175e72daac9fa}{angle})
+\begin{DoxyCompactList}\small\item\em Modifie l’angle du rayon émis. \end{DoxyCompactList}\item 
+void \hyperlink{classSource_ac532d06d465419347681aa30c9af8b78}{set\+\_\+wavelength} (double wl)
+\begin{DoxyCompactList}\small\item\em Modifie la longueur d’onde du rayon émis. \end{DoxyCompactList}\item 
+\hyperlink{classRectangle}{Rectangle} \hyperlink{classSource_a7bf9d713bd710606dcba3f249d20f489}{to\+\_\+rectangle} ()
+\begin{DoxyCompactList}\small\item\em Retourne le rectangle correspondant à la source. \end{DoxyCompactList}\item 
+void \hyperlink{classSource_a7f2bdc504f734a24cf67337a15a9e412}{translate} (double x, double y)
+\begin{DoxyCompactList}\small\item\em Déplace la source. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Amis}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& \hyperlink{classSource_a8d511bf7c5356d4566edef44d3879786}{operator$<$$<$} (std\+::ostream \&out, const \hyperlink{classSource}{Source} \&s)
+\begin{DoxyCompactList}\small\item\em Surcharge l'opérateur de flux de sortie pour afficher un récapitulatif des caractéristiques de la source sous-\/jacente en console. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Membres hérités additionnels}
+
+
+\subsection{Description détaillée}
+Modélise la source lumineuse utilisée dans le jeu. 
+
+La source est un objet carré qui, si allumée, émet un rayon lumineux de longueur d'onde donnée dont l'angle ne peut pas être changé. 
+
+Le rayon lumineux est émis depuis la position, i.\+e., le coin supérieur gauche, de la source. 
+
+\subsection{Documentation des constructeurs et destructeur}
+\hypertarget{classSource_a25946b40bbfdcd0edb76b76f1ed6ba1c}{\index{Source@{Source}!Source@{Source}}
+\index{Source@{Source}!Source@{Source}}
+\subsubsection[{Source}]{\setlength{\rightskip}{0pt plus 5cm}Source\+::\+Source (
+\begin{DoxyParamCaption}
+\item[{const {\bf Point} \&}]{p, }
+\item[{double}]{e, }
+\item[{double}]{a, }
+\item[{int}]{wl}
+\end{DoxyParamCaption}
+)}}\label{classSource_a25946b40bbfdcd0edb76b76f1ed6ba1c}
+
+
+Instancie une nouvelle source de position, de côté et de longueur d'onde donnés. 
+
+La position dénote la coordonnée du coin supérieur gauche du carré modélisant la source. 
+
+La source est initialement éteinte. 
+
+Si la longueur d'onde du rayon lumineux émis n'est pas comprise entre 360 nm et 830 nm, elle est réglée sur 600 nm. 
+\begin{DoxyParams}{Paramètres}
+{\em p} & la position de la source. \\
+\hline
+{\em e} & la longueur du côté de la source. \\
+\hline
+{\em a} & l’angle d’émission de la source. \\
+\hline
+{\em wl} & la longueur d'onde du rayon lumineux émis. \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{Voir également}
+\hyperlink{classRay_afecf2fa5a603689c3e77cbefbe08ffb1}{Ray\+::\+W\+L\+\_\+\+M\+I\+N} 
+
+\hyperlink{classRay_a95eddd74f049d2511ffa09242b937b2c}{Ray\+::\+W\+L\+\_\+\+M\+A\+X} 
+
+\hyperlink{classRay_aa08b1d2a9423fab3502c460d787b7551}{Ray\+::\+W\+L\+\_\+\+D\+F\+T} 
+\end{DoxySeeAlso}
+
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{classSource_ab31305003e1300e56d0175e72daac9fa}{\index{Source@{Source}!angle@{angle}}
+\index{angle@{angle}!Source@{Source}}
+\subsubsection[{angle}]{\setlength{\rightskip}{0pt plus 5cm}double Source\+::angle (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classSource_ab31305003e1300e56d0175e72daac9fa}
+
+
+Retourne l'angle du rayon émis. 
+
+\begin{DoxyReturn}{Renvoie}
+l'angle du rayon émis. 
+\end{DoxyReturn}
+\hypertarget{classSource_a1b9bee6ad0a5d80e99ec9dd4d6ef1cae}{\index{Source@{Source}!edge@{edge}}
+\index{edge@{edge}!Source@{Source}}
+\subsubsection[{edge}]{\setlength{\rightskip}{0pt plus 5cm}int Source\+::edge (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classSource_a1b9bee6ad0a5d80e99ec9dd4d6ef1cae}
+
+
+Retourne la longueur du côté du carré. 
+
+\begin{DoxyReturn}{Renvoie}
+la longueur du côté du carré. 
+\end{DoxyReturn}
+\hypertarget{classSource_a99bdb664ff91a622ca25306d394baed8}{\index{Source@{Source}!on@{on}}
+\index{on@{on}!Source@{Source}}
+\subsubsection[{on}]{\setlength{\rightskip}{0pt plus 5cm}bool Source\+::on (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classSource_a99bdb664ff91a622ca25306d394baed8}
+
+
+Retourne vrai si la source émet un rayon lumineux, faux sinon. 
+
+\begin{DoxyReturn}{Renvoie}
+vrai si la source émet un rayon lumineux, faux sinon. 
+\end{DoxyReturn}
+\hypertarget{classSource_a76bacb281440bb9e6454a2aea0130aa1}{\index{Source@{Source}!pos@{pos}}
+\index{pos@{pos}!Source@{Source}}
+\subsubsection[{pos}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Point} \& Source\+::pos (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classSource_a76bacb281440bb9e6454a2aea0130aa1}
+
+
+Retourne la coordonnée du coin supérieur gauche du carré modélisant la source. 
+
+\begin{DoxyReturn}{Renvoie}
+la coordonnée du coin supérieur gauche du carré modélisant la source. 
+\end{DoxyReturn}
+\hypertarget{classSource_a67095cf21061988628339761d1496c18}{\index{Source@{Source}!set\+\_\+alpha@{set\+\_\+alpha}}
+\index{set\+\_\+alpha@{set\+\_\+alpha}!Source@{Source}}
+\subsubsection[{set\+\_\+alpha}]{\setlength{\rightskip}{0pt plus 5cm}void Source\+::set\+\_\+alpha (
+\begin{DoxyParamCaption}
+\item[{double}]{angle}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classSource_a67095cf21061988628339761d1496c18}
+
+
+Modifie l’angle du rayon émis. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em angle} & le nouvel angle du rayon émis. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classSource_a735c759b95b222a9a8e78a190125c70b}{\index{Source@{Source}!set\+\_\+edge@{set\+\_\+edge}}
+\index{set\+\_\+edge@{set\+\_\+edge}!Source@{Source}}
+\subsubsection[{set\+\_\+edge}]{\setlength{\rightskip}{0pt plus 5cm}void Source\+::set\+\_\+edge (
+\begin{DoxyParamCaption}
+\item[{double}]{edge}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classSource_a735c759b95b222a9a8e78a190125c70b}
+
+
+Modifie la longueur du côté du carré représentant la source. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em edge} & la nouvelle longueur du côté du carré représentant la source. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classSource_a32feea9470d5175de1509a228eb10f56}{\index{Source@{Source}!set\+\_\+on@{set\+\_\+on}}
+\index{set\+\_\+on@{set\+\_\+on}!Source@{Source}}
+\subsubsection[{set\+\_\+on}]{\setlength{\rightskip}{0pt plus 5cm}void Source\+::set\+\_\+on (
+\begin{DoxyParamCaption}
+\item[{bool}]{q}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classSource_a32feea9470d5175de1509a228eb10f56}
+
+
+Allume ou éteint la source. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em q} & vrai si la source doit être allumée, faux sinon. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classSource_a23ddbdb1c598e1b5b436b587ef034602}{\index{Source@{Source}!set\+\_\+pos@{set\+\_\+pos}}
+\index{set\+\_\+pos@{set\+\_\+pos}!Source@{Source}}
+\subsubsection[{set\+\_\+pos}]{\setlength{\rightskip}{0pt plus 5cm}void Source\+::set\+\_\+pos (
+\begin{DoxyParamCaption}
+\item[{{\bf Point}}]{p}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classSource_a23ddbdb1c598e1b5b436b587ef034602}
+
+
+Modifie la coordonnée du coin supérieur gauche du carré représenant la source. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em p} & la nouvelle coordonnée du coin supérieur gauche du carré représentant la source. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classSource_ac532d06d465419347681aa30c9af8b78}{\index{Source@{Source}!set\+\_\+wavelength@{set\+\_\+wavelength}}
+\index{set\+\_\+wavelength@{set\+\_\+wavelength}!Source@{Source}}
+\subsubsection[{set\+\_\+wavelength}]{\setlength{\rightskip}{0pt plus 5cm}void Source\+::set\+\_\+wavelength (
+\begin{DoxyParamCaption}
+\item[{double}]{wl}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classSource_ac532d06d465419347681aa30c9af8b78}
+
+
+Modifie la longueur d’onde du rayon émis. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em wl} & la nouvelle longueur d’onde du rayon émis. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classSource_a7bf9d713bd710606dcba3f249d20f489}{\index{Source@{Source}!to\+\_\+rectangle@{to\+\_\+rectangle}}
+\index{to\+\_\+rectangle@{to\+\_\+rectangle}!Source@{Source}}
+\subsubsection[{to\+\_\+rectangle}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Rectangle} Source\+::to\+\_\+rectangle (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classSource_a7bf9d713bd710606dcba3f249d20f489}
+
+
+Retourne le rectangle correspondant à la source. 
+
+\begin{DoxyReturn}{Renvoie}
+le rectangle correspondant à la source. 
+\end{DoxyReturn}
+\hypertarget{classSource_a7f2bdc504f734a24cf67337a15a9e412}{\index{Source@{Source}!translate@{translate}}
+\index{translate@{translate}!Source@{Source}}
+\subsubsection[{translate}]{\setlength{\rightskip}{0pt plus 5cm}void Source\+::translate (
+\begin{DoxyParamCaption}
+\item[{double}]{x, }
+\item[{double}]{y}
+\end{DoxyParamCaption}
+)}}\label{classSource_a7f2bdc504f734a24cf67337a15a9e412}
+
+
+Déplace la source. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em x} & le déplacement sur l'axe des x. \\
+\hline
+{\em y} & le déplacement sur l'axe des y. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classSource_a6f8e7736f57e83a6abc682d166e1dc9c}{\index{Source@{Source}!wavelength@{wavelength}}
+\index{wavelength@{wavelength}!Source@{Source}}
+\subsubsection[{wavelength}]{\setlength{\rightskip}{0pt plus 5cm}int Source\+::wavelength (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classSource_a6f8e7736f57e83a6abc682d166e1dc9c}
+
+
+Retourne la longueur d'onde du rayon émis. 
+
+\begin{DoxyReturn}{Renvoie}
+la longueur d'onde du rayon émis. 
+\end{DoxyReturn}
+
+
+\subsection{Documentation des fonctions amies et associées}
+\hypertarget{classSource_a8d511bf7c5356d4566edef44d3879786}{\index{Source@{Source}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Source@{Source}}
+\subsubsection[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}std\+::ostream\& operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{std\+::ostream \&}]{out, }
+\item[{const {\bf Source} \&}]{s}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [friend]}}}\label{classSource_a8d511bf7c5356d4566edef44d3879786}
+
+
+Surcharge l'opérateur de flux de sortie pour afficher un récapitulatif des caractéristiques de la source sous-\/jacente en console. 
+
+\begin{DoxyReturn}{Renvoie}
+le flux dans lequel la source a été imprimée. 
+\end{DoxyReturn}
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+model/source.\+h\item 
+model/source.\+cpp\end{DoxyCompactItemize}

@@ -5,7 +5,7 @@ var searchData=
   ['lenses',['lenses',['../d2/d9d/classLevel.html#aca6b1af0d4c00c50922bcc1af73f102b',1,'Level']]],
   ['lensprop',['LensProp',['../dd/d8c/classLensProp.html#a2a9f54d768d72f8ad69e1572259d2a85',1,'LensProp']]],
   ['lensview',['LensView',['../d6/da9/classLensView.html#a678ca25c84417e53af04258d27e5979a',1,'LensView']]],
-  ['level',['level',['../d3/d48/classElements.html#add91eac75df596342176acac4eb8b1a1',1,'Elements::level()'],['../dd/d23/classMapReader.html#ac46cce595afc102320f6e73bb0748761',1,'MapReader::level()'],['../d2/d9d/classLevel.html#a36092f5c2dc5d1cace19cbdea946b1a4',1,'Level::Level()']]],
+  ['level',['level',['../dd/d23/classMapReader.html#ac46cce595afc102320f6e73bb0748761',1,'MapReader::level()'],['../d2/d9d/classLevel.html#a36092f5c2dc5d1cace19cbdea946b1a4',1,'Level::Level()']]],
   ['lighted_5fup',['lighted_up',['../de/d97/classDest.html#af549b51a5ddf4cbdab7e95e0e07ee5d4',1,'Dest::lighted_up()'],['../d0/ddf/classNuke.html#a27bece8a254df670b90755f42a8d9bb4',1,'Nuke::lighted_up()']]],
   ['line',['Line',['../db/db6/classLine.html#aba5e77c92e5e6932e90d0c083e6509e5',1,'Line::Line(double a, double b, double c)'],['../db/db6/classLine.html#a0ec34f80a43014768ec228bfa87fd15f',1,'Line::Line(const Point &amp;a, const Point &amp;b)'],['../db/db6/classLine.html#a30f99e975efe2a498c2d8ad7c9d1cdf2',1,'Line::Line(const Point &amp;p, double alpha)']]],
   ['linesegment',['LineSegment',['../d1/d48/classLineSegment.html#a3873183b7bae15250c6d616247cd099b',1,'LineSegment']]],

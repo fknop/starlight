@@ -1,0 +1,133 @@
+\hypertarget{classElementView}{\section{Référence de la classe Element\+View}
+\label{classElementView}\index{Element\+View@{Element\+View}}
+}
+
+
+Cette classe sert de super-\/classe à tous les éléments visuels avec lesquels un rayon peut interagir.  
+
+
+
+
+{\ttfamily \#include $<$elementview.\+h$>$}
+
+
+
+Graphe d'héritage de Element\+View\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d8/d16/classElementView__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Graphe de collaboration de Element\+View\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=174pt]{d3/d60/classElementView__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Types publics}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classElementView_ae8b9890c6c8501a7a759896cae9ab7a6}{enum \hyperlink{classElementView_ae8b9890c6c8501a7a759896cae9ab7a6}{Type\+View} \{ \\*
+{\bfseries C\+R\+Y\+S\+T\+A\+L\+V\+I\+E\+W}, 
+{\bfseries D\+E\+S\+T\+V\+I\+E\+W}, 
+{\bfseries L\+E\+N\+S\+V\+I\+E\+W}, 
+{\bfseries M\+I\+R\+R\+O\+R\+V\+I\+E\+W}, 
+\\*
+{\bfseries N\+U\+K\+E\+V\+I\+E\+W}, 
+{\bfseries S\+O\+U\+R\+C\+E\+V\+I\+E\+W}, 
+{\bfseries W\+A\+L\+L\+V\+I\+E\+W}
+ \}}\label{classElementView_ae8b9890c6c8501a7a759896cae9ab7a6}
+
+\begin{DoxyCompactList}\small\item\em Enumération fortement typée reprenant le type de la vue. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classElementView_adb918caf5a5fcc4bd945cd3cd2596f8c}{\hyperlink{classElementView_adb918caf5a5fcc4bd945cd3cd2596f8c}{Element\+View} (\hyperlink{classElementView_ae8b9890c6c8501a7a759896cae9ab7a6}{Element\+View\+::\+Type\+View})}\label{classElementView_adb918caf5a5fcc4bd945cd3cd2596f8c}
+
+\begin{DoxyCompactList}\small\item\em Construit un élément avec un type permettant de connaître le type de l'élément à tout moment. \end{DoxyCompactList}\item 
+const \hyperlink{classElementView_ae8b9890c6c8501a7a759896cae9ab7a6}{Type\+View} \& \hyperlink{classElementView_a30b7a26b428be68dcc4d8f72a0f9cd0b}{type\+\_\+view} () const 
+\begin{DoxyCompactList}\small\item\em Retourne le type de l'élément. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classElementView_a18589409290f23edffdaeccdd7acb015}{rotate} (const double r)
+\begin{DoxyCompactList}\small\item\em Effectue une rotation d’un objet à l’aide d’un angle en radians. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classElementView_a69a525cb674a36e33be6a8b7a6e4b83c}{translate} (const double x, const double y)
+\begin{DoxyCompactList}\small\item\em Effectue une translation de l’objet sur l’axe des abscisses et des ordonnées. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+Cette classe sert de super-\/classe à tous les éléments visuels avec lesquels un rayon peut interagir. 
+
+Il s'agit plus d'une classe \char`\"{}\+T\+A\+G\char`\"{} pour retrouver le type d'un élément visuel. \begin{DoxySeeAlso}{Voir également}
+\hyperlink{element_8h_source}{model/element.\+h} pour son équivalent modèle. 
+\end{DoxySeeAlso}
+
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{classElementView_a18589409290f23edffdaeccdd7acb015}{\index{Element\+View@{Element\+View}!rotate@{rotate}}
+\index{rotate@{rotate}!Element\+View@{Element\+View}}
+\subsubsection[{rotate}]{\setlength{\rightskip}{0pt plus 5cm}void Element\+View\+::rotate (
+\begin{DoxyParamCaption}
+\item[{const double}]{r}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classElementView_a18589409290f23edffdaeccdd7acb015}
+
+
+Effectue une rotation d’un objet à l’aide d’un angle en radians. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em r} & angle en radian dont il faut faire pivoter l’objet. \\
+\hline
+\end{DoxyParams}
+
+
+Réimplémentée dans \hyperlink{classMirrorView_aade5e65f7f7b4e0941bcaea616a60ac8}{Mirror\+View}, et \hyperlink{classWallView_a418bfa06482ecd61cd07533de32be0f1}{Wall\+View}.
+
+\hypertarget{classElementView_a69a525cb674a36e33be6a8b7a6e4b83c}{\index{Element\+View@{Element\+View}!translate@{translate}}
+\index{translate@{translate}!Element\+View@{Element\+View}}
+\subsubsection[{translate}]{\setlength{\rightskip}{0pt plus 5cm}void Element\+View\+::translate (
+\begin{DoxyParamCaption}
+\item[{const double}]{x, }
+\item[{const double}]{y}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classElementView_a69a525cb674a36e33be6a8b7a6e4b83c}
+
+
+Effectue une translation de l’objet sur l’axe des abscisses et des ordonnées. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em x} & la translation sur l’axe des abscisses. \\
+\hline
+{\em y} & la translation sur l’axe des ordonnées. \\
+\hline
+\end{DoxyParams}
+
+
+Réimplémentée dans \hyperlink{classMirrorView_a4800c0c0ac2e7f7bfb3558f0f0dc25c2}{Mirror\+View}, \hyperlink{classSourceView_a96144eb5f08c6dc6b378fa604bb626a2}{Source\+View}, \hyperlink{classDestinationView_afd76d91b06a337ff123ad34af4fb25dd}{Destination\+View}, \hyperlink{classCrystalView_a68f3f631351dce437a2c3ff86385e064}{Crystal\+View}, \hyperlink{classNukeView_ab5743729fc4659e2cd670d42800c9856}{Nuke\+View}, \hyperlink{classWallView_addb0495d120d6dfccd37cc0d65f32660}{Wall\+View}, et \hyperlink{classLensView_a9475ad917b91f93c23742f403ff152fc}{Lens\+View}.
+
+\hypertarget{classElementView_a30b7a26b428be68dcc4d8f72a0f9cd0b}{\index{Element\+View@{Element\+View}!type\+\_\+view@{type\+\_\+view}}
+\index{type\+\_\+view@{type\+\_\+view}!Element\+View@{Element\+View}}
+\subsubsection[{type\+\_\+view}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Element\+View\+::\+Type\+View} \& Element\+View\+::type\+\_\+view (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classElementView_a30b7a26b428be68dcc4d8f72a0f9cd0b}
+
+
+Retourne le type de l'élément. 
+
+\begin{DoxyReturn}{Renvoie}
+le type de l'élément. 
+\end{DoxyReturn}
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+view/elementview.\+h\item 
+view/elementview.\+cpp\end{DoxyCompactItemize}
