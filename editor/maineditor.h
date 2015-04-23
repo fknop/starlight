@@ -86,8 +86,10 @@ public slots:
 
     /**
      * Crée un nouveau niveau.
+     * @param width la longueur de la carte.
+     * @param height la hauteur de la carte.
      */
-    void create_level();
+    void create_level(int width, int height);
     /**
      * Charge un niveau existant depuis un fichier.
      */

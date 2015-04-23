@@ -5,24 +5,24 @@
 WallView::WallView(const Wall& wall, bool selectable)  :
     ElementView(ElementView::TypeView::WALLVIEW), selectable_{selectable}
 {
-    this->wall_ = &(const_cast<Wall&>(wall));
-    this->wall_->add_observer(this);
+    wall_ = &(const_cast<Wall&>(wall));
+    wall_->add_observer(this);
 
     QPen myPen(Qt::black);
     myPen.setWidth(3);
     setPen(myPen);
     set_line();
-    setFlag(QGraphicsItem::ItemIsSelectable, this->selectable_);
+    setFlag(QGraphicsItem::ItemIsSelectable, selectable_);
 }
 
 void WallView::translate(const double x, const double y)
 {
-    this->wall_->translate(x, y);
+    wall_->translate(x, y);
 }
 
 void WallView::rotate(const double angle)
 {
-    this->wall_->rotate(umath::deg_to_rad(angle));
+    wall_->rotate(umath::deg_to_rad(angle));
 }
 
 void WallView::notify(Observable * o,

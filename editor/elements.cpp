@@ -1,15 +1,13 @@
+#include <sstream>
+
 #include "editor/elements.h"
+
 
 Elements::Elements(QWidget * parent) : QWidget(parent)
 {
     setup_ui();
     add_connections();
-
-    add_crystal_pb_->setEnabled(false);
-    add_mirror_pb_->setEnabled(false);
-    add_nuke_pb_->setEnabled(false);
-    add_lens_pb_->setEnabled(false);
-    add_wall_pb_->setEnabled(false);
+    enable_pushbuttons(false);
 }
 
 void Elements::add_connections()
@@ -19,7 +17,6 @@ void Elements::add_connections()
     connect(add_mirror_pb_, SIGNAL(clicked()), this, SLOT(add_mirror()));
     connect(add_nuke_pb_, SIGNAL(clicked()), this, SLOT(add_nuke()));
     connect(add_wall_pb_, SIGNAL(clicked()), this, SLOT(add_wall()));
-
     connect(level_apply_pb_, SIGNAL(clicked()), this, SLOT(create_level()));
     connect(level_reset_pb_, SIGNAL(clicked()), this, SLOT(reset_level()));
 }
@@ -30,65 +27,42 @@ void Elements::setup_ui()
     vertical_layout_->setSpacing(6);
     vertical_layout_->setContentsMargins(11, 11, 11, 11);
 
-    group_box_ = new QGroupBox();
-    group_box_->setTitle("Level");
+    group_box_ = new QGroupBox("Level");
 
     QFormLayout * form_layout_ = new QFormLayout(group_box_);
 
-    level_height_label_ = new QLabel(group_box_);
-    level_height_label_->setText("Height: ");
-
-    form_layout_->setWidget(0, QFormLayout::LabelRole, level_height_label_);
-
+    level_height_label_ = new QLabel("Height: ", group_box_);
     level_height_dsb_ = new QDoubleSpinBox(group_box_);
     level_height_dsb_->setMinimum(400);
     level_height_dsb_->setMaximum(1000);
 
-    form_layout_->setWidget(0, QFormLayout::FieldRole, level_height_dsb_);
-
-    level_width_label_ = new QLabel(group_box_);
-    level_width_label_->setText("Width: ");
-
-    form_layout_->setWidget(1, QFormLayout::LabelRole, level_width_label_);
-
+    level_width_label_ = new QLabel("Width: ", group_box_);
     level_width_dsb_ = new QDoubleSpinBox(group_box_);
     level_width_dsb_->setMinimum(400);
     level_width_dsb_->setMaximum(1000);
 
+    level_apply_pb_ = new QPushButton("Apply");
+    level_reset_pb_ = new QPushButton("Reset");
+
+    form_layout_->setWidget(0, QFormLayout::LabelRole, level_height_label_);
+    form_layout_->setWidget(0, QFormLayout::FieldRole, level_height_dsb_);
+    form_layout_->setWidget(1, QFormLayout::LabelRole, level_width_label_);
     form_layout_->setWidget(1, QFormLayout::FieldRole, level_width_dsb_);
-
-    level_apply_pb_ = new QPushButton();
-    level_apply_pb_->setText("Apply");
-
     form_layout_->setWidget(2, QFormLayout::LabelRole, level_apply_pb_);
-
-    level_reset_pb_ = new QPushButton();
-    level_reset_pb_->setText("Reset");
-    level_reset_pb_->setEnabled(false);
-
     form_layout_->setWidget(2, QFormLayout::FieldRole, level_reset_pb_);
-
 
     vertical_layout_->addWidget(group_box_);
 
     add_crystal_pb_ = new QPushButton("Crystal");
-
-    vertical_layout_->addWidget(add_crystal_pb_);
-
     add_lens_pb_ = new QPushButton("Lens");
-
-    vertical_layout_->addWidget(add_lens_pb_);
-
     add_mirror_pb_ = new QPushButton("Mirror");
-
-    vertical_layout_->addWidget(add_mirror_pb_);
-
     add_nuke_pb_ = new QPushButton("Nuke");
-
-    vertical_layout_->addWidget(add_nuke_pb_);
-
     add_wall_pb_ = new QPushButton("Wall");
 
+    vertical_layout_->addWidget(add_crystal_pb_);
+    vertical_layout_->addWidget(add_lens_pb_);
+    vertical_layout_->addWidget(add_mirror_pb_);
+    vertical_layout_->addWidget(add_nuke_pb_);
     vertical_layout_->addWidget(add_wall_pb_);
 
     QSizePolicy sp_elements(QSizePolicy::Preferred, QSizePolicy::Preferred);
@@ -100,17 +74,18 @@ void Elements::setup_ui()
 
 void Elements::create_level()
 {
-    level_ = new Level(level_width_dsb_->value(), level_height_dsb_->value());
-
     enable_pushbuttons(true);
-
-    notify_all(std::string("LEVEL_CREATED"));
+    std::ostringstream oss_w;
+    std::ostringstream oss_h;
+    oss_w << level_width_dsb_->value();
+    oss_h << level_height_dsb_->value();
+    std::vector<std::string> vec {oss_w.str(), oss_h.str()};
+    notify_all(std::string("LEVEL_CREATED"), vec);
 }
 
 void Elements::reset_level()
 {
     enable_pushbuttons(false);
-
     notify_all(std::string("LEVEL_RESET"));
 }
 
@@ -126,11 +101,6 @@ void Elements::enable_pushbuttons(bool b)
     level_width_dsb_->setEnabled(!b);
     level_height_dsb_->setEnabled(!b);
     level_reset_pb_->setEnabled(b);
-}
-
-Level * Elements::level()
-{
-    return level_;
 }
 
 void Elements::set_height(int h)

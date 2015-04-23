@@ -35,8 +35,6 @@ class Elements : public QWidget, public Observable
     QPushButton * add_lens_pb_;
     QPushButton * add_wall_pb_;
 
-    Level * level_;
-
 public:
 
     /**
@@ -44,12 +42,6 @@ public:
      * @param parent le parent.
      */
     explicit Elements(QWidget * parent = 0);
-
-    /**
-     * Retourne le niveau instancié par le panel.
-     * @return le niveau.
-     */
-    Level * level();
 
     /**
      * Modifie la valeur du SpinBox pour la hauteur.
