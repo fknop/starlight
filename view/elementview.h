@@ -66,7 +66,7 @@ private:
 
 const ElementView::TypeView& ElementView::type_view() const
 {
-    return this->type_;
+    return type_;
 }
 
 

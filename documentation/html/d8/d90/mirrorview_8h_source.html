@@ -105,58 +105,61 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    QGraphicsRectItem * zone_;</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <a class="code" href="../../d6/d74/classMirrorView.html#a04dab41c29196186c918e60a1b2487b2">MirrorView</a>(<span class="keyword">const</span> <a class="code" href="../../de/dfd/classMirror.html">Mirror</a> &amp; <a class="code" href="../../d6/d74/classMirrorView.html#a61c25961d7e140d5a8ff38aeb5ce8da2">mirror</a>, <span class="keywordtype">bool</span> selectable = <span class="keyword">false</span>);</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keyword">inline</span> <a class="code" href="../../de/dfd/classMirror.html">Mirror</a>* <a class="code" href="../../d6/d74/classMirrorView.html#a61c25961d7e140d5a8ff38aeb5ce8da2">mirror</a>();</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">bool</span> selectable() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">void</span> set_selectable(<span class="keywordtype">bool</span> value);</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordtype">void</span> show_zone();</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">void</span> hide_zone();</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="../../d6/d74/classMirrorView.html#a4800c0c0ac2e7f7bfb3558f0f0dc25c2">translate</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> x = .0, <span class="keyword">const</span> <span class="keywordtype">double</span> y = .0) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="../../d6/d74/classMirrorView.html#aade5e65f7f7b4e0941bcaea616a60ac8">rotate</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> angle) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="../../d6/d74/classMirrorView.html#a20d9601e53e0b6f30a845e8ba50c96c2">notify</a>(<a class="code" href="../../d9/db4/classObservable.html">Observable</a> * o,</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                <span class="keyword">const</span> std::string&amp; msg,</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                <span class="keyword">const</span> std::vector&lt;std::string&gt;&amp; args = std::vector&lt;std::string&gt;()) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">void</span> set_line();</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordtype">void</span> set_zone();</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;};</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment">/* Fonctions inlines */</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
-<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="../../d6/d74/classMirrorView.html#a61c25961d7e140d5a8ff38aeb5ce8da2">   56</a></span>&#160;<a class="code" href="../../de/dfd/classMirror.html">Mirror</a> * <a class="code" href="../../d6/d74/classMirrorView.html#a61c25961d7e140d5a8ff38aeb5ce8da2">MirrorView::mirror</a>()</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;{</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordflow">return</span> mirror_;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;}</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="keywordtype">bool</span> MirrorView::selectable()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordflow">return</span> this-&gt;selectable_;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;}</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="keywordtype">void</span> MirrorView::set_selectable(<span class="keywordtype">bool</span> value)</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;{</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    this-&gt;selectable_ = value;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    setFlag(QGraphicsItem::ItemIsSelectable, this-&gt;selectable_);</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <a class="code" href="../../d6/d74/classMirrorView.html#a04dab41c29196186c918e60a1b2487b2">MirrorView</a>(<span class="keyword">const</span> <a class="code" href="../../de/dfd/classMirror.html">Mirror</a> &amp; <a class="code" href="../../d6/d74/classMirrorView.html#a61c25961d7e140d5a8ff38aeb5ce8da2">mirror</a>, <span class="keywordtype">bool</span> <a class="code" href="../../d6/d74/classMirrorView.html#ad52e5d438a1b61b135c2ca56cadcd090">selectable</a> = <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keyword">inline</span> <a class="code" href="../../de/dfd/classMirror.html">Mirror</a>* <a class="code" href="../../d6/d74/classMirrorView.html#a61c25961d7e140d5a8ff38aeb5ce8da2">mirror</a>();</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code" href="../../d6/d74/classMirrorView.html#ad52e5d438a1b61b135c2ca56cadcd090">selectable</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="../../d6/d74/classMirrorView.html#a67fc521e337191818dba7c1abfbb6e84">set_selectable</a>(<span class="keywordtype">bool</span> value);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordtype">void</span> show_zone();</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">void</span> hide_zone();</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="../../d6/d74/classMirrorView.html#a4800c0c0ac2e7f7bfb3558f0f0dc25c2">translate</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> x = .0, <span class="keyword">const</span> <span class="keywordtype">double</span> y = .0) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="../../d6/d74/classMirrorView.html#aade5e65f7f7b4e0941bcaea616a60ac8">rotate</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> angle) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="../../d6/d74/classMirrorView.html#a20d9601e53e0b6f30a845e8ba50c96c2">notify</a>(<a class="code" href="../../d9/db4/classObservable.html">Observable</a> * o,</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                <span class="keyword">const</span> std::string&amp; msg,</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                <span class="keyword">const</span> std::vector&lt;std::string&gt;&amp; args = std::vector&lt;std::string&gt;()) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordtype">void</span> set_line();</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">void</span> set_zone();</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;};</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="comment">/* Fonctions inlines */</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
+<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="../../d6/d74/classMirrorView.html#a61c25961d7e140d5a8ff38aeb5ce8da2">   62</a></span>&#160;<a class="code" href="../../de/dfd/classMirror.html">Mirror</a> * <a class="code" href="../../d6/d74/classMirrorView.html#a61c25961d7e140d5a8ff38aeb5ce8da2">MirrorView::mirror</a>()</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;{</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordflow">return</span> mirror_;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;}</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
+<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="../../d6/d74/classMirrorView.html#ad52e5d438a1b61b135c2ca56cadcd090">   67</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="../../d6/d74/classMirrorView.html#ad52e5d438a1b61b135c2ca56cadcd090">MirrorView::selectable</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordflow">return</span> this-&gt;selectable_;</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;}</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="preprocessor">#endif // MirrorView_HPP</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="../../d6/d74/classMirrorView.html#a67fc521e337191818dba7c1abfbb6e84">   72</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d6/d74/classMirrorView.html#a67fc521e337191818dba7c1abfbb6e84">MirrorView::set_selectable</a>(<span class="keywordtype">bool</span> value)</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;{</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    this-&gt;selectable_ = value;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    setFlag(QGraphicsItem::ItemIsSelectable, this-&gt;selectable_);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;}</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="preprocessor">#endif // MirrorView_HPP</span></div>
 <div class="ttc" id="classObserverInterface_html"><div class="ttname"><a href="../../dd/d62/classObserverInterface.html">ObserverInterface</a></div><div class="ttdoc">Interface représentant un observateur. </div><div class="ttdef"><b>Definition:</b> observerinterface.h:16</div></div>
 <div class="ttc" id="classElementView_html"><div class="ttname"><a href="../../d2/d81/classElementView.html">ElementView</a></div><div class="ttdoc">Cette classe sert de super-classe à tous les éléments visuels avec lesquels un rayon peut interagir...</div><div class="ttdef"><b>Definition:</b> elementview.h:16</div></div>
-<div class="ttc" id="classMirrorView_html_a04dab41c29196186c918e60a1b2487b2"><div class="ttname"><a href="../../d6/d74/classMirrorView.html#a04dab41c29196186c918e60a1b2487b2">MirrorView::MirrorView</a></div><div class="ttdeci">MirrorView(const Mirror &amp;mirror, bool selectable=false)</div><div class="ttdoc">Construit un miroir capable de refléter la lumière du rayon émis depuis la source. </div><div class="ttdef"><b>Definition:</b> mirrorview.cpp:7</div></div>
+<div class="ttc" id="classMirrorView_html_a04dab41c29196186c918e60a1b2487b2"><div class="ttname"><a href="../../d6/d74/classMirrorView.html#a04dab41c29196186c918e60a1b2487b2">MirrorView::MirrorView</a></div><div class="ttdeci">MirrorView(const Mirror &amp;mirror, bool selectable=false)</div><div class="ttdoc">Instancie une vue représentant un miroir. </div><div class="ttdef"><b>Definition:</b> mirrorview.cpp:7</div></div>
+<div class="ttc" id="classMirrorView_html_ad52e5d438a1b61b135c2ca56cadcd090"><div class="ttname"><a href="../../d6/d74/classMirrorView.html#ad52e5d438a1b61b135c2ca56cadcd090">MirrorView::selectable</a></div><div class="ttdeci">bool selectable() const </div><div class="ttdoc">Retourne vrai si le miroir est sélectionnable. </div><div class="ttdef"><b>Definition:</b> mirrorview.h:67</div></div>
 <div class="ttc" id="classMirrorView_html_a20d9601e53e0b6f30a845e8ba50c96c2"><div class="ttname"><a href="../../d6/d74/classMirrorView.html#a20d9601e53e0b6f30a845e8ba50c96c2">MirrorView::notify</a></div><div class="ttdeci">void notify(Observable *o, const std::string &amp;msg, const std::vector&lt; std::string &gt; &amp;args=std::vector&lt; std::string &gt;()) override</div><div class="ttdoc">Notifie le jeu d&#39;un évènement provenant d&#39;un sujet d&#39;observation (Observable). </div><div class="ttdef"><b>Definition:</b> mirrorview.cpp:41</div></div>
-<div class="ttc" id="classMirrorView_html_a61c25961d7e140d5a8ff38aeb5ce8da2"><div class="ttname"><a href="../../d6/d74/classMirrorView.html#a61c25961d7e140d5a8ff38aeb5ce8da2">MirrorView::mirror</a></div><div class="ttdeci">Mirror * mirror()</div><div class="ttdoc">Retourne le miroir représenté par cet objet. </div><div class="ttdef"><b>Definition:</b> mirrorview.h:56</div></div>
+<div class="ttc" id="classMirrorView_html_a61c25961d7e140d5a8ff38aeb5ce8da2"><div class="ttname"><a href="../../d6/d74/classMirrorView.html#a61c25961d7e140d5a8ff38aeb5ce8da2">MirrorView::mirror</a></div><div class="ttdeci">Mirror * mirror()</div><div class="ttdoc">Retourne le miroir représenté par cet objet. </div><div class="ttdef"><b>Definition:</b> mirrorview.h:62</div></div>
 <div class="ttc" id="classMirrorView_html_a4800c0c0ac2e7f7bfb3558f0f0dc25c2"><div class="ttname"><a href="../../d6/d74/classMirrorView.html#a4800c0c0ac2e7f7bfb3558f0f0dc25c2">MirrorView::translate</a></div><div class="ttdeci">void translate(const double x=.0, const double y=.0) override</div><div class="ttdoc">Effectue une translation de l’objet sur l’axe des abscisses et des ordonnées. </div><div class="ttdef"><b>Definition:</b> mirrorview.cpp:31</div></div>
 <div class="ttc" id="classMirrorView_html_aade5e65f7f7b4e0941bcaea616a60ac8"><div class="ttname"><a href="../../d6/d74/classMirrorView.html#aade5e65f7f7b4e0941bcaea616a60ac8">MirrorView::rotate</a></div><div class="ttdeci">void rotate(const double angle) override</div><div class="ttdoc">Effectue une rotation d’un objet à l’aide d’un angle en radians. </div><div class="ttdef"><b>Definition:</b> mirrorview.cpp:36</div></div>
 <div class="ttc" id="classMirrorView_html"><div class="ttname"><a href="../../d6/d74/classMirrorView.html">MirrorView</a></div><div class="ttdoc">Modélisation visuelle d’un miroir. </div><div class="ttdef"><b>Definition:</b> mirrorview.h:16</div></div>
 <div class="ttc" id="classMirror_html"><div class="ttname"><a href="../../de/dfd/classMirror.html">Mirror</a></div><div class="ttdoc">Cette classe modélise les miroirs utilisés dans le jeu. </div><div class="ttdef"><b>Definition:</b> mirror.h:21</div></div>
+<div class="ttc" id="classMirrorView_html_a67fc521e337191818dba7c1abfbb6e84"><div class="ttname"><a href="../../d6/d74/classMirrorView.html#a67fc521e337191818dba7c1abfbb6e84">MirrorView::set_selectable</a></div><div class="ttdeci">void set_selectable(bool value)</div><div class="ttdoc">Rend le miroir sélectionnable ou non. </div><div class="ttdef"><b>Definition:</b> mirrorview.h:72</div></div>
 <div class="ttc" id="classObservable_html"><div class="ttname"><a href="../../d9/db4/classObservable.html">Observable</a></div><div class="ttdoc">Classe représentant un élément observable pouvant notifié des observateurs. </div><div class="ttdef"><b>Definition:</b> observable.h:14</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Généré le Jeudi 23 Avril 2015 10:57:44 pour Starlight par &#160;<a href="http://www.doxygen.org/index.html">
+Généré le Jeudi 23 Avril 2015 11:31:08 pour Starlight par &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.7
 </small></address>

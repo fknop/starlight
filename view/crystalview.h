@@ -38,6 +38,7 @@ public:
      * @return vrai si le cristal est sélectionnable, faux sinon.
      */
     inline bool selectable() const;
+
     /**
      * Modifie le fait que le cristal soit sélectionnable.
      * @param value vrai si le cristal est sélectionnable, faux sinon.
@@ -62,12 +63,12 @@ Crystal * CrystalView::crystal()
 
 bool CrystalView::selectable() const
 {
-    return this->selectable_;
+    return selectable_;
 }
 
 void CrystalView::set_selectable(bool value)
 {
-    this->selectable_ = value;
+    selectable_ = value;
     setFlag(QGraphicsItem::ItemIsSelectable, this->selectable_);
 }
 

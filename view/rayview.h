@@ -18,9 +18,9 @@ public:
    RayView(const Ray & ray);
 
    /**
-    * Set color on basis of the wavelength.
+    * Modifie la couleur du rayon sur base de la longueur d'onde.
     * Source: http://www.efg2.com/Lab/ScienceAndEngineering/Spectra.htm
-    * @param wl wavelength of a the ray.
+    * @param wl la longueur d'onde.
     */
    void set_color(double wl);
 

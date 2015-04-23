@@ -31,7 +31,16 @@ public:
      */
     inline Wall * wall();
 
+    /**
+     * Retourne vrai si le mur est sélectionnable, faux sinon.
+     * @return vrai si le mur est sélectionnable, faux sinon.
+     */
     inline bool selectable() const;
+
+    /**
+     * Rend le mur sélectionnable ou non.
+     * @param value vrai si le mur est sélectionnable, faux sinon.
+     */
     inline void set_selectable(bool value);
 
     void translate(const double x = .0, const double y = .0) override;
@@ -54,12 +63,12 @@ Wall * WallView::wall()
 
 bool WallView::selectable() const
 {
-    return this->selectable_;
+    return selectable_;
 }
 
 void WallView::set_selectable(bool value)
 {
-    this->selectable_ = value;
+    selectable_ = value;
     setFlag(QGraphicsItem::ItemIsSelectable, this->selectable_);
 }
 

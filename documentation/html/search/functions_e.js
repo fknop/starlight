@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['selectable',['selectable',['../d3/d9b/classCrystalView.html#a6fffe79b15c269a44f9c393ed163f205',1,'CrystalView::selectable()'],['../d7/d7d/classDestinationView.html#a2193a64a9d58d0faa80fa5c0541af638',1,'DestinationView::selectable()'],['../d6/da9/classLensView.html#abcf4b929c4008fe2d0d464e1ec113037',1,'LensView::selectable()']]],
+  ['selectable',['selectable',['../d3/d9b/classCrystalView.html#a6fffe79b15c269a44f9c393ed163f205',1,'CrystalView::selectable()'],['../d7/d7d/classDestinationView.html#a2193a64a9d58d0faa80fa5c0541af638',1,'DestinationView::selectable()'],['../d6/da9/classLensView.html#abcf4b929c4008fe2d0d464e1ec113037',1,'LensView::selectable()'],['../d6/d74/classMirrorView.html#ad52e5d438a1b61b135c2ca56cadcd090',1,'MirrorView::selectable()'],['../d1/dba/classNukeView.html#a70589619df5713cadcc47f399fae6e00',1,'NukeView::selectable()'],['../d9/df7/classSourceView.html#ab6c051d55846c3880a8f2672650327aa',1,'SourceView::selectable()'],['../d6/da2/classWallView.html#a674eb428edf9826a41616bc3f8618044',1,'WallView::selectable()']]],
   ['selected',['selected',['../de/d8c/classMapView.html#ab1af933413ea299a5f6d735561623471',1,'MapView']]],
   ['set_5falpha',['set_alpha',['../d6/d2e/classSource.html#a67095cf21061988628339761d1496c18',1,'Source']]],
   ['set_5falpha_5fmax',['set_alpha_max',['../de/dfd/classMirror.html#a2ca09d04d47d75a7e67398563b94b6e3',1,'Mirror']]],
@@ -33,7 +33,7 @@ var searchData=
   ['set_5fpositions',['set_positions',['../d1/d48/classLineSegment.html#a8c10acc2f581a9c118069446bc37a56e',1,'LineSegment']]],
   ['set_5fradius',['set_radius',['../d6/d4f/classCrystal.html#a05a53bb4f4d519248d62990f8a62b786',1,'Crystal::set_radius()'],['../d0/ddf/classNuke.html#a5dbc3fbb7327fefced855e7accbf71b9',1,'Nuke::set_radius()']]],
   ['set_5frays',['set_rays',['../d2/d9d/classLevel.html#a55b2185003fbd176c342f4ff014919d0',1,'Level']]],
-  ['set_5fselectable',['set_selectable',['../d3/d9b/classCrystalView.html#ab2a8ffda8203f9d645fa137ba8542ce4',1,'CrystalView::set_selectable()'],['../d7/d7d/classDestinationView.html#a8e3dd1c269161b43a4b903092550ba5d',1,'DestinationView::set_selectable()'],['../d6/da9/classLensView.html#a3a35c1e61503da599b1d9c93c176dffd',1,'LensView::set_selectable()']]],
+  ['set_5fselectable',['set_selectable',['../d3/d9b/classCrystalView.html#ab2a8ffda8203f9d645fa137ba8542ce4',1,'CrystalView::set_selectable()'],['../d7/d7d/classDestinationView.html#a8e3dd1c269161b43a4b903092550ba5d',1,'DestinationView::set_selectable()'],['../d6/da9/classLensView.html#a3a35c1e61503da599b1d9c93c176dffd',1,'LensView::set_selectable()'],['../d6/d74/classMirrorView.html#a67fc521e337191818dba7c1abfbb6e84',1,'MirrorView::set_selectable()'],['../d1/dba/classNukeView.html#ab3761858ebbe1f6dcde7813c4118bfd0',1,'NukeView::set_selectable()'],['../d9/df7/classSourceView.html#a64f81b9f42abf51e39b4b16fb8be3dff',1,'SourceView::set_selectable()'],['../d6/da2/classWallView.html#ab47e5401e6addcc68d84f702800cc282',1,'WallView::set_selectable()']]],
   ['set_5fsource',['set_source',['../d2/d9d/classLevel.html#af6c587419e5fac477e4ba530ac9ca327',1,'Level']]],
   ['set_5fstart',['set_start',['../d1/d48/classLineSegment.html#adb965beb1d587a3aa16714bcf0d1dbad',1,'LineSegment::set_start()'],['../d9/dce/classRay.html#a137b80cf87ab000bcb158980ebe288f6',1,'Ray::set_start()'],['../d7/dec/classWall.html#ad11150d7394e06447a697c4e79d47543',1,'Wall::set_start()']]],
   ['set_5fwalls',['set_walls',['../d2/d9d/classLevel.html#a35671c58a119ab9c7e6fb4650b8e8fb9',1,'Level']]],
@@ -45,7 +45,7 @@ var searchData=
   ['set_5fxpad',['set_xpad',['../de/dfd/classMirror.html#a5abdb9ac393b5c4e78399567bd44fc1f',1,'Mirror']]],
   ['set_5fy',['set_y',['../dc/d4f/classPoint.html#a44bf07535f5dd99991a274833462379b',1,'Point']]],
   ['slope',['slope',['../db/db6/classLine.html#a582597e85fc78ba06ccdddf6c270ed71',1,'Line']]],
-  ['source',['source',['../d2/d9d/classLevel.html#a4f7eb7f4859a1bcc436e51f9e31c64b7',1,'Level::source()'],['../d6/d2e/classSource.html#a25946b40bbfdcd0edb76b76f1ed6ba1c',1,'Source::Source()']]],
+  ['source',['source',['../d2/d9d/classLevel.html#a4f7eb7f4859a1bcc436e51f9e31c64b7',1,'Level::source()'],['../d9/df7/classSourceView.html#a39b5010fa2f3c764638d0c01eb97f616',1,'SourceView::source()'],['../d6/d2e/classSource.html#a25946b40bbfdcd0edb76b76f1ed6ba1c',1,'Source::Source()']]],
   ['sourceview',['SourceView',['../d9/df7/classSourceView.html#a978bb2492cf5379d407ee448f554dda6',1,'SourceView']]],
   ['start',['start',['../d1/d48/classLineSegment.html#af9a830ffa92f1b2e8c6138e023efbf1e',1,'LineSegment::start()'],['../d9/dce/classRay.html#afb483cd8f050771fa653e01b811d9a2a',1,'Ray::start()'],['../d7/dec/classWall.html#a0e3acb1aa5f837e1dc6b353a473bc9d4',1,'Wall::start()']]]
 ];

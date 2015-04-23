@@ -103,27 +103,28 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;{</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    Q_OBJECT</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <a class="code" href="../../dd/d85/classDestProp.html#accf41a3f4a376030696fca6daff74cff">DestProp</a>(<a class="code" href="../../de/d97/classDest.html">Dest</a> * dest, QWidget * parent = 0);</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    ~<a class="code" href="../../dd/d85/classDestProp.html">DestProp</a>();</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    QFormLayout * form_layout_;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    QLabel * x_label_;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    QDoubleSpinBox * x_dsb_;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    QLabel * y_label_;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    QDoubleSpinBox * y_dsb_;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    QLabel * edge_label_;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    QDoubleSpinBox * edge_dsb_;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <a class="code" href="../../de/d97/classDest.html">Dest</a> * dest_;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">void</span> setup_ui();</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">void</span> apply() <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">void</span> reset() <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;};</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="preprocessor">#endif // DESTPROP_H</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <a class="code" href="../../dd/d85/classDestProp.html#accf41a3f4a376030696fca6daff74cff">DestProp</a>(<a class="code" href="../../de/d97/classDest.html">Dest</a> * dest, QWidget * parent = 0);</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    ~<a class="code" href="../../dd/d85/classDestProp.html">DestProp</a>();</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    QFormLayout * form_layout_;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    QLabel * x_label_;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    QDoubleSpinBox * x_dsb_;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    QLabel * y_label_;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    QDoubleSpinBox * y_dsb_;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    QLabel * edge_label_;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    QDoubleSpinBox * edge_dsb_;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <a class="code" href="../../de/d97/classDest.html">Dest</a> * dest_;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordtype">void</span> setup_ui();</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">void</span> apply() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">void</span> reset() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;};</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="preprocessor">#endif // DESTPROP_H</span></div>
 <div class="ttc" id="classDestProp_html_accf41a3f4a376030696fca6daff74cff"><div class="ttname"><a href="../../dd/d85/classDestProp.html#accf41a3f4a376030696fca6daff74cff">DestProp::DestProp</a></div><div class="ttdeci">DestProp(Dest *dest, QWidget *parent=0)</div><div class="ttdoc">Instancie un panel de propriétés pour la destination. </div><div class="ttdef"><b>Definition:</b> destprop.cpp:4</div></div>
 <div class="ttc" id="classDestProp_html"><div class="ttname"><a href="../../dd/d85/classDestProp.html">DestProp</a></div><div class="ttdoc">Panel permettant de modifier la destination. </div><div class="ttdef"><b>Definition:</b> destprop.h:17</div></div>
 <div class="ttc" id="classDest_html"><div class="ttname"><a href="../../de/d97/classDest.html">Dest</a></div><div class="ttdoc">Cette classe modélise la destination utilisée dans le jeu. </div><div class="ttdef"><b>Definition:</b> dest.h:17</div></div>
@@ -131,7 +132,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Généré le Jeudi 23 Avril 2015 10:57:44 pour Starlight par &#160;<a href="http://www.doxygen.org/index.html">
+Généré le Jeudi 23 Avril 2015 11:31:07 pour Starlight par &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.7
 </small></address>

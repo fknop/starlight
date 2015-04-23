@@ -20,6 +20,7 @@ class DestinationView : public QGraphicsRectItem, public ObserverInterface, publ
     bool selectable_;
 
 public:
+
     /**
      * Construit une destination carrée.
      * @param dest la destination à représenter.
@@ -38,6 +39,7 @@ public:
      * @return vrai si la destination est sélectionnable, faux sinon.
      */
     inline bool selectable() const;
+
     /**
      * Modifie le fait que la destination soit sélectionnable.
      * @param value vrai si la destination est sélectionnable, faux sinon.

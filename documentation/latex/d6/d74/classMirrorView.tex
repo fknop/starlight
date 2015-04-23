@@ -31,16 +31,14 @@ Graphe de collaboration de Mirror\+View\+:\nopagebreak
 \subsection*{Fonctions membres publiques}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{classMirrorView_a04dab41c29196186c918e60a1b2487b2}{Mirror\+View} (const \hyperlink{classMirror}{Mirror} \&\hyperlink{classMirrorView_a61c25961d7e140d5a8ff38aeb5ce8da2}{mirror}, bool selectable=false)
-\begin{DoxyCompactList}\small\item\em Construit un miroir capable de refléter la lumière du rayon émis depuis la source. \end{DoxyCompactList}\item 
+\hyperlink{classMirrorView_a04dab41c29196186c918e60a1b2487b2}{Mirror\+View} (const \hyperlink{classMirror}{Mirror} \&\hyperlink{classMirrorView_a61c25961d7e140d5a8ff38aeb5ce8da2}{mirror}, bool \hyperlink{classMirrorView_ad52e5d438a1b61b135c2ca56cadcd090}{selectable}=false)
+\begin{DoxyCompactList}\small\item\em Instancie une vue représentant un miroir. \end{DoxyCompactList}\item 
 \hyperlink{classMirror}{Mirror} $\ast$ \hyperlink{classMirrorView_a61c25961d7e140d5a8ff38aeb5ce8da2}{mirror} ()
 \begin{DoxyCompactList}\small\item\em Retourne le miroir représenté par cet objet. \end{DoxyCompactList}\item 
-\hypertarget{classMirrorView_ad52e5d438a1b61b135c2ca56cadcd090}{bool {\bfseries selectable} () const }\label{classMirrorView_ad52e5d438a1b61b135c2ca56cadcd090}
-
-\item 
-\hypertarget{classMirrorView_a67fc521e337191818dba7c1abfbb6e84}{void {\bfseries set\+\_\+selectable} (bool value)}\label{classMirrorView_a67fc521e337191818dba7c1abfbb6e84}
-
-\item 
+bool \hyperlink{classMirrorView_ad52e5d438a1b61b135c2ca56cadcd090}{selectable} () const 
+\begin{DoxyCompactList}\small\item\em Retourne vrai si le miroir est sélectionnable. \end{DoxyCompactList}\item 
+void \hyperlink{classMirrorView_a67fc521e337191818dba7c1abfbb6e84}{set\+\_\+selectable} (bool value)
+\begin{DoxyCompactList}\small\item\em Rend le miroir sélectionnable ou non. \end{DoxyCompactList}\item 
 \hypertarget{classMirrorView_ac9a758db6d2c5c99e1f5923a6248d296}{void {\bfseries show\+\_\+zone} ()}\label{classMirrorView_ac9a758db6d2c5c99e1f5923a6248d296}
 
 \item 
@@ -70,19 +68,13 @@ Modélisation visuelle d’un miroir.
 )}}\label{classMirrorView_a04dab41c29196186c918e60a1b2487b2}
 
 
-Construit un miroir capable de refléter la lumière du rayon émis depuis la source. 
+Instancie une vue représentant un miroir. 
 
 
 \begin{DoxyParams}{Paramètres}
-{\em pivot\+X} & abscisse du pivot du miroir. \\
+{\em mirror} & le miroir. \\
 \hline
-{\em pivot\+Y} & ordonnée du pivot du miroir. \\
-\hline
-{\em xpad} & distance entre le pivot et l’extrémité gauche du miroir. \\
-\hline
-{\em len} & longueur totale du miroir. \\
-\hline
-{\em angle} & angle d’inclinaison du miroir. \\
+{\em selectable} & vrai si le miroir est sélectionnable, faux sinon. \\
 \hline
 \end{DoxyParams}
 
@@ -148,6 +140,36 @@ Effectue une rotation d’un objet à l’aide d’un angle en radians.
 
 Réimplémentée à partir de \hyperlink{classElementView_a18589409290f23edffdaeccdd7acb015}{Element\+View}.
 
+\hypertarget{classMirrorView_ad52e5d438a1b61b135c2ca56cadcd090}{\index{Mirror\+View@{Mirror\+View}!selectable@{selectable}}
+\index{selectable@{selectable}!Mirror\+View@{Mirror\+View}}
+\subsubsection[{selectable}]{\setlength{\rightskip}{0pt plus 5cm}bool Mirror\+View\+::selectable (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classMirrorView_ad52e5d438a1b61b135c2ca56cadcd090}
+
+
+Retourne vrai si le miroir est sélectionnable. 
+
+\begin{DoxyReturn}{Renvoie}
+vrai si le miroir est sélectionnable, faux sinon. 
+\end{DoxyReturn}
+\hypertarget{classMirrorView_a67fc521e337191818dba7c1abfbb6e84}{\index{Mirror\+View@{Mirror\+View}!set\+\_\+selectable@{set\+\_\+selectable}}
+\index{set\+\_\+selectable@{set\+\_\+selectable}!Mirror\+View@{Mirror\+View}}
+\subsubsection[{set\+\_\+selectable}]{\setlength{\rightskip}{0pt plus 5cm}void Mirror\+View\+::set\+\_\+selectable (
+\begin{DoxyParamCaption}
+\item[{bool}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classMirrorView_a67fc521e337191818dba7c1abfbb6e84}
+
+
+Rend le miroir sélectionnable ou non. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em value} & vrai si le miroir est sélectionnable, faux sinon. \\
+\hline
+\end{DoxyParams}
 \hypertarget{classMirrorView_a4800c0c0ac2e7f7bfb3558f0f0dc25c2}{\index{Mirror\+View@{Mirror\+View}!translate@{translate}}
 \index{translate@{translate}!Mirror\+View@{Mirror\+View}}
 \subsubsection[{translate}]{\setlength{\rightskip}{0pt plus 5cm}void Mirror\+View\+::translate (
