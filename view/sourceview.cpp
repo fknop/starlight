@@ -6,8 +6,8 @@
 SourceView::SourceView(const Source& source, bool selectable) :
     ElementView(ElementView::TypeView::SOURCEVIEW), selectable_{selectable}
 {
-    this->source_ = &(const_cast<Source&>(source));
-    this->source_->add_observer(this);
+    source_ = &(const_cast<Source&>(source));
+    source_->add_observer(this);
     sound_ = new QMediaPlayer();
 
     set_pos();

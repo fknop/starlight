@@ -16,16 +16,21 @@ class MainMenu : public QGraphicsView
     Q_OBJECT
 
 public:
-    MainMenu(QWidget * parent = NULL);
+
+    /**
+     * Instancie le menu principal.
+     * @param parent le parent.
+     */
+    MainMenu(QWidget * parent = nullptr);
     ~MainMenu();
 
+    /**
+     * Affiche le menu principal.
+     */
     void displayMainMenu();
-
-    static const std::string STARLIGHT_RULES;
 
 private:
     QGraphicsScene * scene_;
-    MainWindow * main_window_;
 
 public slots:
     void start();

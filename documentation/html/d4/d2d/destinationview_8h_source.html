@@ -1,0 +1,165 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.7"/>
+<title>Starlight:  Fichier source de view/destinationview.h</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Starlight
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.7 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="../../index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="../../annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="../../files.html"><span>Fichiers</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="../../search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="../../files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Énumérations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Amis</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_b2f003339c516cc00c8cadcafbe82f13.html">view</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">destinationview.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef DESTINATIONVIEW_H</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define DESTINATIONVIEW_H</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;QGraphicsView&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;QGraphicsRectItem&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;model/dest.h&quot;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;obs/observable.h&quot;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;obs/observerinterface.h&quot;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;view/elementview.h&quot;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="../../d7/d7d/classDestinationView.html">   17</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d7/d7d/classDestinationView.html">DestinationView</a> : <span class="keyword">public</span> QGraphicsRectItem, <span class="keyword">public</span> <a class="code" href="../../dd/d62/classObserverInterface.html">ObserverInterface</a>, <span class="keyword">public</span> <a class="code" href="../../d2/d81/classElementView.html">ElementView</a></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;{</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <a class="code" href="../../de/d97/classDest.html">Dest</a> * dest_;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordtype">bool</span> selectable_;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <a class="code" href="../../d7/d7d/classDestinationView.html#ade423541028697f01a4892830471881d">DestinationView</a>(<span class="keyword">const</span> <a class="code" href="../../de/d97/classDest.html">Dest</a>&amp; <a class="code" href="../../d7/d7d/classDestinationView.html#ae8afc4d5eceb09a0d8ff478b20f1fa1d">dest</a>, <span class="keywordtype">bool</span> <a class="code" href="../../d7/d7d/classDestinationView.html#a2193a64a9d58d0faa80fa5c0541af638">selectable</a> = <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keyword">inline</span> <a class="code" href="../../de/d97/classDest.html">Dest</a> * <a class="code" href="../../d7/d7d/classDestinationView.html#ae8afc4d5eceb09a0d8ff478b20f1fa1d">dest</a>();</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code" href="../../d7/d7d/classDestinationView.html#a2193a64a9d58d0faa80fa5c0541af638">selectable</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="../../d7/d7d/classDestinationView.html#a8e3dd1c269161b43a4b903092550ba5d">set_selectable</a>(<span class="keywordtype">bool</span> value);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="../../d7/d7d/classDestinationView.html#afd76d91b06a337ff123ad34af4fb25dd">translate</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> x = .0, <span class="keyword">const</span> <span class="keywordtype">double</span> y = .0) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="../../d7/d7d/classDestinationView.html#ad200371afdce766b4208e45d83d1ba25">notify</a>(<a class="code" href="../../d9/db4/classObservable.html">Observable</a> * o,</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                <span class="keyword">const</span> std::string&amp; msg,</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                <span class="keyword">const</span> std::vector&lt;std::string&gt;&amp; args = std::vector&lt;std::string&gt;()) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">void</span> set_rect();</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;};</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="comment">/* Fonctions inlines */</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
+<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="../../d7/d7d/classDestinationView.html#ae8afc4d5eceb09a0d8ff478b20f1fa1d">   61</a></span>&#160;<a class="code" href="../../de/d97/classDest.html">Dest</a> * <a class="code" href="../../d7/d7d/classDestinationView.html#ae8afc4d5eceb09a0d8ff478b20f1fa1d">DestinationView::dest</a>()</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;{</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordflow">return</span> dest_;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;}</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
+<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="../../d7/d7d/classDestinationView.html#a2193a64a9d58d0faa80fa5c0541af638">   66</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="../../d7/d7d/classDestinationView.html#a2193a64a9d58d0faa80fa5c0541af638">DestinationView::selectable</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordflow">return</span> this-&gt;selectable_;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;}</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
+<div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="../../d7/d7d/classDestinationView.html#a8e3dd1c269161b43a4b903092550ba5d">   71</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d7/d7d/classDestinationView.html#a8e3dd1c269161b43a4b903092550ba5d">DestinationView::set_selectable</a>(<span class="keywordtype">bool</span> value)</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;{</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    this-&gt;selectable_ = value;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    setFlag(QGraphicsItem::ItemIsSelectable, this-&gt;selectable_);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;}</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="preprocessor">#endif // DESTINATIONVIEW_H</span></div>
+<div class="ttc" id="classObserverInterface_html"><div class="ttname"><a href="../../dd/d62/classObserverInterface.html">ObserverInterface</a></div><div class="ttdoc">Interface représentant un observateur. </div><div class="ttdef"><b>Definition:</b> observerinterface.h:16</div></div>
+<div class="ttc" id="classDestinationView_html_a2193a64a9d58d0faa80fa5c0541af638"><div class="ttname"><a href="../../d7/d7d/classDestinationView.html#a2193a64a9d58d0faa80fa5c0541af638">DestinationView::selectable</a></div><div class="ttdeci">bool selectable() const </div><div class="ttdoc">Retourne vrai si la destination est sélectionnable, faux sinon. </div><div class="ttdef"><b>Definition:</b> destinationview.h:66</div></div>
+<div class="ttc" id="classElementView_html"><div class="ttname"><a href="../../d2/d81/classElementView.html">ElementView</a></div><div class="ttdoc">Cette classe sert de super-classe à tous les éléments visuels avec lesquels un rayon peut interagir...</div><div class="ttdef"><b>Definition:</b> elementview.h:16</div></div>
+<div class="ttc" id="classDestinationView_html"><div class="ttname"><a href="../../d7/d7d/classDestinationView.html">DestinationView</a></div><div class="ttdoc">Modélisation visuelle de la destination. </div><div class="ttdef"><b>Definition:</b> destinationview.h:17</div></div>
+<div class="ttc" id="classDestinationView_html_ae8afc4d5eceb09a0d8ff478b20f1fa1d"><div class="ttname"><a href="../../d7/d7d/classDestinationView.html#ae8afc4d5eceb09a0d8ff478b20f1fa1d">DestinationView::dest</a></div><div class="ttdeci">Dest * dest()</div><div class="ttdoc">Retourne la destination représentée. </div><div class="ttdef"><b>Definition:</b> destinationview.h:61</div></div>
+<div class="ttc" id="classDestinationView_html_afd76d91b06a337ff123ad34af4fb25dd"><div class="ttname"><a href="../../d7/d7d/classDestinationView.html#afd76d91b06a337ff123ad34af4fb25dd">DestinationView::translate</a></div><div class="ttdeci">void translate(const double x=.0, const double y=.0) override</div><div class="ttdoc">Effectue une translation de l’objet sur l’axe des abscisses et des ordonnées. </div><div class="ttdef"><b>Definition:</b> destinationview.cpp:24</div></div>
+<div class="ttc" id="classDestinationView_html_a8e3dd1c269161b43a4b903092550ba5d"><div class="ttname"><a href="../../d7/d7d/classDestinationView.html#a8e3dd1c269161b43a4b903092550ba5d">DestinationView::set_selectable</a></div><div class="ttdeci">void set_selectable(bool value)</div><div class="ttdoc">Modifie le fait que la destination soit sélectionnable. </div><div class="ttdef"><b>Definition:</b> destinationview.h:71</div></div>
+<div class="ttc" id="classDest_html"><div class="ttname"><a href="../../de/d97/classDest.html">Dest</a></div><div class="ttdoc">Cette classe modélise la destination utilisée dans le jeu. </div><div class="ttdef"><b>Definition:</b> dest.h:17</div></div>
+<div class="ttc" id="classDestinationView_html_ade423541028697f01a4892830471881d"><div class="ttname"><a href="../../d7/d7d/classDestinationView.html#ade423541028697f01a4892830471881d">DestinationView::DestinationView</a></div><div class="ttdeci">DestinationView(const Dest &amp;dest, bool selectable=false)</div><div class="ttdoc">Construit une destination carrée. </div><div class="ttdef"><b>Definition:</b> destinationview.cpp:4</div></div>
+<div class="ttc" id="classObservable_html"><div class="ttname"><a href="../../d9/db4/classObservable.html">Observable</a></div><div class="ttdoc">Classe représentant un élément observable pouvant notifié des observateurs. </div><div class="ttdef"><b>Definition:</b> observable.h:14</div></div>
+<div class="ttc" id="classDestinationView_html_ad200371afdce766b4208e45d83d1ba25"><div class="ttname"><a href="../../d7/d7d/classDestinationView.html#ad200371afdce766b4208e45d83d1ba25">DestinationView::notify</a></div><div class="ttdeci">void notify(Observable *o, const std::string &amp;msg, const std::vector&lt; std::string &gt; &amp;args=std::vector&lt; std::string &gt;()) override</div><div class="ttdoc">Notifie le jeu d&#39;un évènement provenant d&#39;un sujet d&#39;observation (Observable). </div><div class="ttdef"><b>Definition:</b> destinationview.cpp:15</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré le Jeudi 23 Avril 2015 12:04:35 pour Starlight par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.8.7
+</small></address>
+</body>
+</html>

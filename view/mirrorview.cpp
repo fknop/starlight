@@ -9,7 +9,6 @@ MirrorView::MirrorView(const Mirror & mirror, bool selectable) :
 {
     mirror_ = &(const_cast<Mirror &>(mirror));
     mirror_->add_observer(this);
-
     zone_ = new QGraphicsRectItem(this);
 
     QPen pen_1(Qt::red);
@@ -20,7 +19,6 @@ MirrorView::MirrorView(const Mirror & mirror, bool selectable) :
     pen_2.setWidth(1);
     pen_2.setStyle(Qt::DashLine);
     zone_->setPen(pen_2);
-
 
     set_line();
 

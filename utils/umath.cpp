@@ -110,7 +110,7 @@ bool umath::is_on_trajectory(const Line& l, const Point& start, const Point& p)
     double x = start.x() + (distance * std::cos(-alpha));
     double y = start.y() + (distance * std::sin(-alpha));
 
-    return std::abs(x - p.x()) < 0.2 && std::abs(y - p.y()) < 0.2;
+    return std::abs(x - p.x()) < 0.3 && std::abs(y - p.y()) < 0.3;
 }
 
 bool umath::intersects(const Line& l1, const Line& l2, Point& point, bool& is_point)
@@ -254,13 +254,13 @@ int umath::intersects(const Ellipse& e, const Line& l,
     double y;
     double x1 = e.center().x();
     double y1 = e.center().y();
-    double xR = e.x_rad();
-    double yR = e.y_rad();
+    double x_r = e.x_rad();
+    double y_r = e.y_rad();
     double rho;     // rho = b² - ac
     double a, b, c; // a, b, c dans rho = b² - ac
-    double lcm = umath::dlcm(xR*xR, yR*yR); // ppcm de a² et b²
-    double lcmx = lcm / (yR*yR);
-    double lcmy = lcm / (xR*xR);
+    double lcm = umath::dlcm(x_r * x_r, y_r * y_r); // ppcm de a² et b²
+    double lcmx = lcm / (y_r * y_r);
+    double lcmy = lcm / (x_r * x_r);
 
     // Variables pour faciliter le calcul des droites non verticales
     double k = l.inde_param();

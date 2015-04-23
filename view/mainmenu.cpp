@@ -1,8 +1,10 @@
+#include <QFile>
 #include <QFileDialog>
 #include <QIcon>
 #include <QMessageBox>
 #include <QPalette>
 #include <QPixmap>
+#include <QTextStream>
 
 #include "editor/maineditor.h"
 
@@ -11,30 +13,6 @@
 #include "view/button.h"
 #include "view/mainmenu.h"
 #include "view/mainwindow.h"
-
-const std::string MainMenu::STARLIGHT_RULES =
-    "<p>Starlight is a 2D puzzle where you have "
-    "to make the light go from the source to the destination without touching "
-    "a nuke or… BOOM!, you lose.</p>"
-    "<p>Walls are represented by black lines. Rays change of color when they cross a crystal,"
-    "crystals are blue circles, nukes are red circles, lenses are green ellipses and "
-    "mirrors are red lines. The source is the light bulb and the destination is shown as "
-    "a square.</p>"
-    "<p>Mirrors can be moved and rotated with your keyboard."
-    "<p>Movements are achieved with the following keys:</p>"
-    "<ul>"
-        "<li>Z: Move the mirror up.</li>"
-        "<li>S: Move the mirror down.</li>"
-        "<li>Q: Move the mirror left.</li>"
-        "<li>D: Move the mirror right.</li>"
-    "</ul>"
-    "<p>while mirror rotations are done through:"
-    "<ul>"
-        "<li>left arrow key: +1 in counterclockwise direction</li>"
-        "<li>right arrow key: -1 in counterclockwise direction</li>"
-    "</ul>"
-    "<p>You can boost your move by pressing the 'Shift' key.</p>"
-    "<p style='font-weight: bold;'>Enjoy your game!</p>";
 
 MainMenu::MainMenu(QWidget * parent)
 {
@@ -45,7 +23,7 @@ MainMenu::MainMenu(QWidget * parent)
 
     this->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     this->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    setFixedSize(400,500); // a changer
+    setFixedSize(400,500);
 
     scene_ = new QGraphicsScene();
     scene_->setSceneRect(0,0, 400, 500);
@@ -61,13 +39,19 @@ void MainMenu::start()
 {
     hide();
 
-    main_window_ = new MainWindow(this);
-    main_window_->show();
+    MainWindow * main_window = new MainWindow(this);
+    main_window->show();
 }
 
 void MainMenu::help()
 {
-    QMessageBox::information(this, "Help", MainMenu::STARLIGHT_RULES.c_str());
+    QFile file("ressources/rules.html");
+    if (file.open(QFile::ReadOnly | QFile::Text))
+    {
+        QTextStream in(&file);
+        QMessageBox::information(this, "Rules", in.readAll());
+        file.close();
+    }
 }
 
 void MainMenu::editor()

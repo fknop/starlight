@@ -28,9 +28,9 @@ void NukeView::notify(Observable * o, const std::string& msg,
         setBrush(brush);
     }
     else
+    {
         set_rect();
-
-
+    }
 }
 
 void NukeView::translate(const double x, const double y)

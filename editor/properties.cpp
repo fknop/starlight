@@ -74,49 +74,49 @@ void Properties::set_element_prop(ElementView * ev)
         {
         case ElementView::TypeView::CRYSTALVIEW:
         {
-            CrystalView * cv = dynamic_cast<CrystalView *> (ev);
+            CrystalView * cv = static_cast<CrystalView *> (ev);
             prop_interface_ = new CrystalProp(cv->crystal(), group_box_);
 
             break;
         }
         case ElementView::TypeView::DESTVIEW:
         {
-            DestinationView * dv = dynamic_cast<DestinationView *> (ev);
+            DestinationView * dv = static_cast<DestinationView *> (ev);
             prop_interface_ = new DestProp(dv->dest(), group_box_);
 
             break;
         }
         case ElementView::TypeView::LENSVIEW:
         {
-            LensView * lv = dynamic_cast<LensView *> (ev);
+            LensView * lv = static_cast<LensView *> (ev);
             prop_interface_ = new LensProp(lv->lens(), group_box_);
 
             break;
         }
         case ElementView::TypeView::MIRRORVIEW:
         {
-            MirrorView * mv = dynamic_cast<MirrorView *> (ev);
+            MirrorView * mv = static_cast<MirrorView *> (ev);
             prop_interface_ = new MirrorProp(mv->mirror(), group_box_);
 
             break;
         }
         case ElementView::TypeView::NUKEVIEW:
         {
-            NukeView * nv = dynamic_cast<NukeView *> (ev);
+            NukeView * nv = static_cast<NukeView *> (ev);
             prop_interface_ = new NukeProp(nv->nuke(), group_box_);
 
             break;
         }
         case ElementView::TypeView::SOURCEVIEW:
         {
-            SourceView * sv = dynamic_cast<SourceView *> (ev);
+            SourceView * sv = static_cast<SourceView *> (ev);
             prop_interface_ = new SourceProp(sv->source(), group_box_);
 
             break;
         }
         case ElementView::TypeView::WALLVIEW:
         {
-            WallView * wv = dynamic_cast<WallView *> (ev);
+            WallView * wv = static_cast<WallView *> (ev);
             prop_interface_ = new WallProp(wv->wall(), group_box_);
 
             break;

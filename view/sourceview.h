@@ -47,7 +47,7 @@ public:
      */
     inline void set_selectable(bool value);
 
-    void mousePressEvent(QGraphicsSceneMouseEvent *event) override;
+    void mousePressEvent(QGraphicsSceneMouseEvent * event) override;
 
     void translate(const double x = .0, const double y = .0) override;
 

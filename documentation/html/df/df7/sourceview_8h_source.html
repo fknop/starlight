@@ -1,0 +1,169 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.7"/>
+<title>Starlight:  Fichier source de view/sourceview.h</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Starlight
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.7 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="../../index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="../../annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="../../files.html"><span>Fichiers</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="../../search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="../../files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Énumérations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Amis</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_b2f003339c516cc00c8cadcafbe82f13.html">view</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">sourceview.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef SOURCEVIEW_H</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define SOURCEVIEW_H</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;QGraphicsPixmapItem&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;QGraphicsSceneMouseEvent&gt;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;QGraphicsView&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;QMediaPlayer&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;model/source.h&quot;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;obs/observerinterface.h&quot;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;view/elementview.h&quot;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="../../d9/df7/classSourceView.html">   17</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d9/df7/classSourceView.html">SourceView</a> : <span class="keyword">public</span> QGraphicsPixmapItem, <span class="keyword">public</span> <a class="code" href="../../d2/d81/classElementView.html">ElementView</a>, <span class="keyword">public</span> <a class="code" href="../../dd/d62/classObserverInterface.html">ObserverInterface</a></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;{</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <a class="code" href="../../d6/d2e/classSource.html">Source</a> * source_;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    QMediaPlayer * sound_;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordtype">bool</span> selectable_;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <a class="code" href="../../d9/df7/classSourceView.html#a978bb2492cf5379d407ee448f554dda6">SourceView</a>(<span class="keyword">const</span> <a class="code" href="../../d6/d2e/classSource.html">Source</a>&amp; <a class="code" href="../../d9/df7/classSourceView.html#a39b5010fa2f3c764638d0c01eb97f616">source</a>, <span class="keywordtype">bool</span> <a class="code" href="../../d9/df7/classSourceView.html#ab6c051d55846c3880a8f2672650327aa">selectable</a> = <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keyword">inline</span> <a class="code" href="../../d6/d2e/classSource.html">Source</a> * <a class="code" href="../../d9/df7/classSourceView.html#a39b5010fa2f3c764638d0c01eb97f616">source</a>();</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code" href="../../d9/df7/classSourceView.html#ab6c051d55846c3880a8f2672650327aa">selectable</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="../../d9/df7/classSourceView.html#a64f81b9f42abf51e39b4b16fb8be3dff">set_selectable</a>(<span class="keywordtype">bool</span> value);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">void</span> mousePressEvent(QGraphicsSceneMouseEvent * event) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="../../d9/df7/classSourceView.html#a96144eb5f08c6dc6b378fa604bb626a2">translate</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> x = .0, <span class="keyword">const</span> <span class="keywordtype">double</span> y = .0) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="../../d9/df7/classSourceView.html#a615ac7a3f10992488cccf60fd89044b0">notify</a>(<a class="code" href="../../d9/db4/classObservable.html">Observable</a> * o,</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                <span class="keyword">const</span> std::string&amp; msg,</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                <span class="keyword">const</span> std::vector&lt;std::string&gt;&amp; args = std::vector&lt;std::string&gt;()) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordtype">void</span> set_pos();</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordtype">void</span> set_pixmap();</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;};</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="comment">/* Fonctions inlines */</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
+<div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="../../d9/df7/classSourceView.html#a39b5010fa2f3c764638d0c01eb97f616">   65</a></span>&#160;<a class="code" href="../../d6/d2e/classSource.html">Source</a> * <a class="code" href="../../d9/df7/classSourceView.html#a39b5010fa2f3c764638d0c01eb97f616">SourceView::source</a>()</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;{</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordflow">return</span> source_;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;}</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
+<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="../../d9/df7/classSourceView.html#ab6c051d55846c3880a8f2672650327aa">   70</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="../../d9/df7/classSourceView.html#ab6c051d55846c3880a8f2672650327aa">SourceView::selectable</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordflow">return</span> this-&gt;selectable_;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;}</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
+<div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="../../d9/df7/classSourceView.html#a64f81b9f42abf51e39b4b16fb8be3dff">   75</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d9/df7/classSourceView.html#a64f81b9f42abf51e39b4b16fb8be3dff">SourceView::set_selectable</a>(<span class="keywordtype">bool</span> value)</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;{</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    this-&gt;selectable_ = value;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    setFlag(QGraphicsItem::ItemIsSelectable, this-&gt;selectable_);</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;}</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="preprocessor">#endif // SOURCEVIEW_H</span></div>
+<div class="ttc" id="classObserverInterface_html"><div class="ttname"><a href="../../dd/d62/classObserverInterface.html">ObserverInterface</a></div><div class="ttdoc">Interface représentant un observateur. </div><div class="ttdef"><b>Definition:</b> observerinterface.h:16</div></div>
+<div class="ttc" id="classSourceView_html_ab6c051d55846c3880a8f2672650327aa"><div class="ttname"><a href="../../d9/df7/classSourceView.html#ab6c051d55846c3880a8f2672650327aa">SourceView::selectable</a></div><div class="ttdeci">bool selectable() const </div><div class="ttdoc">Retourne vrai si la source est sélectionnable, faux sinon. </div><div class="ttdef"><b>Definition:</b> sourceview.h:70</div></div>
+<div class="ttc" id="classSourceView_html_a96144eb5f08c6dc6b378fa604bb626a2"><div class="ttname"><a href="../../d9/df7/classSourceView.html#a96144eb5f08c6dc6b378fa604bb626a2">SourceView::translate</a></div><div class="ttdeci">void translate(const double x=.0, const double y=.0) override</div><div class="ttdoc">Effectue une translation de l’objet sur l’axe des abscisses et des ordonnées. </div><div class="ttdef"><b>Definition:</b> sourceview.cpp:29</div></div>
+<div class="ttc" id="classElementView_html"><div class="ttname"><a href="../../d2/d81/classElementView.html">ElementView</a></div><div class="ttdoc">Cette classe sert de super-classe à tous les éléments visuels avec lesquels un rayon peut interagir...</div><div class="ttdef"><b>Definition:</b> elementview.h:16</div></div>
+<div class="ttc" id="classSourceView_html_a615ac7a3f10992488cccf60fd89044b0"><div class="ttname"><a href="../../d9/df7/classSourceView.html#a615ac7a3f10992488cccf60fd89044b0">SourceView::notify</a></div><div class="ttdeci">void notify(Observable *o, const std::string &amp;msg, const std::vector&lt; std::string &gt; &amp;args=std::vector&lt; std::string &gt;()) override</div><div class="ttdoc">Notifie le jeu d&#39;un évènement provenant d&#39;un sujet d&#39;observation (Observable). </div><div class="ttdef"><b>Definition:</b> sourceview.cpp:34</div></div>
+<div class="ttc" id="classSourceView_html_a64f81b9f42abf51e39b4b16fb8be3dff"><div class="ttname"><a href="../../d9/df7/classSourceView.html#a64f81b9f42abf51e39b4b16fb8be3dff">SourceView::set_selectable</a></div><div class="ttdeci">void set_selectable(bool value)</div><div class="ttdoc">Rend la source sélectionnable ou non. </div><div class="ttdef"><b>Definition:</b> sourceview.h:75</div></div>
+<div class="ttc" id="classSourceView_html"><div class="ttname"><a href="../../d9/df7/classSourceView.html">SourceView</a></div><div class="ttdoc">Modélisation visuelle d’une source. </div><div class="ttdef"><b>Definition:</b> sourceview.h:17</div></div>
+<div class="ttc" id="classSourceView_html_a978bb2492cf5379d407ee448f554dda6"><div class="ttname"><a href="../../d9/df7/classSourceView.html#a978bb2492cf5379d407ee448f554dda6">SourceView::SourceView</a></div><div class="ttdeci">SourceView(const Source &amp;source, bool selectable=false)</div><div class="ttdoc">Construit la vue représentant la source. </div><div class="ttdef"><b>Definition:</b> sourceview.cpp:6</div></div>
+<div class="ttc" id="classSource_html"><div class="ttname"><a href="../../d6/d2e/classSource.html">Source</a></div><div class="ttdoc">Modélise la source lumineuse utilisée dans le jeu. </div><div class="ttdef"><b>Definition:</b> source.h:21</div></div>
+<div class="ttc" id="classObservable_html"><div class="ttname"><a href="../../d9/db4/classObservable.html">Observable</a></div><div class="ttdoc">Classe représentant un élément observable pouvant notifié des observateurs. </div><div class="ttdef"><b>Definition:</b> observable.h:14</div></div>
+<div class="ttc" id="classSourceView_html_a39b5010fa2f3c764638d0c01eb97f616"><div class="ttname"><a href="../../d9/df7/classSourceView.html#a39b5010fa2f3c764638d0c01eb97f616">SourceView::source</a></div><div class="ttdeci">Source * source()</div><div class="ttdoc">Retourne la source. </div><div class="ttdef"><b>Definition:</b> sourceview.h:65</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré le Jeudi 23 Avril 2015 12:04:35 pour Starlight par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.8.7
+</small></address>
+</body>
+</html>

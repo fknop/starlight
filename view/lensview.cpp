@@ -6,20 +6,20 @@
 LensView::LensView(const Lens & lens, bool selectable) :
     ElementView(ElementView::TypeView::LENSVIEW), selectable_{selectable}
 {
-    this->lens_ = &(const_cast<Lens &>(lens));
-    this->lens_->add_observer(this);
+    lens_ = &(const_cast<Lens &>(lens));
+    lens_->add_observer(this);
 
     QPen pen(Qt::green);
     pen.setWidth(3);
     setPen(pen);
 
     set_rect();
-    setFlag(QGraphicsItem::ItemIsSelectable, this->selectable_);
+    setFlag(QGraphicsItem::ItemIsSelectable, selectable_);
 }
 
 void LensView::translate(const double x, const double y)
 {
-    this->lens_->translate(x, y);
+    lens_->translate(x, y);
 }
 
 void LensView::notify(Observable * o,
@@ -31,8 +31,8 @@ void LensView::notify(Observable * o,
 
 void LensView::set_rect()
 {
-    setRect(this->lens_->position().x(),
-            this->lens_->position().y(),
-            this->lens_->width(),
-            this->lens_->height());
+    setRect(lens_->position().x(),
+            lens_->position().y(),
+            lens_->width(),
+            lens_->height());
 }
