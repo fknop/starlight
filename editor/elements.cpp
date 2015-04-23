@@ -31,14 +31,12 @@ void Elements::setup_ui()
 
     QFormLayout * form_layout_ = new QFormLayout(group_box_);
 
-    level_height_label_ = new QLabel(group_box_);
-    level_height_label_->setText("Height: ");
+    level_height_label_ = new QLabel("Height: ", group_box_);
     level_height_dsb_ = new QDoubleSpinBox(group_box_);
     level_height_dsb_->setMinimum(400);
     level_height_dsb_->setMaximum(1000);
 
-    level_width_label_ = new QLabel(group_box_);
-    level_width_label_->setText("Width: ");
+    level_width_label_ = new QLabel("Width: ", group_box_);
     level_width_dsb_ = new QDoubleSpinBox(group_box_);
     level_width_dsb_->setMinimum(400);
     level_width_dsb_->setMaximum(1000);

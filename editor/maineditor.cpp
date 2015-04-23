@@ -66,12 +66,8 @@ void MainEditor::create_level(int width, int height)
     level_->set_check_collisions(false);
     level_->set_handle_nukes(false);
     level_->set_handle_dest(false);
-
-    Source source(Point(0,0), 29, 4.75, 400);
-    Dest dest(Point(level_->width() - 29, level_->height() - 29), 29);
-
-    level_->set_source(source);
-    level_->set_dest(dest);
+    level_->set_source(Source(Point(0,0), 29, 4.75, 400));
+    level_->set_dest(Dest(Point(level_->width() - 29, level_->height() - 29), 29));
 
     vertical_layout_2_->removeWidget(mapview_);
 
