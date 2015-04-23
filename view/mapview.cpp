@@ -5,12 +5,12 @@
 #include "view/mapview.h"
 
 
-MapView::MapView()
-{
-    scene_ = new QGraphicsScene(0, 0, 500, 500);
-    setScene(scene_);
-    selected_mirror_ = nullptr;
-}
+//MapView::MapView()
+//{
+//    scene_ = new QGraphicsScene(0, 0, 500, 500);
+//    setScene(scene_);
+//    selected_mirror_ = nullptr;
+//}
 
 MapView::MapView(Level* level, bool selectable) : level_{level}, selectable_{selectable}
 {

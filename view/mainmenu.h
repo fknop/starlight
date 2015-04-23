@@ -33,8 +33,17 @@ private:
     QGraphicsScene * scene_;
 
 public slots:
+    /**
+     * Lance la fenetre dédiée au jeu.
+     */
     void start();
+    /**
+     * Affiche l’aide du jeu.
+     */
     void help();
+    /**
+     * Lance l’éditeur de carte.
+     */
     void editor();
 };
 

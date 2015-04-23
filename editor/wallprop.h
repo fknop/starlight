@@ -31,6 +31,11 @@ class WallProp : public PropertiesInterface
     Wall * wall_;
 
 public:
+    /**
+     * Constructeur du widget permettant d’éditer un mur.
+     * @param wall le mur à modifier.
+     * @param parent le widget parent.
+     */
     WallProp(Wall * wall, QWidget * parent = 0);
     ~WallProp();
 

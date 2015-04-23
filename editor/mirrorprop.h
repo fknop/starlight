@@ -45,6 +45,11 @@ class MirrorProp : public PropertiesInterface
     Mirror * mirror_;
 
 public:
+    /**
+     * Constructeur du widget permettant de modifier un miroir.
+     * @param mirror le miroir à modifier.
+     * @param parent le widget parent.
+     */
     MirrorProp(Mirror * mirror, QWidget * parent = 0);
     ~MirrorProp();
 

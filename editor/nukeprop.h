@@ -29,6 +29,11 @@ class NukeProp : public PropertiesInterface
     Nuke * nuke_;
 
 public:
+    /**
+     * Constructeur du widget permettant de modifier une bombe.
+     * @param nuke la bombe à modifier.
+     * @param parent le widget parent.
+     */
     NukeProp(Nuke * nuke, QWidget * parent = 0);
     ~NukeProp();
 

@@ -33,6 +33,11 @@ class SourceProp : public PropertiesInterface
     Source * source_;
 
 public:
+    /**
+     * Constructeur du widget permettant de modifier la source.
+     * @param source la source à modifier.
+     * @param parent le widget parent.
+     */
     SourceProp(Source * source, QWidget * parent = 0);
     ~SourceProp();
 

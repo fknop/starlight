@@ -41,7 +41,10 @@ class MapView : public QGraphicsView, public ObserverInterface, public Observabl
 
 public:
     MapView(Level * level_, bool selectable = false);
-    MapView();
+    /**
+     * @brief MapView
+     */
+//    MapView();
     ~MapView();
 
     /**

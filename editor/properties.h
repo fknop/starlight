@@ -38,6 +38,10 @@ class Properties : public QWidget, public Observable
     PropertiesInterface * prop_interface_;
 
 public:
+    /**
+     * Construit le widget permettant d’éditer l’élément sélectionné sur la carte.
+     * @param parent le widget parent.
+     */
     Properties(QWidget * parent = 0);
 
     /**

@@ -46,6 +46,10 @@ class MainEditor : public QMainWindow, public ObserverInterface
     Level * level_;
 
 public:
+    /**
+     * Constructeur par défaut de l’éditeur de carte.
+     * @param parent la classe parent, normalement le menu principal du jeu.
+     */
     explicit MainEditor(QWidget * parent = 0);
 
 private:
