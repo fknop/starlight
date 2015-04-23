@@ -59,18 +59,50 @@ private:
                 const std::vector<std::string>& args = std::vector<std::string>()) override;
 
 public slots:
+    /**
+     * Ajoute un cristal au niveau.
+     */
     void add_crystal();
+    /**
+     * Ajoute une lentille au niveau.
+     */
     void add_lens();
+    /**
+     * Ajoute un miroir au niveau.
+     */
     void add_mirror();
+    /**
+     * Ajoute une bombe au niveau.
+     */
     void add_nuke();
+    /**
+     * Ajoute un mur au niveau.
+     */
     void add_wall();
 
+    /**
+     * Crée un nouveau niveau.
+     */
     void create_level();
+    /**
+     * Charge un niveau existant depuis un fichier.
+     */
     void load_level();
+    /**
+     * Sauve le niveau dans un fichier.
+     */
     void save_level();
+    /**
+     * Retourne au menu principal.
+     */
     void back_menu();
+    /**
+     * Ferme l’éditeur avec un message de confirmation.
+     */
     void quit();
-
+    /**
+     * Supprime l’élément sélectionné du niveau.
+     */
     void delete_selected();
 };
 
