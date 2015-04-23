@@ -3,10 +3,8 @@
 
 WallProp::WallProp(Wall * wall, QWidget * parent) : wall_{wall}
 {
-    setup_ui();
-
     wall_->add_observer(this);
-
+    setup_ui();
     reset();
 }
 
