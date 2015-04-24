@@ -135,9 +135,9 @@ Fonctions membres publiques</h2></td></tr>
 <tr class="memitem:a23ddbdb1c598e1b5b436b587ef034602"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d2e/classSource.html#a23ddbdb1c598e1b5b436b587ef034602">set_pos</a> (<a class="el" href="../../dc/d4f/classPoint.html">Point</a> p)</td></tr>
 <tr class="memdesc:a23ddbdb1c598e1b5b436b587ef034602"><td class="mdescLeft">&#160;</td><td class="mdescRight">Modifie la coordonnée du coin supérieur gauche du carré représenant la source.  <a href="#a23ddbdb1c598e1b5b436b587ef034602">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a23ddbdb1c598e1b5b436b587ef034602"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a735c759b95b222a9a8e78a190125c70b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d2e/classSource.html#a735c759b95b222a9a8e78a190125c70b">set_edge</a> (double <a class="el" href="../../d6/d2e/classSource.html#a1b9bee6ad0a5d80e99ec9dd4d6ef1cae">edge</a>)</td></tr>
-<tr class="memdesc:a735c759b95b222a9a8e78a190125c70b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Modifie la longueur du côté du carré représentant la source.  <a href="#a735c759b95b222a9a8e78a190125c70b">Plus de détails...</a><br /></td></tr>
-<tr class="separator:a735c759b95b222a9a8e78a190125c70b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8deac65a37ccd8163047f43c71046fdf"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d2e/classSource.html#a8deac65a37ccd8163047f43c71046fdf">set_edge</a> (double <a class="el" href="../../d6/d2e/classSource.html#a1b9bee6ad0a5d80e99ec9dd4d6ef1cae">edge</a>)</td></tr>
+<tr class="memdesc:a8deac65a37ccd8163047f43c71046fdf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Modifie la longueur du côté du carré représentant la source si celle-ci est correcte.  <a href="#a8deac65a37ccd8163047f43c71046fdf">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a8deac65a37ccd8163047f43c71046fdf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a67095cf21061988628339761d1496c18"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d2e/classSource.html#a67095cf21061988628339761d1496c18">set_alpha</a> (double <a class="el" href="../../d6/d2e/classSource.html#ab31305003e1300e56d0175e72daac9fa">angle</a>)</td></tr>
 <tr class="memdesc:a67095cf21061988628339761d1496c18"><td class="mdescLeft">&#160;</td><td class="mdescRight">Modifie l’angle du rayon émis.  <a href="#a67095cf21061988628339761d1496c18">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a67095cf21061988628339761d1496c18"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -260,11 +260,12 @@ std::set&lt; <a class="el" href="../../dd/d62/classObserverInterface.html">Obser
   </table>
   </dd>
 </dl>
-<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="../../d9/dce/classRay.html#afecf2fa5a603689c3e77cbefbe08ffb1" title="Longueur d&#39;onde minimale autorisée pour un rayon lumineux. ">Ray::WL_MIN</a> </dd>
-<dd>
-<a class="el" href="../../d9/dce/classRay.html#a95eddd74f049d2511ffa09242b937b2c" title="Longueur d&#39;onde maximale autorisée pour un rayon lumineux. ">Ray::WL_MAX</a> </dd>
-<dd>
-<a class="el" href="../../d9/dce/classRay.html#aa08b1d2a9423fab3502c460d787b7551" title="Longueur d&#39;onde par défaut pour un rayon lumineux. ">Ray::WL_DFT</a> </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::string</td><td>si le côté de la source est plus petit ou égal à zéro. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -405,7 +406,7 @@ std::set&lt; <a class="el" href="../../dd/d62/classObserverInterface.html">Obser
 
 </div>
 </div>
-<a class="anchor" id="a735c759b95b222a9a8e78a190125c70b"></a>
+<a class="anchor" id="a8deac65a37ccd8163047f43c71046fdf"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -413,7 +414,7 @@ std::set&lt; <a class="el" href="../../dd/d62/classObserverInterface.html">Obser
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void Source::set_edge </td>
+          <td class="memname">bool Source::set_edge </td>
           <td>(</td>
           <td class="paramtype">double&#160;</td>
           <td class="paramname"><em>edge</em></td><td>)</td>
@@ -427,13 +428,14 @@ std::set&lt; <a class="el" href="../../dd/d62/classObserverInterface.html">Obser
 </table>
 </div><div class="memdoc">
 
-<p>Modifie la longueur du côté du carré représentant la source. </p>
+<p>Modifie la longueur du côté du carré représentant la source si celle-ci est correcte. </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
     <tr><td class="paramname">edge</td><td>la nouvelle longueur du côté du carré représentant la source. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Renvoie</dt><dd>vrai si la nouvelle longueur est correcte. </dd></dl>
 
 </div>
 </div>
@@ -657,7 +659,7 @@ std::set&lt; <a class="el" href="../../dd/d62/classObserverInterface.html">Obser
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Généré le Vendredi 24 Avril 2015 10:09:59 pour Starlight par &#160;<a href="http://www.doxygen.org/index.html">
+Généré le Vendredi 24 Avril 2015 17:41:33 pour Starlight par &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.7
 </small></address>

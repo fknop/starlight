@@ -132,9 +132,9 @@ Fonctions membres publiques</h2></td></tr>
 <tr class="memitem:acdf685e262d90814429717f3270e215f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d97/classDest.html#acdf685e262d90814429717f3270e215f">set_pos</a> (const <a class="el" href="../../dc/d4f/classPoint.html">Point</a> &amp;<a class="el" href="../../de/d97/classDest.html#a40eed96fe590c1ecc354239dfed73b5e">pos</a>)</td></tr>
 <tr class="memdesc:acdf685e262d90814429717f3270e215f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Modifie la position du coin supérieur gauche du carré.  <a href="#acdf685e262d90814429717f3270e215f">Plus de détails...</a><br /></td></tr>
 <tr class="separator:acdf685e262d90814429717f3270e215f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af6c4c76da5373925c8b605faabb187f9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d97/classDest.html#af6c4c76da5373925c8b605faabb187f9">set_edge</a> (const double <a class="el" href="../../de/d97/classDest.html#a3a8acfcc4637300fe240c299881c5c61">edge</a>)</td></tr>
-<tr class="memdesc:af6c4c76da5373925c8b605faabb187f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Modifie la longueur du côté du carré représentant la destination.  <a href="#af6c4c76da5373925c8b605faabb187f9">Plus de détails...</a><br /></td></tr>
-<tr class="separator:af6c4c76da5373925c8b605faabb187f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e21c6a00ec4bbb10eeb4e9f41e7864a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d97/classDest.html#a2e21c6a00ec4bbb10eeb4e9f41e7864a">set_edge</a> (const double <a class="el" href="../../de/d97/classDest.html#a3a8acfcc4637300fe240c299881c5c61">edge</a>)</td></tr>
+<tr class="memdesc:a2e21c6a00ec4bbb10eeb4e9f41e7864a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Modifie la longueur du côté du carré si celle-ci est correcte.  <a href="#a2e21c6a00ec4bbb10eeb4e9f41e7864a">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a2e21c6a00ec4bbb10eeb4e9f41e7864a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5af0475a453bf4ae292907b0f65ecd76"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../de/d00/classRectangle.html">Rectangle</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d97/classDest.html#a5af0475a453bf4ae292907b0f65ecd76">to_rectangle</a> ()</td></tr>
 <tr class="memdesc:a5af0475a453bf4ae292907b0f65ecd76"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne le rectangle correspondant à la destination.  <a href="#a5af0475a453bf4ae292907b0f65ecd76">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a5af0475a453bf4ae292907b0f65ecd76"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -231,6 +231,12 @@ std::set&lt; <a class="el" href="../../dd/d62/classObserverInterface.html">Obser
   <table class="params">
     <tr><td class="paramname">p</td><td>le coin supérieur gauche du carré modélisant la destination. </td></tr>
     <tr><td class="paramname">e</td><td>la longueur du côté du carré. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::string</td><td>si la longueur est plus petite ou égale à zéro. </td></tr>
   </table>
   </dd>
 </dl>
@@ -340,7 +346,7 @@ std::set&lt; <a class="el" href="../../dd/d62/classObserverInterface.html">Obser
 
 </div>
 </div>
-<a class="anchor" id="af6c4c76da5373925c8b605faabb187f9"></a>
+<a class="anchor" id="a2e21c6a00ec4bbb10eeb4e9f41e7864a"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -348,7 +354,7 @@ std::set&lt; <a class="el" href="../../dd/d62/classObserverInterface.html">Obser
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void Dest::set_edge </td>
+          <td class="memname">bool Dest::set_edge </td>
           <td>(</td>
           <td class="paramtype">const double&#160;</td>
           <td class="paramname"><em>edge</em></td><td>)</td>
@@ -362,13 +368,14 @@ std::set&lt; <a class="el" href="../../dd/d62/classObserverInterface.html">Obser
 </table>
 </div><div class="memdoc">
 
-<p>Modifie la longueur du côté du carré représentant la destination. </p>
+<p>Modifie la longueur du côté du carré si celle-ci est correcte. </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
     <tr><td class="paramname">edge</td><td>la nouvelle longueur du côté de la destination. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Renvoie</dt><dd>faux si la longueur est plus petite ou égale à zéro, sinon vrai. </dd></dl>
 
 </div>
 </div>
@@ -534,7 +541,7 @@ std::set&lt; <a class="el" href="../../dd/d62/classObserverInterface.html">Obser
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Généré le Vendredi 24 Avril 2015 10:09:59 pour Starlight par &#160;<a href="http://www.doxygen.org/index.html">
+Généré le Vendredi 24 Avril 2015 17:41:33 pour Starlight par &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.7
 </small></address>

@@ -126,12 +126,12 @@ Fonctions membres publiques</h2></td></tr>
 <tr class="memitem:a1f834d6f719d7b5ac4ae2428fef627e4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dec/classWall.html#a1f834d6f719d7b5ac4ae2428fef627e4">movable</a> () const </td></tr>
 <tr class="memdesc:a1f834d6f719d7b5ac4ae2428fef627e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne vrai si le mur est déplaçable.  <a href="#a1f834d6f719d7b5ac4ae2428fef627e4">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a1f834d6f719d7b5ac4ae2428fef627e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad11150d7394e06447a697c4e79d47543"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dec/classWall.html#ad11150d7394e06447a697c4e79d47543">set_start</a> (const <a class="el" href="../../dc/d4f/classPoint.html">Point</a> &amp;s)</td></tr>
-<tr class="memdesc:ad11150d7394e06447a697c4e79d47543"><td class="mdescLeft">&#160;</td><td class="mdescRight">Modifie le point de départ du mur.  <a href="#ad11150d7394e06447a697c4e79d47543">Plus de détails...</a><br /></td></tr>
-<tr class="separator:ad11150d7394e06447a697c4e79d47543"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a603f23dd306b50d9b2724f83beb61d62"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dec/classWall.html#a603f23dd306b50d9b2724f83beb61d62">set_end</a> (const <a class="el" href="../../dc/d4f/classPoint.html">Point</a> &amp;e)</td></tr>
-<tr class="memdesc:a603f23dd306b50d9b2724f83beb61d62"><td class="mdescLeft">&#160;</td><td class="mdescRight">Modifie le point de fin du mur.  <a href="#a603f23dd306b50d9b2724f83beb61d62">Plus de détails...</a><br /></td></tr>
-<tr class="separator:a603f23dd306b50d9b2724f83beb61d62"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f708a423383586cc47d1f6138fa3535"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dec/classWall.html#a3f708a423383586cc47d1f6138fa3535">set_start</a> (const <a class="el" href="../../dc/d4f/classPoint.html">Point</a> &amp;s)</td></tr>
+<tr class="memdesc:a3f708a423383586cc47d1f6138fa3535"><td class="mdescLeft">&#160;</td><td class="mdescRight">Modifie le point de départ du mur si celui-ci est correct.  <a href="#a3f708a423383586cc47d1f6138fa3535">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a3f708a423383586cc47d1f6138fa3535"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e2598aa999dae982c09daba34ba0684"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dec/classWall.html#a8e2598aa999dae982c09daba34ba0684">set_end</a> (const <a class="el" href="../../dc/d4f/classPoint.html">Point</a> &amp;e)</td></tr>
+<tr class="memdesc:a8e2598aa999dae982c09daba34ba0684"><td class="mdescLeft">&#160;</td><td class="mdescRight">Modifie le point de fin du mur si celui-ci est correct.  <a href="#a8e2598aa999dae982c09daba34ba0684">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a8e2598aa999dae982c09daba34ba0684"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acb8c8b99d772ce94bf8ef4b249c32fd2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d1/d48/classLineSegment.html">LineSegment</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dec/classWall.html#acb8c8b99d772ce94bf8ef4b249c32fd2">to_line_segment</a> ()</td></tr>
 <tr class="memdesc:acb8c8b99d772ce94bf8ef4b249c32fd2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renvoie le segment correspondant au mur.  <a href="#acb8c8b99d772ce94bf8ef4b249c32fd2">Plus de détails...</a><br /></td></tr>
 <tr class="separator:acb8c8b99d772ce94bf8ef4b249c32fd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -241,6 +241,12 @@ std::set&lt; <a class="el" href="../../dd/d62/classObserverInterface.html">Obser
     <tr><td class="paramname">p1</td><td>le début du mur. </td></tr>
     <tr><td class="paramname">p2</td><td>la fin du mur. </td></tr>
     <tr><td class="paramname">movable</td><td>vrai si le mur est déplaçable, faux sinon. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::string</td><td>si p1 est égal à p2. </td></tr>
   </table>
   </dd>
 </dl>
@@ -373,7 +379,7 @@ std::set&lt; <a class="el" href="../../dd/d62/classObserverInterface.html">Obser
 
 </div>
 </div>
-<a class="anchor" id="a603f23dd306b50d9b2724f83beb61d62"></a>
+<a class="anchor" id="a8e2598aa999dae982c09daba34ba0684"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -381,7 +387,7 @@ std::set&lt; <a class="el" href="../../dd/d62/classObserverInterface.html">Obser
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void Wall::set_end </td>
+          <td class="memname">bool Wall::set_end </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="../../dc/d4f/classPoint.html">Point</a> &amp;&#160;</td>
           <td class="paramname"><em>e</em></td><td>)</td>
@@ -395,17 +401,18 @@ std::set&lt; <a class="el" href="../../dd/d62/classObserverInterface.html">Obser
 </table>
 </div><div class="memdoc">
 
-<p>Modifie le point de fin du mur. </p>
+<p>Modifie le point de fin du mur si celui-ci est correct. </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
     <tr><td class="paramname">e</td><td>le point de fin du mur. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Renvoie</dt><dd>vrai si le nouveau point est correct, faux sinon </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="ad11150d7394e06447a697c4e79d47543"></a>
+<a class="anchor" id="a3f708a423383586cc47d1f6138fa3535"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -413,7 +420,7 @@ std::set&lt; <a class="el" href="../../dd/d62/classObserverInterface.html">Obser
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void Wall::set_start </td>
+          <td class="memname">bool Wall::set_start </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="../../dc/d4f/classPoint.html">Point</a> &amp;&#160;</td>
           <td class="paramname"><em>s</em></td><td>)</td>
@@ -427,13 +434,14 @@ std::set&lt; <a class="el" href="../../dd/d62/classObserverInterface.html">Obser
 </table>
 </div><div class="memdoc">
 
-<p>Modifie le point de départ du mur. </p>
+<p>Modifie le point de départ du mur si celui-ci est correct. </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
     <tr><td class="paramname">s</td><td>le point de départ. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Renvoie</dt><dd>vrai si le nouveau point est correct, faux sinon. </dd></dl>
 
 </div>
 </div>
@@ -561,7 +569,7 @@ std::set&lt; <a class="el" href="../../dd/d62/classObserverInterface.html">Obser
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Généré le Vendredi 24 Avril 2015 10:09:59 pour Starlight par &#160;<a href="http://www.doxygen.org/index.html">
+Généré le Vendredi 24 Avril 2015 17:41:33 pour Starlight par &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.7
 </small></address>

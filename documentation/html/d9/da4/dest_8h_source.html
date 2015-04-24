@@ -103,83 +103,86 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordtype">bool</span> lighted_up_ {<span class="keyword">false</span>};</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <a class="code" href="../../de/d97/classDest.html#ac4b55b2569af4d98a6b265becf8922a7">Dest</a>(<span class="keyword">const</span> <a class="code" href="../../dc/d4f/classPoint.html">Point</a>&amp; p, <span class="keywordtype">double</span> e);</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <a class="code" href="../../de/d97/classDest.html#ac4b55b2569af4d98a6b265becf8922a7">Dest</a>(<span class="keyword">const</span> <a class="code" href="../../de/d97/classDest.html">Dest</a>&amp; dest);</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keyword">inline</span> <span class="keyword">const</span> <a class="code" href="../../dc/d4f/classPoint.html">Point</a>&amp; <a class="code" href="../../de/d97/classDest.html#a40eed96fe590c1ecc354239dfed73b5e">pos</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">double</span> <a class="code" href="../../de/d97/classDest.html#a3a8acfcc4637300fe240c299881c5c61">edge</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code" href="../../de/d97/classDest.html#af549b51a5ddf4cbdab7e95e0e07ee5d4">lighted_up</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="../../de/d97/classDest.html#a52ab303c379e3f541692effccf183329">set_lighted_up</a>(<span class="keyword">const</span> <span class="keywordtype">bool</span> value);</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="../../de/d97/classDest.html#acdf685e262d90814429717f3270e215f">set_pos</a>(<span class="keyword">const</span> <a class="code" href="../../dc/d4f/classPoint.html">Point</a>&amp; pos);</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="../../de/d97/classDest.html#af6c4c76da5373925c8b605faabb187f9">set_edge</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> edge);</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <a class="code" href="../../de/d00/classRectangle.html">Rectangle</a> <a class="code" href="../../de/d97/classDest.html#a5af0475a453bf4ae292907b0f65ecd76">to_rectangle</a>();</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="../../de/d97/classDest.html#a5a45df42c8960e3bcf510338acc04c99">translate</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> x, <span class="keyword">const</span> <span class="keywordtype">double</span> y);</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="keyword">friend</span> std::ostream&amp; <a class="code" href="../../de/d97/classDest.html#a256a3d2bff5f10395424d5dc911a2b4e">operator&lt;&lt;</a>(std::ostream&amp; out,</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;                                     <span class="keyword">const</span> <a class="code" href="../../de/d97/classDest.html">Dest</a>&amp; s);</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;};</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="comment">/* Fonction inlines */</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <a class="code" href="../../de/d97/classDest.html#ac4b55b2569af4d98a6b265becf8922a7">Dest</a>(<span class="keyword">const</span> <a class="code" href="../../dc/d4f/classPoint.html">Point</a>&amp; p, <span class="keywordtype">double</span> e);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <a class="code" href="../../de/d97/classDest.html#ac4b55b2569af4d98a6b265becf8922a7">Dest</a>(<span class="keyword">const</span> <a class="code" href="../../de/d97/classDest.html">Dest</a>&amp; dest);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keyword">inline</span> <span class="keyword">const</span> <a class="code" href="../../dc/d4f/classPoint.html">Point</a>&amp; <a class="code" href="../../de/d97/classDest.html#a40eed96fe590c1ecc354239dfed73b5e">pos</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">double</span> <a class="code" href="../../de/d97/classDest.html#a3a8acfcc4637300fe240c299881c5c61">edge</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code" href="../../de/d97/classDest.html#af549b51a5ddf4cbdab7e95e0e07ee5d4">lighted_up</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="../../de/d97/classDest.html#a52ab303c379e3f541692effccf183329">set_lighted_up</a>(<span class="keyword">const</span> <span class="keywordtype">bool</span> value);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="../../de/d97/classDest.html#acdf685e262d90814429717f3270e215f">set_pos</a>(<span class="keyword">const</span> <a class="code" href="../../dc/d4f/classPoint.html">Point</a>&amp; pos);</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code" href="../../de/d97/classDest.html#a2e21c6a00ec4bbb10eeb4e9f41e7864a">set_edge</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> edge);</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <a class="code" href="../../de/d00/classRectangle.html">Rectangle</a> <a class="code" href="../../de/d97/classDest.html#a5af0475a453bf4ae292907b0f65ecd76">to_rectangle</a>();</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="../../de/d97/classDest.html#a5a45df42c8960e3bcf510338acc04c99">translate</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> x, <span class="keyword">const</span> <span class="keywordtype">double</span> y);</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keyword">friend</span> std::ostream&amp; <a class="code" href="../../de/d97/classDest.html#a256a3d2bff5f10395424d5dc911a2b4e">operator&lt;&lt;</a>(std::ostream&amp; out,</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                                     <span class="keyword">const</span> <a class="code" href="../../de/d97/classDest.html">Dest</a>&amp; s);</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;};</div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;</div>
-<div class="line"><a name="l00104"></a><span class="lineno"><a class="line" href="../../de/d97/classDest.html#a40eed96fe590c1ecc354239dfed73b5e">  104</a></span>&#160;<span class="keyword">const</span> <a class="code" href="../../dc/d4f/classPoint.html">Point</a>&amp; <a class="code" href="../../de/d97/classDest.html#a40eed96fe590c1ecc354239dfed73b5e">Dest::pos</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="keywordflow">return</span> pos_;</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;}</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;</div>
-<div class="line"><a name="l00109"></a><span class="lineno"><a class="line" href="../../de/d97/classDest.html#a3a8acfcc4637300fe240c299881c5c61">  109</a></span>&#160;<span class="keywordtype">double</span> <a class="code" href="../../de/d97/classDest.html#a3a8acfcc4637300fe240c299881c5c61">Dest::edge</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="keywordflow">return</span> edge_;</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;}</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;</div>
-<div class="line"><a name="l00114"></a><span class="lineno"><a class="line" href="../../de/d97/classDest.html#af549b51a5ddf4cbdab7e95e0e07ee5d4">  114</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="../../de/d97/classDest.html#af549b51a5ddf4cbdab7e95e0e07ee5d4">Dest::lighted_up</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <span class="keywordflow">return</span> lighted_up_;</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;}</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;</div>
-<div class="line"><a name="l00119"></a><span class="lineno"><a class="line" href="../../de/d97/classDest.html#a52ab303c379e3f541692effccf183329">  119</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../de/d97/classDest.html#a52ab303c379e3f541692effccf183329">Dest::set_lighted_up</a>(<span class="keyword">const</span> <span class="keywordtype">bool</span> value)</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;{</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    lighted_up_ = value;</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <a class="code" href="../../d9/db4/classObservable.html#a0ea369066b16b465fa95c975cd69615a">notify_all</a>(std::string(<span class="stringliteral">&quot;LIGHTED_UP&quot;</span>));</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;}</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;</div>
-<div class="line"><a name="l00125"></a><span class="lineno"><a class="line" href="../../de/d97/classDest.html#acdf685e262d90814429717f3270e215f">  125</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../de/d97/classDest.html#acdf685e262d90814429717f3270e215f">Dest::set_pos</a>(<span class="keyword">const</span> <a class="code" href="../../dc/d4f/classPoint.html">Point</a>&amp; pos)</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;{</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    pos_ = <a class="code" href="../../de/d97/classDest.html#a40eed96fe590c1ecc354239dfed73b5e">pos</a>;</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;}</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;</div>
-<div class="line"><a name="l00130"></a><span class="lineno"><a class="line" href="../../de/d97/classDest.html#af6c4c76da5373925c8b605faabb187f9">  130</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../de/d97/classDest.html#af6c4c76da5373925c8b605faabb187f9">Dest::set_edge</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> edge)</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;{</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    edge_ = <a class="code" href="../../de/d97/classDest.html#a3a8acfcc4637300fe240c299881c5c61">edge</a>;</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;}</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;<span class="preprocessor">#endif // DEST_H</span></div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="comment">/* Fonction inlines */</span></div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;</div>
+<div class="line"><a name="l00106"></a><span class="lineno"><a class="line" href="../../de/d97/classDest.html#a40eed96fe590c1ecc354239dfed73b5e">  106</a></span>&#160;<span class="keyword">const</span> <a class="code" href="../../dc/d4f/classPoint.html">Point</a>&amp; <a class="code" href="../../de/d97/classDest.html#a40eed96fe590c1ecc354239dfed73b5e">Dest::pos</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="keywordflow">return</span> pos_;</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;}</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;</div>
+<div class="line"><a name="l00111"></a><span class="lineno"><a class="line" href="../../de/d97/classDest.html#a3a8acfcc4637300fe240c299881c5c61">  111</a></span>&#160;<span class="keywordtype">double</span> <a class="code" href="../../de/d97/classDest.html#a3a8acfcc4637300fe240c299881c5c61">Dest::edge</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="keywordflow">return</span> edge_;</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;}</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;</div>
+<div class="line"><a name="l00116"></a><span class="lineno"><a class="line" href="../../de/d97/classDest.html#af549b51a5ddf4cbdab7e95e0e07ee5d4">  116</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="../../de/d97/classDest.html#af549b51a5ddf4cbdab7e95e0e07ee5d4">Dest::lighted_up</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    <span class="keywordflow">return</span> lighted_up_;</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;}</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;</div>
+<div class="line"><a name="l00121"></a><span class="lineno"><a class="line" href="../../de/d97/classDest.html#a52ab303c379e3f541692effccf183329">  121</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../de/d97/classDest.html#a52ab303c379e3f541692effccf183329">Dest::set_lighted_up</a>(<span class="keyword">const</span> <span class="keywordtype">bool</span> value)</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;{</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    lighted_up_ = value;</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    <a class="code" href="../../d9/db4/classObservable.html#a0ea369066b16b465fa95c975cd69615a">notify_all</a>(std::string(<span class="stringliteral">&quot;LIGHTED_UP&quot;</span>));</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;}</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;</div>
+<div class="line"><a name="l00127"></a><span class="lineno"><a class="line" href="../../de/d97/classDest.html#acdf685e262d90814429717f3270e215f">  127</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../de/d97/classDest.html#acdf685e262d90814429717f3270e215f">Dest::set_pos</a>(<span class="keyword">const</span> <a class="code" href="../../dc/d4f/classPoint.html">Point</a>&amp; pos)</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;{</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    pos_ = <a class="code" href="../../de/d97/classDest.html#a40eed96fe590c1ecc354239dfed73b5e">pos</a>;</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;}</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;</div>
+<div class="line"><a name="l00132"></a><span class="lineno"><a class="line" href="../../de/d97/classDest.html#a2e21c6a00ec4bbb10eeb4e9f41e7864a">  132</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="../../de/d97/classDest.html#a2e21c6a00ec4bbb10eeb4e9f41e7864a">Dest::set_edge</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> edge)</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;{</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    <span class="keywordtype">bool</span> b {edge &gt; 0};</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    <span class="keywordflow">if</span> (b)</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;        edge_ = <a class="code" href="../../de/d97/classDest.html#a3a8acfcc4637300fe240c299881c5c61">edge</a>;</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    <span class="keywordflow">return</span> b;</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;}</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;<span class="preprocessor">#endif // DEST_H</span></div>
 <div class="ttc" id="classDest_html_a5a45df42c8960e3bcf510338acc04c99"><div class="ttname"><a href="../../de/d97/classDest.html#a5a45df42c8960e3bcf510338acc04c99">Dest::translate</a></div><div class="ttdeci">void translate(const double x, const double y)</div><div class="ttdoc">Déplace la destination. </div><div class="ttdef"><b>Definition:</b> dest.cpp:30</div></div>
+<div class="ttc" id="classDest_html_a2e21c6a00ec4bbb10eeb4e9f41e7864a"><div class="ttname"><a href="../../de/d97/classDest.html#a2e21c6a00ec4bbb10eeb4e9f41e7864a">Dest::set_edge</a></div><div class="ttdeci">bool set_edge(const double edge)</div><div class="ttdoc">Modifie la longueur du côté du carré si celle-ci est correcte. </div><div class="ttdef"><b>Definition:</b> dest.h:132</div></div>
 <div class="ttc" id="classDest_html_ac4b55b2569af4d98a6b265becf8922a7"><div class="ttname"><a href="../../de/d97/classDest.html#ac4b55b2569af4d98a6b265becf8922a7">Dest::Dest</a></div><div class="ttdeci">Dest(const Point &amp;p, double e)</div><div class="ttdoc">Intancie une destination de position et rayon donné. </div><div class="ttdef"><b>Definition:</b> dest.cpp:4</div></div>
-<div class="ttc" id="classDest_html_af549b51a5ddf4cbdab7e95e0e07ee5d4"><div class="ttname"><a href="../../de/d97/classDest.html#af549b51a5ddf4cbdab7e95e0e07ee5d4">Dest::lighted_up</a></div><div class="ttdeci">bool lighted_up() const </div><div class="ttdoc">Retourne vrai si la destination est illuminée, faux sinon. </div><div class="ttdef"><b>Definition:</b> dest.h:114</div></div>
-<div class="ttc" id="classDest_html_a3a8acfcc4637300fe240c299881c5c61"><div class="ttname"><a href="../../de/d97/classDest.html#a3a8acfcc4637300fe240c299881c5c61">Dest::edge</a></div><div class="ttdeci">double edge() const </div><div class="ttdoc">Retourne la longueur du côté du carré représentant la destination. </div><div class="ttdef"><b>Definition:</b> dest.h:109</div></div>
+<div class="ttc" id="classDest_html_af549b51a5ddf4cbdab7e95e0e07ee5d4"><div class="ttname"><a href="../../de/d97/classDest.html#af549b51a5ddf4cbdab7e95e0e07ee5d4">Dest::lighted_up</a></div><div class="ttdeci">bool lighted_up() const </div><div class="ttdoc">Retourne vrai si la destination est illuminée, faux sinon. </div><div class="ttdef"><b>Definition:</b> dest.h:116</div></div>
+<div class="ttc" id="classDest_html_a3a8acfcc4637300fe240c299881c5c61"><div class="ttname"><a href="../../de/d97/classDest.html#a3a8acfcc4637300fe240c299881c5c61">Dest::edge</a></div><div class="ttdeci">double edge() const </div><div class="ttdoc">Retourne la longueur du côté du carré représentant la destination. </div><div class="ttdef"><b>Definition:</b> dest.h:111</div></div>
 <div class="ttc" id="classPoint_html"><div class="ttname"><a href="../../dc/d4f/classPoint.html">Point</a></div><div class="ttdoc">Cette classe modélise un simple point de coordonnées réelles utilisés pour modéliser les positions de...</div><div class="ttdef"><b>Definition:</b> point.h:10</div></div>
-<div class="ttc" id="classDest_html_af6c4c76da5373925c8b605faabb187f9"><div class="ttname"><a href="../../de/d97/classDest.html#af6c4c76da5373925c8b605faabb187f9">Dest::set_edge</a></div><div class="ttdeci">void set_edge(const double edge)</div><div class="ttdoc">Modifie la longueur du côté du carré représentant la destination. </div><div class="ttdef"><b>Definition:</b> dest.h:130</div></div>
-<div class="ttc" id="classDest_html_a40eed96fe590c1ecc354239dfed73b5e"><div class="ttname"><a href="../../de/d97/classDest.html#a40eed96fe590c1ecc354239dfed73b5e">Dest::pos</a></div><div class="ttdeci">const Point &amp; pos() const </div><div class="ttdoc">Retourne la position du coin supérieur gauche du carré. </div><div class="ttdef"><b>Definition:</b> dest.h:104</div></div>
+<div class="ttc" id="classDest_html_a40eed96fe590c1ecc354239dfed73b5e"><div class="ttname"><a href="../../de/d97/classDest.html#a40eed96fe590c1ecc354239dfed73b5e">Dest::pos</a></div><div class="ttdeci">const Point &amp; pos() const </div><div class="ttdoc">Retourne la position du coin supérieur gauche du carré. </div><div class="ttdef"><b>Definition:</b> dest.h:106</div></div>
 <div class="ttc" id="classRectangle_html"><div class="ttname"><a href="../../de/d00/classRectangle.html">Rectangle</a></div><div class="ttdoc">Classe Rectangle : représente un rectangle avec un point supérieur gauche, une longueur et une hauteu...</div><div class="ttdef"><b>Definition:</b> rectangle.h:16</div></div>
-<div class="ttc" id="classDest_html_a52ab303c379e3f541692effccf183329"><div class="ttname"><a href="../../de/d97/classDest.html#a52ab303c379e3f541692effccf183329">Dest::set_lighted_up</a></div><div class="ttdeci">void set_lighted_up(const bool value)</div><div class="ttdoc">Illumine la destination ou non. </div><div class="ttdef"><b>Definition:</b> dest.h:119</div></div>
+<div class="ttc" id="classDest_html_a52ab303c379e3f541692effccf183329"><div class="ttname"><a href="../../de/d97/classDest.html#a52ab303c379e3f541692effccf183329">Dest::set_lighted_up</a></div><div class="ttdeci">void set_lighted_up(const bool value)</div><div class="ttdoc">Illumine la destination ou non. </div><div class="ttdef"><b>Definition:</b> dest.h:121</div></div>
 <div class="ttc" id="classElement_html"><div class="ttname"><a href="../../d5/d3c/classElement.html">Element</a></div><div class="ttdoc">Cette classe sert de super-classe à tous les éléments avec lesquels un rayon peut interagir...</div><div class="ttdef"><b>Definition:</b> element.h:13</div></div>
 <div class="ttc" id="classDest_html"><div class="ttname"><a href="../../de/d97/classDest.html">Dest</a></div><div class="ttdoc">Cette classe modélise la destination utilisée dans le jeu. </div><div class="ttdef"><b>Definition:</b> dest.h:17</div></div>
-<div class="ttc" id="classDest_html_acdf685e262d90814429717f3270e215f"><div class="ttname"><a href="../../de/d97/classDest.html#acdf685e262d90814429717f3270e215f">Dest::set_pos</a></div><div class="ttdeci">void set_pos(const Point &amp;pos)</div><div class="ttdoc">Modifie la position du coin supérieur gauche du carré. </div><div class="ttdef"><b>Definition:</b> dest.h:125</div></div>
+<div class="ttc" id="classDest_html_acdf685e262d90814429717f3270e215f"><div class="ttname"><a href="../../de/d97/classDest.html#acdf685e262d90814429717f3270e215f">Dest::set_pos</a></div><div class="ttdeci">void set_pos(const Point &amp;pos)</div><div class="ttdoc">Modifie la position du coin supérieur gauche du carré. </div><div class="ttdef"><b>Definition:</b> dest.h:127</div></div>
 <div class="ttc" id="classDest_html_a256a3d2bff5f10395424d5dc911a2b4e"><div class="ttname"><a href="../../de/d97/classDest.html#a256a3d2bff5f10395424d5dc911a2b4e">Dest::operator&lt;&lt;</a></div><div class="ttdeci">friend std::ostream &amp; operator&lt;&lt;(std::ostream &amp;out, const Dest &amp;s)</div><div class="ttdoc">Surcharge l&#39;opérateur de flux de sortie pour afficher. </div><div class="ttdef"><b>Definition:</b> dest.cpp:23</div></div>
 <div class="ttc" id="classDest_html_a5af0475a453bf4ae292907b0f65ecd76"><div class="ttname"><a href="../../de/d97/classDest.html#a5af0475a453bf4ae292907b0f65ecd76">Dest::to_rectangle</a></div><div class="ttdeci">Rectangle to_rectangle()</div><div class="ttdoc">Retourne le rectangle correspondant à la destination. </div><div class="ttdef"><b>Definition:</b> dest.cpp:18</div></div>
 <div class="ttc" id="classObservable_html_a0ea369066b16b465fa95c975cd69615a"><div class="ttname"><a href="../../d9/db4/classObservable.html#a0ea369066b16b465fa95c975cd69615a">Observable::notify_all</a></div><div class="ttdeci">virtual void notify_all(std::string msg, const std::vector&lt; std::string &gt; &amp;args=std::vector&lt; std::string &gt;())</div><div class="ttdoc">Notifie tous les observateurs enregistrés d&#39;un changement d&#39;état. </div><div class="ttdef"><b>Definition:</b> observable.cpp:14</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Généré le Vendredi 24 Avril 2015 10:09:59 pour Starlight par &#160;<a href="http://www.doxygen.org/index.html">
+Généré le Vendredi 24 Avril 2015 17:41:33 pour Starlight par &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.7
 </small></address>

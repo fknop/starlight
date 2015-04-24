@@ -129,9 +129,9 @@ Fonctions membres publiques</h2></td></tr>
 <tr class="memitem:acc486ad0d5b1f348ee1146291c2ed72e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/ddf/classNuke.html#acc486ad0d5b1f348ee1146291c2ed72e">set_pos</a> (<a class="el" href="../../dc/d4f/classPoint.html">Point</a> p)</td></tr>
 <tr class="memdesc:acc486ad0d5b1f348ee1146291c2ed72e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Modifie la position de la bombe.  <a href="#acc486ad0d5b1f348ee1146291c2ed72e">Plus de détails...</a><br /></td></tr>
 <tr class="separator:acc486ad0d5b1f348ee1146291c2ed72e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5dbc3fbb7327fefced855e7accbf71b9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/ddf/classNuke.html#a5dbc3fbb7327fefced855e7accbf71b9">set_radius</a> (double r)</td></tr>
-<tr class="memdesc:a5dbc3fbb7327fefced855e7accbf71b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Modifie le rayon de la bombe.  <a href="#a5dbc3fbb7327fefced855e7accbf71b9">Plus de détails...</a><br /></td></tr>
-<tr class="separator:a5dbc3fbb7327fefced855e7accbf71b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a651654e523e8eb263010db08bc345b8e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/ddf/classNuke.html#a651654e523e8eb263010db08bc345b8e">set_radius</a> (double r)</td></tr>
+<tr class="memdesc:a651654e523e8eb263010db08bc345b8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Modifie le rayon de la bombe si celui-ci est correct.  <a href="#a651654e523e8eb263010db08bc345b8e">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a651654e523e8eb263010db08bc345b8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a69f5d44f026c6643a1e1460d2d3af685"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/dc7/classEllipse.html">Ellipse</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/ddf/classNuke.html#a69f5d44f026c6643a1e1460d2d3af685">to_ellipse</a> ()</td></tr>
 <tr class="memdesc:a69f5d44f026c6643a1e1460d2d3af685"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renvoie l'ellipse correspondante à la bombe.  <a href="#a69f5d44f026c6643a1e1460d2d3af685">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a69f5d44f026c6643a1e1460d2d3af685"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -231,6 +231,12 @@ std::set&lt; <a class="el" href="../../dd/d62/classObserverInterface.html">Obser
   <table class="params">
     <tr><td class="paramname">p</td><td>la position de la bombe. </td></tr>
     <tr><td class="paramname">r</td><td>le rayon de la bombe. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::string</td><td>si le rayon est plus petit ou égal à zéro. </td></tr>
   </table>
   </dd>
 </dl>
@@ -405,7 +411,7 @@ std::set&lt; <a class="el" href="../../dd/d62/classObserverInterface.html">Obser
 
 </div>
 </div>
-<a class="anchor" id="a5dbc3fbb7327fefced855e7accbf71b9"></a>
+<a class="anchor" id="a651654e523e8eb263010db08bc345b8e"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -413,7 +419,7 @@ std::set&lt; <a class="el" href="../../dd/d62/classObserverInterface.html">Obser
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void Nuke::set_radius </td>
+          <td class="memname">bool Nuke::set_radius </td>
           <td>(</td>
           <td class="paramtype">double&#160;</td>
           <td class="paramname"><em>r</em></td><td>)</td>
@@ -427,13 +433,14 @@ std::set&lt; <a class="el" href="../../dd/d62/classObserverInterface.html">Obser
 </table>
 </div><div class="memdoc">
 
-<p>Modifie le rayon de la bombe. </p>
+<p>Modifie le rayon de la bombe si celui-ci est correct. </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
     <tr><td class="paramname">r</td><td>le nouveau rayon de la bombe. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Renvoie</dt><dd>vrai si le rayon est correct, faux sinon. </dd></dl>
 
 </div>
 </div>
@@ -535,7 +542,7 @@ std::set&lt; <a class="el" href="../../dd/d62/classObserverInterface.html">Obser
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Généré le Vendredi 24 Avril 2015 10:09:59 pour Starlight par &#160;<a href="http://www.doxygen.org/index.html">
+Généré le Vendredi 24 Avril 2015 17:41:33 pour Starlight par &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.7
 </small></address>

@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['wall',['Wall',['../d7/dec/classWall.html#af8bbfd7bd810a0728769c7eed06ef38f',1,'Wall::Wall(const Point &amp;p1, const Point &amp;p2, bool movable=true)'],['../d7/dec/classWall.html#af9843adb784b97d73bdb74a7992bf825',1,'Wall::Wall(const Wall &amp;wall)'],['../d6/da2/classWallView.html#af93a05e8e527a55158707802c2f16911',1,'WallView::wall()']]],
+  ['wall',['wall',['../d6/da2/classWallView.html#af93a05e8e527a55158707802c2f16911',1,'WallView::wall()'],['../d7/dec/classWall.html#af8bbfd7bd810a0728769c7eed06ef38f',1,'Wall::Wall(const Point &amp;p1, const Point &amp;p2, bool movable=true)'],['../d7/dec/classWall.html#af9843adb784b97d73bdb74a7992bf825',1,'Wall::Wall(const Wall &amp;wall)']]],
   ['wallprop',['WallProp',['../dd/dd1/classWallProp.html#adb6bbb2ab2fbbb9a8e15a3f38b421595',1,'WallProp']]],
   ['walls',['walls',['../d2/d9d/classLevel.html#add82438c31441eaf067b3c4c290c34bc',1,'Level']]],
   ['wallview',['WallView',['../d6/da2/classWallView.html#acd55794debfd67a8f2b9088d3fb2e0dc',1,'WallView']]],

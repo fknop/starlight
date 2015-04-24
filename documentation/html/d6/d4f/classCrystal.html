@@ -129,9 +129,9 @@ Fonctions membres publiques</h2></td></tr>
 <tr class="memitem:a3639d10c52b98d93bc81f21fb6e2e929"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d4f/classCrystal.html#a3639d10c52b98d93bc81f21fb6e2e929">set_center</a> (const <a class="el" href="../../dc/d4f/classPoint.html">Point</a> &amp;c)</td></tr>
 <tr class="memdesc:a3639d10c52b98d93bc81f21fb6e2e929"><td class="mdescLeft">&#160;</td><td class="mdescRight">Modifie la coordonée du centre du cristal.  <a href="#a3639d10c52b98d93bc81f21fb6e2e929">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a3639d10c52b98d93bc81f21fb6e2e929"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a05a53bb4f4d519248d62990f8a62b786"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d4f/classCrystal.html#a05a53bb4f4d519248d62990f8a62b786">set_radius</a> (const double rad)</td></tr>
-<tr class="memdesc:a05a53bb4f4d519248d62990f8a62b786"><td class="mdescLeft">&#160;</td><td class="mdescRight">Modifie le rayon du cristal.  <a href="#a05a53bb4f4d519248d62990f8a62b786">Plus de détails...</a><br /></td></tr>
-<tr class="separator:a05a53bb4f4d519248d62990f8a62b786"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad2b198cda938de53d2b39a6c3d5166e0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d4f/classCrystal.html#ad2b198cda938de53d2b39a6c3d5166e0">set_radius</a> (const double rad)</td></tr>
+<tr class="memdesc:ad2b198cda938de53d2b39a6c3d5166e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Modifie le rayon du cristal si celui-ci est correct.  <a href="#ad2b198cda938de53d2b39a6c3d5166e0">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ad2b198cda938de53d2b39a6c3d5166e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9aaadd11a8fc70932b998073f67df8fe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d4f/classCrystal.html#a9aaadd11a8fc70932b998073f67df8fe">set_modifier</a> (const double mod)</td></tr>
 <tr class="memdesc:a9aaadd11a8fc70932b998073f67df8fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Modifie le modificateur de longueur d’onde du cristal.  <a href="#a9aaadd11a8fc70932b998073f67df8fe">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a9aaadd11a8fc70932b998073f67df8fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -242,6 +242,12 @@ std::set&lt; <a class="el" href="../../dd/d62/classObserverInterface.html">Obser
     <tr><td class="paramname">p</td><td>le centre du cristal. </td></tr>
     <tr><td class="paramname">r</td><td>le rayon du cristal. </td></tr>
     <tr><td class="paramname">m</td><td>le modificateur de longueur d'onde du cristal. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::string</td><td>si le rayon est plus petit ou égal à zéro. </td></tr>
   </table>
   </dd>
 </dl>
@@ -440,7 +446,7 @@ std::set&lt; <a class="el" href="../../dd/d62/classObserverInterface.html">Obser
 
 </div>
 </div>
-<a class="anchor" id="a05a53bb4f4d519248d62990f8a62b786"></a>
+<a class="anchor" id="ad2b198cda938de53d2b39a6c3d5166e0"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -448,7 +454,7 @@ std::set&lt; <a class="el" href="../../dd/d62/classObserverInterface.html">Obser
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void Crystal::set_radius </td>
+          <td class="memname">bool Crystal::set_radius </td>
           <td>(</td>
           <td class="paramtype">const double&#160;</td>
           <td class="paramname"><em>rad</em></td><td>)</td>
@@ -462,13 +468,14 @@ std::set&lt; <a class="el" href="../../dd/d62/classObserverInterface.html">Obser
 </table>
 </div><div class="memdoc">
 
-<p>Modifie le rayon du cristal. </p>
+<p>Modifie le rayon du cristal si celui-ci est correct. </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
     <tr><td class="paramname">rad</td><td>le nouveau rayon du cristal. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Renvoie</dt><dd>vrai si le nouveau rayon est correct, faux sinon. </dd></dl>
 
 </div>
 </div>
@@ -570,7 +577,7 @@ std::set&lt; <a class="el" href="../../dd/d62/classObserverInterface.html">Obser
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Généré le Vendredi 24 Avril 2015 10:09:59 pour Starlight par &#160;<a href="http://www.doxygen.org/index.html">
+Généré le Vendredi 24 Avril 2015 17:41:33 pour Starlight par &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.7
 </small></address>
