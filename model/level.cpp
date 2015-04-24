@@ -145,7 +145,7 @@ double Level::get_reflection_angle(double ray_angle, double m_alpha)
     if (umath::angle_equals_pi(ray_angle, m_alpha))
         return umath::to_positive_angle(ray_angle + PI);
 
-    return umath::to_positive_angle(2*m_alpha) - (ray_angle);
+    return umath::to_positive_angle(ray_angle + PI + (2 * (m_alpha + PI_2 - ray_angle)));
 }
 
 void Level::dest_intersections(const Line& line,
@@ -345,8 +345,6 @@ void Level::notify(Observable * o, const std::string& msg, const std::vector<std
     bool ask_translate = msg.compare("ASK_TRANSLATE") == 0;
     bool ask_rotate    = msg.compare("ASK_ROTATE") == 0;
     bool recompute = !ask_translate && !ask_rotate && msg.compare("LIGHTED_UP") != 0;
-
-            //!ask_translate && !ask_rotate && msg.compare("LIGHTED_UP") != 0;
 
     if (check_collisions_ && (ask_rotate || ask_translate))
     {
