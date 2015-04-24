@@ -137,13 +137,13 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
 <div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="../../d9/df7/classSourceView.html#ab6c051d55846c3880a8f2672650327aa">   74</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="../../d9/df7/classSourceView.html#ab6c051d55846c3880a8f2672650327aa">SourceView::selectable</a>()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordflow">return</span> this-&gt;selectable_;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordflow">return</span> selectable_;</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;}</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
 <div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="../../d9/df7/classSourceView.html#a64f81b9f42abf51e39b4b16fb8be3dff">   79</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d9/df7/classSourceView.html#a64f81b9f42abf51e39b4b16fb8be3dff">SourceView::set_selectable</a>(<span class="keywordtype">bool</span> value)</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;{</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    this-&gt;selectable_ = value;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    setFlag(QGraphicsItem::ItemIsSelectable, this-&gt;selectable_);</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    selectable_ = value;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    setFlag(QGraphicsItem::ItemIsSelectable, selectable_);</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;}</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="preprocessor">#endif // SOURCEVIEW_H</span></div>
@@ -162,7 +162,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Généré le Jeudi 23 Avril 2015 22:17:08 pour Starlight par &#160;<a href="http://www.doxygen.org/index.html">
+Généré le Vendredi 24 Avril 2015 10:09:59 pour Starlight par &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.7
 </small></address>
