@@ -62,13 +62,13 @@ void Properties::delete_prop()
 void Properties::set_element_prop(ElementView * ev)
 {
     delete_prop();
-
     if (ev != nullptr)
     {
         switch(ev->type_view())
         {
         case ElementView::TypeView::CRYSTALVIEW:
         {
+
             CrystalView * cv = static_cast<CrystalView *> (ev);
             prop_interface_ = new CrystalProp(cv->crystal(), group_box_);
 
@@ -146,5 +146,4 @@ void Properties::apply_changes()
 void Properties::delete_element()
 {
     notify_all(std::string("ELEMENT_DELETED"));
-    set_element_prop(nullptr);
 }

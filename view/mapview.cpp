@@ -25,9 +25,14 @@ MapView::~MapView()
 ElementView * MapView::selected()
 {
     if (!scene_->selectedItems().empty())
-        return dynamic_cast<ElementView *> (scene_->selectedItems().at(0));
+    {
+        ElementView * ev = dynamic_cast<ElementView *> (scene_->selectedItems().at(0));
+        return ev;
+    }
     else
+    {
         return nullptr;
+    }
 }
 
 void MapView::clear()
@@ -206,15 +211,12 @@ void MapView::mousePressEvent(QMouseEvent * event)
 
     ElementView * ev_selected = this->selected();
 
-    if (ev_selected != nullptr)
+    if (ev_selected != nullptr && ev_selected->type_view() == MirrorView::TypeView::MIRRORVIEW)
     {
-        if (ev_selected->type_view() == MirrorView::TypeView::MIRRORVIEW)
-        {
             selected_mirror_ = static_cast<MirrorView *> (ev_selected);
             selected_mirror_->show_zone();
-        }
-        notify_all(std::string("SELECTED"));
     }
+    notify_all(std::string("SELECTED"));
 }
 
 void MapView::keyPressEvent(QKeyEvent * event)
