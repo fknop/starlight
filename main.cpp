@@ -3,7 +3,7 @@
 #include "view/mainmenu.h"
 #include "tests/test.h"
 
-#ifndef RUNTEST
+#ifndef RUNTEST // Commenter - décommenter dans tests/test.h
 int main(int argc, char** argv)
 {
     QApplication app(argc, argv);
