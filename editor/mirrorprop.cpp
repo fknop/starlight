@@ -1,3 +1,5 @@
+#include <QMessageBox>
+
 #include "editor/mirrorprop.h"
 #include "utils/constants.h"
 
@@ -40,7 +42,7 @@ void MirrorProp::setup_ui()
     xpad_label_->setMinimumSize(QSize(100, 20));
 
     xpad_dsb_ = new QDoubleSpinBox();
-    xpad_dsb_->setMaximum(mirror_->length());
+    xpad_dsb_->setMaximum(999.);
 
     alpha_label_ = new QLabel("Alpha");
     alpha_label_->setMinimumSize(QSize(100, 20));
@@ -114,19 +116,35 @@ void MirrorProp::setup_ui()
 
 void MirrorProp::apply()
 {
-    mirror_->set_pivot(Point(x_dsb_->value(), y_dsb_->value()));
-    mirror_->set_len(length_dsb_->value());
+    bool b = true;
+    QString msg;
+    if (!mirror_->set_pivot(Point(x_dsb_->value(), y_dsb_->value())))
+    {
+        msg = "Incorrect pivot";
+        b = false;
+    }
 
-    xpad_dsb_->setMaximum(mirror_->length());
-    if (xpad_dsb_->value() > length_dsb_->value())
-        xpad_dsb_->setValue(mirror_->length());
+    if (!mirror_->set_xpad_len(xpad_dsb_->value(), length_dsb_->value()))
+    {
+        msg += "\nIncorrect length \n Incorrect xpad";
+        b = false;
+    }
 
-    mirror_->set_xpad(xpad_dsb_->value());
-    mirror_->set_angle(std::fmod(alpha_dsb_->value(), PI*2));
+    if (!(mirror_->set_angle(std::fmod(alpha_dsb_->value(), PI*2))))
+    {
+        msg += "\nIncorrect angle";
+        b = false;
+    }
+
     mirror_->set_min(Point(xmin_dsb_->value(), ymin_dsb_->value()));
     mirror_->set_max(Point(xmax_dsb_->value(), ymax_dsb_->value()));
     mirror_->set_alpha_min(alphamin_dsb_->value());
     mirror_->set_alpha_max(alphamax_dsb_->value());
+
+    if (!b)
+        QMessageBox::warning(this, "Incorrect Data", msg);
+
+    reset();
 }
 
 void MirrorProp::reset()

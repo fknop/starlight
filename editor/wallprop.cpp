@@ -1,3 +1,5 @@
+#include <QMessageBox>
+
 #include "editor/wallprop.h"
 
 
@@ -59,8 +61,24 @@ void WallProp::setup_ui()
 
 void WallProp::apply()
 {
-    wall_->set_start(Point(x1_dsb_->value(), y1_dsb_->value()));
-    wall_->set_end(Point(x2_dsb_->value(), y2_dsb_->value()));
+    bool b = true;
+    QString msg;
+    if (!wall_->set_start(Point(x1_dsb_->value(), y1_dsb_->value())))
+    {
+        msg = "Incorrect start";
+        b = false;
+    }
+    if (!wall_->set_end(Point(x2_dsb_->value(), y2_dsb_->value())))
+    {
+        msg += "\nIncorrect end";
+        b = false;
+    }
+
+    if (!b)
+        QMessageBox::warning(this, "Incorrect Data", msg);
+
+    reset();
+
 }
 
 void WallProp::reset()

@@ -1,3 +1,5 @@
+#include <QMessageBox>
+
 #include "editor/lensprop.h"
 
 
@@ -41,13 +43,13 @@ void LensProp::setup_ui()
     height_dsb_ = new QDoubleSpinBox();
     height_dsb_->setMaximum(999.);
 
-    wl_min_label_ = new QLabel("Wavelength min");
+    wl_min_label_ = new QLabel("WL. min");
     wl_min_label_->setMinimumSize(QSize(100, 20));
 
     wl_min_dsb_ = new QDoubleSpinBox();
     wl_min_dsb_->setMaximum(999.);
 
-    wl_max_label_ = new QLabel("Wavelength max");
+    wl_max_label_ = new QLabel("WL. max");
     wl_max_label_->setMinimumSize(QSize(100, 20));
 
     wl_max_dsb_ = new QDoubleSpinBox();
@@ -71,11 +73,39 @@ void LensProp::setup_ui()
 
 void LensProp::apply()
 {
+    bool b {true};
+    QString msg;
     lens_->set_pos(Point(x_dsb_->value(), y_dsb_->value()));
-    lens_->set_width(width_dsb_->value());
-    lens_->set_height(height_dsb_->value());
-    lens_->set_wl_min(wl_min_dsb_->value());
-    lens_->set_wl_max(wl_max_dsb_->value());
+
+    if (!lens_->set_width(width_dsb_->value()))
+    {
+        msg = "Incorrect width";
+        b = false;
+    }
+
+    if (!lens_->set_height(height_dsb_->value()))
+    {
+        msg += "\nIncorrect height";
+        b = false;
+    }
+
+    if (!lens_->set_wl_min(wl_min_dsb_->value()))
+    {
+        msg += "\nIncorrect min wavelength";
+        b = false;
+    }
+
+    if (!lens_->set_wl_max(wl_max_dsb_->value()))
+    {
+        msg += "\nIncorrect max wavelength";
+        b = false;
+    }
+
+    if (!b)
+        QMessageBox::warning(this, "Incorrect Data", msg);
+
+    reset();
+
 }
 
 void LensProp::reset()

@@ -1,3 +1,5 @@
+#include <QMessageBox>
+
 #include "editor/crystalprop.h"
 
 /**
@@ -62,7 +64,11 @@ void CrystalProp::apply()
 {
     crystal_->set_center(Point(x_dsb_->value(), y_dsb_->value()));
     crystal_->set_modifier(mod_dsb_->value());
-    crystal_->set_radius(rad_dsb_->value());
+
+    if (!crystal_->set_radius(rad_dsb_->value()))
+        QMessageBox::warning(this, "Incorrect Data", "Incorrect radius");
+
+    reset();
 }
 
 void CrystalProp::reset()

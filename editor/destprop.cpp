@@ -1,3 +1,5 @@
+#include <QMessageBox>
+
 #include "editor/destprop.h"
 
 
@@ -48,7 +50,10 @@ void DestProp::setup_ui()
 void DestProp::apply()
 {
     dest_->set_pos(Point(x_dsb_->value(), y_dsb_->value()));
-    dest_->set_edge(edge_dsb_->value());
+    if (!dest_->set_edge(edge_dsb_->value()))
+        QMessageBox::warning(this, "Incorrect Data", "Incorrect Edge");
+
+    reset();
 }
 
 void DestProp::reset()

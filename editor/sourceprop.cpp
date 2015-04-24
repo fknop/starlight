@@ -1,3 +1,5 @@
+#include <QMessageBox>
+
 #include "editor/sourceprop.h"
 
 
@@ -64,9 +66,13 @@ void SourceProp::setup_ui()
 void SourceProp::apply()
 {
     source_->set_pos(Point(x_dsb_->value(), y_dsb_->value()));
-    source_->set_edge(edge_dsb_->value());
+    if (!source_->set_edge(edge_dsb_->value()))
+        QMessageBox::warning(this, "Incorrect Data", "Incorrect edge");
+
     source_->set_alpha(alpha_dsb_->value());
     source_->set_wavelength(wavelength_dsb_->value());
+
+    reset();
 }
 
 void SourceProp::reset()

@@ -1,3 +1,5 @@
+#include <QMessageBox>
+
 #include "editor/nukeprop.h"
 
 
@@ -48,7 +50,11 @@ void NukeProp::setup_ui()
 void NukeProp::apply()
 {
     nuke_->set_pos(Point(x_dsb_->value(), y_dsb_->value()));
-    nuke_->set_radius(rad_dsb_->value());
+
+    if (!nuke_->set_radius(rad_dsb_->value()))
+        QMessageBox::warning(this, "Incorrect Data", "Incorrect radius");
+
+    reset();
 }
 
 void NukeProp::reset()

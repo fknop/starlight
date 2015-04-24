@@ -177,6 +177,14 @@ class Mirror : public Element
     inline bool set_len(const double len);
 
     /**
+     * Modifie xpad et la longueur du miroir si celles-ci sont correctes.
+     * @param xpad xpad.
+     * @param len la longueur.
+     * @return vrai si les deux valeurs sont correctes, faux sinon.
+     */
+    inline bool set_xpad_len(const double xpad, const double len);
+
+    /**
      * Modifie la position minimale du miroir.
      * @param min le point minimum.
      */
@@ -344,6 +352,17 @@ bool Mirror::set_len(const double len)
     bool b {len >= xpad_ && len > 0};
     if (b)
         length_ = len;
+    return b;
+}
+
+bool Mirror::set_xpad_len(const double xpad, const double len)
+{
+    bool b {len >= xpad && len > 0 && xpad <= len && xpad >= 0};
+    if (b)
+    {
+        length_ = len;
+        xpad_ = xpad;
+    }
     return b;
 }
 
