@@ -1,7 +1,7 @@
 #ifndef NUKESVIEW_H
 #define NUKESVIEW_H
 
-#include <QGraphicsEllipseItem>
+#include <QGraphicsPixmapItem>
 #include <QGraphicsView>
 
 #include "model/nuke.h"
@@ -11,7 +11,7 @@
 /**
  * Modélisation visuelle d’une bombe.
  */
-class NukeView : public QGraphicsEllipseItem, public ObserverInterface, public ElementView
+class NukeView : public QGraphicsPixmapItem, public ObserverInterface, public ElementView
 {
     Nuke * nuke_;
     bool selectable_;

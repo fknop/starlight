@@ -3,6 +3,8 @@
         <file alias="WindowIcon.png">ressources/images/WindowIcon.png</file>
         <file alias="lightbulboff.png">ressources/images/lightbulboff.png</file>
         <file alias="lightbulbon.png">ressources/images/lightbulbon.png</file>
+        <file alias="nuke-red.png">ressources/images/nuke-red.png</file>
+        <file alias="nuke-yellow.png">ressources/images/nuke-yellow.png</file>
     </qresource>
     <qresource prefix="/sounds">
         <file alias="nuke.mp3">ressources/sounds/nuke.mp3</file>

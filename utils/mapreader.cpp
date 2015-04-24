@@ -159,10 +159,10 @@ void MapReader::read_wall(std::string line)
     std::istringstream iss(line);
     iss.ignore();
 
-    int x1 = (iss >> x1, x1);
-    int y1 = (iss >> y1, y1);
-    int x2 = (iss >> x2, x2);
-    int y2 = (iss >> y2, y2);
+    double x1 = (iss >> x1, x1);
+    double y1 = (iss >> y1, y1);
+    double x2 = (iss >> x2, x2);
+    double y2 = (iss >> y2, y2);
 
     l_->add_wall(Wall(Point(x1, y1), Point(x2, y2)));
 }
