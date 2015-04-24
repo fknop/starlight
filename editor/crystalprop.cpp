@@ -14,7 +14,6 @@ CrystalProp::CrystalProp(Crystal * crystal, QWidget * parent) : crystal_{crystal
 
 CrystalProp::~CrystalProp()
 {
-    std::cout << *crystal_;
     crystal_->remove_observer(this);
 }
 

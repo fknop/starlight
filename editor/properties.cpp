@@ -54,6 +54,7 @@ void Properties::delete_prop()
 {
     if (prop_interface_ != nullptr)
     {
+        group_box_->layout()->removeWidget(prop_interface_);
         delete prop_interface_;
         prop_interface_ = nullptr;
     }
