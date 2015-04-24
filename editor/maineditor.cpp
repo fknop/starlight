@@ -62,6 +62,9 @@ ElementView * MainEditor::selected()
 
 void MainEditor::create_level(int width, int height)
 {
+    properties_->delete_prop();
+    properties_->set_element_prop(nullptr);
+
     level_ = new Level(width, height);
     level_->set_check_collisions(false);
     level_->set_handle_nukes(false);
@@ -150,6 +153,9 @@ void MainEditor::setup_ui()
 
 void MainEditor::load_level()
 {
+    properties_->delete_prop();
+    properties_->set_element_prop(nullptr);
+
     QString file_name = QFileDialog::getOpenFileName(
                 this, tr("Load Starlight level"), "levels/", tr("Files .lvl (*.lvl)"));
 
@@ -188,6 +194,8 @@ void MainEditor::save_level()
 
 void MainEditor::back_menu()
 {
+    properties_->delete_prop();
+    properties_->set_element_prop(nullptr);
     MapReader::end_level();
     parent_->show();
     close();
@@ -221,7 +229,11 @@ void MainEditor::notify(Observable * o, const std::string& msg, const std::vecto
     }
 
     else if (msg.compare("LEVEL_RESET") == 0)
+    {
+        properties_->delete_prop();
+        properties_->set_element_prop(nullptr);
         mapview_->clear();
+    }
 
     else if (msg.compare("MIRROR_ADDED") == 0)
         add_mirror();
@@ -242,7 +254,11 @@ void MainEditor::notify(Observable * o, const std::string& msg, const std::vecto
         properties_->set_element_prop(this->selected());
 
     else if (msg.compare("ELEMENT_DELETED") == 0)
+    {
+        properties_->delete_prop();
+        properties_->set_element_prop(nullptr);
         delete_selected();
+    }
 
     else if (msg.compare("ELEMENT_CHANGED") == 0)
         mapview_->repaint();
@@ -253,13 +269,12 @@ void MainEditor::delete_selected()
     ElementView * ev_selected = this->selected();
     if (ev_selected != nullptr)
     {
-        properties_->delete_prop(); // remove le panel properties
-
         switch (ev_selected->type_view())
         {
         case ElementView::TypeView::CRYSTALVIEW:
         {
-            level_->remove_crystal(*(static_cast<CrystalView *>(ev_selected)->crystal()));
+            CrystalView * cv = (static_cast<CrystalView *>(ev_selected));
+            level_->remove_crystal(*cv->crystal());
             break;
         }
         case ElementView::TypeView::LENSVIEW:
