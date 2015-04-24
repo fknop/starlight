@@ -25,6 +25,7 @@ class Nuke : public Element
      * déterminé.
      * @param p la position de la bombe.
      * @param r le rayon de la bombe.
+     * @throws std::string si le rayon est plus petit ou égal à zéro.
      */
     Nuke(const Point& p, double r);
 
@@ -59,10 +60,11 @@ class Nuke : public Element
     inline void set_pos(Point p);
 
     /**
-     * Modifie le rayon de la bombe.
+     * Modifie le rayon de la bombe si celui-ci est correct.
      * @param r le nouveau rayon de la bombe.
+     * @return vrai si le rayon est correct, faux sinon.
      */
-    inline void set_radius(double r);
+    inline bool set_radius(double r);
 
     /**
      * Renvoie l'ellipse correspondante à la bombe.
@@ -124,9 +126,12 @@ void Nuke::set_pos(Point p)
     pos_ = p;
 }
 
-void Nuke::set_radius(double r)
+bool Nuke::set_radius(double r)
 {
-    rad_ = r;
+    bool b {r > 0};
+    if (b)
+        rad_ = r;
+    return b;
 }
 
 #endif // NUKE_H

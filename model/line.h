@@ -34,6 +34,8 @@ class Line
      * @param a a
      * @param b b
      * @param c c
+     * @throws std::string si a et b sont tous les deux égaux à
+     * zéro.
      */
     Line(double a, double b, double c);
 
@@ -42,6 +44,8 @@ class Line
      * points donnés.
      * @param a le premier point.
      * @param b le deuxième point.
+     * @throws std::string si a et b calculés sont tous
+     * les deux égaux à zéro.
      */
     Line(const Point& a, const Point& b);
 

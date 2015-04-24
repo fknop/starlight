@@ -28,6 +28,7 @@ public:
      * @param upper_left le point supérieur gauche du rectangle.
      * @param width la longueur du rectangle.
      * @param height la hauteur du rectangle.
+     * @throws std::string si la longueur ou hauteur est plus petite que zéro.
      */
     Rectangle(const Point& upper_left, double width, double height);
 

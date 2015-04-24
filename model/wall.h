@@ -27,6 +27,7 @@ class Wall : public Element
      * @param p1 le début du mur.
      * @param p2 la fin du mur.
      * @param movable vrai si le mur est déplaçable, faux sinon.
+     * @throws std::string si p1 est égal à p2.
      */
     Wall(const Point& p1, const Point& p2, bool movable = true);
 
@@ -55,16 +56,18 @@ class Wall : public Element
     inline bool movable() const;
 
     /**
-     * Modifie le point de départ du mur.
+     * Modifie le point de départ du mur si celui-ci est correct.
      * @param s le point de départ.
+     * @return vrai si le nouveau point est correct, faux sinon.
      */
-    inline void set_start(const Point& s);
+    inline bool set_start(const Point& s);
 
     /**
-     * Modifie le point de fin du mur.
+     * Modifie le point de fin du mur si celui-ci est correct.
      * @param e le point de fin du mur.
+     * @return vrai si le nouveau point est correct, faux sinon
      */
-    inline void set_end(const Point& e);
+    inline bool set_end(const Point& e);
 
     /**
      * Renvoie le segment correspondant au mur.
@@ -116,14 +119,20 @@ const Point& Wall::end() const
     return end_;
 }
 
-void Wall::set_start(const Point& s)
+bool Wall::set_start(const Point& s)
 {
-    start_ = s;
+    bool b {!(s == end_)};
+    if (b)
+        start_ = s;
+    return b;
 }
 
-void Wall::set_end(const Point& e)
+bool Wall::set_end(const Point& e)
 {
-    end_ = e;
+    bool b {!(e == start_)};
+    if (b)
+        end_ = e;
+    return b;
 }
 
 bool Wall::movable() const

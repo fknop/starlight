@@ -29,6 +29,7 @@ public:
      * @param p le coin supérieur gauche du rectangle entourant l'ellipse.
      * @param x_rad le rayon sur l'axe des X.
      * @param y_rad le rayon sur l'axe des Y.
+     * @throws std::string si un des rayons est inférieur ou égal à zéro.
      */
     Ellipse(const Point& p, double x_rad, double y_rad);
 

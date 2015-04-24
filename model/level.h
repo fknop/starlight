@@ -88,6 +88,7 @@ public:
      * appropriées.
      * @param w la largeur de la carte.
      * @param h la hauteur de la carte.
+     * @throws std::string si les tailles sont inférieurs ou égales à zéro.
      */
     Level(double w, double h);
 

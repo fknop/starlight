@@ -14,7 +14,7 @@ linkcolor=blue]{hyperref}
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{6pt plus 2pt minus 1pt}
 \setlength{\emergencystretch}{3em}  % prevent overfull lines
-\setcounter{secnumdepth}{0}
+
 
 \title{Rapport du projet Starlight}
 \author{Florian Knop (39310) - Gatien Bovyn (39189)}
@@ -29,7 +29,7 @@ linkcolor=blue]{hyperref}
 
 \newpage
 
-\section{Introduction}
+\chapter{Introduction}
 
 
 Ce document vise à présenter le travail d’analyse et de programmation
@@ -49,9 +49,9 @@ La version du framework Qt utilisée est la 5.0.2 ou supérieure.
 Ce projet a été fait sous QtCreator, IDE OpenSource en version 2.8.1 ou
 supérieure.
 
-\section{Conventions}
+\chapter{Conventions}
 
-\subsection{Conventions de nommage utilisées}
+\section{Conventions de nommage utilisées}
 
 Dans cette section, nous présenterons les différentes conventions 
 utilisées lors de ce projet. Nous avons décidé de reprendre certaines
@@ -61,7 +61,7 @@ tout en utilisant d'autres conventions.
 De manière globale, tous les noms de variables, classes, fichiers, etc.
 sont en anglais.
 
-\subsubsection{Fichiers}
+\subsection{Fichiers}
 
 Les noms de fichiers sont entièrement en minuscules
 et possèdent les extensions \texttt{.h}
@@ -72,7 +72,7 @@ pour les headers et \texttt{.cpp} pour les fichiers sources.
 	\item \texttt{nomfichier.cpp}
 \end{itemize}
 
-\subsubsection{Classes}
+\subsection{Classes}
 
 Les noms des classes commencent par une majuscule à chaque mot.
 Cette convention est également valable pour les noms 
@@ -87,9 +87,9 @@ d'énumérations et structures.
 
 \newpage
 
-\subsubsection{Variables}
+\subsection{Variables}
 
-\paragraph{Variables de classe}
+\subsubsection{Variables de classe}
 
 Les noms des variables de classes sont en minuscules, les mots sont 
 séparés par un underscore et le nom est suffixé par un underscore.
@@ -102,7 +102,7 @@ séparés par un underscore et le nom est suffixé par un underscore.
 Cette convention est également valable pour les variables d'une
 structure.
 
-\paragraph{Variables locales}
+\subsubsection{Variables locales}
 
 Les noms des variables locales respectent les mêmes conventions 
 que les variables de classe, à la seule exception qu'ils ne sont pas
@@ -113,7 +113,7 @@ suffixés par un underscore.
 	\item \texttt{nom\_variable}
 \end{itemize}
 
-\paragraph{Constantes}
+\subsubsection{Constantes}
 
 Les noms des constantes sont entièrement en majuscules et les mots sont
 séparés par des underscores.
@@ -128,7 +128,7 @@ séparés par des underscores.
 D'une manière générale, les noms de méthodes sont en minuscules et
 séparés par des underscores.
 
-\paragraph{Getters}
+\subsubsection{Getters}
 
 Le nom d'un getter (accesseur en lecture de variable de classe/structure)
 est égal au nom de la variable de classe sans l'underscore final.
@@ -138,7 +138,7 @@ est égal au nom de la variable de classe sans l'underscore final.
 	\item Variable : \texttt{nom\_var\_} ~~~~-- Getter : \texttt{nom\_var()}
 \end{itemize}
 
-\paragraph{Setters}
+\subsubsection{Setters}
 
 Le nom d'un setter (accesseur en écriture de variable de classe/structure)
 est égal au nom de la variable sans l'underscore final préfixé de \texttt{set}.
@@ -147,7 +147,7 @@ est égal au nom de la variable sans l'underscore final préfixé de \texttt{set
 	\item Variable : \texttt{variable\_} ~~-- Setter : \texttt{set\_nom\_var()}
 \end{itemize}
 
-\paragraph{Autres méthodes}
+\subsubsection{Autres méthodes}
 
 Les autres méthodes possèdent les mêmes conventions que celles
 énoncées ci-dessus.
@@ -161,19 +161,31 @@ Les autres méthodes possèdent les mêmes conventions que celles
 
 Les éléments d'une énumération suivent les mêmes conventions que celles des constantes énoncées ci-dessus.
 
-\subsection{Autres conventions}
+\section{Autres conventions}
 
 \begin{itemize}
 \item Les méthodes qui override une méthode d'une super-classe possèdent le mot-clé override.
 \item Les pointeurs prennent une notation comme ceci : \texttt{NomClasse * nom\_obj}.
 \item Les références prennent une notation comme ceci : \texttt{NomClasse\& nom\_obj}.
 \item Les getters et setters sont déclarés \texttt{inline}.
+\item La documentation se fait comme suit :
+    \begin{lstlisting}[frame=single]
+    /**
+     * Description de la methode.
+     * @param param1 description param1.
+     * @param param2 description param2.
+     * @throw exception cas du lancement 
+       de l'exception.
+     * @return description de ce que la 
+       methode retourne.
+    */
+    \end{lstlisting}
 \end{itemize}
 
 Tout non respect des conventions dans notre projet est bien sur non intentionel.
 
 \newpage
-\section{Présentation générale du projet}
+\chapter{Présentation générale du projet}
 
 Cette section décrit les objectifs principaux et secondaires effectués lors
 de la réalisation de ce projet.
@@ -183,7 +195,7 @@ Le projet fini ouvre sur un menu principal permettant
 de jouer à Starlight, de voir les règles du jeu, d'accéder à l'éditeur de 
 carte ou de simplement quitter.
 
-\subsection{Le jeu}
+\section{Le jeu}
 
 Le projet permet de jouer à Starlight en important sa propre carte de jeu
 au format \texttt{.lvl} qu'il est possible de créer soi-même grâce à l'éditeur
@@ -193,7 +205,7 @@ Il est nécessaire de préciser que le jeu part du principe que la carte
 fournie est sans erreur. Une carte fournie avec erreur produira donc
 un arrêt immédiat de l'application.
 
-\subsubsection{Le fonctionnement du jeu}
+\subsection{Le fonctionnement du jeu}
 
 Le but du jeu est de déplacer un rayon provenant d'une source lumineuse
 pouvant être allumée ou éteinte
@@ -223,7 +235,7 @@ Et pour finir, la carte peut être munie de bombes qui terminent et font perdre
 instantanément la partie si celles-ci sont touchées par un rayon lumineux. 
 
 
-\subsubsection{L'interface}
+\subsection{L'interface}
 
 L'interface graphique du jeu Starlight a été réalisée sous Qt (en version 5.0.2 ou supérieure).
 Il s'agit ici d'une interface simple et minimaliste permettant d'effectuer la fonction de base 
@@ -265,7 +277,7 @@ Des sons ont été ajoutés lorsque la source est allumée ou éteinte,
 lorsqu'une bombe a été touchée et lorsque la destination
 est atteinte.
 
-\paragraph{Faiblesses de l'interface} 
+\subsubsection{Faiblesses de l'interface} 
 
 L'interface ne permet pas de déplacer les miroirs à la souris, mais seulement au clavier.
 Le rectangle bleu affichant les limites du miroir s'affiche après un 3e clic plutôt 
@@ -276,12 +288,12 @@ Par exemple lorsque la source est allumée et éteinte très vite.
 Il se peut également que la source n'émette simplement pas de son.
 
 \newpage
-\subsection{\label{Editeur}Éditeur de cartes}
+\section{\label{Editeur}Éditeur de cartes}
 
 L’éditeur de carte a été conçu sur base du modèle et des vues existants.
 Il reprend tous les éléments disponibles dans un niveau du jeu Starlight.
 
-\subsubsection{Possibilités de l'éditeur}
+\subsection{Possibilités de l'éditeur}
 
 Au lancement de l'éditeur, il est possible de charger un niveau existant 
 ou d’en créer un nouveau en personnalisant sa taille. Celle-ci ne peut 
@@ -307,7 +319,7 @@ dans un fichier un niveau, comme \texttt{MapReader} permet de le lire.
 Certaines options ont été désactivées dans l'éditeur pour rendre l'édition plus agréable,
 notamment la gestion des collisions, les bruits et autres événements spéciaux.
 
-\subsubsection{Faiblesses de l'éditeur}
+\subsection{Faiblesses de l'éditeur}
 
 La gestion des erreurs est totalement absente, ce qui signifie que l'utilisateur est 
 responsable des données qu'il entre. Il est tout à fait possible de créer des éléments
@@ -320,7 +332,7 @@ Cependant, il faudra utiliser le bouton «~Appliquer~» du panel de droite afin 
 effectués à cet endroit entrent en application.
 
 \newpage
-\section{Présentation des différentes classes}
+\chapter{Présentation des différentes classes}
 
 Dans cette section, nous allons décrire les différentes classes
 composant ce projet.
@@ -329,7 +341,7 @@ qu'une partie classes utilitaires.
 Elle est également basée sur le design pattern «~Observateur~/~Observé~» comme demandé
 dans les consignes. 
 
-\subsection{\label{OO}Observateur / Observé}
+\section{\label{OO}Observateur / Observé}
 
 Le design pattern Observateur / Observé a été implémenté à l'aide de deux classes : 
 
@@ -341,7 +353,7 @@ Le design pattern Observateur / Observé a été implémenté à l'aide de deux 
 Pour plus d'informations sur les classes observées et observatrices, se référer à
 \hyperref[AnnexeB]{«~l'Annexe B~»} de ce document.
 
-\subsubsection{ObserverInterface}
+\subsection{ObserverInterface}
 
 La classe \texttt{ObserverInterface} est suffixée par \texttt{Interface} puisqu'il
 s'agit d'une interface (pas au sens C++ car celui-ci ne possède pas la notion
@@ -352,18 +364,18 @@ Cela définit donc parfaitement la notion d'interface.
 Cette classe possède une méthode \texttt{notify(\dots)} qui est appelée à chaque fois
 qu'une classe observée lance une notification (cf. \hyperref[Observable]{«~Observable~»}).
 
-\subsubsection{\label{Observable}Observable}
+\subsection{\label{Observable}Observable}
 
 La classe \texttt{Observable} représente l'observé. Celle-ci possède
 une liste (\texttt{vector}) d'observateurs.
 Un observé peut ajouter des observateurs à sa liste ou en supprimer grâces aux méthodes :
-\begin{lstlisting}
+\begin{lstlisting}[frame=single]
     add_observer(ObserverInterface * obs);
     remove_observer(ObserverInterface * obs);
 \end{lstlisting}
 
 Un observé peut lancer des notifications via la méthode :
-\begin{lstlisting}
+\begin{lstlisting}[frame=single]
 notify_all(Observable * obs, 
             std::string& msg, 
             std::vector<std::string>& args = std::vector<string>())
@@ -380,9 +392,9 @@ Et pour finir, une liste d'arguments est également envoyée. Cette dernière no
 de collisions où il a fallu envoyer le déplacement voulu en paramètre pour que le niveau puisse vérifier si ce déplacement est
 possible pour ensuite réagir en conséquence.
 
-\subsection{Les classes/namespaces utilitaires}
+\section{Les classes/namespaces utilitaires}
 
-\subsubsection{MapReader}
+\subsection{MapReader}
 
 La classe \texttt{MapReader} est la classe qui lit un fichier \texttt{.lvl} 
 et crée le niveau (cf. \hyperref[Level]{«~Level~»}).
@@ -393,14 +405,14 @@ erronés produira donc un arrêt de l'application.
 Cette classe est basée sur le \texttt{Singleton Pattern}. On ne peut qu’instancier un niveau
 à la fois.
 
-\subsubsection{MapWriter}
+\subsection{MapWriter}
 
 La classe \texttt{MapWriter} est la classe qui va écrire un niveau (cf. \hyperref[Level]{«~Level~»}) 
 dans un fichier texte. Il s’agit donc du processus inverse de la classe
 \texttt{MapReader}. Cette classe sert à l’éditeur lors de la sauvegarde de la
 carte en cours d’édition.
 
-\subsubsection{\label{Constants}Constants}
+\subsection{\label{Constants}Constants}
 
 \texttt{constants.h} est un header reprenant toutes les constantes utilisées
 dans ce projet. 
@@ -416,7 +428,7 @@ dans ce projet.
     \item \texttt{PI\_2\_3} correspond à la valeur de PI\_2 multiplié par trois.
 \end{itemize}
 
-\subsubsection{Le namespace umath}
+\subsection{Le namespace umath}
 
 Le namespace \texttt{umath} possède toutes les méthodes utilitaires mathématiques
 et géométriques servant au projet. Comme par exemple des méthodes permettant de trouver
@@ -432,13 +444,13 @@ Il y a également des méthodes de conversions entre pentes, radians, degrés, e
 
 Les méthodes d’intersections sont décrites plus en détails dans la section \hyperref[Annexe]{Annexe - Démarches mathématiques}.
 
-\subsubsection{Le namespace uview}
+\subsection{Le namespace uview}
 
 Le namespace \texttt{uview} possède des méthodes utilitaires permettant d'afficher des 
 figures mathématiques dans un \texttt{QGraphicsItem} du même type.
 
 \newpage
-\subsection{Modèle}
+\section{Modèle}
 
 Dans cette section, nous allons décrire les différentes classes du modèle 
 (classes métiers).
@@ -449,7 +461,7 @@ Ce squelette contenait les fichiers suivants~:
 Nous avons décidé de modifier ce squelette tout en gardant la 
 structure générale.
 
-\subsubsection{\label{Point}Point}
+\subsection{\label{Point}Point}
 
 La classe \texttt{Point} représente une position dans un espace à deux dimensions. 
 Elle est munie des coordonnées \texttt{x} et \texttt{y} qui sont tous deux des
@@ -462,7 +474,7 @@ La classe permet également de calculer la distance entre deux points grâce à 
 
 $$ \sqrt[2]{(x_1 - x_2)^2 + (y_1 - y_2)^2} $$
 
-\subsubsection{\label{Line}Line}
+\subsection{\label{Line}Line}
 
 La classe \texttt{Line} représente une droite de la forme~: 
 $ D \equiv ax + by + c = 0 $ \\
@@ -484,7 +496,7 @@ est soit verticale, soit horizontale.
 Cette classe sert principalement à modéliser un rayon de lumière (cf. \hyperref[Ray]{«~Ray~»}) pour trouver 
 les intersections\footnote{\hyperref[AnnexeIntersects]{«~Annexe A - Démarche mathématique : Intersections~»}} entre le rayon et les éléments du jeu.
 
-\subsubsection{\label{LineSegment}LineSegment}
+\subsection{\label{LineSegment}LineSegment}
 
 La classe \texttt{LineSegment} représente un segment de droite possédant
 deux points (cf. \hyperref[Point]{«~Point~»}) qui sont les extrémités du segment.
@@ -499,7 +511,7 @@ le constituant et ainsi former l'équation de droite.
 Le segment peut également être décalé d'un certain $ x $ et $ y $ ainsi que tourné 
 d'un certain angle\footnote{\hyperref[AnnexeRotation]{«~Annexe A - Démarche mathématique : Rotation de segment~»}}.
 
-\subsubsection{\label{Ellipse}Ellipse}
+\subsection{\label{Ellipse}Ellipse}
 
 La classe \texttt{Ellipse} représente une forme géométrique de type elliptique.
 Elle possède un point central ainsi qu'un rayon $x$ et $y$. Si ces deux
@@ -507,7 +519,7 @@ rayons sont égaux, il s'agit alors d'un cercle.
 
 Cette classe sert à représenter les objets \texttt{Lens} (cf. \hyperref[Lens]{«~Lens~»}) et \texttt{Crystal} (cf. \hyperref[Crystal]{«~Crystal~»}).
 
-\subsubsection{\label{Rectangle}Rectangle}
+\subsection{\label{Rectangle}Rectangle}
 
 La classe \texttt{Rectangle} représente une forme géométrique rectangulaire.
 Elle possède un point supérieur gauche ainsi qu'une longueur et hauteur 
@@ -516,7 +528,7 @@ forme.
 
 Cette classe sert à représenter les objets \texttt{Source} (cf. \hyperref[Source]{«~Source~»}) et \texttt{Dest} (cf. \hyperref[Dest]{«~Dest~»}).
 
-\subsubsection{\label{Element}Element}
+\subsection{\label{Element}Element}
 
 La classe \texttt{Element} est la super-classe de tous les éléments pouvant
 se trouver sur une carte de jeu.
@@ -544,7 +556,7 @@ Une énumération fortement typée est donc présente. Elle s'appelle
 \texttt{Element} hérite de l'interface \texttt{Observable} (cf. \hyperref[OO]{«~Observable/Observer~»}) et chaque
 sous-classe est observée par la vue correspondante.
     
-\subsubsection{\label{Source}Source}
+\subsection{\label{Source}Source}
 
 La classe \texttt{Source} représente la source lumineuse du jeu.
 Elle est de forme rectangulaire et peut donc être transformée
@@ -556,7 +568,7 @@ d'onde de départ.
 
 \paragraph{Dans l'interface} cf. \hyperref[SourceView]{«~SourceView~»}.
 
-\subsubsection{\label{Dest}Dest}
+\subsection{\label{Dest}Dest}
 
 La classe \texttt{Dest} représente la destination à atteindre par 
 le rayon lumineux. Elle est de forme rectangulaire comme la source
@@ -564,7 +576,7 @@ et peut également être transformée en \texttt{Rectangle} (cf. \hyperref[Recta
 
 \paragraph{Dans l'interface} cf. \hyperref[DestinationView]{«~DestinationView~»}
 
-\subsubsection{\label{Wall}Wall}
+\subsection{\label{Wall}Wall}
 
 La classe \texttt{Wall} représente un mur du jeu qui bloque les rayons
 lumineux. Un mur est un segment de droite et peut donc être transformé 
@@ -572,7 +584,7 @@ en segment de droite (cf. \hyperref[LineSegment]{«~LineSegment~»}).
 
 \paragraph{Dans l'interface} cf. \hyperref[WallView]{«~WallView~»}
 
-\subsubsection{\label{Mirror}Mirror}
+\subsection{\label{Mirror}Mirror}
 
 La classe \texttt{Mirror} représente un miroir. Un miroir
 est un segment de droite qui réfléchit la lumière.
@@ -581,7 +593,7 @@ segment de droite (cf. \hyperref[LineSegment]{«~LineSegment~»}).
 
 \paragraph{Dans l'interface} cf. \hyperref[MirrorView]{«~MirrorView~»}
 
-\subsubsection{\label{Lens}Lens}
+\subsection{\label{Lens}Lens}
 
 La classe \texttt{Lens} représente une lentille. Une lentille est
 une ellipse possédant un intervalle de longueur d'onde. Le rayon doit
@@ -592,7 +604,7 @@ contraire, elle agira comme un mur.
 
 \paragraph{Dans l'interface} cf. \hyperref[LensView]{«~LensView~»}
 
-\subsubsection{\label{Crystal}Crystal}
+\subsection{\label{Crystal}Crystal}
 
 La classe \texttt{Crystal} représente un cristal. Un cristal est un cercle
 possédant un modificateur de longueur d'onde. Quand un rayon le traverse, ce dernier
@@ -602,7 +614,7 @@ Comme un cercle est également une ellipse, celui-ci peut également être trans
 
 \paragraph{Dans l'interface} cf. \hyperref[CrystalView]{«~CrystalView~»}
 
-\subsubsection{\label{Nuke}Nuke}
+\subsection{\label{Nuke}Nuke}
 
 La classe \texttt{Nuke} représente une bombe de forme circulaire.
 Quand un rayon croise une bombe, la partie est instantanément terminée et perdue. Cela est accompagnée
@@ -612,7 +624,7 @@ Comme un cercle est également une ellipse, celui-ci peut également être trans
 
 \paragraph{Dans l'interface} cf. \hyperref[NukeView]{«~NukeView~»}
 
-\subsubsection{\label{Ray}Ray}
+\subsection{\label{Ray}Ray}
 
 La classe \texttt{Ray} représente un rayon. Un rayon est un segment de droite reliant
 deux objets de la carte. 
@@ -624,7 +636,7 @@ transformé en \texttt{LineSegment} (cf. \hyperref[LineSegment]{«~LineSegment~�
 \paragraph{Dans l'interface} cf. \hyperref[RayView]{«~RayView~»}
 
 
-\subsubsection{\label{Level}Level}
+\subsection{\label{Level}Level}
 
 La classe \texttt{Level} est de loin la classe la plus importante du modèle.
 Il s'agit de la classe représentant un niveau, elle gère toute la logique métier
@@ -635,10 +647,13 @@ la trajectoire du rayon lumineux.
 
 La logique métier est composée de méthodes principales : 
 
-\begin{lstlisting}
+\begin{lstlisting}[frame=single]
 void compute_rays();
-void compute_ray(const Line& line, const Point& start, int wl);
-void get_intersections(const Line& line, const Point& start);
+void compute_ray(const Line& line,
+                 const Point& start,
+                 int wl);
+void get_intersections(const Line& line, 
+                       const Point& start);
 \end{lstlisting}
 
 \texttt{compute\_rays()} crée la première droite composant le rayon par rapport à l'angle de la 
@@ -665,7 +680,7 @@ que le rayon peut continuer. Un appel récursif à \texttt{compute\_ray(\dots)} 
 \paragraph{Dans l'interface} cf. \hyperref[MapView]{«~MapView~»}    
 
 \newpage
-\subsection{Vue}
+\section{Vue}
 
 L'interface graphique a été réalisée en Qt à la main (sans l'aide de \texttt{QtDesigner}).
 Chaque élément visuel dispose d’un pointeur vers son
@@ -677,7 +692,7 @@ sélectionnable quand cela est nécessaire.
 
 Les classes composant la partie vue de l'application sont~:
 
-\subsubsection{ElementView}
+\subsection{ElementView}
 
 Classe servant de super-classe à tous les éléments présents sur un \texttt{MapView}.
 Il s'agit de :
@@ -692,7 +707,7 @@ Il s'agit de :
     \item \texttt{NukeView}
 \end{itemize}
 
-\subsubsection{\label{SourceView}SourceView}
+\subsection{\label{SourceView}SourceView}
 
 Classe représentant une source lumineuse sur le plateau de jeu. Bien que dans les consignes, la source lumineuse soit un carré, nous avons ensuite utilisé des images pour la représenter.
 La source dispose de 2 états, allumée ou éteinte qui peut être changé grâce à un double clic.
@@ -702,7 +717,7 @@ Cette classe hérite de \texttt{QGraphicsPixmapItem} pour pouvoir représenter u
 \texttt{SourceView} hérite également de l'interface \texttt{ObserverInterface} (cf. \hyperref[OO]{«~Observable/Observer~»}) et observe
 la classe \texttt{Source} qu'elle modélise.
 
-\subsubsection{\label{DestinationView}DestinationView}
+\subsection{\label{DestinationView}DestinationView}
 
 La classe \texttt{DestinationView} modélise la destination à atteindre par le rayon émis depuis la source pour gagner la partie.
 La destination devient verte une fois atteinte. De plus, un message de victoire est affiché.
@@ -711,7 +726,7 @@ Cette classe hérite de \texttt{QGraphicsRectItem} pour pouvoir représenter un 
 \texttt{DestinationView} hérite également de l'interface \texttt{ObserverInterface} (cf. \hyperref[OO]{«~Observable/Observer~»}) et observe
 la classe \texttt{Dest} qu'elle modélise.
 
-\subsubsection{\label{WallView}WallView}
+\subsection{\label{WallView}WallView}
 
 La classe \texttt{WallView} modélise un mur, élément visuel sur lequel le rayon est stoppé. 
 Les murs sont représentés par des segments de droite noirs.
@@ -720,7 +735,7 @@ Cette classe hérite de \texttt{QGraphicsLineItem} pour pouvoir représenter un 
 \texttt{WallView} hérite également de l'interface \texttt{ObserverInterface} (cf. \hyperref[OO]{«~Observable/Observer~»}) et observe
 la classe \texttt{Wall} qu'elle modélise.
 
-\subsubsection{\label{MirrorView}MirrorView}
+\subsection{\label{MirrorView}MirrorView}
 
 La classe \texttt{MirrorView} modélise un miroir sur lequel un rayon peut être réfléchi.
 Le miroir est représenté par un segment de droite rouge. Ce dernier, une fois sélectionné, affiche
@@ -730,7 +745,7 @@ Cette classe hérite de \texttt{QGraphicsLineItem} pour pouvoir représenter un 
 \texttt{MirrorView} hérite également de l'interface \texttt{ObserverInterface} (cf. \hyperref[OO]{«~Observable/Observer~»}) et observe
 la classe \texttt{Mirror} qu'elle modélise.
 
-\subsubsection{\label{LensView}LensView}
+\subsection{\label{LensView}LensView}
 
 La classe \texttt{LensView} modélise une lentille à travers laquelle un rayon peut passer si sa longueur d’onde est
 comprise entre les valeurs de la lentille. Sinon la lentille se comporte comme un mur et le rayon 
@@ -740,7 +755,7 @@ Cette classe hérite de \texttt{QGraphicsEllipseItem} pour pouvoir représenter 
 \texttt{LensView} hérite également de l'interface \texttt{ObserverInterface} (cf. \hyperref[OO]{«~Observable/Observer~»}) et observe
 la classe \texttt{Lens} qu'elle modélise.
 
-\subsubsection{\label{CrystalView}CrystalView}
+\subsection{\label{CrystalView}CrystalView}
 
 La classe \texttt{CrystalView} modélise un cristal, élément ovale qui modifie la longueur d’onde d’un rayon si
 celui-ci traverse ledit cristal.
@@ -749,7 +764,7 @@ Cette classe hérite de \texttt{QGraphicsEllipseItem} pour pouvoir représenter 
 \texttt{CrystalView} hérite également de l'interface \texttt{ObserverInterface} (cf. \hyperref[OO]{«~Observable/Observer~»}) et observe
 la classe \texttt{Crystal} qu'elle modélise.
 
-\subsubsection{\label{NukeView}NukeView}
+\subsection{\label{NukeView}NukeView}
 
 Classe représentant une bombe, élément explosif du plateau qui fait perdre la partie
 si touché par un rayon lumineux (\texttt{RayView}). Dès le moment où elle est illuminée, une bombe
@@ -759,7 +774,7 @@ Cette classe hérite de \texttt{QGraphicsEllipseItem} pour pouvoir représenter 
 \texttt{NukeView} hérite également de l'interface \texttt{ObserverInterface} (cf. \hyperref[OO]{«~Observable/Observer~»}) et observe
 la classe \texttt{Nuke} qu'elle modélise.
 
-\subsubsection{\label{RayView}RayView}
+\subsection{\label{RayView}RayView}
 
 Classe modélisant un rayon lumineux, émis depuis la source (\texttt{SourceView}) et destiné à atteindre la destination 
 (\texttt{DestView}) en se reflétant sur des miroirs et en passant à travers des cristaux si nécessaire.
@@ -768,36 +783,36 @@ cette couleur reflétant la couleur réelle qu’aurait un rayon lumineux de cet
 
 Cette classe hérite de \texttt{QGraphicsLineItem} pour pouvoir représenter un segment.
 
-\subsubsection{\label{MapView}MapView}
+\subsection{\label{MapView}MapView}
 
 Classe représentant le plateau de jeu, où tous les éléments sont disposés et affichés.
 Elle s’occupe de gérer les raccourcis clavier utilisés pour déplacer/pivoter les
 miroirs dans le jeu et de déplacer les éléments en général dans l'éditeur de carte.
 
 \newpage
-\subsection{\label{EditeurClasses}L'éditeur de carte}
+\section{\label{EditeurClasses}L'éditeur de carte}
 
-\subsubsection{\label{MainEditor}MainEditor}
+\subsection{\label{MainEditor}MainEditor}
 
 Widget principal de l'éditeur de carte qui contient les classes qui suivent.
 Il est composé de 3 widgets principaux~:~\texttt{Elements} qui représente le panel gauche, une \texttt{MapView} qui 
 représente le niveau à modifier (widget central) et \texttt{Properties}, widget droit qui servira à modifier les 
 caractéristiques des éléments de la carte.
 
-\subsubsection{\label{Elements}Elements}
+\subsection{\label{Elements}Elements}
 
 Widget de gauche de l'éditeur, permet de créer un nouveau niveau de hauteur et
 largeur définies par l'utilisateur.
 Permet également d’ajouter des éléments à la carte~:~miroir, bombe, cristal et lentille. La source et la destination étant uniques, 
 elles sont directement ajoutées lors de la création d’un niveau.
 
-\subsubsection{\label{Properties}Properties}
+\subsection{\label{Properties}Properties}
 
 Widget de droite de l’éditeur, permet de modifier les caractéristiques des éléments présents dans la carte éditée.
 L'édition est individuelle (il n’est pas possible de déplacer plusieurs éléments
 en même temps par exemple) mais complète (chaque attribut de l'objet peut être modifié).
 
-\subsubsection{\label{PropertiesInterface}PropertiesInterface}
+\subsection{\label{PropertiesInterface}PropertiesInterface}
 
 Les classes héritant de PropertiesInterface :
 
@@ -819,42 +834,42 @@ Chaque élément héritant de \texttt{PropertiesInterface} hérite également de
 \texttt{Observer}, ce qui permet de mettre à jour les propriétés dans le panel
 si l'élément est bougé sur la \texttt{MapView} à l'aide du clavier.
 
-\subsubsection{\label{CrystalProp}CrystalProp}
+\subsection{\label{CrystalProp}CrystalProp}
 
 Widget composé de plusieurs spinbox permettant de modifier la position, le rayon et le modificateur de rayon
 d'un cristal. Tous les spinbox vont de 0 à 999.
 
-\subsubsection{\label{DestProp}DestProp}
+\subsection{\label{DestProp}DestProp}
 
 Widget composé de plusieurs spinbox permettant de modifier la position et la longueur de la destination. Tous les spinbox vont de 0 à 999.
 
-\subsubsection{\label{LensProp}LensProp}
+\subsection{\label{LensProp}LensProp}
 
 Widget composé de plusieurs spinbox permettant de modifier la position, la hauteur, la largeur, 
 la longueur d’onde minimale et la longueur d’onde maximale autorisées pour qu’un rayon passe à travers de la lentille.
 Tous les spinbox vont de 0 à 999.
 
-\subsubsection{\label{MirrorProp}MirrorProp}
+\subsection{\label{MirrorProp}MirrorProp}
 
 Widget composé de plusieurs spinbox permettant de modifier la position, la longueur, la distance entre le pivot 
 et l’extrémité gauche du miroir, l’angle d’inclinaison, les positions minimales et maximales que peut prendre le miroir, 
 ainsi que les angles minimum et maximum autorisés pour le miroir. Tous les spinbox vont de 0 à 999.
 
-\subsubsection{\label{NukeProp}NukeProp}
+\subsection{\label{NukeProp}NukeProp}
 
 Widget composé de plusieurs spinbox permettant de modifier la position et le rayon d’une bombe. Tous les spinbox vont de 0 à 999.
 
-\subsubsection{\label{SourceProp}SourceProp}
+\subsection{\label{SourceProp}SourceProp}
 
 Widget composé de plusieurs spinbox permettant de modifier la position, la largeur du carré représentant la source, 
 l’angle du rayon émis par la source et la longueur d’onde du dit rayon. Tous les spinbox vont de 0 à 999.
 
-\subsubsection{\label{WallProp}WallProp}
+\subsection{\label{WallProp}WallProp}
 
 Widget composé de plusieurs spinbox permettant de modifier la position des 2 extrémités d’un mur. Tous les spinbox vont de 0 à 999.
 
 \newpage
-\section{Les tests}
+\chapter{Les tests}
 
 Les tests unitaires du projet ont été fait grâce au framework Catch. Le projet possède 187 tests unitaires (assertions).
 Ces tests sont présents dans le dossier \texttt{tests}.
@@ -865,13 +880,13 @@ Pour lancer les tests ou l'application principale, il faut aller dans le header 
 \item commenter la ligne \texttt{\#define RUNTEST} si l'on veut lancer l'application.
 \end{itemize}
 
-\section{Les bugs connus}
+\chapter{Les bugs connus}
 
 \begin{enumerate}
 \item Bien que le problème soit normalement réglé, nous mettons tout de même ce bug ci-dessous dans le cas où ce dernier
 serait toujours présent.
-La méthode 
-\begin{lstlisting}
+La méthode :
+\begin{lstlisting}[frame=single]
 umath::is_on_good_side(const Line& l, 
                        const Point& ref,
                        const Point& start);
@@ -890,7 +905,7 @@ nous n'avons malheuresement pas pu déterminer la source de ce problème.
 \end{enumerate}
 
 \newpage
-\section{Conclusion}
+\chapter{Conclusion}
 
 Le jeu est fonctionnel, il est possible de charger une partie et d’y jouer. Il est possible d’atteindre le but du jeu, qui est d’amener le rayon émis depuis la source jusqu’à la destination. 
 
@@ -913,7 +928,8 @@ Suite à la gestion des collisions, le fichier \texttt{.lvl} a été modifié af
 
 L’interface graphique n’a pas posé trop de problème à sa réalisation. Le modèle a été plus complexe à implémenter, au niveau des intersections et réflexion. L’implémentation du pattern «~Observateur/Observé~» n’a pas présenté de souci notable.
 
-\section{Bibliographie}
+\newpage
+\chapter{Bibliographie}
 
 Les sons utilisés ont été produits par Mike Koenig et sont sous licence Attribution 3.0.\\
 
@@ -925,11 +941,11 @@ Les sons utilisés ont été produits par Mike Koenig et sont sous licence Attri
 
 
 \newpage
-\section{\label{Annexe}Annexes}
+\chapter{\label{Annexe}Annexes}
 
-\subsection{Annexe A : Démarches mathématiques}
+\section{Annexe A : Démarches mathématiques}
 
-\subsubsection{\label{AnnexeRotation}Rotation de segment}
+\subsection{\label{AnnexeRotation}Rotation de segment}
 
 La méthode de rotation de segment utilisée se base sur les formules
 de coordonnées polaires\footnote{\href{http://fr.wikipedia.org/wiki/Coordonn\%C3\%A9es\_polaires}{Wikipedia : Coordonnées polaires}}
@@ -952,6 +968,7 @@ il suffit d'augmenter ou diminuer l'angle $ q $ par un angle $ f $ comme ceci~:
 $$ x' = r \cdot \cos{q + f} $$
 $$ y' = r \cdot \sin{q + f} $$
 
+\newpage
 Grâce aux formules trigonométriques d'additions, on peut transformer ce résultat en~:
 
 $$ x' = r \cdot \cos{q} \cdot \cos{f} - r \cdot \sin{q} \cdot \sin{f} $$
@@ -965,7 +982,7 @@ $$ y' = x \cdot \sin{f} + y \cdot \cos{f} $$
 Il faut ensuite redéplacer le pivot à son point de départ.
 
 \newpage
-\subsubsection{\label{AnnexeIntersects}Trouver l'intersection entre deux droites}
+\subsection{\label{AnnexeIntersects}Trouver l'intersection entre deux droites}
 
 Une droite possède une intersection avec une autre droite si :
 \begin{itemize}
@@ -1013,10 +1030,10 @@ $$ \frac{-a_1 \cdot x}{b_1} - \frac{c_1}{b_1} = \frac{-a_2 \cdot x}{b_2} - \frac
 
 Il ne reste plus qu'à simplifier :
 
-$$ \frac{-a_1 \cdot x}{b_1} + \frac{a_2 \cdot x}{b_2} = \frac{c_1}{b_1} - \frac{c_2}{b_2} $$
-$$ \frac{(-a_1 \cdot x \cdot b_2) + (a_2 \cdot x \cdot b_1)}{(b_1 \cdot b_2)} = \frac{(c_1 \cdot b_2 - c_2 \cdot b_1)}{(b_1 \cdot b_2)} $$
-$$ (a_2 \cdot b_1 \cdot x) - (a_1 \cdot b_2 \cdot x) = (c_1 \cdot b_2 - c_2 \cdot b_1) $$
-$$ x \cdot ((a_2 \cdot b_1) - (a_1 \cdot b_2)) = (c_1 \cdot b_2 - c_2 \cdot b_1) $$
+$$ \frac{-a_1 \cdot x}{b_1} + \frac{a_2 \cdot x}{b_2} = \frac{c_1}{b_1} - \frac{c_2}{b_2} $$ \\
+$$ \frac{(-a_1 \cdot x \cdot b_2) + (a_2 \cdot x \cdot b_1)}{(b_1 \cdot b_2)} = \frac{(c_1 \cdot b_2 - c_2 \cdot b_1)}{(b_1 \cdot b_2)} $$ \\
+$$ (a_2 \cdot b_1 \cdot x) - (a_1 \cdot b_2 \cdot x) = (c_1 \cdot b_2 - c_2 \cdot b_1) $$ \\
+$$ x \cdot ((a_2 \cdot b_1) - (a_1 \cdot b_2)) = (c_1 \cdot b_2 - c_2 \cdot b_1) $$ \\
 $$ x = \frac{(c_1 \cdot b_2 - c_2 \cdot b_1)}{(a_2 \cdot b_1 - a_1 \cdot b_2)} $$ \\
 \end{proof}
 
@@ -1024,7 +1041,7 @@ Maintenant que nous avons la coordonnée $x$, il suffit de la remplacer
 dans une des deux équations $D_1$ ou $D_2$ pour trouver le $y$ 
 correspondant.
 
-\subsubsection{Trouver l'intersection entre une droite et un segment de droite}
+\subsection{Trouver l'intersection entre une droite et un segment de droite}
 
 L'intersection entre une droite et un segment ressemble très fort
 à l'intersection entre deux droites tout simplement car il faudra transformer
@@ -1041,14 +1058,14 @@ $ a = A.y - B.y $ \\
 $ b = B.x - A.x $ \\
 $ c = (A.x \cdot B.y) - (A.y \cdot B.x) $ \\
 
-\subsubsection{Trouver l'intersection entre deux segments}
+\subsection{Trouver l'intersection entre deux segments}
 
 Dans le cas de l'intersection segment/segment, il faut transformer les
 deux segments en droites, s'il y a intersection : vérifier que le point
 d'intersection appartient aux domaines $x$ et $y$ des deux segments. \\
 De plus, si les deux droites sont confondues, l'intersection sera un segment.
 
-\subsubsection{Trouver la ou les intersection(s) entre une ellipse et une droite}
+\subsection{Trouver la ou les intersection(s) entre une ellipse et une droite}
 
 La formule d'une ellipse est : 
 
@@ -1091,6 +1108,7 @@ $$ E \equiv lcmy \cdot (k - x_1)^2 + (y^2 + y_1^2 - 2 \cdot y_1 \cdot y)
 $$ E \equiv lcmy \cdot (k - x_1)^2 + lcmx \cdot y^2 + lcmx \cdot
 y_1^2 - 2 \cdot lcmx \cdot y_1 \cdot y - lcm = 0 $$
 
+\newpage
 Avec ceci, il reste plus qu'à résoudre l'équation du second degré 
 avec : $$ \rho = b^2 - 4ac$$
 
@@ -1131,10 +1149,14 @@ $$ D \equiv y = \frac{-a \cdot x}{b} - \frac{c}{b} $$
 
 ou $ D \equiv y = \frac{-c}{b} $ si la droite est horizontale.
 
-Nous pouvons poser quelques variables pour nous faciliter le calcul. Soit : \\
-$k = -D.c / D.b $, \\
-$m = -D.a / D.b $, \\
-$j = k - y_1$      \\
+Nous pouvons poser quelques variables pour nous faciliter le calcul. 
+
+Soient : \\
+
+$$k = -D.c / D.b $$ 
+$$m = -D.a / D.b $$
+$$j = k - y_1$$      
+
 
 Nous avons donc :
 
@@ -1158,20 +1180,20 @@ $$ \rho = b^2 - 4ac$$
 \item où $ c = (lcmy \cdot x_1^2) + (lcmx * j^2) - lcm $
 \end{description}
 
-\subsubsection{Trouver la ou les intersection(s) entre une ellipse et un segment de droite}
+\subsection{Trouver la ou les intersection(s) entre une ellipse et un segment de droite}
 
 Il s'agit du même principe que les intersections droite/segment.
 Il faut vérifier les intersections entre les ellipses et un segment
 transformé en droite et ensuite vérifier si les points d'intersection
 se trouvent dans le domaine du segment.
 
-\subsubsection{Trouver la ou les intersection(s) entre un rectangle et une droite}
+\subsection{Trouver la ou les intersection(s) entre un rectangle et une droite}
 
 Trouver les intersections entre un rectangle et une droite n'est rien d'autre que
 de trouver les intersections entre une droite et quatres segments de droites. Ces quatres segments
 représentant bien sur les quatres cotés.
 
-\subsubsection{Trouver la ou les intersection(s) entre un rectangle et un segment de droite}
+\subsection{Trouver la ou les intersection(s) entre un rectangle et un segment de droite}
 
 Trouver les intersection entre un rectangle et un segment de droite 
 reprend une nouvelle fois le même principe que l'intersection droite/segment.
@@ -1179,8 +1201,15 @@ En l'occurence, on cherche les intersections droite/rectangle en transformant
 le segment en droite et on vérifie que le(s) point(s) d'intersection(s) se trouve(nt)
 dans le domaine $x$ et $y$ du segment.
 
+\subsection{Calculer la reflexion d'un rayon}
+
+Nous nous basons ici sur la reflexion d'un rayon sur un miroir plan dans l'air. 
+C'est à dire que que l'angle d'incidence sera égal à l'angle réfléchi.
+
+
+
 \newpage 
-\subsection{\label{AnnexeB}Annexe B : Diagramme des observateurs / observés}
+\section{\label{AnnexeB}Annexe B : Diagramme des observateurs / observés}
 
 \begin{figure}[hb]
 \centering

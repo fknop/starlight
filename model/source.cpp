@@ -6,6 +6,9 @@
 Source::Source(const Point& p, double e, double a, int wl) : Element(Element::Type::SOURCE),
     pos_ {p}, alpha_ {a}, edge_ {e}, wavelength_{wl}
 {
+    if (e <= 0)
+        std::string("Le côté de la source ne peut pas être plus petit ou égal à zéro");
+
     if (wl < Ray::WL_MIN || wl > Ray::WL_MAX)
         wavelength_ = Ray::WL_DFT;
 }

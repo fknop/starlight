@@ -72,6 +72,8 @@ class Mirror : public Element
      * @param max l'abscisse et l'ordonnée maximum du miroir.
      * @param alpha_min l'angle d'inclinaison minimum du miroir.
      * @param alpha_max l'angle d'inclinaison maximum du miroir.
+     * @throws std::string si le pivot est incorrecte (voir check_pivot_range())
+     * ou si l'angle est incorrect (voir check_angle_range()).
      */
     Mirror(const Point& p, double xpad, double len, double alpha,
            const Point& min, const Point& max, double alpha_min, double alpha_max);
@@ -155,21 +157,24 @@ class Mirror : public Element
      * effectué correctement, retourne faux sinon.
      * @return vrai si le déplacement a été effectué
      * correctement, retourne faux sinon.
-     * @see Mirror::getPivot()
      */
     inline bool set_pivot(const Point& pivot);
 
     /**
-     * Modifie le décalage du pivot par rapport au bord gauche du miroir.
+     * Modifie le décalage du pivot par rapport au bord gauche du miroir
+     * si celui-ci n'est pas plus grand que la longueur ni plus petit que zéro.
      * @param x le nouveau décalage.
+     * @return vrai si le nouveau xpad est occrect, faux sinon.
      */
-    inline void set_xpad(const double x);
+    inline bool set_xpad(const double x);
 
     /**
-     * Modifie la longueur du miroir.
+     * Modifie la longueur du miroir si celle-ci n'est pas plus petite
+     * que xpad ou plus petite que zéro.
      * @param len la nouvelle longueur du miroir.
+     * @return vrai si la longueur est correcte, faux sinon.
      */
-    inline void set_len(const double len);
+    inline bool set_len(const double len);
 
     /**
      * Modifie la position minimale du miroir.
@@ -224,7 +229,6 @@ class Mirror : public Element
      * l'angle donné, retourne faux sinon.
      * @return vrai si le miroir peut être pivoté sur
      * l'angle donné, retourne faux sinon.
-     * @see Mirror::getAngle()
      */
     bool check_angle_range(double angle) const;
 
@@ -321,28 +325,26 @@ Point Mirror::max_pivot() const
 
 bool Mirror::set_pivot(const Point& p)
 {
-    bool r {check_pivot_range(p)};
-    if (r)
+    bool b {check_pivot_range(p)};
+    if (b)
         pivot_ = p;
-    return r;
+    return b;
 }
 
-void Mirror::set_xpad(const double x)
+bool Mirror::set_xpad(const double x)
 {
-    if (x > length_)
-        xpad_ = length_;
-
-    if (x < 0)
-        xpad_ = 0;
-
-    xpad_ = x;
+    bool b {x <= length_ && x >= 0};
+    if (b)
+        xpad_ = x;
+    return b;
 }
 
-void Mirror::set_len(const double len)
+bool Mirror::set_len(const double len)
 {
-    length_ = len;
-    if (length_ > xpad_)
-        xpad_ = length_;
+    bool b {len >= xpad_ && len > 0};
+    if (b)
+        length_ = len;
+    return b;
 }
 
 void Mirror::set_min(const Point& min)
@@ -392,10 +394,10 @@ void Mirror::set_alpha_max(const double max)
 
 bool Mirror::set_angle(const double a)
 {
-    bool r {check_angle_range(a)};
-    if (r)
+    bool b {check_angle_range(a)};
+    if (b)
         alpha_ = a;
-    return r;
+    return b;
 }
 
 void Mirror::set_movable(const bool value)

@@ -26,6 +26,7 @@ class Dest : public Element
      * @param p le coin supérieur gauche du carré modélisant
      *        la destination.
      * @param e la longueur du côté du carré.
+     * @throws std::string si la longueur est plus petite ou égale à zéro.
      */
     Dest(const Point& p, double e);
 
@@ -71,10 +72,11 @@ class Dest : public Element
     inline void set_pos(const Point& pos);
 
     /**
-     * Modifie la longueur du côté du carré représentant la destination.
+     * Modifie la longueur du côté du carré si celle-ci est correcte.
      * @param edge la nouvelle longueur du côté de la destination.
+     * @return faux si la longueur est plus petite ou égale à zéro, sinon vrai.
      */
-    inline void set_edge(const double edge);
+    inline bool set_edge(const double edge);
 
     /**
      * Retourne le rectangle correspondant à la destination.
@@ -127,9 +129,12 @@ void Dest::set_pos(const Point& pos)
     pos_ = pos;
 }
 
-void Dest::set_edge(const double edge)
+bool Dest::set_edge(const double edge)
 {
-    edge_ = edge;
+    bool b {edge > 0};
+    if (b)
+        edge_ = edge;
+    return b;
 }
 
 #endif // DEST_H

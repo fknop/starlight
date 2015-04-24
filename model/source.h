@@ -42,9 +42,7 @@ class Source : public Element
      * @param e la longueur du côté de la source.
      * @param a l’angle d’émission de la source.
      * @param wl la longueur d'onde du rayon lumineux émis.
-     * @see Ray::WL_MIN
-     * @see Ray::WL_MAX
-     * @see Ray::WL_DFT
+     * @throws std::string si le côté de la source est plus petit ou égal à zéro.
      */
     Source(const Point& p, double e, double a, int wl);
 
@@ -98,11 +96,13 @@ class Source : public Element
     inline void set_pos(Point p);
 
     /**
-     * Modifie la longueur du côté du carré représentant la source.
+     * Modifie la longueur du côté du carré représentant la source si
+     * celle-ci est correcte.
      * @param edge la nouvelle longueur du côté du carré représentant
      * la source.
+     * @return vrai si la nouvelle longueur est correcte.
      */
-    inline void set_edge(double edge);
+    inline bool set_edge(double edge);
 
     /**
      * Modifie l’angle du rayon émis.
@@ -178,9 +178,12 @@ void Source::set_pos(Point p)
     pos_ = p;
 }
 
-void Source::set_edge(double edge)
+bool Source::set_edge(double edge)
 {
-    edge_ = edge;
+    bool b {edge > 0};
+    if (b)
+        edge_ = edge;
+    return b;
 }
 
 void Source::set_alpha(double a)

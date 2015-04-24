@@ -31,6 +31,7 @@ class Crystal : public Element
      * @param p le centre du cristal.
      * @param r le rayon du cristal.
      * @param m le modificateur de longueur d'onde du cristal.
+     * @throws std::string si le rayon est plus petit ou égal à zéro.
      */
     Crystal(const Point& p, double r, int m);
 
@@ -65,10 +66,11 @@ class Crystal : public Element
     inline void set_center(const Point& c);
 
     /**
-     * Modifie le rayon du cristal.
+     * Modifie le rayon du cristal si celui-ci est correct.
      * @param rad le nouveau rayon du cristal.
+     * @return vrai si le nouveau rayon est correct, faux sinon.
      */
-    inline void set_radius(const double rad);
+    inline bool set_radius(const double rad);
 
     /**
      * Modifie le modificateur de longueur d’onde du cristal.
@@ -131,9 +133,12 @@ void Crystal::set_center(const Point& c)
     center_ = c;
 }
 
-void Crystal::set_radius(const double rad)
+bool Crystal::set_radius(const double rad)
 {
-    rad_ = rad;
+    bool b {rad > 0};
+    if (b)
+        rad_ = rad;
+    return b;
 }
 
 void Crystal::set_modifier(const double mod)
