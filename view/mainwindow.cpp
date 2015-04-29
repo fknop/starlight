@@ -52,14 +52,20 @@ void MainWindow::close_level()
     {
         level_->remove_observer(map_view_);
         MapReader::end_level();
+        level_ = nullptr;
     }
 
-    centralWidget()->setEnabled(false);
+    if (centralWidget() != nullptr)
+        centralWidget()->setEnabled(false);
+
     open_level_action_->setEnabled(true);
     close_level_action_->setEnabled(false);
 
-    delete map_view_;
-    map_view_ = nullptr;
+    if (map_view_ != nullptr)
+    {
+        delete map_view_;
+        map_view_ = nullptr;
+    }
 }
 
 void MainWindow::setup_ui()
